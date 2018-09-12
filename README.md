@@ -1,0 +1,3 @@
+# OGC API (OAPI) Common Specification
+
+The OGC has started a focused effort to extend their service standards efforts into the Resource Oriented Architecture world.  In the course of these efforts, some practices will be common accross all OGC API standards.  The purpose of this GitHub is to provide a forum to discuss and capture those practices.  When suitably mature, this repository will be presented as a candidate "OWS Common" standard for Resource Oriented APIs.   
