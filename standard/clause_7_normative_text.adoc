@@ -225,9 +225,90 @@ For the reasons discussed in the Best Practices, Web Feature Service 3.0 uses WG
 include::requirements/Class_C/REQ_crs84.adoc[]
 
 The implementations compliant with the Core are not required to support publishing feature geometries in coordinate reference systems other than http://www.opengis.net/def/crs/OGC/1.3/CRS84. The Core also does not specify a capability to request feature geometries in a different coordinate reference system than the native one of the published features. Such a capability will be specified in another part(s) of the WFS 3.0 series.
+
 Link headers
 
 include::requirements/Class_C/REC_link-header.adoc[]
+
+==== Requirement C.2: Parameter bbox
+
+include::requirements/Class_C/REQ_fc-bbox-definition.adoc[]
+
+include::requirements/Class_C/REQ_fc-bbox-response.adoc[]
+
+"Intersects" means that the rectangular area specified in the parameter
+`bbox` includes a coordinate that is part of the (spatial) geometry of the feature.
+This includes the boundaries of the geometries (e.g. for curves the start
+and end position and for surfaces the outer and inner rings).
+
+This standard does not specify requirements for the parameter `bbox-crs`. 
+
+For WGS84 longitude/latitude the bounding box is in most cases the sequence of
+minimum longitude, minimum latitude, maximum longitude and maximum latitude.
+However, in cases where the box spans the anti-meridian the first value
+(west-most box edge) is larger than the third value (east-most box edge).
+
+.The bounding box of the New Zealand Exclusive Economic Zone
+=================
+The bounding box of the New Zealand Exclusive Economic Zone in WGS84 (from 160.6°E to 170°W and from 55.95°S to 25.89°S)
+would be represented in JSON as `[ 160.6, -55.95, -170, -25.89 ]` and in a query as `bbox=160.6,-55.95,-170,-25.89`.
+=================
+
+A template for the definition of the parameter in YAML according to
+OpenAPI 3.0 is available at
+link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/parameters/bbox.yaml[bbox.yaml].
+
+==== Requirement C.3: Parameter time
+
+include::requirements/Class_C/REQ_fc-time-definition.adoc[]
+
+include::requirements/Class_C/REQ_fc-time-response.adoc[]
+
+"Intersects" means that the time (instant or period) specified in the parameter
+`time` includes a timestamp that is part of the temporal geometry of the feature
+(again, a time instant or period). For time periods this includes the start
+and end time.
+
+.A date-time
+=================
+February 12, 2018, 23:20:52 GMT:
+
+`time=2018-02-12T23%3A20%3A50Z`
+=================
+
+For features with a temporal property that is a timestamp (like `lastUpdate`
+in the building features), a date-time value would match all features where
+the temporal property is identical.
+
+For features with a temporal property that is a date or a time period,
+a date-time value would match all features where the timestamp is on that
+day or within the time period.
+
+.A period using a start and end time
+=================
+February 12, 2018, 00:00:00 GMT to March 18, 2018, 12:31:12 GMT:
+
+`time=2018-02-12T00%3A00%3A00Z%2F2018-03-18T12%3A31%3A12Z`
+=================
+
+.A period using start time and a duration
+=================
+A duration of 1 month, 6 days, 12 hours, 31 minutes and 12 seconds from
+February 12, 2018, 00:00:00 GMT:
+
+`time=2018-02-12T00%3A00%3A00Z%2FP1M6DT12H31M12S`
+=================
+
+For features with a temporal property that is a timestamp (like `lastUpdate`
+in the building features), a time period would match all features where
+the temporal property is within the period.
+
+For features with a temporal property that is a date or a time period,
+a time period would match all features where the values overlap.
+
+A template for the definition of the parameter in YAML according to
+OpenAPI 3.0 is available at
+link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/parameters/time.yaml[time.yaml].
 
 
 _From template:_****
