@@ -2,7 +2,7 @@
 
 === Basic requirements
 
-Servers conforming to this requirements class define their API by an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument[OpenAPI Document].
+APIs conforming to this requirements class document themselves by an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument[OpenAPI Document].
 
 include::requirements/requirements_class_oas30.adoc[]
 
@@ -20,14 +20,11 @@ Two example OpenAPI documents are included in <<oas30_example,Annex B>>.
 
 include::requirements/oas30/REQ_oas-impl.adoc[]
 
-CAUTION: link:https://github.com/opengeospatial/WFS_FES/issues/46[ISSUE 46] +
-Currently, no tool is known to validate that a server implements the API specified in its OpenAPI definition.
-
 === Complete definition
 
 include::requirements/oas30/REQ_completeness.adoc[]
 
-Note that servers that, for example, are access-controlled (see <<security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http_status_codes>>.
+Note that APIs that, for example, are access-controlled (see <<security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http_status_codes>>.
 
 Clients have to be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors may occur in the transport layer outside of the server.
 
@@ -35,9 +32,6 @@ Clients have to be prepared to receive responses not documented in the OpenAPI d
 === Exceptions
 
 include::requirements/oas30/REQ_exception-codes.adoc[]
-
-CAUTION: link:https://github.com/opengeospatial/WFS_FES/issues/45[ISSUE 45] +
-Listing of all applicable HTTP Status Codes
 
 .An exception response object definition
 =================
@@ -47,7 +41,7 @@ description: An error occurred.
 content:
   application/json:
     schema:
-      $ref: https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/exception.yaml
+      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI/openapi/schemas/exception.yaml
   text/html:
     schema:
       type: string
@@ -69,6 +63,4 @@ The OpenAPI specification currently supports the following link:https://github.c
 CAUTION: link:https://github.com/opengeospatial/WFS_FES/issues/41[ISSUE 41] +
 How does a client determine which security protocols/standards/etc. a server supports?
 
-=== Features
 
-include::requirements/oas30/REC_f-key-properties.adoc[]

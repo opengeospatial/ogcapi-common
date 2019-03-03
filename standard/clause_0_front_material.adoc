@@ -1,12 +1,10 @@
 [big]*i.     Abstract*
 
-The OGC has started a focused effort to extend their service standards efforts into the Resource Oriented Architecture world.  In the course of these efforts, some practices will be common accross all OGC API standards.  The purpose of this GitHub is to provide a forum to discuss and capture those practices.  When suitably mature, this repository will be presented as a candidate "OWS Common" standard for Resource Oriented APIs.
+The OGC has started a focused effort to extend their service standards into the Resource Oriented Architecture world. In the course of these efforts, some practices will prove to be common accross all OGC API standards. The purpose of this specification is to document those practices as they are identified. It also serves as a baseline against which changes can be discussed and validated. When suitably mature, this repository will be presented as a candidate "OWS Common" standard for Resource Oriented APIs.
 
 Consistent with the architecture of the Web, this specification uses a resource architecture and specifies a RESTful service interface consistent with the IETF HTTP/HTTPS RFCs.
 
-This standard specifies discovery and query operations that are implemented using the HTTP GET method. Support for additional methods (in particular POST, PUT, DELETE, PATCH) will be specified in additional parts.
-
-Discovery operations allow the server to be interrogated to determine its capabilities and retrieve information (metadata) about this distribution of the dataset. This includes the API definition of the server as well as metadata about the feature collections provided by the server.
+Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
 
 Query operations allow features or values of feature properties to be retrieved from the underlying data store based upon selection criteria, defined by the client, on feature properties.
 
@@ -20,10 +18,7 @@ This standard defines the resources listed in Table 1. For an overview of the re
 |Landing page |`/` |GET |<<_api_landing_page,7.2 API landing page>>
 |API definition |`/api` |GET |<<_api_definition_2,7.3 API definition>>
 |Conformance classes |`/conformance` |GET |<<_declaration_of_conformance_classes,7.4 Declaration of conformance classes>>
-|Feature collections metadata |`/collections` |GET |<<_feature_collections_metadata,7.11 Feature collections metadata>>
-|Feature collection metadata |`/collections/{collectionId}` |GET |<<_feature_collection_metadata, 7.12 Feature collection metadata>>
-|Feature collection |`/collections/{collectionId}/items` |GET |<<_feature_collections,7.13 Feature collections>>
-|Feature |`/collections/{collectionId}/items/{featureId}` |GET |<<_feature_2,7.14 Feature>>
+|Collections metadata |`/collections` |GET |<<_collections_metadata,7.11 collections metadata>>
 !===
 
 [big]*ii.    Keywords*

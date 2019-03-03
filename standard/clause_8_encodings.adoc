@@ -1,0 +1,191 @@
+== Requirements classes for encodings
+
+=== Overview
+
+This clause specifies four pre-defined requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:
+
+* <<rc_html,HTML>>
+* <<rc_geojson,GeoJSON>>
+* <<rc_gmlsf0,Geography Markup Language (GML), Simple Features Profile, Level 0>>
+* <<rc_gmlsf2,Geography Markup Language (GML), Simple Features Profile, Level 2>>
+
+None of these encodings are mandatory and an implementation of the <<rc_core,Core>> requirements class may also implement none of them but implement another encoding instead.
+
+The <<rc_core,Core>> requirements class includes recommendations to support <<rec_html,HTML>> and <<rec_geojson,GeoJSON>> as encodings, where practical. <<overview,Clause 6 (Overview)>> includes a discussion about recommended encodings.
+
+=== Requirement Class "HTML"
+
+Geographic information that is only accessible in formats like GeoJSON or GML has two issues:
+
+* The data is not discoverable using the most common mechanism for discovering information, that is the search engines of the Web;
+* The data can not be viewed directly in a browser - additional tools are required to view the data.
+
+Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, it should be done in a way that enables users and search engines to access all data.
+
+This is discussed in detail in
+link:https://www.w3.org/TR/sdw-bp/#indexable-by-search-engines[Best Practice 2: Make your spatial data indexable by search engines]
+<<SDWBP>>. This standard therefore <<rec_html,recommends supporting HTML as an encoding>>.
+
+include::requirements/requirements_class_html.adoc[]
+
+include::requirements/html/REQ_definition.adoc[]
+
+include::requirements/html/REQ_content.adoc[]
+
+include::requirements/html/REC_schema-org.adoc[]
+
+=== Requirement Class "GeoJSON"
+
+GeoJSON is a commonly used format that is simple to understand and well supported by tools and software libraries. Since most Web developers are comfortable with using a JSON-based format supporting GeoJSON is recommended, if the feature data can be represented in GeoJSON for the intended use.
+
+include::requirements/requirements_class_geojson.adoc[]
+
+include::requirements/geojson/REQ_definition.adoc[]
+
+include::requirements/geojson/REQ_content.adoc[]
+
+Templates for the definition of the schemas for the GeoJSON responses in OpenAPI definitions are available at link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/featureCollectionGeoJSON.yaml[featureCollectionGeoJSON.yaml] and  link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/schemas/featureGeoJSON.yaml[featureGeoJSON.yaml].
+These are generic schemas that do not include any application schema information about specific feature types or their properties.
+
+.A GeoJSON FeatureCollection Object response
+=================
+In the example below, only the first and tenth feature is shown. Coordinates are not shown.
+
+[source,JSON]
+----
+{
+  "type" : "FeatureCollection",
+  "links" : [ {
+    "href" : "http://data.example.com/collections/buildings/items/?f=json",
+    "rel" : "self",
+    "type" : "application/geo+json",
+    "title" : "this document"
+  }, {
+    "href" : "http://data.example.com/collections/buildings/items/?f=html",
+    "rel" : "alternate",
+    "type" : "text/html",
+    "title" : "this document as HTML"
+  }, {
+    "href" : "http://data.example.com/collections/buildings/items/?f=json&startIndex=10&limit=10",
+    "rel" : "next",
+    "type" : "application/geo+json",
+    "title" : "next page"
+  } ],
+  "timeStamp" : "2018-04-03T14:52:23Z",
+  "numberMatched" : 123,
+  "numberReturned" : 10,
+  "features" : [ {
+    "type" : "Feature",
+    "id" : "123",
+    "geometry" : {
+      "type" : "Polygon",
+      "coordinates" : [ ... ]
+    },
+    "properties" : {
+      "function" : "residential",
+      "floors" : "2",
+      "lastUpdate" : "2015-08-01T12:34:56Z"
+    }
+  }, { ...
+  }, {
+    "type" : "Feature",
+    "id" : "132",
+    "geometry" : {
+      "type" : "Polygon",
+      "coordinates" : [ ... ]
+    },
+    "properties" : {
+      "function" : "public use",
+      "floors" : "10",
+      "lastUpdate" : "2013-12-03T10:15:37Z"
+    }
+  } ]
+}
+----
+=================
+
+.A GeoJSON Feature Object response
+=================
+In the example below, coordinates are not shown.
+
+[source,JSON]
+----
+{
+  "type" : "Feature",
+  "links" : [ {
+    "href" : "http://data.example.com/collections/buildings/items/123/?f=json",
+    "rel" : "self",
+    "type" : "application/geo+json",
+    "title" : "this document"
+  }, {
+    "href" : "http://data.example.com/collections/buildings/items/123/?f=html",
+    "rel" : "alternate",
+    "type" : "text/html",
+    "title" : "this document as HTML"
+  }, {
+    "href" : "http://data.example.com/collections/buildings/items",
+    "rel" : "collection",
+    "type" : "application/geo+json",
+    "title" : "the collection document"
+  } ],
+  "id" : "123",
+  "geometry" : {
+    "type" : "Polygon",
+    "coordinates" : [ ... ]
+  },
+  "properties" : {
+    "function" : "residential",
+    "floors" : "2",
+    "lastUpdate" : "2015-08-01T12:34:56Z"
+  }
+}
+----
+=================
+
+=== Requirement Class "Geography Markup Language (GML), Simple Features Profile, Level 0"
+
+In addition to HTML and GeoJSON, a significant volume of feature data is available XML-based formats, notably  GML. Therefore, this standard specifies requirement classes for GML. The Simple Features Profile, Level 0, is the simplest profile of GML and is typically supported by tools. The GML Simple Features Profile is restricted to data with 2D geometries supported by most tools. In addition, the Level 0 profile is limited to features that can be stored in a tabular data structure.
+
+include::requirements/requirements_class_gmlsf0.adoc[]
+
+include::requirements/gmlsf0/REQ_definition.adoc[]
+
+include::requirements/gmlsf0/REQ_content.adoc[]
+
+[#gml_content,reftext='{table-caption} {counter:table-num}']
+.Media types and XML elements for each resource
+[cols="30,35,35",options="header"]
+!===
+|Resource |Path |XML root element
+|Landing page |`/` |`wfs:LandingPage`
+|Conformance classes |`/conformance` |`wfs:ConformsTo`
+|Feature collections metadata |`/collections` |`wfs:Collections`
+|Feature collection metadata |`/collections/{collectionId}` |`wfs:Collections`, with just one entry for the collection `collectionId`
+|Feature collection |`/collections/{collectionId}/items` |`wfs:FeatureCollection`
+|Feature |`/collections/{collectionId}/items/{featureId}` |substitutable for `gml:AbstractFeature`
+!===
+
+The namespace prefixes used above are:
+
+* `wfs`: `http://www.opengis.net/wfs/3.0`
+* `gml`: `http://www.opengis.net/gml/3.2`
+* `atom`: `http://www.w3.org/2005/Atom`
+* `xlink`: `http://www.w3.org/1999/xlink`
+
+The API definition resource at path `/api` is not included in <<gml_content>>. This requirements class does not prescribe any API definition approach.
+
+The mapping of the content from the responses specified in the <<rc_core,Core requirements class>> to the XML is straightforward. All links are encoded using `atom:link` elements except in GML features where simple Xlinks are used.
+
+<<xml_examples,Annex C>> has example responses in XML.
+
+NOTE: The `wfs:FeatureCollection` element deliberately goes beyond the permitted content specified in the <<GMLSF,GML Simple Features Profile>>, section 8.4.2. This is necessary to support the hypermedia controls and other relevant content for a Web Feature Service API.
+
+=== Requirement Class "Geography Markup Language (GML), Simple Features Profile, Level 2"
+
+The difference between this requirement class and the <<rc_gmlsf0,Level 0>> requirements class is that non-spatial feature properties are not restricted to atomic values (strings, numbers, etc.).
+
+include::requirements/requirements_class_gmlsf2.adoc[]
+
+include::requirements/gmlsf2/REQ_definition.adoc[]
+
+include::requirements/gmlsf2/REQ_content.adoc[]
