@@ -1,0 +1,6 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/fc-md-extent 
+^|A |For each resource collection, the `extent` property, if provided, SHALL be a bounding box that includes all spatial and temporal geometries in this collection.
+^|B |If a reasource has multiple properties with spatial or temporal information, it is the decision of the API implementation whether only a single spatial or temporal geometry property is used to determine the extent or all relevant geometries.
+|===

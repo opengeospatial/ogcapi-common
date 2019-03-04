@@ -1,0 +1,17 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/fc-time-definition 
+^|A |Each resource collection operation MAY support a `time` parameter.
+^|B |This `time` parameter SHALL have the following characteristics (using an OpenAPI Specification 3.0 fragment):
+
+[source,YAML]
+----
+name: time
+in: query
+required: false
+schema:
+  type: string
+style: form
+explode: false
+----
+|===

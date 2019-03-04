@@ -1,0 +1,447 @@
+== Requirement Class "Core"
+
+[[core-overview]]
+=== Overview
+
+include::requirements/requirements_class_core.adoc[]
+
+Figure 1 illustrates the resources supported by the _Core_ requirements class using UML. Each resource type available through the API is an «interface».
+
+Servers that implement an OGC API provides access to a collection of resources. In other words, the API is a distribution of that collection. A file download, for example, would be another distribution.
+
+More specifically, each OGC API has a single `LandingPage` (path `/`) that provides links to:
+
+* the `APIDefinition` (path `/api`),
+* the `Conformance` statements (path `/conformance`),
+* the `DatasetDistribution` metadata (path `/collections`).
+
+The `APIDefinition` describes the capabilities of the API. Clients use that information to connect to the API. Development tools can use this information to support the implementation of the API by servers and clients. Accessing the `APIDefinition` using HTTP GET returns a description of the API.
+
+Accessing the `Conformance` using HTTP GET returns a list of URIs for the requirements classes implemented by the API.
+
+The distribution consists of a set of resource collections. This standard does not include any requirements about how the resources have to be aggregated into collections. 
+
+Accessing the `DatasetDistribution` using HTTP GET returns a `DatasetDistributionResponse`. This response includes a link to each `Collection` in the distribution along with metadata about each collection including:
+
+* A local identifier for the collection that is unique for the API;
+* A list of coordinate reference systems (CRS) in which geometries may be returned by the API. The first CRS is the default coordinate reference system (in the _Core_, the default is always WGS 84 with axis order longitude/latitude);
+* An optional title and description for the collection;
+* An optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data.
+
+Accessing a `Collection` using HTTP GET returns a `CollectionResponse`. This response basically consists of resouces in the collection. The resources included in the response are determined by the server based on parameters of the request.
+
+A `bbox` or `time` parameter may be used to select only a subset of the resources in the collection (the resources that are located in the bounding box or time period).
+
+[#img_core,reftext='{figure-caption} {counter:figure-num}']
+.Resources in the Core requirements class
+image::figures/PT1_FIG01.png[align="center"]
+
+=== API landing page
+
+==== Operation
+
+include::requirements/core/REQ_root-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_root-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/root.yaml[Schema for the landing page]
+[source,YAML]
+----
+type: object
+required:
+  - links
+properties:
+  links:
+    type: array
+    items:
+      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/link.yaml
+----
+
+.Landing page response document
+=================
+[source,JSON]
+----
+{
+  "links": [
+    { "href": "http://data.example.org/",
+      "rel": "self", "type": "application/json", "title": "this document" },
+    { "href": "http://data.example.org/api",
+      "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
+    { "href": "http://data.example.org/conformance",
+      "rel": "conformance", "type": "application/json", "title": "OGC conformance classes implemented by this API" },
+    { "href": "http://data.example.org/collections",
+      "rel": "data", "type": "application/json", "title": "Metadata about the resource collections" }
+  ]
+}
+----
+=================
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+=== API definition
+
+==== Operation
+
+Every OGC API proivdes an API definition that describes the capabilities which can be used by developers to understand the API, by software clients to connect to the API server(s), and by development tools to support the implementation of servers and clients.
+
+include::requirements/core/REQ_api-definition-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_api-definition-success.adoc[]
+
+include::requirements/core/REC_api-definition-oas.adoc[]
+
+If multiple API definition formats are supported, use content negotiation to select the desired representation.
+
+The idea is that any OGC API can be used by developers that are familiar with the API definition language(s) supported by the server. For example, if an OpenAPI definition is used, it should be possible to create a working client using the OpenAPI definition. The developer may need to learn a little bit about geometry data types, etc., but it should not be required to read the standard to access the data via the API.
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+=== Declaration of conformance classes
+
+==== Operation
+
+To support "generic" clients for accessing OGC APIs in general - and not "just" a specific API / server, the API has to declare the requirements classes it implements and conforms to.
+
+include::requirements/core/REQ_conformance-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_conformance-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/req-classes.yaml[Schema for the list of requirements classes]
+[source,YAML]
+----
+type: object
+required:
+  - conformsTo
+properties:
+  conformsTo:
+    type: array
+    items:
+      type: string
+----
+
+.Requirements class response document
+=================
+This example response in JSON is for a WFS 3.0 API that supports OpenAPI 3.0 for the API definition and HTML and GeoJSON as encodings for resources.
+
+[source,JSON]
+----
+{
+  "conformsTo": [
+    "http://www.opengis.net/spec/wfs-1/3.0/req/core",
+    "http://www.opengis.net/spec/OAPI_Common/1.0/req/oas30",
+    "http://www.opengis.net/spec/OAPI_Common/1.0/req/html",
+    "http://www.opengis.net/spec/OAPI_Common/1.0/req/geojson"
+  ]
+}
+----
+=================
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+=== HTTP 1.1
+
+include::requirements/core/REQ_http.adoc[]
+
+This includes the correct use of status codes, headers, etc.
+
+[[http_status_codes]]
+==== HTTP status codes
+
+<<status_codes>> lists the main HTTP status codes that clients should be prepared to receive.
+
+This includes, for example, support for specific security schemes or URI redirection.
+
+In addition, other error situations may occur in the transport layer outside of the server.
+
+[#status_codes,reftext='{table-caption} {counter:table-num}']
+.Typical HTTP status codes
+[cols="15,85",options="header"]
+!===
+|Status code |Description
+|`200` |A successful request.
+|`304` |An <<web_caching,entity tag was provided in the request>> and the resource has not been changed since the previous request.
+|`400` |The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.
+|`401` |The request requires user authentication. The response includes a `WWW-Authenticate` header field containing a challenge applicable to the requested resource.
+|`403` |The server understood the request, but is refusing to fulfill it. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but the client is not authorised to perform the requested operation on the resource.
+|`404` |The requested resource does not exist on the server. For example, a path parameter had an incorrect value.
+|`405` |The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.
+|`406` |The `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.
+|`500` |An internal error occurred in the server.
+!===
+
+More specific guidance is provided for each resource, where applicable.
+
+include::requirements/core/PER_additional-status-codes.adoc[]
+
+[[web_caching]]
+=== Web caching
+
+Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc2616,HTTP/1.1 (RFC 2616)>>.
+
+include::requirements/core/REC_etag.adoc[]
+
+[[cross_origin]]
+=== Support for cross-origin requests
+
+Access to data from a HTML page is by default prohibited for security reasons, if the data is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing feature data from multiple distributed datasets.
+
+include::requirements/core/REC_cross-origin.adoc[]
+
+Two common mechanisms to support cross-origin requests are:
+
+* link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
+* link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
+
+=== Encodings
+
+While the OAPI Common standard does not specify any mandatory encoding, we recommend the following encodings. See <<overview,Clause 6 (Overview)>> for a discussion.
+
+include::requirements/core/REC_html.adoc[]
+
+include::requirements/core/REC_geojson.adoc[]
+
+<<_http_1_1,Requirement `/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified by the HTTP RFC.
+
+The section <<mediatypes,Media Types>> includes guidance on media types for <<encodings,encodings>> that are specified in this document.
+
+Note that any API that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, for example, to alternate representations of the same resource. This document does not mandate any particular approach how this is supported by the API.
+
+As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, for example, to manipulate ("hack") in the browser address bar, can study the API definition.
+
+[NOTE]
+=====================================================================
+Two common approaches are:
+
+* an additional path for each encoding of each resource (this can be expressed, for example, using format specific suffixes like ".html");
+* an additional query parameter (for example, "accept" or "f") that overrides the Accept header of the HTTP request.
+=====================================================================
+
+=== Coordinate reference systems
+
+As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
+
+For the reasons discussed in the Best Practices, OGC APIs uses WGS84 longitude and latitude as the default coordinate reference system.
+
+include::requirements/core/REQ_crs84.adoc[]
+
+The implementations compliant with the Core are not required to support publishing geometries in coordinate reference systems other than http://www.opengis.net/def/crs/OGC/1.3/CRS84. The Core also does not specify a capability to request geometries in a different reference system than the native one of the published resource. Such a capability will be specified in other OGC API standards.
+
+=== Link headers
+
+include::requirements/core/REC_link-header.adoc[]
+
+=== Collections metadata
+
+==== Operation
+
+include::requirements/core/REQ_fc-md-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_fc-md-success.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/content.yaml[Schema for the metadata about resource collections]
+[source,YAML]
+----
+type: object
+required:
+  - links
+  - collections
+properties:
+  links:
+    type: array
+    items:
+      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/link.yaml
+  collections:
+    type: array
+    items:
+      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.yaml
+----
+
+include::requirements/core/REQ_fc-md-links.adoc[]
+
+include::requirements/core/REC_fc-md-descriptions.adoc[]
+
+include::requirements/core/REQ_fc-md-items.adoc[]
+
+include::requirements/core/REQ_fc-md-items-links.adoc[]
+
+include::requirements/core/REQ_fc-md-extent.adoc[]
+
+.link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.yaml[Schema for the metadata about a feature collection]
+[source,YAML]
+----
+type: object
+required:
+  - id
+  - links
+properties:
+  id:
+    description: identifier of the collection used, for example, in URIs
+    type: string
+  title:
+    description: human readable title of the collection
+    type: string
+  description:
+    description: a description of the resources in the collection
+    type: string
+  links:
+    type: array
+    items:
+      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/link.yaml
+  extent:
+    $ref: https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/extent.yaml
+  crs:
+    description: the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
+    type: array
+    items:
+      type: string
+    default:
+      - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+----
+
+NOTE: The `crs` property is not used by this conformance class, but reserved for future use.
+
+.Collection metadata response document
+=================
+This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". It includes links to the collection resource in all formats that are supported by the API (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "items").
+
+Representations of the metadata resource in other formats are referenced using link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "alternate".
+
+Additional links to a GML application schema for the building data and to a web page that has additional information about buildings are provided using link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".
+
+Coordinate reference system information is not provided as the service provides geometries only  in the default system (WGS84 longitude/latitude).
+
+[source,JSON]
+----
+{
+  "links": [
+    { "href": "http://data.example.org/collections.json",
+      "rel": "self", "type": "application/json", "title": "this document" },
+    { "href": "http://data.example.org/collections.html",
+      "rel": "alternate", "type": "text/html", "title": "this document as HTML" },
+    { "href": "http://schemas.example.org/1.0/foobar.xsd",
+      "rel": "describedBy", "type": "application/xml", "title": "XML schema for Acme Corporation data" }
+  ],
+  "collections": [
+    {
+      "id": "buildings",
+      "title": "Buildings",
+      "description": "Buildings in the city of Bonn.",
+      "extent": {
+        "spatial": [ 7.01, 50.63, 7.22, 50.78 ],
+        "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
+      },
+      "links": [
+        { "href": "http://data.example.org/collections/buildings/items",
+          "rel": "items", "type": "application/geo+json",
+          "title": "Buildings" },
+        { "href": "http://example.org/concepts/building.html",
+          "rel": "describedBy", "type": "text/html",
+          "title": "Feature catalogue for buildings" }
+      ]
+    }
+  ]
+}
+----
+=================
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+=== Resource Collection metadata
+
+==== Operation
+
+include::requirements/core/REQ_sfc-md-op.adoc[]
+
+==== Response
+
+include::requirements/core/REQ_sfc-md-success.adoc[]
+
+==== Error situations
+
+See <<http_status_codes>> for general guidance.
+
+If the parameter `collectionId` does not exist on the server, the status code of the
+response will be `404` (see <<status_codes>>).
+
+=== Resource Collections
+
+==== Operation
+
+include::requirements/core/REQ_fc-op.adoc[]
+
+=== Parameters
+
+==== Parameter bbox
+
+include::requirements/core/REQ_fc-bbox-definition.adoc[]
+
+include::requirements/core/REQ_fc-bbox-response.adoc[]
+
+"Intersects" means that the rectangular area specified in the parameter `bbox` includes a coordinate that is part of the (spatial) geometry of the resource. This includes the boundaries of the geometries (e.g. for curves the start and end position and for surfaces the outer and inner rings).
+
+This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a latter version of this specification.
+
+For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude.However, in cases where the  box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).
+
+.The bounding box of the New Zealand Exclusive Economic Zone
+=================
+The bounding box of the New Zealand Exclusive Economic Zone in WGS84 (from 160.6°E to 170°W and from 55.95°S to 25.89°S) would be represented in JSON as `[ 160.6, -55.95, -170, -25.89 ]` and in a query as `bbox=160.6,-55.95,-170,-25.89`.
+=================
+
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/parameters/bbox.yaml[bbox.yaml].
+
+==== Parameter time
+
+include::requirements/core/REQ_fc-time-definition.adoc[]
+
+include::requirements/core/REQ_fc-time-response.adoc[]
+
+"Intersects" means that the time (instant or period) specified in the parameter `time` includes a timestamp that is part of the temporal geometry of the resource (again, a time instant or period). For time periods this includes the startand end time.
+ 
+.A date-time
+=================
+February 12, 2018, 23:20:52 GMT:
+
+`time=2018-02-12T23%3A20%3A52Z`
+=================
+
+For resources with a temporal property that is a timestamp (like `lastUpdate` in the building features), a date-time value would match all resources where the temporal property is identical.
+
+For resources with a temporal property that is a date or a time period, a date-time value would match all resources where the timestamp is on that day or within the time period.
+
+.A period using a start and end time
+=================
+February 12, 2018, 00:00:00 GMT to March 18, 2018, 12:31:12 GMT:
+
+`time=2018-02-12T00%3A00%3A00Z%2F2018-03-18T12%3A31%3A12Z`
+=================
+
+.A period using start time and a duration
+=================
+A duration of 1 month, 6 days, 12 hours, 31 minutes and 12 seconds from February 12, 2018, 00:00:00 GMT:
+
+`time=2018-02-12T00%3A00%3A00Z%2FP1M6DT12H31M12S`
+=================
+
+For resources with a temporal property that is a timestamp (like `lastUpdate` in the building features), a time period would match all resources where the temporal property is within the period.
+
+For resources with a temporal property that is a date or a time period, a time period would match all resources where the values overlap.
+
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/parameters/time.yaml[time.yaml].
+

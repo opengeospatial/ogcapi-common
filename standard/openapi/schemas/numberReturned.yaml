@@ -1,0 +1,14 @@
+description: >-
+  The number of resources in the collection.\
+
+  A server may omit this information in a response, if the information
+  about the number of resources is not known or difficult to compute.\
+
+  If the value is provided, the value shall be identical to the number
+  of items in the "resources" array.\
+
+  That is, if the value of the resultType parameter is  set to "hits",
+  the value shall be set to "0", if provided.
+type: integer
+minimum: 0
+example: 10

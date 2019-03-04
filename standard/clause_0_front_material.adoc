@@ -1,32 +1,64 @@
 [big]*i.     Abstract*
 
-The OGC has started a focused effort to extend their service standards efforts into the Resource Oriented Architecture world.  In the course of these efforts, some practices will be common accross all OGC API standards.  The purpose of this GitHub is to provide a forum to discuss and capture those practices.  When suitably mature, this repository will be presented as a candidate "OWS Common" standard for Resource Oriented APIs.
+The OGC has started a focused effort to extend their service standards into the Resource Oriented Architecture world. In the course of these efforts, some practices will prove to be common accross all OGC API standards. The purpose of this specification is to document those practices as they are identified. It also serves as a baseline against which changes can be discussed and validated. When suitably mature, this repository will be presented as a candidate "OWS Common" standard for Resource Oriented APIs.
+
+Consistent with the architecture of the Web, this specification uses a resource architecture and specifies a RESTful service interface consistent with the IETF HTTP/HTTPS RFCs.
+
+Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
+
+Query operations allow features or values of feature properties to be retrieved from the underlying data store based upon selection criteria, defined by the client, on feature properties.
+
+This standard defines the resources listed in Table 1. For an overview of the resources, see section <<core-overview,7.1 Overview>>.
+
+[#tldnr,reftext='{table-caption} {counter:table-num}']
+.Overview of resources, applicable HTTP methods and links to the document sections
+[cols="32,25,10,33",options="header"]
+!===
+|Resource |Path |HTTP method |Document reference
+|Landing page |`/` |GET |<<_api_landing_page,7.2 API landing page>>
+|API definition |`/api` |GET |<<_api_definition_2,7.3 API definition>>
+|Conformance classes |`/conformance` |GET |<<_declaration_of_conformance_classes,7.4 Declaration of conformance classes>>
+|Collections metadata |`/collections` |GET |<<_collections_metadata,7.11 collections metadata>>
+!===
 
 [big]*ii.    Keywords*
 
 The following are keywords to be used by search engines and document catalogues.
 
-OpenAPI, AsyncAPI, REST, Common, Standard
+ogcdoc, OGC document, web feature service, wfs, feature, property, geographic information, spatial data, spatial things, dataset, distribution, API, geojson, gml, html, OpenAPI, AsyncAPI, REST, Common
 
 [big]*iii.   Preface*
 
-[NOTE]
-====
-Insert Preface Text here. Give OGC specific commentary: describe the technical content, reason for document, history of the document and precursors, and plans for future work. >
-Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+*OGC Declaration*
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium Inc. shall not be held responsible for identifying any or all such patent rights.
 
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
-====
+
+*ISO Declaration*
+
+ISO (the International Organization for Standardization) is a worldwide federation of national standards bodies (ISO member bodies). The work of preparing International Standards is normally carried out through ISO technical committees. Each member body interested in a subject for which a technical committee has been established has the right to be represented on that committee. International organizations, governmental and non-governmental, in liaison with ISO, also take part in the work. ISO collaborates closely with the International Electrotechnical Commission (IEC) on all matters of electrotechnical standardization.
+
+International Standards are drafted in accordance with the rules given in the ISO/IEC Directives, Part 2.
+
+The main task of technical committees is to prepare International Standards. Draft International Standards adopted by the technical committees are circulated to the member bodies for voting. Publication as an International Standard requires approval by at least 75 % of the member bodies casting a vote.
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. ISO shall not be held responsible for identifying any or all such patent rights.
+
 [big]*iv.    Submitting organizations*
 
 The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
 
-Heazeltech LLC
+* Heazeltech LLC
+* others TBD
 
 [big]*v.     Submitters*
 
-All questions regarding this submission should be directed to the editor or the submitters:
+All questions regarding this submission should be directed to the editors or the submitters:
 
-Name  Affiliation
+|===
+|*Name* |*Affiliation*
+|Chuck Heazel _(editor)_ |Heazeltech
+|others |TBD
+|===
 
-Chuck Heazel Heazeltech

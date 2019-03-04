@@ -1,0 +1,10 @@
+[[rc_html]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/OAPI_Common/1.0/req/html
+|Target type |Web API
+|Dependency |<<rc_core,OAPI Core>>
+|Dependency |<<HTML5,HTML5>>
+|Dependency |<<schema.org,Schema.org>>
+|===

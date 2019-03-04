@@ -1,0 +1,6 @@
+[width="90%",cols="2,6a"]
+|===
+|*Requirement {counter:req-id}* |/req/core/fc-time-response 
+^|A |The selection criteria provided with a `time` parameter SHALL be a date-time or a period string that adheres to RFC 3339.
+^|B |If the `time` parameter is provided, only resources that have a temporal geometry that intersects the specified timestamp or time period SHALL be part of the result set.
+|===
