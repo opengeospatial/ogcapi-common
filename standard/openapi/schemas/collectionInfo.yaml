@@ -25,7 +25,7 @@ properties:
   extent:
     $ref: bbox.yaml
   crs:
-    description: the list of coordinate reference systems supported by the service; the first item is the default coordinate reference system
+    description: the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
     type: array
     items:
       type: string
