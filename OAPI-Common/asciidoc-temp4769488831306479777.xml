@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><?asciidoc-toc?><?asciidoc-numbered?><article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Conformance</title>
+<date>2019-05-03</date>
+</info>
+<section xml:id="_conformance">
+<title>Conformance</title>
+<simpara>This standard defines four requirements / conformance classes.</simpara>
+<simpara>The standardization targets of all conformance classes are "Web APIs".</simpara>
+<simpara>The main requirements class is:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><link linkend="rc_core">Core</link>.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>The <emphasis>Core</emphasis> specifies requirements that all OGC APIs must implement.</simpara>
+<simpara>The <emphasis>Core</emphasis> does not mandate a specific encoding or format for representing resources. Two requirements classes depend on the <emphasis>Core</emphasis> and specify representations for these resources in commonly used encodings for spatial data on the web:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><link linkend="rc_html">HTML</link>,</simpara>
+</listitem>
+<listitem>
+<simpara><link linkend="rc_geojson">GeoJSON</link></simpara>
+</listitem>
+</itemizedlist>
+<simpara>None of these encodings are mandatory and an implementation of the <emphasis>Core</emphasis> may also decide to implement none of them, but to implement another encoding instead.</simpara>
+<simpara>That said, the <emphasis>Core</emphasis> requirements class includes recommendations to support where practical <link linkend="rec_html">HTML</link> and <link linkend="rec_geojson">GeoJSON</link> as encodings. <link linkend="overview">Clause 6 (Overview)</link> includes a discussion about the recommended encodings.</simpara>
+<simpara>The <emphasis>Core</emphasis> does not mandate any encoding or format for the formal definition of the API either. The prefered option is the OpenAPI 3.0 specification. A requirements class has been specified for OpenAPI 3.0, which depends on the <emphasis>Core</emphasis>:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><link linkend="rc_oas30">OpenAPI specification 3.0</link>.</simpara>
+</listitem>
+</itemizedlist>
+<simpara>An implementation of the <emphasis>Core</emphasis> requirements class may also decide to use other API definition representations in addition or instead of an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document or WSDL.</simpara>
+<simpara>The <emphasis>Core</emphasis> is intended to be the minimal useful service interface for fine-grained access to a spatial resource.</simpara>
+<simpara>Additional capabilities such as support for transactions, complex data structures, rich queries, other coordinate reference systems, subscription/notification, returning aggregated results, etc., may be specified in future parts of OGC API Common, other OGC API standards, or as vendor-specific extensions.</simpara>
+<simpara>Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</simpara>
+</section>
+</article>

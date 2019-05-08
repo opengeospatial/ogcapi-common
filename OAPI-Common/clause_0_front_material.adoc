@@ -1,31 +1,33 @@
+== Introduction
+
 [big]*i.     Abstract*
 
-The OGC has started a focused effort to extend their service standards into the Resource Oriented Architecture world. In the course of these efforts, some practices will prove to be common accross all OGC API standards. The purpose of this specification is to document those practices as they are identified. It also serves as a baseline against which changes can be discussed and validated. When suitably mature, this repository will be presented as a candidate "OWS Common" standard for Resource Oriented APIs.
+The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common accross all OGC API standards. The purpose of this standard is to document those practices. It also serves as a common foundation upon which all OGC APIs will be built. As such, this OGC API Common standard serves as the "OWS Common" standard for OGC Resource Oriented APIs.
 
 Consistent with the architecture of the Web, this specification uses a resource architecture and specifies a RESTful service interface consistent with the IETF HTTP/HTTPS RFCs.
 
-Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
-
-Query operations allow features or values of feature properties to be retrieved from the underlying data store based upon selection criteria, defined by the client, on feature properties.
-
-This standard defines the resources listed in Table 1. For an overview of the resources, see section <<core-overview,7.1 Overview>>.
+This standard defines the resources listed in Table 1. These resources are common for all OGC APIs. For an overview of these resources, see section <<core-overview,7.1 Overview>>.
 
 [#tldnr,reftext='{table-caption} {counter:table-num}']
-.Overview of resources, applicable HTTP methods and links to the document sections
-[cols="32,25,10,33",options="header"]
+.Overview of Resources
+[cols="32,23,15,30",options="header"]
 !===
-|Resource |Path |HTTP method |Document reference
-|Landing page |`/` |GET |<<_api_landing_page,7.2 API landing page>>
-|API definition |`/api` |GET |<<_api_definition_2,7.3 API definition>>
-|Conformance classes |`/conformance` |GET |<<_declaration_of_conformance_classes,7.4 Declaration of conformance classes>>
-|Collections metadata |`/collections` |GET |<<_collections_metadata,7.11 collections metadata>>
+^|Resource ^|Path ^|HTTP Method ^|Document Reference
+|Landing page |`/` ^|GET |<<_api_landing_page,7.2 API landing page>>
+|API definition |`/api` ^|GET |<<_api_definition_2,7.3 API definition>>
+|Conformance classes |`/conformance` ^|GET |<<_declaration_of_conformance_classes,7.4 Declaration of conformance classes>>
+|Collections metadata |`/collections` ^|GET |<<_collections_metadata,7.11 collections metadata>>
 !===
+
+The resources identified in Table 1 primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
+
+This standard also defines common Query operations for OGC APIs. Query operations allow resources or values extracted from those resources to be retrieved from the underlying data store. The information to be returned is based upon selection criteria (query string) provided by the client. This standard only defines simple query parameters which should be applicable to all resource types. Other OGC API standards may define additional query capabilities specific to their resource type. 
 
 [big]*ii.    Keywords*
 
 The following are keywords to be used by search engines and document catalogues.
 
-ogcdoc, OGC document, web feature service, wfs, feature, property, geographic information, spatial data, spatial things, dataset, distribution, API, geojson, gml, html, OpenAPI, AsyncAPI, REST, Common
+ogcdoc, OGC document, property, geographic information, spatial data, spatial things, dataset, distribution, API, geojson, html, OpenAPI, AsyncAPI, REST, Common
 
 [big]*iii.   Preface*
 
