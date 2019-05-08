@@ -104,7 +104,7 @@ include::requirements/core/REQ_api-definition-op.adoc[]
 
 include::requirements/core/REQ_api-definition-success.adoc[]
 
-include::recomendations/core/REC_api-definition-oas.adoc[]
+include::recommendations/core/REC_api-definition-oas.adoc[]
 
 If multiple API definition formats are supported, use content negotiation to select the desired representation.
 
@@ -193,21 +193,21 @@ In addition, other error situations may occur in the transport layer outside of 
 
 More specific guidance is provided for each resource, where applicable.
 
-include::recomendations/core/PER_additional-status-codes.adoc[]
+include::recommendations/core/PER_additional-status-codes.adoc[]
 
 [[web_caching]]
 === Web caching
 
 Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc2616,HTTP/1.1 (RFC 2616)>>.
 
-include::recomendations/core/REC_etag.adoc[]
+include::recommendations/core/REC_etag.adoc[]
 
 [[cross_origin]]
 === Support for cross-origin requests
 
 Access to data from a HTML page is by default prohibited for security reasons, if the data is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing feature data from multiple distributed datasets.
 
-include::recomendations/core/REC_cross-origin.adoc[]
+include::recommendations/core/REC_cross-origin.adoc[]
 
 Two common mechanisms to support cross-origin requests are:
 
@@ -218,9 +218,9 @@ Two common mechanisms to support cross-origin requests are:
 
 While the OAPI Common standard does not specify any mandatory encoding, the following encodings are recommended. See <<overview,Clause 6 (Overview)>> for a discussion.
 
-include::recomendations/core/REC_html.adoc[]
+include::recommendations/core/REC_html.adoc[]
 
-include::recomendations/core/REC_geojson.adoc[]
+include::recommendations/core/REC_geojson.adoc[]
 
 <<_http_1_1,Requirement `/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified by the HTTP RFC.
 
@@ -250,7 +250,7 @@ The implementations compliant with the Core are not required to support publishi
 
 === Link headers
 
-include::recomendations/core/REC_link-header.adoc[]
+include::recommendations/core/REC_link-header.adoc[]
 
 === Collections metadata
 
@@ -282,13 +282,13 @@ properties:
 
 include::requirements/core/REQ_rc-md-links.adoc[]
 
-include::recomendations/core/REC_rc-md-descriptions.adoc[]
+include::recommendations/core/REC_rc-md-descriptions.adoc[]
 
 Examples for descriptions are: XML Schema, Schematron, JSON Schema, RDF Schema, OWL, SHACL, a feature catalogue, etc.
 
 include::requirements/core/REQ_rc-md-items.adoc[]
 
-include::recomendations/core/PER_rc-md-items.adoc[]
+include::recommendations/core/PER_rc-md-items.adoc[]
 
 This document does not specify mechanisms how clients may access all collections from APIs with many collections. Such mechanisms may be specified in additional parts of OGC API Common or in the resource-specific API standards. 
 
@@ -296,9 +296,9 @@ include::requirements/core/REQ_rc-md-items-links.adoc[]
 
 include::requirements/core/REQ_rc-md-extent.adoc[]
 
-include::recomendations/core/REC_rc-md-extent-single.adoc[]
+include::recommendations/core/REC_rc-md-extent-single.adoc[]
 
-include::recomendations/core/PER_rc-md-extent-extensions.adoc[]
+include::recommendations/core/PER_rc-md-extent-extensions.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.yaml[Schema for the metadata about a feature collection]
 [source,YAML]
