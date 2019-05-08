@@ -7,30 +7,40 @@ include::requirements/requirements_class_core.adoc[]
 
 Figure 1 illustrates the resources supported by the _Core_ requirements class using UML. Each resource type available through the API is an «interface».
 
-Servers that implement an OGC API provides access to a collection of resources. In other words, the API is a distribution of that collection. A file download, for example, would be another distribution.
+Servers that implement an OGC API provide access to a collection of resources. In other words, the API is a distribution of that collection. A file download, for example, would be another distribution.
 
-More specifically, each OGC API has a single `LandingPage` (path `/`) that provides links to:
+More specifically, each OGC API has a single `LandingPage` (path `/`).
+
+----
+NOTE: All paths (e.g., `/`) are relative to the base URL of the distribution of the dataset. If the API covers other resources beyond those specified in this document, the landing page may be a sub-resource of the base URL of the API.
+----
+
+The landing page provides links to:
 
 * the `APIDefinition` (path `/api`),
 * the `Conformance` statements (path `/conformance`),
-* the `DatasetDistribution` metadata (path `/collections`).
+* metadata about the resource `Collections` (path `/collections`).
 
 The `APIDefinition` describes the capabilities of the API. Clients use that information to connect to the API. Development tools can use this information to support the implementation of the API by servers and clients. Accessing the `APIDefinition` using HTTP GET returns a description of the API.
 
-Accessing the `Conformance` using HTTP GET returns a list of URIs for the requirements classes implemented by the API.
+Accessing `Conformance` using HTTP GET returns a list of URIs for the requirements classes implemented by the API.
 
-The distribution consists of a set of resource collections. This standard does not include any requirements about how the resources have to be aggregated into collections. 
+The distribution consists of a set of resource `Collections`. This standard does not include any requirements about how the resources have to be aggregated into collections.
 
-Accessing the `DatasetDistribution` using HTTP GET returns a `DatasetDistributionResponse`. This response includes a link to each `Collection` in the distribution along with metadata about each collection including:
+Accessing the `Collections` using HTTP GET returns a response that consists of `CollectionMetadata` about each `Collection` and a link to the `Collection` itself. This metadata includes:
 
 * A local identifier for the collection that is unique for the API;
 * A list of coordinate reference systems (CRS) in which geometries may be returned by the API. The first CRS is the default coordinate reference system (in the _Core_, the default is always WGS 84 with axis order longitude/latitude);
 * An optional title and description for the collection;
-* An optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data.
+* An optional extent that can be used to provide an indication of the spatial and temporal extent of the collection.
 
-Accessing a `Collection` using HTTP GET returns a `CollectionResponse`. This response basically consists of resouces in the collection. The resources included in the response are determined by the server based on parameters of the request.
+CollectionMetadata about an individual collection can be retrieved from path `/collections/{collectionId}` where {collectionId} is the local identifier for that collection. 
 
-A `bbox` or `time` parameter may be used to select only a subset of the resources in the collection (the resources that are located in the bounding box or time period).
+Accessing a `Collection` (path `/collections/{collectionId}/items`) using HTTP GET returns a `CollectionResponse`. This response consists of resouces from the collection. The resources included in the response are determined by the server based on parameters of the request.
+
+A `bbox` or `datetime` parameter may be used to select only a subset of the resources in the collection (the resources that are located in the bounding box or time period. The `bbox` and `datetime` parameter also match all resources in the collection that are not associated with a location, time stamp, or time interval
+
+Each `Resource` (path `/collections/{collectionId}/items/{resourceId}`) is also a separate resource and may be requested individually using HTTP GET.
 
 [#img_core,reftext='{figure-caption} {counter:figure-num}']
 .Resources in the Core requirements class
@@ -78,7 +88,7 @@ properties:
 ----
 =================
 
-==== Error situations
+==== Error Situations
 
 See <<http_status_codes>> for general guidance.
 
@@ -86,7 +96,7 @@ See <<http_status_codes>> for general guidance.
 
 ==== Operation
 
-Every OGC API proivdes an API definition that describes the capabilities which can be used by developers to understand the API, by software clients to connect to the API server(s), and by development tools to support the implementation of servers and clients.
+Every API is expected to provide a definition that describes capabilities provided by the API. This document can be used by developers to understand the API, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
 
 include::requirements/core/REQ_api-definition-op.adoc[]
 
@@ -94,21 +104,21 @@ include::requirements/core/REQ_api-definition-op.adoc[]
 
 include::requirements/core/REQ_api-definition-success.adoc[]
 
-include::requirements/core/REC_api-definition-oas.adoc[]
+include::recomendations/core/REC_api-definition-oas.adoc[]
 
 If multiple API definition formats are supported, use content negotiation to select the desired representation.
 
-The idea is that any OGC API can be used by developers that are familiar with the API definition language(s) supported by the server. For example, if an OpenAPI definition is used, it should be possible to create a working client using the OpenAPI definition. The developer may need to learn a little bit about geometry data types, etc., but it should not be required to read the standard to access the data via the API.
+The idea is that any OGC API can be used by developers that are familiar with the API definition language(s) supported by the API. For example, if an OpenAPI definition is used, it should be possible to create a working client using the OpenAPI definition. The developer may need to learn a little bit about geometry data types, etc., but they should not be required to read the standard to access the data via the API.
 
-==== Error situations
+==== Error Situations
 
 See <<http_status_codes>> for general guidance.
 
-=== Declaration of conformance classes
+=== Declaration of Conformance Classes
 
 ==== Operation
 
-To support "generic" clients for accessing OGC APIs in general - and not "just" a specific API / server, the API has to declare the requirements classes it implements and conforms to.
+To support "generic" clients that want to accessing OGC APIs in general - and not "just" a specific API / server, the API has to declare the requirements classes it implements and conforms to.
 
 include::requirements/core/REQ_conformance-op.adoc[]
 
@@ -131,16 +141,16 @@ properties:
 
 .Requirements class response document
 =================
-This example response in JSON is for a WFS 3.0 API that supports OpenAPI 3.0 for the API definition and HTML and GeoJSON as encodings for resources.
+This example response in JSON is for an OGC API Features that supports OpenAPI 3.0 for the API definition and HTML and GeoJSON as encodings for resources.
 
 [source,JSON]
 ----
 {
   "conformsTo": [
-    "http://www.opengis.net/spec/wfs-1/3.0/req/core",
-    "http://www.opengis.net/spec/OAPI_Common/1.0/req/oas30",
-    "http://www.opengis.net/spec/OAPI_Common/1.0/req/html",
-    "http://www.opengis.net/spec/OAPI_Common/1.0/req/geojson"
+    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/core",
+    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30",
+    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/html",
+    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/geojson"
   ]
 }
 ----
@@ -155,6 +165,12 @@ See <<http_status_codes>> for general guidance.
 include::requirements/core/REQ_http.adoc[]
 
 This includes the correct use of status codes, headers, etc.
+
+include::recomendations/core/REC_head.adoc[]
+
+Supporting the method HEAD in addition to GET can be useful for clients and is simple to implement.
+
+Servers implementing <<cross_origin,CORS>> will implement the method OPTIONS, too.
 
 [[http_status_codes]]
 ==== HTTP status codes
@@ -183,21 +199,55 @@ In addition, other error situations may occur in the transport layer outside of 
 
 More specific guidance is provided for each resource, where applicable.
 
-include::requirements/core/PER_additional-status-codes.adoc[]
+include::recomendations/core/PER_additional-status-codes.adoc[]
+
+=== Unknown or invalid query parameters
+
+include::requirements/core/REQ_query-param-unknown.adoc[]
+
+If a server wants to support vendor specific parameters, these have to be explicitly declared in the API definition.
+
+If OpenAPI is used to represent the API definition, a capability exists to allow additional parameters without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will be ignored.
+
+OpenAPI schema for additional "free-form" query parameters
+
+----
+in: query
+name: vendorSpecificParameters
+schema:
+  type: object
+  additionalProperties: true
+style: form
+----
+
+Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of ``vendorSpecificParameters`` is this object:
+
+----
+{
+  "my_first_parameter": "some value",
+  "my_other_parameter": 42
+}
+----
+
+In the request URI this would be expressed as `&my_first_parameter=some%20value&my_other_parameter=42`.
+
+include::requirements/core/REQ_query-param-invalid.adoc[]
+
+This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid, if it violates the API definition or any other constraint for that parameter stated in a requirement.
 
 [[web_caching]]
 === Web caching
 
 Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc2616,HTTP/1.1 (RFC 2616)>>.
 
-include::requirements/core/REC_etag.adoc[]
+include::recomendations/core/REC_etag.adoc[]
 
 [[cross_origin]]
 === Support for cross-origin requests
 
 Access to data from a HTML page is by default prohibited for security reasons, if the data is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing feature data from multiple distributed datasets.
 
-include::requirements/core/REC_cross-origin.adoc[]
+include::recomendations/core/REC_cross-origin.adoc[]
 
 Two common mechanisms to support cross-origin requests are:
 
@@ -206,11 +256,11 @@ Two common mechanisms to support cross-origin requests are:
 
 === Encodings
 
-While the OAPI Common standard does not specify any mandatory encoding, we recommend the following encodings. See <<overview,Clause 6 (Overview)>> for a discussion.
+While the OAPI Common standard does not specify any mandatory encoding, the following encodings are recommended. See <<overview,Clause 6 (Overview)>> for a discussion.
 
-include::requirements/core/REC_html.adoc[]
+include::recomendations/core/REC_html.adoc[]
 
-include::requirements/core/REC_geojson.adoc[]
+include::recomendations/core/REC_geojson.adoc[]
 
 <<_http_1_1,Requirement `/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified by the HTTP RFC.
 
@@ -232,7 +282,7 @@ Two common approaches are:
 
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
 
-For the reasons discussed in the Best Practices, OGC APIs uses WGS84 longitude and latitude as the default coordinate reference system.
+For the reasons discussed in the Best Practices, OGC APIs use WGS84 longitude and latitude as the default coordinate reference system.
 
 include::requirements/core/REQ_crs84.adoc[]
 
@@ -240,7 +290,7 @@ The implementations compliant with the Core are not required to support publishi
 
 === Link headers
 
-include::requirements/core/REC_link-header.adoc[]
+include::recomendations/core/REC_link-header.adoc[]
 
 === Collections metadata
 
@@ -272,13 +322,21 @@ properties:
 
 include::requirements/core/REQ_fc-md-links.adoc[]
 
-include::requirements/core/REC_fc-md-descriptions.adoc[]
+include::recomendations/core/REC_fc-md-descriptions.adoc[]
 
 include::requirements/core/REQ_fc-md-items.adoc[]
+
+include::recomendations/core/PER_fc-md-items.adoc[]
+
+This document does not specify mechanisms how clients may access all collections from APIs with many collections. Such mechanisms may be specified in additional parts of OGC API Common or in the resource-specific API standards. 
 
 include::requirements/core/REQ_fc-md-items-links.adoc[]
 
 include::requirements/core/REQ_fc-md-extent.adoc[]
+
+include::recomendations/core/REC_fc-md-extent-single.adoc[]
+
+include::recomendations/core/PER_fc-md-extent-extensions.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.yaml[Schema for the metadata about a feature collection]
 [source,YAML]
@@ -312,19 +370,19 @@ properties:
       - http://www.opengis.net/def/crs/OGC/1.3/CRS84
 ----
 
-NOTE: The `crs` property is not used by this conformance class, but reserved for future use.
-
 .Collection metadata response document
 =================
 This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". It includes links to the collection resource in all formats that are supported by the API (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "items").
 
 Representations of the metadata resource in other formats are referenced using link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "alternate".
 
-Additional links to a GML application schema for the building data and to a web page that has additional information about buildings are provided using link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".
+An additional link is to a GML application schema for the dataset - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".
 
-Coordinate reference system information is not provided as the service provides geometries only  in the default system (WGS84 longitude/latitude).
+Finally there are also links to the license information for the building data (using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "license").
 
-[source,JSON]
+Reference system information is not provided as the service provides geometries only in the default system (spatial: WGS 84 longitude/latitude; temporal:
+Gregorian calendar).
+
 ----
 {
   "links": [
@@ -376,8 +434,7 @@ include::requirements/core/REQ_sfc-md-success.adoc[]
 
 See <<http_status_codes>> for general guidance.
 
-If the parameter `collectionId` does not exist on the server, the status code of the
-response will be `404` (see <<status_codes>>).
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status_codes>>).
 
 === Resource Collections
 
@@ -397,7 +454,7 @@ include::requirements/core/REQ_fc-bbox-response.adoc[]
 
 This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a latter version of this specification.
 
-For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude.However, in cases where the  box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).
+For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the  box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).
 
 .The bounding box of the New Zealand Exclusive Economic Zone
 =================
@@ -406,13 +463,13 @@ The bounding box of the New Zealand Exclusive Economic Zone in WGS84 (from 160.6
 
 A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/parameters/bbox.yaml[bbox.yaml].
 
-==== Parameter time
+==== Parameter datetime
 
 include::requirements/core/REQ_fc-time-definition.adoc[]
 
 include::requirements/core/REQ_fc-time-response.adoc[]
 
-"Intersects" means that the time (instant or period) specified in the parameter `time` includes a timestamp that is part of the temporal geometry of the resource (again, a time instant or period). For time periods this includes the startand end time.
+"Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal geometry of the resource (again, a time instant or period). For time periods this includes the start and end time.
  
 .A date-time
 =================
@@ -423,25 +480,22 @@ February 12, 2018, 23:20:52 GMT:
 
 For resources with a temporal property that is a timestamp (like `lastUpdate` in the building features), a date-time value would match all resources where the temporal property is identical.
 
-For resources with a temporal property that is a date or a time period, a date-time value would match all resources where the timestamp is on that day or within the time period.
+For resources with a temporal property that is a date or a time interval, a date-time value would match all resources where the timestamp is on that day or within the time interval.
 
-.A period using a start and end time
+.Intervals
 =================
 February 12, 2018, 00:00:00 GMT to March 18, 2018, 12:31:12 GMT:
 
-`time=2018-02-12T00%3A00%3A00Z%2F2018-03-18T12%3A31%3A12Z`
+`datetime=2018-02-12T00%3A00%3A00Z%2F2018-03-18T12%3A31%3A12Z`
+
+February 12, 2018, 00:00:00 UTC or later:
+
+`datetime=2018-02-12T00%3A00%3A00Z%2F..`
+
+March 18, 2018, 12:31:12 UTC or earlier:
+
+`datetime=..%2F2018-03-18T12%3A31%3A12Z`
 =================
 
-.A period using start time and a duration
-=================
-A duration of 1 month, 6 days, 12 hours, 31 minutes and 12 seconds from February 12, 2018, 00:00:00 GMT:
-
-`time=2018-02-12T00%3A00%3A00Z%2FP1M6DT12H31M12S`
-=================
-
-For resources with a temporal property that is a timestamp (like `lastUpdate` in the building features), a time period would match all resources where the temporal property is within the period.
-
-For resources with a temporal property that is a date or a time period, a time period would match all resources where the values overlap.
-
-A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/core/openapi/parameters/time.yaml[time.yaml].
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/parameters/datetime.yaml[datetime.yaml].
 

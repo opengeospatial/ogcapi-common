@@ -1,11 +1,5 @@
 == Conventions
 
-=== Open issues
-
-This is a DRAFT version of OAPI Common. This draft is not complete and there are open issues that are still under discussion. These discussion topics are identified as "CAUTION" annotations with a link to the issue on GitHub and a brief summary of the issue.
-
-The current expectation is to have a stable version of the OAPI Common specification by May 2019. This will a draft standard sufficiently stable that it can be used in other OGC API standards developent efforts.
-
 === Identifiers
 
 The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/OAPI_Common/1.0`.
@@ -20,7 +14,7 @@ Resources are modelled as UML interfaces.
 
 === Link relations
 
-To express relationships between resources, <<rfc5988,RFC 5988 (Web Linking)>> and <<link-relations,registered link relation types>> are used.
+To express relationships between resources, <<rfc8288,RFC 8288 (Web Linking)>> and <<link-relations,registered link relation types>> are used.
 
 === Use of HTTPS
 
@@ -36,11 +30,9 @@ This standard specifies requirements and recommendations for APIs that share spa
 
 ==== Role of OpenAPI
 
-This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. However, using OpenAPI 3.0 is not required for implementing a OGC API.
+This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing a OGC API. Other API definition languages may be used along with, or instead of OpenAPI. However, any API definition language used should have an associated requirements class advertised through the /conformance path.  
 
-A separate requirements class is specified for API definitions that follow the <<rc_oas,OpenAPI specification 3.0>>. This does not preclude that in the future or in parallel other versions of OpenAPI or other descriptions are provided through the API.
-
-NOTE: This approach is used to avoid lock-in to a specific approach to defining an API as it is expected that the API landscape will continue to evolve.
+This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a requirements class for API definitions that follow the <<rc_oas,OpenAPI specification 3.0>>. Requirements classes for additional API defnintion languages will be added as the API landscape continues to evolve.
 
 In this document, fragments of OpenAPI definitions are shown in YAML since YAML is easier to read than JSON and is typically used in OpenAPI editors.
 
@@ -82,6 +74,6 @@ The path "/mypath" in the OpenAPI definition of the API would be the URL `https:
 
 ==== Reusable OpenAPI components
 
-Reusable components for OpenAPI definitions for a OGc API are referenced from this document.
+Reusable components for OpenAPI definitions for a OGC API are referenced from this document.
 
-CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/WFS_FES/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/wfs/3.0/openapi/".
+CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/wfs/3.0/openapi/".
