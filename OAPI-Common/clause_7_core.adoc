@@ -166,12 +166,6 @@ include::requirements/core/REQ_http.adoc[]
 
 This includes the correct use of status codes, headers, etc.
 
-include::recomendations/core/REC_head.adoc[]
-
-Supporting the method HEAD in addition to GET can be useful for clients and is simple to implement.
-
-Servers implementing <<cross_origin,CORS>> will implement the method OPTIONS, too.
-
 [[http_status_codes]]
 ==== HTTP status codes
 
@@ -200,40 +194,6 @@ In addition, other error situations may occur in the transport layer outside of 
 More specific guidance is provided for each resource, where applicable.
 
 include::recomendations/core/PER_additional-status-codes.adoc[]
-
-=== Unknown or invalid query parameters
-
-include::requirements/core/REQ_query-param-unknown.adoc[]
-
-If a server wants to support vendor specific parameters, these have to be explicitly declared in the API definition.
-
-If OpenAPI is used to represent the API definition, a capability exists to allow additional parameters without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will be ignored.
-
-OpenAPI schema for additional "free-form" query parameters
-
-----
-in: query
-name: vendorSpecificParameters
-schema:
-  type: object
-  additionalProperties: true
-style: form
-----
-
-Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of ``vendorSpecificParameters`` is this object:
-
-----
-{
-  "my_first_parameter": "some value",
-  "my_other_parameter": 42
-}
-----
-
-In the request URI this would be expressed as `&my_first_parameter=some%20value&my_other_parameter=42`.
-
-include::requirements/core/REQ_query-param-invalid.adoc[]
-
-This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid, if it violates the API definition or any other constraint for that parameter stated in a requirement.
 
 [[web_caching]]
 === Web caching
@@ -296,11 +256,11 @@ include::recomendations/core/REC_link-header.adoc[]
 
 ==== Operation
 
-include::requirements/core/REQ_fc-md-op.adoc[]
+include::requirements/core/REQ_rc-md-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_fc-md-success.adoc[]
+include::requirements/core/REQ_rc-md-success.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/content.yaml[Schema for the metadata about resource collections]
 [source,YAML]
@@ -320,23 +280,25 @@ properties:
       $ref: https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.yaml
 ----
 
-include::requirements/core/REQ_fc-md-links.adoc[]
+include::requirements/core/REQ_rc-md-links.adoc[]
 
-include::recomendations/core/REC_fc-md-descriptions.adoc[]
+include::recomendations/core/REC_rc-md-descriptions.adoc[]
 
-include::requirements/core/REQ_fc-md-items.adoc[]
+Examples for descriptions are: XML Schema, Schematron, JSON Schema, RDF Schema, OWL, SHACL, a feature catalogue, etc.
 
-include::recomendations/core/PER_fc-md-items.adoc[]
+include::requirements/core/REQ_rc-md-items.adoc[]
+
+include::recomendations/core/PER_rc-md-items.adoc[]
 
 This document does not specify mechanisms how clients may access all collections from APIs with many collections. Such mechanisms may be specified in additional parts of OGC API Common or in the resource-specific API standards. 
 
-include::requirements/core/REQ_fc-md-items-links.adoc[]
+include::requirements/core/REQ_rc-md-items-links.adoc[]
 
-include::requirements/core/REQ_fc-md-extent.adoc[]
+include::requirements/core/REQ_rc-md-extent.adoc[]
 
-include::recomendations/core/REC_fc-md-extent-single.adoc[]
+include::recomendations/core/REC_rc-md-extent-single.adoc[]
 
-include::recomendations/core/PER_fc-md-extent-extensions.adoc[]
+include::recomendations/core/PER_rc-md-extent-extensions.adoc[]
 
 .link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.yaml[Schema for the metadata about a feature collection]
 [source,YAML]
@@ -424,11 +386,11 @@ See <<http_status_codes>> for general guidance.
 
 ==== Operation
 
-include::requirements/core/REQ_sfc-md-op.adoc[]
+include::requirements/core/REQ_src-md-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_sfc-md-success.adoc[]
+include::requirements/core/REQ_src-md-success.adoc[]
 
 ==== Error situations
 
@@ -440,15 +402,15 @@ If the parameter `collectionId` does not exist on the server, the status code of
 
 ==== Operation
 
-include::requirements/core/REQ_fc-op.adoc[]
+include::requirements/core/REQ_rc-op.adoc[]
 
 === Parameters
 
 ==== Parameter bbox
 
-include::requirements/core/REQ_fc-bbox-definition.adoc[]
+include::requirements/core/REQ_rc-bbox-definition.adoc[]
 
-include::requirements/core/REQ_fc-bbox-response.adoc[]
+include::requirements/core/REQ_rc-bbox-response.adoc[]
 
 "Intersects" means that the rectangular area specified in the parameter `bbox` includes a coordinate that is part of the (spatial) geometry of the resource. This includes the boundaries of the geometries (e.g. for curves the start and end position and for surfaces the outer and inner rings).
 
@@ -465,9 +427,9 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 
 ==== Parameter datetime
 
-include::requirements/core/REQ_fc-time-definition.adoc[]
+include::requirements/core/REQ_rc-time-definition.adoc[]
 
-include::requirements/core/REQ_fc-time-response.adoc[]
+include::requirements/core/REQ_rc-time-response.adoc[]
 
 "Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal geometry of the resource (again, a time instant or period). For time periods this includes the start and end time.
  
