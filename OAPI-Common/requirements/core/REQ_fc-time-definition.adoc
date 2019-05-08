@@ -1,12 +1,12 @@
 [width="90%",cols="2,6a"]
 |===
 |*Requirement {counter:req-id}* |/req/core/fc-time-definition 
-^|A |Each resource collection operation MAY support a `time` parameter.
-^|B |This `time` parameter SHALL have the following characteristics (using an OpenAPI Specification 3.0 fragment):
+^|A |Each resource collection operation SHALL support a `datetime` parameter.
+^|B |This `datetime` parameter SHALL have the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
 ----
-name: time
+name: datetime
 in: query
 required: false
 schema:
