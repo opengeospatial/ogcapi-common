@@ -1,6 +1,7 @@
+[[req_core_rc-op]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/rc-op 
+^|*Requirement {counter:req-id}* |*/req/core/rc-op* 
 ^|A|For every resource collection identified in the metadata about the resource collection (path `/`), the API SHALL support the HTTP GET operation at the path `/collections/{collectionId}/items`.
 ^|B|The parameter `collectionId` is each `id` property in the resource collections metadata (JSONPath: `$.collections[*].id`).
 |===

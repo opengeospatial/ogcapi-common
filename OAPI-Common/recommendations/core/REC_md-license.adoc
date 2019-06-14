@@ -1,7 +1,7 @@
-[[rec_etag]]
+[[rec_core_md-license]]
 [width="90%",cols="2,6a"]
 |===
-|*Recommendation {counter:rec-id}* |/rec/core/md-license 
+^|*Recommendation {counter:rec-id}* |*/rec/core/md-license* 
 ^|A |For each resource collection in this distribution of the dataset, the `links` property of the collection SHOULD include an item for each supported encoding with a link to the collection resource (relation: `license`).
 
 Alternatively, if all data shared via the API is available under the same license, the link MAY instead be added to the top-level `links` property of the response.

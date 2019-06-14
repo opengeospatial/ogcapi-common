@@ -1,6 +1,7 @@
+[[req_core_rc-bbox-response]]
 [width="90%",cols="2,6a"]
 |===
-|*Requirement {counter:req-id}* |/req/core/rc-bbox-response
+^|*Requirement {counter:req-id}* |*/req/core/rc-bbox-response*
 ^|A|If the `bbox` parameter is provided, only those resources that have a spatial geometry that intersects the bounding box SHALL be part of the result set.
 ^|B|The bounding box SHALL consist of four or six numbers, depending on whether the coordinate reference system includes a vertical axis (height or depth):
 
