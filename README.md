@@ -20,15 +20,10 @@ GET /api
 GET /collections
 ```
 
-
-```
-GET /collections
-```
-
 Lists the collections of data on the server that can be queried ([7.11](https://rawcdn.githack.com/opengeospatial/WFS_FES/3.0.0-draft.1/docs/17-069.html#_feature_collections)), and each describes basic information about the resource, like its id and description, as well as the spatial and temporal extents of all the data contained
 
 ```
-GET /collections/{collectionId}/items?bbox=160.6,-55.95,-170,-25.89}
+GET /collections/{collectionId}/items?bbox=160.6,-55.95,-170,-25.89
 ```
 
 Requests all the data in the collection identified by the "collectionId" that is in the New Zealand economic zone. 
