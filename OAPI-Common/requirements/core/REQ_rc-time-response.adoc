@@ -2,9 +2,10 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/core/rc-time-response* 
-^|A |If the `datetime` parameter is provided, only resources that have a temporal geometry that intersects the temporal information in the `datetime` parameter SHALL be part of the result set,
-if the parameter is provided.
-^|B |The temporal information is either a date-time or an interval. The parameter value SHALL conform to the following syntax (using https://tools.ietf.org/html/rfc2234[ABNF]):
+^|A |If the `datetime` parameter is provided, only resources that have a temporal geometry that intersects the temporal information in the `datetime` parameter SHALL be part of the result set.
+^|B |If a resourcee has multiple temporal properties, it is the decision of the API whether only a single temporal property is used to determine the extent or all relevant temporal properties.
+^|C |The ``datetime`` parameter SHALL match all resources in the collection that are not associated with a temporal geometry.
+^|D |The temporal information is either a date-time or a time interval. The parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc2234[ABNF]):
 
 [source,java]
 ----
@@ -14,7 +15,6 @@ interval-open-end   = date-time "/.."
 interval            = interval-closed / interval-open-start / interval-open-end
 datetime            = date-time / interval
 ----
-^|C |The syntax of `date-time` is specified by https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
-^|D |Open ranges in time intervals at the start or end SHALL be supported using a double-dot (`..`).
-^|E |If a resourcee has multiple temporal properties, it is the decision of the API whether only a single temporal property is used to determine the extent or all relevant temporal properties.
+^|E |The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
+^|F |Open ranges in time intervals at the start or end SHALL be supported using a double-dot (`..`).
 |===
