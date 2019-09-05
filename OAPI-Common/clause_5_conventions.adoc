@@ -6,6 +6,12 @@ The normative provisions in this draft standard are denoted by the URI `http://w
 
 All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
+=== UML model
+
+UML diagrams are included in this standard to illustrate the conceptual model that underpins OGC API implementations. The UML model is not normative. The UML profile used is specified in ISO 19103:2015.
+
+Resources are modelled as UML interfaces.
+
 === Link relations
 
 To express relationships between resources, <<rfc8288,RFC 8288 (Web Linking)>> and <<link-relations,registered link relation types>> are used.
@@ -45,7 +51,7 @@ For API definitions that do not conform to the <<rc_oas30,OpenAPI Specification 
 
 ==== Paths in OpenAPI definitions
 
-All paths in an OpenAPI definition are relative to a base URL of a server. Unlike Web Services, an API is decoupled from the server(s). Some ramifications of this are:
+All paths in an OpenAPI definition are relative to the base URL of a server. Unlike Web Services, an API is decoupled from the server(s). Some ramifications of this are:
 
 * An API may be hosted (replicated) on more than one server.
 * Parts of an API may be distributed across multiple servers.
@@ -70,4 +76,4 @@ The path "/mypath" in the OpenAPI definition of the API would be the URL `https:
 
 Reusable components for OpenAPI definitions for a OGC API are referenced from this document.
 
-CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/wfs/3.0/openapi/".
+CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/wfs/3.0/openapi/".

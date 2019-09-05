@@ -11,15 +11,18 @@ Servers that implement an OGC API provide access to a collection of resources. I
 
 More specifically, each OGC API has a single `LandingPage` (path `/`).
 
-----
-NOTE: All paths (e.g., `/`) are relative to the base URL of the distribution of the dataset. If the API covers other resources beyond those specified in this document, the landing page may be a sub-resource of the base URL of the API.
-----
-
 The landing page provides links to:
 
 * the `APIDefinition` (path `/api`),
 * the `Conformance` statements (path `/conformance`),
 * metadata about the resource `Collections` (path `/collections`).
+
+[NOTE]
+=====================================================================
+Add a discussion of required vs. optional paths and the presence of both standard paths and links on the landing page.
+
+In particular, /conformace is the only required path.
+=====================================================================
 
 The `APIDefinition` describes the capabilities of the API. Clients use that information to connect to the API. Development tools can use this information to support the implementation of the API by servers and clients. Accessing the `APIDefinition` using HTTP GET returns a description of the API.
 
@@ -36,6 +39,10 @@ Accessing the `Collections` using HTTP GET returns a response that consists of `
 
 CollectionMetadata about an individual collection can be retrieved from path `/collections/{collectionId}` where {collectionId} is the local identifier for that collection. 
 
+NOTE]
+=====================================================================
+To discuss: what resources can lay beyond /collections/{collectionId}?  If there can be more than one resource, then we need to identify the resource type in the path (items). For example, exploitation metadata for a coverage may be a separate resource from the coverage itself. So we would have /{collectionId}/items and /{collectionId}/metadata. 
+=====================================================================
 Accessing a `Collection` (path `/collections/{collectionId}/items`) using HTTP GET returns a `CollectionResponse`. This response consists of resouces from the collection. The resources included in the response are determined by the server based on parameters of the request.
 
 A `bbox` or `datetime` parameter may be used to select only a subset of the resources in the collection (the resources that are located in the bounding box or time period. The `bbox` and `datetime` parameter also match all resources in the collection that are not associated with a location, time stamp, or time interval
@@ -66,7 +73,7 @@ properties:
   links:
     type: array
     items:
-      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/link.yaml
+      $ref: https://raw.githubusercontent.com/opengeospatial/oapi_common/master/OAPI-Common/openapi/schemas/link.yaml
 ----
 
 .Landing page response document
