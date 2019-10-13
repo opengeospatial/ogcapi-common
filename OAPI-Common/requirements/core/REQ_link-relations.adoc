@@ -1,0 +1,16 @@
+[[req_core_link_relations]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/link-relations* 
+^|A |Links used in OGC APIs SHALL use the following link relations:
+
+* `alternate`: links to this resource in another media type (the media type is specified in the `type` link attribute)
+* `conformance`: links to conformance information
+* `data`: links to an information resource
+* `describedBy`: links to external resources which further describe the subject resource
+* `items`: links to each individual resource which is included in a collection resource
+* `self`: links to this resource,
+* `service-desc`: links to the API Definition 
+* `service-doc`: an alternative to `service-desc`
+^|B |This requirement does not constrain the use of other link relations for resource types not addressed by this requirement.
+|===

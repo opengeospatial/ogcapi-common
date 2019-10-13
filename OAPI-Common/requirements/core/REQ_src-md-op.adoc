@@ -2,6 +2,6 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/core/src-md-op* 
-^|A|The API SHALL support the HTTP GET operation at the path `/collections/{collectionId}`.
+^|A|If the API is exposing more than one collection of the same resouce type, then the API SHALL support the HTTP GET operation at the path `/collections/{collectionId}`.
 ^|B|The parameter `collectionId` is each `id` property in the resource collections response (JSONPath: `$.collections[*].id`).
 |===

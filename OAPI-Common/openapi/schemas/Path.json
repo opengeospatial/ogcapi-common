@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Schema title",
+    "description": "Description of the schema",
+    "type": "object",
+    "required": [
+        
+    ],
+    "properties": {
+        "pathName": {
+            "description": "The URL fragment from the landing page to the resource to return",
+            "type": "string"
+        }
+    }
+}
