@@ -9,11 +9,11 @@ include::requirements/requirements_class_core.adoc[]
 [[resources-introduction]]
 ==== Resources
 
-An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, geospatial Resources, and Information Resources.
+An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Geospatial Resources, and Information Resources.
 
-Foundation Resources are those resource types which are common across all OGC APIs. Those resources are defined in this OGC API-Common standard. Other OGC API standards re-use these resources and, where necessary, extend them to address unique requirements.
+Foundation Resources are those resources which are common across all OGC APIs. Those resources are defined in this OGC API-Common standard. Other OGC API standards re-use these resources and, where necessary, extend them to address unique requirements.
 
-Geospatial Resources are the resource types which we usually think of as Geospatial Datasets. They include Features, Coverages, Maps, and Styles. This Standard defines basic patterns for accessing Geospatial Resources, but no detailed requirements. Additional OGC API Standards have been developed to address specific API requirements for each Geospatial Resource type.
+Geospatial Resources are the resource which we usually think of as Geospatial Data. They include Features, Coverages, Maps, and Styles. This Standard defines basic patterns for accessing Geospatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Geospatial Resource type.
 
 Information Resources are non-geospatial resources which support the operation of the API or the access and use of the Geospatial Resources. 
 
@@ -36,11 +36,11 @@ Navigation of hyperlinks is facilitated if the hyperlink includes information ab
 
 include::requirements/core/REQ_link-relations.adoc[]
 
-OGC API hyperlinks are defined using the following link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/openapi/schemas/link.yaml[Hyperlink Schema].
+OGC API hyperlinks are defined using the following link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/openapi/schemas/link.json[Hyperlink Schema].
 
 .Hyperlink Schema
-[source, YAML]
-include::openapi/schemas/link.yaml[]
+[source, JSON]
+include::openapi/schemas/link.json[]
 
 [[direct-access-introduction]]
 ===== Direct Access
@@ -63,11 +63,9 @@ include::recommendations/core/REC_path-conventions.adoc[]
 
 Geospatial Resources can be exposed using the path template.
 
- /collections/{collectionId}/items/{itemId}
+ /collections/{collectionId}/items
        where
  {collectionId} = a unique identifier for a resource collection (dataset)
-       and
- {itemId} = a unique identifier for a geospatial object within the dataset.
 
 [#path_behaviors,reftext='{table-caption} {counter:table-num}']
 .Path Behaviors
@@ -77,7 +75,6 @@ Geospatial Resources can be exposed using the path template.
 |"/collections" |Metadata describing the collections avalable from this API.
 |"/collections/{collectionId} |Metadata describing the collection with the unique identifier {collectionId}
 |"/collections/{collectionId}/items" |The collection identified by the {collectionId} parameter.
-|"collections/{collectionId}/items/{itemId}" |A single element from {collectionId} with the identifier {itemId}.
 |===
 
 ====== Information Resources
@@ -91,7 +88,7 @@ Where
 
 {collectionId} = a unique identifier for a Geospatial Resource collection.
 
-{resourceType} = a text string identifying the Information Resource type
+{resourceType} = a text string identifying the Information Resource type.
 
 Information Resources associated with a specific collection should be accessed through the `/collections` path. Those which are not associated with a specific collection should use the `/{resourceType}` template.
 
@@ -173,8 +170,6 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-.link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/req-classes.yaml[Schema for the list of requirements classes]
-
 The conformance resource returned by this operation is based on the following link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/confClasses.json[Conformance Schema]. Examples of OGC conformance resources are provided in <<conformance-response-examples>>.
 
 .Conformance Schema
@@ -190,10 +185,16 @@ See <<http_status_codes>> for general guidance.
 
 Geospatial Resources are the resource types which we usually think of as Geospatial Data. They include Features, Coverages, Maps, and Styles. 
 
+Detailed requirements for each Geospatial Resource type are dealt with in the resource-specific API standards. However, this API Common standard has the responsiblity to see that they all OGC API standards work together by: 
+
+. Providing specifications for the description of each collection (/collections/{collectionId}), and the list of collections (/collections)
+. Providing a consistent framework for serving geospatial data from the OGC API, regardless of the type. Consistent means that #1 works exactly the same (potentially with type-specific additional properties) and that the different types of data can all be collections on the same OGC API end-point.
+. Providing a tie point for other OGC API modules to connect to and reference (processes inputs & outputs, cataloging, searching and filtering collections, detailed metadata, tiles, styles, clipping and intersecting bounding boxes in common) Just by virtue of understanding that /collections/{collectionId} points to a geospatial(--dataset--) **data layer**.
+
 [[collections-metadata]]
 ==== Collections Metadata
 
-OGC APIs typically organize their geospatial resources into collections or datasets. These datasets are accessed through the /collections path.
+OGC APIs typically organize their Geospatial Resources into collections. These collections are accessed through the /collections path.
 
 ===== Operation
 
@@ -265,7 +266,7 @@ If the parameter `collectionId` does not exist on the server, the status code of
 [[collection-resource]]
 ==== Collection Resource
 
-A collection resource is the actual resource as opposed to metadata about that resource. This standard defines the general behavior of this operation, but detailed requirements are the purvue of the API standard for that resource type.
+A collection resource is the content of the collection as opposed to metadata about that collection. This standard defines the general behavior of this operation, but detailed requirements are the purvue of the API standard for that resource type.
 
 ===== Operation
 

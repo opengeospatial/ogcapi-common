@@ -10,7 +10,7 @@
     "properties": {
         "links": {
             "type": "array",
-            "items": {"$href": "link.yaml"}
+            "items": {"$href": "link.json"}
             },
         "collections": {
             "type": "array",
