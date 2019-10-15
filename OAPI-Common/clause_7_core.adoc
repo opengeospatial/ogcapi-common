@@ -110,8 +110,6 @@ include::requirements/core/REQ_root-success.adoc[]
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-include::recommendations/core/PER_lp-links.adoc[]
-
 The landing page returned by this operation is based on the following link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/openapi/schemas/landingPage.json[Landing Page Schema]. Examples of OGC landing pages are provided in <<landing-page-examples>>.
 
 .Landing Page Schema
