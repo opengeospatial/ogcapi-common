@@ -1,0 +1,6 @@
+[[req_collections_rc-md-items]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-md-items* 
+^|A |For each geospatial resource collection provided through this API, metadata describing that collection SHALL be provided in the property `collections`.
+|===
