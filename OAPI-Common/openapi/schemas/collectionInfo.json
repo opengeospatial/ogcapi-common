@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Collections Schema",
+    "title": "Collection Information Schema",
     "description": "This schema defines metadata resource returned from /collections/{collectionId}.",
     "type": "object",
     "required": [

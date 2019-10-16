@@ -13,7 +13,7 @@ An OGC API provides a lighweight interface to access one or more resources. The 
 
 Foundation Resources are those resources which are common across all OGC APIs. Those resources are defined in this OGC API-Common standard. Other OGC API standards re-use these resources and, where necessary, extend them to address unique requirements.
 
-Geospatial Resources are the resource which we usually think of as Geospatial Data. They include Features, Coverages, Maps, and Styles. This Standard defines basic patterns for accessing Geospatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Geospatial Resource type.
+Geospatial Resources are the resource which we usually think of as Geospatial Data. They include Features, Coverages, and Maps. This Standard defines basic patterns for accessing Geospatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Geospatial Resource type.
 
 Information Resources are non-geospatial resources which support the operation of the API or the access and use of the Geospatial Resources. 
 
@@ -47,51 +47,18 @@ include::openapi/schemas/link.json[]
 
 Direct Access requires that the resource consumer possesses knowlege of the path to the resouce prior to attempting access. Typically this knowlege comes from the use of standard paths, receiving the path from another entity, or by processing an API definition resource. Direct access is particularly applicable to software analytics where there is no human in the loop.
 
-Direct access is facilitated by the use of standard URL paths.
+Direct access is facilitated by the use of standard URL paths. The requirements in this Requirements Class are organized around these standard paths.
 
-====== Foundation Resources
+[[foundation-resources]]
+=== Foundation Resources
+
+Foundation resources are those resources which are provided by every OGC API.
 
 The standard paths defined in this Standard for Foundation Resources are:
 
 . "/" - the landing page
 . "/api" - the API Definition document for this API
 . "/conformance" - the conformance information for this API
-
-include::recommendations/core/REC_path-conventions.adoc[]
-
-====== Geospatial Resources
-
-There is no requirement that every OGC API support Geospatial Resources. Therefore, Geospatial Resources are addressed in a separate `Collections` Requirement Class. This class is described in Section 9.
-
-====== Information Resources
-
-Information Resources can exposed using two path templates:
-
-* /collections/{collectionId}/{resourceType}
-* /{resourceType}
-
-Where 
-
-{collectionId} = a unique identifier for a Geospatial Resource collection.
-
-{resourceType} = a text string identifying the Information Resource type.
-
-Information Resources associated with a specific collection should be accessed through the `/collections` path. Those which are not associated with a specific collection should use the `/{resourceType}` template.
-
-The OGC API Information Resource types and their corresponding API standard are provided in <<information_resource_table>>
-
-[#information_resource_table,reftext='{table-caption} {counter:table-num}']
-.Information Resource Types
-[width="90%",cols="2,4",options="header"]
-|===
-^|**Resource Type** ^|**API Standard**
-|TBD |TBD
-|===
-
-[[foundation-resources]]
-=== Foundation Resources
-
-Foundation resources are those resources which are provided by every OGC API.
 
 [[landing-page]]
 ==== API landing page
@@ -164,12 +131,37 @@ include::openapi/schemas/confClasses.json[]
 
 See <<http_status_codes>> for general guidance.
 
+=== Geospatial Resources
+
+There is no requirement that every OGC API support Geospatial Resources. Therefore, Geospatial Resources are addressed in a separate `Collections` Requirement Class. This class is described in Section 8.
+
 [[information-resources]]
 === Information Resources
 
 Information Resources are non-geospatial resources which support the operation of the API or the access and use of the Geospatial Resources. These resources are usually specific to a geospatial resource type and will be defined in the appropriate API standards.
 
+Information Resources can exposed using two path templates:
+
+* /collections/{collectionId}/{resourceType}
+* /{resourceType}
+
+Where 
+
+{collectionId} = a unique identifier for a Geospatial Resource collection.
+
+{resourceType} = a text string identifying the Information Resource type.
+
+Information Resources associated with a specific collection should be accessed through the `/collections` path. Those which are not associated with a specific collection should use the `/{resourceType}` template.
+
 The OGC API-Common standard does not define any Information Resource types. However <<information_resource_table>> provides a maping of the know Information Resource types to the standard where they are defined.
+
+[#information_resource_table,reftext='{table-caption} {counter:table-num}']
+.Information Resource Types
+[width="90%",cols="2,4",options="header"]
+|===
+^|**Resource Type** ^|**API Standard**
+|TBD |TBD
+|===
 
 [[general-requirements]]
 === General Requirements
