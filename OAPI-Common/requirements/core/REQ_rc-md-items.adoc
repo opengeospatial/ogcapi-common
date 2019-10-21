@@ -1,6 +1,0 @@
-[[req_core_rc-md-items]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/core/rc-md-items* 
-^|A |For each resource collection in this distribution of the dataset, an item SHALL be provided in the property `collections`.
-|===

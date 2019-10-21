@@ -7,7 +7,5 @@
 * a link:https://tools.ietf.org/html/rfc7946#section-3.3[GeoJSON FeatureCollection Object] for feature collections, and
 * a link:https://tools.ietf.org/html/rfc7946#section-3.2[GeoJSON Feature Object] for features.
 
-^|B|The links specified in the requirements `/req/core/fc-links` and `/req/core/f-links` SHALL be added in a extension property (foreign member) with the name `links`.
-
-^|C|The schema of all responses with the media type `application/json` SHALL conform with the JSON Schema specified for that resource. 
+^|B|The schema of all responses with the media type `application/json` SHALL conform with the JSON Schema specified for that resource. 
 |===

@@ -19,10 +19,10 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   2019-05-03
+|Publication Date:   2019-09-04
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
 |Internal reference number of this OGC(R) document:    YY-nnnrx
-|Version: 0.0.2
+|Version: 0.0.3
 |Category: OGC(R) Implementation Specification
 |Editor:   Charles Heazel
 |===
@@ -88,20 +88,24 @@ include::clause_4_terms_and_definitions.adoc[]
 
 include::clause_5_conventions.adoc[]
 
-include::clause_6_informative_text.adoc[]
+include::clause_6_overview.adoc[]
 
 include::clause_7_core.adoc[]
 
-include::clause_8_encodings.adoc[]
+include::clause_8_collections.adoc[]
 
-include::clause_9_oas.adoc[]
+include::clause_9_encodings.adoc[]
 
-include::clause_10_media_types.adoc[]
+include::clause_10_oas.adoc[]
 
-include::annex-ats.adoc[]
+include::clause_11_media_types.adoc[]
 
-include::annex-history.adoc[]
+include::annex_ats.adoc[]
 
-include::annex-bibliography.adoc[]
+include::annex_examples.adoc[]
+
+include::annex_history.adoc[]
+
+include::annex_bibliography.adoc[]
 
 <<<

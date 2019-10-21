@@ -24,15 +24,15 @@ For simplicity, this document in general only refers to the HTTP protocol. This 
 
 ==== General remarks
 
-Good documentation is essential for every API so that developers can more easily learn how to use the API. In the best case, documentation will be available in HTML and in a format that can be processed by software to connect to the API.
+Good documentation is essential for every API so that developers can more easily learn how to use the API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding.
 
-This standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard and will support additional operations, parameters, etc. that are specific to the API or the software tool used to implement the API.
+This standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, etc. that are specific to the API or the software tool used to implement the API.
 
 ==== Role of OpenAPI
 
-This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing a OGC API. Other API definition languages may be used along with, or instead of OpenAPI. However, any API definition language used should have an associated requirements class advertised through the /conformance path.  
+This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of OpenAPI. However, any API definition language used should have an associated requirements class advertised through the /conformance path.  
 
-This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a requirements class for API definitions that follow the <<rc_oas,OpenAPI specification 3.0>>. Requirements classes for additional API defnintion languages will be added as the API landscape continues to evolve.
+This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a requirements class for API definitions that follow the <<rc_oas,OpenAPI specification 3.0>>. Requirements classes for additional API definition languages will be added as the API landscape continues to evolve.
 
 In this document, fragments of OpenAPI definitions are shown in YAML since YAML is easier to read than JSON and is typically used in OpenAPI editors.
 
@@ -51,10 +51,10 @@ For API definitions that do not conform to the <<rc_oas30,OpenAPI Specification 
 
 ==== Paths in OpenAPI definitions
 
-All paths in an OpenAPI definition are relative to a base URL of a server. Unlike Web Services, an API is decoupled from the server(s). Some ramifications of this are:
+All paths in an OpenAPI definition are relative to the base URL of a server. Unlike Web Services, an API is decoupled from the server(s). Some ramifications of this are:
 
 * An API may be hosted (replicated) on more than one server.
-* Differrent parts of an API may be hosted on different servers.
+* Parts of an API may be distributed across multiple servers.
 
 .URL of the OpenAPI definition
 ===========================================
@@ -76,4 +76,4 @@ The path "/mypath" in the OpenAPI definition of the API would be the URL `https:
 
 Reusable components for OpenAPI definitions for a OGC API are referenced from this document.
 
-CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/wfs/3.0/openapi/".
+CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/wfs/3.0/openapi/".
