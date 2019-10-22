@@ -9,18 +9,18 @@ include::requirements/requirements_class_core.adoc[]
 [[resources-introduction]]
 ==== Resources
 
-An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Geospatial Resources, and Information Resources.
+An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources.
 
 Foundation Resources are those resources which are common across all OGC APIs. Those resources are defined in this OGC API-Common standard. Other OGC API standards re-use these resources and, where necessary, extend them to address unique requirements.
 
-Geospatial Resources are the resource which we usually think of as Geospatial Data. They include Features, Coverages, and Maps. This Standard defines basic patterns for accessing Geospatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Geospatial Resource type.
+Spatial Resources are the resource which we usually think of as Geospatial Data. They include Features, Coverages, and Maps. This Standard defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Spatial Resource type.
 
-Information Resources are non-geospatial resources which support the operation of the API or the access and use of the Geospatial Resources. 
+Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. 
 
 [[modular-API-introduction]]
 ==== Modular APIs
 
-A goal of OGC API standards is to provide rapid and easy access to geospatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. Our approach is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelyhood that they will integrate at run-time is greatly enhanced.
+A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. Our approach is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelyhood that they will integrate at run-time is greatly enhanced.
 
 [[navigation-introduction]]
 ==== Navigation
@@ -131,14 +131,14 @@ include::openapi/schemas/confClasses.json[]
 
 See <<http_status_codes>> for general guidance.
 
-=== Geospatial Resources
+=== Spatial Resources
 
-There is no requirement that every OGC API support Geospatial Resources. Therefore, Geospatial Resources are addressed in a separate `Collections` Requirement Class. This class is described in Section 8.
+There is no requirement that every OGC API support Spatial Resources. Therefore, Spatial Resources are addressed in a separate `Collections` Requirement Class. This class is described in Section 8.
 
 [[information-resources]]
 === Information Resources
 
-Information Resources are non-geospatial resources which support the operation of the API or the access and use of the Geospatial Resources. These resources are usually specific to a geospatial resource type and will be defined in the appropriate API standards.
+Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. These resources are usually specific to a spatial resource type and will be defined in the appropriate API standards.
 
 Information Resources can exposed using two path templates:
 
@@ -147,7 +147,7 @@ Information Resources can exposed using two path templates:
 
 Where 
 
-{collectionId} = a unique identifier for a Geospatial Resource collection.
+{collectionId} = a unique identifier for a Spatial Resource collection.
 
 {resourceType} = a text string identifying the Information Resource type.
 

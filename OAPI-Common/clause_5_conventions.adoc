@@ -6,12 +6,6 @@ The normative provisions in this draft standard are denoted by the URI `http://w
 
 All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
-=== UML model
-
-UML diagrams are included in this standard to illustrate the conceptual model that underpins OGC API implementations. The UML model is not normative. The UML profile used is specified in ISO 19103:2015.
-
-Resources are modelled as UML interfaces.
-
 === Link relations
 
 To express relationships between resources, <<rfc8288,RFC 8288 (Web Linking)>> and <<link-relations,registered link relation types>> are used.
@@ -34,7 +28,7 @@ This document uses OpenAPI 3.0 fragments as examples and to formally state requi
 
 This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a requirements class for API definitions that follow the <<rc_oas,OpenAPI specification 3.0>>. Requirements classes for additional API definition languages will be added as the API landscape continues to evolve.
 
-In this document, fragments of OpenAPI definitions are shown in YAML since YAML is easier to read than JSON and is typically used in OpenAPI editors.
+In this document, fragments of OpenAPI definitions are shown in YAML since YAML is easier to format than JSON and is typically used in OpenAPI editors.
 
 ==== References to OpenAPI components in normative statements
 

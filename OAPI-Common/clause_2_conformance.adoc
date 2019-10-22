@@ -1,31 +1,32 @@
 == Conformance
-This standard defines four requirements / conformance classes.
+Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
-The standardization target of all conformance classes is "Web APIs".
+This standard defines five requirements / conformance classes. The conformance classes implemented by an API are advertised through the /conformance path on the landing page. Conformant implementations must pass all of the tests for each advertised conformance class.
 
-The main requirements class is:
+There is a one-to-one correspondance between conformance classes and requirements classes. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified for the _Core_ requirements class.
+
+The requirements classes for OGC API-Common are:
 
 * <<rc_core,Core>>.
 
-The _Core_ specifies requirements that all OGC APIs must implement.
+The _Core Requirements Class_ is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs
 
-The _Core_ does not mandate a specific encoding or format for representing resources. Two requirements classes depend on the _Core_ and specify representations for these resources in commonly used encodings for spatial data on the web:
+Additional capabilities such as support for transactions, complex data structures, and rich queries are specified in additional OGC API standards or in OGC managed API extensions. Those standards are extensions build on the API-Common foundation to provide the full functionality required of the API implementation. 
+
+* <<rc_collections,Collections>>.
+
+The _Collections Requirements Class_ extends the _Core_ to enable fine-grained access to spatial resources. This requirements class is mandatory for all OGC APIs which expose spatial resources.
+
+The structure and organziation of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The _Collections Requirements Class_ specifies the requirements necessary to discover and understand that structure and organization. Requirements governing the resource collections themselves are specified in the resource-specific OGC API standards.  
 
 * <<rc_html,HTML>>,
 * <<rc_geojson,GeoJSON>>
 
-None of these encodings are mandatory. An implementation of the _Core_ may decide to implement neither of them and to implement another encoding instead.
+Neither the nor _Core_ nor _Collections_ requirements class mandate a specific encoding or format for representing resources. The _HTML_ and _GeoJSON_ requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
-That said, the _Core_ requirements class includes recommendations to support where practical <<rec_html,HTML>> and <<rec_geojson,GeoJSON>> as encodings. <<overview,Clause 6 (Overview)>> includes a discussion about the recommended encodings.
-
-The _Core_ does not mandate any encoding or format for the formal definition of the API either. The prefered option is the OpenAPI 3.0 specification. A requirements class has been specified for OpenAPI 3.0, which depends on the _Core_:
+Neither of these encodings are mandatory. An implementation of the _API-Common_ may decide to implement another encoding instead of, or in addition to, these two.
 
 * <<rc_oas30,OpenAPI specification 3.0>>.
 
-An implementation of the _Core_ requirements class may also decide to use other API definition representations in addition or instead of an OpenAPI 3.0 definition. Examples for alternative API definitions: OpenAPI 2.0 (Swagger), future versions of the OpenAPI specification, an OWS Common 2.0 capabilities document, or WSDL.
+The _API-Common_ does not mandate any encoding or format for the formal definition of the API either. The prefered option is the OpenAPI 3.0 specification. The _OpenAPI 3.0_ requirements class has been specified for APIs implementing OpenAPI 3.0.
 
-The _Core_ is intended to be the minimal useful service interface for fine-grained access to a spatial resource.
-
-Additional capabilities such as support for transactions, complex data structures, rich queries, other coordinate reference systems, subscription/notification, returning aggregated results, etc., may be specified in future parts of OGC API Common, other OGC API standards, or as vendor-specific extensions.
-
-Conformance with this standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.

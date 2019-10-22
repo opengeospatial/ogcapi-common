@@ -1,5 +1,5 @@
-:Title: OGC (add title text)
-:titletext: OGC API Common
+:Title: OGC API-Common
+:titletext: OGC API-Common
 :doctype: book
 :encoding: utf-8
 :lang: en
@@ -20,7 +20,7 @@
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
 |Publication Date:   2019-09-04
-|External identifier of this OGC(R) document: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
+|External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-common/0.3
 |Internal reference number of this OGC(R) document:    YY-nnnrx
 |Version: 0.0.3
 |Category: OGC(R) Implementation Specification
@@ -51,7 +51,6 @@ Recipients of this document are invited to submit, with their comments, notifica
 [width = "50%", grid = "none"]
 |===
 |Document type:   	OGC®ImplementationSpecification
-|Document subtype:   	if applicable
 |Document stage:   	Draft
 |Document language: 	English
 |===

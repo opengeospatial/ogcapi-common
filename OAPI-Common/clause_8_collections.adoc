@@ -6,43 +6,43 @@ include::requirements/requirements_class_collections.adoc[]
 [[collections-overview]]
 === Overview
 
-Geospatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Maps. This Conformance Class defines basic patterns for accessing Geospatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Geospatial Resource type.
+Spatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Maps. This Conformance Class defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Spatial Resource type.
 
 OGC APIs are designed to support two access patterns; Hypermedia Access, and Direct Access. OGC APIs support both access patterns through the use of API Definition documents, standardized paths, and standardized hypermedia schemas.
 
-Hypermedia Access was described in the <<navigation-introduction>> section of Clause 7. For Geospatial Resources, hypermedia navigation is enabled through the links included in each schema defined by this Reqirement Class. 
+Hypermedia Access was described in the <<navigation-introduction>> section of Clause 7. For Spatial Resources, hypermedia navigation is enabled through the links included in each schema defined by this Reqirement Class. 
 
-Direct access is the use of know URL paths to access a resource directly. The requirements in this Requirement Class are organized around the standard paths for Geospatial Data. 
+Direct access is the use of know URL paths to access a resource directly. The requirements in this Requirement Class are organized around the standard paths for Spatial Data. 
 
-[[geospatial-resources-requirements]]
-=== Geospatial Resources
+[[Spatial-resources-requirements]]
+=== Spatial Resources
 
-Detailed requirements for each Geospatial Resource type are dealt with in the resource-specific API standards. However, this API Common standard has the responsiblity to see that all OGC API standards work together by:
+Detailed requirements for each Spatial Resource type are dealt with in the resource-specific API standards. However, this API Common standard has the responsiblity to see that all OGC API standards work together by:
 
 . Providing specifications for the description of each collection (/collections/{collectionId}), and the list of collections (/collections)
-. Providing a consistent framework for serving geospatial data from the OGC API, regardless of the type. Consistent means that #1 works exactly the same (potentially with type-specific additional properties) and that the different types of data can all be collections on the same OGC API end-point.
-. Providing a tie point for other OGC API modules to connect to and reference (processes inputs & outputs, cataloging, searching and filtering collections, detailed metadata, tiles, styles, clipping and intersecting bounding boxes in common) Just by virtue of understanding that /collections/{collectionId} points to a geospatial **data layer**.
+. Providing a consistent framework for serving spatial data from the OGC API, regardless of the type. Consistent means that #1 works exactly the same (potentially with type-specific additional properties) and that the different types of data can all be collections on the same OGC API end-point.
+. Providing a tie point for other OGC API modules to connect to and reference (processes inputs & outputs, cataloging, searching and filtering collections, detailed metadata, tiles, styles, clipping and intersecting bounding boxes in common) Just by virtue of understanding that /collections/{collectionId} points to a spatial **data layer**.
 
-Geospatial Resources are exposed using the path template.
+Spatial Resources are exposed using the path template.
 
  /collections/{collectionId}/items
 
-The resources returned from each node in this template are described in <<geospatial_resource_paths>>.
+The resources returned from each node in this template are described in <<spatial_resource_paths>>.
 
-[#geospatial_resource_paths,reftext='{table-caption} {counter:table-num}']
-.Geospatial Resource Paths
+[#spatial_resource_paths,reftext='{table-caption} {counter:table-num}']
+.Spatial Resource Paths
 [width="90%",cols="2,4",options="header"]
 |===
 ^|**Path Template** ^|**Resource**
-|/collections |Metadata describing the geospatial collections avalable from this API.
+|/collections |Metadata describing the spatial collections avalable from this API.
 |/collections/{collectionId} |Metadata describing the collection with the unique identifier `{collectionId}`
-|/collections/{collectionId}/item |The geospatial collection resource identified by the `{collectionId}` parameter.
+|/collections/{collectionId}/item |The spatial collection resource identified by the `{collectionId}` parameter.
 |===
 
 [[collections-metadata]]
 ==== Collections Metadata
 
-OGC APIs typically organize their Geospatial Resources into collections. Information about those collections is accessed through the /collections path.
+OGC APIs typically organize their Spatial Resources into collections. Information about those collections is accessed through the /collections path.
 
 ===== Operation
 
@@ -143,9 +143,9 @@ See <<http_status_codes>> for general guidance.
 [[information-resources]]
 === Information Resources
 
-Information Resources are non-geospatial resources which support the operation of the API or the access and use of the Geospatial Resources. They are described in the <<information-resources>> section.
+Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. They are described in the <<information-resources>> section.
 
-Information Resources related to Geospatial Resources can exposed using the path template:
+Information Resources related to Spatial Resources can exposed using the path template:
 
 * /collections/{collectionId}/{resourceType}
 
@@ -156,7 +156,7 @@ The resources returned from each node in this template are described in <<inform
 [width="90%",cols="2,4",options="header"]
 |===
 ^|**Path Template** ^|**Resource**
-|/collections |The root resource describing the geospatial collections avalable from this API.
+|/collections |The root resource describing the spatial collections avalable from this API.
 |/collections/{collectionId} |Identifies a collection with the unique identifier `{collectionId}`
 |/collections/{collectionId}/{resourceType} |Identifies an Information Resource of type {resourceType} associated with the `{collectionId}` collection.
 |===
@@ -225,7 +225,7 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 [[general-requirements]]
 === General Requirements
 
-The following general requirements and recomendations apply to all OGC APIs which host Geospatial Resources.
+The following general requirements and recomendations apply to all OGC APIs which host Spatial Resources.
 
 ==== Coordinate Reference Systems
 
