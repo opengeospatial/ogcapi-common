@@ -1,3 +1,4 @@
+[[rc_collections-section]]
 == Requirement Class "Collections"
 :sectnums:
 
@@ -14,7 +15,7 @@ Hypermedia Access was described in the <<navigation-introduction>> section of Cl
 
 Direct access is the use of know URL paths to access a resource directly. The requirements in this Requirement Class are organized around the standard paths for Spatial Data. 
 
-[[Spatial-resources-requirements]]
+[[spatial-resources-requirements]]
 === Spatial Resources
 
 Detailed requirements for each Spatial Resource type are dealt with in the resource-specific API standards. However, this API Common standard has the responsiblity to see that all OGC API standards work together by:
@@ -27,9 +28,9 @@ Spatial Resources are exposed using the path template.
 
  /collections/{collectionId}/items
 
-The resources returned from each node in this template are described in <<spatial_resource_paths>>.
+The resources returned from each node in this template are described in <<spatial-resource-paths>>.
 
-[#spatial_resource_paths,reftext='{table-caption} {counter:table-num}']
+[#spatial-resource-paths,reftext='{table-caption} {counter:table-num}']
 .Spatial Resource Paths
 [width="90%",cols="2,4",options="header"]
 |===
@@ -78,7 +79,7 @@ include::recommendations/collections/PER_rc-md-items.adoc[]
 
 ===== Error situations
 
-See <<http_status_codes>> for general guidance.
+See <<http-status-codes>> for general guidance.
 
 [[collection-information]]
 ==== Collection Information
@@ -119,9 +120,9 @@ include::recommendations/collections/PER_rc-md-extent-extensions.adoc[]
 
 ===== Error situations
 
-See <<http_status_codes>> for general guidance.
+See <<http-status-codes>> for general guidance.
 
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status_codes>>).
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).
 
 [[collection-resource]]
 ==== Collection Resource
@@ -138,9 +139,9 @@ include::requirements/collections/REQ_rc-response.adoc[]
 
 ===== Error situations
 
-See <<http_status_codes>> for general guidance.
+See <<http-status-codes>> for general guidance.
 
-[[information-resources]]
+[[collection-information-resources]]
 === Information Resources
 
 Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. They are described in the <<information-resources>> section.
@@ -149,9 +150,9 @@ Information Resources related to Spatial Resources can exposed using the path te
 
 * /collections/{collectionId}/{resourceType}
 
-The resources returned from each node in this template are described in <<information_resource_paths>>.
+The resources returned from each node in this template are described in <<information-resource-paths>>.
 
-[#information_resource_paths,reftext='{table-caption} {counter:table-num}']
+[#information-resource-paths,reftext='{table-caption} {counter:table-num}']
 .Information Resource Paths
 [width="90%",cols="2,4",options="header"]
 |===
@@ -161,7 +162,7 @@ The resources returned from each node in this template are described in <<inform
 |/collections/{collectionId}/{resourceType} |Identifies an Information Resource of type {resourceType} associated with the `{collectionId}` collection.
 |===
 
-The OGC API-Common standard does not define any Information Resource types. However <<information_resource_table>> provides a maping of the know Information Resource types to the standard where they are defined.
+The OGC API-Common standard does not define any Information Resource types. However <<information-resource-table>> provides a maping of the know Information Resource types to the standard where they are defined.
 
 === Parameter Modules
 
@@ -222,7 +223,7 @@ March 18, 2018, 12:31:12 UTC or earlier:
 
 A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/parameters/datetime.yaml[datetime.yaml].
 
-[[general-requirements]]
+[[collection-general-requirements]]
 === General Requirements
 
 The following general requirements and recomendations apply to all OGC APIs which host Spatial Resources.

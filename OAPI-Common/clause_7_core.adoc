@@ -1,3 +1,4 @@
+[[rc_core-section]]
 == Requirement Class "Core"
 :sectnums:
 
@@ -85,9 +86,9 @@ include::openapi/schemas/landingPage.json[]
 
 ===== Error Situations
 
-See <<http_status_codes>> for general guidance.
+See <<http-status-codes>> for general guidance.
 
-[[API-definition]]
+[[api-definition]]
 ==== API Definition
 
 Every API is expected to provide a definition that describes capabilities provided by the API. This document can be used by developers to understand the API, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
@@ -106,7 +107,7 @@ If multiple API definition formats are supported, use content negotiation to sel
 
 ===== Error Situations
 
-See <<http_status_codes>> for general guidance.
+See <<http-status-codes>> for general guidance.
 
 [[conformance-classes]]
 ==== Declaration of Conformance Classes
@@ -129,7 +130,7 @@ include::openapi/schemas/confClasses.json[]
 
 ===== Error situations
 
-See <<http_status_codes>> for general guidance.
+See <<http-status-codes>> for general guidance.
 
 === Spatial Resources
 
@@ -153,9 +154,9 @@ Where
 
 Information Resources associated with a specific collection should be accessed through the `/collections` path. Those which are not associated with a specific collection should use the `/{resourceType}` template.
 
-The OGC API-Common standard does not define any Information Resource types. However <<information_resource_table>> provides a maping of the know Information Resource types to the standard where they are defined.
+The OGC API-Common standard does not define any Information Resource types. However <<information-resource-table>> provides a maping of the know Information Resource types to the standard where they are defined.
 
-[#information_resource_table,reftext='{table-caption} {counter:table-num}']
+[#information-resource-table,reftext='{table-caption} {counter:table-num}']
 .Information Resource Types
 [width="90%",cols="2,4",options="header"]
 |===
@@ -174,18 +175,18 @@ The standards used for Web APIs are built on the HTTP protocol. Therefore, confo
 
 include::requirements/core/REQ_http.adoc[]
 
-[[http_status_codes]]
+[[http-status-codes]]
 ==== HTTP Status Codes
 
-<<status_codes>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
+<<status-codes>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
 
-[#status_codes,reftext='{table-caption} {counter:table-num}']
+[#status-codes,reftext='{table-caption} {counter:table-num}']
 .Typical HTTP status codes
 [cols="15,85",options="header"]
 !===
 |Status code |Description
 |`200` |A successful request.
-|`304` |An <<web_caching,entity tag was provided in the request>> and the resource has not been changed since the previous request.
+|`304` |An <<web-caching,entity tag was provided in the request>> and the resource has not been changed since the previous request.
 |`400` |The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.
 |`401` |The request requires user authentication. The response includes a `WWW-Authenticate` header field containing a challenge applicable to the requested resource.
 |`403` |The server understood the request, but is refusing to fulfill it. While status code `401` indicates missing or bad authentication, status code `403` indicates that authentication is not the issue, but the client is not authorised to perform the requested operation on the resource.
@@ -199,14 +200,14 @@ More specific guidance is provided for each resource, where applicable.
 
 include::recommendations/core/PER_additional-status-codes.adoc[]
 
-[[web_caching]]
+[[web-caching]]
 ==== Web Caching
 
 Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc2616,HTTP/1.1 (RFC 2616)>>.
 
 include::recommendations/core/REC_etag.adoc[]
 
-[[cross_origin]]
+[[cross-origin]]
 ==== Support for Cross-Origin Requests
 
 Access to data from a HTML page is by default prohibited for security reasons, if the data is located on another host than the webpage ("same-origin policy"). A typical example is a web-application accessing feature data from multiple distributed datasets.
@@ -226,7 +227,7 @@ include::recommendations/core/REC_html.adoc[]
 
 include::recommendations/core/REC_geojson.adoc[]
 
-<<_http_1_1,Requirement `/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified by the HTTP RFC.
+<<_http-1-1,Requirement `/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified by the HTTP RFC.
 
 The section <<mediatypes,Media Types>> includes guidance on media types for <<encodings,encodings>> that are specified in this document.
 
