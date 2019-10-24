@@ -12,9 +12,9 @@ include::requirements/requirements_class_core.adoc[]
 
 An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources.
 
-Foundation Resources are those resources which are common across all OGC APIs. Those resources are defined in this OGC API-Common standard. Other OGC API standards re-use these resources and, where necessary, extend them to address unique requirements.
+Foundation Resources are those resources which are common across all OGC APIs. Those resources are defined in this OGC API-Common standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.
 
-Spatial Resources are the resource which we usually think of as Geospatial Data. They include Features, Coverages, and Maps. This Standard defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Spatial Resource type.
+Spatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. This Standard defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Spatial Resource type.
 
 Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. 
 
@@ -34,6 +34,8 @@ OGC APIs are designed to support two access patterns; Hypermedia Access, and Dir
 Hypermedia Access is the use of hypermedia links to navigate from one resource to another. This pattern is typical of the Web Browser environment. A resource consumer (typically a human) starts from a landing page, selects a link on that page, then moves on to the referenced resource.
 
 Navigation of hyperlinks is facilitated if the hyperlink includes information about the resource type at the link destination. Therefore, OGC APIs will use a set of common link relationships.
+
+NOTE: This may not be testable. Consider removing it as a requirement.
 
 include::requirements/core/REQ_link-relations.adoc[]
 
@@ -112,7 +114,7 @@ See <<http-status-codes>> for general guidance.
 [[conformance-classes]]
 ==== Declaration of Conformance Classes
 
-To support "generic" clients that want to accessing OGC APIs in general - and not "just" a specific API / server, the API has to declare the requirements classes it implements and conforms to.
+To support "generic" clients that want to accessing OGC APIs in general - and not "just" a specific API / server, the API has to declare the conformance classes it implements and conforms to.
 
 ===== Operation
 
@@ -134,7 +136,9 @@ See <<http-status-codes>> for general guidance.
 
 === Spatial Resources
 
-There is no requirement that every OGC API support Spatial Resources. Therefore, Spatial Resources are addressed in a separate `Collections` Requirement Class. This class is described in Section 8.
+There is no requirement that every OGC API support Spatial Resources. Therefore, Spatial Resources are addressed in a separate `Collections` Requirement Class. This class is described in <<rc_collections-section,Collections>>.
+
+NOTE: Check the link to the Collections section.
 
 [[information-resources]]
 === Information Resources
@@ -221,15 +225,18 @@ Two common mechanisms to support cross-origin requests are:
 
 ==== Encodings
 
-While the OAPI Common standard does not specify any mandatory encoding, the following encodings are recommended. See <<overview,Clause 6 (Overview)>> for a discussion.
+While the OAPI Common standard does not specify any mandatory encoding, the following encodings are recommended. See <<overview,Clause 7 (Overview)>> for a discussion.
+
+[[rec_html]]
 
 include::recommendations/core/REC_html.adoc[]
 
+[[rec_geojson]]
 include::recommendations/core/REC_geojson.adoc[]
 
-<<_http-1-1,Requirement `/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified by the HTTP RFC.
+Requirement <<req_core_http,`/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified by the HTTP RFC.
 
-The section <<mediatypes,Media Types>> includes guidance on media types for <<encodings,encodings>> that are specified in this document.
+The section <<mediatypes,Media Types>> includes guidance on media types for encodings that are specified in this document.
 
 Note that any API that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, for example, to alternate representations of the same resource. This document does not mandate any particular approach how this is supported by the API.
 

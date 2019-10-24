@@ -1,0 +1,20 @@
+[[ats_geojson]]
+[cols="1,4",width="90%"]
+|===
+2+|*Conformance Class*
+2+|http://www.opengis.net/spec/ogcapi-common/1.0/conf/geojson
+|Target type |Web API
+|===
+
+==== GeoJSON Definition
+
+include::geojson/ATS_definition.adoc[]
+
+==== GeoJSON Content
+
+include::geojson/ATS_content.adoc[]
+
+
+
+
+

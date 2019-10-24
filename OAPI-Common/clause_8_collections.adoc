@@ -7,11 +7,11 @@ include::requirements/requirements_class_collections.adoc[]
 [[collections-overview]]
 === Overview
 
-Spatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Maps. This Conformance Class defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Spatial Resource type.
+Spatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. This Conformance Class defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Spatial Resource type.
 
 OGC APIs are designed to support two access patterns; Hypermedia Access, and Direct Access. OGC APIs support both access patterns through the use of API Definition documents, standardized paths, and standardized hypermedia schemas.
 
-Hypermedia Access was described in the <<navigation-introduction>> section of Clause 7. For Spatial Resources, hypermedia navigation is enabled through the links included in each schema defined by this Reqirement Class. 
+Hypermedia Access was described in the <<navigation-introduction>> section of Clause 8. For Spatial Resources, hypermedia navigation is enabled through the links included in each schema defined by this Reqirement Class. 
 
 Direct access is the use of know URL paths to access a resource directly. The requirements in this Requirement Class are organized around the standard paths for Spatial Data. 
 
@@ -32,7 +32,7 @@ The resources returned from each node in this template are described in <<spatia
 
 [#spatial-resource-paths,reftext='{table-caption} {counter:table-num}']
 .Spatial Resource Paths
-[width="90%",cols="2,4",options="header"]
+[width="90%",cols="3,4",options="header"]
 |===
 ^|**Path Template** ^|**Resource**
 |/collections |Metadata describing the spatial collections avalable from this API.
@@ -61,7 +61,7 @@ include::openapi/schemas/collections.json[]
 
 This schema is further constrained by the following requirements and recomendations.
 
-To support hypermedia navigation, the `links` property must be polulated with sufficient hyperlinks to navigate through the whole dataset.
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
 include::requirements/collections/REQ_rc-md-links.adoc[]
 
@@ -230,7 +230,7 @@ The following general requirements and recomendations apply to all OGC APIs whic
 
 ==== Coordinate Reference Systems
 
-As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
+As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web <<SDWBP,Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
 
 For the reasons discussed in the Best Practices, OGC APIs use WGS84 longitude and latitude as the default coordinate reference system.
 

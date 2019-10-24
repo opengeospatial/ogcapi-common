@@ -10,11 +10,12 @@ include::requirements/requirements_class_oas30.adoc[]
 include::requirements/oas30/REQ_oas-definition-1.adoc[]
 
 CAUTION: link:https://github.com/opengeospatial/WFS_FES/issues/117[ISSUE 117] +
+
 The OpenAPI media type has not been registered yet with IANA and will likely change. We need to update the media type after registration.
 
 include::requirements/oas30/REQ_oas-definition-2.adoc[]
 
-Two example OpenAPI documents are included in <<oas30_example,Annex B>>.
+Two example OpenAPI documents are included in <<oas-examples,Annex B>>.
 
 include::requirements/oas30/REQ_oas-impl.adoc[]
 
@@ -22,7 +23,7 @@ include::requirements/oas30/REQ_oas-impl.adoc[]
 
 include::requirements/oas30/REQ_completeness.adoc[]
 
-Note that APIs that, for example, are access-controlled (see <<security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http_status_codes>>.
+Note that APIs that, for example, are access-controlled (see <<security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http-status-codes>>.
 
 Clients have to be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors may occur in the transport layer outside of the server.
 

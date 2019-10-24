@@ -7,7 +7,7 @@ This clause specifies two pre-defined requirements classes for encodings to be u
 * <<rc_html-section,HTML>>
 * <<rc_geojson-section,GeoJSON>>
 
-Neiter of these encodings are mandatory and an implementation of the <<rc_core-section,Core>> requirements class may implement either, both, or none of them. <<overview,Clause 6 (Overview)>> includes a discussion about recommended encodings.
+Neiter of these encodings are mandatory and an implementation of the <<rc_core-section,Core>> requirements class may implement either, both, or none of them. <<overview,Clause 7 (Overview)>> includes a discussion about recommended encodings.
 
 [[rc_html-section]]
 === Requirement Class "HTML"
@@ -19,8 +19,7 @@ Geographic information that is only accessible in formats like GeoJSON or GML ha
 
 Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, it should be done in a way that enables users and search engines to access all data.
 
-This is discussed in detail in
-link:https://www.w3.org/TR/sdw-bp/#indexable-by-search-engines[Best Practice 2: Make your spatial data indexable by search engines] <<SDWBP>>. This standard therefore <<rec_html,recommends supporting HTML as an encoding>>.
+This is discussed in detail in <<SDWBP,W3C Best Practice 2>>. This standard therefore <<rec_html,recommends>> supporting HTML as an encoding.
 
 include::requirements/requirements_class_html.adoc[]
 

@@ -1,0 +1,14 @@
+[[ats_link_relations]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/link-relations*
+^|Test Purpose |Validate that the required links are included in the returned resource.
+^|Requirement |<<req_core_link-relations,/req/core/link-relations>>
+^|Test Method |Verify that the returned Feature includes:
+
+. a link to this response document (relation: `self`),
+. a link to the response document in every other media type supported by the server (relation: `alternate`).
+. a link to the feature collection that contains this feature (relation: `collection`).
+
+Verify that all links include the `rel` and `type` link parameters.
+|===
