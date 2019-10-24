@@ -35,18 +35,6 @@ include::collections/ATS_rc-response.adoc[]
 ==== Second Tier Tests
 These tests are invoked by other tests.
 
-===== Bounding Box Parameter
-
-include::collections/ATS_rc-bbox-definition.adoc[]
-
-include::collections/ATS_rc-bbox-response.adoc[]
-
-===== Time Parameter
-
-include::collections/ATS_rc-time-definition.adoc[]
-
-include::collections/ATS_rc-time-response.adoc[]
-
 ===== Extent
 
 include::collections/ATS_rc-md-extent.adoc[]
