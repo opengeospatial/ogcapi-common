@@ -1,14 +1,25 @@
-:Title: OGC API-Common Best Practices
-:titletext: {Title}
+:Title: OGC API - Features - Part n: TBD
+:titletext: OGC API - Features - Part n: TBD
 :doctype: book
 :encoding: utf-8
 :lang: en
 :toc:
 :toc-placement!:
 :toclevels: 3
-:numbered:
+:sectnums:
+:sectnumlevels: 4
 :sectanchors:
 :source-highlighter: pygments
+:figure-id: 0
+:table-id: 0
+:req-id: 0
+:rec-id: 0
+:per-id: 0
+:source-highlighter: pygments
+:pygments-style: borland
+:pygments-linenums-mode: table
+
+= {title}
 
 <<<
 [cols = ">",frame = "none",grid = "none"]
@@ -16,13 +27,14 @@
 |{set:cellbgcolor:#FFFFFF}
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
-|Approval Date:   <yyyy-mm-dd>
-|Publication Date:   <2019-10-25>
-|External identifier of this OGC(R) document: http://www.opengis.net/doc/BP/ogcapi-common/1.0
-|Internal reference number of this OGC(R) document:    YY-nnnrx
-|Version: n.n
-|Category: OGC(R) Best Practice
-|Editor:   Charles Heazel
+|Approval Date:  <yyyy-mm-dd>
+|Publication Date:  <yyyy-mm-dd>
+|External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-features-n/1.0
+|Internal reference number of this OGC(R) document:    19-xxx
+|Version: link:http://docs.opengeospatial.org/DRAFTS/19-xxx.html[1.0.0-SNAPSHOT (Editor's draft)]
+|Latest Published Draft: n/a
+|Category: OGC(R) Implementation Specification
+|Editors: TBD
 |===
 
 [cols = "^", frame = "none"]
@@ -42,14 +54,14 @@
 |*Warning*
 |===
 
-This document defines an the OGC Best Practices on the implementation and use of the OGC API-Common standard. This document is not an OGC Standard and may not be referred to as an OGC Standard. It is subject to change without notice. However, this document is an official position of the OGC membership on this particular technology topic.
+This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard.
 
 Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
 
 [width = "50%", grid = "none"]
 |===
-|Document type:   	OGC® Best Practice
-|Document subtype:
+|Document type:   	OGC® Standard
+|Document subtype:   	Interface
 |Document stage:   	Draft
 |Document language: 	English
 |===
@@ -89,25 +101,21 @@ include::clause_4_terms_and_definitions.adoc[]
 
 include::clause_5_conventions.adoc[]
 
-include::clause_6_informative_text.adoc[]
+include::clause_6_cc.adoc[]
 
-include::clause_7_normative_text.adoc[]
+include::clause_7_media_types.adoc[]
 
-<<<
-////
-add or remove annexes after "A" as necessary
-////
-include::annex-a.adoc[]
+include::clause_8_security_considerations.adoc[]
 
 <<<
-include::annex-n.adoc[]
+include::annex_ats.adoc[]
 
 <<<
 ////
 Revision History should be the last annex before the Bibliography
 Bibliography should be the last annex
 ////
-include::annex-history.adoc[]
+include::annex_history.adoc[]
 
 <<<
-include::annex-bibliography.adoc[]
+include::annex_bibliography.adoc[]
