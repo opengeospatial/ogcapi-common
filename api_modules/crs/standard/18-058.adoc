@@ -1,5 +1,5 @@
 :Title: OGC Web Feature Service 3.0: Part 2 - Extension for Coordinate Reference Systems (by reference)
-:titletext: OGC Web Feature Service 3.0 - Part 2: Extension for Coordinate Reference Systems (by reference)
+:titletext: {title}
 :doctype: book
 :encoding: utf-8
 :lang: en
@@ -9,15 +9,11 @@
 :sectnums:
 :sectnumlevels: 4
 :sectanchors:
-:source-highlighter: pygments
 :figure-id: 0
 :table-id: 0
 :req-id: 0
 :rec-id: 0
 :per-id: 0
-:source-highlighter: pygments
-:pygments-style: borland
-:pygments-linenums-mode: table
 
 = {title}
 
@@ -88,19 +84,19 @@ toc::[]
 ////
 Make sure to complete each included document
 ////
-include::clause_00_front_material.adoc[]
+include::clause_0_front_material.adoc[]
 
-include::clause_01_scope.adoc[]
+include::clause_1_scope.adoc[]
 
-include::clause_02_conformance.adoc[]
+include::clause_2_conformance.adoc[]
 
-include::clause_03_references.adoc[]
+include::clause_3_references.adoc[]
 
-include::clause_04_terms_and_definitions.adoc[]
+include::clause_4_terms_and_definitions.adoc[]
 
-include::clause_05_conventions.adoc[]
+include::clause_5_conventions.adoc[]
 
-include::clause_06_crs.adoc[]
+include::clause_6_crs.adoc[]
 
 <<<
 include::annex_ats.adoc[]
