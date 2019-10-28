@@ -19,7 +19,7 @@ The API-Common standard defines resources and access paths that are supported by
 |Collections metadata |`/collections` ^|GET |<<collections-metadata,8.2.1 Collections Metadata>>
 !===
 
-The resources identified in Table 1 primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
+The resources identified in <<tldnr>> primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
 
 This standard also defines common Query operations for OGC APIs. Query operations allow resources or values extracted from those resources to be retrieved from the underlying data store. The information to be returned is based upon selection criteria (query string) provided by the client. This standard only defines simple query parameters which should be applicable to all resource types. Other OGC API standards may define additional query capabilities specific to their resource type. 
 

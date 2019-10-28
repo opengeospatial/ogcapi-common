@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2019-10-24</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2019-10-27</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common/1.0</a></p></td>
@@ -595,7 +595,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_evolution_from_ogc_web_services">7.1. Evolution from OGC Web Services</a></li>
 <li><a href="#_encodings">7.2. Encodings</a></li>
-<li><a href="#use-cases">7.3. Using APIs</a></li>
 </ul>
 </li>
 <li><a href="#rc_core-section">8. Requirement Class "Core"</a>
@@ -778,7 +777,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 <div class="paragraph">
-<p>The resources identified in Table 1 primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.</p>
+<p>The resources identified in <a href="#tldnr">Table 1</a> primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.</p>
 </div>
 <div class="paragraph">
 <p>This standard also defines common Query operations for OGC APIs. Query operations allow resources or values extracted from those resources to be retrieved from the underlying data store. The information to be returned is based upon selection criteria (query string) provided by the client. This standard only defines simple query parameters which should be applicable to all resource types. Other OGC API standards may define additional query capabilities specific to their resource type.</p>
@@ -869,10 +868,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_conformance"><a class="anchor" href="#_conformance"></a>3. Conformance</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
+<p>Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
 </div>
 <div class="paragraph">
-<p>This standard identifies five conformance classes. The conformance classes implemented by an API are advertised through the /conformance path on the landing page. Each conformance class is defined by one or more requirements classes. A requirements class identifies a collection of requirements which appply to that conformance class. Conformant implementations must pass all of the tests in all of the requirements classes for each advertised conformance class.</p>
+<p>This standard identifies five conformance classes. The conformance classes implemented by an API implementation are advertised through the /conformance path on the landing page. Each conformance class is defined by one or more requirements classes. A requirements class identifies a collection of requirements which appply to that conformance class. Conformant implementations must pass all of the tests in all of the requirements classes for each advertised conformance class.</p>
 </div>
 <div class="paragraph">
 <p>The conformance classes in this standard are each associated with only one requirements class. The tests in Annex A are organized by Conformance/Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified for the <em>Core</em> requirements class.</p>
@@ -946,16 +945,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.2</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md</a></p>
 </li>
 <li>
-<p><a id="rfc2616"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
+<p><a id="rfc2616"></a> Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., Berners-Lee, T.: <strong>IETF RFC 2616, HTTP/1.1</strong>, <a href="http://tools.ietf.org/rfc/rfc2616.txt">http://tools.ietf.org/rfc/rfc2616.txt</a></p>
 </li>
 <li>
-<p><a id="rfc2818"></a> Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., Berners-Lee, T.: <strong>IETF RFC 2616, HTTP/1.1</strong>, <a href="http://tools.ietf.org/rfc/rfc2616.txt">http://tools.ietf.org/rfc/rfc2616.txt</a></p>
+<p><a id="rfc2818"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
 </li>
 <li>
 <p><a id="rfc3339"></a> Klyne, G., Newman, C.: <strong>IETF RFC 3339, Date and Time on the Internet: Timestamps</strong>, <a href="http://tools.ietf.org/rfc/rfc3339.txt">http://tools.ietf.org/rfc/rfc3339.txt</a></p>
 </li>
 <li>
-<p><a id="rfc3896"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3896.txt">http://tools.ietf.org/rfc/rfc3896.txt</a></p>
+<p><a id="rfc3896"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3896, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3896.txt">http://tools.ietf.org/rfc/rfc3896.txt</a></p>
 </li>
 <li>
 <p><a id="rfc7946"></a> Butler, H., Daly, M., Doyle, A., Gillies, S., Hagen, S., Schaub, T.: <strong>IETF RFC 7946, The GeoJSON Format</strong>, <a href="https://tools.ietf.org/rfc/rfc7946.txt">https://tools.ietf.org/rfc/rfc7946.txt</a></p>
@@ -1040,7 +1039,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.</p>
 </div>
 <div class="paragraph">
-<p>This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a conformance class for API definitions that follow the <a href="#rc_oas30">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the API landscape continues to evolve.</p>
+<p>This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a conformance class for API definitions that follow the <a href="#rc_oas30-section">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the API landscape continues to evolve.</p>
 </div>
 <div class="paragraph">
 <p>In this document, fragments of OpenAPI definitions are shown in YAML since YAML is easier to format than JSON and is typically used in OpenAPI editors.</p>
@@ -1224,21 +1223,6 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <p>For example, if the server supports <a href="https://tools.ietf.org/html/rfc8142">GeoJSON Text Sequences</a> an encoding that is based on JSON text sequences and GeoJSON to support streaming by making the data incrementally parseable, the media type <code>application/geo+json-seq</code> would be used.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="use-cases"><a class="anchor" href="#use-cases"></a>7.3. Using APIs</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-This is a proposed section to illustrate how OGC APIs can be used. A series of Use Cases with discussion.
-</td>
-</tr>
-</table>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1270,7 +1254,7 @@ This is a proposed section to illustrate how OGC APIs can be used. A series of U
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc5988">RFC 5988 (Web Linking)</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc8288">RFC 8288 (Web Linking)</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1296,6 +1280,9 @@ This is a proposed section to illustrate how OGC APIs can be used. A series of U
 <div class="paragraph">
 <p>A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. Our approach is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelyhood that they will integrate at run-time is greatly enhanced.</p>
 </div>
+<div class="paragraph">
+<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="https://github.com/opengeospatial/oapi_common/blob/master/19-072BP.html#Modular">Best Practices</a> document.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="navigation-introduction"><a class="anchor" href="#navigation-introduction"></a>8.1.3. Navigation</h4>
@@ -1308,71 +1295,52 @@ This is a proposed section to illustrate how OGC APIs can be used. A series of U
 <p>Hypermedia Access is the use of hypermedia links to navigate from one resource to another. This pattern is typical of the Web Browser environment. A resource consumer (typically a human) starts from a landing page, selects a link on that page, then moves on to the referenced resource.</p>
 </div>
 <div class="paragraph">
-<p>Navigation of hyperlinks is facilitated if the hyperlink includes information about the resource type at the link destination. Therefore, OGC APIs will use a set of common link relationships.</p>
+<p>Navigation of hyperlinks is facilitated if the hyperlink includes information about the resource type at the link destination. Therefore, OGC APIs use a set of common link relationships. These link relationships are described in <a href="#link-relations-table">Table 2</a>.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-This may not be testable. Consider removing it as a requirement.
-</td>
-</tr>
-</table>
-</div>
-<table id="req_core_link_relations" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="link-relations-table" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Table 2. Link Relations</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Link Relation</strong></th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Purpose</strong></th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/link-relations</strong></p>
-</div></div></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>alternate</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to this resource in another media type (the media type is specified in the <code>type</code> link attribute)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Links used in OGC APIs SHALL use the following link relations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>alternate</code>: links to this resource in another media type (the media type is specified in the <code>type</code> link attribute)</p>
-</li>
-<li>
-<p><code>conformance</code>: links to conformance information</p>
-</li>
-<li>
-<p><code>data</code>: links to an information resource</p>
-</li>
-<li>
-<p><code>describedBy</code>: links to external resources which further describe the subject resource</p>
-</li>
-<li>
-<p><code>items</code>: links to each individual resource which is included in a collection resource</p>
-</li>
-<li>
-<p><code>self</code>: links to this resource,</p>
-</li>
-<li>
-<p><code>service-desc</code>: links to the API Definition</p>
-</li>
-<li>
-<p><code>service-doc</code>: an alternative to <code>service-desc</code></p>
-</li>
-</ul>
-</div></div></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>conformance</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to conformance information</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>This requirement does not constrain the use of other link relations for resource types not addressed by this requirement.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>data</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to an information resource</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>describedBy</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to external resources which further describe the subject resource</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>items</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to each individual resource which is included in a collection resource</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>self</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to this resource,</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>service-desc</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to the API Definition</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>service-doc</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">an alternative to <code>service-desc</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1457,7 +1425,7 @@ This may not be testable. Consider removing it as a requirement.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/root-op</strong></p>
 </div></div></td>
@@ -1480,7 +1448,7 @@ This may not be testable. Consider removing it as a requirement.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/root-success</strong></p>
 </div></div></td>
@@ -1573,7 +1541,7 @@ This may not be testable. Consider removing it as a requirement.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/api-definition-op</strong></p>
 </div></div></td>
@@ -1596,7 +1564,7 @@ This may not be testable. Consider removing it as a requirement.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/api-definition-success</strong></p>
 </div></div></td>
@@ -1624,7 +1592,7 @@ This may not be testable. Consider removing it as a requirement.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the API definition document uses the OpenAPI Specification 3.0, the document SHOULD conform to the <a href="#rc_oas30">OpenAPI Specification 3.0 requirements class</a>.</p>
+<p>If the API definition document uses the OpenAPI Specification 3.0, the document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specification 3.0 requirements class</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1654,7 +1622,7 @@ This may not be testable. Consider removing it as a requirement.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/conformance-op</strong></p>
 </div></div></td>
@@ -1677,7 +1645,7 @@ This may not be testable. Consider removing it as a requirement.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/conformance-success</strong></p>
 </div></div></td>
@@ -1781,10 +1749,10 @@ Check the link to the Collections section.
 <p>Information Resources associated with a specific collection should be accessed through the <code>/collections</code> path. Those which are not associated with a specific collection should use the <code>/{resourceType}</code> template.</p>
 </div>
 <div class="paragraph">
-<p>The OGC API-Common standard does not define any Information Resource types. However <a href="#information-resource-table">Table 2</a> provides a maping of the know Information Resource types to the standard where they are defined.</p>
+<p>The OGC API-Common standard does not define any Information Resource types. However <a href="#information-resource-table">Table 3</a> provides a maping of the know Information Resource types to the standard where they are defined.</p>
 </div>
 <table id="information-resource-table" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 2. Information Resource Types</caption>
+<caption class="title">Table 3. Information Resource Types</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 66.6667%;">
@@ -1820,7 +1788,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/http</strong></p>
 </div></div></td>
@@ -1843,10 +1811,10 @@ Check the link to the Collections section.
 <div class="sect3">
 <h4 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>8.5.2. HTTP Status Codes</h4>
 <div class="paragraph">
-<p><a href="#status-codes">Table 3</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
+<p><a href="#status-codes">Table 4</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
 </div>
 <table id="status-codes" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Typical HTTP status codes</caption>
+<caption class="title">Table 4. Typical HTTP status codes</caption>
 <colgroup>
 <col style="width: 15%;">
 <col style="width: 85%;">
@@ -1914,7 +1882,7 @@ Check the link to the Collections section.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers MAY support other capabilities of the HTTP protocol and, therefore, MAY return other status codes than those listed in <a href="#status-codes">Table 3</a>, too.</p>
+<p>Servers MAY support other capabilities of the HTTP protocol and, therefore, MAY return other status codes than those listed in <a href="#status-codes">Table 4</a>, too.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2166,10 +2134,10 @@ Check the link to the Collections section.
 </div>
 </div>
 <div class="paragraph">
-<p>The resources returned from each node in this template are described in <a href="#spatial-resource-paths">Table 4</a>.</p>
+<p>The resources returned from each node in this template are described in <a href="#spatial-resource-paths">Table 5</a>.</p>
 </div>
 <table id="spatial-resource-paths" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 4. Spatial Resource Paths</caption>
+<caption class="title">Table 5. Spatial Resource Paths</caption>
 <colgroup>
 <col style="width: 42.8571%;">
 <col style="width: 57.1429%;">
@@ -2209,7 +2177,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-op</strong></p>
 </div></div></td>
@@ -2232,7 +2200,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-success</strong></p>
 </div></div></td>
@@ -2292,7 +2260,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-links</strong></p>
 </div></div></td>
@@ -2366,7 +2334,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-items</strong></p>
 </div></div></td>
@@ -2430,7 +2398,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/src-md-op</strong></p>
 </div></div></td>
@@ -2459,7 +2427,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/src-md-success</strong></p>
 </div></div></td>
@@ -2545,7 +2513,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-items-links</strong></p>
 </div></div></td>
@@ -2619,7 +2587,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-extent</strong></p>
 </div></div></td>
@@ -2697,7 +2665,7 @@ Check the link to the Collections section.
 <p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">Table 3</a>).</p>
+<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">Table 4</a>).</p>
 </div>
 </div>
 </div>
@@ -2715,7 +2683,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-op</strong></p>
 </div></div></td>
@@ -2745,7 +2713,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-response</strong></p>
 </div></div></td>
@@ -2789,10 +2757,10 @@ Check the link to the Collections section.
 </ul>
 </div>
 <div class="paragraph">
-<p>The resources returned from each node in this template are described in <a href="#information-resource-paths">Table 5</a>.</p>
+<p>The resources returned from each node in this template are described in <a href="#information-resource-paths">Table 6</a>.</p>
 </div>
 <table id="information-resource-paths" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 5. Information Resource Paths</caption>
+<caption class="title">Table 6. Information Resource Paths</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 66.6667%;">
@@ -2819,7 +2787,7 @@ Check the link to the Collections section.
 </tbody>
 </table>
 <div class="paragraph">
-<p>The OGC API-Common standard does not define any Information Resource types. However <a href="#information-resource-table">Table 2</a> provides a maping of the know Information Resource types to the standard where they are defined.</p>
+<p>The OGC API-Common standard does not define any Information Resource types. However <a href="#information-resource-table">Table 3</a> provides a maping of the know Information Resource types to the standard where they are defined.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2836,7 +2804,7 @@ Check the link to the Collections section.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-definition</strong></p>
 </div></div></td>
@@ -2871,7 +2839,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-response</strong></p>
 </div></div></td>
@@ -2966,7 +2934,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-definition</strong></p>
 </div></div></td>
@@ -2997,7 +2965,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-response</strong></p>
 </div></div></td>
@@ -3117,7 +3085,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/crs84</strong></p>
 </div></div></td>
@@ -3217,7 +3185,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -3237,7 +3205,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -3320,7 +3288,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/geojson/definition</strong></p>
 </div></div></td>
@@ -3350,7 +3318,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/geojson/content</strong></p>
 </div></div></td>
@@ -3441,7 +3409,7 @@ The following schema names are from API-Features and need to be updated.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -3476,7 +3444,7 @@ The following schema names are from API-Features and need to be updated.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-2</strong></p>
 </div></div></td>
@@ -3499,7 +3467,7 @@ The following schema names are from API-Features and need to be updated.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/oas30/oas-impl</strong></p></td>
 </tr>
 <tr>
@@ -3518,7 +3486,7 @@ The following schema names are from API-Features and need to be updated.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/completeness</strong></p>
 </div></div></td>
@@ -3553,7 +3521,7 @@ The following schema names are from API-Features and need to be updated.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/exceptions-codes</strong></p>
 </div></div></td>
@@ -3593,7 +3561,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/security</strong></p>
 </div></div></td>
@@ -3756,57 +3724,6 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </tbody>
 </table>
 </div>
-<div class="sect4">
-<h5 id="_link_relations_2"><a class="anchor" href="#_link_relations_2"></a>Link Relations</h5>
-<table id="ats_link_relations" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 2</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/link-relations</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the required links are included in the returned resource.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_link-relations">/req/core/link-relations</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Verify that the returned Feature includes:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>a link to this response document (relation: <code>self</code>),</p>
-</li>
-<li>
-<p>a link to the response document in every other media type supported by the server (relation: <code>alternate</code>).</p>
-</li>
-<li>
-<p>a link to the feature collection that contains this feature (relation: <code>collection</code>).</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Verify that all links include the <code>rel</code> and <code>type</code> link parameters.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_landing_page_root"><a class="anchor" href="#_landing_page_root"></a>A.2.2. Landing Page {root}/</h4>
@@ -3817,7 +3734,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/core/root-op</strong></p>
 </div></div></td>
@@ -3859,7 +3776,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/core/root-success</strong></p>
 </div></div></td>
@@ -3904,7 +3821,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <p>The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="landing-page-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 6. Schema and Tests for Landing Pages</caption>
+<caption class="title">Table 7. Schema and Tests for Landing Pages</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -3940,7 +3857,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/core/api-definition-op</strong></p>
 </div></div></td>
@@ -3991,7 +3908,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/core/api-definition-success</strong></p>
 </div></div></td>
@@ -4026,7 +3943,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/core/conformance-op</strong></p>
 </div></div></td>
@@ -4071,7 +3988,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/core/conformance-success</strong></p>
 </div></div></td>
@@ -4139,7 +4056,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/crs84</strong></p>
 </div></div></td>
@@ -4182,7 +4099,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test Suite 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test Suite 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-op</strong></p>
 </div></div></td>
@@ -4224,7 +4141,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections_rc-md-success</strong></p>
 </div></div></td>
@@ -4263,7 +4180,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <p>The Collections content may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="collections-metadata-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 7. Schema and Tests for Collections content</caption>
+<caption class="title">Table 8. Schema and Tests for Collections content</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4299,7 +4216,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/src-md-op</strong></p>
 </div></div></td>
@@ -4333,7 +4250,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/src-md-success</strong></p>
 </div></div></td>
@@ -4380,7 +4297,7 @@ This test is too Feature centric. Will need to be greatly reduced in scope.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-op</strong></p>
 </div></div></td>
@@ -4452,7 +4369,7 @@ and verify that only features are returned that match both selection criteria.</
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-bbox-definition</strong></p>
 </div></div></td>
@@ -4518,7 +4435,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-bbox-response</strong></p>
 </div></div></td>
@@ -4560,7 +4477,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-time-definition</strong></p>
 </div></div></td>
@@ -4603,7 +4520,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-time-response</strong></p>
 </div></div></td>
@@ -4645,7 +4562,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-response</strong></p>
 </div></div></td>
@@ -4699,7 +4616,7 @@ explode: false</code></pre>
 <p>The collections metadata may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="feature-collections-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 8. Schema and Tests for Feature Collections</caption>
+<caption class="title">Table 9. Schema and Tests for Feature Collections</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4740,7 +4657,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/coollections/rc-md-extent</strong></p>
 </div></div></td>
@@ -4785,7 +4702,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 21</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-items</strong></p>
 </div></div></td>
@@ -4830,7 +4747,7 @@ explode: false</code></pre>
 <p>The collection entries may be encoded in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="collection-entry-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 9. Schema and Tests for Collection Entries</caption>
+<caption class="title">Table 10. Schema and Tests for Collection Entries</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4863,7 +4780,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-items-links</strong></p>
 </div></div></td>
@@ -4908,7 +4825,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-links</strong></p>
 </div></div></td>
@@ -4978,7 +4895,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/geojson/definition</strong></p>
 </div></div></td>
@@ -5017,7 +4934,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/geojson/content</strong></p>
 </div></div></td>
@@ -5080,7 +4997,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/html/definition</strong></p>
 </div></div></td>
@@ -5115,7 +5032,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/html/content</strong></p>
 </div></div></td>
@@ -5176,7 +5093,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/oas30/completeness</strong></p>
 </div></div></td>
@@ -5208,7 +5125,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/oas30/exceptions-codes</strong></p>
 </div></div></td>
@@ -5240,7 +5157,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 30</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -5279,7 +5196,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 31</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/oas30/oas-definition-2</strong></p>
 </div></div></td>
@@ -5311,7 +5228,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 32</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/oas30/oas-impl</strong></p>
 </div></div></td>
@@ -5350,7 +5267,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 33</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/oas30/security</strong></p>
 </div></div></td>
@@ -5572,7 +5489,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-24 12:32:56 +0100
+Last updated 2019-10-27 09:53:21 -0400
 </div>
 </div>
 </body>

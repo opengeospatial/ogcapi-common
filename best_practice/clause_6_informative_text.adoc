@@ -1,9 +1,10 @@
-== Clauses not Containing Normative Material
+[[api-philosophy]]
+== OGC API Philosophy
 
-Paragraph
+The Best Practices document contains information useful to a developer of user of OGC API-Common, but not required by the standard.
 
-=== Clauses not containing normative material sub-clause 1
+include::clause_6_modular_api.adoc[]
 
-Paragraph
+include::clause_6_navigation.adoc[]
 
-=== Clauses not containing normative material sub-clause 2
+include::clause_6_api_description.adoc[]

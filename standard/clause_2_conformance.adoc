@@ -1,7 +1,7 @@
 == Conformance
-Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
+Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
-This standard identifies five conformance classes. The conformance classes implemented by an API are advertised through the /conformance path on the landing page. Each conformance class is defined by one or more requirements classes. A requirements class identifies a collection of requirements which appply to that conformance class. Conformant implementations must pass all of the tests in all of the requirements classes for each advertised conformance class.
+This standard identifies five conformance classes. The conformance classes implemented by an API implementation are advertised through the /conformance path on the landing page. Each conformance class is defined by one or more requirements classes. A requirements class identifies a collection of requirements which appply to that conformance class. Conformant implementations must pass all of the tests in all of the requirements classes for each advertised conformance class.
 
 The conformance classes in this standard are each associated with only one requirements class. The tests in Annex A are organized by Conformance/Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified for the _Core_ requirements class.
 
