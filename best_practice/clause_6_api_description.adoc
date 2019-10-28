@@ -1,0 +1,10 @@
+[[api-description]]
+== API Description
+
+_Using and Abusing ApenAPI_
+
+OpenAPI is a useful tool for documenting the design of an API. In addition, numerous tool vendors have produced products to assist in the use of OpenAPI documents. These go so far as to generate stub-code for the use of API and client developers.
+
+However like so many other good tools, OpenAPI was not designed for the size and complexity that we are seeing in Geospatial APIs. This section discusses various features of the OpenAPI specification that can be abused to provide a scalable API Description.
+
+
