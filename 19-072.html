@@ -754,25 +754,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Landing page</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/</code></p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#landing-page">7.2.1 API Landing Page</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#landing-page">API Landing Page</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API definition</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/api</code></p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#api-definition">7.2.2 API Definition</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#api-definition">API Definition</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/conformance</code></p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#conformance-classes">7.2.3 Declaration of Conformance Classes</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#conformance-classes">Declaration of Conformance Classes</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Collections metadata</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/collections</code></p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collections-metadata">8.2.1 Collections Metadata</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collections-metadata">Collections Metadata</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -976,7 +976,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_terms_and_definitions"><a class="anchor" href="#_terms_and_definitions"></a>5. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
+<p>This document uses the terms defined in Sub-clause 5.3 of <a href="https://portal.opengeospatial.org/files/?artifact_id=38867">OGC Web Services Common</a> (OGC 06-121r9), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
 </div>
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
@@ -1039,7 +1039,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.</p>
 </div>
 <div class="paragraph">
-<p>This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a conformance class for API definitions that follow the <a href="#rc_oas30-section">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the API landscape continues to evolve.</p>
+<p>This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a <a href="#rc_oas30-section">conformance class</a> for API definitions that follow the <a href="#openapi">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the API landscape continues to evolve.</p>
 </div>
 <div class="paragraph">
 <p>In this document, fragments of OpenAPI definitions are shown in YAML since YAML is easier to format than JSON and is typically used in OpenAPI editors.</p>
@@ -1148,7 +1148,7 @@ API alternatives to the OWS standards.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Clear separation between core requirements and more advanced capabilities. This document specifies the core or <em>common</em> requirements that are relevant for almost everyone who wants to build a spatial API. Additional capabilities that several communities are using today will be specified as extensions to the Common API.</p>
+<p>Clear separation between common core requirements and more resource specific capabilities. This document specifies the core or <em>common</em> requirements that are relevant for almost everyone who wants to build a spatial API. Additional capabilities that several communities are using today will be specified as extensions to the Common API.</p>
 </li>
 <li>
 <p>Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.</p>
@@ -1281,7 +1281,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <p>A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. Our approach is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelyhood that they will integrate at run-time is greatly enhanced.</p>
 </div>
 <div class="paragraph">
-<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="https://github.com/opengeospatial/oapi_common/blob/master/19-072BP.html#Modular">Best Practices</a> document.</p>
+<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="https://github.com/opengeospatial/oapi_common/blob/master/19-072BP.html#modular-api">Best Practices</a> document.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1345,7 +1345,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 </tbody>
 </table>
 <div class="paragraph">
-<p>OGC API hyperlinks are defined using the following <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/openapi/schemas/link.json">Hyperlink Schema</a>.</p>
+<p>OGC API hyperlinks are defined using the following <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/link.json">Hyperlink Schema</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Hyperlink Schema</div>
@@ -1484,7 +1484,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <p>In addition to the required resources, links to additional resources may be included in the Landing Page.</p>
 </div>
 <div class="paragraph">
-<p>The landing page returned by this operation is based on the following <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/openapi/schemas/landingPage.json">Landing Page Schema</a>. Examples of OGC landing pages are provided in <a href="#landing-page-examples">Example Landing Pages</a>.</p>
+<p>The landing page returned by this operation is based on the following <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json">Landing Page Schema</a>. Examples of OGC landing pages are provided in <a href="#landing-page-examples">Example Landing Pages</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Landing Page Schema</div>
@@ -1665,7 +1665,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 </tbody>
 </table>
 <div class="paragraph">
-<p>The conformance resource returned by this operation is based on the following <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/confClasses.json">Conformance Schema</a>. Examples of OGC conformance resources are provided in <a href="#conformance-response-examples">Conformance Examples</a>.</p>
+<p>The conformance resource returned by this operation is based on the following <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/confClasses.json">Conformance Schema</a>. Examples of OGC conformance resources are provided in <a href="#conformance-response-examples">Conformance Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Conformance Schema</div>
@@ -1703,19 +1703,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <div class="sect2">
 <h3 id="_spatial_resources"><a class="anchor" href="#_spatial_resources"></a>8.3. Spatial Resources</h3>
 <div class="paragraph">
-<p>There is no requirement that every OGC API support Spatial Resources. Therefore, Spatial Resources are addressed in a separate <code>Collections</code> Requirement Class. This class is described in <a href="#rc_collections-section">Collections</a>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Check the link to the Collections section.
-</td>
-</tr>
-</table>
+<p>There is no requirement that every OGC API support Spatial Resources. Therefore, Spatial Resources are addressed in a separate <code>Collections</code> Requirement Class. This class is described in the <a href="#rc_collections-section">Collections</a> section.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1832,7 +1820,7 @@ Check the link to the Collections section.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>304</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An <a href="#web-caching">entity tag was provided in the request</a> and the resource has not been changed since the previous request.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An <a href="#web-caching">entity tag</a> was provided in the request and the resource has not been changed since the previous request.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>400</code></p></td>
@@ -1956,7 +1944,10 @@ Check the link to the Collections section.
 <div class="sect3">
 <h4 id="_encodings_2"><a class="anchor" href="#_encodings_2"></a>8.5.5. Encodings</h4>
 <div class="paragraph">
-<p>While the OAPI Common standard does not specify any mandatory encoding, the following encodings are recommended. See <a href="#overview">Clause 7 (Overview)</a> for a discussion.</p>
+<p>While the OAPI Common standard does not specify any mandatory encoding, the following encodings are recommended. See <a href="#overview">Clause 7 (Overview)</a> for a discussion of this issue.</p>
+</div>
+<div id="rec_html" class="paragraph">
+<p>HTML encoding recomendation:</p>
 </div>
 <table id="rec_core_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1978,6 +1969,9 @@ Check the link to the Collections section.
 </tr>
 </tbody>
 </table>
+<div id="rec_geojson" class="paragraph">
+<p>GeoJSON encoding recomendation:</p>
+</div>
 <table id="rec_core_geojson" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2220,7 +2214,7 @@ Check the link to the Collections section.
 </tbody>
 </table>
 <div class="paragraph">
-<p>The collections metadata returned by this operation is based on the <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collections.json">Collections Metadata Schema</a>. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
+<p>The collections metadata returned by this operation is based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json">Collections Metadata Schema</a>. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Collections Metadata Schema</div>
@@ -2325,7 +2319,7 @@ Check the link to the Collections section.
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>collections</code> property of the Collections Metadata provides a description of each collection. These descriptions are based on the <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. This schema is described in detail in the <a href="#collection-information">Collection Information</a> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.</p>
+<p>The <code>collections</code> property of the Collections Metadata provides a description of each collection. These descriptions are based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. This schema is described in detail in the <a href="#collection-information">Collection Information</a> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.</p>
 </div>
 <table id="req_collections_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2453,7 +2447,7 @@ Check the link to the Collections section.
 </tbody>
 </table>
 <div class="paragraph">
-<p>Collection Information is based on the <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Information are provided in <a href="#collection-information-examples">Collection Information Examples</a>.</p>
+<p>Collection Information is based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Information are provided in <a href="#collection-information-examples">Collection Information Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Collection Information Schema</div>
@@ -2626,7 +2620,7 @@ Check the link to the Collections section.
 </tr>
 </tbody>
 </table>
-<table id="per_core_rc-md-extent-extensions" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_collections_rc-md-extent-extensions" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2635,7 +2629,7 @@ Check the link to the Collections section.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/core/rc-md-extent-extensions</strong></p>
+<p><strong>/per/collections/rc-md-extent-extensions</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2647,7 +2641,7 @@ Check the link to the Collections section.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The Core only supports spatial extents in WGS84 longitude/latitude andtemporal extents in the   calendar (these are the only enum values in <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/schemas/">extent.yaml</a>).</p>
+<p>The Core only supports spatial extents in WGS84 longitude/latitude andtemporal extents in the   calendar (these are the only enum values in <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/extent.yaml">extent.yaml</a>).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2922,7 +2916,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/parameters/bbox.yaml">bbox.yaml</a>.</p>
+<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/parameters/bbox.yaml">bbox.yaml</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3061,7 +3055,7 @@ datetime            = date-time / interval</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/OAPI_Common/master/core/openapi/parameters/datetime.yaml">datetime.yaml</a>.</p>
+<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/parameters/datetime.yaml">datetime.yaml</a>.</p>
 </div>
 </div>
 </div>
@@ -3146,7 +3140,7 @@ datetime            = date-time / interval</code></pre>
 <p>Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, it should be done in a way that enables users and search engines to access all data.</p>
 </div>
 <div class="paragraph">
-<p>This is discussed in detail in <a href="#SDWBP">W3C Best Practice 2</a>. This standard therefore <a href="#rec_html">recommends</a> supporting HTML as an encoding.</p>
+<p>This is discussed in detail in <a href="#SDWBP">W3C Best Practice</a>. This standard therefore <a href="#rec_html">recommends</a> supporting HTML as an encoding.</p>
 </div>
 <table id="rc_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3360,7 +3354,7 @@ The following schema names are from API-Features and need to be updated.
 </table>
 </div>
 <div class="paragraph">
-<p>Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at <a href="https://github.com/opengeospatial/oapi_common/tree/master/standard/openapi/schemas">collectionsGeoJSON.yaml</a> and <a href="https://github.com/opengeospatial/oapi_common/tree/master/standard/openapi/schemas">collectionInfoGeoJSON.yaml</a>.</p>
+<p>Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionGeoJSON.yaml">collectionsGeoJSON.yaml</a> and <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/CollectionInfoGeoJSON.yaml">collectionInfoGeoJSON.yaml</a>.</p>
 </div>
 <div class="paragraph">
 <p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
@@ -3796,7 +3790,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate the landing page for all supported media types using the resources and tests identified in <a href="#landing-page-schema">Schema and Tests for Landing Pages</a></p>
+<p>Validate the landing page for all supported media types using the resources and tests identified in <a href="#landing-page-schema">Table 7</a></p>
 </div>
 <div class="paragraph">
 <p>For formats that require manual inspection, perform the following:</p>
@@ -3837,12 +3831,12 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/landingPage.yaml">landingPage.yaml</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json">landingPage.json</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/ats/html/content</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GeoJSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/landingPage.yaml">landingPage.yaml</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json">landingPage.json</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
 </tr>
 </tbody>
@@ -4010,7 +4004,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Validate the response document against OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/confClasses.yaml">confClasses.yaml</a></p>
+<p>Validate the response document against OpenAPI 3.0 schema <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/confClasses.yaml">confClasses.yaml</a></p>
 </li>
 <li>
 <p>Validate that the document includes the conformance class "http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core"</p>
@@ -4155,7 +4149,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-md-success">/req/collections/rc-md-success</a>, <a href="#req_core_crs84">/req/core/crs84</a></p>
+<p><a href="#req_collections_rc-md-success">/req/collections/rc-md-success</a>, <a href="#req_collections_crs84">/req/collections/crs84</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4169,7 +4163,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <p>In case the response includes a "crs" property, validate that the first value is either "http://www.opengis.net/def/crs/OGC/1.3/CRS84" or "http://www.opengis.net/def/crs/OGC/0/CRS84h"</p>
 </li>
 <li>
-<p>Validate the collections content for all supported media types using the resources and tests identified in <a href="#collections-metadata-schema">Schema and Tests for Collections content</a></p>
+<p>Validate the collections content for all supported media types using the resources and tests identified in <a href="#collections-metadata-schema">Table 8</a></p>
 </li>
 </ol>
 </div></div></td>
@@ -4196,12 +4190,12 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/collections.yaml">collections.yaml</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json">collections.json</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/ats/html/content</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GeoJSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/collections.yaml">collections.yaml</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json">collections.json</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
 </tr>
 </tbody>
@@ -4534,7 +4528,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_ccollections_rc-time-response">/req/collections/rc-time-response</a></p>
+<p><a href="#req_collections_rc-time-response">/req/collections/rc-time-response</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4570,7 +4564,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the Resource Collections complies with the require structure and contents.</p>
+<p>Validate that the Resource Collection complies with the require structure and contents.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4581,64 +4575,9 @@ explode: false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Validate that the <code>type</code> property is present and has a value of <code>FeatureCollection</code></p>
-</li>
-<li>
-<p>Validate the <code>features</code> property is present and that it is populated with an array of <code>feature</code> items.</p>
-</li>
-<li>
-<p>Validate that only Features which match the selection criteria are included in the Feature Collection.</p>
-</li>
-<li>
-<p>If the <code>links</code> property is present, validate that all entries comply with <a href="#ats_core_fc-links">/ats/core/fc-links</a></p>
-</li>
-<li>
-<p>If the <code>timeStamp</code> property is present, validate that it complies with <a href="#ats_core_fc-timeStamp">/ats/core/fc-timeStamp</a></p>
-</li>
-<li>
-<p>If the <code>numberMatched</code> property is present, validate that it complies with <a href="#ats_core_fc-numberMatched">/ats/core/fc-numberMatched</a></p>
-</li>
-<li>
-<p>If the <code>numberReturned</code> property is present, validate that it complies with <a href="#ats_core_fc-numberReturned">/ats/core/fc-numberReturned</a></p>
-</li>
-<li>
-<p>Validate the collections content for all supported media types using the resources and tests identified in <a href="#feature-collections-schema">Schema and Tests for Feature Collections</a></p>
-</li>
-</ol>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The test method is specific to the resource type returned.</p>
 </div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The collections metadata may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p>
-</div>
-<table id="feature-collections-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 9. Schema and Tests for Feature Collections</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Format</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Schema Document</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Test ID</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/featureCollectionGeoJSON.yaml">featureCollectionGeoJSON.yaml</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/ats/html/content</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GeoJSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/featureCollectionGeoJSON.yaml">featureCollectionGeoJSON.yaml</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4730,13 +4669,13 @@ explode: false</code></pre>
 <p>Verify that each collection entry includes an identifier.</p>
 </li>
 <li>
-<p>Verify that each collection entry includes links in accordance with <a href="#ATS_rc-md-items-links">[ATS_rc-md-items-links]</a>.</p>
+<p>Verify that each collection entry includes links in accordance with <a href="#ats_collections_rc-md-items-links">/collections/rc-md-items-links</a>.</p>
 </li>
 <li>
-<p>Verify that if the collection entry includes an extent property, that that property complies with <a href="#ATS_fc-md-extent">[ATS_fc-md-extent]</a></p>
+<p>Verify that if the collection entry includes an extent property, that that property complies with <a href="#ats_collections_rc-md-extent">/collections/rc-md-extent</a></p>
 </li>
 <li>
-<p>Validate each collection entry for all supported media types using the resources and tests identified in <a href="#collection-entry-schema">Schema and Tests for Collection Entries</a></p>
+<p>Validate each collection entry for all supported media types using the resources and tests identified in <a href="#collection-entry-schema">Table 9</a></p>
 </li>
 </ol>
 </div></div></td>
@@ -4747,7 +4686,7 @@ explode: false</code></pre>
 <p>The collection entries may be encoded in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="collection-entry-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 10. Schema and Tests for Collection Entries</caption>
+<caption class="title">Table 9. Schema and Tests for Collection Entries</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4763,12 +4702,12 @@ explode: false</code></pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/collection.yaml">collection.yaml</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Manual Inspection</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://github.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/collectionInfo.json">collectionInfo.json</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/ats/html/content</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GeoJSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/collection.yaml">collection.yaml</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://github.com/opengeospatial/oapi_common/blob/master/standard/openapi/schemas/collectionInfo.json">collectionInfo.json</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
 </tr>
 </tbody>
@@ -4914,13 +4853,26 @@ explode: false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">1) A resource is requested with response media type of <code>application/geo+json</code></p>
-<p class="tableblock"> 2) All <code>200</code>-responses SHALL support the following media types:</p>
-<p class="tableblock">   - <code>application/geo+json</code> for resources that include feature content, and</p>
-<p class="tableblock">   - <code>application/json</code> for all other resources.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A resource is requested with response media type of <code>application/geo+json</code></p>
+</li>
+<li>
+<p>All <code>200</code>-responses SHALL support the following media types:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/geo+json</code> for resources that include feature content, and</p>
+</li>
+<li>
+<p><code>application/json</code> for all other resources.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -5216,7 +5168,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Verify that the JSON representation conforms to the <a href="#OpenAPI">OpenAPI Specification, version 3.0</a>.</p>
+<p>Verify that the JSON representation conforms to the <a href="#openapi">OpenAPI Specification, version 3.0</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5489,7 +5441,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-28 09:49:29 -0400
+Last updated 2019-10-28 14:49:29 +0100
 </div>
 </div>
 </body>

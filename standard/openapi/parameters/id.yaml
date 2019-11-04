@@ -1,6 +1,0 @@
-name: id
-in: path
-description: The id of a resource
-required: true
-schema:
-  type: string

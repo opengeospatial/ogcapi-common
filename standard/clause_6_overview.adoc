@@ -10,7 +10,7 @@ OGC API (OAPI) Common specifies the common kernel of this API approach to servic
 
 Beside the general alignment with the architecture of the Web (e.g., consistency with HTTP/HTTPS, hypermedia controls), another goal for OGC API standards is modularization. This goal has several facets:
 
-* Clear separation between core requirements and more advanced capabilities. This document specifies the core or _common_ requirements that are relevant for almost everyone who wants to build a spatial API. Additional capabilities that several communities are using today will be specified as extensions to the Common API.
+* Clear separation between common core requirements and more resource specific capabilities. This document specifies the core or _common_ requirements that are relevant for almost everyone who wants to build a spatial API. Additional capabilities that several communities are using today will be specified as extensions to the Common API.
 * Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
 * Modularization is not just about a single "service". OGC APIs will provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather it should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other OGC Web API standards.
 

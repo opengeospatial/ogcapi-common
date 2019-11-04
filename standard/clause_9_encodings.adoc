@@ -19,7 +19,7 @@ Geographic information that is only accessible in formats like GeoJSON or GML ha
 
 Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, it should be done in a way that enables users and search engines to access all data.
 
-This is discussed in detail in <<SDWBP,W3C Best Practice 2>>. This standard therefore <<rec_html,recommends>> supporting HTML as an encoding.
+This is discussed in detail in <<SDWBP,W3C Best Practice>>. This standard therefore <<rec_html,recommends>> supporting HTML as an encoding.
 
 include::requirements/requirements_class_html.adoc[]
 
@@ -42,6 +42,6 @@ include::requirements/geojson/REQ_content.adoc[]
 
 NOTE: The following schema names are from API-Features and need to be updated.
 
-Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at link:https://github.com/opengeospatial/oapi_common/tree/master/standard/openapi/schemas[collectionsGeoJSON.yaml] and link:https://github.com/opengeospatial/oapi_common/tree/master/standard/openapi/schemas[collectionInfoGeoJSON.yaml].
+Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionGeoJSON.yaml[collectionsGeoJSON.yaml] and link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/CollectionInfoGeoJSON.yaml[collectionInfoGeoJSON.yaml].
 
 These are generic schemas that do not include any application schema information about specific resource types or their properties.

@@ -13,10 +13,10 @@ The API-Common standard defines resources and access paths that are supported by
 [cols="32,23,15,30",options="header"]
 !===
 ^|Resource ^|Path ^|HTTP Method ^|Document Reference
-|Landing page |`/` ^|GET |<<landing-page,7.2.1 API Landing Page>>
-|API definition |`/api` ^|GET |<<api-definition,7.2.2 API Definition>>
-|Conformance classes |`/conformance` ^|GET |<<conformance-classes,7.2.3 Declaration of Conformance Classes>>
-|Collections metadata |`/collections` ^|GET |<<collections-metadata,8.2.1 Collections Metadata>>
+|Landing page |`/` ^|GET |<<landing-page,API Landing Page>>
+|API definition |`/api` ^|GET |<<api-definition,API Definition>>
+|Conformance classes |`/conformance` ^|GET |<<conformance-classes,Declaration of Conformance Classes>>
+|Collections metadata |`/collections` ^|GET |<<collections-metadata,Collections Metadata>>
 !===
 
 The resources identified in <<tldnr>> primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
