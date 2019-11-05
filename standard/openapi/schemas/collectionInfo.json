@@ -9,8 +9,8 @@
         ],
     "properties": {
         "id": {
-          "type": "string"
-          },
+            "type": "string"
+            },
         "title": {
             "type": "string"
             },
@@ -21,7 +21,11 @@
             "type": "array",
             "items": {"$href": "link.json"}
             },
-        "extent": {"$href": "bbox.yaml"},
+        "extent": {"$href": "extent.json"},
+        "itemType": {
+            "type": "string",
+            "default": "unknown"
+            },
         "crs": {
             "description": "the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system",
             "type": "array",
