@@ -2286,7 +2286,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <div class="paragraph">
 <p>Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.</p>
 </div>
-<table id="rec_collections_rc-md-desciptions" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_collections_rc-md-descriptions" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2295,7 +2295,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recomendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/collections/rc-md-desciptions</strong></p>
+<p><strong>/rec/collections/rc-md-descriptions</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2307,13 +2307,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>This applies to resources that describe to the whole dataset.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The <code>type</code> link parameter SHOULD be provided for each link.</p>
+<p>The <code>type</code> link parameter SHOULD be provided for each link. This applies to resources that describe to the whole dataset.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2350,7 +2344,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <div class="paragraph">
 <p>While it is prefered that the Collections Metadata describe all of the collections accessible through the API, in some cases that is impractical. Developers have an option to only return a subset, as long as they provide a way to retrieve the remaining metadata as well.</p>
 </div>
-<table id="per_core_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_collections_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2359,7 +2353,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/core/rc-md-items</strong></p>
+<p><strong>/per/collections/rc-md-items</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2463,8 +2457,8 @@ Arguably this requires a conformance class for every possible encoding. Do we re
         ],
     "properties": {
         "id": {
-          "type": "string"
-          },
+            "type": "string"
+            },
         "title": {
             "type": "string"
             },
@@ -2475,7 +2469,11 @@ Arguably this requires a conformance class for every possible encoding. Do we re
             "type": "array",
             "items": {"$href": "link.json"}
             },
-        "extent": {"$href": "bbox.yaml"},
+        "extent": {"$href": "extent.json"},
+        "itemType": {
+            "type": "string",
+            "default": "unknown"
+            },
         "crs": {
             "description": "the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system",
             "type": "array",
@@ -2635,13 +2633,13 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The Core only specifies requirements for spatial and temporal extents. However, the <code>extent</code> object MAY be extended with additional members to represent other extents, for example, thermal or pressure ranges.<br></p>
+<p>The Core only specifies requirements for spatial and temporal extents. However, the <code>extent</code> object MAY be extended with additional members to represent other extents, for example, thermal or pressure ranges.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The Core only supports spatial extents in WGS84 longitude/latitude andtemporal extents in the   calendar (these are the only enum values in <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/extent.yaml">extent.yaml</a>).</p>
+<p>The Core only supports spatial extents in WGS84 longitude/latitude and temporal extents in the Gregorian calendar (these are the only enum values in <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/extent.yaml">extent.yaml</a>).</p>
 </div></div></td>
 </tr>
 <tr>
