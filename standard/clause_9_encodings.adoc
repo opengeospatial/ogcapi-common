@@ -42,6 +42,6 @@ include::requirements/geojson/REQ_content.adoc[]
 
 NOTE: The following schema names are from API-Features and need to be updated.
 
-Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.yaml[collections.yaml] and link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/CollectionInfo.yaml[collectionInfo.yaml].
+Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.yaml[collections.yaml] and link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.yaml[collectionInfo.yaml].
 
 These are generic schemas that do not include any application schema information about specific resource types or their properties.
