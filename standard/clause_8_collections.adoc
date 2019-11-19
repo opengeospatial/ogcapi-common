@@ -35,9 +35,9 @@ The resources returned from each node in this template are described in <<spatia
 [width="90%",cols="3,4",options="header"]
 |===
 ^|**Path Template** ^|**Resource**
-|/collections |Metadata describing the spatial collections avalable from this API.
+|/collections |Metadata describing the spatial collections available from this API.
 |/collections/{collectionId} |Metadata describing the collection with the unique identifier `{collectionId}`
-|/collections/{collectionId}/item |The spatial collection resource identified by the `{collectionId}` parameter.
+|/collections/{collectionId}/items |The spatial collection resource identified by the `{collectionId}` parameter.
 |===
 
 [[collections-metadata]]
