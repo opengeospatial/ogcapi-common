@@ -157,12 +157,12 @@ The resources returned from each node in this template are described in <<inform
 [width="90%",cols="2,4",options="header"]
 |===
 ^|**Path Template** ^|**Resource**
-|/collections |The root resource describing the spatial collections avalable from this API.
+|/collections |The root resource describing the spatial collections available from this API.
 |/collections/{collectionId} |Identifies a collection with the unique identifier `{collectionId}`
 |/collections/{collectionId}/{resourceType} |Identifies an Information Resource of type {resourceType} associated with the `{collectionId}` collection.
 |===
 
-The OGC API-Common standard does not define any Information Resource types. However <<information-resource-table>> provides a maping of the know Information Resource types to the standard where they are defined.
+The OGC API-Common standard does not define any Information Resource types. However <<information-resource-table>> provides a mapping of the known Information Resource types to the standard where they are defined.
 
 === Parameter Modules
 
@@ -176,9 +176,9 @@ include::requirements/collections/REQ_rc-bbox-response.adoc[]
 
 "Intersects" means that the rectangular area specified in the parameter `bbox` includes a coordinate that is part of the (spatial) geometry of the resource. This includes the boundaries of the geometries (e.g. for curves the start and end position and for surfaces the outer and inner rings).
 
-This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a latter version of this specification.
+This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this specification.
 
-For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the  box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).
+For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).
 
 .The bounding box of the New Zealand Exclusive Economic Zone
 =================
