@@ -1,9 +1,24 @@
 == Conformance
 Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
-This standard identifies five conformance classes. The conformance classes implemented by an API implementation are advertised through the /conformance path on the landing page. Each conformance class is defined by one or more requirements classes. A requirements class identifies a collection of requirements which appply to that conformance class. Conformant implementations must pass all of the tests in all of the requirements classes for each advertised conformance class.
+=== Approach
+OGC APIs are modular. The _"Core"_ module defines the minimum set of capabilities which are required of all implementations. Extension modules define capability packages which can be added to the API. Each module is a complete package, usually with no extenal dependencies except for _"Core"_. This approach allows the implementor to build an API which suites their needs out of standard, re-usable building blocks.
 
-The conformance classes in this standard are each associated with only one requirements class. The tests in Annex A are organized by Conformance/Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified for the _Core_ requirements class.
+Since OGC APIs are modular, it makes little sense to claim conformance with an OGC API Standard. Rather, you claim conformance with an enumerated set of modules which are defined in a standard. Each module is associated with a Conformance Class as defined in <<ogc08-131,OGC 08-131>>. Each Conformance Class is identified by a URI. The list of Conformance Classes (and associated modules) implemented by an API is advertised by listing their URIs on the _/conformance_ path. Conformance with an API Standard is conformance with the _Core_ Conformance Class as well as all Conformance Classes listed on _/conformance_.
+
+=== Measuring Conformance
+The first step in measuring conformance is to identify the type of entity which is being tested. A standard can have more than one _Standardization Target_. For example, an encoding standard may have requirements which apply to encoded documents. It may also have requirements which apply to the software which produces and/or consumes those documents. The document and software are two different _Standardization Targets_. Conformance for one target does not imply conformance for the other. For this reason, OGC <<ogc08-131,08-131>> requires that a _Conformance Class_ have one and only one _Standardization Target_.
+
+The next step is to select the _Conformance Classes_. The _Standardization Target_ selected serves as the first filter criteria. The _Core Conformance Class_ is always on the list. Finally, the _Conformance Classes_ for all additional modules implemented by the _Standardization Target_ should be included.
+
+A list of _Conformance Classes_ identifies the modules to be evaluated for conformance. But it does not identify the crieria for conformance. _Requirements Classes_ serve that purpose. Each _Conformance Class_ has an associated _Requirements Class_. A _Requirements Class_ serves as the root of a collection of requirements. To prove conformance, a _Standardization Target_ must demonstrate that it meets all of the requirements within the _Requirements Class_ for each _Conformance Class_ it claims to implement.
+
+The Abstract Test Suite (Annex A) provides a test plan for every requirement in every _Requirements Class_. It serves as direction to test developers, ensuring that the _Executable Test Suites_ sufficiently exercise the _Standardization Target_ to prove conformance. Successful completion of the _Executable Test Suite_ for a _Conformance Class_ is proof that all of the requirments for that _Conformance Class_ have been met.   
+
+=== API-Common Conformance
+The one Standardization Target for this standard is Web APIs.
+
+This standard identifies five conformance classes. The conformance classes implemented by an API are advertised through the /conformance path on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
 The requirements classes for OGC API-Common are:
 
