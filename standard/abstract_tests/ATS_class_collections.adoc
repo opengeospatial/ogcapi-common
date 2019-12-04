@@ -1,9 +1,11 @@
 [[ats_cllections]]
 [cols="1,4",width="90%"]
 |===
-2+|*Conformance Class*
+2+|*Conformance Test Class*
 2+|http://www.opengis.net/spec/ogcapi-common/1.0/conf/collections
 |Target type |Web API
+|Requirements Class |<<rc_collections,http://www.opengis.net/spec/ogcapi_common/1.0/req/collections>>
+|Dependency |<<ats_core,Conformance Test Class "OAPI Core">>
 |===
 
 ==== General Tests
