@@ -1,0 +1,101 @@
+=== Architecture
+The following "architecture" captures the core concepts which inform all OGC API standards.
+
+==== Datasets  
+
+Web APIs implement a Resource Oriented approach to Web-based distributed computing. A coherent set of APIs must be based on a common understading of the Resources to be shared. For OGC APIs, those resources would be identified using an abstract concept of a geospatial dataset. Such a dataset would have the following characteristics:
+
+*   A dataset can be a vector feature collection, a coverage/imagery, or a collection of datasets (therefore potentially a mix of any of these things)
+*   A dataset has associated metadata, including some essential information:
+**   Information about what type of data set it is (vector features (and what type of vector features if limited to one type, e.g. polygons,lines, points), coverages (values) / imagery (pixels), or sub-datasets-- more than one of those things)
+**   A textual identifier (e.g. which figures in the resource path)
+**   A title (short name / description)
+**   Access point for the dataset (could be hosted locally or remote)
+**   Geospatial & temporal extent
+**   Resolution/scale
+**   Units/Range/Bit-Depth/Channels/Dimensions etc. for imagery/coverages
+**   A description of queryables, if applicable
+*   Keywords/Tags, and longer descriptions are also a commonly useful piece of metadata information
+*   Any other ISO 19115 metadata fields can also be associated with the dataset, but are nowhere near as essential to discovering and using geospatial data as those mentioned above. Meta data containing at minimum those essential elements can always be retrieved in ISO 19115 and potentially other formats.
+
+==== Processes  
+Processes take one or more datasets as input, add parameters, and produce one or more datasets as output. This ties the processes together with the data delivery services on both ends.  
+
+I suggested so far 3 kinds of processes which can all run on a server where the data lives:
+
+. The complex process built as a container or executable, as typical of WPS
+. Process description languages such as WCPS
+. Pre-defined named processes such as 'vectorization', 'buffering', 'rasterization' or 'rendering of a styled map'
+
+All of these kinds of processes could share aspects such as taking in an OGC API dataset as input and their output being usable as an OGC API dataset, for direct access and/or asynchronous delivery, and support multiple data partitioning/access mechanisms, estimates/billing elements, and so on.
+
+==== Server-side rendering  
+
+Highlighting here that the rendering of a styled maps based on multiple source data sets and a style as a parameter, outputting a styled 'rendered map' imagery dataset as a result, fits perfectly well the description of a process (3).
+
+==== Data partitioning  
+
+For all of data access / exchange mechanisms, e.g. to retrieve coverages/vector features directly, for a process to access its input, or to retrieve the output from a process, or throughout a daisy chain of processes, there are a variety of ways in which data can be partitioned for efficient access. The most efficient way most likely depends on the overall workflow and the implementations on both ends. I am suggesting most of the OGC API should be agnostic of this and support many such ways, so that both ends of such connection or a workflow manager can negotiate the best approach. Examples of different ways to partition/access data include:
+
+*   Bounding boxes
+*   Tiles
+*   n-dimensional sub-setting
+*   DGGS cells
+*   Single point value
+
+This is the overall diagram of these ideas that I presented a couple weeks back at the OWS Common telecon and got the chance to explain in more details in person to some of you:
+
+image::images/Dataset_Concept.png[]
+
+You might notice that this is color-coded based on where these API blocks originated from in classic services:
+
+* Orange: Coverages (WCS)  
+* Red: Server-side rendering (WMS)  
+* Blue: Processes (WPS)  
+* Green: Vector features (WFS)  
+* Very light blue: Catalogs (CSW)  
+* Violet: Tiles (WMTS)
+
+==== Resource Paths
+
+The resources exposed through OGC APIs are accessed through standardized URL templates. These "paths" and their associated resources are described in <<dataset-paths>>. This table documents the paths and resources as of December 2019. This information will be updated as these standards mature.
+
+[#dataset-paths,reftext='{table-caption} {counter:table-num}']
+.OGC Dataset Paths
+[width="90%",cols="2,4",options="header"]
+|===
+^|**Path Template** ^|**Resource**
+2+^|**Common**
+|/collections |Metadata describing the spatial collections available from this API.
+|/collections/{collectionId} |Metadata describing the collection which has the unique identifier `{collectionId}`
+2+^|**Features**
+|/collections/{collectionId} |The Feature Collection resource identified by the `{collectionId}` parameter.
+|/collections/{collectionId}/items |The individual Features in a Feature Collection
+2+^|**Coverages**
+|/collections/{collectionId}/coverage |A general description of the coverage identified by {collectionId} including the coverage's envelope.
+|/collections/{collectionid}/coverage/description |returns the whole coverage description consisting of domainset, rangetype, and metadata (but not the rangeset)
+|/collections/{collectionid}/coverage/domainset |returns the coverage's domain set definition
+|/collections/{collectionid}/coverage/rangetype |returns the coverage's range type information (i.e., a description of the data semantics)
+|/collections/{collectionid}/coverage/metadata |returns the coverage's metadata (may be empty)
+|/collections/{collectionid}/coverage/rangeset |returns the coverage's range set, i.e., the actual values in the coverage's Native Format (see format encoding for ways to retrieve inspecific formats)
+|/collections/{collectionid}/coverage/all |returns all of the above namely the coverage's domainset, rangetype, meatadata, and rangeset comparable to a GetCoverage response
+2+^|**Maps and Styles**
+2+^|Note: A map is associated with a resource. {resource} is a place holder for a path segment appropriate for a resource type. 
+|/collections/{collectionId}/{resource}/map |A data structure with specific information necessary to get a fragment of the map representing the resource collection.
+|/collections/{collectionId}/{resource}/map/{styleId} |A map representing the geospatial resource identified by /collections/{collectionId}/{resource}.
+2+^|**Tiles**
+2+^|Note: A tile is associated with a resource. {resource} is a place holder for a path segment appropriate for a resource type. 
+|/collections/{collectionId}/{resource}/tile/{styleId}/{tileMatrixSetId}/{tileMatrixId}/{tileRow}/{tileCol} |Tile representation of real-world elements at a given resolution restricted by the selected Tile Matrix Set. {styleId} is optional.
+|/collections/{collectionId}/{resource}/tiles |An enumeration of the Tiles and Styles that are available at some TileMatrixSetId
+|/tileMatrixSet/{tileMatrixSetId} |A description of the TileMatrixSet identified by the {tileMatrixSetId} identifier.
+2+^|**Processes**
+|/process |Lists the processes this API offers.
+|/processes/{process-id} |Returns a detailed description of a process.
+|/processes/{process-id}/jobs |Returns the running and finished jobs for a process (GET), Executes a process, i.e. creates a new job. Inputs and outputs will have to be specified in a JSON document that needs to be send in the POST body. (POST)
+|/processes/{process-id}/jobs/{job-id} |Returns the status of a job of a process.
+|/processes/{process-id}/jobs/{job-id}/results |Returns the result of a job of a process.
+2+^|**Records (Catalog)**
+|/collections/{collectionId}/tbd |TBD
+
+|===
+
