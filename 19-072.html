@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2019-11-18</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2019-12-13</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common/1.0</a></p></td>
@@ -471,7 +471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    19-072</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.5</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.6</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC&#174; Implementation Specification</p></td>
@@ -571,8 +571,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_references">4. References</a></li>
 <li><a href="#_terms_and_definitions">5. Terms and Definitions</a>
 <ul class="sectlevel2">
-<li><a href="#_dataset">5.1. dataset</a></li>
-<li><a href="#_distribution">5.2. distribution</a></li>
+<li><a href="#_conformance_module_conformance_test_module">5.1. Conformance Module; Conformance Test Module</a></li>
+<li><a href="#_conformance_class_conformance_test_class">5.2. Conformance Class; Conformance Test Class</a></li>
+<li><a href="#_dataset">5.3. dataset</a></li>
+<li><a href="#_distribution">5.4. Distribution</a></li>
+<li><a href="#_executable_test_suite_ets">5.5. Executable Test Suite (ETS)</a></li>
+<li><a href="#_recommendation">5.6. Recommendation</a></li>
+<li><a href="#_requirement">5.7. Requirement</a></li>
+<li><a href="#_requirements_class">5.8. Requirements Class</a></li>
+<li><a href="#_requirements_module">5.9. Requirements Module</a></li>
+<li><a href="#_standardization_target">5.10. Standardization Target</a></li>
 </ul>
 </li>
 <li><a href="#_conventions">6. Conventions</a>
@@ -871,10 +879,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
 </div>
 <div class="paragraph">
-<p>This standard identifies five conformance classes. The conformance classes implemented by an API implementation are advertised through the /conformance path on the landing page. Each conformance class is defined by one or more requirements classes. A requirements class identifies a collection of requirements which appply to that conformance class. Conformant implementations must pass all of the tests in all of the requirements classes for each advertised conformance class.</p>
+<p>The one Standardization Target for this standard is Web APIs.</p>
 </div>
 <div class="paragraph">
-<p>The conformance classes in this standard are each associated with only one requirements class. The tests in Annex A are organized by Conformance/Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified for the <em>Core</em> requirements class.</p>
+<p>OGC API-Common provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.</p>
+</div>
+<div class="paragraph">
+<p>This standard identifies five conformance classes. The conformance classes implemented by an API are advertised through the /conformance path on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
 </div>
 <div class="paragraph">
 <p>The requirements classes for OGC API-Common are:</p>
@@ -982,18 +993,81 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
 </div>
 <div class="sect2">
-<h3 id="_dataset"><a class="anchor" href="#_dataset"></a>5.1. dataset</h3>
+<h3 id="_conformance_module_conformance_test_module"><a class="anchor" href="#_conformance_module_conformance_test_module"></a>5.1. Conformance Module; Conformance Test Module</h3>
+<div class="paragraph">
+<p>set of related tests, all within a single conformance test class (<a href="#ogc08-131">OGC 08-131</a>)</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: When no ambiguity is possible, the word `test` may be omitted. i.e. conformance test module is the same as conformance module. Conformance modules may be nested in a hierarchical way.</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conformance_class_conformance_test_class"><a class="anchor" href="#_conformance_class_conformance_test_class"></a>5.2. Conformance Class; Conformance Test Class</h3>
+<div class="paragraph">
+<p>set of conformance test modules that must be applied to receive a single certificate of conformance (<a href="#ogc08-131">OGC 08-131</a>)</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: When no ambiguity is possible, the word _test_ may be left out, so conformance test class maybe called a conformance class.</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dataset"><a class="anchor" href="#_dataset"></a>5.3. dataset</h3>
 <div class="paragraph">
 <p>collection of data, published or curated by a single agent, and available for access or download in one or more formats (DCAT)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_distribution"><a class="anchor" href="#_distribution"></a>5.2. distribution</h3>
+<h3 id="_distribution"><a class="anchor" href="#_distribution"></a>5.4. Distribution</h3>
 <div class="paragraph">
 <p>represents an accessible form of a <strong>dataset</strong> (DCAT)</p>
 </div>
 <div class="paragraph">
 <p>EXAMPLE: a downloadable file, an RSS feed or a web service that provides the data.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_executable_test_suite_ets"><a class="anchor" href="#_executable_test_suite_ets"></a>5.5. Executable Test Suite (ETS)</h3>
+<div class="paragraph">
+<p>A set of code (e.g. Java and CTL) that provides runtime tests for the assertions defined by the ATS. Test data required to do the tests are part of the ETS <a href="https://portal.opengeospatial.org/files/?artifact_id=55234">(OGC 08-134)</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_recommendation"><a class="anchor" href="#_recommendation"></a>5.6. Recommendation</h3>
+<div class="paragraph">
+<p>expression in the content of a document conveying that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is deprecated but not prohibited (<a href="#ogc08-131">OGC 08-131</a>)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_requirement"><a class="anchor" href="#_requirement"></a>5.7. Requirement</h3>
+<div class="paragraph">
+<p>expression in the content of a document conveying criteria to be fulfilled if compliance with the document is to be claimed and from which no deviation is permitted (<a href="#ogc08-131">OGC 08-131</a>)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements_class"><a class="anchor" href="#_requirements_class"></a>5.8. Requirements Class</h3>
+<div class="paragraph">
+<p>aggregate of all requirement modules that must all be satisfied to satisfy a conformance test class (<a href="#ogc08-131">OGC 08-131</a>)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements_module"><a class="anchor" href="#_requirements_module"></a>5.9. Requirements Module</h3>
+<div class="paragraph">
+<p>aggregate of requirements and recommendations of a specification against a single standardization target type (<a href="#ogc08-131">OGC 08-131</a>)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_standardization_target"><a class="anchor" href="#_standardization_target"></a>5.10. Standardization Target</h3>
+<div class="paragraph">
+<p>entity to which some requirements of a standard apply (<a href="#ogc08-131">OGC 08-131</a>)</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: The standardization target is the entity which may receive a certificate of conformance for a requirements class.</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1844,7 +1918,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>406</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Content negotiation failed. For example, the <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>500</code></p></td>
@@ -2082,6 +2156,10 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "OAPI Core"</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc3339">RFC 3339 (Date and Time on the Internet: Timestamps)</a></p></td>
 </tr>
 </tbody>
@@ -2145,14 +2223,14 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the spatial collections avalable from this API.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the spatial collections available from this API.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the collection with the unique identifier <code>{collectionId}</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/item</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/items</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The spatial collection resource identified by the <code>{collectionId}</code> parameter.</p></td>
 </tr>
 </tbody>
@@ -2766,7 +2844,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The root resource describing the spatial collections avalable from this API.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The root resource describing the spatial collections available from this API.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
@@ -2779,7 +2857,7 @@ Arguably this requires a conformance class for every possible encoding. Do we re
 </tbody>
 </table>
 <div class="paragraph">
-<p>The OGC API-Common standard does not define any Information Resource types. However <a href="#information-resource-table">Table 3</a> provides a maping of the know Information Resource types to the standard where they are defined.</p>
+<p>The OGC API-Common standard does not define any Information Resource types. However <a href="#information-resource-table">Table 3</a> provides a mapping of the known Information Resource types to the standard where they are defined.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2900,10 +2978,10 @@ explode: false</code></pre>
 <p>"Intersects" means that the rectangular area specified in the parameter <code>bbox</code> includes a coordinate that is part of the (spatial) geometry of the resource. This includes the boundaries of the geometries (e.g. for curves the start and end position and for surfaces the outer and inner rings).</p>
 </div>
 <div class="paragraph">
-<p>This standard does not specify requirements for the parameter <code>bbox-crs</code>. Those requirements will be specified in a latter version of this specification.</p>
+<p>This standard does not specify requirements for the parameter <code>bbox-crs</code>. Those requirements will be specified in a later version of this specification.</p>
 </div>
 <div class="paragraph">
-<p>For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the  box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).</p>
+<p>For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).</p>
 </div>
 <div class="exampleblock">
 <div class="title">Example 2. The bounding box of the New Zealand Exclusive Economic Zone</div>
@@ -3158,7 +3236,7 @@ datetime            = date-time / interval</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Conformance Class "OAPI Core"</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "OAPI Core"</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3265,7 +3343,7 @@ datetime            = date-time / interval</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">OAPI Core</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "OAPI Core"</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3386,7 +3464,7 @@ The following schema names are from API-Features and need to be updated.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Conformance Class "OAPI Core"</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "OAPI Core"</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3669,6 +3747,10 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">http://www.opengis.net/spec/ogcapi_common/1.0/req/core</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4035,6 +4117,14 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_collections">http://www.opengis.net/spec/ogcapi_common/1.0/req/collections</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core">Conformance Class "OAPI Core"</a></p></td>
+</tr>
 </tbody>
 </table>
 <div class="sect3">
@@ -4091,7 +4181,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test Suite 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-op</strong></p>
 </div></div></td>
@@ -4821,6 +4911,14 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_geojson">http://www.opengis.net/spec/ogcapi_common/1.0/req/geojson</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core">Conformance Class "OAPI Core"</a></p></td>
+</tr>
 </tbody>
 </table>
 <div class="sect3">
@@ -4936,6 +5034,14 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_html">http://www.opengis.net/spec/ogcapi_common/1.0/req/html</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core">Conformance Class "OAPI Core"</a></p></td>
+</tr>
 </tbody>
 </table>
 <div class="sect3">
@@ -5033,6 +5139,14 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_oas3">http://www.opengis.net/spec/ogcapi_common/1.0/req/oas3</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_core">Conformance Class "OAPI Core"</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -5326,10 +5440,16 @@ include::examples/tbd.adoc[]
 <p>This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". It includes links to the collection resource in all formats that are supported by the API (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "items").</p>
 </div>
 <div class="paragraph">
-<p>Representations of the metadata resource in other formats are referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "alternate".</p>
+<p>There is a link to the feature collections response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
+</div>
+<div class="paragraph">
+<p>Representations of this resource in other formats are referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "alternate".</p>
 </div>
 <div class="paragraph">
 <p>An additional link is to a GML application schema for the dataset - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".</p>
+</div>
+<div class="paragraph">
+<p>A bulk download of all the features in the dataset is referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "enclosure"</p>
 </div>
 <div class="paragraph">
 <p>Finally there are also links to the license information for the building data (using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "license").</p>
@@ -5429,6 +5549,9 @@ include::examples/tbd.adoc[]
 <div class="ulist">
 <ul>
 <li>
+<p><a id="ogc08-131"></a> Open Geospatial Consortium: The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
+</li>
+<li>
 <p><a id="SDWBP"></a> W3C/OGC: Spatial Data on the Web Best Practices, W3C Working Group Note 28 September 2017, <a href="https://www.w3.org/TR/sdw-bp/" class="bare">https://www.w3.org/TR/sdw-bp/</a></p>
 </li>
 <li>
@@ -5448,7 +5571,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-11-18 13:18:00 UTC
+Last updated 2019-12-13 19:10:18 UTC
 </div>
 </div>
 </body>
