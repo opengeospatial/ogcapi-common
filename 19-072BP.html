@@ -461,7 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2019-11-03&gt;</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2019-12-13&gt;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/BP/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/BP/ogcapi-common/1.0</a></p></td>
@@ -583,12 +583,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#api-philosophy">6. OGC API Philosophy</a></li>
 <li><a href="#modular-api">7. Modular APIs</a></li>
 <li><a href="#api-navigation">8. Navigation</a></li>
-<li><a href="#api-description">9. API Description</a></li>
-<li><a href="#_clause_containing_normative_material">10. Clause containing normative material</a>
+<li><a href="#_architecture">9. Architecture</a>
 <ul class="sectlevel2">
-<li><a href="#_requirement_class_a_or_requirement_a_example">10.1. Requirement Class A or Requirement A Example</a>
+<li><a href="#_datasets">9.1. Datasets</a></li>
+<li><a href="#_processes">9.2. Processes</a></li>
+<li><a href="#_server_side_rendering">9.3. Server-side rendering</a></li>
+<li><a href="#_data_partitioning">9.4. Data partitioning</a></li>
+<li><a href="#_resource_paths">9.5. Resource Paths</a></li>
+</ul>
+</li>
+<li><a href="#api-description">10. API Description</a></li>
+<li><a href="#_clause_containing_normative_material">11. Clause containing normative material</a>
+<ul class="sectlevel2">
+<li><a href="#_requirement_class_a_or_requirement_a_example">11.1. Requirement Class A or Requirement A Example</a>
 <ul class="sectlevel3">
-<li><a href="#_requirement_1">10.1.1. Requirement 1</a></li>
+<li><a href="#_requirement_1">11.1.1. Requirement 1</a></li>
 </ul>
 </li>
 </ul>
@@ -846,7 +855,291 @@ Global Grid Forum (2002)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="api-description"><a class="anchor" href="#api-description"></a>9. API Description</h2>
+<h2 id="_architecture"><a class="anchor" href="#_architecture"></a>9. Architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following "architecture" captures the core concepts which inform all OGC API standards.</p>
+</div>
+<div class="sect2">
+<h3 id="_datasets"><a class="anchor" href="#_datasets"></a>9.1. Datasets</h3>
+<div class="paragraph">
+<p>Web APIs implement a Resource Oriented approach to Web-based distributed computing. A coherent set of APIs must be based on a common understading of the Resources to be shared. For OGC APIs, those resources would be identified using an abstract concept of a geospatial dataset. Such a dataset would have the following characteristics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A dataset can be a vector feature collection, a coverage/imagery, or a collection of datasets (therefore potentially a mix of any of these things)</p>
+</li>
+<li>
+<p>A dataset has associated metadata, including some essential information:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Information about what type of data set it is (vector features (and what type of vector features if limited to one type, e.g. polygons,lines, points), coverages (values) / imagery (pixels), or sub-datasets-- more than one of those things)</p>
+</li>
+<li>
+<p>A textual identifier (e.g. which figures in the resource path)</p>
+</li>
+<li>
+<p>A title (short name / description)</p>
+</li>
+<li>
+<p>Access point for the dataset (could be hosted locally or remote)</p>
+</li>
+<li>
+<p>Geospatial &amp; temporal extent</p>
+</li>
+<li>
+<p>Resolution/scale</p>
+</li>
+<li>
+<p>Units/Range/Bit-Depth/Channels/Dimensions etc. for imagery/coverages</p>
+</li>
+<li>
+<p>A description of queryables, if applicable</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Keywords/Tags, and longer descriptions are also a commonly useful piece of metadata information</p>
+</li>
+<li>
+<p>Any other ISO 19115 metadata fields can also be associated with the dataset, but are nowhere near as essential to discovering and using geospatial data as those mentioned above. Meta data containing at minimum those essential elements can always be retrieved in ISO 19115 and potentially other formats.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_processes"><a class="anchor" href="#_processes"></a>9.2. Processes</h3>
+<div class="paragraph">
+<p>Processes take one or more datasets as input, add parameters, and produce one or more datasets as output. This ties the processes together with the data delivery services on both ends.</p>
+</div>
+<div class="paragraph">
+<p>I suggested so far 3 kinds of processes which can all run on a server where the data lives:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The complex process built as a container or executable, as typical of WPS</p>
+</li>
+<li>
+<p>Process description languages such as WCPS</p>
+</li>
+<li>
+<p>Pre-defined named processes such as 'vectorization', 'buffering', 'rasterization' or 'rendering of a styled map'</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>All of these kinds of processes could share aspects such as taking in an OGC API dataset as input and their output being usable as an OGC API dataset, for direct access and/or asynchronous delivery, and support multiple data partitioning/access mechanisms, estimates/billing elements, and so on.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_server_side_rendering"><a class="anchor" href="#_server_side_rendering"></a>9.3. Server-side rendering</h3>
+<div class="paragraph">
+<p>Highlighting here that the rendering of a styled maps based on multiple source data sets and a style as a parameter, outputting a styled 'rendered map' imagery dataset as a result, fits perfectly well the description of a process (3).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_partitioning"><a class="anchor" href="#_data_partitioning"></a>9.4. Data partitioning</h3>
+<div class="paragraph">
+<p>For all of data access / exchange mechanisms, e.g. to retrieve coverages/vector features directly, for a process to access its input, or to retrieve the output from a process, or throughout a daisy chain of processes, there are a variety of ways in which data can be partitioned for efficient access. The most efficient way most likely depends on the overall workflow and the implementations on both ends. I am suggesting most of the OGC API should be agnostic of this and support many such ways, so that both ends of such connection or a workflow manager can negotiate the best approach. Examples of different ways to partition/access data include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bounding boxes</p>
+</li>
+<li>
+<p>Tiles</p>
+</li>
+<li>
+<p>n-dimensional sub-setting</p>
+</li>
+<li>
+<p>DGGS cells</p>
+</li>
+<li>
+<p>Single point value</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This is the overall diagram of these ideas that I presented a couple weeks back at the OWS Common telecon and got the chance to explain in more details in person to some of you:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Dataset_Concept.png" alt="Dataset Concept">
+</div>
+<div class="title">Figure 1. Dataset Concept</div>
+</div>
+<div class="paragraph">
+<p>You might notice that this is color-coded based on where these API blocks originated from in classic services:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Orange: Coverages (WCS)</p>
+</li>
+<li>
+<p>Red: Server-side rendering (WMS)</p>
+</li>
+<li>
+<p>Blue: Processes (WPS)</p>
+</li>
+<li>
+<p>Green: Vector features (WFS)</p>
+</li>
+<li>
+<p>Very light blue: Catalogs (CSW)</p>
+</li>
+<li>
+<p>Violet: Tiles (WMTS)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_paths"><a class="anchor" href="#_resource_paths"></a>9.5. Resource Paths</h3>
+<div class="paragraph">
+<p>The resources exposed through OGC APIs are accessed through standardized URL templates. These "paths" and their associated resources are described in <a href="#dataset-paths">Table 1</a>. This table documents the paths and resources as of December 2019. This information will be updated as these standards mature.</p>
+</div>
+<table id="dataset-paths" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Table 1. OGC Dataset Paths</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Path Template</strong></th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Resource</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Common</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the spatial collections available from this API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the collection which has the unique identifier <code>{collectionId}</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Features</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The Feature Collection resource identified by the <code>{collectionId}</code> parameter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/items</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The individual Features in a Feature Collection</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Coverages</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/coverage</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A general description of the coverage identified by {collectionId} including the coverage&#8217;s envelope.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/description</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the whole coverage description consisting of domainset, rangetype, and metadata (but not the rangeset)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/domainset</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s domain set definition</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/rangetype</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range type information (i.e., a description of the data semantics)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/metadata</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s metadata (may be empty)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/rangeset</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range set, i.e., the actual values in the coverage&#8217;s Native Format (see format encoding for ways to retrieve inspecific formats)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/all</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns all of the above namely the coverage&#8217;s domainset, rangetype, meatadata, and rangeset comparable to a GetCoverage response</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Maps and Styles</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: A map is associated with a resource. {resource} is a place holder for a path segment appropriate for a resource type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/map</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A data structure with specific information necessary to get a fragment of the map representing the resource collection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/map/{styleId}</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A map representing the geospatial resource identified by /collections/{collectionId}/{resource}.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Tiles</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: A tile is associated with a resource. {resource} is a place holder for a path segment appropriate for a resource type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/tile/{styleId}/{tileMatrixSetId}/{tileMatrixId}/{tileRow}/{tileCol}</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Tile representation of real-world elements at a given resolution restricted by the selected Tile Matrix Set. {styleId} is optional.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/tiles</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An enumeration of the Tiles and Styles that are available at some TileMatrixSetId</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/tileMatrixSet/{tileMatrixSetId}</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A description of the TileMatrixSet identified by the {tileMatrixSetId} identifier.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Processes</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/process</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Lists the processes this API offers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns a detailed description of a process.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}/jobs</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns the running and finished jobs for a process (GET), Executes a process, i.e. creates a new job. Inputs and outputs will have to be specified in a JSON document that needs to be send in the POST body. (POST)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}/jobs/{job-id}</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns the status of a job of a process.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}/jobs/{job-id}/results</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns the result of a job of a process.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Records (Catalog)</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/tbd</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TBD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="api-description"><a class="anchor" href="#api-description"></a>10. API Description</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Using and Abusing ApenAPI</em></p>
@@ -860,13 +1153,13 @@ Global Grid Forum (2002)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_clause_containing_normative_material"><a class="anchor" href="#_clause_containing_normative_material"></a>10. Clause containing normative material</h2>
+<h2 id="_clause_containing_normative_material"><a class="anchor" href="#_clause_containing_normative_material"></a>11. Clause containing normative material</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Paragraph</p>
 </div>
 <div class="sect2">
-<h3 id="_requirement_class_a_or_requirement_a_example"><a class="anchor" href="#_requirement_class_a_or_requirement_a_example"></a>10.1. Requirement Class A or Requirement A Example</h3>
+<h3 id="_requirement_class_a_or_requirement_a_example"><a class="anchor" href="#_requirement_class_a_or_requirement_a_example"></a>11.1. Requirement Class A or Requirement A Example</h3>
 <div class="paragraph">
 <p>Paragraph – intro text for the requirement class.</p>
 </div>
@@ -915,7 +1208,7 @@ requirement description</p></td>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_requirement_1"><a class="anchor" href="#_requirement_1"></a>10.1.1. Requirement 1</h4>
+<h4 id="_requirement_1"><a class="anchor" href="#_requirement_1"></a>11.1.1. Requirement 1</h4>
 <div class="paragraph">
 <p>Paragraph - intro text for the requirement.</p>
 </div>
@@ -1130,7 +1423,7 @@ Place other Annex material in sequential annexes beginning with "B" and leave fi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-11-04 03:44:02 UTC
+Last updated 2019-12-13 19:12:59 UTC
 </div>
 </div>
 </body>
