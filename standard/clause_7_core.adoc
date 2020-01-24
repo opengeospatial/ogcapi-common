@@ -4,6 +4,8 @@
 
 include::requirements/requirements_class_core.adoc[]
 
+NOTE: ISSUE: Should OGC API standards be organized by concept? See issue https://github.com/opengeospatial/oapi_common/issues/86[86].
+
 [[core-overview]]
 === Overview
 
@@ -193,6 +195,8 @@ include::requirements/core/REQ_http.adoc[]
 [[http-status-codes]]
 ==== HTTP Status Codes
 
+NOTE: ISSUE: Should we expand our explantion of HTTP status codes? See issues https://github.com/opengeospatial/oapi_common/issues/75[75], and https://github.com/opengeospatial/oapi_common/issues/73[73].
+
 <<status-codes>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
 
 [#status-codes,reftext='{table-caption} {counter:table-num}']
@@ -235,6 +239,8 @@ Two common mechanisms to support cross-origin requests are:
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
 ==== Encodings
+
+NOTE: ISSUE: Is this discussion of content negotiation sufficient? If not, what else do we need? See issues https://github.com/opengeospatial/oapi_common/issues/57[57] and https://github.com/opengeospatial/oapi_common/issues/28[28].
 
 While the OAPI Common standard does not specify any mandatory encoding, the following encodings are recommended. See <<overview,Clause 7 (Overview)>> for a discussion of this issue.
 

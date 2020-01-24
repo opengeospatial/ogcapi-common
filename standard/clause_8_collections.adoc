@@ -166,6 +166,10 @@ The OGC API-Common standard does not define any Information Resource types. Howe
 
 === Parameter Modules
 
+NOTE: ISSUE: Should we add a limit parameter. See GitHub issues https://github.com/opengeospatial/oapi_common/issues/87[87], https://github.com/opengeospatial/oapi_common/issues/83[83], and https://github.com/opengeospatial/oapi_common/issues/82[82].
+
+NOTE: ISSUE: Should we be more explicit about the scope of parameters and other elements of the API definition?  See issues https://github.com/opengeospatial/oapi_common/issues/67[67] and https://github.com/opengeospatial/oapi_common/issues/88[88]. Also see API-Coverages issue https://github.com/opengeospatial/ogc_api_coverages/issues/53[53].   
+
 Query parameters are used in URLs to limit the resources which are returned on a GET request. The API Common standard defines two standard parameters for use in OGC API standards.
 
 ==== Parameter bbox
