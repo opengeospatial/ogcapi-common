@@ -11,7 +11,7 @@ Spatial Resources are the resources which we usually think of as Geospatial Data
 
 OGC APIs are designed to support two access patterns; Hypermedia Access, and Direct Access. OGC APIs support both access patterns through the use of API Definition documents, standardized paths, and standardized hypermedia schemas.
 
-Hypermedia Access was described in the <<navigation-introduction>> section of Clause 8. For Spatial Resources, hypermedia navigation is enabled through the links included in each schema defined by this Reqirement Class. 
+Hypermedia Access was described in the <<navigation-introduction>> section of Clause 8. For Spatial Resources, hypermedia navigation is enabled through the links included in each schema defined by this Requirement Class. 
 
 Direct access is the use of know URL paths to access a resource directly. The requirements in this Requirement Class are organized around the standard paths for Spatial Data. 
 
@@ -59,7 +59,7 @@ The collections metadata returned by this operation is based on the link:https:/
 [source, JSON]
 include::openapi/schemas/collections.json[]
 
-This schema is further constrained by the following requirements and recomendations.
+This schema is further constrained by the following requirements and recommendations.
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
@@ -100,9 +100,9 @@ Collection Information is based on the link:https://raw.githubusercontent.com/op
 [source, JSON]
 include::openapi/schemas/collectionInfo.json[]
 
-This schema is further constrained by the following requirements and recomendations.
+This schema is further constrained by the following requirements and recommendations.
 
-To support hypermedia navigation, the `links` property must be polulated with sufficient hyperlinks to navigate through the whole dataset.
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
 include::requirements/collections/REQ_rc-md-items-links.adoc[]
 
@@ -110,7 +110,7 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
 
-Additional requirements and recomendations apply to the `extent` propery of the Collection Information.
+Additional requirements and recommendations apply to the `extent` property of the Collection Information.
 
 include::requirements/collections/REQ_rc-md-extent.adoc[]
 
@@ -127,7 +127,7 @@ If the parameter `collectionId` does not exist on the server, the status code of
 [[collection-resource]]
 ==== Collection Resource
 
-A collection resource is the content of the collection as opposed to metadata about that collection. This standard defines the general behavior of this operation, but detailed requirements are the purvue of the API standard for that resource type.
+A collection resource is the content of the collection as opposed to metadata about that collection. This standard defines the general behavior of this operation, but detailed requirements are the purview of the API standard for that resource type.
 
 ===== Operation
 
@@ -146,7 +146,7 @@ See <<http-status-codes>> for general guidance.
 
 Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. They are described in the <<information-resources>> section.
 
-Information Resources related to Spatial Resources can exposed using the path template:
+Information Resources related to Spatial Resources can be exposed using the path template:
 
 * /collections/{collectionId}/{resourceType}
 
@@ -230,11 +230,11 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 [[collection-general-requirements]]
 === General Requirements
 
-The following general requirements and recomendations apply to all OGC APIs which host Spatial Resources.
+The following general requirements and recommendations apply to all OGC APIs which host Spatial Resources.
 
 ==== Coordinate Reference Systems
 
-As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web <<SDWBP,Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
+As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web <<SDWBP,Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that define the coordinates.
 
 For the reasons discussed in the Best Practices, OGC APIs use WGS84 longitude and latitude as the default coordinate reference system.
 
