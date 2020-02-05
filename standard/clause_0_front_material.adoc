@@ -4,7 +4,7 @@
 
 The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common accross all OGC API standards. The purpose of this standard is to document those practices. It also serves as a common foundation upon which all OGC APIs will be built. As such, this OGC API Common standard serves as the "OWS Common" standard for OGC Resource Oriented APIs.
 
-An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources. These Resource Catagories are described in section <<rc_core-section,8>>, Requirement Class Core.
+An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources. These Resource Catagories are described in section <<rc_core-section,8>>, Requirement Class Core.
 
 The API-Common standard defines resources and access paths that are supported by all OGC APIs. These are listed in <<tldnr>>. 
 
