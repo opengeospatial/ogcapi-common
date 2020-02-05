@@ -12,7 +12,7 @@ NOTE: ISSUE: Should OGC API standards be organized by concept? See issue https:/
 [[resources-introduction]]
 ==== Resources
 
-An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources.
+An OGC API provides a lighweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories: Foundation Resources, Spatial Resources, and Information Resources.
 
 Foundation Resources are those resources which are common across all OGC APIs. Those resources are defined in this OGC API-Common standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.
 
@@ -23,7 +23,7 @@ Information Resources are non-spatial resources which support the operation of t
 [[modular-API-introduction]]
 ==== Modular APIs
 
-A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. Our approach is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelyhood that they will integrate at run-time is greatly enhanced.
+A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. Our approach is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelihood that they will integrate at run-time is greatly enhanced.
 
 A more detailed discussion of modular APIs can be found in the API-Common link:https://github.com/opengeospatial/oapi_common/blob/master/19-072BP.html#modular-api[Best Practices] document.
 
@@ -63,7 +63,7 @@ include::openapi/schemas/link.json[]
 [[direct-access-introduction]]
 ===== Direct Access
 
-Direct Access requires that the resource consumer possesses knowlege of the path to the resouce prior to attempting access. Typically this knowlege comes from the use of standard paths, receiving the path from another entity, or by processing an API definition resource. Direct access is particularly applicable to software analytics where there is no human in the loop.
+Direct Access requires that the resource consumer possesses knowlege of the path to the resource prior to attempting access. Typically this knowlege comes from the use of standard paths, receiving the path from another entity, or by processing an API definition resource. Direct access is particularly applicable to software analytics where there is no human in the loop.
 
 Direct access is facilitated by the use of standard URL paths. The requirements in this Requirements Class are organized around these standard paths.
 
