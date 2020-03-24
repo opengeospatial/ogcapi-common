@@ -1,6 +1,6 @@
 .Collection metadata response document
 =================
-This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". It includes links to the collection resource in all formats that are supported by the API (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "items").
+This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". The metadata includes links to the collection resource in all formats that are supported by the API (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "items").
 
 There is a link to the feature collections response itself (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "self"). 
 

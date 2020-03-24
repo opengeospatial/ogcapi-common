@@ -14,6 +14,6 @@
 * Upper right corner, coordinate axis 2
 * Upper right corner, coordinate axis 3 (optional)
 
-^|C|The coordinate reference system of the values on axis 1 and 2 SHALL be interpreted as WGS84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84) unless a  different coordinate reference system is specified in a parameter `bbox-crs`.
-^|D|The coordinate values SHALL be within the extent specified for the coordinate reference system.
+^|E|The values for the CRS axis 1 and 2 SHALL be interpreted as WGS84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84) unless a  different coordinate reference system is specified in a parameter `bbox-crs`.
+^|F|The coordinate values SHALL be within the extent specified for the coordinate reference system.
 |===

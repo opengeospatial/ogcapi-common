@@ -2,24 +2,36 @@
 
 [big]*i.     Abstract*
 
-The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common accross all OGC API standards. The purpose of this standard is to document those practices. It also serves as a common foundation upon which all OGC APIs will be built. As such, this OGC API Common standard serves as the "OWS Common" standard for OGC Resource Oriented APIs.
+The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. The purpose of this standard is to document these common practices. This standard also serves as a common foundation upon which all OGC Web API Standards will be built. 
 
-An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources. These Resource Catagories are described in section <<rc_core-section,8>>, Requirement Class Core.
+An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC Web APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources. These Resource Catagories are described in section <<rc_core-section,8>>, Requirement Class Core.
 
-The API-Common standard defines resources and access paths that are supported by all OGC APIs. These are listed in <<tldnr>>. 
+The API-Common standard defines resources and access paths for Foundation Resources. These resources and access paths are supported by all conformant OGC Web APIs. These are listed in <<fr-table>>. 
 
-[#tldnr,reftext='{table-caption} {counter:table-num}']
-.Overview of Resources
+In addition, the API-Common Standard defines an `stub` set of resources and access paths for Spatial Resources. This `stub` is sufficient to start the client down the path to spatial resource discovery. Developers of OGC Web API standards extend this `stub` with details specific to the resources they intend to expose. Since not all OGC Web APIs will host Spatial Resources, this capability is documented in a separate `Collections` Requirements Class. Only APIs which advertise conformance with the `Collections` Conformance Class have to support this capability. 
+
+The `Collections` paths and resources are listed in <<sr-table>>
+
+[#fr-table,reftext='{table-caption} {counter:table-num}']
+.Overview of Foundation Resources
 [cols="32,23,15,30",options="header"]
 !===
 ^|Resource ^|Path ^|HTTP Method ^|Document Reference
 |Landing page |`/` ^|GET |<<landing-page,API Landing Page>>
 |API definition |`/api` ^|GET |<<api-definition,API Definition>>
 |Conformance classes |`/conformance` ^|GET |<<conformance-classes,Declaration of Conformance Classes>>
-|Collections metadata |`/collections` ^|GET |<<collections-metadata,Collections Metadata>>
 !===
 
-The resources identified in <<tldnr>> primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about this distribution of the resource. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
+[#sr-table,reftext='{table-caption} {counter:table-num}']
+.Overview of Spatial Resources
+[cols="32,23,15,30",options="header"]
+!===
+|Collections metadata |`/collections` ^|GET |<<collections-metadata,Collections Metadata>>
+|Collection information |`/collections/{collectionId}` ^|GET |<<collection-information,Collection Information>>
+|Collection resource |`/collections/{collectionId}/items` ^|GET |<<collection-resource,Collection Resource>>
+!===
+
+The resources identified in <<fr-table>> and <<sr-table>> primarily support Discovery operations. Discovery operations allow clients the interrogate the API to determine its capabilities and retrieve information (metadata) about the hosted resources. This includes the API definition of the server(s) as well as metadata about the resources provided by those servers.
 
 This standard also defines common Query operations for OGC APIs. Query operations allow resources or values extracted from those resources to be retrieved from the underlying data store. The information to be returned is based upon selection criteria (query string) provided by the client. This standard only defines simple query parameters which should be applicable to all resource types. Other OGC API standards may define additional query capabilities specific to their resource type. 
 

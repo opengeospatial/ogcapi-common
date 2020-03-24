@@ -1,11 +1,18 @@
 == References
 The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.
 
+* [[iso8601_1]] ISO 8601-1:2019, *Date and time - Representations for information interchange - Part 1: Basic rules* 
+* [[iso19107]] ISO 19107:2019, *Geographic information ⎯ Spatial Schema*
+* [[iso19108]] ISO 19108:2002/Cor 1:2006, *Geographic information — Temporal schema*
+* [[iso19111]] ISO 19111:2019, *Geographic information ⎯ Spatial referencing by coordinates*
+* [[sfsql]] Herring, J.: OGC 06-104r4,*OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option*, http://portal.opengeospatial.org/files/?artifact_id=25354[http://portal.opengeospatial.org/files/?artifact_id=25354]
+* [[gmlsf]] van den Brink, L., Portele, C., Vretanos, P.: OGC 10-100r3, *Geography Markup Language (GML) Simple Features Profile*, http://portal.opengeospatial.org/files/?artifact_id=42729[http://portal.opengeospatial.org/files/?artifact_id=42729]
 * [[openapi]] Open API Initiative: **OpenAPI Specification 3.0.2**, https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md[https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md]
 * [[rfc2616]] Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., Berners-Lee, T.: **IETF RFC 2616, HTTP/1.1**, http://tools.ietf.org/rfc/rfc2616.txt[http://tools.ietf.org/rfc/rfc2616.txt]
 * [[rfc2818]] Rescorla, E.: **IETF RFC 2818, HTTP Over TLS**, http://tools.ietf.org/rfc/rfc2818.txt[http://tools.ietf.org/rfc/rfc2818.txt]
 * [[rfc3339]] Klyne, G., Newman, C.: **IETF RFC 3339, Date and Time on the Internet: Timestamps**, http://tools.ietf.org/rfc/rfc3339.txt[http://tools.ietf.org/rfc/rfc3339.txt]
 * [[rfc3896]] Berners-Lee, T., Fielding, R., Masinter, L: **IETF RFC 3896, Uniform Resource Identifier (URI): Generic Syntax**, http://tools.ietf.org/rfc/rfc3896.txt[http://tools.ietf.org/rfc/rfc3896.txt]
+* [[rfc7231]] Fielding, R., Reschke, JSchaub: **IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content**, https://tools.ietf.org/rfc/rfc7231.txt[https://tools.ietf.org/rfc/rfc7231.txt]
 * [[rfc7946]] Butler, H., Daly, M., Doyle, A., Gillies, S., Hagen, S., Schaub, T.: **IETF RFC 7946, The GeoJSON Format**, https://tools.ietf.org/rfc/rfc7946.txt[https://tools.ietf.org/rfc/rfc7946.txt]
 * [[rfc8288]] Nottingham, M.: **IETF RFC 8288, Web Linking**, http://tools.ietf.org/rfc/rfc8288.txt[http://tools.ietf.org/rfc/rfc8288.txt]
 * [[html5]] W3C: **HTML5, W3C Recommendation**, http://www.w3.org/TR/html5/[http://www.w3.org/TR/html5/]

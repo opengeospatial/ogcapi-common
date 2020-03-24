@@ -7,22 +7,22 @@ include::requirements/requirements_class_collections.adoc[]
 [[collections-overview]]
 === Overview
 
-Spatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. This Conformance Class defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed to address specific API requirements for each Spatial Resource type.
+Spatial Resources are resources which we usually think of as Geospatial Data. They include <<feature-definition,Features>> and <<coverage-definition,Coverages>>. This Conformance Class defines basic patterns for accessing Spatial Resources. Additional OGC API Standards have been or are being developed to address specific OGC API requirements for each Spatial Resource type.
 
 OGC APIs are designed to support two access patterns; Hypermedia Access, and Direct Access. OGC APIs support both access patterns through the use of API Definition documents, standardized paths, and standardized hypermedia schemas.
 
-Hypermedia Access was described in the <<navigation-introduction>> section of Clause 8. For Spatial Resources, hypermedia navigation is enabled through the links included in each schema defined by this Reqirement Class. 
+Hypermedia Access was described in the <<navigation-introduction>> section of Clause 8. For Spatial Resources, hypermedia navigation is enabled through the links included in each schema defined by the Requirement Class defined in that Clause. 
 
 Direct access is the use of know URL paths to access a resource directly. The requirements in this Requirement Class are organized around the standard paths for Spatial Data. 
 
 [[spatial-resources-requirements]]
 === Spatial Resources
 
-Detailed requirements for each Spatial Resource type are dealt with in the resource-specific API standards. However, this API Common standard has the responsiblity to see that all OGC API standards work together by:
+Detailed requirements for each Spatial Resource type are dealt with in the resource-specific API standards. However, this API Common standard has the goal of ensuring that all OGC API standards work together by:
 
 . Providing specifications for the description of each collection (/collections/{collectionId}), and the list of collections (/collections)
-. Providing a consistent framework for serving spatial data from the OGC API, regardless of the type. Consistent means that #1 works exactly the same (potentially with type-specific additional properties) and that the different types of data can all be collections on the same OGC API end-point.
-. Providing a tie point for other OGC API modules to connect to and reference (processes inputs & outputs, cataloging, searching and filtering collections, detailed metadata, tiles, styles, clipping and intersecting bounding boxes in common) Just by virtue of understanding that /collections/{collectionId} points to a spatial **data layer**.
+. Providing a consistent framework for serving spatial data from any OGC API, regardless of the type. Consistent means that #1 works exactly the same (potentially with type-specific additional properties) and that the different types of data can be collections on the same OGC API end-point.
+. Providing a tie point for OGC API modules to connect to and access spatial resources hosted by an OGC API.
 
 Spatial Resources are exposed using the path template.
 
@@ -53,13 +53,13 @@ include::requirements/collections/REQ_rc-md-op.adoc[]
 
 include::requirements/collections/REQ_rc-md-success.adoc[]
 
-The collections metadata returned by this operation is based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json[Collections Metadata Schema]. Examples of collections metadata are provided in <<collections-metadata-examples>>.
+The collections metadata returned by this operation is based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json[collections.json] JSON schema. Examples of collections metadata are provided in <<collections-metadata-examples>>.
 
-.Collections Metadata Schema
+.collections.json
 [source, JSON]
 include::openapi/schemas/collections.json[]
 
-This schema is further constrained by the following requirements and recomendations.
+This schema is further constrained by the following requirements and recommendations.
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
@@ -73,7 +73,7 @@ The `collections` property of the Collections Metadata provides a description of
 
 include::requirements/collections/REQ_rc-md-items.adoc[]
 
-While it is prefered that the Collections Metadata describe all of the collections accessible through the API, in some cases that is impractical. Developers have an option to only return a subset, as long as they provide a way to retrieve the remaining metadata as well.
+The Collections Metadata should describe all of the collections accessible through the API. However, in some cases that is impractical. As long as they provide a way to retrieve the remaining metadata as well, developers have an option to only return a subset.
 
 include::recommendations/collections/PER_rc-md-items.adoc[]
 
@@ -100,9 +100,9 @@ Collection Information is based on the link:https://raw.githubusercontent.com/op
 [source, JSON]
 include::openapi/schemas/collectionInfo.json[]
 
-This schema is further constrained by the following requirements and recomendations.
+This schema is further constrained by the following requirements and recommendations.
 
-To support hypermedia navigation, the `links` property must be polulated with sufficient hyperlinks to navigate through the whole dataset.
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
 include::requirements/collections/REQ_rc-md-items-links.adoc[]
 
@@ -110,7 +110,7 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
 
-Additional requirements and recomendations apply to the `extent` propery of the Collection Information.
+Additional requirements and recommendations apply to the `extent` property of the Collection Information.
 
 include::requirements/collections/REQ_rc-md-extent.adoc[]
 
@@ -127,7 +127,7 @@ If the parameter `collectionId` does not exist on the server, the status code of
 [[collection-resource]]
 ==== Collection Resource
 
-A collection resource is the content of the collection as opposed to metadata about that collection. This standard defines the general behavior of this operation, but detailed requirements are the purvue of the API standard for that resource type.
+A collection resource is the content of the collection as opposed to metadata about that collection. This standard defines the general behavior of this operation, but detailed requirements are the purview of the API standard for that resource type.
 
 ===== Operation
 
@@ -170,7 +170,7 @@ NOTE: ISSUE: Should we add a limit parameter. See GitHub issues https://github.c
 
 NOTE: ISSUE: Should we be more explicit about the scope of parameters and other elements of the API definition?  See issues https://github.com/opengeospatial/oapi_common/issues/67[67] and https://github.com/opengeospatial/oapi_common/issues/88[88]. Also see API-Coverages issue https://github.com/opengeospatial/ogc_api_coverages/issues/53[53].   
 
-Query parameters are used in URLs to limit the resources which are returned on a GET request. The API Common standard defines two standard parameters for use in OGC API standards.
+Query parameters are used in URLs to limit the resources which are returned on a GET request. The API Common Standard defines two standard parameters for use in OGC API standards.
 
 ==== Parameter bbox
 
@@ -178,11 +178,11 @@ include::requirements/collections/REQ_rc-bbox-definition.adoc[]
 
 include::requirements/collections/REQ_rc-bbox-response.adoc[]
 
-"Intersects" means that the rectangular area specified in the parameter `bbox` includes a coordinate that is part of the (spatial) geometry of the resource. This includes the boundaries of the geometries (e.g. for curves the start and end position and for surfaces the outer and inner rings).
+"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the rectangular area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 
-This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this specification.
+This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this standard.
 
-For WGS84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian the first value (west-most box edge) is larger than the third value (east-most box edge).
+For CRS84 the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian (180th meridian) the first value (west-most box edge) is larger than the third value (east-most box edge).
 
 .The bounding box of the New Zealand Exclusive Economic Zone
 =================
@@ -232,12 +232,12 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 
 The following general requirements and recomendations apply to all OGC APIs which host Spatial Resources.
 
-==== Coordinate Reference Systems
+==== Coordinate Reference Systems (CRS)
 
-As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web <<SDWBP,Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
+As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web (SDW) <<SDWBP,Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data. therefore, clearly stating the CRS rules for the coordinates is very important.
 
-For the reasons discussed in the Best Practices, OGC APIs use WGS84 longitude and latitude as the default coordinate reference system.
+For the reasons discussed in the SDW Best Practice, OGC APIs use WGS84 longitude and latitude as the default CRS.
 
 include::requirements/collections/REQ_crs84.adoc[]
 
-The implementations compliant with the Core are not required to support publishing geometries in coordinate reference systems other than http://www.opengis.net/def/crs/OGC/1.3/CRS84. The Core also does not specify a capability to request geometries in a different reference system than the native one of the published resource. Such a capability will be specified in other OGC API standards.
+The implementations compliant with the Core are not required to support publishing geometries in CRS other than http://www.opengis.net/def/crs/OGC/1.3/CRS84. The Core also does not specify a capability to request geometries in a different CRS than the native one of the published resource. Such a capability will be specified in other OGC API standards.

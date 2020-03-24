@@ -2,5 +2,5 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Permission {counter:per-id}* |*/per/core/additional-status-codes*
-^|A |Servers MAY support other capabilities of the HTTP protocol and, therefore, MAY return other status codes than those listed in <<status-codes>>, too.
+^|A |Servers MAY support other capabilities of the HTTP protocol and, therefore, MAY return status codes in addition to those listed in <<status-codes>>.
 |===
