@@ -1,0 +1,32 @@
+{
+        "0":  {
+                "OGC_doc_number": "19-072",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-common/1.0",
+                "title":"OGC API-Common",
+                "path":"standard/OAPI_Common.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "1":  {
+                "OGC_doc_number": "19-072BP",
+                "urn":"http://www.opengis.net/doc/BP/ogcapi-common/1.0",
+                "title":"OGC API-Common Best Practices",
+                "path":"best_practice/OAPI_Common_BP.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        }
+}
