@@ -1,0 +1,9 @@
+== Scope
+
+This standard identifies resources, captures compliance classes, and specifies requirements which are applicable to all OGC API standards.  It should be included as a normative reference by all such standards.
+
+This standard addresses two fundamental operations; Discovery and Query.
+
+Discovery operations allow the API to be interrogated to determine its capabilities and retrieve information (metadata) about the hosted resources. This includes the API definition of the server as well as in formation about the resources provided by the server.
+
+Query operations allow resources to be retrieved from the underlying data store based upon simple selection criteria. These criteria are defined by the client.

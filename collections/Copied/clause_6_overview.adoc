@@ -1,0 +1,29 @@
+[[overview]]
+== Overview
+
+=== Evolution from OGC Web Services
+
+OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP architectural style using XML for payloads. This was the state-of-the-art when OGC Web Services (OWS) were originally designed in the late 1990s. However, technology has evolved. New Resource-Oriented APIs provide an alternative to Service-Oriented Web Services. And new OGC API standards are under development to provide 
+API alternatives to the OWS standards.
+
+OGC API (OAPI) Common specifies the common kernel of the OGC API approach to services that follows the current Web architecture. In particular, the recommendations as defined in the <<SDWBP,W3C/OGC best practices for sharing Spatial Data on the Web>> as well as the <<DWBP,W3C best practices for sharing Data on the Web>>.
+
+In addition to the general alignment with the architecture of the Web (e.g., consistency with HTTP/HTTPS, hypermedia controls), another goal for OGC API standards is modularization. This goal has several facets:
+
+* Clear separation between common core requirements and more resource specific capabilities. The OGC API-Common Standard specifies the core or _common_ requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Additional capabilities will be specified as extensions to the Common API as they are developed.
+* Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
+* Modularization is not just about a single "service". OGC APIs can provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.
+
+=== Navigation
+
+OGC API Common Standard provides clients with two ways to access to a conformant API, direct and hypermedia.
+
+A direct access client has been designed to work with an API-Common conformant API. Standardizing paths, resource types, parameters, etc. equip a client with most of the information needed to use a conformant API. These clients can quickly access resources with minimal time spent on API discovery.
+
+A hypermedia access client needs little a-prioi information beyond a URL to the landing page and the abilty to identify and follow the links found there. A common web browser should be sufficient.
+
+Navigation is addressed in more detail in the <<navigation-introduction,Core>> Requirements Class. 
+
+=== Encodings
+
+This standard does not mandate any encoding or format. However, the API-Common Standard does provide Requirements Classes for encodings which are commonly used in OGC APIs. HTML is the standard encoding for Web content. As such, failure to implement the HTML Requirement Class should be the exception rather than the rule. Additional Requirements Classes are provided for encodings which are commonly used for spatial data on the web. These include the GeoJSON and GML Requirements Classes. 

@@ -8,3 +8,11 @@ This standard is available in [HTML](https://portal.opengeospatial.org/files/?ar
 
 The Best Practices are available in [HTML](https://github.com/opengeospatial/oapi_common/blob/October-2019-Update/19-072BP.html) and [PDF](https://github.com/opengeospatial/oapi_common/blob/October-2019-Update/19-072BP.pdf) formats.
 
+## Draft Spec
+
+The latest draft of the standard in this repository is built daily (based on the configuration contained in the [asciidoctor.json](https://github.com/opengeospatial/oapi_common/blob/master/asciidoctor.json) file):
+
+* [OGC API-Common](http://docs.opengeospatial.org/DRAFTS/19-072.html)
+
+* [OGC API-Common Best Practices](http://docs.opengeospatial.org/DRAFTS/19-072BP.html)
+

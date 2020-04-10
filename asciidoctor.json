@@ -1,8 +1,8 @@
 {
         "0":  { 
-                "OGC_doc_number": "19-072BP",
+                "OGC_doc_number": "19-000",
                 "urn":"http://www.opengis.net/doc/BP/ogcapi-common/1.0",
-                "title":"OGC API - Common - Users Guide",
+                "title":"OGC API - Common - Best Practices",
                 "path":"best_practice/OAPI_Common_BP.adoc",
                 "options": ["--trace"],
                 "a":[
@@ -18,7 +18,21 @@
                 "OGC_doc_number": "19-072",
                 "urn":"http://www.opengis.net/doc/IS/ogcapi-common-1/1.0",
                 "title":"OGC API - Common - Part 1: Core",
-                "path":"standard/OAPI_Common.adoc",
+                "path":"core/OAPI_Common.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
+        },
+        "2":  { "OGC_doc_number": "18-058",
+                "urn":"http://www.opengis.net/doc/IS/ogcapi-Common-3/1.0",
+                "title":"OGC API - Common - Part 3: Extension for Coordinate Reference Systems (by reference)",
+                "path":"crs/standard/18-058.adoc",
                 "options": ["--trace"],
                 "a":[
                         "data-uri",

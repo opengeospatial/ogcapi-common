@@ -1,0 +1,19 @@
+[[req_crs_fc-bbox-crs-definition]]
+[width="90%",cols="2a,6a"]
+|===
+|*Requirement {counter:req-id}* |*/req/crs/fc-bbox-crs-definition* +
+2+|Each GET request on a 'features' resource shall support a query parameter
+`bbox-crs` with the following characteristics:
+
+[source,YAML]
+----
+name: bbox-crs
+in: query
+required: false
+schema:
+  type: string
+  format: uri
+style: form
+explode: false
+----
+|===
