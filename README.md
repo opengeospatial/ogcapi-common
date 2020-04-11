@@ -14,3 +14,11 @@ The latest draft of the standard in this repository is built daily (based on the
 
 * [OGC API-Common](http://docs.opengeospatial.org/DRAFTS/19-072.html)
 * [OGC API-Common Best Practices](http://docs.opengeospatial.org/DRAFTS/19-072BP.html)
+
+## Latest Changes
+
+This repository uses a periodic branching scheme for the latest changes. See the [branches](https://github.com/opengeospatial/oapi_common/branches) for the latest work.
+
+## Getting Involved
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for details on how to join the Standard Working Group and get involved.
