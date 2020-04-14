@@ -1,4 +1,4 @@
-:Title: Draft OGC API-Common - Part 1: Core
+:Title: Draft OGC API-Common Part 1: Core
 :titletext: {Title}
 :doctype: book
 :encoding: utf-8
@@ -19,7 +19,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   2020-04-10
+|Publication Date:   2020-04-14
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-common-1/1.0
 |Internal reference number of this OGC(R) document:    19-072
 |Version: 0.0.6
@@ -75,27 +75,27 @@ toc::[]
 
 <<<
 
-include::clause_0_front_material.adoc[]
+include::clause_1_front_material.adoc[]
 
-include::clause_1_scope.adoc[]
+include::clause_2_scope.adoc[]
 
-include::clause_2_conformance.adoc[]
+include::clause_3_conformance.adoc[]
 
-include::clause_3_references.adoc[]
+include::clause_4_references.adoc[]
 
-include::clause_4_terms_and_definitions.adoc[]
+include::clause_5_terms_and_definitions.adoc[]
 
-include::clause_5_conventions.adoc[]
+include::clause_6_conventions.adoc[]
 
-include::clause_6_overview.adoc[]
+include::clause_7_overview.adoc[]
 
-include::clause_7_core.adoc[]
+include::clause_8_core.adoc[]
 
-include::clause_8_encodings.adoc[]
+include::clause_9_encodings.adoc[]
 
-include::clause_9_oas.adoc[]
+include::clause_10_oas.adoc[]
 
-include::clause_10_media_types.adoc[]
+include::clause_11_media_types.adoc[]
 
 include::annex_ats.adoc[]
 

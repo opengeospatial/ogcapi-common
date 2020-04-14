@@ -1,0 +1,33 @@
+== Conformance
+Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
+
+The one Standardization Target for this standard is Web APIs.
+
+OGC API-Common Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.
+
+This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the /conformance path on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
+
+The requirements classes for _OGC API-Common - Core_ are:
+
+=== Core Requirements Class
+
+The _Core Requirements Class_ is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs.
+
+The Core requirements class is specified in *Requirements Class Core* <<rc_core-section,(Chapter 8)>>. 
+
+=== Encoding Requirements Classes
+
+The _Core_ requirements class does not mandate a specific encoding or format for representing resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify use of these encodings for  
+
+* <<rc_html-section,HTML>>
+* <<rc_json-section,JSON>>
+
+Neither of these encodings is mandatory. An implementor of the _API-Common_ standard may decide to implement another encoding instead of, or in addition to, these two.
+
+The Encoding Requirements Classes are specified in *Encoding Requirements Classes* <<rc_encoding-section,(Chapter 9)>>.
+
+=== OpenAPI 3.0 Requirements Class
+
+The _API-Common - core_ does not mandate any encoding or format for the formal definition of the API. The prefered option is the OpenAPI 3.0 specification. The _OpenAPI 3.0_ requirements class has been specified for APIs implementing OpenAPI 3.0.
+
+The OpenAPI 3.0 Requirements Class is specified in *OpenAPI 3.0 Requirements Class* <<rc_oas30-section,(Chapter 10)>>.
