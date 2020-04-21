@@ -58,7 +58,7 @@ The following query parameters can be used with this operation:
 
 include::requirements/collections/REQ_rc-md-success.adoc[]
 
-The collections metadata returned by this operation is based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collections.json[collections.json] JSON schema. Examples of collections metadata are provided in <<collections-metadata-examples>>.
+The collections metadata returned by this operation is based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collections.json[collections.json] JSON schema. Examples of collections metadata are provided in <<collections-metadata-examples>>.
 
 .collections.json
 [source, JSON]
@@ -74,7 +74,7 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-descriptions.adoc[]
 
-The `collections` property of the Collections Metadata provides a description of each collection. These descriptions are based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.json[Collection Information Schema]. This schema is described in detail in the <<collection-information, Collection Information>> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.
+The `collections` property of the Collections Metadata provides a description of each collection. These descriptions are based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collectionInfo.json[Collection Information Schema]. This schema is described in detail in the <<collection-information, Collection Information>> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.
 
 include::requirements/collections/REQ_rc-md-items.adoc[]
 
@@ -115,7 +115,7 @@ No parameters have been standardized for this operation.
 
 include::requirements/collections/REQ_src-md-success.adoc[]
 
-Collection Information is based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.json[Collection Information Schema]. Examples of Collection Information are provided in <<collection-information-examples>>.
+Collection Information is based on the link:https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collectionInfo.json[Collection Information Schema]. Examples of Collection Information are provided in <<collection-information-examples>>.
 
 .Collection Information Schema
 [source, JSON]
@@ -224,7 +224,7 @@ Note that the server will return an error if a latitude value of ``160.0`` is us
 
 If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
 
-A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/parameters/bbox.yaml[bbox.yaml].
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/parameters/bbox.yaml[bbox.yaml].
 
 [[datetime-parameter-requirements]]
 ==== Parameter datetime
@@ -266,7 +266,7 @@ March 18, 2018, 12:31:12 UTC or earlier:
 `datetime=..%2F2018-03-18T12%3A31%3A12Z`
 =================
 
-A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/parameters/datetime.yaml[datetime.yaml].
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/parameters/datetime.yaml[datetime.yaml].
 
 [[limit-parameter-requirements]]
 ==== Parameter limit
