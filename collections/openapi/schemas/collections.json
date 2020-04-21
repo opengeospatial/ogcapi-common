@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Collections Schema",
+    "description": "This schema defines the metadata resource returned from /collections.",
+    "type": "object",
+    "required": [
+        "links",
+        "collections"
+        ],
+    "properties": {
+        "links": {
+            "type": "array",
+            "items": {"$href": "link.json"}
+            },
+        "timeStamp": {
+            "type": "string",
+            "format": "date-time"
+            },
+        "numberMatched": {
+            "type": "integer",
+            "min": "0"
+            },
+        "numberReturned": {
+            "type": "integer",
+            "min": "0"
+            },
+        "collections": {
+            "type": "array",
+            "items": {"$href": "collectionInfo.json"}
+            }
+        }
+    }

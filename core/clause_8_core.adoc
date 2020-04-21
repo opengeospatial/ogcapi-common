@@ -123,7 +123,46 @@ More specific guidance is provided for each resource, where applicable.
 
 include::recommendations/core/PER_additional-status-codes.adoc[]
 
-[[web-caching]]
+[[query-parameter-requirements]]
+==== Unknown or invalid query parameters
+
+If a server wants to support query parameters, these have to be explicitly declared in the API definition.
+
+include::requirements/core/REQ_query-param-known.adoc[]
+
+Query parameters that have not been explicitly specified in the API definition for that operation will be treated as unknown.
+
+include::requirements/core/REQ_query-param-unknown.adoc[]
+
+If OpenAPI is used to represent the API definition, a capability exists to define query parameters without explicitly declaring them. That is, 
+
+.OpenAPI schema for query parameters
+[source,java]
+----
+in: query
+name: queryParameters
+schema:
+  type: object
+  additionalProperties: true
+style: form
+----
+
+Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of ``queryParameters`` is this object:
+
+[source,java]
+----
+{
+  "first_parameter": "some value",
+  "other_parameter": 42
+}
+----
+
+In the request URI this would be expressed as ``&first_parameter=some%20value&other_parameter=42``.
+
+include::requirements/core/REQ_query-param-invalid.adoc[]
+
+This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid if it violates the API definition or any other constraint for that parameter stated in a requirement.
+
 ==== Web Caching
 
 Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc2616,HTTP/1.1 (RFC 2616)>>.

@@ -1,0 +1,7 @@
+[[req_json_content]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/json/content* 
+^|A|Every `200`-response with the media type `application/json` SHALL include, or link to, a payload encoded according to the <<rfc8259,JSON Interchange Format>>.
+^|B|The schema of all responses with the media type `application/json` SHALL conform with the JSON Schema specified for that resource. 
+|===

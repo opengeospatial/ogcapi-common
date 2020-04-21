@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-04-14</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-04-21</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -582,24 +582,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_link_relations">6.2. Link relations</a></li>
 <li><a href="#_use_of_https">6.3. Use of HTTPS</a></li>
 <li><a href="#_http_uris">6.4. HTTP URIs</a></li>
-<li><a href="#_geometry">6.5. Geometry</a>
+<li><a href="#_api_definition">6.5. API definition</a>
 <ul class="sectlevel3">
-<li><a href="#_spatial_geometry">6.5.1. Spatial Geometry</a></li>
-<li><a href="#_temporal_geometry">6.5.2. Temporal Geometry</a></li>
-</ul>
-</li>
-<li><a href="#_reference_systems">6.6. Reference Systems</a>
-<ul class="sectlevel3">
-<li><a href="#_coordinate_reference_systems">6.6.1. Coordinate Reference Systems</a></li>
-<li><a href="#_temporal_reference_systems">6.6.2. Temporal Reference Systems</a></li>
-</ul>
-</li>
-<li><a href="#_api_definition">6.7. API definition</a>
-<ul class="sectlevel3">
-<li><a href="#_general_remarks">6.7.1. General remarks</a></li>
-<li><a href="#_role_of_openapi">6.7.2. Role of OpenAPI</a></li>
-<li><a href="#_references_to_openapi_components_in_normative_statements">6.7.3. References to OpenAPI components in normative statements</a></li>
-<li><a href="#_reusable_openapi_components">6.7.4. Reusable OpenAPI components</a></li>
+<li><a href="#_general_remarks">6.5.1. General remarks</a></li>
+<li><a href="#_role_of_openapi">6.5.2. Role of OpenAPI</a></li>
+<li><a href="#_references_to_openapi_components_in_normative_statements">6.5.3. References to OpenAPI components in normative statements</a></li>
+<li><a href="#_reusable_openapi_components">6.5.4. Reusable OpenAPI components</a></li>
 </ul>
 </li>
 </ul>
@@ -644,11 +632,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_http_1_1">8.4.1. HTTP 1.1</a></li>
 <li><a href="#http-status-codes">8.4.2. HTTP Status Codes</a></li>
-<li><a href="#web-caching">8.4.3. Web Caching</a></li>
-<li><a href="#cross-origin">8.4.4. Support for Cross-Origin Requests</a></li>
-<li><a href="#_encodings">8.4.5. Encodings</a></li>
-<li><a href="#CRS-core-section">8.4.6. Coordinate reference systems</a></li>
-<li><a href="#_link_headers">8.4.7. Link Headers</a></li>
+<li><a href="#query-parameter-requirements">8.4.3. Unknown or invalid query parameters</a></li>
+<li><a href="#_web_caching">8.4.4. Web Caching</a></li>
+<li><a href="#cross-origin">8.4.5. Support for Cross-Origin Requests</a></li>
+<li><a href="#_encodings">8.4.6. Encodings</a></li>
+<li><a href="#CRS-core-section">8.4.7. Coordinate reference systems</a></li>
+<li><a href="#_link_headers">8.4.8. Link Headers</a></li>
 </ul>
 </li>
 </ul>
@@ -678,6 +667,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#mediatypes">11. Media Types</a></li>
+<li><a href="#_security_considerations">12. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
@@ -709,8 +699,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#landing-page-examples">B.1. Example Landing Pages</a></li>
 <li><a href="#oas-examples">B.2. API Description Examples</a></li>
 <li><a href="#conformance-response-examples">B.3. Conformance Examples</a></li>
-<li><a href="#collections-metadata-examples">B.4. Collections Metadata Examples</a></li>
-<li><a href="#collection-information-examples">B.5. Collection Information Examples</a></li>
 </ul>
 </li>
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
@@ -935,6 +923,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="rfc3896"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3896, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3896.txt">http://tools.ietf.org/rfc/rfc3896.txt</a></p>
 </li>
 <li>
+<p><a id="rfc6570"></a> Greforio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D.: <strong>IETF RFC 6570, URI Template</strong>, <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a></p>
+</li>
+<li>
 <p><a id="rfc7231"></a> Fielding, R., Reschke, JSchaub: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
 </li>
 <li>
@@ -962,7 +953,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
 </div>
-<div class="ulist">
+<div id="collection-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Collection</strong><br>
+A body of resources that belong or are used together. An aggregate, set, or group of related resources. (OGC 20-000)</p>
+</li>
+</ul>
+</div>
+<div id="ctm-definition" class="ulist">
 <ul>
 <li>
 <p><strong>Conformance Test Module</strong><br>
@@ -978,16 +977,16 @@ set of related tests, all within a single conformance test class (<a href="#ogc0
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be omitted. i.e. <strong>conformance test module</strong> is the same as <strong>conformance module</strong>. Conformance modules may be nested in a hierarchical way.<br>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be omitted. i.e. <a href="#ctm-definition">conformance test module</a> is the same as <a href="#ctm-definition">conformance module</a>. Conformance modules may be nested in a hierarchical way.<br>
 This term and those associated to it are included here for consistency with ISO 19105.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="ulist">
+<div id="ctc-definition" class="ulist">
 <ul>
 <li>
 <p><strong>Conformance Test Class; Conformance Test Level</strong><br>
-set of <strong>conformance test modules</strong> that must be applied to receive a single <strong>certificate of conformance</strong>. (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+set of <a href="#ctm-definition">conformance test modules</a> that must be applied to receive a single <strong>certificate of conformance</strong>. (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
 </li>
 </ul>
 </div>
@@ -999,7 +998,7 @@ set of <strong>conformance test modules</strong> that must be applied to receive
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be left out, so <strong>conformance test class</strong> may be called a <strong>conformance class</strong>.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be left out, so <a href="#ctc-definition">conformance test class</a> may be called a <a href="#ctc-definition">conformance class</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1009,20 +1008,36 @@ set of <strong>conformance test modules</strong> that must be applied to receive
 <p><strong>Coverage</strong><br>
 feature that acts as a function to return values from its range for any direct position within its spatiotemporal domain, as defined in OGC Abstract Topic 6 <a href="http://docs.opengeospatial.org/is/09-146r6/09-146r6.html">(OGC 09-146r6)</a></p>
 </li>
+</ul>
+</div>
+<div id="dataset-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Dataset</strong><br>
 collection of data, published or curated by a single agent, and available for access or download in one or more serializations or formats (DCAT)</p>
 </li>
+</ul>
+</div>
+<div id="distribution-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Distribution</strong><br>
-specific representation of a <strong>dataset</strong> (DCAT)<br>
+specific representation of a <a href="#dataset-definition">dataset</a>. (DCAT)<br>
 <br>
 EXAMPLE: a downloadable file, an RSS feed or an API.</p>
 </li>
+</ul>
+</div>
+<div id="ets-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Executable Test Suite (ETS)</strong><br>
 A set of code (e.g. Java and CTL) that provides runtime tests for the assertions defined by the ATS. Test data required to do the tests are part of the ETS <a href="https://portal.opengeospatial.org/files/?artifact_id=55234">(OGC 08-134)</a></p>
 </li>
+</ul>
+</div>
+<div id="extent-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Extent</strong><br>
 The area covered by something. Within this document, we always imply spatial extent; e.g. size or shape that may be expresses using coordinates. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
@@ -1049,24 +1064,40 @@ abstraction of real world phenomena [ISO 19101-1:2014]</p>
 </tr>
 </tbody>
 </table>
-<div class="ulist">
+<div id="feature-collection-definition" class="ulist">
 <ul>
 <li>
-<p><strong>Feature Collection; Collection</strong><br>
+<p><strong>Feature Collection</strong><br>
 a set of <strong>Features</strong> from a <strong>dataset</strong></p>
 </li>
+</ul>
+</div>
+<div id="foundation-resources-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Foundation Resources</strong><br>
 resources which are provided by every OGC API to help clients to understand the offerings and capabilities of that API.</p>
 </li>
+</ul>
+</div>
+<div id="geometry-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Geometry</strong><br>
 An ordered set of <em>n</em>-dimensional points in a given coordinate reference system. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
 </li>
+</ul>
+</div>
+<div id="information-resource-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Information Resources</strong><br>
 are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources</p>
 </li>
+</ul>
+</div>
+<div id="recomendation-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Recommendation</strong><br>
 expression in the content of a document conveying that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is deprecated but not prohibited (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
@@ -1081,28 +1112,68 @@ expression in the content of a document conveying that among several possibiliti
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">"Although using normative language, a <strong>recommendation</strong> is not a <strong>requirement</strong>. The usual form replaces the <code>shall</code> (imperative or command) of a <strong>requirement</strong> with a <code>should</code> (suggestive or conditional)." (ISO Directives Part 2)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">"Although using normative language, a <a href="#recomendation-definition">recommendation</a> is not a <a href="#requirement-definition">requirement</a>. The usual form replaces the <code>shall</code> (imperative or command) of a <a href="#requirement-definition">requirement</a> with a <code>should</code> (suggestive or conditional)." (ISO Directives Part 2)</p></td>
 </tr>
 </tbody>
 </table>
-<div class="ulist">
+<div id="requirement-definition" class="ulist">
 <ul>
 <li>
 <p><strong>Requirement</strong><br>
 expression in the content of a document conveying criteria to be fulfilled if compliance with the document is to be claimed and from which no deviation is permitted (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
 </li>
+</ul>
+</div>
+<div id="requirements-class-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Requirements Class</strong><br>
 aggregate of all requirement modules that must all be satisfied to satisfy a conformance test class (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
 </li>
+</ul>
+</div>
+<div id="requirements-module-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Requirements Module</strong><br>
-aggregate of requirements and recommendations of a specification against a single standardization target type (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+aggregate of <a href="#requirement-definition">requirements</a> and <a href="#recomendation-defintion">recommendations</a> of a specification against a single <a href="#standardization-target-definition">standardization target</a> type (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
 </li>
+</ul>
+</div>
+<div id="resource-definition" class="ulist">
+<ul>
 <li>
-<p><strong>Spatial Resources</strong><br>
-the resources which we usually think of as Geospatial Data.</p>
+<p><strong>Resource</strong><br>
+TBD</p>
 </li>
+</ul>
+</div>
+<div id="resource-category-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Resource Category</strong><br>
+TBD</p>
+</li>
+</ul>
+</div>
+<div id="spatial-resource-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Spatial Resource</strong><br>
+the <a href="#resource-definition">resources</a> which we usually think of as Geospatial Data. A <a href="#spatial-thing-definition">Spatial Thing</a>.</p>
+</li>
+</ul>
+</div>
+<div id="spatial-thing-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Spatial Thing</strong><br>
+anything with spatial extent, (i.e. size, shape, or position) and is a combination of the real-world phenomenon and its abstraction. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
+</li>
+</ul>
+</div>
+<div id="standardization-target-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Standardization Target</strong><br>
 entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
@@ -1121,24 +1192,32 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </tr>
 </tbody>
 </table>
-<div class="ulist">
+<div id="temporal-cs-definition" class="ulist">
 <ul>
-<li>
-<p><strong>Spatial Thing</strong><br>
-anything with spatial extent, (i.e. size, shape, or position) and is a combination of the real-world phenomenon and its abstraction. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
-</li>
 <li>
 <p><strong>Temporal Coordinate System</strong><br>
 temporal reference system based on an interval scale on which distance is measured as a multiple of a single unit of time. [ISO 19108]</p>
 </li>
+</ul>
+</div>
+<div id="temporal-position-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Temporal Position</strong><br>
 location relative to a temporal reference system [ISO 19108]</p>
 </li>
+</ul>
+</div>
+<div id="trs-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Temporal Reference System</strong><br>
 reference system against which time is measured [ISO 19108]</p>
 </li>
+</ul>
+</div>
+<div id="temporal-thing-definition" class="ulist">
+<ul>
 <li>
 <p><strong>Temporal Thing</strong><br>
 Anything with temporal extent, i.e. duration. e.g. the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (<a href="#W3C-BASIC-GEO">W3C Basic Geo</a>)</p>
@@ -1161,10 +1240,22 @@ API using an architectural style that is founded on the technologies of the Web.
 <div class="sect2">
 <h3 id="_identifiers"><a class="anchor" href="#_identifiers"></a>6.1. Identifiers</h3>
 <div class="paragraph">
+<p>The <a href="#WEBARCH">Architecture of the World Wide Web</a> establishes the URI as the single global identification system for the Web. Therefore, URIs or <a href="#rfc6570">URI Templates</a> are used in OGC Web API standards to identify key entities in those standards.</p>
+</div>
+<div class="paragraph">
 <p>The normative provisions in this draft standard are denoted by the URI <code><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0</a></code>.</p>
 </div>
 <div class="paragraph">
-<p>All requirements and conformance tests that appear in this document are denoted by partial URIs that are relative to this base.</p>
+<p>All <a href="#requirement-definition">Requirements</a>, <a href="#ctm-definition">Conformance Modules</a>, and <a href="#ctc-definition">Conformance Classes</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
+</div>
+<div class="paragraph">
+<p>A key requirement of Web API standards is the unambiguous identification of the <a href="#resource-definition">resources</a> they address. In an implementation of such a standard, URIs would be used to identify those resources. A standard, however, is not an implementation. A standard can identify potential resources, but not the resources themselves. Therefore, OGC Web API standards use <a href="#rfc6570">URI Templates</a> to identify <a href="#resource-category-definition">resource categories</a>. These resource categories are instantiated in the implementation of the standard.</p>
+</div>
+<div class="paragraph">
+<p>The scope of each URI Template is specified in the standard. In some cases, API implementations are required to implement the template as a path in their API. In most cases they are optional.</p>
+</div>
+<div class="paragraph">
+<p>Implementation of the URI Templates is recommended in that they provide a common look and feel to implementations of OGC Web API standards.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1239,99 +1330,9 @@ API using an architectural style that is founded on the technologies of the Web.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_geometry"><a class="anchor" href="#_geometry"></a>6.5. Geometry</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-is the following common enough to include here?  If not, where?
-</td>
-</tr>
-</table>
-</div>
+<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.5. API definition</h3>
 <div class="sect3">
-<h4 id="_spatial_geometry"><a class="anchor" href="#_spatial_geometry"></a>6.5.1. Spatial Geometry</h4>
-<div class="paragraph">
-<p>Standardized concepts for spatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <a href="#iso19107"><em>ISO 19107</em></a>.</p>
-</div>
-<div class="paragraph">
-<p>The spatial geometry used in the OGC API-Common Standard is documented in the <a href="#gmlsf">GML Simple Features Profile </a> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <a href="#sfsql">Simple Features for SQL</a> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_temporal_geometry"><a class="anchor" href="#_temporal_geometry"></a>6.5.2. Temporal Geometry</h4>
-<div class="paragraph">
-<p>Standardized concepts are also needed for temporal characteristics. The temporal geometry used in the API-Common Standard is defined in <a href="#iso19108">ISO 19108</a>. Only a subset of this geometry is used. Specifically:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>TM-Instant - a point representing position in time</p>
-</li>
-<li>
-<p>TM-Period - one dimensional geometric primitive representing extent in time and bounded by two different temporal positions (TM-Instant)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>6.6. Reference Systems</h3>
-<div class="sect3">
-<h4 id="_coordinate_reference_systems"><a class="anchor" href="#_coordinate_reference_systems"></a>6.6.1. Coordinate Reference Systems</h4>
-<div class="paragraph">
-<p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, how to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.</p>
-</div>
-<div class="paragraph">
-<p>OGC API-Common does not mandate use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>CRS84 - WGS 84 longitude and latitude without elevation</p>
-</li>
-<li>
-<p>CRS84h - WGS 84 longitude and latitude with elipsoid elevation</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><a href="#iso19111">ISO 19111</a> is the normative standard for Coordinate Reference Systems.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_temporal_reference_systems"><a class="anchor" href="#_temporal_reference_systems"></a>6.6.2. Temporal Reference Systems</h4>
-<div class="paragraph">
-<p>Temporal positions are measured relative to an underlying temporal reference system. The OGC API-Common Standard does not mandate a specific Temporal Reference System. However, it does establish a default which is:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>For date: the Gregorian Calendar</p>
-</li>
-<li>
-<p>For time: a 24 hour local or Coordinated Universal Time (UTC)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This convention reflects the recomendations of ISO 8601 as documented in ISO 19108. A different temporal reference system may be used where appropriate.</p>
-</div>
-<div class="paragraph">
-<p><a href="#iso19108">ISO 19108</a> is the normative standard for Temporal Reference Systems.</p>
-</div>
-<div class="paragraph">
-<p><a href="#iso8601_1">ISO 8601</a> is the normative standard for representations of dates and times.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.7. API definition</h3>
-<div class="sect3">
-<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.7.1. General remarks</h4>
+<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.5.1. General remarks</h4>
 <div class="paragraph">
 <p>So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding.</p>
 </div>
@@ -1340,7 +1341,7 @@ is the following common enough to include here?  If not, where?
 </div>
 </div>
 <div class="sect3">
-<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.7.2. Role of OpenAPI</h4>
+<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
 <div class="paragraph">
 <p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.</p>
 </div>
@@ -1352,7 +1353,7 @@ is the following common enough to include here?  If not, where?
 </div>
 </div>
 <div class="sect3">
-<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.7.3. References to OpenAPI components in normative statements</h4>
+<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.5.3. References to OpenAPI components in normative statements</h4>
 <div class="paragraph">
 <p>Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.</p>
 </div>
@@ -1380,7 +1381,7 @@ is the following common enough to include here?  If not, where?
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.7.4. Reusable OpenAPI components</h4>
+<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
 <div class="paragraph">
 <p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document.</p>
 </div>
@@ -1495,31 +1496,73 @@ During the development phase, these components use a base URL of "https://raw.gi
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>alternate</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to this resource in another media type (the media type is specified in the <code>type</code> link attribute)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a substitute for this context [IANA] Links to this resource represented using another media type (the media type is specified in the <code>type</code> link attribute)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>collection</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>current</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource containing the most recent item(s) in a collection of resources. [IANA]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>conformance</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to conformance information</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource that identifies the specifications that the link&#8217;s context conforms to. [OGC]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>data</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to an information resource</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to the root resource of a dataset in an API. [OGC]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>describedBy</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to external resources which further describe the subject resource</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource providing information about the link&#8217;s context.[IANA]<br>
+Links to external resources which further describe the subject resource</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>first</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An IRI that refers to the furthest preceding resource in a series of resources.[IANA]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>item</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target IRI points to a resource that is a member of the collection represented by the context IRI.[IANA]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>items</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource that is comprised of members of the collection represented by the link&#8217;s context. [OGC]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>last</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An IRI that refers to the furthest following resource in a series of resources.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>license</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a license associated with this context. [IANA]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>next</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Indicates that the link&#8217;s context is a part of a series, and that the next in the series is the link target. [IANA]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>prev</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Indicates that the link&#8217;s context is a part of a series, and that the previous in the series is the link target. [IANA]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>self</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to this resource,</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conveys an identifier for the link&#8217;s context. [IANA] links to this resource.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>service-desc</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">links to the API Definition</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Identifies service description for the context that is primarily intended for consumption by machines. [IANA]<br>
+API definitions are considered service descriptions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>service-doc</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">an alternative to <code>service-desc</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Identifies service documentation for the context that is primarily intended for human consumption. [IANA]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>start</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to the first resource in a collection of resources.[IANA]</p></td>
 </tr>
 </tbody>
 </table>
@@ -2045,7 +2088,107 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 </table>
 </div>
 <div class="sect3">
-<h4 id="web-caching"><a class="anchor" href="#web-caching"></a>8.4.3. Web Caching</h4>
+<h4 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>8.4.3. Unknown or invalid query parameters</h4>
+<div class="paragraph">
+<p>If a server wants to support query parameters, these have to be explicitly declared in the API definition.</p>
+</div>
+<table id="req_core_query-param-known" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-known</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If a query parameter is specified in the API definition, then the server SHALL meet the requirements specified for that parameter.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Query parameters that have not been explicitly specified in the API definition for that operation will be treated as unknown.</p>
+</div>
+<table id="req_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-unknown</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that is not specified in the API definition.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If OpenAPI is used to represent the API definition, a capability exists to define query parameters without explicitly declaring them. That is,</p>
+</div>
+<div class="listingblock">
+<div class="title">OpenAPI schema for query parameters</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">in: query
+name: queryParameters
+schema:
+  type: object
+  additionalProperties: true
+style: form</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of <code>queryParameters</code> is this object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">{
+  "first_parameter": "some value",
+  "other_parameter": 42
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the request URI this would be expressed as <code>&amp;first_parameter=some%20value&amp;other_parameter=42</code>.</p>
+</div>
+<table id="req_core_query-param-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-invalid</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that has an invalid value.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid if it violates the API definition or any other constraint for that parameter stated in a requirement.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_web_caching"><a class="anchor" href="#_web_caching"></a>8.4.4. Web Caching</h4>
 <div class="paragraph">
 <p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc2616">HTTP/1.1 (RFC 2616)</a>.</p>
 </div>
@@ -2071,7 +2214,7 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 </table>
 </div>
 <div class="sect3">
-<h4 id="cross-origin"><a class="anchor" href="#cross-origin"></a>8.4.4. Support for Cross-Origin Requests</h4>
+<h4 id="cross-origin"><a class="anchor" href="#cross-origin"></a>8.4.5. Support for Cross-Origin Requests</h4>
 <div class="paragraph">
 <p>If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.</p>
 </div>
@@ -2110,7 +2253,7 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 </div>
 </div>
 <div class="sect3">
-<h4 id="_encodings"><a class="anchor" href="#_encodings"></a>8.4.5. Encodings</h4>
+<h4 id="_encodings"><a class="anchor" href="#_encodings"></a>8.4.6. Encodings</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2210,7 +2353,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </div>
 </div>
 <div class="sect3">
-<h4 id="CRS-core-section"><a class="anchor" href="#CRS-core-section"></a>8.4.6. Coordinate reference systems</h4>
+<h4 id="CRS-core-section"><a class="anchor" href="#CRS-core-section"></a>8.4.7. Coordinate reference systems</h4>
 <div class="paragraph">
 <p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, how to express and share the location of features in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.</p>
 </div>
@@ -2224,7 +2367,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/crs84</strong></p>
 </div></div></td>
@@ -2249,7 +2392,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </table>
 </div>
 <div class="sect3">
-<h4 id="_link_headers"><a class="anchor" href="#_link_headers"></a>8.4.7. Link Headers</h4>
+<h4 id="_link_headers"><a class="anchor" href="#_link_headers"></a>8.4.8. Link Headers</h4>
 <table id="rec_core_link-header" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2360,7 +2503,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -2380,7 +2523,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -2467,7 +2610,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -2487,7 +2630,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -2553,7 +2696,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -2588,7 +2731,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-2</strong></p>
 </div></div></td>
@@ -2611,7 +2754,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/oas30/oas-impl</strong></p></td>
 </tr>
 <tr>
@@ -2630,7 +2773,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/completeness</strong></p>
 </div></div></td>
@@ -2665,7 +2808,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/exceptions-codes</strong></p>
 </div></div></td>
@@ -2740,7 +2883,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/security</strong></p>
 </div></div></td>
@@ -2930,6 +3073,17 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See <a href="#OAComm">OGC API-Common Part 1: Core</a>, Clause 11.</p>
+</div>
+<div class="paragraph">
+<p>add additional text as needed</p>
 </div>
 </div>
 </div>
@@ -3839,84 +3993,6 @@ include::examples/tbd.adoc[]
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="collections-metadata-examples"><a class="anchor" href="#collections-metadata-examples"></a>B.4. Collections Metadata Examples</h3>
-<div class="exampleblock">
-<div class="title">Example 4. Collection metadata response document</div>
-<div class="content">
-<div class="paragraph">
-<p>This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". The metadata includes links to the collection resource in all formats that are supported by the API (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "items").</p>
-</div>
-<div class="paragraph">
-<p>There is a link to the feature collections response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
-</div>
-<div class="paragraph">
-<p>Representations of this resource in other formats are referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "alternate".</p>
-</div>
-<div class="paragraph">
-<p>An additional link is to a GML application schema for the dataset - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".</p>
-</div>
-<div class="paragraph">
-<p>A bulk download of all the features in the dataset is referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "enclosure"</p>
-</div>
-<div class="paragraph">
-<p>Finally there are also links to the license information for the building data (using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "license").</p>
-</div>
-<div class="paragraph">
-<p>Reference system information is not provided as the service provides geometries only in the default system (spatial: WGS 84 longitude/latitude; temporal:
-Gregorian calendar).</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>{
-  "links": [
-    { "href": "http://data.example.org/collections.json",
-      "rel": "self", "type": "application/json", "title": "this document" },
-    { "href": "http://data.example.org/collections.html",
-      "rel": "alternate", "type": "text/html", "title": "this document as HTML" },
-    { "href": "http://schemas.example.org/1.0/foobar.xsd",
-      "rel": "describedBy", "type": "application/xml", "title": "XML schema for Acme Corporation data" }
-  ],
-  "collections": [
-    {
-      "id": "buildings",
-      "title": "Buildings",
-      "description": "Buildings in the city of Bonn.",
-      "extent": {
-        "spatial": [ 7.01, 50.63, 7.22, 50.78 ],
-        "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
-      },
-      "links": [
-        { "href": "http://data.example.org/collections/buildings/items",
-          "rel": "items", "type": "application/geo+json",
-          "title": "Buildings" },
-        { "href": "http://example.org/concepts/building.html",
-          "rel": "describedBy", "type": "text/html",
-          "title": "Feature catalogue for buildings" }
-      ]
-    }
-  ]
-}</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="collection-information-examples"><a class="anchor" href="#collection-information-examples"></a>B.5. Collection Information Examples</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-include::examples/tbd.adoc[]
-</td>
-</tr>
-</table>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -3947,6 +4023,13 @@ include::examples/tbd.adoc[]
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Baseline update</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2020-04-21</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Public Comments</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C. Heazel</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">all</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Separation of Collections from Core plus additional comment adjudications.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -3957,19 +4040,22 @@ include::examples/tbd.adoc[]
 <div class="ulist">
 <ul>
 <li>
-<p><a id="ogc08-131"></a> Open Geospatial Consortium: The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
+<p><a id="link-relations"></a> IANA: <strong>Link Relation Types</strong>, <a href="https://www.iana.org/assignments/link-relations/link-relations.xml" class="bare">https://www.iana.org/assignments/link-relations/link-relations.xml</a></p>
 </li>
 <li>
-<p><a id="SDWBP"></a> W3C/OGC: Spatial Data on the Web Best Practices, W3C Working Group Note 28 September 2017, <a href="https://www.w3.org/TR/sdw-bp/" class="bare">https://www.w3.org/TR/sdw-bp/</a></p>
+<p><a id="ogc08-131"></a> Open Geospatial Consortium: <strong>The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications</strong>, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
 </li>
 <li>
-<p><a id="DWBP"></a> W3C: Data on the Web Best Practices, W3C Recommendation 31 January 2017, <a href="https://www.w3.org/TR/dwbp/" class="bare">https://www.w3.org/TR/dwbp/</a></p>
+<p><a id="WEBARCH"></a> W3C: <strong>Architecture of the World Wide Web, Volume One</strong>, W3C Recommendation, 15 December 2004, <a href="https://www.w3.org/TR/webarch/" class="bare">https://www.w3.org/TR/webarch/</a></p>
 </li>
 <li>
-<p><a id="DCAT"></a> W3C: Data Catalog Vocabulary (DCAT) - Version 2, W3C Recommendation 04 February 2020, <a href="https://www.w3.org/TR/vocab-dcat-2/" class="bare">https://www.w3.org/TR/vocab-dcat-2/</a></p>
+<p><a id="DCAT"></a> W3C: <strong>Data Catalog Vocabulary (DCAT) - Version 2</strong>, W3C Recommendation, 04 February 2020, <a href="https://www.w3.org/TR/vocab-dcat-2/" class="bare">https://www.w3.org/TR/vocab-dcat-2/</a></p>
 </li>
 <li>
-<p><a id="link-relations"></a> IANA: Link Relation Types, <a href="https://www.iana.org/assignments/link-relations/link-relations.xml" class="bare">https://www.iana.org/assignments/link-relations/link-relations.xml</a></p>
+<p><a id="DWBP"></a> W3C: <strong>Data on the Web Best Practices</strong>, W3C Recommendation, 31 January 2017, <a href="https://www.w3.org/TR/dwbp/" class="bare">https://www.w3.org/TR/dwbp/</a></p>
+</li>
+<li>
+<p><a id="SDWBP"></a> W3C/OGC: <strong>Spatial Data on the Web Best Practices</strong>, W3C Working Group Note, 28 September 2017, <a href="https://www.w3.org/TR/sdw-bp/" class="bare">https://www.w3.org/TR/sdw-bp/</a></p>
 </li>
 </ul>
 </div>
@@ -3979,7 +4065,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-14 17:04:20 +0100
+Last updated 2020-04-21 16:09:14 +0100
 </div>
 </div>
 </body>
