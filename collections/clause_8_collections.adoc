@@ -1,5 +1,5 @@
 [[rc_collections-section]]
-== Requirement Class "Collections"
+== Requirements Class "Collections"
 :sectnums:
 
 include::requirements/requirements_class_collections.adoc[]
@@ -298,7 +298,7 @@ include::recommendations/collections/PER_rc-prev.adoc[]
 [[general-requirements]]
 === General Requirements
 
-The following general requirements and recomendations apply to all OGC APIs which implement the API-Common Collections conformance class.
+The following general requirements and recommendations apply to all OGC APIs which implement the API-Common Collections conformance class.
 
 [[http_status_codes]]
 ==== HTTP status codes
@@ -329,7 +329,7 @@ include::recommendations/core/PER_additional-status-codes.adoc[]
 
 ==== Coordinate Reference Systems (CRS)
 
-As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web (SDW) <<SDWBP,Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data. therefore, clearly stating the CRS rules for the coordinates is very important.
+As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web (SDW) <<SDWBP,Best Practices document>>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data. Therefore, clearly stating the CRS rules for the coordinates is very important.
 
 For the reasons discussed in the SDW Best Practice, OGC APIs use WGS84 longitude and latitude as the default CRS.
 
