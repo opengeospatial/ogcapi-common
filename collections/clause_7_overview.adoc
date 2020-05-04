@@ -1,0 +1,40 @@
+[[overview]]
+== Overview
+
+This API-Common Collections Standard provides a common connection between the API landing page and resource-specific specifications or standards.
+
+[[resources-introduction]]
+=== Resources
+
+An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources. While the focus of this Standard is on Spatial Resources, it may be used for Information Resources as well.
+
+[[foundation-resources-introduction]]
+*Foundation Resources* are those resources which are provided by every OGC API to help clients understand the offerings and capabilities of that API. Those resources are defined in OGC API-Common Part 1: Core Standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.
+
+[[spatial-resources-introduction]]
+*Spatial Resources* are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. This OGC API-Common Part 2: Collections Standard defines the basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed which extend API-Common Collections for specific Spatial Resource types.
+
+[[information-resources-introduction]]
+*Information Resources* are non-spatial resources which support the operation of an API or the access and use of Spatial Resources. These resources are typically not the subject of an OAG API standard. Rather, they are a supporting element of a broader OGC API standard. 
+
+[[collections-introduction]]
+=== Collections
+
+Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial/temporal resources. 
+
+The purpose of the OGC API-Common Part 2: Collections Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.
+
+A contentous issue is the term used to describe an aggregation of resources. The term should be consistent with its' coloquial use, should indicate that the members of the aggregation are somehow associated, and it should be independent of any resource type.
+
+Merriam Websters Dictionary provides a few relevant definitions :
+
+* Collection: "An accumulation of objects gathered for study, comparison, or exhibition or as a hobby."  
+* Aggregate: (a synonym to collection) "A mass or body of units or parts somewhat loosely associated with one another."
+* Set: "A number of things of the same kind that belong or are used together."
+
+Based on these definitions, the term `collection` will be used in this standard to indicate an aggregation of resources. **For purposes of this standard**, a collection is defined as follows:
+
+* <<collection-definition,Collection>>: A body of resources that belong or are used together. An aggregate, set, or group of related resources.
+
+OGC Web API standards should extend this definition to address the specific properties of the resources they describe.
+

@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Number Returned",
+    "description": "Schema for Number Returned element",
+    "type": "object",
+    "properties": {
+        "propertyName": {
+            "description": "The number of resources in a collection. A server may omit this information in a response, if the information about the number of resources is not known or difficult to compute.",
+            "type": "integer",
+            "min": "0"
+        }
+    }
+}

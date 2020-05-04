@@ -1,0 +1,105 @@
+[[conventions-section]]
+== Conventions
+
+All conventions described in the <<apicore,OGC API-Common Part 1: Core Standard>> are also applicable to this API-Common Part 2: Collections Standard except where modified in the following section.
+
+[[identifiers-section]]
+=== Identifiers
+
+The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-2/1.0`.
+
+All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
+
+[[link-relations-section]]
+=== Link relations
+
+<<rfc8288,RFC 8288 (Web Linking)>> is used to express relationships between resources. Link relation types from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
+
+The following link-relations are useed by this OGC Standard.
+
+* *alternate*: Refers to a substitute for this context. [IANA]
+
+* *collection*: The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
+
+* *conformance*: Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
+
+* *data*: Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
+
+* *describedBy*: Refers to a resource providing information about the link's context. [IANA]
+
+* *item*: The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
+
+* *items*: Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
+
+* *license*: Refers to a license associated with this context. [IANA]
+
+* *self*: Conveys an identifier for the link's context. [IANA]
+
+* *service-desc*: Identifies service description for the context that is primarily intended for consumption by machines. [IANA]
+
+** API definitions are considered service descriptions.
+
+* *service-doc*: Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
+
+=== Geometry
+
+==== Spatial Geometry
+
+Standardized concepts for spatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
+
+The spatial geometry used in the OGC API-Common Standards is documented in the <<gmlsf,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
+
+==== Temporal Geometry
+
+Standardized concepts are also needed for temporal characteristics. The temporal geometry used in the API-Common Standards is defined in <<iso19108,ISO 19108>>. Only a subset of this geometry is used. Specifically:
+
+* TM_Instant - a point representing position in time
+* TM_Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM_Instant)
+
+=== Coordinate Reference Systems
+
+As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
+
+This OGC API-Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
+
+* CRS84 - WGS 84 longitude and latitude without height
+* CRS84h - WGS 84 longitude and latitude with ellipsoidal height
+
+Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API-Common Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
+
+<<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
+
+=== API definition
+
+==== General remarks
+
+So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding.
+
+This OGC standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
+
+==== Role of OpenAPI
+
+This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.
+
+This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
+
+In this document, fragments of OpenAPI definitions are shown in YAML. This is because YAML is easier to format than JSON and is typically used by OpenAPI editors.
+
+==== References to OpenAPI components in normative statements
+
+Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.
+
+In this case, the following changes to the pre-defined OpenAPI component are permitted:
+
+* If the server supports an XML encoding, `xml` properties may be added to the relevant OpenAPI schema components.
+* The range of values of a parameter or property may be extended (additional values) or constrained (if a subset of all possible values is applicable to the server). An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an _enum_.
+* Additional properties may be added to the schema definition of a Response Object.
+* Informative text may be changed or added, like comments or description properties.
+
+For OGC API definitions that do not conform to the <<openapi,OpenAPI Specification 3.0>>, the normative statement should be interpreted in the context of the API definition language used.
+
+==== Reusable OpenAPI components
+
+Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
+
+CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/ogcapi_common/1.0/openapi/".

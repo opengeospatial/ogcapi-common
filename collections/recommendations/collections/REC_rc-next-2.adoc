@@ -1,0 +1,6 @@
+[[rec_collections_rc-next-2]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-next-2* 
+^|A |Dereferencing a `next` link SHOULD return additional resources from the set of selected resources that have not yet been returned.
+|===

@@ -1,0 +1,26 @@
+== Conformance
+
+Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the <<citepp,OGC Compliance Testing Policies and Procedures>> and the https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
+
+The one Standardization Target for this standard is Web APIs.
+
+API-Collections defines an API module intended for re-use by other OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite for each separate standard that normatively references this standard.
+
+This standard identifies three <<ctc-definition,conformance classes>>. The conformance classes implemented by an OGC API are advertised through the /conformance path on the landing page. Each conformance class is defined by one <<requirements-class-definition,requirements class>>. The tests in Annex A are organized by Requirements Class. So an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
+
+The requirements classes for API-Collections are:
+
+* <<rc_collections-section,Collections>>
+
+The _Collections Requirements Class_ extends the API-Common _Core_ to enable discovery and query access to <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
+
+The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The _Collections Requirements Class_ specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.
+
+* <<rc_encodings-section,Encodings>>
+** <<rc_html-section,HTML>>
+** <<rc_geojson-section,GeoJSON>>
+
+The _Collections_ requirements class does not mandate a specific encoding or format for representing resources. The _HTML_ and _GeoJSON_ requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
+
+Neither of these encodings is mandatory. An implementor of the _API-Collections_ standard may decide to implement another encoding instead of, or in addition to, these two.
+

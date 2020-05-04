@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Number Matched",
+    "description": "Schema for Number Matched element",
+    "type": "object",
+    "properties": {
+        "propertyName": {
+            "description": "The number of features of the feature type that match the selection parameters like `bbox`.",
+            "type": "integer",
+            "min": "0"
+        }
+    }
+}
