@@ -45,7 +45,7 @@ The following link-relations are useed by this OGC Standard.
 
 ==== Spatial Geometry
 
-Standardized concepts for spatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.  
+Standardized concepts for spatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
 
 The spatial geometry used in the OGC API-Common Standards is documented in the <<gmlsf,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
 
@@ -53,34 +53,21 @@ The spatial geometry used in the OGC API-Common Standards is documented in the <
 
 Standardized concepts are also needed for temporal characteristics. The temporal geometry used in the API-Common Standards is defined in <<iso19108,ISO 19108>>. Only a subset of this geometry is used. Specifically:
 
-* TM-Instant - a point representing position in time
-* TM-Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM-Instant)
+* TM_Instant - a point representing position in time
+* TM_Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM_Instant)
 
-=== Reference Systems
+=== Coordinate Reference Systems
 
-==== Coordinate Reference Systems
+As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system within which the coordinates are expressed.
+This OGC API-Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
 
-This OGC API-Common Collections standard does not mandate use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply.
+* CRS84 - WGS 84 longitude and latitude without height
+* CRS84h - WGS 84 longitude and latitude with ellipsoidal height
 
-* CRS84 - WGS 84 longitude and latitude without elevation
-* CRS84h - WGS 84 longitude and latitude with elipsoid elevation
+Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API-Common Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
 
-<<iso19111,ISO 19111>> is the normative standard for Coordinate Reference Systems.
-
-==== Temporal Reference Systems
-
-Temporal positions are measured relative to an underlying temporal reference system. This OGC API-Common Collections Standard does not mandate a specific Temporal Reference System. However, it does establish a default which is:
-
-* For date: the Gregorian Calendar
-* For time: a 24 hour local or Coordinated Universal Time (UTC)
-
-This convention reflects the recomendations of ISO 8601 as documented in ISO 19108. A different temporal reference system may be used where appropriate.
-
-<<iso19108,ISO 19108>> is the normative standard for Temporal Reference Systems.
-
-<<iso8601_1,ISO 8601>> is the normative standard for representations of dates and times.
+<<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
 
 === API definition
 
@@ -92,7 +79,7 @@ This OGC standard specifies requirements and recommendations for APIs that share
 
 ==== Role of OpenAPI
 
-This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.  
+This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.
 
 This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
@@ -116,4 +103,3 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
 
 CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/ogcapi_common/1.0/openapi/".
-
