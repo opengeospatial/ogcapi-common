@@ -58,7 +58,7 @@ Standardized concepts are also needed for temporal characteristics. The temporal
 
 === Coordinate Reference Systems
 
-As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
+As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
 This OGC API-Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
 

@@ -15,20 +15,6 @@ In addition to the general alignment with the architecture of the Web (e.g., con
 * Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
 * Modularization is not just about a single "service". OGC APIs can provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.
 
-[[resources-introduction]]
-=== Resources
-
-An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources.
-
-[[foundation-resources-introduction]]
-Foundation Resources are those resources which are provided by every OGC API to help clients understand the offerings and capabilities of that API. Those resources are defined in OGC API-Common Part 1: Core Standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.
-
-[[spatial-resources-introduction]]
-Spatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. The OGC API-Common Part 2: Collections Standard defines the basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed which extend API-Common Collections for specific Spatial Resource types.
-
-[[information-resources-introduction]]
-Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. These resources are typically not the subject of an OAG API standard. Rather, they are a supporting element of a broader OGC API standard. 
-
 [[modular-API-introduction]]
 === Modular APIs
 

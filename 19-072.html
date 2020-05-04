@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-04-21</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-05-04</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -595,12 +595,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#overview">7. Overview</a>
 <ul class="sectlevel2">
 <li><a href="#evolution-introduction">7.1. Evolution from OGC Web Services</a></li>
-<li><a href="#resources-introduction">7.2. Resources</a></li>
-<li><a href="#modular-API-introduction">7.3. Modular APIs</a></li>
-<li><a href="#navigation-introduction">7.4. Navigation</a>
+<li><a href="#modular-API-introduction">7.2. Modular APIs</a></li>
+<li><a href="#navigation-introduction">7.3. Navigation</a>
 <ul class="sectlevel3">
-<li><a href="#direct-access-introduction">7.4.1. Direct Access</a></li>
-<li><a href="#hypermedia-access-introduction">7.4.2. Hypermedia Access</a></li>
+<li><a href="#direct-access-introduction">7.3.1. Direct Access</a></li>
+<li><a href="#hypermedia-access-introduction">7.3.2. Hypermedia Access</a></li>
 </ul>
 </li>
 </ul>
@@ -716,9 +715,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="paragraph">
 <p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API-Common suite of standards. API-Common standards serve as reusable building-blocks. OGC standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
-</div>
-<div class="paragraph">
-<p>An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC Web APIs are divided into three categories; Foundation Resources, Spatial Resources, and Information Resources. These Resource Catagories are defined in <a href="#terms_and_definitions">Terms and Definitions</a> (Chapter 5) and discussed in more detail in the <a href="#resources-introduction">Resources section</a> of Chapter 7.</p>
 </div>
 <div class="paragraph">
 <p>The OGC API-Common Part 1: Core Standard defines resources and access paths for Foundation Resources. Foundation Resources are those resources useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access paths are supported by all conformant OGC Web APIs. The Foundation Resources are described in <a href="#fr-table">Table 1</a>.</p>
@@ -953,14 +949,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
 </div>
-<div id="collection-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Collection</strong><br>
-A body of resources that belong or are used together. An aggregate, set, or group of related resources. (OGC 20-000)</p>
-</li>
-</ul>
-</div>
 <div id="ctm-definition" class="ulist">
 <ul>
 <li>
@@ -1002,32 +990,6 @@ set of <a href="#ctm-definition">conformance test modules</a> that must be appli
 </tr>
 </tbody>
 </table>
-<div id="coverage-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Coverage</strong><br>
-feature that acts as a function to return values from its range for any direct position within its spatiotemporal domain, as defined in OGC Abstract Topic 6 <a href="http://docs.opengeospatial.org/is/09-146r6/09-146r6.html">(OGC 09-146r6)</a></p>
-</li>
-</ul>
-</div>
-<div id="dataset-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Dataset</strong><br>
-collection of data, published or curated by a single agent, and available for access or download in one or more serializations or formats (DCAT)</p>
-</li>
-</ul>
-</div>
-<div id="distribution-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Distribution</strong><br>
-specific representation of a <a href="#dataset-definition">dataset</a>. (DCAT)<br>
-<br>
-EXAMPLE: a downloadable file, an RSS feed or an API.</p>
-</li>
-</ul>
-</div>
 <div id="ets-definition" class="ulist">
 <ul>
 <li>
@@ -1036,63 +998,11 @@ A set of code (e.g. Java and CTL) that provides runtime tests for the assertions
 </li>
 </ul>
 </div>
-<div id="extent-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Extent</strong><br>
-The area covered by something. Within this document, we always imply spatial extent; e.g. size or shape that may be expresses using coordinates. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
-</li>
-</ul>
-</div>
-<div id="feature-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Feature</strong><br>
-abstraction of real world phenomena [ISO 19101-1:2014]</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">More details about the term <code>feature</code> may be found in the <a href="http://docs.opengeospatial.org/is/17-069r3/17-069r3.html#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a> in the section <a href="https://www.w3.org/TR/sdw-bp/#spatial-things-features-and-geometry">Spatial Things, Features and Geometry</a>.</p></td>
-</tr>
-</tbody>
-</table>
-<div id="feature-collection-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Feature Collection</strong><br>
-a set of <strong>Features</strong> from a <strong>dataset</strong></p>
-</li>
-</ul>
-</div>
 <div id="foundation-resources-definition" class="ulist">
 <ul>
 <li>
 <p><strong>Foundation Resources</strong><br>
 resources which are provided by every OGC API to help clients to understand the offerings and capabilities of that API.</p>
-</li>
-</ul>
-</div>
-<div id="geometry-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Geometry</strong><br>
-An ordered set of <em>n</em>-dimensional points in a given coordinate reference system. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
-</li>
-</ul>
-</div>
-<div id="information-resource-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Information Resources</strong><br>
-are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources</p>
 </li>
 </ul>
 </div>
@@ -1156,22 +1066,6 @@ TBD</p>
 </li>
 </ul>
 </div>
-<div id="spatial-resource-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Spatial Resource</strong><br>
-the <a href="#resource-definition">resources</a> which we usually think of as Geospatial Data. A <a href="#spatial-thing-definition">Spatial Thing</a>.</p>
-</li>
-</ul>
-</div>
-<div id="spatial-thing-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Spatial Thing</strong><br>
-anything with spatial extent, (i.e. size, shape, or position) and is a combination of the real-world phenomenon and its abstraction. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
-</li>
-</ul>
-</div>
 <div id="standardization-target-definition" class="ulist">
 <ul>
 <li>
@@ -1192,38 +1086,6 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </tr>
 </tbody>
 </table>
-<div id="temporal-cs-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Temporal Coordinate System</strong><br>
-temporal reference system based on an interval scale on which distance is measured as a multiple of a single unit of time. [ISO 19108]</p>
-</li>
-</ul>
-</div>
-<div id="temporal-position-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Temporal Position</strong><br>
-location relative to a temporal reference system [ISO 19108]</p>
-</li>
-</ul>
-</div>
-<div id="trs-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Temporal Reference System</strong><br>
-reference system against which time is measured [ISO 19108]</p>
-</li>
-</ul>
-</div>
-<div id="temporal-thing-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Temporal Thing</strong><br>
-Anything with temporal extent, i.e. duration. e.g. the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (<a href="#W3C-BASIC-GEO">W3C Basic Geo</a>)</p>
-</li>
-</ul>
-</div>
 <div id="webapi-definition" class="ulist">
 <ul>
 <li>
@@ -1433,22 +1295,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </div>
 </div>
 <div class="sect2">
-<h3 id="resources-introduction"><a class="anchor" href="#resources-introduction"></a>7.2. Resources</h3>
-<div class="paragraph">
-<p>An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources.</p>
-</div>
-<div id="foundation-resources-introduction" class="paragraph">
-<p>Foundation Resources are those resources which are provided by every OGC API to help clients understand the offerings and capabilities of that API. Those resources are defined in OGC API-Common Part 1: Core Standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.</p>
-</div>
-<div id="spatial-resources-introduction" class="paragraph">
-<p>Spatial Resources are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. The OGC API-Common Part 2: Collections Standard defines the basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed which extend API-Common Collections for specific Spatial Resource types.</p>
-</div>
-<div id="information-resources-introduction" class="paragraph">
-<p>Information Resources are non-spatial resources which support the operation of the API or the access and use of the Spatial Resources. These resources are typically not the subject of an OAG API standard. Rather, they are a supporting element of a broader OGC API standard.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="modular-API-introduction"><a class="anchor" href="#modular-API-introduction"></a>7.3. Modular APIs</h3>
+<h3 id="modular-API-introduction"><a class="anchor" href="#modular-API-introduction"></a>7.2. Modular APIs</h3>
 <div class="paragraph">
 <p>A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. The approach specified in this standard is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelihood that they will integrate at run-time is greatly enhanced.</p>
 </div>
@@ -1457,7 +1304,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </div>
 </div>
 <div class="sect2">
-<h3 id="navigation-introduction"><a class="anchor" href="#navigation-introduction"></a>7.4. Navigation</h3>
+<h3 id="navigation-introduction"><a class="anchor" href="#navigation-introduction"></a>7.3. Navigation</h3>
 <div class="paragraph">
 <p>OGC APIs are designed to support two access patterns; Hypermedia Access, and Direct Access.</p>
 </div>
@@ -1468,13 +1315,13 @@ During the development phase, these components use a base URL of "https://raw.gi
 <p>A hypermedia access client needs little a-prioi information beyond a URL to the landing page and the abilty to identify and follow the links found there. A common web browser should be sufficient.</p>
 </div>
 <div class="sect3">
-<h4 id="direct-access-introduction"><a class="anchor" href="#direct-access-introduction"></a>7.4.1. Direct Access</h4>
+<h4 id="direct-access-introduction"><a class="anchor" href="#direct-access-introduction"></a>7.3.1. Direct Access</h4>
 <div class="paragraph">
 <p>Direct Access requires that the resource consumer possesses knowledge of the path to the resource prior to attempting access. Typically this knowledge comes from the use of standard paths, receiving the path from another entity, or by processing an API definition resource. Direct access is particularly applicable to software analytics where there is no human in the loop.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="hypermedia-access-introduction"><a class="anchor" href="#hypermedia-access-introduction"></a>7.4.2. Hypermedia Access</h4>
+<h4 id="hypermedia-access-introduction"><a class="anchor" href="#hypermedia-access-introduction"></a>7.3.2. Hypermedia Access</h4>
 <div class="paragraph">
 <p>Hypermedia Access is the use of hypermedia links to navigate from one resource to another. This pattern is typical of the Web Browser environment. A resource consumer starts from a landing page, selects a link on that page and then moves on to the referenced resource.</p>
 </div>
@@ -1727,9 +1574,6 @@ API definitions are considered service descriptions.</p></td>
 </li>
 <li>
 <p><code>/conformance</code> (relation type 'conformance')</p>
-</li>
-<li>
-<p>One or more information resources (relation type 'data')</p>
 </li>
 </ul>
 </div></div></td>
@@ -3249,9 +3093,6 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <li>
 <p>Validate that the landing page includes a "conformance" link to the conformance class declaration</p>
 </li>
-<li>
-<p>Validate that the landing page includes a "data" link to the Feature contents.</p>
-</li>
 </ol>
 </div></div></td>
 </tr>
@@ -4065,7 +3906,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-21 16:09:14 +0100
+Last updated 2020-05-04 16:09:01 +0100
 </div>
 </div>
 </body>

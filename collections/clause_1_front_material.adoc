@@ -4,13 +4,11 @@
 
 The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API-Common suite of standards. API-Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system. 
 
-An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC Web APIs are divided into three categories; Foundation Resources, Spatial Resources, and Information Resources. These Resource Catagories are defined in <<terms_and_definitions,Terms and Definitions>> (Chapter 5) and described in the <<apicore,OGC API-Common Part 1: Core>> Standard.
-
 Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources. 
 
 The purpose of the OGC API-Common Part 2: Collections Standard (API-Collections) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifing the above.
 
-This common connection is sufficient to start the client down the path to spatial resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.
+This common connection is sufficient to start the client down the path to resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.
 
 [big]*ii.    Keywords*
 

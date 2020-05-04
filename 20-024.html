@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-04-21</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-05-04</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -580,12 +580,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_temporal_geometry">6.3.2. Temporal Geometry</a></li>
 </ul>
 </li>
-<li><a href="#_reference_systems">6.4. Reference Systems</a>
-<ul class="sectlevel3">
-<li><a href="#_coordinate_reference_systems">6.4.1. Coordinate Reference Systems</a></li>
-<li><a href="#_temporal_reference_systems">6.4.2. Temporal Reference Systems</a></li>
-</ul>
-</li>
+<li><a href="#_coordinate_reference_systems">6.4. Coordinate Reference Systems</a></li>
 <li><a href="#_api_definition">6.5. API definition</a>
 <ul class="sectlevel3">
 <li><a href="#_general_remarks">6.5.1. General remarks</a></li>
@@ -685,16 +680,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API-Common suite of standards. API-Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
-<p>An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC Web APIs are divided into three categories; Foundation Resources, Spatial Resources, and Information Resources. These Resource Catagories are defined in <a href="#terms_and_definitions">Terms and Definitions</a> (Chapter 5) and described in the <a href="#apicore">OGC API-Common Part 1: Core</a> Standard.</p>
-</div>
-<div class="paragraph">
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.</p>
 </div>
 <div class="paragraph">
 <p>The purpose of the OGC API-Common Part 2: Collections Standard (API-Collections) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifing the above.</p>
 </div>
 <div class="paragraph">
-<p>This common connection is sufficient to start the client down the path to spatial resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.</p>
+<p>This common connection is sufficient to start the client down the path to resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">ii.    Keywords</strong></p>
@@ -1038,14 +1030,6 @@ An ordered set of <em>n</em>-dimensional points in a given coordinate reference 
 </li>
 </ul>
 </div>
-<div id="information-resource-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Information Resources</strong><br>
-are non-spatial resources which support the operation of the API or the access and use of the <a href="#spatial-resources-definition">Spatial Resources</a>. (<a href="#apicore">OGC 19-072</a>)</p>
-</li>
-</ul>
-</div>
 <div id="recomendation-definition" class="ulist">
 <ul>
 <li>
@@ -1166,6 +1150,14 @@ reference system against which time is measured (<a href="#iso19108">ISO 19108</
 </li>
 </ul>
 </div>
+<div id="temporal-resource-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Temporal Resource</strong><br>
+the <a href="#resource-definition">resources</a> which we usually think of as time and date focused data. A <a href="#temporal-thing-definition">Temporal Thing</a>. (<a href="#apicore">OGC 19-072</a>)</p>
+</li>
+</ul>
+</div>
 <div id="temporal-thing-definition" class="ulist">
 <ul>
 <li>
@@ -1271,63 +1263,38 @@ API using an architectural style that is founded on the technologies of the Web.
 <div class="ulist">
 <ul>
 <li>
-<p>TM-Instant - a point representing position in time</p>
+<p>TM_Instant - a point representing position in time</p>
 </li>
 <li>
-<p>TM-Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM-Instant)</p>
+<p>TM_Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM_Instant)</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reference_systems"><a class="anchor" href="#_reference_systems"></a>6.4. Reference Systems</h3>
-<div class="sect3">
-<h4 id="_coordinate_reference_systems"><a class="anchor" href="#_coordinate_reference_systems"></a>6.4.1. Coordinate Reference Systems</h4>
+<h3 id="_coordinate_reference_systems"><a class="anchor" href="#_coordinate_reference_systems"></a>6.4. Coordinate Reference Systems</h3>
 <div class="paragraph">
-<p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, the ability to to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system within which the coordinates are expressed.</p>
+<p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.</p>
 </div>
 <div class="paragraph">
-<p>This OGC API-Common Collections standard does not mandate use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply.</p>
+<p>This OGC API-Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>CRS84 - WGS 84 longitude and latitude without elevation</p>
+<p>CRS84 - WGS 84 longitude and latitude without height</p>
 </li>
 <li>
-<p>CRS84h - WGS 84 longitude and latitude with elipsoid elevation</p>
+<p>CRS84h - WGS 84 longitude and latitude with ellipsoidal height</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><a href="#iso19111">ISO 19111</a> is the normative standard for Coordinate Reference Systems.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_temporal_reference_systems"><a class="anchor" href="#_temporal_reference_systems"></a>6.4.2. Temporal Reference Systems</h4>
-<div class="paragraph">
-<p>Temporal positions are measured relative to an underlying temporal reference system. This OGC API-Common Collections Standard does not mandate a specific Temporal Reference System. However, it does establish a default which is:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>For date: the Gregorian Calendar</p>
-</li>
-<li>
-<p>For time: a 24 hour local or Coordinated Universal Time (UTC)</p>
-</li>
-</ul>
+<p>Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API-Common Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <a href="#rfc3339">RFC 3339</a>. In data, other temporal coordinate reference systems may be used where appropriate.</p>
 </div>
 <div class="paragraph">
-<p>This convention reflects the recomendations of ISO 8601 as documented in ISO 19108. A different temporal reference system may be used where appropriate.</p>
-</div>
-<div class="paragraph">
-<p><a href="#iso19108">ISO 19108</a> is the normative standard for Temporal Reference Systems.</p>
-</div>
-<div class="paragraph">
-<p><a href="#iso8601_1">ISO 8601</a> is the normative standard for representations of dates and times.</p>
-</div>
+<p><a href="#iso19111">ISO 19111</a> provides the conceptual model for Coordinate Reference Systems.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4664,7 +4631,7 @@ nternet Engineering Task Force (IETF). RFC 7946: <strong>The GeoJSON Format</str
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-21 16:09:47 +0100
+Last updated 2020-05-04 16:09:34 +0100
 </div>
 </div>
 </body>
