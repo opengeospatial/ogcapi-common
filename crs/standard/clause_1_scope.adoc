@@ -1,6 +1,6 @@
 == Scope
 
-This document specifies an extension to the <<OAComm-1,OGC API-Common - Part 1: Core>> Standard that defines the behaviour of a server that supports multiple coordinates reference systems.
+This document specifies an extension to the <<OAComm-1,OGC API - Common - Part 1: Core>> Standard that defines the behaviour of a server that supports multiple coordinates reference systems.
 
 This document assumes that each supported coordinate reference system can be referenced by a unique resource identifier (i.e. a URI).
 

@@ -3,21 +3,21 @@ Conformance with this standard shall be checked using the tests specified in Ann
 
 The one Standardization Target for this standard is Web APIs.
 
-OGC API-Common Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.
+OGC API - Common - Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.
 
 This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the /conformance path on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
-The requirements classes for _OGC API-Common - Core_ are:
+The requirements classes for _OGC API - Common - Core_ are:
 
 === Core Requirements Class
 
 The _Core Requirements Class_ is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs.
 
-The Core requirements class is specified in *Requirements Class Core* <<rc_core-section,(Chapter 8)>>. 
+The Core requirements class is specified in *Requirements Class Core* <<rc_core-section,(Chapter 8)>>.
 
 === Encoding Requirements Classes
 
-The _Core_ requirements class does not mandate a specific encoding or format for representing resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify use of these encodings for  
+The _Core_ requirements class does not mandate a specific encoding or format for representing resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify use of these encodings for
 
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>

@@ -10,7 +10,7 @@ The Core Conformance Class of API-Common describes how <<foundation-resources-in
 . "/api" - the API Definition document for this API
 . "/conformance" - the conformance information for this API
 
-In addition, requirements which are applicable to all OGC API standards and are not specific to a resource type are included in the <<general-requirements,General Requirements>> section. 
+In addition, requirements which are applicable to all OGC API standards and are not specific to a resource type are included in the <<general-requirements,General Requirements>> section.
 
 [[landing-page]]
 === API landing page
@@ -29,7 +29,7 @@ include::requirements/core/REQ_root-success.adoc[]
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-The landing page returned by this operation is based on the following link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json[Json schema]. 
+The landing page returned by this operation is based on the following link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json[Json schema].
 
 .landingPage.json
 [source, JSON]
@@ -134,7 +134,7 @@ Query parameters that have not been explicitly specified in the API definition f
 
 include::requirements/core/REQ_query-param-unknown.adoc[]
 
-If OpenAPI is used to represent the API definition, a capability exists to define query parameters without explicitly declaring them. That is, 
+If OpenAPI is used to represent the API definition, a capability exists to define query parameters without explicitly declaring them. That is,
 
 .OpenAPI schema for query parameters
 [source,java]
@@ -216,11 +216,10 @@ Two common approaches are:
 
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, how to express and share the location of features in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
 
-For the reasons discussed in the Best Practices, OGC API-Common uses WGS 84 longitude and latitude as the default coordinate reference system.
+For the reasons discussed in the Best Practices, OGC API - Common uses WGS 84 longitude and latitude as the default coordinate reference system.
 
 include::requirements/core/REQ_crs84.adoc[]
 
 ==== Link Headers
 
 include::recommendations/core/REC_link-header.adoc[]
-
