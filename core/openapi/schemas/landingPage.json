@@ -21,8 +21,5 @@
         "items": {"$href": "link.json"}
         }
     },
-    "patternProperties": {
-        "^x-": {}
-    },
     "additionalProperties": true
 }

@@ -15,7 +15,7 @@ In addition, requirements which are applicable to all OGC API standards and are 
 [[landing-page]]
 === API landing page
 
-Each OGC API has a single landing page (path `/`).
+Each API has a single landing page (path `/`).
 
 The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.
 
