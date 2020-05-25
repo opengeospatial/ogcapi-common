@@ -109,6 +109,8 @@ NOTE: ISSUE: Should we expand our explanation of HTTP status codes? See issues h
 !===
 |Status code |Description
 |`200` |A successful request.
+|`302` |The target resource was found but resides temporarily under a different URI. A 302 response is not evidence that the operation has been successfully completed.
+|`303` |The server is redirecting the user agent to a different resource. A 303 response is not evidence that the operation has been successfully completed.
 |`304` |An <<web-caching,entity tag>> was provided in the request and the resource has not changed since the previous request.
 |`400` |The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.
 |`401` |The request requires user authentication. The response includes a `WWW-Authenticate` header field containing a challenge applicable to the requested resource.
