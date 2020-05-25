@@ -82,7 +82,7 @@ The `timeStamp` of when the response was generated
 
 include::requirements/collections/REQ_rc-timeStamp.adoc[]
 
-The `numberMatched` property of the Collections Metadata 
+The `numberMatched` property of the Collections Metadata
 
 include::requirements/collections/REQ_rc-numberMatched.adoc[]
 
@@ -178,7 +178,7 @@ See <<http-status-codes>> for general guidance.
 [[parameter-requirements]]
 === Parameter Requirements
 
-Query parameters are used in URLs to limit the resources which are returned on a GET request. The API Common Collections Standard defines three query parameters for use in OGC API standards:
+Query parameters are used in URLs to limit the resources which are returned on a GET request. The OGC API - Common - Part 2: Collections Standard defines three query parameters for use in OGC API standards:
 
 * <<bbox-parameter-requirements,bbox>>: Bounding Box
 * <<parameter-datetime-requirements,datetime>>: Date and Time
@@ -239,7 +239,7 @@ include::requirements/collections/REQ_rc-time-response.adoc[]
 |====
 | Note | ISO 8601-2 distinguishes open start/end timestamps (double-dot) and unknown start/end timestamps (empty string). For queries, an unknown start/end has the same effect as an open start/end.
 |====
- 
+
 .A date-time
 =================
 February 12, 2018, 23:20:52 GMT:
@@ -271,7 +271,7 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 [[limit-parameter-requirements]]
 ==== Parameter limit
 
-The `limit` parameter limits the number of resources that can be returned in a single response. 
+The `limit` parameter limits the number of resources that can be returned in a single response.
 
 include::requirements/collections/REQ_rc-limit-definition.adoc[[]
 
@@ -283,7 +283,7 @@ The number of resources returned depends on the server and the value of the `lim
 
 include::requirements/collections/REQ_rc-limit-response.adoc[]
 
-The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first `page`. Additional pages can be accessed through hyperlink navigation. 
+The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first `page`. Additional pages can be accessed through hyperlink navigation.
 
 include::recommendations/collections/REC_rc-next-1.adoc[]
 

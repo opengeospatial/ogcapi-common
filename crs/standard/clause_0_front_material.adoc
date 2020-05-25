@@ -2,7 +2,7 @@
 
 OGC API standards define modular API building blocks to spatially enable Web APIs in a consistent way. The <<OpenAPI,OpenAPI specification>> is used to define the API building blocks.
 
-OGC API Common provides API building blocks to create, modify and query spatial resources on the Web. OGC API Common is comprised of multiple parts, each of them is a separate standard.
+OGC API - Common provides API building blocks to create, modify and query spatial resources on the Web. OGC API - Common is comprised of multiple parts, each of them is a separate standard.
 
 This part extends the core capabilities specified in <<OAComm-1,Part 1: Core>> with the ability to use coordinate reference system identifiers other than the defaults defined in the core.
 

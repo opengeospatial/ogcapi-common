@@ -1,7 +1,7 @@
 [[conventions-section]]
 == Conventions
 
-All conventions described in the <<apicore,OGC API-Common Part 1: Core Standard>> are also applicable to this API-Common Part 2: Collections Standard except where modified in the following section.
+All conventions described in the <<apicore,OGC API - Common Part 1: Core Standard>> are also applicable to this API-Common Part 2: Collections Standard except where modified in the following section.
 
 [[identifiers-section]]
 === Identifiers
@@ -47,7 +47,7 @@ The following link-relations are useed by this OGC Standard.
 
 Standardized concepts for spatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
 
-The spatial geometry used in the OGC API-Common Standards is documented in the <<gmlsf,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
+The spatial geometry used in the OGC API - Common Standards is documented in the <<gmlsf,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
 
 ==== Temporal Geometry
 
@@ -60,12 +60,12 @@ Standardized concepts are also needed for temporal characteristics. The temporal
 
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-This OGC API-Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
+This OGC API - Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
 
 * CRS84 - WGS 84 longitude and latitude without height
 * CRS84h - WGS 84 longitude and latitude with ellipsoidal height
 
-Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API-Common Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
+Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
 
 <<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
 
