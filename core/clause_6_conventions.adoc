@@ -28,7 +28,7 @@ The following link-relations are in common use by OGC Web API Standards.
 
 * *data*: refers to the root resource of a dataset in an API. [OGC]
 
-* *describedBy*: Refers to a resource providing information about the link's context. [IANA]
+* *describedby*: Refers to a resource providing information about the link's context. [IANA]
 
 * *item*: The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
 

@@ -53,7 +53,7 @@ Navigation of hyperlinks is facilitated if the hyperlink includes information ab
 |`current` |Refers to a resource containing the most recent item(s) in a collection of resources. [IANA]
 |`conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
 |`data`|Refers to the root resource of a dataset in an API. [OGC]
-|`describedBy`|Refers to a resource providing information about the link's context.[IANA] +
+|`describedby`|Refers to a resource providing information about the link's context.[IANA] +
 Links to external resources which further describe the subject resource
 |`first`|An IRI that refers to the furthest preceding resource in a series of resources.[IANA]
 |`item`|The target IRI points to a resource that is a member of the collection represented by the context IRI.[IANA]
