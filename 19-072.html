@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
-<title>Draft OGC API-Common Part 1: Core</title>
+<title>Draft OGC API - Common - Part 1: Core</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -432,7 +432,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>Draft OGC API-Common Part 1: Core</h1>
+<h1>Draft OGC API - Common - Part 1: Core</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -481,7 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API-Common Part 1: Core</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API - Common - Part 1: Core</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -708,10 +708,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API-Common suite of standards. API-Common standards serve as reusable building-blocks. OGC standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
+<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common suite of standards. API-Common standards serve as reusable building-blocks. OGC standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
-<p>The OGC API-Common Part 1: Core Standard defines resources and access paths for Foundation Resources. Foundation Resources are those resources useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access paths are supported by all conformant OGC Web APIs. The Foundation Resources are described in <a href="#fr-table">Table 1</a>.</p>
+<p>The OGC API - Common - Part 1: Core Standard defines resources and access paths for Foundation Resources. Foundation Resources are those resources useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access paths are supported by all conformant OGC Web APIs. The Foundation Resources are described in <a href="#fr-table">Table 1</a>.</p>
 </div>
 <table id="fr-table" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Foundation Resources</caption>
@@ -836,13 +836,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The one Standardization Target for this standard is Web APIs.</p>
 </div>
 <div class="paragraph">
-<p>OGC API-Common Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.</p>
+<p>OGC API - Common - Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.</p>
 </div>
 <div class="paragraph">
 <p>This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the /conformance path on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
 </div>
 <div class="paragraph">
-<p>The requirements classes for <em>OGC API-Common - Core</em> are:</p>
+<p>The requirements classes for <em>OGC API - Common - Core</em> are:</p>
 </div>
 <div class="sect2">
 <h3 id="_core_requirements_class"><a class="anchor" href="#_core_requirements_class"></a>3.1. Core Requirements Class</h3>
@@ -1137,7 +1137,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p><strong>data</strong>: refers to the root resource of a dataset in an API. [OGC]</p>
 </li>
 <li>
-<p><strong>describedBy</strong>: Refers to a resource providing information about the link&#8217;s context. [IANA]</p>
+<p><strong>describedby</strong>: Refers to a resource providing information about the link&#8217;s context. [IANA]</p>
 </li>
 <li>
 <p><strong>item</strong>: The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]</p>
@@ -1274,10 +1274,10 @@ During the development phase, these components use a base URL of "https://raw.gi
 <div class="ulist">
 <ul>
 <li>
-<p>A common <code>core</code> which is the same for all OGC Web API standards. This OGC API-Common - Core Standard provides the information needed by a client to understand and use an OGC Web API.</p>
+<p>A common <code>core</code> which is the same for all OGC Web API standards. This OGC API - Common - Core Standard provides the information needed by a client to understand and use an OGC Web API.</p>
 </li>
 <li>
-<p>Clear separation between common requirements and more resource specific capabilities. The OGC API-Common suite of standards specify the <em>common</em> requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.</p>
+<p>Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the <em>common</em> requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.</p>
 </li>
 <li>
 <p>Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.</p>
@@ -1356,7 +1356,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to the root resource of a dataset in an API. [OGC]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>describedBy</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>describedby</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource providing information about the link&#8217;s context.[IANA]<br>
 Links to external resources which further describe the subject resource</p></td>
 </tr>
@@ -1466,7 +1466,7 @@ API definitions are considered service descriptions.</p></td>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi_common/1.0/req/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi-common/1.0/req/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -1508,7 +1508,7 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect2">
 <h3 id="landing-page"><a class="anchor" href="#landing-page"></a>8.1. API landing page</h3>
 <div class="paragraph">
-<p>Each OGC API has a single landing page (path <code>/</code>).</p>
+<p>Each API has a single landing page (path <code>/</code>).</p>
 </div>
 <div class="paragraph">
 <p>The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.</p>
@@ -1586,7 +1586,7 @@ API definitions are considered service descriptions.</p></td>
 <pre class="highlight"><code class="language-JSON" data-lang="JSON">{
 "$schema": "http://json-schema.org/draft-07/schema#",
 "title": "Landing Page Schema",
-"description": "JSON schema for the OGC API-Common landing page",
+"description": "JSON schema for the OGC API - Common landing page",
 "type": "object",
 "required": [
     "links"
@@ -1605,9 +1605,6 @@ API definitions are considered service descriptions.</p></td>
         "type": "array",
         "items": {"$href": "link.json"}
         }
-    },
-    "patternProperties": {
-        "^x-": {}
     },
     "additionalProperties": true
 }</code></pre>
@@ -1781,7 +1778,7 @@ API definitions are considered service descriptions.</p></td>
         "description": "ConformsTo is an array of URLs.  Each URL should correspond to a defined OGC Conformance class.  Unrecognized URLs should be ignored",
         "items": {
             "type": "string",
-            "example": "http://www.opengis.net/spec/OAPI_Common/1.0/req/core"
+            "example": "http://www.opengis.net/spec/OAPI-Common/1.0/req/core"
             }
         }
     }
@@ -1866,6 +1863,14 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>200</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A successful request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>302</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource was found but resides temporarily under a different URI. A 302 response is not evidence that the operation has been successfully completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>303</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server is redirecting the user agent to a different resource. A 303 response is not evidence that the operation has been successfully completed.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>304</code></p></td>
@@ -2196,7 +2201,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 <p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, how to express and share the location of features in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.</p>
 </div>
 <div class="paragraph">
-<p>For the reasons discussed in the Best Practices, OGC API-Common uses WGS 84 longitude and latitude as the default coordinate reference system.</p>
+<p>For the reasons discussed in the Best Practices, OGC API - Common uses WGS 84 longitude and latitude as the default coordinate reference system.</p>
 </div>
 <table id="req_core_crs84" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2302,7 +2307,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 <p>Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, this publication should be done in a way that enables users and search engines to discover and access all of the data.</p>
 </div>
 <div class="paragraph">
-<p>This is discussed in detail in the  <a href="#SDWBP">W3C/OGC SDW Best Practice</a>. Therefore, the OGC API-Common Standard <a href="#rec_html">recommends</a> supporting HTML as an encoding.</p>
+<p>This is discussed in detail in the  <a href="#SDWBP">W3C/OGC SDW Best Practice</a>. Therefore, the OGC API - Common Standard <a href="#rec_html">recommends</a> supporting HTML as an encoding.</p>
 </div>
 <table id="rc_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2314,7 +2319,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common/1.0/req/html" class="bare">http://www.opengis.net/spec/ogcapi_common/1.0/req/html</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common/1.0/req/html" class="bare">http://www.opengis.net/spec/ogcapi-common/1.0/req/html</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -2421,7 +2426,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-1/1.0/req/json" class="bare">http://www.opengis.net/spec/ogcapi_common-1/1.0/req/json</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -2511,7 +2516,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common/1.0/req/oas30" class="bare">http://www.opengis.net/spec/ogcapi_common/1.0/req/oas30</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common/1.0/req/oas30" class="bare">http://www.opengis.net/spec/ogcapi-common/1.0/req/oas30</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -2918,7 +2923,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>See <a href="#OAComm">OGC API-Common Part 1: Core</a>, Clause 11.</p>
+<p>See <a href="#OAComm">OGC API - Common - Part 1: Core</a>, Clause 11.</p>
 </div>
 <div class="paragraph">
 <p>add additional text as needed</p>
@@ -2954,7 +2959,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">http://www.opengis.net/spec/ogcapi_common/1.0/req/core</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">http://www.opengis.net/spec/ogcapi-common/1.0/req/core</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -3320,7 +3325,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_geojson">http://www.opengis.net/spec/ogcapi_common-1/1.0/req/json</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_geojson">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3433,7 +3438,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_html">http://www.opengis.net/spec/ogcapi_common/1.0/req/html</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_html">http://www.opengis.net/spec/ogcapi-common/1.0/req/html</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3539,7 +3544,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_oas3">http://www.opengis.net/spec/ogcapi_common/1.0/req/oas3</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_oas3">http://www.opengis.net/spec/ogcapi-common/1.0/req/oas3</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -3900,7 +3905,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-23 22:26:28 -0400
+Last updated 2020-05-24 22:26:00 -0400
 </div>
 </div>
 </body>

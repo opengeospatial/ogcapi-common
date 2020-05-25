@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
-<title>Draft OGC API-Common Part 2: Collections</title>
+<title>Draft OGC API - Common - Part 2: Collections</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -432,7 +432,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>Draft OGC API-Common Part 2: Collections</h1>
+<h1>Draft OGC API - Common - Part 2: Collections</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -481,7 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API-Common Part 2: Collections</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API - Common - Part 2: Collections</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -671,13 +671,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API-Common suite of standards. API-Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
+<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common suite of standards. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the OGC API-Common Part 2: Collections Standard (API-Collections) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifing the above.</p>
+<p>The purpose of the OGC API - Common - Part 2: Collections Standard (API-Collections) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.</p>
 </div>
 <div class="paragraph">
 <p>This common connection is sufficient to start the client down the path to resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.</p>
@@ -751,7 +751,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_scope"><a class="anchor" href="#_scope"></a>2. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The OGC API-Common suite of standards provides a set of modular API standards which can be used to build resource and mission-specific Web API standards. The OGC API-Common Part 2: Collections Standard (API-Collections) is one of those modules.</p>
+<p>The OGC API - Common suite of standards provides a set of modular API standards which can be used to build resource and mission-specific Web API standards. The OGC API - Common - Part 2: Collections Standard (API-Collections) is one of those modules.</p>
 </div>
 <div class="paragraph">
 <p>API-Collections describes discovery and query operations for resources which are typically packaged into sets or collections of related resources. Operations are defined for both the <code>collection</code> resource and for the individual member resources (<code>items</code>) that make up the collection. Operations are also defined for the <code>collections</code> resource. <code>Collections</code> is a collection of collections. It serves as a single access point for the collections hosted by an API.</p>
@@ -844,7 +844,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="gmlsf"></a> van den Brink, L., Portele, C., Vretanos, P.: OGC 10-100r3, <strong>Geography Markup Language (GML) Simple Features Profile</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=42729">http://portal.opengeospatial.org/files/?artifact_id=42729</a></p>
 </li>
 <li>
-<p><a id="apicore"></a> Heazel, C.: OGC 19-072, <strong>OGC API-Common Part 1: Core</strong>, <a href="https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf">https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf</a></p>
+<p><a id="apicore"></a> Heazel, C.: OGC 19-072, <strong>OGC API - Common - Part 1: Core</strong>, <a href="https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf">https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf</a></p>
 </li>
 <li>
 <p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
@@ -884,7 +884,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="terms_and_definitions"><a class="anchor" href="#terms_and_definitions"></a>5. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document uses the terms defined in Sub-clause 5 of <a href="#apicore">OGC API-Common Part 1: Core</a> (OGC 19-072), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
+<p>This document uses the terms defined in Sub-clause 5 of <a href="#apicore">OGC API - Common - Part 1: Core</a> (OGC 19-072), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
 </div>
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
@@ -1174,7 +1174,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <h2 id="conventions-section"><a class="anchor" href="#conventions-section"></a>6. Conventions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>All conventions described in the <a href="#apicore">OGC API-Common Part 1: Core Standard</a> are also applicable to this API-Common Part 2: Collections Standard except where modified in the following section.</p>
+<p>All conventions described in the <a href="#apicore">OGC API - Common Part 1: Core Standard</a> are also applicable to this API-Common Part 2: Collections Standard except where modified in the following section.</p>
 </div>
 <div class="sect2">
 <h3 id="identifiers-section"><a class="anchor" href="#identifiers-section"></a>6.1. Identifiers</h3>
@@ -1246,7 +1246,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p>Standardized concepts for spatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <a href="#iso19107"><em>ISO 19107</em></a>.</p>
 </div>
 <div class="paragraph">
-<p>The spatial geometry used in the OGC API-Common Standards is documented in the <a href="#gmlsf">GML Simple Features Profile </a> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <a href="#sfsql">Simple Features for SQL</a> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.</p>
+<p>The spatial geometry used in the OGC API - Common Standards is documented in the <a href="#gmlsf">GML Simple Features Profile </a> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <a href="#sfsql">Simple Features for SQL</a> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1272,7 +1272,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.</p>
 </div>
 <div class="paragraph">
-<p>This OGC API-Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.</p>
+<p>This OGC API - Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1285,7 +1285,7 @@ API using an architectural style that is founded on the technologies of the Web.
 </ul>
 </div>
 <div class="paragraph">
-<p>Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API-Common Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <a href="#rfc3339">RFC 3339</a>. In data, other temporal coordinate reference systems may be used where appropriate.</p>
+<p>Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <a href="#rfc3339">RFC 3339</a>. In data, other temporal coordinate reference systems may be used where appropriate.</p>
 </div>
 <div class="paragraph">
 <p><a href="#iso19111">ISO 19111</a> provides the conceptual model for Coordinate Reference Systems.</p>
@@ -1375,10 +1375,10 @@ During the development phase, these components use a base URL of "https://raw.gi
 <p>An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources. While the focus of this Standard is on Spatial Resources, it may be used for Information Resources as well.</p>
 </div>
 <div id="foundation-resources-introduction" class="paragraph">
-<p><strong>Foundation Resources</strong> are those resources which are provided by every OGC API to help clients understand the offerings and capabilities of that API. Those resources are defined in OGC API-Common Part 1: Core Standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.</p>
+<p><strong>Foundation Resources</strong> are those resources which are provided by every OGC API to help clients understand the offerings and capabilities of that API. Those resources are defined in OGC API - Common - Part 1: Core Standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.</p>
 </div>
 <div id="spatial-resources-introduction" class="paragraph">
-<p><strong>Spatial Resources</strong> are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. This OGC API-Common Part 2: Collections Standard defines the basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed which extend API-Common Collections for specific Spatial Resource types.</p>
+<p><strong>Spatial Resources</strong> are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. This OGC API - Common - Part 2: Collections Standard defines the basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed which extend API-Common Collections for specific Spatial Resource types.</p>
 </div>
 <div id="information-resources-introduction" class="paragraph">
 <p><strong>Information Resources</strong> are non-spatial resources which support the operation of an API or the access and use of Spatial Resources. These resources are typically not the subject of an OAG API standard. Rather, they are a supporting element of a broader OGC API standard.</p>
@@ -1390,7 +1390,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial/temporal resources.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the OGC API-Common Part 2: Collections Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.</p>
+<p>The purpose of the OGC API - Common - Part 2: Collections Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.</p>
 </div>
 <div class="paragraph">
 <p>A contentous issue is the term used to describe an aggregation of resources. The term should be consistent with its' coloquial use, should indicate that the members of the aggregation are somehow associated, and it should be independent of any resource type.</p>
@@ -2311,7 +2311,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <div class="sect2">
 <h3 id="parameter-requirements"><a class="anchor" href="#parameter-requirements"></a>8.2. Parameter Requirements</h3>
 <div class="paragraph">
-<p>Query parameters are used in URLs to limit the resources which are returned on a GET request. The API Common Collections Standard defines three query parameters for use in OGC API standards:</p>
+<p>Query parameters are used in URLs to limit the resources which are returned on a GET request. The OGC API - Common - Part 2: Collections Standard defines three query parameters for use in OGC API standards:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3407,7 +3407,7 @@ The following schema names are not GeoJSON. They need to be updated.
 <h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>11. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>See <a href="#OAComm">OGC API-Common Part 1: Core</a>, Clause 11.</p>
+<p>See <a href="#OAComm">OGC API - Common - Part 1: Core</a>, Clause 11.</p>
 </div>
 <div class="paragraph">
 <p>add additional text as needed</p>
@@ -4625,7 +4625,7 @@ nternet Engineering Task Force (IETF). RFC 7946: <strong>The GeoJSON Format</str
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-23 22:26:28 -0400
+Last updated 2020-05-24 22:26:00 -0400
 </div>
 </div>
 </body>
