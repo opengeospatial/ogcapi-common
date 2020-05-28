@@ -1,5 +1,5 @@
-:authors: FirstName1 LastName1,FirstName2 LastName2
-:authors_email: a@a.com, b@b.com
+:authors: Chuck Heazel, Chris Little
+:authors_email: TBA
 :date: YYYY-MM-DD
 :title: OGC API - Common
 :swgname: OGC API - Common
@@ -138,7 +138,10 @@ The targeted start date is in {target_start_date} once charter is approved. Form
 
 ==== Additional SWG Tasks
 
-To be completed as SWG takes on new tasks.
+The SWG will also develop the following extensions:
+
+* OGC API - Common - Part 2: Collections
+* OGC API - Common - Part 3: Coordinate Reference Systems by Reference
 
 === IPR Policy for this SWG
 
@@ -184,18 +187,18 @@ The following people support this proposal and are committed to the Charter and 
 [cols=",",width="75%",options="header",align="center"]
 |===
 |Name| Organization
-|FirstName1 LastName1 | OrganizationName1
-|FirstName2 LastName2 | OrganizationName2
-|FirstName3 LastName3 | OrganizationName3
-|FirstName4 LastName4 | OrganizationName4
+|Chris Little  | Met Office
+|Clemens Portele  | interactive instruments
+|Joan Maso  | UAB-CREAF
+|Chuck Heazel  | Heazel Tech
+|Jerome Jacovella St Louis  | Ecere
 |===
-
 
 
 [loweralpha, start=5]
 .	Convener(s)
 
-{authors}
+Chuck Heazel (Heazel Tech), Joan Maso (UAB-CREAF)
 
 
 NOTE: This template is based on the Charter of the OGC API - Styles SWG
