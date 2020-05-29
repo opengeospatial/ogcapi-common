@@ -123,6 +123,8 @@ include::openapi/schemas/collectionInfo.json[]
 
 This schema is further constrained by the following requirements and recommendations.
 
+include::recommendations/collections/REC_rc-md-item-type.adoc[]
+
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
 include::requirements/collections/REQ_rc-md-items-links.adoc[]

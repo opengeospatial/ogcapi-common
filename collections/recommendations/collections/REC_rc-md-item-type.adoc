@@ -1,0 +1,6 @@
+[[rec_collections_rc-md-item-type]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-md-item-type* 
+^|A |If it is possible and reasonable to interact directly with the items of a collection via an accessible `/collection/{collectionId}/items` endpoint then the `itemType` key SHOULD be included in the collection object to indicate the type of the items (e.g. `feature` or `record`).
+|===
