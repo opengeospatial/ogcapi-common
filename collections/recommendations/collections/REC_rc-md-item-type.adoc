@@ -2,5 +2,5 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-md-item-type* 
-^|A |If it is possible and reasonable to interact directly with the items of a collection via an accessible `/collection/{collectionId}/items` endpoint then the `itemType` key SHOULD be included in the collection object to indicate the type of the items (e.g. `feature` or `record`).
+^|A |If a resource at the path `/collection/{collectionId}/items` is supported by the API and is accessible, then the `itemType` key SHOULD be included in the collection object to indicate the type of the items (e.g. `feature` or `record`).
 |===
