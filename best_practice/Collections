@@ -2,7 +2,53 @@
 
 Collection: A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
 
+
 === Derivation
+
+[[collection-definition]]
+* *Collection* +
+A body of resources that belong or are used together. An aggregate, set, or group of related resources. (Derived from Websters)
+
+[[dataset-definition]]
+* *Dataset* +
+collection of data, published or curated by a single agent, and available for access or download in one or more serializations or formats (<<DCAT,DCAT>>)
+
+[[distribution-definition]]
+* *Distribution* +
+specific representation of a <<dataset-definition,dataset>>. (<<DCAT,DCAT>>) +
+ +
+EXAMPLE: a downloadable file, an RSS feed or an API.
+
+[[feature-collection-definition]]
+* *Feature Collection* +
+a set of *Features* from a *dataset*
+
+[[webapi-definition]]
+* *Web API* +
+API using an architectural style that is founded on the technologies of the Web. (<<DWBP,W3C Data on the Web Best Practices>>)
+
+==== REST Architectural Elements (Fielding)
+
+The Representational State Transfer (REST) style is an abstraction of the architectural elements within a distributed hypermedia system. REST ignores the details of component implementation and protocol syntax in order to focus on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements. It encompasses the fundamental constraints upon components, connectors, and data that define the basis of the Web architecture, and thus the essence of its behavior as a network-based application.
+
+===== REST Data Elements
+
+ A distributed hypermedia architect has only three fundamental options: 
+ . render the data where it is located and send a fixed-format image to the recipient; 
+ . encapsulate the data with a rendering engine and send both to the recipient; or, 
+ . send the raw data to the recipient along with metadata that describes the data type, so that the recipient can choose their own rendering engine. 
+ 
+ Each option has its advantages and disadvantages. Option 1, the traditional client-server style [31], allows all information about the true nature of the data to remain hidden within the sender, preventing assumptions from being made about the data structure and making client implementation easier. However, it also severely restricts the functionality of the recipient and places most of the processing load on the sender, leading to scalability problems. Option 2, the mobile object style [50], provides information hiding while enabling specialized processing of the data via its unique rendering engine, but limits the functionality of the recipient to what is anticipated within that engine and may vastly increase the amount of data transferred. Option 3 allows the sender to remain simple and scalable while minimizing the bytes transferred, but loses the advantages of information hiding and requires that both sender and recipient understand the same data types. REST provides a hybrid of all three options by focusing on a shared understanding of data types with metadata, but limiting the scope of what is revealed to a standardized interface. REST components communicate by transferring a representation of a resource in a format matching one of an evolving set of standard data types, selected dynamically based on the capabilities or desires of the recipient and the nature of the resource. Whether the representation is in the same format as the raw source, or is derived from the source, remains hidden behind the interface. The benefits of the mobile object style are approximated by sending a representation that consists of instructions in the standard data format of an encapsulated rendering engine (e.g., Java [45]). REST therefore gains the separation of concerns of the client-server style without the server scalability problem, allows information hiding through a generic interface to enable encapsulation and evolution of services, and provides for a diverse set of functionality through downloadable feature-engines.
+
+resource: Any information that can be named can be a resource: a document or image, a temporal service (e.g. "today's weather in Los Angeles"), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author's hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.
+
+More precisely, a resource R is a temporally varying membership function MR(t), which for time t maps to a set of entities, or values, which are equivalent. The values in the set may be resource representations and/or resource identifiers. A resource can map to the empty set, which allows references to be made to a concept before any realization of that concept exists -- a notion that was foreign to most hypertext systems prior to the Web [61]. Some resources are static in the sense that, when examined at any time after their creation, they always correspond to the same value set. Others have a high degree of variance in their value over time. The only thing that is required to be static for a resource is the semantics of the mapping, since the semantics is what distinguishes one resource from another.
+
+REST components perform actions on a resource by using a representation to capture the current or intended state of that resource and transferring that representation between components. A representation is a sequence of bytes, plus representation metadata to describe those bytes. Other commonly used but less precise names for a representation include: document, file, and HTTP message entity, instance, or variant. A representation consists of data, metadata describing the data, and, on occasion, metadata to describe the metadata (usually for the purpose of verifying message integrity). Metadata is in the form of name-value pairs, where the name corresponds to a standard that defines the value's structure and semantics. Response messages may include both representation metadata and resource metadata: information about the resource that is not specific to the supplied representation.
+
+The data format of a representation is known as a media type [48]. A representation can be included in a message and processed by the recipient according to the control data of the message and the nature of the media type. Some media types are intended for automated processing, some are intended to be rendered for viewing by a user, and a few are capable of both. Composite media types can be used to enclose multiple representations in a single message.
+
+
 
 === Implementations
 
