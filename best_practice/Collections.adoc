@@ -1,9 +1,16 @@
-== What is a Collection
+== What is a Collection?
 
-Collection: A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
-
+OGC API Collection: A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.
 
 === Derivation
+
+While OGC API-Features specifies that a Features API instance corresponds to one and only one "dataset", each feature-collection is allowed to be a distinct spatial data resource (collection of geospatial data). 
+
+Given that OGC APIs are designed to distribute, visualize, and process spatial data resources, a shared definition and listing of spatial data resources is required.
+
+It follows from this that an OGC API can present one or more spatial data resources that are *collections of spatial data* with one or more sub-resources that are themselves distributions of that spatial data conforming to an OGC API standard.  
+
+Definitions of important terms used in the preceding text follow.
 
 [[collection-definition]]
 * *Collection* +
@@ -48,7 +55,4 @@ REST components perform actions on a resource by using a representation to captu
 
 The data format of a representation is known as a media type [48]. A representation can be included in a message and processed by the recipient according to the control data of the message and the nature of the media type. Some media types are intended for automated processing, some are intended to be rendered for viewing by a user, and a few are capable of both. Composite media types can be used to enclose multiple representations in a single message.
 
-
-
 === Implementations
-
