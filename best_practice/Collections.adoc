@@ -1,0 +1,76 @@
+== What is a Collection
+
+*Collection* +
+A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
+
+=== Rationale
+
+[[dataset-definition]]
+*Dataset* +
+A collection of data, published or curated by a single agent, and available for access or download in one or more serializations or formats (<<DCAT,DCAT>>)
+
+A dataset is a restriction on the general concept of a <<collection-definition,collection>>
+
+. A dataset is a collection of data
+. A dataset is published or curated by a single agent.
+. A dataset is available in one or more serializations or formats (<<distribution-definition,distributions>>).
+. A <<distribution-definition,distribution>> is synonymous to the REST concept of a <<representation-definition,representation>>.
+
+*Collection (proposed)* +
+A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
+
+An OAPI Collection is a restriction on the general concept of a <<collection-definition,collection>>:
+
+. An OAPI Collection may only contain data. It does not encompass non-data <<definition-resource, resources>>.
+. The data items contained in an OAPI Collection must be geospatial. 
+. Geospatial data is the set of all <<spatial-thing-definition,Spatial Things>> and <<temporal-thing-definition,Temporal Things>>.
+. An OAPI Collection has one or more <<distribution-definition,distributions>>.
+. A <<distribution-definition,distribution>> is synonymous to the REST concept of a <<representation-definition,representation>>.
+
+*Conclusions*
+
+. Any OAPI Collection which is published or curated by a single agent is a dataset.
+. Any dataset whose members are restricted to <<spatial-thing-definition,Spatial Things>> and <<temporal-thing-definition,Temporal Things>> can be an OAPI Collection.
+
+=== Key Concepts
+
+[[collection-definition]]
+* *Collection* +
+A body of resources that belong or are used together. An aggregate, set, or group of related resources. (Derived from Websters)
+
+[[distribution-definition]]
+* *Distribution* +
+specific representation of a <<dataset-definition,dataset>>. (<<DCAT,DCAT>>) +
+ +
+EXAMPLE: a downloadable file, an RSS feed or an API.
+
+[[feature-collection-definition]]
+* *Feature Collection* +
+a set of *Features* from a *dataset*
+
+[[media-type-definition]]
+* *Media Type* +
+The data format of a <<representation-definition,representation>>. (Fielding 2000)
+
+[[resource-definition]]
+* *Resource* +
+. Any information that can be named. (Fielding 2000) 
+. A conceptual mapping to a set of entities. (Fielding 2000)
+. A resource R is a temporally varying membership function M~R~(t), which for time t maps to a set of entities, or values, which are equivalent. (Fielding 2000)
+
+[[Representation-definition]]
+* *Representation*
+. A format matching one of an evolving set of standard data types, selected dynamically based on the capabilities or desires of the recipient and the nature of the resource. (Fielding 2000)
+. The current or intended state of a resource. (Fielding 2000)
+
+[[spatial-thing-definition]]
+* *Spatial Thing* +
+anything with spatial extent, (i.e. size, shape, or position) and is a combination of the real-world phenomenon and its abstraction. (<<SDWBP,W3C/OGC Spatial Data on the Web Best Practice>>)
+
+[[temporal-thing-definition]]
+* *Temporal Thing* +
+Anything with temporal extent, i.e. duration. e.g. the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (<<W3C-BASIC-GEO,W3C Basic Geo>>)
+
+=== OAPI Collections and OGC Resource Types
+
+NOTE: Jeff's analysis goes here.
