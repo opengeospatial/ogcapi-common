@@ -1,13 +1,17 @@
 == What is a Collection
 
-*Collection* +
+*<OGC API> Collection* +
 A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
 
 === Rationale
 
 [[dataset-definition]]
 *Dataset* +
-A collection of data, published or curated by a single agent, and available for access or download in one or more serializations or formats (<<DCAT,DCAT>>)
+collection of data
+
+NOTE: Published or curated by a single agent, and available for access or download in one or more serializations or formats.
+
+NOTE: This definition was adopted as the OGC definition of "dataset" by the OAB (see https://portal.ogc.org/?m=projects&a=view&project_id=228&tab=5&act=details&issue_id=1434[OAB issue 1434])
 
 A dataset is a restriction on the general concept of a <<collection-definition,collection>>
 
@@ -16,21 +20,21 @@ A dataset is a restriction on the general concept of a <<collection-definition,c
 . A dataset is available in one or more serializations or formats (<<distribution-definition,distributions>>).
 . A <<distribution-definition,distribution>> is synonymous to the REST concept of a <<representation-definition,representation>>.
 
-*Collection (proposed)* +
+*<OGC API> Collection (proposed)* +
 A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
 
-An OAPI Collection is a restriction on the general concept of a <<collection-definition,collection>>:
+An OGC API Collection is a restriction on the general concept of a <<collection-definition,collection>>:
 
-. An OAPI Collection may only contain data. It does not encompass non-data <<definition-resource, resources>>.
-. The data items contained in an OAPI Collection must be geospatial. 
-. Geospatial data is the set of all <<spatial-thing-definition,Spatial Things>> and <<temporal-thing-definition,Temporal Things>>.
-. An OAPI Collection has one or more <<distribution-definition,distributions>>.
-. A <<distribution-definition,distribution>> is synonymous to the REST concept of a <<representation-definition,representation>>.
+. An OGC API Collection may only contain data. It does not encompass non-data <<definition-resource, resources>> (but the Collection resource may still have related auxiliary resources, such as schemas, or processes, as sub-resources).
+. Geospatial datasets include <<spatial-thing-definition,Spatial Things>> and/or <<temporal-thing-definition,Temporal Things>> as data items (but not all data items in the dataset have to have a spatial or temporal extent).
+. An OGC API Collection has one or more <<sub-resource-distribution-definition,sub-resource distributions>>.
+. A <<distribution-definition,distribution>> provides access to a <<representation-definition,representation>> of a dataset.
 
 *Conclusions*
 
-. Any OAPI Collection which is published or curated by a single agent is a dataset.
-. Any dataset whose members are restricted to <<spatial-thing-definition,Spatial Things>> and <<temporal-thing-definition,Temporal Things>> can be an OAPI Collection.
+. Any subset of a dataset can be an OGC API Collection.
+. To generalize the OGC API Collection concept so that a dataset or dataset series could also be a OGC API Collection, a different definition without "sub-resource distribution" would be needed. Maybe change "as one or more sub-resource distributions" to "in one or more representations"?
+. Such a change, however, would again require a mechanism to identify how datasets are related to the resources in a Web API that conforms to Common Part 2. How to identify that an OGC API Collection represents a dataset? How to identify that an API provides access to a single dataset?
 
 === Key Concepts
 
@@ -44,6 +48,10 @@ specific representation of a <<dataset-definition,dataset>>. (<<DCAT,DCAT>>) +
  +
 EXAMPLE: a downloadable file, an RSS feed or an API.
 
+[[sub-resource-distribution-definition]]
+* *Sub-resource Distribution* +
+a subset of the distribution of a dataset
+
 [[feature-collection-definition]]
 * *Feature Collection* +
 a set of *Features* from a *dataset*
@@ -54,7 +62,7 @@ The data format of a <<representation-definition,representation>>. (Fielding 200
 
 [[resource-definition]]
 * *Resource* +
-. Any information that can be named. (Fielding 2000) 
+. Any information that can be named. (Fielding 2000)
 . A conceptual mapping to a set of entities. (Fielding 2000)
 . A resource R is a temporally varying membership function M~R~(t), which for time t maps to a set of entities, or values, which are equivalent. (Fielding 2000)
 
