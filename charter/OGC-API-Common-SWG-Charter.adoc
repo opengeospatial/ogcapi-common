@@ -1,6 +1,6 @@
 :authors: Chuck Heazel, Joan Maso
 :authors_email: TBA
-:date: 2020-07-12
+:date: 2020-07-20
 :title: OGC API - Common
 :swgname: OGC API - Common
 :shortname: Common API
@@ -61,7 +61,7 @@ The formal proposed name of the new multi-part standard is "{swgname}". The shor
 
 The http://docs.opengeospatial.org/wp/16-019r4/16-019r4.html[OGC® Open Geospatial APIs - White Paper] noted that "The recent proliferation of APIs for geospatial applications has degraded the interoperability previously established by open standards. This degradation is due both to the variability of API practices across the IT industry as well as variability in geospatial APIs specifically. Advancements in API practices is needed across the software development profession". This proliferation of APIs is evidenced, in part, by statistics from the https://www.programmableweb.com/news/apis-show-faster-growth-rate-2019-previous-years/research/2019/07/17[Programmable Web] - one of the largest directories of APIs on the Web - which reported in July 2019 that it had seen faster growth than in previous years. With more than 22,000 APIs registered by July 2019, this showed a significant increase from when the directory started tracking APIs in 2005.
 
-There are currently millions of datasets, offered by more than 200,000 servers that implement OGC Web Services (OWS) standards. OGC recognizes that the OWS standards are part of an operational standards baseline that must be maintained. However, there is also recognition within the OGC that Web API technology has advanced in the recent half-decade and therefore offers some capabilities that could benefit OGC Members, their customers and stakeholders. This implies that there is a need for OGC to develop a series of Web API standards that offer similar capabilities to those offered by OWS standards. The OGC API suite of standards have been conceived to address this need. To ensure consistency across OGC API standards, a new multi-part standard called OGC API - Common will specify both mandatory and optional capabilities that all implementations of OGC API standards may support.
+There are currently millions of datasets, offered by more than 200,000 servers that implement OGC Web Services (OWS) standards. OGC recognizes that the OWS standards are part of an operational standards baseline that must be maintained. However, there is also recognition within the OGC that Web API technology has advanced in the recent half-decade and therefore offers some capabilities that could benefit OGC Members, their customers and stakeholders. This implies that there is a need for OGC to develop a series of Web API standards that offer similar capabilities to those offered by OWS standards. The OGC API suite of standards have been conceived to address this need. To ensure consistency across OGC API standards, a multi-part standard called OGC API - Common will specify both mandatory and optional capabilities that all implementations of OGC API standards may support.
 
 === Scope of Work
 
