@@ -10,9 +10,7 @@
     { "href": "http://data.example.org/api",
       "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
     { "href": "http://data.example.org/conformance",
-      "rel": "conformance", "type": "application/json", "title": "OGC conformance classes implemented by this API" },
-    { "href": "http://data.example.org/collections",
-      "rel": "data", "type": "application/json", "title": "Metadata about the resource collections" }
+      "rel": "conformance", "type": "application/json", "title": "OGC conformance classes implemented by this API" }
   ]
 }
 ----
