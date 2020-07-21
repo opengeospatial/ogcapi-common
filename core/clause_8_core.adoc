@@ -4,7 +4,7 @@
 
 include::requirements/requirements_class_core.adoc[]
 
-The Core Conformance Class of API-Common describes how <<foundation-resources-introduction,Foundation Resources>> are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following standard paths:
+The Core Conformance Class of API-Common describes how the core resources are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following standard paths:
 
 . "/" - the landing page
 . "/api" - the API Definition document for this API
