@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-05-04</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-07-21</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -701,7 +701,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
-<li><a href="#Bibliography">Annex D: Bibliography</a></li>
+<li><a href="#Glossary">Annex D: Glossary</a></li>
+<li><a href="#Bibliography">Annex E: Bibliography</a></li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -717,10 +718,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common suite of standards. API-Common standards serve as reusable building-blocks. OGC standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
-<p>The OGC API - Common - Part 1: Core Standard defines resources and access paths for Foundation Resources. Foundation Resources are those resources useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access paths are supported by all conformant OGC Web APIs. The Foundation Resources are described in <a href="#fr-table">Table 1</a>.</p>
+<p>The OGC API - Common - Part 1: Core Standard defines the resources and access paths which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access paths are supported by all conformant OGC Web APIs and are described in <a href="#cr-table">Table 1</a>.</p>
 </div>
-<table id="fr-table" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Foundation Resources</caption>
+<table id="cr-table" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Common Core Resources</caption>
 <colgroup>
 <col style="width: 32%;">
 <col style="width: 23%;">
@@ -949,107 +950,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
 </div>
-<div id="ctm-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Conformance Test Module</strong><br>
-set of related tests, all within a single conformance test class (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be omitted. i.e. <a href="#ctm-definition">conformance test module</a> is the same as <a href="#ctm-definition">conformance module</a>. Conformance modules may be nested in a hierarchical way.<br>
-This term and those associated to it are included here for consistency with ISO 19105.</p></td>
-</tr>
-</tbody>
-</table>
-<div id="ctc-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Conformance Test Class; Conformance Test Level</strong><br>
-set of <a href="#ctm-definition">conformance test modules</a> that must be applied to receive a single <strong>certificate of conformance</strong>. (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be left out, so <a href="#ctc-definition">conformance test class</a> may be called a <a href="#ctc-definition">conformance class</a>.</p></td>
-</tr>
-</tbody>
-</table>
-<div id="ets-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Executable Test Suite (ETS)</strong><br>
-A set of code (e.g. Java and CTL) that provides runtime tests for the assertions defined by the ATS. Test data required to do the tests are part of the ETS <a href="https://portal.opengeospatial.org/files/?artifact_id=55234">(OGC 08-134)</a></p>
-</li>
-</ul>
-</div>
-<div id="foundation-resources-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Foundation Resources</strong><br>
-resources which are provided by every OGC API to help clients to understand the offerings and capabilities of that API.</p>
-</li>
-</ul>
-</div>
-<div id="recomendation-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Recommendation</strong><br>
-expression in the content of a document conveying that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is deprecated but not prohibited (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">"Although using normative language, a <a href="#recomendation-definition">recommendation</a> is not a <a href="#requirement-definition">requirement</a>. The usual form replaces the <code>shall</code> (imperative or command) of a <a href="#requirement-definition">requirement</a> with a <code>should</code> (suggestive or conditional)." (ISO Directives Part 2)</p></td>
-</tr>
-</tbody>
-</table>
-<div id="requirement-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Requirement</strong><br>
-expression in the content of a document conveying criteria to be fulfilled if compliance with the document is to be claimed and from which no deviation is permitted (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
-</li>
-</ul>
-</div>
-<div id="requirements-class-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Requirements Class</strong><br>
-aggregate of all requirement modules that must all be satisfied to satisfy a conformance test class (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
-</li>
-</ul>
-</div>
-<div id="requirements-module-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Requirements Module</strong><br>
-aggregate of <a href="#requirement-definition">requirements</a> and <a href="#recomendation-defintion">recommendations</a> of a specification against a single <a href="#standardization-target-definition">standardization target</a> type (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
-</li>
-</ul>
-</div>
 <div id="resource-definition" class="ulist">
 <ul>
 <li>
@@ -1066,26 +966,6 @@ TBD</p>
 </li>
 </ul>
 </div>
-<div id="standardization-target-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Standardization Target</strong><br>
-entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The standardization target is the entity which may receive a certificate of conformance for a requirements class.</p></td>
-</tr>
-</tbody>
-</table>
 <div id="webapi-definition" class="ulist">
 <ul>
 <li>
@@ -1245,19 +1125,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <div class="sect3">
 <h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
 <div class="paragraph">
-<p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document.</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Caution</div>
-</td>
-<td class="content">
-During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/ogcapi_common/1.0/openapi/".
-</td>
-</tr>
-</table>
+<p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at "http://schemas.opengis.net/ogcapi/common/part1/1.0".</p>
 </div>
 </div>
 </div>
@@ -1493,7 +1361,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The Core Conformance Class of API-Common describes how <a href="#foundation-resources-introduction">Foundation Resources</a> are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following standard paths:</p>
+<p>The Core Conformance Class of API-Common describes how the core resources are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following standard paths:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1711,7 +1579,13 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect2">
 <h3 id="conformance-classes"><a class="anchor" href="#conformance-classes"></a>8.3. Declaration of Conformance Classes</h3>
 <div class="paragraph">
-<p>To support "generic" clients that want to accessing OGC APIs in general - and not "just" a specific API / server, the API has to declare the conformance classes it implements and conforms to.</p>
+<p>The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.</p>
+</div>
+<div class="paragraph">
+<p>The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed. It is always the same for every OGC Web API.</p>
+</div>
+<div class="paragraph">
+<p>Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.</p>
 </div>
 <div class="sect3">
 <h4 id="_operation_3"><a class="anchor" href="#_operation_3"></a>8.3.1. Operation</h4>
@@ -1784,7 +1658,7 @@ API definitions are considered service descriptions.</p></td>
         "description": "ConformsTo is an array of URLs.  Each URL should correspond to a defined OGC Conformance class.  Unrecognized URLs should be ignored",
         "items": {
             "type": "string",
-            "example": "http://www.opengis.net/spec/OAPI-Common/1.0/req/core"
+            "example": "http://www.opengis.net/spec/OAPI-Common-1/1.0/req/core"
             }
         }
     }
@@ -2679,7 +2553,7 @@ Note to the Editor: Is this discussion of content negotiation sufficient? If not
 content:
   application/json:
     schema:
-      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI/openapi/schemas/exception.yaml
+      $ref: http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/exception.yaml
   text/html:
     schema:
       type: string</code></pre>
@@ -3791,9 +3665,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
     { "href": "http://data.example.org/api",
       "rel": "service", "type": "application/openapi+json;version=3.0", "title": "the API definition" },
     { "href": "http://data.example.org/conformance",
-      "rel": "conformance", "type": "application/json", "title": "OGC conformance classes implemented by this API" },
-    { "href": "http://data.example.org/collections",
-      "rel": "data", "type": "application/json", "title": "Metadata about the resource collections" }
+      "rel": "conformance", "type": "application/json", "title": "OGC conformance classes implemented by this API" }
   ]
 }</code></pre>
 </div>
@@ -3822,16 +3694,16 @@ include::examples/tbd.adoc[]
 <div class="title">Example 3. Conformance Response</div>
 <div class="content">
 <div class="paragraph">
-<p>This example response in JSON is for an implementation of the OGC API-Features Standard that supports OpenAPI 3.0 for the API definition and HTML and GeoJSON as encodings for resources.</p>
+<p>This example response in JSON is for an implementation of the OGC API-Common Standard that supports OpenAPI 3.0 for the API definition and HTML and GeoJSON as encodings for resources.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-JSON" data-lang="JSON">{
   "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/core",
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30",
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/html",
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/geojson"
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/geojson"
   ]
 }</code></pre>
 </div>
@@ -3881,7 +3753,125 @@ include::examples/tbd.adoc[]
 </div>
 </div>
 <div class="sect1">
-<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex D: Bibliography</h2>
+<h2 id="Glossary"><a class="anchor" href="#Glossary"></a>Annex D: Glossary</h2>
+<div class="sectionbody">
+<div id="ctm-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Conformance Test Module</strong><br>
+set of related tests, all within a single conformance test class (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be omitted. i.e. <a href="#ctm-definition">conformance test module</a> is the same as <a href="#ctm-definition">conformance module</a>. Conformance modules may be nested in a hierarchical way.<br>
+This term and those associated to it are included here for consistency with ISO 19105.</p></td>
+</tr>
+</tbody>
+</table>
+<div id="ctc-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Conformance Test Class; Conformance Test Level</strong><br>
+set of <a href="#ctm-definition">conformance test modules</a> that must be applied to receive a single <strong>certificate of conformance</strong>. (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">When no ambiguity is possible, the word <code>test</code> may be left out, so <a href="#ctc-definition">conformance test class</a> may be called a <a href="#ctc-definition">conformance class</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div id="ets-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Executable Test Suite (ETS)</strong><br>
+A set of code (e.g. Java and CTL) that provides runtime tests for the assertions defined by the ATS. Test data required to do the tests are part of the ETS <a href="https://portal.opengeospatial.org/files/?artifact_id=55234">(OGC 08-134)</a></p>
+</li>
+</ul>
+</div>
+<div id="recomendation-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Recommendation</strong><br>
+expression in the content of a document conveying that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is deprecated but not prohibited (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">"Although using normative language, a <a href="#recomendation-definition">recommendation</a> is not a <a href="#requirement-definition">requirement</a>. The usual form replaces the <code>shall</code> (imperative or command) of a <a href="#requirement-definition">requirement</a> with a <code>should</code> (suggestive or conditional)." (ISO Directives Part 2)</p></td>
+</tr>
+</tbody>
+</table>
+<div id="requirement-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Requirement</strong><br>
+expression in the content of a document conveying criteria to be fulfilled if compliance with the document is to be claimed and from which no deviation is permitted (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+</li>
+</ul>
+</div>
+<div id="requirements-class-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Requirements Class</strong><br>
+aggregate of all requirement modules that must all be satisfied to satisfy a conformance test class (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+</li>
+</ul>
+</div>
+<div id="requirements-module-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Requirements Module</strong><br>
+aggregate of <a href="#requirement-definition">requirements</a> and <a href="#recomendation-defintion">recommendations</a> of a specification against a single <a href="#standardization-target-definition">standardization target</a> type (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+</li>
+</ul>
+</div>
+<div id="standardization-target-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Standardization Target</strong><br>
+entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OGC 08-131r3</a>)</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>NOTE:</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The standardization target is the entity which may receive a certificate of conformance for a requirements class.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex E: Bibliography</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -3911,7 +3901,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-20 22:20:52 -0400
+Last updated 2020-07-21 22:20:35 -0400
 </div>
 </div>
 </body>
