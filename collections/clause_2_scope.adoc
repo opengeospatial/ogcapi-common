@@ -1,7 +1,7 @@
 == Scope
 
-The OGC API - Common suite of standards provides a set of modular API standards which can be used to build resource and mission-specific Web API standards. The OGC API - Common - Part 2: Collections Standard (API-Collections) is one of those modules.
+The OGC API - Common suite of standards provides a set of modular API standards which can be used to build resource and mission-specific Web API standards. The OGC API - Common - Part 2: Geospatial Data Standard (API-GeoData) is one of those modules.
 
-API-Collections describes discovery and query operations for resources which are typically packaged into sets or collections of related resources. Operations are defined for both the `collection` resource and for the individual member resources (`items`) that make up the collection. Operations are also defined for the `collections` resource. `Collections` is a collection of collections. It serves as a single access point for the collections hosted by an API.
+API-GeoData describes discovery and query operations for geospatial resources. These resources are typically packaged into sets or collections of related resources. Therefore, this Standard defines operations for both the `collection` of Geospatial resources and for the individual members (`items`) that make up the collection. Operations are also defined for the `collections` resource. `Collections` is a collection of the geospatial data collections. It serves as a single access point for the geospatial data hosted by an API.
 
-API-Collections does not specify the nature of the resources that make up a collection nor of the collection itself. Rather, it provides a basic capability which should be applicable to any resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.
+API-GeoData does not specify the nature of the geospatial data that make up a collection nor of the collection itself. Rather, it provides a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.
