@@ -6,7 +6,7 @@
 :shortname: Common API
 :resources: geospatial
 :resource: geospatial
-:relevant_spec: OGC Web Service Common Implementation Specification standard
+:relevant_spec: OGC Web API Common Implementation Specification Standards
 :relevant_spec_docnum:  20-063r1
 :githubrepo: https://github.com/opengeospatial/oapi_common
 :base_swg: OWS Common SWG
@@ -165,8 +165,15 @@ The {dwg_review} will review the proof-of-concept at {githubrepo} and this SWG c
 
 The following standards work may be applicable to the work of the proposed SWG:
 
+* 06-121r9, OGC Web Service Common Implementation Specification Standard
 * 17-069, OGC API - Features
-* {relevant_spec_docnum}, {relevant_spec}
+* 18-062, OGC API - Processes
+* 19-086, OGC API - Environmental Data Retrieval
+* 19-087, OGC API - Coverages
+* 20-004, OGC API - Records
+* 20-009, OGC API - Styles
+* 20-057, OGC API - Tiles
+* 20-058, OGC API - Maps
 
 Additionally, the proposed SWG will monitor other OGC API work ongoing in various Standards and Innovation Program activities.
 
