@@ -8,3 +8,108 @@ OpenAPI is a useful tool for documenting the design of an API. In addition, nume
 However like so many other good tools, OpenAPI was not designed for the size and complexity that we are seeing in Geospatial APIs. This section discusses various features of the OpenAPI specification that can be abused to provide a scalable API Description.
 
 
+[[api-introduction]]
+=== Web APIs
+
+The following principles are derived from <<fielding-2000,Fielding 2000>>.
+
+The central feature that distinquished Web APIs is their emphasis on a uniform interface. In particular, their nearly exclusive use of the HTTP protol and the associated operators (GET, PUT, etc.).
+
+In order to achieve a usable uniform interface, Web APIs are subject to four constraints:
+
+. identification of resources, 
+. manipulation of resources through representations, 
+. self-descriptive messages; and, 
+. hypermedia as the engine of application state.
+
+==== Resources
+
+The key abstraction of information is a resource. Any information that can be named can be a resource: a document or image, a temporal service (e.g. “today’s weather in Los Angeles”), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author’s hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.
+
+==== Uniform Resource Identifiers
+
+REST uses a resource identifier to identify the particular resource involved in an interaction between components. REST connectors provide a generic interface for accessing and manipulating the value set of a resource, regardless of how the membership function is defined or the type of software that is handling the request. The naming authority that assigned the resource identifier, making it possible to reference the resource, is responsible for maintaining the semantic validity of the mapping over time (i.e., ensuring that the membership function does not change).
+
+==== Representations
+
+REST components perform actions on a resource by using a representation to capture the current or intended state of that resource and transferring that representation between components. A representation is a sequence of bytes, plus representation metadata to describe those bytes.
+
+A representation consists of data, metadata describing the data, and, on occasion, metadata to describe the metadata (usually for the purpose of verifying message integrity).
+
+messages may include both representation metadata and resource metadata: information about the resource that is not specific to the supplied representation.
+
+Depending on the message control data, a given representation may indicate the current state of the requested resource, the desired state for the requested resource, or the value of some other resource, such as a representation of the input data within a client’s query form, or a representation of some error condition for a response. For example, remote authoring of a resource requires that the author send a representation to the server, thus establishing a value for that resource that can be retrieved by later requests. If the value set of a resource at a given time consists of multiple representations, content negotiation may be used to select the best representation for inclusion in a given message.
+
+The data format of a representation is known as a media type.
+
+The messages exchanged are self-describing. No a-priori knowledge of the Web API should be required.
+
+
+
+The central feature that distinguishes the REST architectural style from other network based
+styles is its emphasis on a uniform interface between components
+
+REST is defined by four interface constraints: identification of resources; manipulation of resources through representations; selfdescriptive messages; and, hypermedia as the engine of application state.
+
+
+
+[[collections-introduction]]
+=== Collections
+
+Geospatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial/temporal resources.
+
+Therefore, OGC APIs organize geospatial data into `collections`. The role of the API-Common GeoData Standard is to define the operations to discover and navigate the geospatial data `collections` exposed through an OGC API.
+
+The term `collection` means different things to different people. For the purpose of this standard, a `collection` is defined as:
+
+* <<collection-definition,Collection>>: A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.
+
+/collections = a set of metadata about a collection of geospatial* data  
+
+/collections/{collectionId} = metadata about a specific collection of geospatial* data with links to distribution  
+
+/collections/{collectionId}/{__} = a specific distribution of geospatial__ data
+
+OGC Web API standards can extend this definition to address the specific properties of the resources they describe.
+
+[[uri-overview]]
+=== URIs and Relationships
+
+Resources exposed through an OGC API may be accessed through a Universal Resource Identifier <<rfc3986,(URI).>> URIs are composed of three sections:
+
+* Service Offering: The service endpoint (subsequently referred to as Base URI or {root})
+* Access Paths: Unique paths to Resources
+* Query: Parameters to adjust the representation of a Resource or Resources like encoding format or subsetting
+
+Some resources are also accessible through links on previously accessed resources. Unique relation types are used for each resource.
+
+<<coverage-paths>> summarizes the access paths and relation types defined in this standard.
+
+[#coverage-paths,reftext='{table-caption} {counter:table-num}']
+.Coverage API Paths
+[width="90%",cols="2,^1,4",options="header"]
+|===
+^|**Path Template** ^|**Relation** ^|**Resource**
+3+^|**Common**
+|<<landing-page,{root}/>> |none |Landing page
+|<<api-definition,{root}/api>> |`service-desc` +
+or +
+`service-doc` |API Description (optional)
+|<<conformance-classes,{root}/conformance>> |`conformance` |Conformance Classes
+|<<collections,{root}/collections>> |`data` |Metadata describing the spatial collections (coverages) available from this API.
+|<<collectionInfo,{root}/collections/{coverageid}>> | |Metadata describing the coverge which has the unique identifier `{coverageid}`
+3+^|**Coverages**
+|<<coverage-clause,{root}/collections/{coverageid}/coverage>> |`items` |A general description of the coverage identified by {coverageid} including the coverage's envelope.
+|<<coverage-description-clause,{root}/collections/{coverageid}/coverage/description>> |none |returns the whole coverage description consisting of domainset, rangetype, and metadata (but not the rangeset)
+|<<coverage-domainset-clause,{root}/collections/{coverageid}/coverage/domainset>> |none |returns the coverage's domain set definition
+|<<coverage-rangetype-clause,{root}/collections/{coverageid}/coverage/rangetype>> |none |returns the coverage's range type information (i.e., a description of the data semantics)
+|<<coverage-metadata-clause,{root}/collections/{coverageid}/coverage/metadata>> |none |returns the coverage's metadata (may be empty)
+|<<coverage-rangeset-clause,{root}/collections/{coverageid}/coverage/rangeset>> |none |returns the coverage's range set, i.e., the actual values in the coverage's Native Format (see format encoding for ways to retrieve in specific formats)
+|<<coverage-all-clause,{root}/collections/{coverageid}/coverage/all>> |none |returns all of the above namely the coverage's domainset, rangetype, metadata, and rangeset comparable to a GetCoverage response
+|===
+
+Where:
+
+* {root} = Base URI for the API server
+* {coverageid} = an identifier for a specific coverage (collection)
+
