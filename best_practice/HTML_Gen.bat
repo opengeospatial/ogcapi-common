@@ -1,1 +1,1 @@
-asciidoctor --trace -o ../19-072BP.html OAPI_Common_BP.adoc
+asciidoctor --trace -o ../20-071.html OAPI_Common_Users_Guide.adoc

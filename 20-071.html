@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>OGC API-Common Best Practices</title>
+<title>OGC API-Common Users Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -461,19 +461,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2019-12-13&gt;</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2020-07-28&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/BP/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/BP/ogcapi-common/1.0</a></p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/EG/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/EG/ogcapi-common/1.0</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    YY-nnnrx</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    20-071</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: n.n</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC&#174; Best Practice</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC&#174; Engineering Guidance</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Editor:   Charles Heazel</p></td>
@@ -486,7 +486,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API-Common Best Practices</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API-Common Users Guide</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -528,7 +528,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document type:   	OGC® Best Practice</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document type:   OGC&#174; Engineering Guidance</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Document subtype:</p></td>
@@ -592,7 +592,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_resource_paths">9.5. Resource Paths</a></li>
 </ul>
 </li>
-<li><a href="#api-description">10. API Description</a></li>
+<li><a href="#api-description">10. API Description</a>
+<ul class="sectlevel2">
+<li><a href="#api-introduction">10.1. Web APIs</a>
+<ul class="sectlevel3">
+<li><a href="#_resources">10.1.1. Resources</a></li>
+<li><a href="#_uniform_resource_identifiers">10.1.2. Uniform Resource Identifiers</a></li>
+<li><a href="#_representations">10.1.3. Representations</a></li>
+</ul>
+</li>
+<li><a href="#collections-introduction">10.2. Collections</a></li>
+<li><a href="#uri-overview">10.3. URIs and Relationships</a></li>
+</ul>
+</li>
 <li><a href="#_clause_containing_normative_material">11. Clause containing normative material</a>
 <ul class="sectlevel2">
 <li><a href="#_requirement_class_a_or_requirement_a_example">11.1. Requirement Class A or Requirement A Example</a>
@@ -1150,6 +1162,228 @@ Global Grid Forum (2002)</p>
 <div class="paragraph">
 <p>However like so many other good tools, OpenAPI was not designed for the size and complexity that we are seeing in Geospatial APIs. This section discusses various features of the OpenAPI specification that can be abused to provide a scalable API Description.</p>
 </div>
+<div class="sect2">
+<h3 id="api-introduction"><a class="anchor" href="#api-introduction"></a>10.1. Web APIs</h3>
+<div class="paragraph">
+<p>The following principles are derived from <a href="#fielding-2000">Fielding 2000</a>.</p>
+</div>
+<div class="paragraph">
+<p>The central feature that distinquished Web APIs is their emphasis on a uniform interface. In particular, their nearly exclusive use of the HTTP protol and the associated operators (GET, PUT, etc.).</p>
+</div>
+<div class="paragraph">
+<p>In order to achieve a usable uniform interface, Web APIs are subject to four constraints:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>identification of resources,</p>
+</li>
+<li>
+<p>manipulation of resources through representations,</p>
+</li>
+<li>
+<p>self-descriptive messages; and,</p>
+</li>
+<li>
+<p>hypermedia as the engine of application state.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_resources"><a class="anchor" href="#_resources"></a>10.1.1. Resources</h4>
+<div class="paragraph">
+<p>The key abstraction of information is a resource. Any information that can be named can be a resource: a document or image, a temporal service (e.g. “today’s weather in Los Angeles”), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author’s hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uniform_resource_identifiers"><a class="anchor" href="#_uniform_resource_identifiers"></a>10.1.2. Uniform Resource Identifiers</h4>
+<div class="paragraph">
+<p>REST uses a resource identifier to identify the particular resource involved in an interaction between components. REST connectors provide a generic interface for accessing and manipulating the value set of a resource, regardless of how the membership function is defined or the type of software that is handling the request. The naming authority that assigned the resource identifier, making it possible to reference the resource, is responsible for maintaining the semantic validity of the mapping over time (i.e., ensuring that the membership function does not change).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_representations"><a class="anchor" href="#_representations"></a>10.1.3. Representations</h4>
+<div class="paragraph">
+<p>REST components perform actions on a resource by using a representation to capture the current or intended state of that resource and transferring that representation between components. A representation is a sequence of bytes, plus representation metadata to describe those bytes.</p>
+</div>
+<div class="paragraph">
+<p>A representation consists of data, metadata describing the data, and, on occasion, metadata to describe the metadata (usually for the purpose of verifying message integrity).</p>
+</div>
+<div class="paragraph">
+<p>messages may include both representation metadata and resource metadata: information about the resource that is not specific to the supplied representation.</p>
+</div>
+<div class="paragraph">
+<p>Depending on the message control data, a given representation may indicate the current state of the requested resource, the desired state for the requested resource, or the value of some other resource, such as a representation of the input data within a client’s query form, or a representation of some error condition for a response. For example, remote authoring of a resource requires that the author send a representation to the server, thus establishing a value for that resource that can be retrieved by later requests. If the value set of a resource at a given time consists of multiple representations, content negotiation may be used to select the best representation for inclusion in a given message.</p>
+</div>
+<div class="paragraph">
+<p>The data format of a representation is known as a media type.</p>
+</div>
+<div class="paragraph">
+<p>The messages exchanged are self-describing. No a-priori knowledge of the Web API should be required.</p>
+</div>
+<div class="paragraph">
+<p>The central feature that distinguishes the REST architectural style from other network based
+styles is its emphasis on a uniform interface between components</p>
+</div>
+<div class="paragraph">
+<p>REST is defined by four interface constraints: identification of resources; manipulation of resources through representations; selfdescriptive messages; and, hypermedia as the engine of application state.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="collections-introduction"><a class="anchor" href="#collections-introduction"></a>10.2. Collections</h3>
+<div class="paragraph">
+<p>Geospatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial/temporal resources.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, OGC APIs organize geospatial data into <code>collections</code>. The role of the API-Common GeoData Standard is to define the operations to discover and navigate the geospatial data <code>collections</code> exposed through an OGC API.</p>
+</div>
+<div class="paragraph">
+<p>The term <code>collection</code> means different things to different people. For the purpose of this standard, a <code>collection</code> is defined as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#collection-definition">Collection</a>: A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>/collections = a set of metadata about a collection of geospatial* data</p>
+</div>
+<div class="paragraph">
+<p>/collections/{collectionId} = metadata about a specific collection of geospatial* data with links to distribution</p>
+</div>
+<div class="paragraph">
+<p>/collections/{collectionId}/{<em>} = a specific distribution of geospatial</em> data</p>
+</div>
+<div class="paragraph">
+<p>OGC Web API standards can extend this definition to address the specific properties of the resources they describe.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uri-overview"><a class="anchor" href="#uri-overview"></a>10.3. URIs and Relationships</h3>
+<div class="paragraph">
+<p>Resources exposed through an OGC API may be accessed through a Universal Resource Identifier <a href="#rfc3986">(URI).</a> URIs are composed of three sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Service Offering: The service endpoint (subsequently referred to as Base URI or {root})</p>
+</li>
+<li>
+<p>Access Paths: Unique paths to Resources</p>
+</li>
+<li>
+<p>Query: Parameters to adjust the representation of a Resource or Resources like encoding format or subsetting</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Some resources are also accessible through links on previously accessed resources. Unique relation types are used for each resource.</p>
+</div>
+<div class="paragraph">
+<p><a href="#coverage-paths">Table 2</a> summarizes the access paths and relation types defined in this standard.</p>
+</div>
+<table id="coverage-paths" class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Table 2. Coverage API Paths</caption>
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Path Template</strong></th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Relation</strong></th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Resource</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Common</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#landing-page">{root}/</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Landing page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#api-definition">{root}/api</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>service-desc</code><br>
+or<br>
+<code>service-doc</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API Description (optional)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#conformance-classes">{root}/conformance</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>conformance</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance Classes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collections">{root}/collections</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>data</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the spatial collections (coverages) available from this API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collectionInfo">{root}/collections/{coverageid}</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the coverge which has the unique identifier <code>{coverageid}</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Coverages</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-clause">{root}/collections/{coverageid}/coverage</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>items</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A general description of the coverage identified by {coverageid} including the coverage&#8217;s envelope.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-description-clause">{root}/collections/{coverageid}/coverage/description</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the whole coverage description consisting of domainset, rangetype, and metadata (but not the rangeset)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-domainset-clause">{root}/collections/{coverageid}/coverage/domainset</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s domain set definition</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-rangetype-clause">{root}/collections/{coverageid}/coverage/rangetype</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range type information (i.e., a description of the data semantics)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-metadata-clause">{root}/collections/{coverageid}/coverage/metadata</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s metadata (may be empty)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-rangeset-clause">{root}/collections/{coverageid}/coverage/rangeset</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range set, i.e., the actual values in the coverage&#8217;s Native Format (see format encoding for ways to retrieve in specific formats)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-all-clause">{root}/collections/{coverageid}/coverage/all</a></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns all of the above namely the coverage&#8217;s domainset, rangetype, metadata, and rangeset comparable to a GetCoverage response</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>{root} = Base URI for the API server</p>
+</li>
+<li>
+<p>{coverageid} = an identifier for a specific coverage (collection)</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1423,7 +1657,7 @@ Place other Annex material in sequential annexes beginning with "B" and leave fi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-13 19:12:59 UTC
+Last updated 2020-07-28 16:25:37 +0100
 </div>
 </div>
 </body>
