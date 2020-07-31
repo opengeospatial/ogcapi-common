@@ -65,7 +65,7 @@ The following rules should be used when interpreting the BNF:
 
 * `scheme` is assumed to be `HTTP` or `HTTPS` 
 * `authority` is provided by the API developer 
-* {root} designates the `scheme`, `authority`, and `path` to the root node of the API implementation. 
+* `{root}` designates the `scheme`, `authority`, and `path` to the root node of the API implementation. 
 * only the `path-absolute` and `path-rootless` patterns are used
 * parameters passed as part of an operation are encoded in the `query`. 
 * parameters passed in HTTP headers or as cookies are out of scope for this Standard.
@@ -136,5 +136,5 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 
 ==== Reusable OpenAPI components
 
-Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at "http://schemas.opengis.net/ogcapi/common/part1/1.0".
+Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0].
 

@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-07-30</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-07-31</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -710,7 +710,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common suite of standards. API-Common standards serve as reusable building-blocks. OGC standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
+<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common suite of standards. API-Common standards serve as reusable building-blocks. Developers of OGC standards will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
 <p>The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access mechanisms are supported by all conformant OGC Web APIs and are described in <a href="#cr-table">Table 1</a>.</p>
@@ -821,7 +821,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_scope"><a class="anchor" href="#_scope"></a>2. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This standard identifies resources, defines compliance classes, and specifies requirements which are applicable to all OGC API standards.  It should be included as a normative reference by all such standards.</p>
+<p>This standard identifies resources, defines conformance classes, and specifies requirements which are applicable to all OGC API standards. It should be included as a normative reference by all such standards.</p>
 </div>
 <div class="paragraph">
 <p>This standard addresses Discovery operations directed against the API itself. This includes general information about the API, the API definition, and the conformance classe implemented. Additional OGC Web API Standards will extend this core with resource-specific capabilities.</p>
@@ -858,7 +858,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_encoding_requirements_classes"><a class="anchor" href="#_encoding_requirements_classes"></a>3.2. Encoding Requirements Classes</h3>
 <div class="paragraph">
-<p>The <em>Core</em> requirements class does not mandate a specific encoding or format for representing resources. However, both <em>HTML</em> and <em>JSON</em> are commonly used encodings for spatial data on the web. The <em>HTML</em> and <em>JSON</em> requirements classes specify use of these encodings for</p>
+<p>The <em>Core</em> requirements class does not mandate a specific encoding or format for representations of resources. However, both <em>HTML</em> and <em>JSON</em> are commonly used encodings for spatial data on the web. The <em>HTML</em> and <em>JSON</em> requirements classes specify the encoding of resource representations using:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -871,7 +871,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>Neither of these encodings is mandatory. An implementor of the <em>API-Common</em> standard may decide to implement another encoding instead of, or in addition to, these two.</p>
+<p>Neither of these encodings is mandatory. An implementor of the <em>API-Common</em> standard may decide to implement another encodings instead of, or in addition to, these two.</p>
 </div>
 <div class="paragraph">
 <p>The Encoding Requirements Classes are specified in <strong>Encoding Requirements Classes</strong> <a href="#rc_encoding-section">(Chapter 9)</a>.</p>
@@ -957,6 +957,14 @@ override the default behavior of some connecting elements. (<a href="#fielding20
 </li>
 </ul>
 </div>
+<div id="landing-page-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Landing Page</strong><br>
+This is the root resource of an API. It serves as the root node of the API Resource tree and provides the information needed to navigate all of the resources exposed through the API.</p>
+</li>
+</ul>
+</div>
 <div id="representation-definition" class="ulist">
 <ul>
 <li>
@@ -983,19 +991,11 @@ named. (<a href="#fielding2000">Fielding 2000</a>)<br></p>
 </li>
 </ul>
 </div>
-<div id="resource-type-name" class="ulist">
+<div id="resource-type-definition" class="ulist">
 <ul>
 <li>
 <p><strong>Resource Type</strong><br>
 the definition of a type of <a href="#resource-definition">resource</a>. Resource types are re-usable components which are independent of where the resource resides in the API.</p>
-</li>
-</ul>
-</div>
-<div id="landing-page-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Landing Page</strong><br>
-This is the root resource of an API. It serves as the root node of the API Resource tree and provides the information needed to navigate all of the resources exposed through the API.</p>
 </li>
 </ul>
 </div>
@@ -1118,7 +1118,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p><code>authority</code> is provided by the API developer</p>
 </li>
 <li>
-<p>{root} designates the <code>scheme</code>, <code>authority</code>, and <code>path</code> to the root node of the API implementation.</p>
+<p><code>{root}</code> designates the <code>scheme</code>, <code>authority</code>, and <code>path</code> to the root node of the API implementation.</p>
 </li>
 <li>
 <p>only the <code>path-absolute</code> and <code>path-rootless</code> patterns are used</p>
@@ -1225,7 +1225,7 @@ OGC                {root}             path   parameters</code></pre>
 <div class="sect3">
 <h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
 <div class="paragraph">
-<p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at "http://schemas.opengis.net/ogcapi/common/part1/1.0".</p>
+<p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0">http://schemas.opengis.net/ogcapi/common/part1/1.0</a>.</p>
 </div>
 </div>
 </div>
@@ -3975,7 +3975,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-30 22:19:44 +0100
+Last updated 2020-07-31 21:11:25 +0100
 </div>
 </div>
 </body>

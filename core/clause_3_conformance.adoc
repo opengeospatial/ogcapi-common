@@ -17,12 +17,12 @@ The Core requirements class is specified in *Requirements Class Core* <<rc_core-
 
 === Encoding Requirements Classes
 
-The _Core_ requirements class does not mandate a specific encoding or format for representing resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify use of these encodings for
+The _Core_ requirements class does not mandate a specific encoding or format for representations of resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify the encoding of resource representations using:
 
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
-Neither of these encodings is mandatory. An implementor of the _API-Common_ standard may decide to implement another encoding instead of, or in addition to, these two.
+Neither of these encodings is mandatory. An implementor of the _API-Common_ standard may decide to implement another encodings instead of, or in addition to, these two.
 
 The Encoding Requirements Classes are specified in *Encoding Requirements Classes* <<rc_encoding-section,(Chapter 9)>>.
 

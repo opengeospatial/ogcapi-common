@@ -4,12 +4,15 @@ This document uses the terms defined in Sub-clause 5.3 of https://portal.opengeo
 
 For the purposes of this document, the following additional terms and definitions apply.
 
-
 [[control-data-definition]]
 * *Control Data* +
 . defines the purpose of a message between components. (<<fielding2000,Fielding 2000>>)
 . used to parameterize requests and
 override the default behavior of some connecting elements. (<<fielding2000,Fielding 2000>>)
+
+[[landing-page-definition]]
+* *Landing Page* +
+This is the root resource of an API. It serves as the root node of the API Resource tree and provides the information needed to navigate all of the resources exposed through the API.
 
 [[representation-definition]]
 * *Representation* +
@@ -21,13 +24,9 @@ the current or intended state of a <<resource-definition,resource>> encoded for 
 named. (<<fielding2000,Fielding 2000>>) +
 . The intended conceptual target of a hypertext reference. (<<fielding2000,Fielding 2000>>)
 
-[[resource-type-name]]
+[[resource-type-definition]]
 * *Resource Type* +
 the definition of a type of <<resource-definition,resource>>. Resource types are re-usable components which are independent of where the resource resides in the API.  
-
-[[landing-page-definition]]
-* *Landing Page* +
-This is the root resource of an API. It serves as the root node of the API Resource tree and provides the information needed to navigate all of the resources exposed through the API.
 
 [[uri-definition]]
 * *Uniform Resource Identifier (URI)* +
