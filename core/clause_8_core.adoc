@@ -4,18 +4,24 @@
 
 include::requirements/requirements_class_core.adoc[]
 
-The Core Conformance Class of API-Common describes how the core resources are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following standard paths:
+The Core Conformance Class of API-Common describes how the core resources are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following resources:
 
-. "/" - the landing page
-. "/api" - the API Definition document for this API
-. "/conformance" - the conformance information for this API
+[#core-resources-table,reftext='{table-caption} {counter:table-num}']
+.Common Core Resources
+[width="90%",cols="2,6",options="header"]
+|===
+^|**URI Path** ^|**Description**
+^|"/" |the <<landing-page,landing page>>
+^|"/api" |the <<api-definition,API Definition>> document for this API
+^|"/conformance" |the <<conformance-classes,conformance>> information for this API
+|===
 
 In addition, requirements which are applicable to all OGC API standards and are not specific to a resource type are included in the <<general-requirements,General Requirements>> section.
 
 [[landing-page]]
 === API landing page
 
-Each API has a single landing page (path `/`).
+Each API has a single landing page (Path `/`).
 
 The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.
 
@@ -29,7 +35,7 @@ include::requirements/core/REQ_root-success.adoc[]
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-The landing page returned by this operation is based on the following link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json[Json schema].
+The landing page returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[Json schema].
 
 .landingPage.json
 [source, JSON]
@@ -79,7 +85,9 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-The conformance resource returned by this operation is based on the following link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/confClasses.json[Conformance Schema]. Examples of OGC conformance resources are provided in <<conformance-response-examples>>.
+The conformance resource returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json[Conformance Schema]. 
+
+Examples of OGC conformance resources are provided in <<conformance-response-examples>>.
 
 .Conformance Schema
 [source, JSON]
@@ -189,9 +197,11 @@ Two common mechanisms to support cross-origin requests are:
 
 ==== Encodings
 
-NOTE: Note to the Editor: Is this discussion of content negotiation sufficient? If not, what else do we need? See issues https://github.com/opengeospatial/oapi_common/issues/57[57] and https://github.com/opengeospatial/oapi_common/issues/28[28].
+A Web API provides access to <<resource-definition,resources>> through <<representation-definition,representations>> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate which encoding format to use through the content negotiation process defined in <<rfc7231,IETF RFC 7231>>.
 
-While the OAPI Common Core standard does not specify any mandatory encoding, the following encodings are recommended. See <<overview,Clause 7 (Overview)>> for a discussion of this issue.
+Additional content negotiation techniques are allowed, but support is not required of implementations conformant to this Standard.
+
+While the OAPI Common Core standard does not specify any mandatory encoding, the following encodings are recommended:
 
 [[rec_html]]
 HTML encoding recommendation:
@@ -201,21 +211,7 @@ include::recommendations/core/REC_html.adoc[]
 JSON encoding recommndation:
 include::recommendations/core/REC_json.adoc[]
 
-Requirement <<req_core_http,`/req/core/http`>> implies that the encoding of a response is determined using content negotiation as specified in <<rfc7231,IETF RFC 7231>>.
-
-The section <<mediatypes,Media Types>> includes guidance on media types for encodings that are specified in this standard.
-
-Note that any API that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, such as to alternate representations of the same resource. This standard does not mandate how this mechanism shall be supported by a conformant API.
-
-As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, for example, manipulating ("hack") the browser address bar, can study the API definition.
-
-[NOTE]
-=========================================================
-Two common approaches are:
-
-* An additional path for each encoding of each resource (this can be expressed, for example, using format specific suffixes like ".html");
-* An additional query parameter (for example, "accept" or "f") that overrides the Accept header of the HTTP request.
-=========================================================
+The section <<mediatypes,Media Types>> includes a discussion on encoding media types for this standard.
 
 [[CRS-core-section]]
 ==== Coordinate reference systems
