@@ -648,16 +648,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_basic_requirements">10.1. Basic requirements</a></li>
 <li><a href="#_complete_definition">10.2. Complete definition</a></li>
 <li><a href="#rc_oas30-exceptions">10.3. Exceptions</a></li>
-<li><a href="#rc_oas30-security">10.4. Security</a></li>
-<li><a href="#rc_oas30-usage">10.5. Using OpenAPI (Informative)</a>
+<li><a href="#rc_oas30-usage">10.4. Using OpenAPI (Informative)</a>
 <ul class="sectlevel3">
-<li><a href="#_openapi_document_root">10.5.1. OpenAPI Document (root)</a></li>
-<li><a href="#_paths">10.5.2. Paths</a></li>
-<li><a href="#_operations">10.5.3. Operations</a></li>
-<li><a href="#_parameters">10.5.4. Parameters</a></li>
-<li><a href="#_servers">10.5.5. Servers</a></li>
+<li><a href="#_openapi_document_root">10.4.1. OpenAPI Document (root)</a></li>
+<li><a href="#_paths">10.4.2. Paths</a></li>
+<li><a href="#_operations">10.4.3. Operations</a></li>
+<li><a href="#_parameters">10.4.4. Parameters</a></li>
+<li><a href="#_servers">10.4.5. Servers</a></li>
 </ul>
 </li>
+<li><a href="#rc_oas30-security">10.5. Security</a></li>
 </ul>
 </li>
 <li><a href="#mediatypes">11. Media Types</a></li>
@@ -2621,88 +2621,30 @@ content:
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_oas30-security"><a class="anchor" href="#rc_oas30-security"></a>10.4. Security</h3>
-<div class="paragraph">
-<p>OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.</p>
-</div>
-<div class="paragraph">
-<p>Security Requirements can be defined on following levels:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Root - applicable to the whole API unless overriden</p>
-</li>
-<li>
-<p>Operation - only applicable to this operation. Overrides any requirements defined at the Root level.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The OpenAPI specification currently supports the following <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object">security schemes</a>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>HTTP authentication,</p>
-</li>
-<li>
-<p>an API key (either as a header or as a query parameter),</p>
-</li>
-<li>
-<p>OAuth2&#8217;s common flows (implicit, password, application and access code) as defined in RFC6749, and</p>
-</li>
-<li>
-<p>OpenID Connect Discovery.</p>
-</li>
-</ul>
-</div>
-<table id="req_oas30_security" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/oas30/security</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>For cases, where the operations of the API are access-controlled, the security scheme(s) and requirements SHALL be documented in the OpenAPI definition.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="rc_oas30-usage"><a class="anchor" href="#rc_oas30-usage"></a>10.5. Using OpenAPI (Informative)</h3>
+<h3 id="rc_oas30-usage"><a class="anchor" href="#rc_oas30-usage"></a>10.4. Using OpenAPI (Informative)</h3>
 <div class="paragraph">
 <p>The following section describes the main components of an OpenAPI document and how they should be used to construct API requests. The authoritative source is the OpenAPI 3.0 standard available <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasObject">here</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="_openapi_document_root"><a class="anchor" href="#_openapi_document_root"></a>10.5.1. OpenAPI Document (root)</h4>
+<h4 id="_openapi_document_root"><a class="anchor" href="#_openapi_document_root"></a>10.4.1. OpenAPI Document (root)</h4>
 <div class="paragraph">
 <p>The OpenAPI document (Root) contains descriptive information about the API and serves as the root for the other parts of the document.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_paths"><a class="anchor" href="#_paths"></a>10.5.2. Paths</h4>
+<h4 id="_paths"><a class="anchor" href="#_paths"></a>10.4.2. Paths</h4>
 <div class="paragraph">
 <p>All API resources are accessed through a path. The Paths field of the OpenAPI document defines all of the paths available through this API. The Paths field is a collection of Paths Objects. Each Paths Object includes the URL or URL template for this path, any Server Objects specific to this Path, Parameters which are applicable to this Path, and an Operation Object for each of the HTTP Verbs applicable to this Path.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_operations"><a class="anchor" href="#_operations"></a>10.5.3. Operations</h4>
+<h4 id="_operations"><a class="anchor" href="#_operations"></a>10.4.3. Operations</h4>
 <div class="paragraph">
 <p>Operation Objects provide the details needed to create an HTTP request and response. Specifically, they provide definitions of the request message (including parameters) and all possible responses. In addition, they define any operation specific Server Objects or Security Requirements.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>10.5.4. Parameters</h4>
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>10.4.4. Parameters</h4>
 <div class="paragraph">
 <p>Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its' structure (if needed).</p>
 </div>
@@ -2721,7 +2663,7 @@ content:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_servers"><a class="anchor" href="#_servers"></a>10.5.5. Servers</h4>
+<h4 id="_servers"><a class="anchor" href="#_servers"></a>10.4.5. Servers</h4>
 <div class="paragraph">
 <p>An API is not restricted to a single server. Furthermore, the set of valid servers may be different for different sections of the API. An OpenAPI Server Object describes a single server. Most important, it provides the URL to that server. Server Objects are grouped into arrays. These arrays provide a list of the servers which can be used to access a section of the API.</p>
 </div>
@@ -2829,6 +2771,64 @@ DONE</pre>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="rc_oas30-security"><a class="anchor" href="#rc_oas30-security"></a>10.5. Security</h3>
+<div class="paragraph">
+<p>OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.</p>
+</div>
+<div class="paragraph">
+<p>Security Requirements can be defined on following levels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Root - applicable to the whole API unless overriden</p>
+</li>
+<li>
+<p>Operation - only applicable to this operation. Overrides any requirements defined at the Root level.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The OpenAPI specification currently supports the following <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object">security schemes</a>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HTTP authentication,</p>
+</li>
+<li>
+<p>an API key (either as a header or as a query parameter),</p>
+</li>
+<li>
+<p>OAuth2&#8217;s common flows (implicit, password, application and access code) as defined in RFC6749, and</p>
+</li>
+<li>
+<p>OpenID Connect Discovery.</p>
+</li>
+</ul>
+</div>
+<table id="req_oas30_security" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/oas30/security</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>For cases, where the operations of the API are access-controlled, the security scheme(s) and requirements SHALL be documented in the OpenAPI definition.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2861,7 +2861,10 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>See <a href="#OAComm">OGC API - Common - Part 1: Core</a>, Clause 11.</p>
+<p>The OAPI-Common Core Standard does not specify any specific security controls. However, it was constructed so that security controls can be added without impacting conformance.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#rc_oas30-security">Clause 10</a>, Security Section for a discussion of OpenAPI support for security controls.</p>
 </div>
 <div class="paragraph">
 <p>add additional text as needed</p>
@@ -3752,7 +3755,7 @@ include::examples/tbd.adoc[]
 <div class="title">Example 3. Conformance Response</div>
 <div class="content">
 <div class="paragraph">
-<p>This example response in JSON is for an implementation of the OGC API-Common Standard that supports OpenAPI 3.0 for the API definition and HTML and GeoJSON as encodings for resources.</p>
+<p>This example response in JSON is for an implementation of the OGC API-Common Standard that supports OpenAPI 3.0 for the API definition and HTML and JSON as encodings for resources.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3761,7 +3764,7 @@ include::examples/tbd.adoc[]
     "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core",
     "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30",
     "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html",
-    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/geojson"
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json"
   ]
 }</code></pre>
 </div>
