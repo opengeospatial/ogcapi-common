@@ -1,0 +1,12 @@
+[[rc_general]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general
+|Target type 
+|Web API +
+Web API Module
+|Dependency |<<rfc2616,RFC 2616 (HTTP/1.1)>>
+|Dependency |<<rfc2818,RFC 2818 (HTTP over TLS)>>
+|Dependency |<<rfc8288,RFC 8288 (Web Linking)>>
+|===

@@ -569,9 +569,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_scope">2. Scope</a></li>
 <li><a href="#_conformance">3. Conformance</a>
 <ul class="sectlevel2">
-<li><a href="#_core_requirements_class">3.1. Core Requirements Class</a></li>
-<li><a href="#_encoding_requirements_classes">3.2. Encoding Requirements Classes</a></li>
-<li><a href="#_openapi_3_0_requirements_class">3.3. OpenAPI 3.0 Requirements Class</a></li>
+<li><a href="#_general_requirements_class">3.1. General Requirements Class</a></li>
+<li><a href="#_core_requirements_class">3.2. Core Requirements Class</a></li>
+<li><a href="#_encoding_requirements_classes">3.3. Encoding Requirements Classes</a></li>
+<li><a href="#_openapi_3_0_requirements_class">3.4. OpenAPI 3.0 Requirements Class</a></li>
 </ul>
 </li>
 <li><a href="#_references">4. References</a></li>
@@ -622,46 +623,46 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_error_situations_3">8.3.3. Error situations</a></li>
 </ul>
 </li>
-<li><a href="#general-requirements">8.4. General Requirements</a>
-<ul class="sectlevel3">
-<li><a href="#_http_1_1">8.4.1. HTTP 1.1</a></li>
-<li><a href="#http-status-codes">8.4.2. HTTP Status Codes</a></li>
-<li><a href="#query-parameter-requirements">8.4.3. Unknown or invalid query parameters</a></li>
-<li><a href="#_web_caching">8.4.4. Web Caching</a></li>
-<li><a href="#cross-origin">8.4.5. Support for Cross-Origin Requests</a></li>
-<li><a href="#_encodings">8.4.6. Encodings</a></li>
-<li><a href="#CRS-core-section">8.4.7. Coordinate reference systems</a></li>
-<li><a href="#_link_headers">8.4.8. Link Headers</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#rc_encoding-section">9. Encoding Requirements Classes</a>
+<li><a href="#rc_general-section">9. Requirement Class "General"</a>
 <ul class="sectlevel2">
-<li><a href="#_overview">9.1. Overview</a></li>
-<li><a href="#rc_html-section">9.2. Requirement Class "HTML"</a></li>
-<li><a href="#rc_json-section">9.3. Requirement Class "JSON"</a></li>
+<li><a href="#_http_1_1">9.1. HTTP 1.1</a></li>
+<li><a href="#http-status-codes">9.2. HTTP Status Codes</a></li>
+<li><a href="#query-parameter-requirements">9.3. Unknown or invalid query parameters</a></li>
+<li><a href="#_web_caching">9.4. Web Caching</a></li>
+<li><a href="#cross-origin">9.5. Support for Cross-Origin Requests</a></li>
+<li><a href="#_encodings">9.6. Encodings</a></li>
+<li><a href="#CRS-core-section">9.7. Coordinate reference systems</a></li>
+<li><a href="#_link_headers">9.8. Link Headers</a></li>
 </ul>
 </li>
-<li><a href="#rc_oas30-section">10. OpenAPI 3.0 Requirements Class</a>
+<li><a href="#rc_encoding-section">10. Encoding Requirements Classes</a>
 <ul class="sectlevel2">
-<li><a href="#_basic_requirements">10.1. Basic requirements</a></li>
-<li><a href="#_complete_definition">10.2. Complete definition</a></li>
-<li><a href="#rc_oas30-exceptions">10.3. Exceptions</a></li>
-<li><a href="#rc_oas30-usage">10.4. Using OpenAPI (Informative)</a>
+<li><a href="#_overview">10.1. Overview</a></li>
+<li><a href="#rc_html-section">10.2. Requirement Class "HTML"</a></li>
+<li><a href="#rc_json-section">10.3. Requirement Class "JSON"</a></li>
+</ul>
+</li>
+<li><a href="#rc_oas30-section">11. OpenAPI 3.0 Requirements Class</a>
+<ul class="sectlevel2">
+<li><a href="#_basic_requirements">11.1. Basic requirements</a></li>
+<li><a href="#_complete_definition">11.2. Complete definition</a></li>
+<li><a href="#rc_oas30-exceptions">11.3. Exceptions</a></li>
+<li><a href="#rc_oas30-usage">11.4. Using OpenAPI (Informative)</a>
 <ul class="sectlevel3">
-<li><a href="#_openapi_document_root">10.4.1. OpenAPI Document (root)</a></li>
-<li><a href="#_paths">10.4.2. Paths</a></li>
-<li><a href="#_operations">10.4.3. Operations</a></li>
-<li><a href="#_parameters">10.4.4. Parameters</a></li>
-<li><a href="#_servers">10.4.5. Servers</a></li>
+<li><a href="#_openapi_document_root">11.4.1. OpenAPI Document (root)</a></li>
+<li><a href="#_paths">11.4.2. Paths</a></li>
+<li><a href="#_operations">11.4.3. Operations</a></li>
+<li><a href="#_parameters">11.4.4. Parameters</a></li>
+<li><a href="#_servers">11.4.5. Servers</a></li>
 </ul>
 </li>
-<li><a href="#rc_oas30-security">10.5. Security</a></li>
+<li><a href="#rc_oas30-security">11.5. Security</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">11. Media Types</a></li>
-<li><a href="#_security_considerations">12. Security Considerations</a></li>
+<li><a href="#mediatypes">12. Media Types</a></li>
+<li><a href="#_security_considerations">13. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
@@ -832,19 +833,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
 </div>
 <div class="paragraph">
-<p>The one Standardization Target for this standard is Web APIs.</p>
+<p>This standard addresses two Standardization Targets:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#webapi-definition">Web APIs</a></p>
+</li>
+<li>
+<p><a href="#webapi-module-definition">Web API Modules</a></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>OGC API - Common - Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.</p>
 </div>
 <div class="paragraph">
-<p>This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the <code>/conformance</code> resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
+<p>This standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the <code>/conformance</code> resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
 </div>
 <div class="paragraph">
 <p>The requirements classes for <em>OGC API - Common - Core</em> are:</p>
 </div>
 <div class="sect2">
-<h3 id="_core_requirements_class"><a class="anchor" href="#_core_requirements_class"></a>3.1. Core Requirements Class</h3>
+<h3 id="_general_requirements_class"><a class="anchor" href="#_general_requirements_class"></a>3.1. General Requirements Class</h3>
+<div class="paragraph">
+<p>The <em>General Requirements Class</em> addresses fundamental requirements which are applicable regardless of whether the implementation is a full OGC conformant Web API or a re-usable Web API module.</p>
+</div>
+<div class="paragraph">
+<p>The General requirements class is specified in <strong>Requirements Class General</strong> <a href="#rc_general-section">(Chapter 9)</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_core_requirements_class"><a class="anchor" href="#_core_requirements_class"></a>3.2. Core Requirements Class</h3>
 <div class="paragraph">
 <p>The <em>Core Requirements Class</em> is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs.</p>
 </div>
@@ -853,7 +873,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_encoding_requirements_classes"><a class="anchor" href="#_encoding_requirements_classes"></a>3.2. Encoding Requirements Classes</h3>
+<h3 id="_encoding_requirements_classes"><a class="anchor" href="#_encoding_requirements_classes"></a>3.3. Encoding Requirements Classes</h3>
 <div class="paragraph">
 <p>The <em>Core</em> requirements class does not mandate a specific encoding or format for representations of resources. However, both <em>HTML</em> and <em>JSON</em> are commonly used encodings for spatial data on the web. The <em>HTML</em> and <em>JSON</em> requirements classes specify the encoding of resource representations using:</p>
 </div>
@@ -875,7 +895,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_openapi_3_0_requirements_class"><a class="anchor" href="#_openapi_3_0_requirements_class"></a>3.3. OpenAPI 3.0 Requirements Class</h3>
+<h3 id="_openapi_3_0_requirements_class"><a class="anchor" href="#_openapi_3_0_requirements_class"></a>3.4. OpenAPI 3.0 Requirements Class</h3>
 <div class="paragraph">
 <p>The <em>API-Common - core</em> Standard does not mandate any encoding or format for the formal definition of the API. The prefered option is the OpenAPI 3.0 specification. The <em>OpenAPI 3.0</em> requirements class has been specified for APIs implementing OpenAPI 3.0.</p>
 </div>
@@ -1017,6 +1037,15 @@ the subset of <a href="#uri-definition">URIs</a> that, in addition to identifyin
 <li>
 <p><strong>Web API</strong><br>
 API using an architectural style that is founded on the technologies of the Web. (<a href="#DWBP">W3C Data on the Web Best Practices</a>)</p>
+</li>
+</ul>
+</div>
+<div id="webapi-module-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Web API Module</strong><br>
+A reusable module which can be used to build an implementation of a Web API, but is not itself a full Web API.<br>
+Example: a Python library which includes modules for OGC Coverages, OGC Features, and OGC Maps.</p>
 </li>
 </ul>
 </div>
@@ -1423,15 +1452,7 @@ API definitions are considered service descriptions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2616">RFC 2616 (HTTP/1.1)</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2818">RFC 2818 (HTTP over TLS)</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc8288">RFC 8288 (Web Linking)</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_general">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1794,17 +1815,51 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="general-requirements"><a class="anchor" href="#general-requirements"></a>8.4. General Requirements</h3>
-<div class="paragraph">
-<p>The following general requirements and recommendations apply to all OGC APIs.</p>
 </div>
-<div class="sect3">
-<h4 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>8.4.1. HTTP 1.1</h4>
+</div>
+<div class="sect1">
+<h2 id="rc_general-section"><a class="anchor" href="#rc_general-section"></a>9. Requirement Class "General"</h2>
+<div class="sectionbody">
+<table id="rc_general" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API<br>
+Web API Module</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2616">RFC 2616 (HTTP/1.1)</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2818">RFC 2818 (HTTP over TLS)</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc8288">RFC 8288 (Web Linking)</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The General Conformance Class of API-Common captures requirements and recommentations which are applicable to all OGC Web APIs and Web API Modules.</p>
+</div>
+<div class="sect2">
+<h3 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>9.1. HTTP 1.1</h3>
 <div class="paragraph">
 <p>The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.</p>
 </div>
-<table id="req_core_http" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_general_http" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1813,7 +1868,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/http</strong></p>
+<p><strong>/req/general/http</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1831,20 +1886,8 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>8.4.2. HTTP Status Codes</h4>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href="https://github.com/opengeospatial/oapi_common/issues/75">75</a>, and <a href="https://github.com/opengeospatial/oapi_common/issues/73">73</a>.
-</td>
-</tr>
-</table>
-</div>
+<div class="sect2">
+<h3 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>9.2. HTTP Status Codes</h3>
 <div class="paragraph">
 <p><a href="#status-codes">Table 4</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
 </div>
@@ -1910,7 +1953,7 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 <div class="paragraph">
 <p>More specific guidance is provided for each resource, where applicable.</p>
 </div>
-<table id="per_core_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_general_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1919,7 +1962,7 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/core/additional-status-codes</strong></p>
+<p><strong>/per/general/additional-status-codes</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1931,12 +1974,12 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>8.4.3. Unknown or invalid query parameters</h4>
+<div class="sect2">
+<h3 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>9.3. Unknown or invalid query parameters</h3>
 <div class="paragraph">
 <p>If a server wants to support query parameters, these have to be explicitly declared in the API definition.</p>
 </div>
-<table id="req_core_query-param-known" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_general_query-param-known" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1945,7 +1988,7 @@ ISSUE: Should we expand our explanation of HTTP status codes? See issues <a href
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-known</strong></p>
+<p><strong>/req/general/query-param-known</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1961,7 +2004,7 @@ the server SHALL meet the requirements specified for that parameter.</p>
 <div class="paragraph">
 <p>Query parameters that have not been explicitly specified in the API definition for that operation will be treated as unknown.</p>
 </div>
-<table id="req_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_genral_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1970,7 +2013,7 @@ the server SHALL meet the requirements specified for that parameter.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-unknown</strong></p>
+<p><strong>/req/general/query-param-unknown</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2011,7 +2054,7 @@ style: form</code></pre>
 <div class="paragraph">
 <p>In the request URI this would be expressed as <code>&amp;first_parameter=some%20value&amp;other_parameter=42</code>.</p>
 </div>
-<table id="req_core_query-param-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_general_query-param-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2020,7 +2063,7 @@ style: form</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-invalid</strong></p>
+<p><strong>/req/general/query-param-invalid</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2037,12 +2080,12 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <p>This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid if it violates the API definition or any other constraint for that parameter stated in a requirement.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_web_caching"><a class="anchor" href="#_web_caching"></a>8.4.4. Web Caching</h4>
+<div class="sect2">
+<h3 id="_web_caching"><a class="anchor" href="#_web_caching"></a>9.4. Web Caching</h3>
 <div class="paragraph">
 <p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc2616">HTTP/1.1 (RFC 2616)</a>.</p>
 </div>
-<table id="rec_core_etag" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_general_etag" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2051,7 +2094,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/etag</strong></p>
+<p><strong>/rec/general/etag</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2063,12 +2106,12 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="cross-origin"><a class="anchor" href="#cross-origin"></a>8.4.5. Support for Cross-Origin Requests</h4>
+<div class="sect2">
+<h3 id="cross-origin"><a class="anchor" href="#cross-origin"></a>9.5. Support for Cross-Origin Requests</h3>
 <div class="paragraph">
 <p>If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.</p>
 </div>
-<table id="rec_core_cross-origin" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_general_cross-origin" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2077,7 +2120,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/cross-origin</strong></p>
+<p><strong>/rec/general/cross-origin</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2102,8 +2145,8 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_encodings"><a class="anchor" href="#_encodings"></a>8.4.6. Encodings</h4>
+<div class="sect2">
+<h3 id="_encodings"><a class="anchor" href="#_encodings"></a>9.6. Encodings</h3>
 <div class="paragraph">
 <p>A Web API provides access to <a href="#resource-definition">resources</a> through <a href="#representation-definition">representations</a> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate which encoding format to use through the content negotiation process defined in <a href="#rfc7231">IETF RFC 7231</a>.</p>
 </div>
@@ -2116,7 +2159,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div id="rec_html" class="paragraph">
 <p>HTML encoding recommendation:</p>
 </div>
-<table id="rec_core_html" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_general_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2125,7 +2168,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/html</strong></p>
+<p><strong>/rec/general/html</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2139,7 +2182,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div id="rec_json" class="paragraph">
 <p>JSON encoding recommndation:</p>
 </div>
-<table id="rec_core_json" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_general_json" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2148,7 +2191,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/json</strong></p>
+<p><strong>/rec/general/json</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2159,19 +2202,16 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>The section <a href="#mediatypes">Media Types</a> includes a discussion on encoding media types for this standard.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="CRS-core-section"><a class="anchor" href="#CRS-core-section"></a>8.4.7. Coordinate reference systems</h4>
+<div class="sect2">
+<h3 id="CRS-core-section"><a class="anchor" href="#CRS-core-section"></a>9.7. Coordinate reference systems</h3>
 <div class="paragraph">
 <p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, how to express and share the location of features in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.</p>
 </div>
 <div class="paragraph">
 <p>For the reasons discussed in the Best Practices, OGC API - Common uses WGS 84 longitude and latitude as the default coordinate reference system.</p>
 </div>
-<table id="req_core_crs84" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_general_crs84" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2180,7 +2220,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/crs84</strong></p>
+<p><strong>/req/general/crs84</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2202,9 +2242,9 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_link_headers"><a class="anchor" href="#_link_headers"></a>8.4.8. Link Headers</h4>
-<table id="rec_core_link-header" class="tableblock frame-all grid-all" style="width: 90%;">
+<div class="sect2">
+<h3 id="_link_headers"><a class="anchor" href="#_link_headers"></a>9.8. Link Headers</h3>
+<table id="rec_general_link-header" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2213,7 +2253,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/link-header</strong></p>
+<p><strong>/rec/general/link-header</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2233,12 +2273,11 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>9. Encoding Requirements Classes</h2>
+<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>10. Encoding Requirements Classes</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_overview"><a class="anchor" href="#_overview"></a>9.1. Overview</h3>
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>10.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
@@ -2257,7 +2296,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>9.2. Requirement Class "HTML"</h3>
+<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>10.2. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>Geographic information that is only accessible in formats such as GeoJSON or GML have two issues:</p>
 </div>
@@ -2291,11 +2330,12 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API<br>
+Web API Module</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "OAPI Core"</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_general">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -2380,7 +2420,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </table>
 </div>
 <div class="sect2">
-<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>9.3. Requirement Class "JSON"</h3>
+<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>10.3. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>JSON is a text syntax that facilitates structured data interchange between programming languages. It commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.</p>
 </div>
@@ -2398,11 +2438,12 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API<br>
+Web API Module</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "OAPI Core"</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_general">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -2467,10 +2508,10 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc_oas30-section"><a class="anchor" href="#rc_oas30-section"></a>10. OpenAPI 3.0 Requirements Class</h2>
+<h2 id="rc_oas30-section"><a class="anchor" href="#rc_oas30-section"></a>11. OpenAPI 3.0 Requirements Class</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>10.1. Basic requirements</h3>
+<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>11.1. Basic requirements</h3>
 <div class="paragraph">
 <p>APIs conforming to this requirements class document themselves by an <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument">OpenAPI Document</a>.</p>
 </div>
@@ -2561,7 +2602,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </table>
 </div>
 <div class="sect2">
-<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>10.2. Complete definition</h3>
+<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>11.2. Complete definition</h3>
 <table id="req_oas30_completeness" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2596,7 +2637,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_oas30-exceptions"><a class="anchor" href="#rc_oas30-exceptions"></a>10.3. Exceptions</h3>
+<h3 id="rc_oas30-exceptions"><a class="anchor" href="#rc_oas30-exceptions"></a>11.3. Exceptions</h3>
 <table id="req_oas30_exceptions-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2636,30 +2677,30 @@ content:
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_oas30-usage"><a class="anchor" href="#rc_oas30-usage"></a>10.4. Using OpenAPI (Informative)</h3>
+<h3 id="rc_oas30-usage"><a class="anchor" href="#rc_oas30-usage"></a>11.4. Using OpenAPI (Informative)</h3>
 <div class="paragraph">
 <p>The following section describes the main components of an OpenAPI document and how they should be used to construct API requests. The authoritative source is the OpenAPI 3.0 standard available <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasObject">here</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="_openapi_document_root"><a class="anchor" href="#_openapi_document_root"></a>10.4.1. OpenAPI Document (root)</h4>
+<h4 id="_openapi_document_root"><a class="anchor" href="#_openapi_document_root"></a>11.4.1. OpenAPI Document (root)</h4>
 <div class="paragraph">
 <p>The OpenAPI document (Root) contains descriptive information about the API and serves as the root for the other parts of the document.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_paths"><a class="anchor" href="#_paths"></a>10.4.2. Paths</h4>
+<h4 id="_paths"><a class="anchor" href="#_paths"></a>11.4.2. Paths</h4>
 <div class="paragraph">
 <p>All API resources are accessed through a path. The Paths field of the OpenAPI document defines all of the paths available through this API. The Paths field is a collection of Paths Objects. Each Paths Object includes the URL or URL template for this path, any Server Objects specific to this Path, Parameters which are applicable to this Path, and an Operation Object for each of the HTTP Verbs applicable to this Path.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_operations"><a class="anchor" href="#_operations"></a>10.4.3. Operations</h4>
+<h4 id="_operations"><a class="anchor" href="#_operations"></a>11.4.3. Operations</h4>
 <div class="paragraph">
 <p>Operation Objects provide the details needed to create an HTTP request and response. Specifically, they provide definitions of the request message (including parameters) and all possible responses. In addition, they define any operation specific Server Objects or Security Requirements.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>10.4.4. Parameters</h4>
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>11.4.4. Parameters</h4>
 <div class="paragraph">
 <p>Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its' structure (if needed).</p>
 </div>
@@ -2678,7 +2719,7 @@ content:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_servers"><a class="anchor" href="#_servers"></a>10.4.5. Servers</h4>
+<h4 id="_servers"><a class="anchor" href="#_servers"></a>11.4.5. Servers</h4>
 <div class="paragraph">
 <p>An API is not restricted to a single server. Furthermore, the set of valid servers may be different for different sections of the API. An OpenAPI Server Object describes a single server. Most important, it provides the URL to that server. Server Objects are grouped into arrays. These arrays provide a list of the servers which can be used to access a section of the API.</p>
 </div>
@@ -2787,7 +2828,7 @@ DONE</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_oas30-security"><a class="anchor" href="#rc_oas30-security"></a>10.5. Security</h3>
+<h3 id="rc_oas30-security"><a class="anchor" href="#rc_oas30-security"></a>11.5. Security</h3>
 <div class="paragraph">
 <p>OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.</p>
 </div>
@@ -2847,7 +2888,7 @@ DONE</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>12. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The typical media type for all "web pages" in an OGC API would be <code>text/html</code>.</p>
@@ -2873,7 +2914,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
+<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>13. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The OAPI-Common Core Standard does not specify any specific security controls. However, it was constructed so that security controls can be added without impacting conformance.</p>
@@ -3996,7 +4037,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-03 03:00:22 +0100
+Last updated 2020-08-03 19:49:31 +0100
 </div>
 </div>
 </body>

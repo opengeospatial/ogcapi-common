@@ -3,8 +3,10 @@
 |===
 2+|*Requirements Class*
 2+|http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html
-|Target type |Web API
-|Dependency |<<rc_core,Requirements Class "OAPI Core">>
+|Target type 
+|Web API +
+Web API Module
+|Dependency |<<rc_general,http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general>>
 |Dependency |<<html5,HTML5>>
 |Dependency |<<schema_org,Schema.org>>
 |===

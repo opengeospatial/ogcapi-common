@@ -39,3 +39,10 @@ the subset of <<uri-definition,URIs>> that, in addition to identifying a resourc
 [[webapi-definition]]
 * *Web API* +
 API using an architectural style that is founded on the technologies of the Web. (<<DWBP,W3C Data on the Web Best Practices>>)
+
+[[webapi-module-definition]]
+* *Web API Module* +
+A reusable module which can be used to build an implementation of a Web API, but is not itself a full Web API. +
+Example: a Python library which includes modules for OGC Coverages, OGC Features, and OGC Maps.  
+
+

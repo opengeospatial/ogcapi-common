@@ -1,13 +1,22 @@
 == Conformance
 Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
 
-The one Standardization Target for this standard is Web APIs.
+This standard addresses two Standardization Targets:
+
+. <<webapi-definition,Web APIs>>
+. <<webapi-module-definition,Web API Modules>>
 
 OGC API - Common - Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.
 
-This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
+This standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
 The requirements classes for _OGC API - Common - Core_ are:
+
+=== General Requirements Class
+
+The _General Requirements Class_ addresses fundamental requirements which are applicable regardless of whether the implementation is a full OGC conformant Web API or a re-usable Web API module. 
+
+The General requirements class is specified in *Requirements Class General* <<rc_general-section,(Chapter 9)>>.
 
 === Core Requirements Class
 
