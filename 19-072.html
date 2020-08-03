@@ -1606,7 +1606,19 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The URIs of all API definitions referenced from the landing page SHALL support the HTTP GET method.</p>
+<p>All links from the landing page which have the relation type <code>service-desc</code> SHALL support the HTTP GET method.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All links from the landing page which have the relation type <code>service-doc</code> SHALL support the HTTP GET method.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All HTTP GET requests issued in A and B SHALL satisfy requirement <a href="#req_core_api_definition_success">/req/core/api-definition-success</a>  .</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1630,7 +1642,7 @@ API definitions are considered service descriptions.</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>A GET request to the URI of an API definition<br>
-- linked from the landing page (link relations <code>service-desc</code> or <code>service-doc</code>)<br>
+- issued through a link relationship<br>
 - with the <code>Accept</code> header populated with the value of the link property <code>type</code><br>
 - SHALL return a document consistent with the requested media type.</p>
 </div></div></td>
@@ -1699,6 +1711,18 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The API SHALL support the HTTP GET operation on the URI <code>{root}/conformance</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All links from the landing page which have the relation type <code>conformance</code> SHALL support the HTTP GET method.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All HTTP GET requests issued in A and B SHALL satisfy requirement <a href="#req_core_conformance_success">/req/core/conformance-success</a>  .</p>
 </div></div></td>
 </tr>
 </tbody>
