@@ -1,61 +1,108 @@
 == Conventions
 
+[[fundamental-concepts]]
+=== Web API Fundamentals
+
+The following concepts are critical to understanding OGC Web API standards.
+
+. The purpose of a Web API is to provide a uniform interface to <<resource-definition,resources>>.
+
+. <<resource-definition,Resources>> are uniquely identified using <<uri-definition,Uniform Resource Identifiers>> (URI).
+
+. A user manipulates a <<resource-definition,resource>> through <<representation-definition,representations>> of that <<resource-definition,resource>>.
+
+. A <<representation-definition,representation>> is the current or intended state of a <<resource-definition,resource>> encoded for exchange between components.
+
+. The format used to encode a <<representation-definition,representation>> is negotiated between the components participating in the exchange.
+
+. <<representation-definition,Representations>> are exchanged between components using the HTTP protocol and the operations (GET, PUT, etc.) that HTTP supports.
+
+[[identifier-conventions]]
 === Identifiers
 
 The <<WEBARCH,Architecture of the World Wide Web>> establishes the URI as the single global identification system for the Web. Therefore, URIs or <<rfc6570,URI Templates>> are used in OGC Web API standards to identify key entities in those standards.  
 
-The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`.
+In accordance with OGC policy, only the <<url-definition,Uniform Resource Locator (URL)>> form of URIs is used. 
 
-All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
+The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`. All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
 
-A key requirement of Web API standards is the unambiguous identification of the <<resource-definition,resources>> they address. In an implementation of such a standard, URIs would be used to identify those resources. A standard, however, is not an implementation. A standard can identify potential resources, but not the resources themselves. Therefore, OGC Web API standards use <<rfc6570,URI Templates>> to identify <<resource-category-definition,resource categories>>. These resource categories are instantiated in the implementation of the standard.
+<<resource-definition,Resources>> described in this document are denoted by partial URIs that are relative to the `root` node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the `url` field of the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object[Server Object]. In this document the tag `{root}` designates the root node of a URI.
 
-The scope of each URI Template is specified in the standard. In some cases, API implementations are required to implement the template as a path in their API. In most cases they are optional.
+The partial URIs used to identify <<resource-definition,Resources>> in this document are refered to as the resource `path`. The purpose of a resource `path` is to identify the referenced resource [underline]##within the context of this standard##. 
 
-Implementation of the URI Templates is recommended in that they provide a common look and feel to implementations of OGC Web API standards.
+This standard defines <<resource-definition,Resources>> which may appear in more than one place in the API. These <<resource-type-definition,Resource Types>> are identified by name rather than by URI. 
 
+*Summary for Developers:*
+
+<<rfc3986,RFC 3986>> defines a URI in Backus-Naur Form <<bnf-citation,(BNF)>> as follows:
+
+[#uri-bnf,reftext='{image-caption} {counter:image-num}']
+.Backus-Naur Definition of URI
+
+[source,java]
+----
+    URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+
+        hier-part     = "//" authority path-abempty
+                         / path-absolute
+                         / path-rootless
+                         / path-empty
+                  
+        authority     = [ userinfo "@" ] host [ ":" port ]
+      
+        path-abempty  = *( "/" segment )
+      
+        path-absolute = "/" [ segment-nz *( "/" segment ) ]
+      
+        path-rootless = segment-nz *( "/" segment )
+      
+        path-empty    = 0<pchar>
+----
+
+The following rules should be used when interpreting the BNF for use with this standard:
+
+* `scheme` is assumed to be `HTTP` or `HTTPS` 
+* `authority` is provided by the API developer 
+* `{root}` designates the `scheme`, `authority`, and `path` to the root node of the API implementation. 
+* only the `path-absolute` and `path-rootless` patterns are used
+* parameters passed as part of an operation are encoded in the `query`. 
+* parameters passed in HTTP headers or as cookies are out of scope for this Standard.
+
+The following example shows a URI categorised according to RFC 3986 and OGC Web API standards.
+
+[#uri-components,reftext='{image-caption} {counter:image-num}']
+.Example URI and Components
+
+[source,java]
+----
+URI     foo://example.com:8042/myapi/mydata/?name=roads#centerline
+        \__/ \______________/\____________/ \_________/ \________/
+          |           |            |            |           |
+3986    scheme     authority     path         query      fragment
+        \__________________________/\_____/\__________/
+                      |                |        |
+OGC                {root}             path   parameters         
+----
+
+This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rc2616,HTTP>> and <<rc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
+
+[[link-relation-conventions]]
 === Link relations
 
 <<rfc8288,RFC 8288 (Web Linking)>> is used to express relationships between resources. Link relation types from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] are used wherever possible. Additional link relation types are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/incubation/linkRelationTypes/linkrelations.csv[OGC Link Relation Registry].
 
-The following link-relations are in common use by OGC Web API Standards.
-
-* *alternate*: Refers to a substitute for this context. [IANA]
-
-* *collection*: The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
-
-* *conformance*: Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
-
-* *data*: refers to the root resource of a dataset in an API. [OGC]
-
-* *describedby*: Refers to a resource providing information about the link's context. [IANA]
-
-* *item*: The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
-
-* *items*: Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
-
-* *license*: Refers to a license associated with this context. [IANA]
-
-* *self*: Conveys an identifier for the link's context. [IANA]
-
-* *service-desc*: Identifies service description for the context that is primarily intended for consumption by machines. [IANA]
-
-** API definitions are considered service descriptions.
-
-* *service-doc*: Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
+The link relationships used in API-Common Core are described in <<link-relations-table>>.
 
 Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an *enclosure* link could reference a bulk download of a collection. Or a *related* link on a feature could reference a related feature.
 
+[[https-conventions]]
 === Use of HTTPS
 
 For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
 
 OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementors should be aware that optional capabilities which are not in common use could be an impediment to interoperability.
 
-=== HTTP URIs
-
-This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rc2616,HTTP>> and <<rc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
-
+[[api-definition-conventions]]
 === API definition
 
 ==== General remarks
@@ -66,11 +113,9 @@ This OGC standard specifies requirements and recommendations for APIs that share
 
 ==== Role of OpenAPI
 
-This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.  
+This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.  
 
-This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
-
-In this document, fragments of OpenAPI definitions are shown in YAML. This is because YAML is easier to format than JSON and is typically used by OpenAPI editors.
+This approach is used to avoid lock-in to a specific approach for defining an API. This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
 ==== References to OpenAPI components in normative statements
 
@@ -87,5 +132,5 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 
 ==== Reusable OpenAPI components
 
-Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at "http://schemas.opengis.net/ogcapi/common/part1/1.0".
+Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0].
 

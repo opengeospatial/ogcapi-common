@@ -1,6 +1,4 @@
 == Scope
 
-This standard identifies resources, captures compliance classes, and specifies requirements which are applicable to all OGC API standards.  It should be included as a normative reference by all such standards.
-
-This standard addresses Discovery operations directed against the API itself. This includes general information about the API, the API definition, and the conformance classe implemented. Additional OGC Web API Standards will extend this core with resource-specific capabilities.
+This standard addresses Discovery operations directed against the API itself. It identifies resources, defines conformance classes, and specifies requirements which are applicable to all OGC API standards. It should be included as a normative reference by all such standards. Additional OGC Web API Standards will extend this core with resource-specific capabilities.
 

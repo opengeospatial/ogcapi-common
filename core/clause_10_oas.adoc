@@ -9,10 +9,6 @@ include::requirements/requirements_class_oas30.adoc[]
 
 include::requirements/oas30/REQ_oas-definition-1.adoc[]
 
-CAUTION: link:https://github.com/opengeospatial/WFS_FES/issues/117[ISSUE 117] +
-
-The OpenAPI media type has not been registered yet with IANA and will likely change. We need to update the media type after registration.
-
 include::requirements/oas30/REQ_oas-definition-2.adoc[]
 
 Two example OpenAPI documents are included in <<oas-examples,Annex B>>.
@@ -46,25 +42,6 @@ content:
       type: string
 ----
 =================
-
-[[rc_oas30-security]]
-=== Security
-
-OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.
-
-Security Requirements can be defined on following levels:
-
-* Root - applicable to the whole API unless overriden
-* Operation - only applicable to this operation. Overrides any requirements defined at the Root level. 
-
-The OpenAPI specification currently supports the following link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object[security schemes]:
-
-* HTTP authentication,
-* an API key (either as a header or as a query parameter),
-* OAuth2's common flows (implicit, password, application and access code) as defined in RFC6749, and
-* OpenID Connect Discovery.
-
-include::requirements/oas30/REQ_security.adoc[]
 
 [[rc_oas30-usage]]
 === Using OpenAPI (Informative)
@@ -161,5 +138,24 @@ The first scope where a Server Object is found dictates the behavior completely.
          DONE
      DONE
  DONE
+
+[[rc_oas30-security]]
+=== Security
+
+OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.
+
+Security Requirements can be defined on following levels:
+
+* Root - applicable to the whole API unless overriden
+* Operation - only applicable to this operation. Overrides any requirements defined at the Root level. 
+
+The OpenAPI specification currently supports the following link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object[security schemes]:
+
+* HTTP authentication,
+* an API key (either as a header or as a query parameter),
+* OAuth2's common flows (implicit, password, application and access code) as defined in RFC6749, and
+* OpenID Connect Discovery.
+
+include::requirements/oas30/REQ_security.adoc[]
 
 

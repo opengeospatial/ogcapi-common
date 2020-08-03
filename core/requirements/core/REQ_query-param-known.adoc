@@ -2,5 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/core/query-param-known* 
-^|A |If a query parameter is specified in the API definition, then the server SHALL meet the requirements specified for that parameter.
+^|A |IF a query parameter is specified in the API definition, +
+{nbsp}{nbsp}{nbsp}{nbsp}THEN +
+the server SHALL meet the requirements specified for that parameter.
 |===
