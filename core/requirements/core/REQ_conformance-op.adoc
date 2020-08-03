@@ -3,4 +3,6 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/core/conformance-op* 
 ^|A |The API SHALL support the HTTP GET operation on the URI `{root}/conformance`.
+^|B |All links from the landing page which have the relation type `conformance` SHALL support the HTTP GET method.
+^|C |All HTTP GET requests issued in A and B SHALL satisfy requirement <<req_core_conformance_success,/req/core/conformance-success>>  .
 |===

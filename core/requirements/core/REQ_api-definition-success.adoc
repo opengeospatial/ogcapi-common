@@ -3,7 +3,7 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/core/api-definition-success* 
 ^|A |A GET request to the URI of an API definition +
-- linked from the landing page (link relations ``service-desc`` or ``service-doc``) +
+- issued through a link relationship +
 - with the ``Accept`` header populated with the value of the link property ``type`` + 
 - SHALL return a document consistent with the requested media type.
 |===
