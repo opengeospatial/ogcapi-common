@@ -24,11 +24,9 @@ The <<WEBARCH,Architecture of the World Wide Web>> establishes the URI as the si
 
 In accordance with OGC policy, only the <<url-definition,Uniform Resource Locator (URL)>> form of URIs is used. 
 
-The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`.
+The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`. All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
 
-All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
-
-<<resource-definition,Resources>> described in this document are denoted by partial URIs that are relative to the `root` node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the `url` field of the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object[Server Object]. When used in a URI, the root node is designated as `{root}`.
+<<resource-definition,Resources>> described in this document are denoted by partial URIs that are relative to the `root` node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the `url` field of the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object[Server Object]. In this document the tag `{root}` designates the root node of a URI.
 
 The partial URIs used to identify <<resource-definition,Resources>> in this document are refered to as the resource `path`. The purpose of a resource `path` is to identify the referenced resource [underline]##within the context of this standard##. 
 
@@ -36,7 +34,7 @@ This standard defines <<resource-definition,Resources>> which may appear in more
 
 *Summary for Developers:*
 
-<<rfc3986,RFC 3986>> defines a URI in Backus-Naur Form (BNF) as follows:
+<<rfc3986,RFC 3986>> defines a URI in Backus-Naur Form <<bnf-citation,(BNF)>> as follows:
 
 [#uri-bnf,reftext='{image-caption} {counter:image-num}']
 .Backus-Naur Definition of URI
@@ -61,7 +59,7 @@ This standard defines <<resource-definition,Resources>> which may appear in more
         path-empty    = 0<pchar>
 ----
 
-The following rules should be used when interpreting the BNF:
+The following rules should be used when interpreting the BNF for use with this standard:
 
 * `scheme` is assumed to be `HTTP` or `HTTPS` 
 * `authority` is provided by the API developer 
@@ -115,11 +113,9 @@ This OGC standard specifies requirements and recommendations for APIs that share
 
 ==== Role of OpenAPI
 
-This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.  
+This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.  
 
-This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
-
-In this document, fragments of OpenAPI definitions are shown in YAML. This is because YAML is easier to format than JSON and is typically used by OpenAPI editors.
+This approach is used to avoid lock-in to a specific approach for defining an API. This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
 ==== References to OpenAPI components in normative statements
 

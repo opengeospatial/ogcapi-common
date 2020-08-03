@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-07-31</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-02</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -710,7 +710,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common suite of standards. API-Common standards serve as reusable building-blocks. Developers of OGC standards will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
+<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common suite of standards. API-Common standards serve as reusable building-blocks. Developers of OGC standards will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
 <p>The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access mechanisms are supported by all conformant OGC Web APIs and are described in <a href="#cr-table">Table 1</a>.</p>
@@ -821,10 +821,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_scope"><a class="anchor" href="#_scope"></a>2. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This standard identifies resources, defines conformance classes, and specifies requirements which are applicable to all OGC API standards. It should be included as a normative reference by all such standards.</p>
-</div>
-<div class="paragraph">
-<p>This standard addresses Discovery operations directed against the API itself. This includes general information about the API, the API definition, and the conformance classe implemented. Additional OGC Web API Standards will extend this core with resource-specific capabilities.</p>
+<p>This standard addresses Discovery operations directed against the API itself. It identifies resources, defines conformance classes, and specifies requirements which are applicable to all OGC API standards. It should be included as a normative reference by all such standards. Additional OGC Web API Standards will extend this core with resource-specific capabilities.</p>
 </div>
 </div>
 </div>
@@ -880,7 +877,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_openapi_3_0_requirements_class"><a class="anchor" href="#_openapi_3_0_requirements_class"></a>3.3. OpenAPI 3.0 Requirements Class</h3>
 <div class="paragraph">
-<p>The <em>API-Common - core</em> does not mandate any encoding or format for the formal definition of the API. The prefered option is the OpenAPI 3.0 specification. The <em>OpenAPI 3.0</em> requirements class has been specified for APIs implementing OpenAPI 3.0.</p>
+<p>The <em>API-Common - core</em> Standard does not mandate any encoding or format for the formal definition of the API. The prefered option is the OpenAPI 3.0 specification. The <em>OpenAPI 3.0</em> requirements class has been specified for APIs implementing OpenAPI 3.0.</p>
 </div>
 <div class="paragraph">
 <p>The OpenAPI 3.0 Requirements Class is specified in <strong>OpenAPI 3.0 Requirements Class</strong> <a href="#rc_oas30-section">(Chapter 10)</a>.</p>
@@ -1065,13 +1062,10 @@ API using an architectural style that is founded on the technologies of the Web.
 <p>In accordance with OGC policy, only the <a href="#url-definition">Uniform Resource Locator (URL)</a> form of URIs is used.</p>
 </div>
 <div class="paragraph">
-<p>The normative provisions in this draft standard are denoted by the URI <code><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0</a></code>.</p>
+<p>The normative provisions in this draft standard are denoted by the URI <code><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0</a></code>. All <a href="#requirement-definition">Requirements</a>, <a href="#ctm-definition">Conformance Modules</a>, and <a href="#ctc-definition">Conformance Classes</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
 </div>
 <div class="paragraph">
-<p>All <a href="#requirement-definition">Requirements</a>, <a href="#ctm-definition">Conformance Modules</a>, and <a href="#ctc-definition">Conformance Classes</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
-</div>
-<div class="paragraph">
-<p><a href="#resource-definition">Resources</a> described in this document are denoted by partial URIs that are relative to the <code>root</code> node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the <code>url</code> field of the <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object">Server Object</a>. When used in a URI, the root node is designated as <code>{root}</code>.</p>
+<p><a href="#resource-definition">Resources</a> described in this document are denoted by partial URIs that are relative to the <code>root</code> node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the <code>url</code> field of the <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object">Server Object</a>. In this document the tag <code>{root}</code> designates the root node of a URI.</p>
 </div>
 <div class="paragraph">
 <p>The partial URIs used to identify <a href="#resource-definition">Resources</a> in this document are refered to as the resource <code>path</code>. The purpose of a resource <code>path</code> is to identify the referenced resource <span class="underline">within the context of this standard</span>.</p>
@@ -1083,7 +1077,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p><strong>Summary for Developers:</strong></p>
 </div>
 <div class="paragraph">
-<p><a href="#rfc3986">RFC 3986</a> defines a URI in Backus-Naur Form (BNF) as follows:</p>
+<p><a href="#rfc3986">RFC 3986</a> defines a URI in Backus-Naur Form <a href="#bnf-citation">(BNF)</a> as follows:</p>
 </div>
 <div id="uri-bnf" class="listingblock">
 <div class="title">Backus-Naur Definition of URI</div>
@@ -1107,7 +1101,7 @@ API using an architectural style that is founded on the technologies of the Web.
 </div>
 </div>
 <div class="paragraph">
-<p>The following rules should be used when interpreting the BNF:</p>
+<p>The following rules should be used when interpreting the BNF for use with this standard:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1185,13 +1179,10 @@ OGC                {root}             path   parameters</code></pre>
 <div class="sect3">
 <h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
 <div class="paragraph">
-<p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.</p>
+<p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the <code>/conformance</code> path.</p>
 </div>
 <div class="paragraph">
-<p>This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a <a href="#rc_oas30-section">conformance class</a> for API definitions that follow the <a href="#openapi">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.</p>
-</div>
-<div class="paragraph">
-<p>In this document, fragments of OpenAPI definitions are shown in YAML. This is because YAML is easier to format than JSON and is typically used by OpenAPI editors.</p>
+<p>This approach is used to avoid lock-in to a specific approach for defining an API. This standard includes a <a href="#rc_oas30-section">conformance class</a> for API definitions that follow the <a href="#openapi">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1480,7 +1471,7 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect2">
 <h3 id="landing-page"><a class="anchor" href="#landing-page"></a>8.1. API landing page</h3>
 <div class="paragraph">
-<p>Each API has a single landing page (Path <code>/</code>).</p>
+<p>Each API has a single landing page on the <code>{root}</code> node.</p>
 </div>
 <div class="paragraph">
 <p>The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.</p>
@@ -1502,7 +1493,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL support the HTTP GET operation at the path <code>/</code>.</p>
+<p>The server SHALL support the HTTP GET operation on the URI <code>{root}/</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1707,7 +1698,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The API SHALL support the HTTP GET operation at the path <code>/conformance</code>.</p>
+<p>The API SHALL support the HTTP GET operation on the URI <code>{root}/conformance</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2446,7 +2437,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tbody>
 </table>
 <div class="paragraph">
-<p>An example JSON Schema for the landing page is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.yaml">landingPage.yaml</a>.</p>
+<p>An example JSON Schema for the landing page is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a>.</p>
 </div>
 </div>
 </div>
@@ -3950,6 +3941,9 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 <p><a id="link-relations"></a> IANA: <strong>Link Relation Types</strong>, <a href="https://www.iana.org/assignments/link-relations/link-relations.xml" class="bare">https://www.iana.org/assignments/link-relations/link-relations.xml</a></p>
 </li>
 <li>
+<p><a id="bnf-citation"></a> ISO/IEC 14977:1996(E) <strong>Information technology – Syntactic metalanguage – Extended BNF</strong>, available from <a href="https://standards.iso.org/ittf/PubliclyAvailableStandards/s026153_ISO_IEC_14977_1996(E).zip">ISO</a>.</p>
+</li>
+<li>
 <p><a id="ogc08-131"></a> Open Geospatial Consortium: <strong>The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications</strong>, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
 </li>
 <li>
@@ -3978,7 +3972,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-31 21:11:25 +0100
+Last updated 2020-08-03 03:00:22 +0100
 </div>
 </div>
 </body>
