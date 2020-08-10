@@ -53,3 +53,5 @@ There are three possible dispositions for a monthly update branch:
  ## Getting Involved
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for details on how to join the Standard Working Group and get involved.
+
+Pull Requests from contributors are welcomed. However, please note that by sending a Pull Request or Commit to this GitHub repository, you are agreeing to the terms in the Observer Agreement https://portal.ogc.org/files/?artifact_id=92169
