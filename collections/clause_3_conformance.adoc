@@ -18,9 +18,9 @@ The structure and organization of a collection of spatial resources is very much
 
 * <<rc_encodings-section,Encodings>>
 ** <<rc_html-section,HTML>>
-** <<rc_geojson-section,GeoJSON>>
+** <<rc_json-section,JSON>>
 
-The _Collections_ requirements class does not mandate a specific encoding or format for representing resources. The _HTML_ and _GeoJSON_ requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
+The _Collections_ requirements class does not mandate a specific encoding or format for representing resources. The _HTML_ and _JSON_ requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
 Neither of these encodings is mandatory. An implementor of the _API-GeoData_ standard may decide to implement another encoding instead of, or in addition to, these two.
 

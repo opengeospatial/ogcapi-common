@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-07-26</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-14</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -625,7 +625,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_overview">9.1. Overview</a></li>
 <li><a href="#rc_html-section">9.2. Requirement Class "HTML"</a></li>
 <li><a href="#rc_json-section">9.3. Requirement Class "JSON"</a></li>
-<li><a href="#rc_geojson-section">9.4. Requirement Class "GeoJSON"</a></li>
 </ul>
 </li>
 <li><a href="#mediatypes">10. Media Types</a></li>
@@ -694,7 +693,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The following are keywords to be used by search engines and document catalogues.</p>
 </div>
 <div class="paragraph">
-<p>ogcdoc, OGC document, geographic information, spatial data, spatial things, dataset, distribution, API, geojson, html, OpenAPI, REST, Common</p>
+<p>ogcdoc, OGC document, geographic information, spatial data, spatial things, dataset, distribution, API, json, html, OpenAPI, REST, Common</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">iii.   Preface</strong></p>
@@ -807,7 +806,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="#rc_html-section">HTML</a></p>
 </li>
 <li>
-<p><a href="#rc_geojson-section">GeoJSON</a></p>
+<p><a href="#rc_json-section">JSON</a></p>
 </li>
 </ul>
 </div>
@@ -815,7 +814,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <em>HTML</em> and <em>GeoJSON</em> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
+<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <em>HTML</em> and <em>JSON</em> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
 </div>
 <div class="paragraph">
 <p>Neither of these encodings is mandatory. An implementor of the <em>API-GeoData</em> standard may decide to implement another encoding instead of, or in addition to, these two.</p>
@@ -868,9 +867,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a id="rfc7231"></a> Fielding, R., Reschke, JSchaub: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7946"></a> Butler, H., Daly, M., Doyle, A., Gillies, S., Hagen, S., Schaub, T.: <strong>IETF RFC 7946, The GeoJSON Format</strong>, <a href="https://tools.ietf.org/rfc/rfc7946.txt">https://tools.ietf.org/rfc/rfc7946.txt</a></p>
 </li>
 <li>
 <p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a>* <a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
@@ -3017,7 +3013,7 @@ explode: false</code></pre>
 <div class="sect2">
 <h3 id="_overview"><a class="anchor" href="#_overview"></a>9.1. Overview</h3>
 <div class="paragraph">
-<p>This clause specifies three requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
+<p>This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3026,9 +3022,6 @@ explode: false</code></pre>
 </li>
 <li>
 <p><a href="#rc_json-section">JSON</a></p>
-</li>
-<li>
-<p><a href="#rc_geojson-section">GeoJSON</a></p>
 </li>
 </ul>
 </div>
@@ -3242,122 +3235,6 @@ explode: false</code></pre>
 </table>
 <div class="paragraph">
 <p>JSON Schema for the Collections Metadata and Collection Information is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collections.yaml">collections.yaml</a> and <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
-</div>
-<div class="paragraph">
-<p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="rc_geojson-section"><a class="anchor" href="#rc_geojson-section"></a>9.4. Requirement Class "GeoJSON"</h3>
-<div class="paragraph">
-<p>GeoJSON is a commonly used format that is simple to understand and well supported by tools and software libraries. Since most Web developers are comfortable with using a JSON-based format, supporting GeoJSON is recommended if the resource can be represented in GeoJSON for the intended use.</p>
-</div>
-<table id="rc_geojson" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geojson" class="bare">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geojson</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_collections">Requirements Class "OAPI Collections"</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc7946">GeoJSON</a></p></td>
-</tr>
-</tbody>
-</table>
-<table id="req_geojson_definition" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/geojson/definition</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><code>200</code>-responses of the server SHALL support the following media types:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/geo+json</code> for resources that include feature content, and</p>
-</li>
-<li>
-<p><code>application/json</code> for all other resources.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="req_geojson_content" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/geojson/content</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Every <code>200</code>-response with the media type <code>application/geo+json</code> SHALL be</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A <a href="https://tools.ietf.org/html/rfc7946#section-3.3">GeoJSON FeatureCollection Object</a> for feature collections, and</p>
-</li>
-<li>
-<p>A <a href="https://tools.ietf.org/html/rfc7946#section-3.2">GeoJSON Feature Object</a> for features.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The schema of all responses with the media type <code>application/json</code> SHALL conform with the JSON Schema specified for that resource.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The following schema names are not GeoJSON. They need to be updated.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collections.yaml">collections.yaml</a> and <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
 </div>
 <div class="paragraph">
 <p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
@@ -3613,7 +3490,7 @@ The following schema names are not GeoJSON. They need to be updated.
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json">collections.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geo_content">/ats/geo/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4133,7 +4010,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json">collectionInfo.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/ats/json/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4232,7 +4109,7 @@ explode: false</code></pre>
 </div>
 <div class="sect2">
 <h3 id="_conformance_class_geojson"><a class="anchor" href="#_conformance_class_geojson"></a>A.3. Conformance Class GeoJSON</h3>
-<table id="ats_geojson" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_json" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -4242,7 +4119,7 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/geojson" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/geojson</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4250,7 +4127,7 @@ explode: false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_geojson">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geojson</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_geojson">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -4260,7 +4137,7 @@ explode: false</code></pre>
 </table>
 <div class="sect3">
 <h4 id="_geojson_definition"><a class="anchor" href="#_geojson_definition"></a>A.3.1. GeoJSON Definition</h4>
-<table id="ats_geojson_definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_json_definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -4269,19 +4146,19 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/geojson/definition</strong></p>
+<p><strong>/ats/json/definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Verify support for JSON and GeoJSON</p>
+<p>Verify support for JSON</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_geojson_definition">/req/geojson/definition</a></p>
+<p><a href="#req_json_definition">/req/json/definition</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4289,20 +4166,10 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>A resource is requested with response media type of <code>application/geo+json</code></p>
+<p>A resource is requested with response media type of <code>application/json</code></p>
 </li>
 <li>
-<p>All <code>200</code>-responses SHALL support the following media types:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/geo+json</code> for resources that include feature content, and</p>
-</li>
-<li>
-<p><code>application/json</code> for all other resources.</p>
-</li>
-</ul>
-</div>
+<p>All <code>200</code>-responses SHALL support the media type <code>application/json</code>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4312,7 +4179,7 @@ explode: false</code></pre>
 </div>
 <div class="sect3">
 <h4 id="_geojson_content"><a class="anchor" href="#_geojson_content"></a>A.3.2. GeoJSON Content</h4>
-<table id="ats_geojson_content" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_json_content" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -4321,19 +4188,19 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/geojson/content</strong></p>
+<p><strong>/ats/json/content</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Verify the content of a GeoJSON document given an input document and schema.</p>
+<p>Verify the content of a JSON document given an input document and schema.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_geojson_content">/req/geojson/content</a></p>
+<p><a href="#req_json_content">/req/json/content</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4341,7 +4208,7 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Validate that the document is a GeoJSON document.</p>
+<p>Validate that the document is a JSON document.</p>
 </li>
 <li>
 <p>Validate the document against the schema using a JSON Schema validator.</p>
@@ -4623,17 +4490,13 @@ include::examples/tbd.adoc[]
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Open Geospatial Consortium (OGC). OGC 10-100r3: <strong>Geography Markup Language (GML) Simple Features Profile</strong> [online]. Edited by L. van den Brink, C. Portele, P. Vretanos. 2012 [viewed 2020-03-16]. Available at <a href="http://portal.opengeospatial.org/files/?artifact_id=42729">http://portal.opengeospatial.org/files/?artifact_id=42729</a>
-nternet Engineering Task Force (IETF). RFC 7946: <strong>The GeoJSON Format</strong> [online]. Edited by H. Butler, M. Daly, A. Doyle, S. Gillies, S. Hagen, T. Schaub. 2016 [viewed 2020-03-16]. Available at <a href="http://tools.ietf.org/rfc/rfc7946.txt">http://tools.ietf.org/rfc/rfc7946.txt</a></p>
-</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-02 22:20:55 -0400
+Last updated 2020-08-14 23:03:14 +0100
 </div>
 </div>
 </body>
