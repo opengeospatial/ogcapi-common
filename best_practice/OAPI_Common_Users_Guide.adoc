@@ -8,7 +8,6 @@
 :toclevels: 3
 :numbered:
 :sectanchors:
-:source-highlighter: pygments
 
 <<<
 [cols = ">",frame = "none",grid = "none"]
@@ -17,7 +16,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   <2020-07-28>
+|Publication Date:   <2020-08-14>
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/EG/ogcapi-common/1.0
 |Internal reference number of this OGC(R) document:    20-071
 |Version: n.n
@@ -89,24 +88,8 @@ include::clause_4_terms_and_definitions.adoc[]
 
 include::clause_5_conventions.adoc[]
 
-include::clause_6_informative_text.adoc[]
+include::clause_6_users-guide.adoc[]
 
-include::clause_7_normative_text.adoc[]
-
-<<<
-////
-add or remove annexes after "A" as necessary
-////
-include::annex-a.adoc[]
-
-<<<
-include::annex-n.adoc[]
-
-<<<
-////
-Revision History should be the last annex before the Bibliography
-Bibliography should be the last annex
-////
 include::annex-history.adoc[]
 
 <<<

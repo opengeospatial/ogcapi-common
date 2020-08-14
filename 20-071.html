@@ -461,7 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2020-07-28&gt;</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2020-08-14&gt;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/EG/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/EG/ogcapi-common/1.0</a></p></td>
@@ -580,53 +580,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_identifiers">5.1. Identifiers</a></li>
 </ul>
 </li>
-<li><a href="#api-philosophy">6. OGC API Philosophy</a></li>
-<li><a href="#modular-api">7. Modular APIs</a></li>
-<li><a href="#api-navigation">8. Navigation</a></li>
-<li><a href="#_architecture">9. Architecture</a>
+<li><a href="#users-guide-section">6. Users Guide</a>
 <ul class="sectlevel2">
-<li><a href="#_datasets">9.1. Datasets</a></li>
-<li><a href="#_processes">9.2. Processes</a></li>
-<li><a href="#_server_side_rendering">9.3. Server-side rendering</a></li>
-<li><a href="#_data_partitioning">9.4. Data partitioning</a></li>
-<li><a href="#_resource_paths">9.5. Resource Paths</a></li>
-</ul>
-</li>
-<li><a href="#api-description">10. API Description</a>
-<ul class="sectlevel2">
-<li><a href="#api-introduction">10.1. Web APIs</a>
+<li><a href="#link-relations-section">6.1. Link Relations</a>
 <ul class="sectlevel3">
-<li><a href="#_resources">10.1.1. Resources</a></li>
-<li><a href="#_uniform_resource_identifiers">10.1.2. Uniform Resource Identifiers</a></li>
-<li><a href="#_representations">10.1.3. Representations</a></li>
+<li><a href="#_href_attribute">6.1.1. Href Attribute</a></li>
+<li><a href="#_rel_attribute">6.1.2. Rel Attribute</a></li>
+<li><a href="#_type_attribute">6.1.3. Type Attribute</a></li>
+<li><a href="#_hreflang_attribute">6.1.4. Hreflang Attribute</a></li>
+<li><a href="#_title_attribute">6.1.5. Title Attribute</a></li>
+<li><a href="#_length_attribute">6.1.6. Length Attribute</a></li>
 </ul>
 </li>
-<li><a href="#collections-introduction">10.2. Collections</a></li>
-<li><a href="#uri-overview">10.3. URIs and Relationships</a></li>
+<li><a href="#relation-type-section">6.2. Relation Types</a></li>
 </ul>
 </li>
-<li><a href="#_clause_containing_normative_material">11. Clause containing normative material</a>
-<ul class="sectlevel2">
-<li><a href="#_requirement_class_a_or_requirement_a_example">11.1. Requirement Class A or Requirement A Example</a>
-<ul class="sectlevel3">
-<li><a href="#_requirement_1">11.1.1. Requirement 1</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_conformance_class_abstract_test_suite_normative">Annex A: Conformance Class Abstract Test Suite (Normative)</a>
-<ul class="sectlevel2">
-<li><a href="#_conformance_class_a">A.1. Conformance Class A</a>
-<ul class="sectlevel3">
-<li><a href="#_requirement_1_2">A.1.1. Requirement 1</a></li>
-<li><a href="#_requirement_2">A.1.2. Requirement 2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#_title_normativeinformative">Annex B: Title ( {Normative/Informative} )</a></li>
-<li><a href="#_revision_history">Annex C: Revision History</a></li>
-<li><a href="#Bibliography">Annex D: Bibliography</a></li>
+<li><a href="#_revision_history">Annex A: Revision History</a></li>
+<li><a href="#Bibliography">Annex B: Bibliography</a></li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -840,744 +810,142 @@ Global Grid Forum (2002)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="api-philosophy"><a class="anchor" href="#api-philosophy"></a>6. OGC API Philosophy</h2>
+<h2 id="users-guide-section"><a class="anchor" href="#users-guide-section"></a>6. Users Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Best Practices document contains information useful to a developer of user of OGC API-Common, but not required by the standard.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="modular-api"><a class="anchor" href="#modular-api"></a>7. Modular APIs</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section of the Best Practice discusses OGC principals and practices regarging modular APIs.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="api-navigation"><a class="anchor" href="#api-navigation"></a>8. Navigation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><em>Navigating the API</em></p>
-</div>
-<div class="paragraph">
-<p>This section of the Best Practice addresses the different ways to navigate an API, the features of OGC Web APIs to facilitate navigation, and the impact of different navigation techniques on the client.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_architecture"><a class="anchor" href="#_architecture"></a>9. Architecture</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following "architecture" captures the core concepts which inform all OGC API standards.</p>
+<p>The OGC API Users Guide document contains information useful to a developer or user of OGC API-Common. This information in not normative. That is, it is not mandatory. However, it may prove essentiall to fully understand the normative text in the OGC API - Common Standards.</p>
 </div>
 <div class="sect2">
-<h3 id="_datasets"><a class="anchor" href="#_datasets"></a>9.1. Datasets</h3>
+<h3 id="link-relations-section"><a class="anchor" href="#link-relations-section"></a>6.1. Link Relations</h3>
 <div class="paragraph">
-<p>Web APIs implement a Resource Oriented approach to Web-based distributed computing. A coherent set of APIs must be based on a common understading of the Resources to be shared. For OGC APIs, those resources would be identified using an abstract concept of a geospatial dataset. Such a dataset would have the following characteristics:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A dataset can be a vector feature collection, a coverage/imagery, or a collection of datasets (therefore potentially a mix of any of these things)</p>
-</li>
-<li>
-<p>A dataset has associated metadata, including some essential information:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Information about what type of data set it is (vector features (and what type of vector features if limited to one type, e.g. polygons,lines, points), coverages (values) / imagery (pixels), or sub-datasets-- more than one of those things)</p>
-</li>
-<li>
-<p>A textual identifier (e.g. which figures in the resource path)</p>
-</li>
-<li>
-<p>A title (short name / description)</p>
-</li>
-<li>
-<p>Access point for the dataset (could be hosted locally or remote)</p>
-</li>
-<li>
-<p>Geospatial &amp; temporal extent</p>
-</li>
-<li>
-<p>Resolution/scale</p>
-</li>
-<li>
-<p>Units/Range/Bit-Depth/Channels/Dimensions etc. for imagery/coverages</p>
-</li>
-<li>
-<p>A description of queryables, if applicable</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Keywords/Tags, and longer descriptions are also a commonly useful piece of metadata information</p>
-</li>
-<li>
-<p>Any other ISO 19115 metadata fields can also be associated with the dataset, but are nowhere near as essential to discovering and using geospatial data as those mentioned above. Meta data containing at minimum those essential elements can always be retrieved in ISO 19115 and potentially other formats.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_processes"><a class="anchor" href="#_processes"></a>9.2. Processes</h3>
-<div class="paragraph">
-<p>Processes take one or more datasets as input, add parameters, and produce one or more datasets as output. This ties the processes together with the data delivery services on both ends.</p>
+<p>provides a discussion of link relations, the governing policies and standards, as well as how they should be used.</p>
 </div>
 <div class="paragraph">
-<p>I suggested so far 3 kinds of processes which can all run on a server where the data lives:</p>
+<p>Links between elements of an OGC API are encoded using the link relation schema provided in <a href="#link-schema">Figure 1</a>.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The complex process built as a container or executable, as typical of WPS</p>
-</li>
-<li>
-<p>Process description languages such as WCPS</p>
-</li>
-<li>
-<p>Pre-defined named processes such as 'vectorization', 'buffering', 'rasterization' or 'rendering of a styled map'</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>All of these kinds of processes could share aspects such as taking in an OGC API dataset as input and their output being usable as an OGC API dataset, for direct access and/or asynchronous delivery, and support multiple data partitioning/access mechanisms, estimates/billing elements, and so on.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_server_side_rendering"><a class="anchor" href="#_server_side_rendering"></a>9.3. Server-side rendering</h3>
-<div class="paragraph">
-<p>Highlighting here that the rendering of a styled maps based on multiple source data sets and a style as a parameter, outputting a styled 'rendered map' imagery dataset as a result, fits perfectly well the description of a process (3).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_data_partitioning"><a class="anchor" href="#_data_partitioning"></a>9.4. Data partitioning</h3>
-<div class="paragraph">
-<p>For all of data access / exchange mechanisms, e.g. to retrieve coverages/vector features directly, for a process to access its input, or to retrieve the output from a process, or throughout a daisy chain of processes, there are a variety of ways in which data can be partitioned for efficient access. The most efficient way most likely depends on the overall workflow and the implementations on both ends. I am suggesting most of the OGC API should be agnostic of this and support many such ways, so that both ends of such connection or a workflow manager can negotiate the best approach. Examples of different ways to partition/access data include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Bounding boxes</p>
-</li>
-<li>
-<p>Tiles</p>
-</li>
-<li>
-<p>n-dimensional sub-setting</p>
-</li>
-<li>
-<p>DGGS cells</p>
-</li>
-<li>
-<p>Single point value</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This is the overall diagram of these ideas that I presented a couple weeks back at the OWS Common telecon and got the chance to explain in more details in person to some of you:</p>
-</div>
-<div class="imageblock">
+<div id="link-schema" class="listingblock">
+<div class="title">Link Schema</div>
 <div class="content">
-<img src="images/Dataset_Concept.png" alt="Dataset Concept">
-</div>
-<div class="title">Figure 1. Dataset Concept</div>
-</div>
-<div class="paragraph">
-<p>You might notice that this is color-coded based on where these API blocks originated from in classic services:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Orange: Coverages (WCS)</p>
-</li>
-<li>
-<p>Red: Server-side rendering (WMS)</p>
-</li>
-<li>
-<p>Blue: Processes (WPS)</p>
-</li>
-<li>
-<p>Green: Vector features (WFS)</p>
-</li>
-<li>
-<p>Very light blue: Catalogs (CSW)</p>
-</li>
-<li>
-<p>Violet: Tiles (WMTS)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_resource_paths"><a class="anchor" href="#_resource_paths"></a>9.5. Resource Paths</h3>
-<div class="paragraph">
-<p>The resources exposed through OGC APIs are accessed through standardized URL templates. These "paths" and their associated resources are described in <a href="#dataset-paths">Table 1</a>. This table documents the paths and resources as of December 2019. This information will be updated as these standards mature.</p>
-</div>
-<table id="dataset-paths" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 1. OGC Dataset Paths</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Path Template</strong></th>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Resource</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Common</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the spatial collections available from this API.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the collection which has the unique identifier <code>{collectionId}</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Features</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The Feature Collection resource identified by the <code>{collectionId}</code> parameter.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/items</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The individual Features in a Feature Collection</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Coverages</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/coverage</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A general description of the coverage identified by {collectionId} including the coverage&#8217;s envelope.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/description</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the whole coverage description consisting of domainset, rangetype, and metadata (but not the rangeset)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/domainset</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s domain set definition</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/rangetype</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range type information (i.e., a description of the data semantics)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/metadata</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s metadata (may be empty)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/rangeset</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range set, i.e., the actual values in the coverage&#8217;s Native Format (see format encoding for ways to retrieve inspecific formats)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionid}/coverage/all</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns all of the above namely the coverage&#8217;s domainset, rangetype, meatadata, and rangeset comparable to a GetCoverage response</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Maps and Styles</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: A map is associated with a resource. {resource} is a place holder for a path segment appropriate for a resource type.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/map</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A data structure with specific information necessary to get a fragment of the map representing the resource collection.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/map/{styleId}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A map representing the geospatial resource identified by /collections/{collectionId}/{resource}.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Tiles</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Note: A tile is associated with a resource. {resource} is a place holder for a path segment appropriate for a resource type.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/tile/{styleId}/{tileMatrixSetId}/{tileMatrixId}/{tileRow}/{tileCol}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Tile representation of real-world elements at a given resolution restricted by the selected Tile Matrix Set. {styleId} is optional.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/{resource}/tiles</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An enumeration of the Tiles and Styles that are available at some TileMatrixSetId</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/tileMatrixSet/{tileMatrixSetId}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A description of the TileMatrixSet identified by the {tileMatrixSetId} identifier.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Processes</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/process</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Lists the processes this API offers.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns a detailed description of a process.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}/jobs</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns the running and finished jobs for a process (GET), Executes a process, i.e. creates a new job. Inputs and outputs will have to be specified in a JSON document that needs to be send in the POST body. (POST)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}/jobs/{job-id}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns the status of a job of a process.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/processes/{process-id}/jobs/{job-id}/results</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns the result of a job of a process.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Records (Catalog)</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/tbd</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TBD</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="api-description"><a class="anchor" href="#api-description"></a>10. API Description</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><em>Using and Abusing ApenAPI</em></p>
-</div>
-<div class="paragraph">
-<p>OpenAPI is a useful tool for documenting the design of an API. In addition, numerous tool vendors have produced products to assist in the use of OpenAPI documents. These go so far as to generate stub-code for the use of API and client developers.</p>
-</div>
-<div class="paragraph">
-<p>However like so many other good tools, OpenAPI was not designed for the size and complexity that we are seeing in Geospatial APIs. This section discusses various features of the OpenAPI specification that can be abused to provide a scalable API Description.</p>
-</div>
-<div class="sect2">
-<h3 id="api-introduction"><a class="anchor" href="#api-introduction"></a>10.1. Web APIs</h3>
-<div class="paragraph">
-<p>The following principles are derived from <a href="#fielding-2000">Fielding 2000</a>.</p>
-</div>
-<div class="paragraph">
-<p>The central feature that distinquished Web APIs is their emphasis on a uniform interface. In particular, their nearly exclusive use of the HTTP protol and the associated operators (GET, PUT, etc.).</p>
-</div>
-<div class="paragraph">
-<p>In order to achieve a usable uniform interface, Web APIs are subject to four constraints:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>identification of resources,</p>
-</li>
-<li>
-<p>manipulation of resources through representations,</p>
-</li>
-<li>
-<p>self-descriptive messages; and,</p>
-</li>
-<li>
-<p>hypermedia as the engine of application state.</p>
-</li>
-</ol>
-</div>
-<div class="sect3">
-<h4 id="_resources"><a class="anchor" href="#_resources"></a>10.1.1. Resources</h4>
-<div class="paragraph">
-<p>The key abstraction of information is a resource. Any information that can be named can be a resource: a document or image, a temporal service (e.g. “today’s weather in Los Angeles”), a collection of other resources, a non-virtual object (e.g. a person), and so on. In other words, any concept that might be the target of an author’s hypertext reference must fit within the definition of a resource. A resource is a conceptual mapping to a set of entities, not the entity that corresponds to the mapping at any particular point in time.</p>
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">type: object
+required:
+  - href
+  - rel
+properties:
+  href:
+    type: string
+    example: http://data.example.com/buildings/123
+  rel:
+    type: string
+    example: alternate
+  type:
+    type: string
+    example: application/geo+json
+  hreflang:
+    type: string
+    example: en
+  title:
+    type: string
+    example: Trierer Strasse 70, 53115 Bonn
+  length:
+    type: integer</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_uniform_resource_identifiers"><a class="anchor" href="#_uniform_resource_identifiers"></a>10.1.2. Uniform Resource Identifiers</h4>
+<h4 id="_href_attribute"><a class="anchor" href="#_href_attribute"></a>6.1.1. Href Attribute</h4>
 <div class="paragraph">
-<p>REST uses a resource identifier to identify the particular resource involved in an interaction between components. REST connectors provide a generic interface for accessing and manipulating the value set of a resource, regardless of how the membership function is defined or the type of software that is handling the request. The naming authority that assigned the resource identifier, making it possible to reference the resource, is responsible for maintaining the semantic validity of the mapping over time (i.e., ensuring that the membership function does not change).</p>
+<p>The <code>href</code> attribute is mandatory.</p>
+</div>
+<div class="paragraph">
+<p>"The Locator Attribute (href) supplies the data that allows an application to find a remote resource or resource fragment. The value of this attribute is an IRI which servers as the Uniform Resource Identifier for the remote resource." (W3C XLink Version 1.1)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_representations"><a class="anchor" href="#_representations"></a>10.1.3. Representations</h4>
+<h4 id="_rel_attribute"><a class="anchor" href="#_rel_attribute"></a>6.1.2. Rel Attribute</h4>
 <div class="paragraph">
-<p>REST components perform actions on a resource by using a representation to capture the current or intended state of that resource and transferring that representation between components. A representation is a sequence of bytes, plus representation metadata to describe those bytes.</p>
+<p>The <code>rel</code> attribute is mandatory.</p>
 </div>
 <div class="paragraph">
-<p>A representation consists of data, metadata describing the data, and, on occasion, metadata to describe the metadata (usually for the purpose of verifying message integrity).</p>
+<p>"In the simplest case, a link relation type identifies the semantics of a link.  For example, a link with the relation type "copyright" indicates that the current link context has a copyright resource at the link target.</p>
 </div>
 <div class="paragraph">
-<p>messages may include both representation metadata and resource metadata: information about the resource that is not specific to the supplied representation.</p>
+<p>Link relation types can also be used to indicate that the target resource has particular attributes, or exhibits particular behaviours; for example, a "service" link implies that the link target can be used as part of a defined protocol (in this case, a service description).</p>
 </div>
 <div class="paragraph">
-<p>Depending on the message control data, a given representation may indicate the current state of the requested resource, the desired state for the requested resource, or the value of some other resource, such as a representation of the input data within a client’s query form, or a representation of some error condition for a response. For example, remote authoring of a resource requires that the author send a representation to the server, thus establishing a value for that resource that can be retrieved by later requests. If the value set of a resource at a given time consists of multiple representations, content negotiation may be used to select the best representation for inclusion in a given message.</p>
+<p>Relation types are not to be confused with media types [RFC2046]; they do not identify the format of the representation that results when the link is dereferenced.  Rather, they only describe how the current context is related to another resource.</p>
 </div>
 <div class="paragraph">
-<p>The data format of a representation is known as a media type.</p>
+<p>Relation types SHOULD NOT infer any additional semantics based upon the presence or absence of another link relation type, or its own cardinality of occurrence.  An exception to this is the combination of the "alternate" and "stylesheet" registered relation types, which has special meaning in HTML for historical reasons.</p>
 </div>
 <div class="paragraph">
-<p>The messages exchanged are self-describing. No a-priori knowledge of the Web API should be required.</p>
+<p>There are two kinds of relation types: registered and extension." (RFC8288)</p>
 </div>
 <div class="paragraph">
-<p>The central feature that distinguishes the REST architectural style from other network based
-styles is its emphasis on a uniform interface between components</p>
+<p>Relation types are discussed in more detail in <a href="#relation-type-section">Relation Types</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_attribute"><a class="anchor" href="#_type_attribute"></a>6.1.3. Type Attribute</h4>
+<div class="paragraph">
+<p>The <code>type</code> attribute is optional</p>
 </div>
 <div class="paragraph">
-<p>REST is defined by four interface constraints: identification of resources; manipulation of resources through representations; selfdescriptive messages; and, hypermedia as the engine of application state.</p>
+<p>"The "type" attribute, when present, is a hint indicating what the media type of the result of dereferencing the link should be.  Note that this is only a hint; for example, it does not override the
+Content-Type header field of a HTTP response obtained by actually following the link.  The type attribute MUST NOT appear more than once in a given link-value; occurrences after the first MUST be ignored by parsers." (RFC8288)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hreflang_attribute"><a class="anchor" href="#_hreflang_attribute"></a>6.1.4. Hreflang Attribute</h4>
+<div class="paragraph">
+<p>The <code>hreflang</code> attribute is optional.</p>
+</div>
+<div class="paragraph">
+<p>"The "hreflang" attribute, when present, is a hint indicating what the language of the result of dereferencing the link should be.  Note that this is only a hint; for example, it does not override the Content-Language header field of a HTTP response obtained by actually following the link.  Multiple hreflang attributes on a single link-value indicate that multiple languages are available from the indicated resource." (RFC8288)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_title_attribute"><a class="anchor" href="#_title_attribute"></a>6.1.5. Title Attribute</h4>
+<div class="paragraph">
+<p>The <code>title</code> attribute is optional.</p>
+</div>
+<div class="paragraph">
+<p>"The "title" attribute, when present, is used to label the destination of a link such that it can be used as a human-readable identifier (e.g., a menu entry) in the language indicated by the Content-Language header field (if present).  The title attribute MUST NOT appear more than once in a given link; occurrences after the first MUST be ignored by parsers." (RFC8288)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_length_attribute"><a class="anchor" href="#_length_attribute"></a>6.1.6. Length Attribute</h4>
+<div class="paragraph">
+<p>The <code>length</code> attribute does not appear to be defined in the normative standards.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="collections-introduction"><a class="anchor" href="#collections-introduction"></a>10.2. Collections</h3>
+<h3 id="relation-type-section"><a class="anchor" href="#relation-type-section"></a>6.2. Relation Types</h3>
 <div class="paragraph">
-<p>Geospatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial/temporal resources.</p>
-</div>
-<div class="paragraph">
-<p>Therefore, OGC APIs organize geospatial data into <code>collections</code>. The role of the API-Common GeoData Standard is to define the operations to discover and navigate the geospatial data <code>collections</code> exposed through an OGC API.</p>
+<p>There are two kinds of relation types; registered and extension.</p>
 </div>
 <div class="paragraph">
-<p>The term <code>collection</code> means different things to different people. For the purpose of this standard, a <code>collection</code> is defined as:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#collection-definition">Collection</a>: A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.</p>
-</li>
-</ul>
+<p>Registered relation types are registered in the IANA register at <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">https://www.iana.org/assignments/link-relations/link-relations.xhtml</a>. Registered relation types are used in OGC API standards whenever appropriate.</p>
 </div>
 <div class="paragraph">
-<p>/collections = a set of metadata about a collection of geospatial* data</p>
+<p>Extension relation types are those which are not registered with IANA. These extension types are in the form of "--- a URI [RFC3986] that uniquely identifies the relation type.  Although the URI can point to a resource that contains a definition of the semantics of the relation type, clients SHOULD NOT automatically access that resource to avoid overburdening its server.</p>
 </div>
 <div class="paragraph">
-<p>/collections/{collectionId} = metadata about a specific collection of geospatial* data with links to distribution</p>
+<p>The URI used for an extension relation type SHOULD be under the control of the person or party defining it or be delegated to them.</p>
 </div>
 <div class="paragraph">
-<p>/collections/{collectionId}/{<em>} = a specific distribution of geospatial</em> data</p>
+<p>When extension relation types are compared, they MUST be compared as strings (after converting to URIs if serialised in a different format) in a case-insensitive fashion, character by character. Because of this, all-lowercase URIs SHOULD be used for extension relations.</p>
 </div>
 <div class="paragraph">
-<p>OGC Web API standards can extend this definition to address the specific properties of the resources they describe.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="uri-overview"><a class="anchor" href="#uri-overview"></a>10.3. URIs and Relationships</h3>
-<div class="paragraph">
-<p>Resources exposed through an OGC API may be accessed through a Universal Resource Identifier <a href="#rfc3986">(URI).</a> URIs are composed of three sections:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Service Offering: The service endpoint (subsequently referred to as Base URI or {root})</p>
-</li>
-<li>
-<p>Access Paths: Unique paths to Resources</p>
-</li>
-<li>
-<p>Query: Parameters to adjust the representation of a Resource or Resources like encoding format or subsetting</p>
-</li>
-</ul>
+<p>Note that while extension relation types are required to be URIs, a serialisation of links can specify that they are expressed in another form, as long as they can be converted to URIs." (RFC8288)</p>
 </div>
 <div class="paragraph">
-<p>Some resources are also accessible through links on previously accessed resources. Unique relation types are used for each resource.</p>
-</div>
-<div class="paragraph">
-<p><a href="#coverage-paths">Table 2</a> summarizes the access paths and relation types defined in this standard.</p>
-</div>
-<table id="coverage-paths" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 2. Coverage API Paths</caption>
-<colgroup>
-<col style="width: 28.5714%;">
-<col style="width: 14.2857%;">
-<col style="width: 57.1429%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Path Template</strong></th>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Relation</strong></th>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><strong>Resource</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="3" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Common</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#landing-page">{root}/</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Landing page</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#api-definition">{root}/api</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>service-desc</code><br>
-or<br>
-<code>service-doc</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API Description (optional)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#conformance-classes">{root}/conformance</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>conformance</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance Classes</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collections">{root}/collections</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>data</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the spatial collections (coverages) available from this API.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collectionInfo">{root}/collections/{coverageid}</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Metadata describing the coverge which has the unique identifier <code>{coverageid}</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="3" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Coverages</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-clause">{root}/collections/{coverageid}/coverage</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>items</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A general description of the coverage identified by {coverageid} including the coverage&#8217;s envelope.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-description-clause">{root}/collections/{coverageid}/coverage/description</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the whole coverage description consisting of domainset, rangetype, and metadata (but not the rangeset)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-domainset-clause">{root}/collections/{coverageid}/coverage/domainset</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s domain set definition</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-rangetype-clause">{root}/collections/{coverageid}/coverage/rangetype</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range type information (i.e., a description of the data semantics)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-metadata-clause">{root}/collections/{coverageid}/coverage/metadata</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s metadata (may be empty)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-rangeset-clause">{root}/collections/{coverageid}/coverage/rangeset</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns the coverage&#8217;s range set, i.e., the actual values in the coverage&#8217;s Native Format (see format encoding for ways to retrieve in specific formats)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#coverage-all-clause">{root}/collections/{coverageid}/coverage/all</a></p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">returns all of the above namely the coverage&#8217;s domainset, rangetype, metadata, and rangeset comparable to a GetCoverage response</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>{root} = Base URI for the API server</p>
-</li>
-<li>
-<p>{coverageid} = an identifier for a specific coverage (collection)</p>
-</li>
-</ul>
+<p>Extension relation types used in OGC API Standards are registered at <a href="https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv">https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv</a></p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_clause_containing_normative_material"><a class="anchor" href="#_clause_containing_normative_material"></a>11. Clause containing normative material</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Paragraph</p>
-</div>
-<div class="sect2">
-<h3 id="_requirement_class_a_or_requirement_a_example"><a class="anchor" href="#_requirement_class_a_or_requirement_a_example"></a>11.1. Requirement Class A or Requirement A Example</h3>
-<div class="paragraph">
-<p>Paragraph – intro text for the requirement class.</p>
-</div>
-<div class="paragraph">
-<p>Use the following table for Requirements Classes.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirements Class</strong> </p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ABCD/m.n/req/req-class-a" class="bare">http://www.opengis.net/spec/ABCD/m.n/req/req-class-a</a> </p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Token</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.example.org/req/blah" class="bare">http://www.example.org/req/blah</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">urn:iso:ts:iso:19139:clause:6</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 1</strong> </p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ABCD/m.n/req/req-class-a/req-name-1" class="bare">http://www.opengis.net/spec/ABCD/m.n/req/req-class-a/req-name-1</a><br>
-requirement description </p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 2</strong> </p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ABCD/m.n/req/req-class-a/req-name-2" class="bare">http://www.opengis.net/spec/ABCD/m.n/req/req-class-a/req-name-2</a><br>
-requirement description </p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 3</strong> </p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ABCD/m.n/req/req-class-a/req-name-3" class="bare">http://www.opengis.net/spec/ABCD/m.n/req/req-class-a/req-name-3</a><br>
-requirement description</p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect3">
-<h4 id="_requirement_1"><a class="anchor" href="#_requirement_1"></a>11.1.1. Requirement 1</h4>
-<div class="paragraph">
-<p>Paragraph - intro text for the requirement.</p>
-</div>
-<div class="paragraph">
-<p>Use the following table for Requirements, number sequentially.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 1</strong> </p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/req-class-a/req-name-1<br>
-<br></p>
-<p class="tableblock">Requirement 'shall' statement </p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Dictionary tables for requirements can be added as necessary. Modify the following example as needed.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Names</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Definition</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Data types and values</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Multiplicity and use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">name 1</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">definition of name 1</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">float</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">One or more (mandatory)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">name 2</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">definition of name 2</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">character string type, not empty</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Zero or one (optional)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">name 3</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">definition of name 3</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GML:: Point PropertyType</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">One (mandatory)</p></td>
-</tr>
-</tbody>
-</table>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_conformance_class_abstract_test_suite_normative"><a class="anchor" href="#_conformance_class_abstract_test_suite_normative"></a>Annex A: Conformance Class Abstract Test Suite (Normative)</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Ensure that there is a conformance class for each requirements class and a test for each requirement (identified by requirement name and number)
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_conformance_class_a"><a class="anchor" href="#_conformance_class_a"></a>A.1. Conformance Class A</h3>
-<div class="sect3">
-<h4 id="_requirement_1_2"><a class="anchor" href="#_requirement_1_2"></a>A.1.1. Requirement 1</h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test id:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/conf/conf-class-a/req-name-1</p></td>
-</tr>
-<tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/req-class-a/req-name-1</p></td>
-</tr>
-<tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test purpose:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Verify that&#8230;&#8203;</p></td>
-</tr>
-<tr>
-<th class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test method:</p></th>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Inspect&#8230;&#8203;</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_requirement_2"><a class="anchor" href="#_requirement_2"></a>A.1.2. Requirement 2</h4>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_title_normativeinformative"><a class="anchor" href="#_title_normativeinformative"></a>Annex B: Title ( {Normative/Informative} )</h2>
-<div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Place other Annex material in sequential annexes beginning with "B" and leave final two annexes for the Revision History and Bibliography
-</td>
-</tr>
-</table>
-</div>
-<div style="page-break-after: always;"></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Annex C: Revision History</h2>
+<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Annex A: Revision History</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1610,7 +978,7 @@ Place other Annex material in sequential annexes beginning with "B" and leave fi
 </div>
 </div>
 <div class="sect1">
-<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex D: Bibliography</h2>
+<h2 id="Bibliography"><a class="anchor" href="#Bibliography"></a>Annex B: Bibliography</h2>
 <div class="sectionbody">
 <div class="admonitionblock note">
 <table>
@@ -1657,7 +1025,7 @@ Place other Annex material in sequential annexes beginning with "B" and leave fi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-28 16:25:37 +0100
+Last updated 2020-08-14 19:55:49 +0100
 </div>
 </div>
 </body>
