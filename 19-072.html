@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-02</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-15</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -569,10 +569,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_scope">2. Scope</a></li>
 <li><a href="#_conformance">3. Conformance</a>
 <ul class="sectlevel2">
-<li><a href="#_general_requirements_class">3.1. General Requirements Class</a></li>
-<li><a href="#_core_requirements_class">3.2. Core Requirements Class</a></li>
-<li><a href="#_encoding_requirements_classes">3.3. Encoding Requirements Classes</a></li>
-<li><a href="#_openapi_3_0_requirements_class">3.4. OpenAPI 3.0 Requirements Class</a></li>
+<li><a href="#_core_requirements_class">3.1. Core Requirements Class</a></li>
+<li><a href="#_encoding_requirements_classes">3.2. Encoding Requirements Classes</a></li>
+<li><a href="#_openapi_3_0_requirements_class">3.3. OpenAPI 3.0 Requirements Class</a></li>
 </ul>
 </li>
 <li><a href="#_references">4. References</a></li>
@@ -597,72 +596,58 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#evolution-introduction">7.1. Evolution from OGC Web Services</a></li>
 <li><a href="#modular-API-introduction">7.2. Modular APIs</a></li>
-<li><a href="#hypermedia-access-introduction">7.3. Hypermedia Access</a></li>
+<li><a href="#using-api-introduction">7.3. Using APIs</a></li>
 </ul>
 </li>
 <li><a href="#rc_core-section">8. Requirement Class "Core"</a>
 <ul class="sectlevel2">
-<li><a href="#landing-page">8.1. API landing page</a>
+<li><a href="#general-requirements-section">8.1. General Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_operation">8.1.1. Operation</a></li>
-<li><a href="#_response">8.1.2. Response</a></li>
-<li><a href="#_error_situations">8.1.3. Error Situations</a></li>
+<li><a href="#_http_1_1">8.1.1. HTTP 1.1</a></li>
+<li><a href="#http-status-codes">8.1.2. HTTP Status Codes</a></li>
+<li><a href="#query-parameter-requirements">8.1.3. Unknown or invalid query parameters</a></li>
+<li><a href="#_web_caching">8.1.4. Web Caching</a></li>
+<li><a href="#cross-origin">8.1.5. Support for Cross-Origin Requests</a></li>
+<li><a href="#_encodings">8.1.6. Encodings</a></li>
+<li><a href="#CRS-core-section">8.1.7. Coordinate reference systems</a></li>
+<li><a href="#_link_headers">8.1.8. Link Headers</a></li>
 </ul>
 </li>
-<li><a href="#api-definition">8.2. API Definition</a>
+<li><a href="#resource-requirements-section">8.2. Resource Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_operation_2">8.2.1. Operation</a></li>
-<li><a href="#_response_2">8.2.2. Response</a></li>
-<li><a href="#_error_situations_2">8.2.3. Error Situations</a></li>
-</ul>
-</li>
-<li><a href="#conformance-classes">8.3. Declaration of Conformance Classes</a>
-<ul class="sectlevel3">
-<li><a href="#_operation_3">8.3.1. Operation</a></li>
-<li><a href="#_response_3">8.3.2. Response</a></li>
-<li><a href="#_error_situations_3">8.3.3. Error situations</a></li>
+<li><a href="#landing-page">8.2.1. API landing page</a></li>
+<li><a href="#api-definition">8.2.2. API Definition</a></li>
+<li><a href="#conformance-classes">8.2.3. Declaration of Conformance Classes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#rc_general-section">9. Requirement Class "General"</a>
+<li><a href="#rc_encoding-section">9. Encoding Requirements Classes</a>
 <ul class="sectlevel2">
-<li><a href="#_http_1_1">9.1. HTTP 1.1</a></li>
-<li><a href="#http-status-codes">9.2. HTTP Status Codes</a></li>
-<li><a href="#query-parameter-requirements">9.3. Unknown or invalid query parameters</a></li>
-<li><a href="#_web_caching">9.4. Web Caching</a></li>
-<li><a href="#cross-origin">9.5. Support for Cross-Origin Requests</a></li>
-<li><a href="#_encodings">9.6. Encodings</a></li>
-<li><a href="#CRS-core-section">9.7. Coordinate reference systems</a></li>
-<li><a href="#_link_headers">9.8. Link Headers</a></li>
+<li><a href="#_overview">9.1. Overview</a></li>
+<li><a href="#rc_html-section">9.2. Requirement Class "HTML"</a></li>
+<li><a href="#rc_json-section">9.3. Requirement Class "JSON"</a></li>
 </ul>
 </li>
-<li><a href="#rc_encoding-section">10. Encoding Requirements Classes</a>
+<li><a href="#rc_oas30-section">10. OpenAPI 3.0 Requirements Class</a>
 <ul class="sectlevel2">
-<li><a href="#_overview">10.1. Overview</a></li>
-<li><a href="#rc_html-section">10.2. Requirement Class "HTML"</a></li>
-<li><a href="#rc_json-section">10.3. Requirement Class "JSON"</a></li>
-</ul>
-</li>
-<li><a href="#rc_oas30-section">11. OpenAPI 3.0 Requirements Class</a>
-<ul class="sectlevel2">
-<li><a href="#_basic_requirements">11.1. Basic requirements</a></li>
-<li><a href="#_complete_definition">11.2. Complete definition</a></li>
-<li><a href="#rc_oas30-exceptions">11.3. Exceptions</a></li>
-<li><a href="#rc_oas30-usage">11.4. Using OpenAPI (Informative)</a>
+<li><a href="#_basic_requirements">10.1. Basic requirements</a></li>
+<li><a href="#_complete_definition">10.2. Complete definition</a></li>
+<li><a href="#rc_oas30-exceptions">10.3. Exceptions</a></li>
+<li><a href="#rc_oas30-usage">10.4. Using OpenAPI (Informative)</a>
 <ul class="sectlevel3">
-<li><a href="#_openapi_document_root">11.4.1. OpenAPI Document (root)</a></li>
-<li><a href="#_paths">11.4.2. Paths</a></li>
-<li><a href="#_operations">11.4.3. Operations</a></li>
-<li><a href="#_parameters">11.4.4. Parameters</a></li>
-<li><a href="#_servers">11.4.5. Servers</a></li>
+<li><a href="#_openapi_document_root">10.4.1. OpenAPI Document (root)</a></li>
+<li><a href="#_paths">10.4.2. Paths</a></li>
+<li><a href="#_operations">10.4.3. Operations</a></li>
+<li><a href="#_parameters">10.4.4. Parameters</a></li>
+<li><a href="#_servers">10.4.5. Servers</a></li>
 </ul>
 </li>
-<li><a href="#rc_oas30-security">11.5. Security</a></li>
+<li><a href="#rc_oas30-security">10.5. Security</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">12. Media Types</a></li>
-<li><a href="#_security_considerations">13. Security Considerations</a></li>
+<li><a href="#mediatypes">11. Media Types</a></li>
+<li><a href="#_security_considerations">12. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
@@ -833,38 +818,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.</p>
 </div>
 <div class="paragraph">
-<p>This standard addresses two Standardization Targets:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="#webapi-definition">Web APIs</a></p>
-</li>
-<li>
-<p><a href="#webapi-module-definition">Web API Modules</a></p>
-</li>
-</ol>
+<p>This standard addresses one Standardization Target; <a href="#webapi-definition">Web APIs</a></p>
 </div>
 <div class="paragraph">
 <p>OGC API - Common - Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.</p>
 </div>
 <div class="paragraph">
-<p>This standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the <code>/conformance</code> resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
-</div>
-<div class="paragraph">
-<p>The requirements classes for <em>OGC API - Common - Core</em> are:</p>
+<p>This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the <code>/conformance</code> resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
 </div>
 <div class="sect2">
-<h3 id="_general_requirements_class"><a class="anchor" href="#_general_requirements_class"></a>3.1. General Requirements Class</h3>
-<div class="paragraph">
-<p>The <em>General Requirements Class</em> addresses fundamental requirements which are applicable regardless of whether the implementation is a full OGC conformant Web API or a re-usable Web API module.</p>
-</div>
-<div class="paragraph">
-<p>The General requirements class is specified in <strong>Requirements Class General</strong> <a href="#rc_general-section">(Chapter 9)</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_core_requirements_class"><a class="anchor" href="#_core_requirements_class"></a>3.2. Core Requirements Class</h3>
+<h3 id="_core_requirements_class"><a class="anchor" href="#_core_requirements_class"></a>3.1. Core Requirements Class</h3>
 <div class="paragraph">
 <p>The <em>Core Requirements Class</em> is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs.</p>
 </div>
@@ -873,7 +836,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_encoding_requirements_classes"><a class="anchor" href="#_encoding_requirements_classes"></a>3.3. Encoding Requirements Classes</h3>
+<h3 id="_encoding_requirements_classes"><a class="anchor" href="#_encoding_requirements_classes"></a>3.2. Encoding Requirements Classes</h3>
 <div class="paragraph">
 <p>The <em>Core</em> requirements class does not mandate a specific encoding or format for representations of resources. However, both <em>HTML</em> and <em>JSON</em> are commonly used encodings for spatial data on the web. The <em>HTML</em> and <em>JSON</em> requirements classes specify the encoding of resource representations using:</p>
 </div>
@@ -895,7 +858,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_openapi_3_0_requirements_class"><a class="anchor" href="#_openapi_3_0_requirements_class"></a>3.4. OpenAPI 3.0 Requirements Class</h3>
+<h3 id="_openapi_3_0_requirements_class"><a class="anchor" href="#_openapi_3_0_requirements_class"></a>3.3. OpenAPI 3.0 Requirements Class</h3>
 <div class="paragraph">
 <p>The <em>API-Common - core</em> Standard does not mandate any encoding or format for the formal definition of the API. The prefered option is the OpenAPI 3.0 specification. The <em>OpenAPI 3.0</em> requirements class has been specified for APIs implementing OpenAPI 3.0.</p>
 </div>
@@ -1182,122 +1145,7 @@ OGC                {root}             path   parameters</code></pre>
 <p>The link relationships used in API-Common Core are described in <a href="#link-relations-table">Table 2</a>.</p>
 </div>
 <div class="paragraph">
-<p>Each resource representation includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an <strong>enclosure</strong> link could reference a bulk download of a collection. Or a <strong>related</strong> link on a feature could reference a related feature.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="https-conventions"><a class="anchor" href="#https-conventions"></a>6.4. Use of HTTPS</h3>
-<div class="paragraph">
-<p>For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <a href="#rfc2818">HTTPS</a>, not <a href="#rfc2616">HTTP</a>.</p>
-</div>
-<div class="paragraph">
-<p>OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementors should be aware that optional capabilities which are not in common use could be an impediment to interoperability.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="api-definition-conventions"><a class="anchor" href="#api-definition-conventions"></a>6.5. API definition</h3>
-<div class="sect3">
-<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.5.1. General remarks</h4>
-<div class="paragraph">
-<p>So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding.</p>
-</div>
-<div class="paragraph">
-<p>This OGC standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
-<div class="paragraph">
-<p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the <code>/conformance</code> path.</p>
-</div>
-<div class="paragraph">
-<p>This approach is used to avoid lock-in to a specific approach for defining an API. This standard includes a <a href="#rc_oas30-section">conformance class</a> for API definitions that follow the <a href="#openapi">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.5.3. References to OpenAPI components in normative statements</h4>
-<div class="paragraph">
-<p>Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.</p>
-</div>
-<div class="paragraph">
-<p>In this case, the following changes to the pre-defined OpenAPI component are permitted:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If the server supports an XML encoding, <code>xml</code> properties may be added to the relevant OpenAPI schema components.</p>
-</li>
-<li>
-<p>The range of values of a parameter or property may be extended (additional values) or constrained (if a subset of all possible values is applicable to the server). An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an <em>enum</em>.</p>
-</li>
-<li>
-<p>Additional properties may be added to the schema definition of a Response Object.</p>
-</li>
-<li>
-<p>Informative text may be changed or added, like comments or description properties.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For OGC API definitions that do not conform to the <a href="#openapi">OpenAPI Specification 3.0</a>, the normative statement should be interpreted in the context of the API definition language used.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
-<div class="paragraph">
-<p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0">http://schemas.opengis.net/ogcapi/common/part1/1.0</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="anchor" href="#overview"></a>7. Overview</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="evolution-introduction"><a class="anchor" href="#evolution-introduction"></a>7.1. Evolution from OGC Web Services</h3>
-<div class="paragraph">
-<p>OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP architectural style using XML for payloads. This was the state-of-the-art when OGC Web Services (OWS) were originally designed in the late 1990s. However, technology has evolved. New Resource-Oriented APIs provide an alternative to Service-Oriented Web Services. New OGC Web API standards are under development to provide API alternatives to the OWS standards.</p>
-</div>
-<div class="paragraph">
-<p>The OGC API - Common suite of standards specify common modules for defining OGC Web API standards that follow the current Web architecture. In particular, the recommendations as defined in the <a href="#SDWBP">W3C/OGC best practices for sharing Spatial Data on the Web</a> as well as the <a href="#DWBP">W3C best practices for sharing Data on the Web</a>.</p>
-</div>
-<div class="paragraph">
-<p>In addition to the general alignment with the architecture of the Web (e.g., consistency with HTTP/HTTPS, hypermedia controls), another goal for OGC API standards is modularization. This goal has several facets:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A common <code>core</code> which is the same for all OGC Web API standards. This OGC API - Common - Core Standard provides the information needed by a client to understand and use an OGC Web API.</p>
-</li>
-<li>
-<p>Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the <em>common</em> requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.</p>
-</li>
-<li>
-<p>Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.</p>
-</li>
-<li>
-<p>Modularization is not just about a single "service". OGC APIs provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="modular-API-introduction"><a class="anchor" href="#modular-API-introduction"></a>7.2. Modular APIs</h3>
-<div class="paragraph">
-<p>A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. The approach specified in this standard is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelihood that they will integrate at run-time is greatly enhanced.</p>
-</div>
-<div class="paragraph">
-<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="https://github.com/opengeospatial/oapi_common/blob/master/20-071.html#modular-api">Best Practices</a> document.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="hypermedia-access-introduction"><a class="anchor" href="#hypermedia-access-introduction"></a>7.3. Hypermedia Access</h3>
-<div class="paragraph">
-<p>Hypermedia Access is the use of hypermedia links to navigate from one resource to another. This pattern is typical of the Web Browser environment. A resource consumer starts from a landing page, selects a link on that page and then moves on to the referenced resource.</p>
-</div>
-<div class="paragraph">
-<p>Navigation of hyperlinks is facilitated if the hyperlink includes information about the resource type at the link destination. Therefore, OGC APIs use a set of common link relationships. The link relationships used in API-Common Core are described in <a href="#link-relations-table">Table 2</a>.</p>
+<p>Each resource representation in this standard includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an <strong>enclosure</strong> link could reference a bulk download of a collection. Or a <strong>related</strong> link on a feature could reference a related feature.</p>
 </div>
 <table id="link-relations-table" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 2. Link Relations</caption>
@@ -1428,6 +1276,127 @@ API definitions are considered service descriptions.</p></td>
     }</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Additional information on the use of link relationships is provided in the <a href="https://github.com/opengeospatial/oapi_common/blob/master/20-071.pdf">OGC API - Common Users Guide</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="https-conventions"><a class="anchor" href="#https-conventions"></a>6.4. Use of HTTPS</h3>
+<div class="paragraph">
+<p>For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <a href="#rfc2818">HTTPS</a>, not <a href="#rfc2616">HTTP</a>.</p>
+</div>
+<div class="paragraph">
+<p>OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementors should be aware that optional capabilities which are not in common use could be an impediment to interoperability.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="api-definition-conventions"><a class="anchor" href="#api-definition-conventions"></a>6.5. API definition</h3>
+<div class="sect3">
+<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.5.1. General remarks</h4>
+<div class="paragraph">
+<p>So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding.</p>
+</div>
+<div class="paragraph">
+<p>This OGC standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
+<div class="paragraph">
+<p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the <code>/conformance</code> path.</p>
+</div>
+<div class="paragraph">
+<p>This approach is used to avoid lock-in to a specific approach for defining an API. This standard includes a <a href="#rc_oas30-section">conformance class</a> for API definitions that follow the <a href="#openapi">OpenAPI specification 3.0</a>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.5.3. References to OpenAPI components in normative statements</h4>
+<div class="paragraph">
+<p>Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the following changes to the pre-defined OpenAPI component are permitted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the server supports an XML encoding, <code>xml</code> properties may be added to the relevant OpenAPI schema components.</p>
+</li>
+<li>
+<p>The range of values of a parameter or property may be extended (additional values) or constrained (if a subset of all possible values is applicable to the server). An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an <em>enum</em>.</p>
+</li>
+<li>
+<p>Additional properties may be added to the schema definition of a Response Object.</p>
+</li>
+<li>
+<p>Informative text may be changed or added, like comments or description properties.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For OGC API definitions that do not conform to the <a href="#openapi">OpenAPI Specification 3.0</a>, the normative statement should be interpreted in the context of the API definition language used.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
+<div class="paragraph">
+<p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0">http://schemas.opengis.net/ogcapi/common/part1/1.0</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>7. Overview</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="evolution-introduction"><a class="anchor" href="#evolution-introduction"></a>7.1. Evolution from OGC Web Services</h3>
+<div class="paragraph">
+<p>OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP architectural style using XML for payloads. This was the state-of-the-art when OGC Web Services (OWS) were originally designed in the late 1990s. However, technology has evolved. New Resource-Oriented APIs provide an alternative to Service-Oriented Web Services. New OGC Web API standards are under development to provide API alternatives to the OWS standards.</p>
+</div>
+<div class="paragraph">
+<p>The OGC API - Common suite of standards specify common modules for defining OGC Web API standards that follow the current Web architecture. In particular, the recommendations as defined in the <a href="#SDWBP">W3C/OGC best practices for sharing Spatial Data on the Web</a> as well as the <a href="#DWBP">W3C best practices for sharing Data on the Web</a>.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the general alignment with the architecture of the Web (e.g., consistency with HTTP/HTTPS, hypermedia controls), another goal for OGC API standards is modularization. This goal has several facets:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A common <code>core</code> which is the same for all OGC Web API standards. This OGC API - Common - Core Standard provides the information needed by a client to understand and use an OGC Web API.</p>
+</li>
+<li>
+<p>Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the <em>common</em> requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.</p>
+</li>
+<li>
+<p>Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.</p>
+</li>
+<li>
+<p>Modularization is not just about a single "service". OGC APIs provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="modular-API-introduction"><a class="anchor" href="#modular-API-introduction"></a>7.2. Modular APIs</h3>
+<div class="paragraph">
+<p>A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. The approach specified in this standard is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelihood that they will integrate at run-time is greatly enhanced.</p>
+</div>
+<div class="paragraph">
+<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="https://github.com/opengeospatial/oapi_common/blob/master/20-071.html#modular-api">Best Practices</a> document.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-api-introduction"><a class="anchor" href="#using-api-introduction"></a>7.3. Using APIs</h3>
+<div class="paragraph">
+<p>OGC API Standards are expected to support two different approaches that clients may use when accessing a conformant API.</p>
+</div>
+<div class="paragraph">
+<p>In the first approach, clients are implemented with knowledge about the standard and its resource types. The clients navigate the resources based on this knowledge and based on the responses provided by the API. The API definition may be used to determine details, e.g., on filter parameters, but this may not be necessary depending on the needs of the client. These are clients that are in general able to use multiple APIs as long as they implement OGC API Standards.</p>
+</div>
+<div class="paragraph">
+<p>The other approach targets developers that are not familiar with the OGC API standards, but want to interact with spatial data provided by an API that happens to implement OGC API Standards. In this case the developer will study and use the API definition - typically an OpenAPI document - to understand the API and implement the code to interact with the API. This assumes familiarity with the API definition language and the related tooling, but it should not be necessary to study the OGC API standards.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1487,375 +1456,15 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>In addition, requirements which are applicable to all OGC API standards and are not specific to a resource type are included in the <a href="#general-requirements">General Requirements</a> section.</p>
+<p>But first, requirements which are applicable to all OGC API standards and are not specific to a resource type are included in the <a href="#general-requirements-section">General Requirements</a> section.</p>
 </div>
 <div class="sect2">
-<h3 id="landing-page"><a class="anchor" href="#landing-page"></a>8.1. API landing page</h3>
+<h3 id="general-requirements-section"><a class="anchor" href="#general-requirements-section"></a>8.1. General Requirements</h3>
 <div class="paragraph">
-<p>Each API has a single landing page on the <code>{root}</code> node.</p>
-</div>
-<div class="paragraph">
-<p>The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.</p>
+<p>The following requirements and recommentations are applicable to all OGC Web APIs.</p>
 </div>
 <div class="sect3">
-<h4 id="_operation"><a class="anchor" href="#_operation"></a>8.1.1. Operation</h4>
-<table id="req_core_root-op" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/root-op</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL support the HTTP GET operation on the URI <code>{root}/</code>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_response"><a class="anchor" href="#_response"></a>8.1.2. Response</h4>
-<table id="req_core_root-success" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/root-success</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A successful execution of the operation SHALL be reported as a response with an HTTP status code <code>200</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the schema <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a> and include links to the following resources:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>/api</code> (relation type 'service-desc' or 'service-doc')</p>
-</li>
-<li>
-<p><code>/conformance</code> (relation type 'conformance')</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>In addition to the required resources, links to additional resources may be included in the Landing Page.</p>
-</div>
-<div class="paragraph">
-<p>The landing page returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">Json schema</a>.</p>
-</div>
-<div class="listingblock">
-<div class="title">landingPage.json</div>
-<div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
-"$schema": "http://json-schema.org/draft-07/schema#",
-"title": "Landing Page Schema",
-"description": "JSON schema for the OGC API - Common landing page",
-"type": "object",
-"required": [
-    "links"
-    ],
-"properties": {
-    "title": {
-        "description": "The title of the API",
-        "type": "string"
-        },
-    "description": {
-        "description": "A textual description of the API",
-        "type": "string"
-        },
-    "links": {
-        "description": "Links to the resources exposed through this API.",
-        "type": "array",
-        "items": {"$href": "link.json"}
-        }
-    },
-    "additionalProperties": true
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples of OGC landing pages are provided in <a href="#landing-page-examples">Example Landing Pages</a>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_error_situations"><a class="anchor" href="#_error_situations"></a>8.1.3. Error Situations</h4>
-<div class="paragraph">
-<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="api-definition"><a class="anchor" href="#api-definition"></a>8.2. API Definition</h3>
-<div class="paragraph">
-<p>Every API is expected to provide a definition that describes capabilities provided by the API. This standard can be used by developers to understand API-Common, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.</p>
-</div>
-<div class="sect3">
-<h4 id="_operation_2"><a class="anchor" href="#_operation_2"></a>8.2.1. Operation</h4>
-<table id="req_core_api-definition-op" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/api-definition-op</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>All links from the landing page which have the relation type <code>service-desc</code> SHALL support the HTTP GET method.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>All links from the landing page which have the relation type <code>service-doc</code> SHALL support the HTTP GET method.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>All HTTP GET requests issued in A and B SHALL satisfy requirement <a href="#req_core_api_definition_success">/req/core/api-definition-success</a>  .</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_response_2"><a class="anchor" href="#_response_2"></a>8.2.2. Response</h4>
-<table id="req_core_api-definition-success" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/api-definition-success</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A GET request to the URI of an API definition<br>
-- issued through a link relationship<br>
-- with the <code>Accept</code> header populated with the value of the link property <code>type</code><br>
-- SHALL return a document consistent with the requested media type.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="rec_core_api-definition-oas" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 1</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/api-definition-oas</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the API definition document uses the OpenAPI Specification 3.0,<br>
-&#160;&#160;&#160;&#160;THEN<br>
-The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specification 3.0 requirements class</a>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>If multiple API definition formats are supported, use content negotiation to select the desired representation.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>8.2.3. Error Situations</h4>
-<div class="paragraph">
-<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="conformance-classes"><a class="anchor" href="#conformance-classes"></a>8.3. Declaration of Conformance Classes</h3>
-<div class="paragraph">
-<p>The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.</p>
-</div>
-<div class="paragraph">
-<p>The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed. It is always the same for every OGC Web API.</p>
-</div>
-<div class="paragraph">
-<p>Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.</p>
-</div>
-<div class="sect3">
-<h4 id="_operation_3"><a class="anchor" href="#_operation_3"></a>8.3.1. Operation</h4>
-<table id="req_core_conformance-op" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/conformance-op</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The API SHALL support the HTTP GET operation on the URI <code>{root}/conformance</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>All links from the landing page which have the relation type <code>conformance</code> SHALL support the HTTP GET method.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>All HTTP GET requests issued in A and B SHALL satisfy requirement <a href="#req_core_conformance_success">/req/core/conformance-success</a>  .</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_response_3"><a class="anchor" href="#_response_3"></a>8.3.2. Response</h4>
-<table id="req_core_conformance-success" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/conformance-success</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A successful execution of the operation SHALL be reported as a response with a HTTP status code <code>200</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://github.com/opengeospatial/oapi_common/blob/July-2020/core/openapi/schemas/confClasses.json">confClasses.json</a> and list all OGC API conformance classes that the API conforms to.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The conformance resource returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json">Conformance Schema</a>.</p>
-</div>
-<div class="paragraph">
-<p>Examples of OGC conformance resources are provided in <a href="#conformance-response-examples">Conformance Examples</a>.</p>
-</div>
-<div class="listingblock">
-<div class="title">Conformance Schema</div>
-<div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
-"$schema": "http://json-schema.org/draft-07/schema#",
-"title": "Conformance Classes Schema",
-"description": "This schema defines the resource returned from the /Conformance path",
-"type": "object",
-"required": [
-    "conformsTo"
-    ],
-"properties": {
-    "conformsTo": {
-        "type": "array",
-        "description": "ConformsTo is an array of URLs.  Each URL should correspond to a defined OGC Conformance class.  Unrecognized URLs should be ignored",
-        "items": {
-            "type": "string",
-            "example": "http://www.opengis.net/spec/OAPI-Common-1/1.0/req/core"
-            }
-        }
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_error_situations_3"><a class="anchor" href="#_error_situations_3"></a>8.3.3. Error situations</h4>
-<div class="paragraph">
-<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="rc_general-section"><a class="anchor" href="#rc_general-section"></a>9. Requirement Class "General"</h2>
-<div class="sectionbody">
-<table id="rc_general" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API<br>
-Web API Module</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2616">RFC 2616 (HTTP/1.1)</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2818">RFC 2818 (HTTP over TLS)</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc8288">RFC 8288 (Web Linking)</a></p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The General Conformance Class of API-Common captures requirements and recommentations which are applicable to all OGC Web APIs and Web API Modules.</p>
-</div>
-<div class="sect2">
-<h3 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>9.1. HTTP 1.1</h3>
+<h4 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>8.1.1. HTTP 1.1</h4>
 <div class="paragraph">
 <p>The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.</p>
 </div>
@@ -1866,7 +1475,7 @@ Web API Module</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/general/http</strong></p>
 </div></div></td>
@@ -1886,8 +1495,8 @@ Web API Module</p></td>
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>9.2. HTTP Status Codes</h3>
+<div class="sect3">
+<h4 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>8.1.2. HTTP Status Codes</h4>
 <div class="paragraph">
 <p><a href="#status-codes">Table 4</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
 </div>
@@ -1974,8 +1583,8 @@ Web API Module</p></td>
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>9.3. Unknown or invalid query parameters</h3>
+<div class="sect3">
+<h4 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>8.1.3. Unknown or invalid query parameters</h4>
 <div class="paragraph">
 <p>If a server wants to support query parameters, these have to be explicitly declared in the API definition.</p>
 </div>
@@ -1986,7 +1595,7 @@ Web API Module</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/general/query-param-known</strong></p>
 </div></div></td>
@@ -2011,7 +1620,7 @@ the server SHALL meet the requirements specified for that parameter.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/general/query-param-unknown</strong></p>
 </div></div></td>
@@ -2061,7 +1670,7 @@ style: form</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/general/query-param-invalid</strong></p>
 </div></div></td>
@@ -2080,8 +1689,8 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <p>This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid if it violates the API definition or any other constraint for that parameter stated in a requirement.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_web_caching"><a class="anchor" href="#_web_caching"></a>9.4. Web Caching</h3>
+<div class="sect3">
+<h4 id="_web_caching"><a class="anchor" href="#_web_caching"></a>8.1.4. Web Caching</h4>
 <div class="paragraph">
 <p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc2616">HTTP/1.1 (RFC 2616)</a>.</p>
 </div>
@@ -2092,7 +1701,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/etag</strong></p>
 </div></div></td>
@@ -2106,8 +1715,8 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="cross-origin"><a class="anchor" href="#cross-origin"></a>9.5. Support for Cross-Origin Requests</h3>
+<div class="sect3">
+<h4 id="cross-origin"><a class="anchor" href="#cross-origin"></a>8.1.5. Support for Cross-Origin Requests</h4>
 <div class="paragraph">
 <p>If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.</p>
 </div>
@@ -2118,7 +1727,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/cross-origin</strong></p>
 </div></div></td>
@@ -2145,8 +1754,8 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_encodings"><a class="anchor" href="#_encodings"></a>9.6. Encodings</h3>
+<div class="sect3">
+<h4 id="_encodings"><a class="anchor" href="#_encodings"></a>8.1.6. Encodings</h4>
 <div class="paragraph">
 <p>A Web API provides access to <a href="#resource-definition">resources</a> through <a href="#representation-definition">representations</a> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate which encoding format to use through the content negotiation process defined in <a href="#rfc7231">IETF RFC 7231</a>.</p>
 </div>
@@ -2166,7 +1775,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/html</strong></p>
 </div></div></td>
@@ -2189,7 +1798,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/json</strong></p>
 </div></div></td>
@@ -2203,8 +1812,8 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="CRS-core-section"><a class="anchor" href="#CRS-core-section"></a>9.7. Coordinate reference systems</h3>
+<div class="sect3">
+<h4 id="CRS-core-section"><a class="anchor" href="#CRS-core-section"></a>8.1.7. Coordinate reference systems</h4>
 <div class="paragraph">
 <p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, how to express and share the location of features in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.</p>
 </div>
@@ -2218,7 +1827,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/general/crs84</strong></p>
 </div></div></td>
@@ -2242,8 +1851,8 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tbody>
 </table>
 </div>
-<div class="sect2">
-<h3 id="_link_headers"><a class="anchor" href="#_link_headers"></a>9.8. Link Headers</h3>
+<div class="sect3">
+<h4 id="_link_headers"><a class="anchor" href="#_link_headers"></a>8.1.8. Link Headers</h4>
 <table id="rec_general_link-header" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2251,7 +1860,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/link-header</strong></p>
 </div></div></td>
@@ -2272,12 +1881,342 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="resource-requirements-section"><a class="anchor" href="#resource-requirements-section"></a>8.2. Resource Requirements</h3>
+<div class="sect3">
+<h4 id="landing-page"><a class="anchor" href="#landing-page"></a>8.2.1. API landing page</h4>
+<div class="paragraph">
+<p>Each API has a single landing page on the <code>{root}</code> node.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.</p>
+</div>
+<div class="sect4">
+<h5 id="_operation"><a class="anchor" href="#_operation"></a>Operation</h5>
+<table id="req_core_root-op" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/root-op</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHALL support the HTTP GET operation on the URI <code>{root}/</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_response"><a class="anchor" href="#_response"></a>Response</h5>
+<table id="req_core_root-success" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/root-success</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A successful execution of the operation SHALL be reported as a response with an HTTP status code <code>200</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The content of that response SHALL be based upon the schema <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a> and include links to the following resources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/api</code> (relation type 'service-desc' or 'service-doc')</p>
+</li>
+<li>
+<p><code>/conformance</code> (relation type 'conformance')</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In addition to the required resources, links to additional resources may be included in the Landing Page.</p>
+</div>
+<div class="paragraph">
+<p>The landing page returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">Json schema</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">landingPage.json</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+"$schema": "http://json-schema.org/draft-07/schema#",
+"title": "Landing Page Schema",
+"description": "JSON schema for the OGC API - Common landing page",
+"type": "object",
+"required": [
+    "links"
+    ],
+"properties": {
+    "title": {
+        "description": "The title of the API",
+        "type": "string"
+        },
+    "description": {
+        "description": "A textual description of the API",
+        "type": "string"
+        },
+    "links": {
+        "description": "Links to the resources exposed through this API.",
+        "type": "array",
+        "items": {"$href": "link.json"}
+        }
+    },
+    "additionalProperties": true
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples of OGC landing pages are provided in <a href="#landing-page-examples">Example Landing Pages</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_error_situations"><a class="anchor" href="#_error_situations"></a>Error Situations</h5>
+<div class="paragraph">
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="api-definition"><a class="anchor" href="#api-definition"></a>8.2.2. API Definition</h4>
+<div class="paragraph">
+<p>Every API is expected to provide a definition that describes capabilities provided by the API. This standard can be used by developers to understand API-Common, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.</p>
+</div>
+<div class="sect4">
+<h5 id="_operation_2"><a class="anchor" href="#_operation_2"></a>Operation</h5>
+<table id="req_core_api-definition-op" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/api-definition-op</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All links from the landing page which have the relation type <code>service-desc</code> SHALL support the HTTP GET method.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All links from the landing page which have the relation type <code>service-doc</code> SHALL support the HTTP GET method.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All HTTP GET requests issued in A and B SHALL satisfy requirement <a href="#req_core_api_definition_success">/req/core/api-definition-success</a>  .</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_response_2"><a class="anchor" href="#_response_2"></a>Response</h5>
+<table id="req_core_api-definition-success" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/api-definition-success</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A GET request to the URI of an API definition<br>
+- issued through a link relationship<br>
+- with the <code>Accept</code> header populated with the value of the link property <code>type</code><br>
+- SHALL return a document consistent with the requested media type.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_core_api-definition-oas" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/api-definition-oas</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the API definition document uses the OpenAPI Specification 3.0,<br>
+&#160;&#160;&#160;&#160;THEN<br>
+The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specification 3.0 requirements class</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If multiple API definition formats are supported, use content negotiation to select the desired representation.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>Error Situations</h5>
+<div class="paragraph">
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="conformance-classes"><a class="anchor" href="#conformance-classes"></a>8.2.3. Declaration of Conformance Classes</h4>
+<div class="paragraph">
+<p>The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.</p>
+</div>
+<div class="paragraph">
+<p>The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed. It is always the same for every OGC Web API.</p>
+</div>
+<div class="paragraph">
+<p>Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.</p>
+</div>
+<div class="sect4">
+<h5 id="_operation_3"><a class="anchor" href="#_operation_3"></a>Operation</h5>
+<table id="req_core_conformance-op" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/conformance-op</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The API SHALL support the HTTP GET operation on the URI <code>{root}/conformance</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All links from the landing page which have the relation type <code>conformance</code> SHALL support the HTTP GET method.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All HTTP GET requests issued in A and B SHALL satisfy requirement <a href="#req_core_conformance_success">/req/core/conformance-success</a>  .</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_response_3"><a class="anchor" href="#_response_3"></a>Response</h5>
+<table id="req_core_conformance-success" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/conformance-success</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A successful execution of the operation SHALL be reported as a response with a HTTP status code <code>200</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://github.com/opengeospatial/oapi_common/blob/July-2020/core/openapi/schemas/confClasses.json">confClasses.json</a> and list all OGC API conformance classes that the API conforms to.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The conformance resource returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json">Conformance Schema</a>.</p>
+</div>
+<div class="paragraph">
+<p>Examples of OGC conformance resources are provided in <a href="#conformance-response-examples">Conformance Examples</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Conformance Schema</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+"$schema": "http://json-schema.org/draft-07/schema#",
+"title": "Conformance Classes Schema",
+"description": "This schema defines the resource returned from the /Conformance path",
+"type": "object",
+"required": [
+    "conformsTo"
+    ],
+"properties": {
+    "conformsTo": {
+        "type": "array",
+        "description": "ConformsTo is an array of URLs.  Each URL should correspond to a defined OGC Conformance class.  Unrecognized URLs should be ignored",
+        "items": {
+            "type": "string",
+            "example": "http://www.opengis.net/spec/OAPI-Common-1/1.0/req/core"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_error_situations_3"><a class="anchor" href="#_error_situations_3"></a>Error situations</h5>
+<div class="paragraph">
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>10. Encoding Requirements Classes</h2>
+<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>9. Encoding Requirements Classes</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_overview"><a class="anchor" href="#_overview"></a>10.1. Overview</h3>
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>9.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
@@ -2296,7 +2235,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>10.2. Requirement Class "HTML"</h3>
+<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>9.2. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>Geographic information that is only accessible in formats such as GeoJSON or GML have two issues:</p>
 </div>
@@ -2420,7 +2359,7 @@ Web API Module</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>10.3. Requirement Class "JSON"</h3>
+<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>9.3. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>JSON is a text syntax that facilitates structured data interchange between programming languages. It commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.</p>
 </div>
@@ -2508,10 +2447,10 @@ Web API Module</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc_oas30-section"><a class="anchor" href="#rc_oas30-section"></a>11. OpenAPI 3.0 Requirements Class</h2>
+<h2 id="rc_oas30-section"><a class="anchor" href="#rc_oas30-section"></a>10. OpenAPI 3.0 Requirements Class</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>11.1. Basic requirements</h3>
+<h3 id="_basic_requirements"><a class="anchor" href="#_basic_requirements"></a>10.1. Basic requirements</h3>
 <div class="paragraph">
 <p>APIs conforming to this requirements class document themselves by an <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument">OpenAPI Document</a>.</p>
 </div>
@@ -2602,7 +2541,7 @@ Web API Module</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>11.2. Complete definition</h3>
+<h3 id="_complete_definition"><a class="anchor" href="#_complete_definition"></a>10.2. Complete definition</h3>
 <table id="req_oas30_completeness" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2637,7 +2576,7 @@ Web API Module</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_oas30-exceptions"><a class="anchor" href="#rc_oas30-exceptions"></a>11.3. Exceptions</h3>
+<h3 id="rc_oas30-exceptions"><a class="anchor" href="#rc_oas30-exceptions"></a>10.3. Exceptions</h3>
 <table id="req_oas30_exceptions-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2677,30 +2616,30 @@ content:
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_oas30-usage"><a class="anchor" href="#rc_oas30-usage"></a>11.4. Using OpenAPI (Informative)</h3>
+<h3 id="rc_oas30-usage"><a class="anchor" href="#rc_oas30-usage"></a>10.4. Using OpenAPI (Informative)</h3>
 <div class="paragraph">
 <p>The following section describes the main components of an OpenAPI document and how they should be used to construct API requests. The authoritative source is the OpenAPI 3.0 standard available <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasObject">here</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="_openapi_document_root"><a class="anchor" href="#_openapi_document_root"></a>11.4.1. OpenAPI Document (root)</h4>
+<h4 id="_openapi_document_root"><a class="anchor" href="#_openapi_document_root"></a>10.4.1. OpenAPI Document (root)</h4>
 <div class="paragraph">
 <p>The OpenAPI document (Root) contains descriptive information about the API and serves as the root for the other parts of the document.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_paths"><a class="anchor" href="#_paths"></a>11.4.2. Paths</h4>
+<h4 id="_paths"><a class="anchor" href="#_paths"></a>10.4.2. Paths</h4>
 <div class="paragraph">
 <p>All API resources are accessed through a path. The Paths field of the OpenAPI document defines all of the paths available through this API. The Paths field is a collection of Paths Objects. Each Paths Object includes the URL or URL template for this path, any Server Objects specific to this Path, Parameters which are applicable to this Path, and an Operation Object for each of the HTTP Verbs applicable to this Path.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_operations"><a class="anchor" href="#_operations"></a>11.4.3. Operations</h4>
+<h4 id="_operations"><a class="anchor" href="#_operations"></a>10.4.3. Operations</h4>
 <div class="paragraph">
 <p>Operation Objects provide the details needed to create an HTTP request and response. Specifically, they provide definitions of the request message (including parameters) and all possible responses. In addition, they define any operation specific Server Objects or Security Requirements.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>11.4.4. Parameters</h4>
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>10.4.4. Parameters</h4>
 <div class="paragraph">
 <p>Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its' structure (if needed).</p>
 </div>
@@ -2719,7 +2658,7 @@ content:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_servers"><a class="anchor" href="#_servers"></a>11.4.5. Servers</h4>
+<h4 id="_servers"><a class="anchor" href="#_servers"></a>10.4.5. Servers</h4>
 <div class="paragraph">
 <p>An API is not restricted to a single server. Furthermore, the set of valid servers may be different for different sections of the API. An OpenAPI Server Object describes a single server. Most important, it provides the URL to that server. Server Objects are grouped into arrays. These arrays provide a list of the servers which can be used to access a section of the API.</p>
 </div>
@@ -2828,7 +2767,7 @@ DONE</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_oas30-security"><a class="anchor" href="#rc_oas30-security"></a>11.5. Security</h3>
+<h3 id="rc_oas30-security"><a class="anchor" href="#rc_oas30-security"></a>10.5. Security</h3>
 <div class="paragraph">
 <p>OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.</p>
 </div>
@@ -2888,7 +2827,7 @@ DONE</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>12. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The typical media type for all "web pages" in an OGC API would be <code>text/html</code>.</p>
@@ -2914,7 +2853,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>13. Security Considerations</h2>
+<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The OAPI-Common Core Standard does not specify any specific security controls. However, it was constructed so that security controls can be added without impacting conformance.</p>
@@ -4037,7 +3976,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-03 19:49:31 +0100
+Last updated 2020-08-15 14:28:17 +0100
 </div>
 </div>
 </body>
