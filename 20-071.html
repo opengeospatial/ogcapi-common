@@ -461,7 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2020-08-14&gt;</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2020-08-17&gt;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/EG/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/EG/ogcapi-common/1.0</a></p></td>
@@ -591,17 +591,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_resource_paths">6.1.5. Resource Paths</a></li>
 </ul>
 </li>
-<li><a href="#link-relations-section">6.2. Link Relations</a>
+<li><a href="#modular-api">6.2. Modular APIs</a></li>
+<li><a href="#link-relations-section">6.3. Link Relations</a>
 <ul class="sectlevel3">
-<li><a href="#_href_attribute">6.2.1. Href Attribute</a></li>
-<li><a href="#_rel_attribute">6.2.2. Rel Attribute</a></li>
-<li><a href="#_type_attribute">6.2.3. Type Attribute</a></li>
-<li><a href="#_hreflang_attribute">6.2.4. Hreflang Attribute</a></li>
-<li><a href="#_title_attribute">6.2.5. Title Attribute</a></li>
-<li><a href="#_length_attribute">6.2.6. Length Attribute</a></li>
+<li><a href="#_href_attribute">6.3.1. Href Attribute</a></li>
+<li><a href="#_rel_attribute">6.3.2. Rel Attribute</a></li>
+<li><a href="#_type_attribute">6.3.3. Type Attribute</a></li>
+<li><a href="#_hreflang_attribute">6.3.4. Hreflang Attribute</a></li>
+<li><a href="#_title_attribute">6.3.5. Title Attribute</a></li>
+<li><a href="#_length_attribute">6.3.6. Length Attribute</a></li>
 </ul>
 </li>
-<li><a href="#relation-type-section">6.3. Relation Types</a></li>
+<li><a href="#relation-type-section">6.4. Relation Types</a></li>
 </ul>
 </li>
 <li><a href="#_revision_history">Annex A: Revision History</a></li>
@@ -1107,7 +1108,13 @@ Global Grid Forum (2002)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="link-relations-section"><a class="anchor" href="#link-relations-section"></a>6.2. Link Relations</h3>
+<h3 id="modular-api"><a class="anchor" href="#modular-api"></a>6.2. Modular APIs</h3>
+<div class="paragraph">
+<p>This section of the Best Practice discusses OGC principals and practices regarging modular APIs.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="link-relations-section"><a class="anchor" href="#link-relations-section"></a>6.3. Link Relations</h3>
 <div class="paragraph">
 <p>provides a discussion of link relations, the governing policies and standards, as well as how they should be used.</p>
 </div>
@@ -1142,7 +1149,7 @@ properties:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_href_attribute"><a class="anchor" href="#_href_attribute"></a>6.2.1. Href Attribute</h4>
+<h4 id="_href_attribute"><a class="anchor" href="#_href_attribute"></a>6.3.1. Href Attribute</h4>
 <div class="paragraph">
 <p>The <code>href</code> attribute is mandatory.</p>
 </div>
@@ -1151,7 +1158,7 @@ properties:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rel_attribute"><a class="anchor" href="#_rel_attribute"></a>6.2.2. Rel Attribute</h4>
+<h4 id="_rel_attribute"><a class="anchor" href="#_rel_attribute"></a>6.3.2. Rel Attribute</h4>
 <div class="paragraph">
 <p>The <code>rel</code> attribute is mandatory.</p>
 </div>
@@ -1175,7 +1182,7 @@ properties:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_type_attribute"><a class="anchor" href="#_type_attribute"></a>6.2.3. Type Attribute</h4>
+<h4 id="_type_attribute"><a class="anchor" href="#_type_attribute"></a>6.3.3. Type Attribute</h4>
 <div class="paragraph">
 <p>The <code>type</code> attribute is optional</p>
 </div>
@@ -1185,7 +1192,7 @@ Content-Type header field of a HTTP response obtained by actually following the 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_hreflang_attribute"><a class="anchor" href="#_hreflang_attribute"></a>6.2.4. Hreflang Attribute</h4>
+<h4 id="_hreflang_attribute"><a class="anchor" href="#_hreflang_attribute"></a>6.3.4. Hreflang Attribute</h4>
 <div class="paragraph">
 <p>The <code>hreflang</code> attribute is optional.</p>
 </div>
@@ -1194,7 +1201,7 @@ Content-Type header field of a HTTP response obtained by actually following the 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_title_attribute"><a class="anchor" href="#_title_attribute"></a>6.2.5. Title Attribute</h4>
+<h4 id="_title_attribute"><a class="anchor" href="#_title_attribute"></a>6.3.5. Title Attribute</h4>
 <div class="paragraph">
 <p>The <code>title</code> attribute is optional.</p>
 </div>
@@ -1203,14 +1210,14 @@ Content-Type header field of a HTTP response obtained by actually following the 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_length_attribute"><a class="anchor" href="#_length_attribute"></a>6.2.6. Length Attribute</h4>
+<h4 id="_length_attribute"><a class="anchor" href="#_length_attribute"></a>6.3.6. Length Attribute</h4>
 <div class="paragraph">
 <p>The <code>length</code> attribute does not appear to be defined in the normative standards.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="relation-type-section"><a class="anchor" href="#relation-type-section"></a>6.3. Relation Types</h3>
+<h3 id="relation-type-section"><a class="anchor" href="#relation-type-section"></a>6.4. Relation Types</h3>
 <div class="paragraph">
 <p>There are two kinds of relation types; registered and extension.</p>
 </div>
@@ -1316,7 +1323,7 @@ Content-Type header field of a HTTP response obtained by actually following the 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-14 19:55:49 +0100
+Last updated 2020-08-17 15:53:25 +0100
 </div>
 </div>
 </body>

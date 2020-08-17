@@ -101,5 +101,3 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 ==== Reusable OpenAPI components
 
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
-
-CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/ogcapi_common/1.0/openapi/".

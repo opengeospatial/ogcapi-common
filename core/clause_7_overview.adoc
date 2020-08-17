@@ -20,7 +20,7 @@ In addition to the general alignment with the architecture of the Web (e.g., con
 
 A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. The approach specified in this standard is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelihood that they will integrate at run-time is greatly enhanced.
 
-A more detailed discussion of modular APIs can be found in the API-Common link:https://github.com/opengeospatial/oapi_common/blob/master/20-071.html#modular-api[Best Practices] document.
+A more detailed discussion of modular APIs can be found in the API-Common link:https://github.com/opengeospatial/oapi_common/blob/master/20-071.html#modular-api[OGC API - Common Users Guide] document.
 
 [[using-api-introduction]]
 === Using APIs

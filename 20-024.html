@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-14</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-17</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -848,7 +848,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="gmlsf"></a> van den Brink, L., Portele, C., Vretanos, P.: OGC 10-100r3, <strong>Geography Markup Language (GML) Simple Features Profile</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=42729">http://portal.opengeospatial.org/files/?artifact_id=42729</a></p>
 </li>
 <li>
-<p><a id="apicore"></a> Heazel, C.: OGC 19-072, <strong>OGC API - Common - Part 1: Core</strong>, <a href="https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf">https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf</a></p>
+<p><a id="apicore"></a> Heazel, C.: OGC 19-072, <strong>OGC API - Common - Part 1: Core</strong>, <a href="https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf">https://github.com/opengeospatial/oapi_common/blob/master/19-072.pdf</a></p>
 </li>
 <li>
 <p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
@@ -1340,18 +1340,6 @@ API using an architectural style that is founded on the technologies of the Web.
 <div class="paragraph">
 <p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document.</p>
 </div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Caution</div>
-</td>
-<td class="content">
-During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/ogcapi_common/1.0/openapi/".
-</td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 </div>
@@ -1609,13 +1597,13 @@ During the development phase, these components use a base URL of "https://raw.gi
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json">collections.json</a>.</p>
+<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The collections metadata returned by this operation is based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
+<p>The collections metadata returned by this operation is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">collections.json</div>
@@ -1726,7 +1714,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>collections</code> property of the Collections Metadata provides a description of each collection. These descriptions are based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. This schema is described in detail in the <a href="#collection-information">Collection Information</a> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.</p>
+<p>The <code>collections</code> property of the Collections Metadata provides a description of each collection. These descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Information Schema</a>. This schema is described in detail in the <a href="#collection-information">Collection Information</a> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.</p>
 </div>
 <table id="req_collections_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1932,7 +1920,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json">collectionInfo.json</a>.</p>
+<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">collectionInfo.json</a>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1944,7 +1932,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </tbody>
 </table>
 <div class="paragraph">
-<p>Collection Information is based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Information are provided in <a href="#collection-information-examples">Collection Information Examples</a>.</p>
+<p>Collection Information is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Information are provided in <a href="#collection-information-examples">Collection Information Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Collection Information Schema</div>
@@ -2179,7 +2167,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </ul>
 </div>
 <div class="paragraph">
-<p>These are the only <em>enum</em> values in <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/extent.yaml">extent.yaml</a>).</p>
+<p>These are the only <em>enum</em> values in <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/extent.yaml">extent.yaml</a>).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2547,7 +2535,7 @@ explode: false</code></pre>
 <p>If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.</p>
 </div>
 <div class="paragraph">
-<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/parameters/bbox.yaml">bbox.yaml</a>.</p>
+<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/parameters/bbox.yaml">bbox.yaml</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2700,7 +2688,7 @@ datetime            = date-time / interval</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/parameters/datetime.yaml">datetime.yaml</a>.</p>
+<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/parameters/datetime.yaml">datetime.yaml</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3234,7 +3222,7 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
-<p>JSON Schema for the Collections Metadata and Collection Information is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collections.yaml">collections.yaml</a> and <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
+<p>JSON Schema for the Collections Metadata and Collection Information is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml">collections.yaml</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
 </div>
 <div class="paragraph">
 <p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
@@ -4496,7 +4484,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-14 23:03:14 +0100
+Last updated 2020-08-17 15:52:40 +0100
 </div>
 </div>
 </body>

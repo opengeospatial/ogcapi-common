@@ -41,7 +41,7 @@ include::requirements/json/REQ_definition.adoc[]
 
 include::requirements/json/REQ_content.adoc[]
 
-JSON Schema for the Collections Metadata and Collection Information is available at link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collections.yaml[collections.yaml] and link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.yaml[collectionInfo.yaml].
+JSON Schema for the Collections Metadata and Collection Information is available at link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml[collections.yaml] and link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.yaml[collectionInfo.yaml].
 
 These are generic schemas that do not include any application schema information about specific resource types or their properties.
 

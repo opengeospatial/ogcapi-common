@@ -163,7 +163,7 @@ include::requirements/core/REQ_root-success.adoc[]
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-The landing page returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[Json schema].
+The landing page returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[Json schema].
 
 .landingPage.json
 [source, JSON]
@@ -213,7 +213,7 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-The conformance resource returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json[Conformance Schema]. 
+The conformance resource returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.json[Conformance Schema]. 
 
 Examples of OGC conformance resources are provided in <<conformance-response-examples>>.
 

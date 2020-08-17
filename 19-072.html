@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-15</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-17</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -1235,7 +1235,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>OGC API hyperlinks are defined using the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json">Hyperlink Schema</a>.</p>
+<p>OGC API hyperlinks are defined using the following <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/link.json">Hyperlink Schema</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1383,7 +1383,7 @@ API definitions are considered service descriptions.</p></td>
 <p>A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. The approach specified in this standard is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelihood that they will integrate at run-time is greatly enhanced.</p>
 </div>
 <div class="paragraph">
-<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="https://github.com/opengeospatial/oapi_common/blob/master/20-071.html#modular-api">Best Practices</a> document.</p>
+<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="https://github.com/opengeospatial/oapi_common/blob/master/20-071.html#modular-api">OGC API - Common Users Guide</a> document.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1937,7 +1937,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the schema <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a> and include links to the following resources:</p>
+<p>The content of that response SHALL be based upon the schema <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a> and include links to the following resources:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1956,7 +1956,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <p>In addition to the required resources, links to additional resources may be included in the Landing Page.</p>
 </div>
 <div class="paragraph">
-<p>The landing page returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">Json schema</a>.</p>
+<p>The landing page returned by this operation is based on the following <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">Json schema</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">landingPage.json</div>
@@ -2166,13 +2166,13 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="https://github.com/opengeospatial/oapi_common/blob/July-2020/core/openapi/schemas/confClasses.json">confClasses.json</a> and list all OGC API conformance classes that the API conforms to.</p>
+<p>The content of that response SHALL be based upon the OpenAPI 3.0 schema <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.json">confClasses.json</a> and list all OGC API conformance classes that the API conforms to.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The conformance resource returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json">Conformance Schema</a>.</p>
+<p>The conformance resource returned by this operation is based on the following <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.json">Conformance Schema</a>.</p>
 </div>
 <div class="paragraph">
 <p>Examples of OGC conformance resources are provided in <a href="#conformance-response-examples">Conformance Examples</a>.</p>
@@ -2441,7 +2441,7 @@ Web API Module</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>An example JSON Schema for the landing page is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a>.</p>
+<p>An example JSON Schema for the landing page is available at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a>.</p>
 </div>
 </div>
 </div>
@@ -4039,7 +4039,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-15 14:28:17 +0100
+Last updated 2020-08-17 15:53:03 +0100
 </div>
 </div>
 </body>
