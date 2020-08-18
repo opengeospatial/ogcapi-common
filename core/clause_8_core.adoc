@@ -4,19 +4,7 @@
 
 include::requirements/requirements_class_core.adoc[]
 
-The Core Conformance Class of API-Common describes how the core resources are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following resources:
-
-[#core-resources-table,reftext='{table-caption} {counter:table-num}']
-.Common Core Resources
-[width="90%",cols="2,6",options="header"]
-|===
-^|**URI Path** ^|**Description**
-^|"/" |the <<landing-page,landing page>>
-^|"/api" |the <<api-definition,API Definition>> document for this API
-^|"/conformance" |the <<conformance-classes,conformance>> information for this API
-|===
-
-But first, requirements which are applicable to all OGC API standards and are not specific to a resource type are included in the <<general-requirements-section,General Requirements>> section.
+The Core Requirements Class of API-Common describes how the core resources are accessed through an OGC conformant Web API. The requirements that make up this requirements class are grouped into two categories. <<general-requirements-section,General requirements>> are those requirements which are applicable regardless of the resource being accessed. <<resource-requirements-section,Resource requirements>> are the requirements which define the `core` resources and their applicable constraints. 
 
 [[general-requirements-section]]
 === General Requirements
@@ -90,7 +78,14 @@ Note that the name of the parameter does not matter as the actual query paramete
 }
 ----
 
-In the request URI this would be expressed as ``&first_parameter=some%20value&other_parameter=42``.
+In the request URI this would be expressed as
+
+[source,java]
+----
+{
+  &first_parameter=some%20value&other_parameter=42
+}
+----
 
 include::requirements/general/REQ_query-param-invalid.adoc[]
 
@@ -133,25 +128,33 @@ include::recommendations/general/REC_json.adoc[]
 [[CRS-core-section]]
 ==== Coordinate reference systems
 
-As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, how to express and share the location of features in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
+As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, how to express and share the location of spatial data in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
 
 For the reasons discussed in the Best Practices, OGC API - Common uses WGS 84 longitude and latitude as the default coordinate reference system.
 
 include::requirements/general/REQ_crs84.adoc[]
 
-==== Link Headers
-
-include::recommendations/general/REC_link-header.adoc[]
-
 [[resource-requirements-section]]
 === Resource Requirements
+
+The `core` resources used by all OGC Web APIs are introduced in <<core-resources-table>>. The requirements and recommendations applicable to these resources are provided in this sections below.
+
+[#core-resources-table,reftext='{table-caption} {counter:table-num}']
+.Common Core Resources
+[width="90%",cols="2,6",options="header"]
+|===
+^|**URI Path** ^|**Description**
+^|"/" |the <<landing-page,landing page>>
+^|"/api" |the <<api-definition,API Definition>> document for this API
+^|"/conformance" |the <<conformance-classes,conformance>> information for this API
+|===
 
 [[landing-page]]
 ==== API landing page
 
 Each API has a single landing page on the `{root}` node.
 
-The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.
+The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.
 
 ===== Operation
 
@@ -163,7 +166,7 @@ include::requirements/core/REQ_root-success.adoc[]
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-The landing page returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[Json schema].
+The landing page returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[JSON schema].
 
 .landingPage.json
 [source, JSON]
@@ -178,19 +181,19 @@ See <<http-status-codes>> for general guidance.
 [[api-definition]]
 ==== API Definition
 
-Every API is expected to provide a definition that describes capabilities provided by the API. This standard can be used by developers to understand API-Common, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
+Every API is expected to provide an API Definition resource which describes capabilities provided by that API. This resource can be used by developers to understand the API, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
 
 ===== Operation
 
 include::requirements/core/REQ_api-definition-op.adoc[]
+
+include::recommendations/core/REC_api-definition-op.adoc[]
 
 ===== Response
 
 include::requirements/core/REQ_api-definition-success.adoc[]
 
 include::recommendations/core/REC_api-definition-oas.adoc[]
-
-If multiple API definition formats are supported, use content negotiation to select the desired representation.
 
 ===== Error Situations
 

@@ -11,7 +11,7 @@ This standard identifies four conformance classes. The conformance classes imple
 
 The _Core Requirements Class_ is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs.
 
-The Core requirements class is specified in *Requirements Class Core* <<rc_core-section,(Chapter 8)>>.
+The Core requirements class is specified in <<rc_core-section,(Chapter 8)>> *Requirements Class Core*.
 
 === Encoding Requirements Classes
 
@@ -22,10 +22,10 @@ The _Core_ requirements class does not mandate a specific encoding or format for
 
 Neither of these encodings is mandatory. An implementor of the _API-Common_ standard may decide to implement another encodings instead of, or in addition to, these two.
 
-The Encoding Requirements Classes are specified in *Encoding Requirements Classes* <<rc_encoding-section,(Chapter 9)>>.
+The Encoding Requirements Classes are specified in <<rc_encoding-section,(Chapter 9)>> *Encoding Requirements Classes*.
 
 === OpenAPI 3.0 Requirements Class
 
 The _API-Common - core_ Standard does not mandate any encoding or format for the formal definition of the API. The prefered option is the OpenAPI 3.0 specification. The _OpenAPI 3.0_ requirements class has been specified for APIs implementing OpenAPI 3.0.
 
-The OpenAPI 3.0 Requirements Class is specified in *OpenAPI 3.0 Requirements Class* <<rc_oas30-section,(Chapter 10)>>.
+The OpenAPI 3.0 Requirements Class is specified in <<rc_oas30-section,(Chapter 10)>> *OpenAPI 3.0 Requirements Class*.

@@ -1,9 +1,9 @@
-== What is a Collection
+=== What is a Collection
 
 *<OGC API> Collection* +
 A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
 
-=== Rationale
+==== Rationale
 
 [[dataset-definition]]
 *Dataset* +
@@ -36,7 +36,7 @@ An OGC API Collection is a restriction on the general concept of a <<collection-
 . To generalize the OGC API Collection concept so that a dataset or dataset series could also be a OGC API Collection, a different definition without "sub-resource distribution" would be needed. Maybe change "as one or more sub-resource distributions" to "in one or more representations"?
 . Such a change, however, would again require a mechanism to identify how datasets are related to the resources in a Web API that conforms to Common Part 2. How to identify that an OGC API Collection represents a dataset? How to identify that an API provides access to a single dataset?
 
-=== Key Concepts
+==== Key Concepts
 
 [[collection-definition]]
 * *Collection* +
@@ -79,6 +79,6 @@ anything with spatial extent, (i.e. size, shape, or position) and is a combinati
 * *Temporal Thing* +
 Anything with temporal extent, i.e. duration. e.g. the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (<<W3C-BASIC-GEO,W3C Basic Geo>>)
 
-=== OAPI Collections and OGC Resource Types
+==== OAPI Collections and OGC Resource Types
 
 NOTE: Jeff's analysis goes here.
