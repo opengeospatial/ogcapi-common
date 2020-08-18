@@ -461,7 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2020-08-17&gt;</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   &lt;2020-08-18&gt;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/EG/ogcapi-common/1.0" class="bare">http://www.opengis.net/doc/EG/ogcapi-common/1.0</a></p></td>
@@ -603,6 +603,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#relation-type-section">6.4. Relation Types</a></li>
+<li><a href="#_what_is_a_collection">6.5. What is a Collection</a>
+<ul class="sectlevel3">
+<li><a href="#_rationale">6.5.1. Rationale</a></li>
+<li><a href="#_key_concepts">6.5.2. Key Concepts</a></li>
+<li><a href="#_oapi_collections_and_ogc_resource_types">6.5.3. OAPI Collections and OGC Resource Types</a></li>
+</ul>
+</li>
+<li><a href="#oas30-usage-section">6.6. Using OpenAPI (Informative)</a>
+<ul class="sectlevel3">
+<li><a href="#_openapi_document_root">6.6.1. OpenAPI Document (root)</a></li>
+<li><a href="#_paths">6.6.2. Paths</a></li>
+<li><a href="#_operations">6.6.3. Operations</a></li>
+<li><a href="#_parameters">6.6.4. Parameters</a></li>
+<li><a href="#_servers">6.6.5. Servers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_revision_history">Annex A: Revision History</a></li>
@@ -1240,6 +1256,366 @@ Content-Type header field of a HTTP response obtained by actually following the 
 <p>Extension relation types used in OGC API Standards are registered at <a href="https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv">https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv</a></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_what_is_a_collection"><a class="anchor" href="#_what_is_a_collection"></a>6.5. What is a Collection</h3>
+<div class="paragraph">
+<p><strong>&lt;OGC API&gt; Collection</strong><br>
+A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.</p>
+</div>
+<div class="sect3">
+<h4 id="_rationale"><a class="anchor" href="#_rationale"></a>6.5.1. Rationale</h4>
+<div id="dataset-definition" class="paragraph">
+<p><strong>Dataset</strong><br>
+collection of data</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Published or curated by a single agent, and available for access or download in one or more serializations or formats.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This definition was adopted as the OGC definition of "dataset" by the OAB (see <a href="https://portal.ogc.org/?m=projects&amp;a=view&amp;project_id=228&amp;tab=5&amp;act=details&amp;issue_id=1434">OAB issue 1434</a>)
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A dataset is a restriction on the general concept of a <a href="#collection-definition">collection</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A dataset is a collection of data</p>
+</li>
+<li>
+<p>A dataset is published or curated by a single agent.</p>
+</li>
+<li>
+<p>A dataset is available in one or more serializations or formats (<a href="#distribution-definition">distributions</a>).</p>
+</li>
+<li>
+<p>A <a href="#distribution-definition">distribution</a> is synonymous to the REST concept of a <a href="#representation-definition">representation</a>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>&lt;OGC API&gt; Collection (proposed)</strong><br>
+A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.</p>
+</div>
+<div class="paragraph">
+<p>An OGC API Collection is a restriction on the general concept of a <a href="#collection-definition">collection</a>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An OGC API Collection may only contain data. It does not encompass non-data <a href="#definition-resource">resources</a> (but the Collection resource may still have related auxiliary resources, such as schemas, or processes, as sub-resources).</p>
+</li>
+<li>
+<p>Geospatial datasets include <a href="#spatial-thing-definition">Spatial Things</a> and/or <a href="#temporal-thing-definition">Temporal Things</a> as data items (but not all data items in the dataset have to have a spatial or temporal extent).</p>
+</li>
+<li>
+<p>An OGC API Collection has one or more <a href="#sub-resource-distribution-definition">sub-resource distributions</a>.</p>
+</li>
+<li>
+<p>A <a href="#distribution-definition">distribution</a> provides access to a <a href="#representation-definition">representation</a> of a dataset.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Conclusions</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Any subset of a dataset can be an OGC API Collection.</p>
+</li>
+<li>
+<p>To generalize the OGC API Collection concept so that a dataset or dataset series could also be a OGC API Collection, a different definition without "sub-resource distribution" would be needed. Maybe change "as one or more sub-resource distributions" to "in one or more representations"?</p>
+</li>
+<li>
+<p>Such a change, however, would again require a mechanism to identify how datasets are related to the resources in a Web API that conforms to Common Part 2. How to identify that an OGC API Collection represents a dataset? How to identify that an API provides access to a single dataset?</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_key_concepts"><a class="anchor" href="#_key_concepts"></a>6.5.2. Key Concepts</h4>
+<div id="collection-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Collection</strong><br>
+A body of resources that belong or are used together. An aggregate, set, or group of related resources. (Derived from Websters)</p>
+</li>
+</ul>
+</div>
+<div id="distribution-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Distribution</strong><br>
+specific representation of a <a href="#dataset-definition">dataset</a>. (<a href="#DCAT">DCAT</a>)<br>
+<br>
+EXAMPLE: a downloadable file, an RSS feed or an API.</p>
+</li>
+</ul>
+</div>
+<div id="sub-resource-distribution-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Sub-resource Distribution</strong><br>
+a subset of the distribution of a dataset</p>
+</li>
+</ul>
+</div>
+<div id="feature-collection-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Feature Collection</strong><br>
+a set of <strong>Features</strong> from a <strong>dataset</strong></p>
+</li>
+</ul>
+</div>
+<div id="media-type-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Media Type</strong><br>
+The data format of a <a href="#representation-definition">representation</a>. (Fielding 2000)</p>
+</li>
+</ul>
+</div>
+<div id="resource-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Resource</strong><br></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Any information that can be named. (Fielding 2000)</p>
+</li>
+<li>
+<p>A conceptual mapping to a set of entities. (Fielding 2000)</p>
+</li>
+<li>
+<p>A resource R is a temporally varying membership function M<sub>R</sub>(t), which for time t maps to a set of entities, or values, which are equivalent. (Fielding 2000)</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div id="Representation-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Representation</strong></p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A format matching one of an evolving set of standard data types, selected dynamically based on the capabilities or desires of the recipient and the nature of the resource. (Fielding 2000)</p>
+</li>
+<li>
+<p>The current or intended state of a resource. (Fielding 2000)</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div id="spatial-thing-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Spatial Thing</strong><br>
+anything with spatial extent, (i.e. size, shape, or position) and is a combination of the real-world phenomenon and its abstraction. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
+</li>
+</ul>
+</div>
+<div id="temporal-thing-definition" class="ulist">
+<ul>
+<li>
+<p><strong>Temporal Thing</strong><br>
+Anything with temporal extent, i.e. duration. e.g. the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (<a href="#W3C-BASIC-GEO">W3C Basic Geo</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_oapi_collections_and_ogc_resource_types"><a class="anchor" href="#_oapi_collections_and_ogc_resource_types"></a>6.5.3. OAPI Collections and OGC Resource Types</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Jeff&#8217;s analysis goes here.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="oas30-usage-section"><a class="anchor" href="#oas30-usage-section"></a>6.6. Using OpenAPI (Informative)</h3>
+<div class="paragraph">
+<p>The following section describes the main components of an OpenAPI document and how they should be used to construct API requests. The authoritative source is the OpenAPI 3.0 standard available <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasObject">here</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_openapi_document_root"><a class="anchor" href="#_openapi_document_root"></a>6.6.1. OpenAPI Document (root)</h4>
+<div class="paragraph">
+<p>The OpenAPI document (Root) contains descriptive information about the API and serves as the root for the other parts of the document.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paths"><a class="anchor" href="#_paths"></a>6.6.2. Paths</h4>
+<div class="paragraph">
+<p>All API resources are accessed through a path. The Paths field of the OpenAPI document defines all of the paths available through this API. The Paths field is a collection of Paths Objects. Each Paths Object includes the URL or URL template for this path, any Server Objects specific to this Path, Parameters which are applicable to this Path, and an Operation Object for each of the HTTP Verbs applicable to this Path.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operations"><a class="anchor" href="#_operations"></a>6.6.3. Operations</h4>
+<div class="paragraph">
+<p>Operation Objects provide the details needed to create an HTTP request and response. Specifically, they provide definitions of the request message (including parameters) and all possible responses. In addition, they define any operation specific Server Objects or Security Requirements.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters"><a class="anchor" href="#_parameters"></a>6.6.4. Parameters</h4>
+<div class="paragraph">
+<p>Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its' structure (if needed).</p>
+</div>
+<div class="paragraph">
+<p>Parameter Objects can be defined at the following levels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Path - applicable to all operations on this path.</p>
+</li>
+<li>
+<p>Operation - only applicable to this operation. Overrides any parameters defined at the Path level which have the same name.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_servers"><a class="anchor" href="#_servers"></a>6.6.5. Servers</h4>
+<div class="paragraph">
+<p>An API is not restricted to a single server. Furthermore, the set of valid servers may be different for different sections of the API. An OpenAPI Server Object describes a single server. Most important, it provides the URL to that server. Server Objects are grouped into arrays. These arrays provide a list of the servers which can be used to access a section of the API.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example Array of Server Objects</div>
+<div class="content">
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">servers:
+  - url: https://dev.example.org/
+    description: Development server
+  - url: https://data.example.org/
+    description: Production server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Server Objects can be defined on following levels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Root - applicable to the whole API unless overriden</p>
+</li>
+<li>
+<p>Path - applicable to all operations on this path. Servers defined at the Rool level are still valid.</p>
+</li>
+<li>
+<p>Operation - only applicable to this operation. Overrides any servers defined at the Path or Root level.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_building_urls"><a class="anchor" href="#_building_urls"></a>Building URLs</h5>
+<div class="paragraph">
+<p>An OpenAPI document can describe a large number of URLs. Extracting all of the URLs is a non-trivial task. The OpenAPI objects used to construct URLs are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Server Objects (URL template for the root and variables to populate it)</p>
+</li>
+<li>
+<p>Paths Objects (URL template for the path and parameters)</p>
+</li>
+<li>
+<p>Operation Objects (including parameters)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>They are organized as follows:</p>
+</div>
+<div class="paragraph">
+<p>{Server Object}/{Path Object}/?{Parameters}</p>
+</div>
+<div class="paragraph">
+<p>Server Objects may be found at the OpenAPI document, Path Object, and Operation Object level. Given this potentially large number of servers, how do you create the valid paths?</p>
+</div>
+<div class="paragraph">
+<p>We can assume that the authors of a OAS document are not doing it for their personal enjoyment. Therefore, if a Server Object is included, there must be a reason for its' presence. So the Server Objects with the most restrictive scope are the ones we should use.  Clients should look for Server Objects in the following order:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Operation Object,</p>
+</li>
+<li>
+<p>Then Path Item,</p>
+</li>
+<li>
+<p>The root.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The first scope where a Server Object is found dictates the behavior completely.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>IF Server Objects are supplied
+    THEN save them for latter
+    ELSE create a Server Object for the host of the OpenAPI document
+DO FOR each Path
+    IF Server Objects are included, THEN
+        Use them instead of those previously identified
+    IF Parameter Objects are included, THEN
+        save them for latter
+    DO FOR Each Operation
+        IF Server Objects are included, THEN
+            Use them instead of those previously identified
+        IF Parameter Objects are included THEN
+            IF this parameter was previously defined
+                THEN replace the previous definition
+                ELSE add this parameter to the set.
+        DO FOR Each Server Object
+            Extract all URL roots
+            DO FOR each URL root
+                Concatenate the URL root and Path to create a working URL
+                Concatenate the working URL with the Parameters
+                Save the completed URL for future use
+            CONTINUE
+        DONE
+    DONE
+DONE</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1323,7 +1699,7 @@ Content-Type header field of a HTTP response obtained by actually following the 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-17 15:53:25 +0100
+Last updated 2020-08-18 23:45:01 +0100
 </div>
 </div>
 </body>
