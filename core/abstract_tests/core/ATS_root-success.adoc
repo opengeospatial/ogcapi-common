@@ -8,9 +8,9 @@
 
 For formats that require manual inspection, perform the following:
 
-.. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition
+. Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition
 
-.. Validate that the landing page includes a "conformance" link to the conformance class declaration
+. Validate that the landing page includes a "conformance" link to the conformance class declaration
 |===
 
 The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.
@@ -20,6 +20,6 @@ The landing page may be retrieved in a number of different formats. The followin
 [width="90%",cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json[landingPage.json]|<<ats_html_content,/ats/html/content>>
-|JSON |link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/landingPage.json[landingPage.json] |<<ats_geojson_content,/ats/geojson/content>>
+|HTML |link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[landingPage.json]|<<ats_html_content,/ats/html/content>>
+|JSON |link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[landingPage.json] |<<ats_json_content,/ats/json/content>>
 |===

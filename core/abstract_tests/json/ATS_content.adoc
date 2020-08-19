@@ -4,6 +4,6 @@
 ^|*Abstract Test {counter:ats-id}* |*/ats/json/content*
 ^|Test Purpose |Verify the content of a JSON document given an input document and schema.
 ^|Requirement |<<req_json_content,/req/json/content>>
-^|Test Method |. Validate that the document is a JSON document.
+^|Test Method |. Validate that the document is a <<rfc8259,JSON (IETF RFC 8259)>> document.
 . Validate the document against the schema using a JSON Schema validator.
 |===

@@ -1,7 +1,7 @@
-[[req_general_query-param-known]]
+[[req_core_query-param-known]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/general/query-param-known* 
+^|*Requirement {counter:req-id}* |*/req/core/query-param-known* 
 ^|A |IF a query parameter is specified in the API definition, +
 {nbsp}{nbsp}{nbsp}{nbsp}THEN +
 the server SHALL meet the requirements specified for that parameter.
