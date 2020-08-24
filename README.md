@@ -4,11 +4,10 @@ The [OGC API](https://ogcapi.ogc.org) family of standards is organized by resour
 
 [OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable API building blocks.
 
-## OGC API - Common Best Practices
-
+## OGC API - Common Users Guide
 It is the goal of the OGC to produce standards which are concise, complete, and testable. However, such documents do not fully capture the body of knowledge needed to successfully implement the standard. API-Common provides this non-normative information through the associated API-Common Best Practices document. The standard tells you what you must do. The Best Practices tell you how and why.
 
-The Best Practices are available in [HTML](https://github.com/opengeospatial/oapi_common/blob/October-2019-Update/19-072BP.html) and [PDF](https://github.com/opengeospatial/oapi_common/blob/October-2019-Update/19-072BP.pdf) formats.
+The Best Practices are available in [HTML](https://github.com/opengeospatial/oapi_common/blob/master/20-071.html) and [PDF](https://github.com/opengeospatial/oapi_common/blob/master/20-071.pdf) formats.
 
 ## OGC API - Common - Part 1: Core
 
