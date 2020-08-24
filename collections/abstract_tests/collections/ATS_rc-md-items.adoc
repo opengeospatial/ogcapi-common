@@ -19,5 +19,5 @@ The collection entries may be encoded in a number of different formats. The foll
 |===
 |Format |Schema Document |Test ID
 |HTML |link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json[collectionInfo.json]|<<ats_html_content,/ats/html/content>>
-|JSON |link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json[collectionInfo.json] |<<ats_geojson_content,/ats/geojson/content>>
+|JSON |link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json[collectionInfo.json] |<<ats_json_content,/ats/json/content>>
 |===

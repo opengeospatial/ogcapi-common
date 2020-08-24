@@ -1,0 +1,15 @@
+[[users-guide-section]]
+== Users Guide
+
+The OGC API Users Guide document contains information useful to a developer or user of OGC API-Common. This information in not normative. That is, it is not mandatory. However, it may prove essentiall to fully understand the normative text in the OGC API - Common Standards.
+
+include::clause_6_architecture.adoc[]
+
+include::clause_6_modular_api.adoc[]
+
+include::clause_6_link-relations.adoc[]
+
+include::clause_6_collections.adoc[]
+
+include::clause_6_using-openapi.adoc[]
+

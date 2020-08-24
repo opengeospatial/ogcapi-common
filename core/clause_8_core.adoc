@@ -4,114 +4,21 @@
 
 include::requirements/requirements_class_core.adoc[]
 
-The Core Conformance Class of API-Common describes how the core resources are accessed through an OGC conformant API. The resources described in this Requirements Class are organized around the following resources:
+The Core Requirements Class of API-Common describes how the core resources are accessed through an OGC conformant Web API. The requirements that make up this requirements class are grouped into two categories. <<general-requirements-section,General requirements>> are those requirements which are applicable regardless of the resource being accessed. <<resource-requirements-section,Resource requirements>> are the requirements which define the `core` resources and their applicable constraints. 
 
-[#core-resources-table,reftext='{table-caption} {counter:table-num}']
-.Common Core Resources
-[width="90%",cols="2,6",options="header"]
-|===
-^|**URI Path** ^|**Description**
-^|"/" |the <<landing-page,landing page>>
-^|"/api" |the <<api-definition,API Definition>> document for this API
-^|"/conformance" |the <<conformance-classes,conformance>> information for this API
-|===
-
-In addition, requirements which are applicable to all OGC API standards and are not specific to a resource type are included in the <<general-requirements,General Requirements>> section.
-
-[[landing-page]]
-=== API landing page
-
-Each API has a single landing page on the `{root}` node.
-
-The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed using a path or link starting from the landing page.
-
-==== Operation
-
-include::requirements/core/REQ_root-op.adoc[]
-
-==== Response
-
-include::requirements/core/REQ_root-success.adoc[]
-
-In addition to the required resources, links to additional resources may be included in the Landing Page.
-
-The landing page returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[Json schema].
-
-.landingPage.json
-[source, JSON]
-include::openapi/schemas/landingPage.json[]
-
-Examples of OGC landing pages are provided in <<landing-page-examples>>.
-
-==== Error Situations
-
-See <<http-status-codes>> for general guidance.
-
-[[api-definition]]
-=== API Definition
-
-Every API is expected to provide a definition that describes capabilities provided by the API. This standard can be used by developers to understand API-Common, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
-
-==== Operation
-
-include::requirements/core/REQ_api-definition-op.adoc[]
-
-==== Response
-
-include::requirements/core/REQ_api-definition-success.adoc[]
-
-include::recommendations/core/REC_api-definition-oas.adoc[]
-
-If multiple API definition formats are supported, use content negotiation to select the desired representation.
-
-==== Error Situations
-
-See <<http-status-codes>> for general guidance.
-
-[[conformance-classes]]
-=== Declaration of Conformance Classes
-
-The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.
-
-The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed. It is always the same for every OGC Web API.
-
-Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.
-
-==== Operation
-
-include::requirements/core/REQ_conformance-op.adoc[]
-
-==== Response
-
-include::requirements/core/REQ_conformance-success.adoc[]
-
-The conformance resource returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json[Conformance Schema]. 
-
-Examples of OGC conformance resources are provided in <<conformance-response-examples>>.
-
-.Conformance Schema
-[source, JSON]
-include::openapi/schemas/confClasses.json[]
-
-==== Error situations
-
-See <<http-status-codes>> for general guidance.
-
-[[general-requirements]]
+[[general-requirements-section]]
 === General Requirements
 
-The following general requirements and recommendations apply to all OGC APIs.
+The following requirements and recommentations are applicable to all OGC Web APIs.
 
 ==== HTTP 1.1
 
 The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.
 
-include::requirements/core/REQ_http.adoc[]
+include::requirements/general/REQ_http.adoc[]
 
 [[http-status-codes]]
 ==== HTTP Status Codes
-
-NOTE: ISSUE: Should we expand our explanation of HTTP status codes? See issues https://github.com/opengeospatial/oapi_common/issues/75[75], and https://github.com/opengeospatial/oapi_common/issues/73[73].
 
 <<status-codes>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
 
@@ -135,18 +42,18 @@ NOTE: ISSUE: Should we expand our explanation of HTTP status codes? See issues h
 
 More specific guidance is provided for each resource, where applicable.
 
-include::recommendations/core/PER_additional-status-codes.adoc[]
+include::recommendations/general/PER_additional-status-codes.adoc[]
 
 [[query-parameter-requirements]]
 ==== Unknown or invalid query parameters
 
 If a server wants to support query parameters, these have to be explicitly declared in the API definition.
 
-include::requirements/core/REQ_query-param-known.adoc[]
+include::requirements/general/REQ_query-param-known.adoc[]
 
 Query parameters that have not been explicitly specified in the API definition for that operation will be treated as unknown.
 
-include::requirements/core/REQ_query-param-unknown.adoc[]
+include::requirements/general/REQ_query-param-unknown.adoc[]
 
 If OpenAPI is used to represent the API definition, a capability exists to define query parameters without explicitly declaring them. That is,
 
@@ -171,9 +78,16 @@ Note that the name of the parameter does not matter as the actual query paramete
 }
 ----
 
-In the request URI this would be expressed as ``&first_parameter=some%20value&other_parameter=42``.
+In the request URI this would be expressed as
 
-include::requirements/core/REQ_query-param-invalid.adoc[]
+[source,java]
+----
+{
+  &first_parameter=some%20value&other_parameter=42
+}
+----
+
+include::requirements/general/REQ_query-param-invalid.adoc[]
 
 This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid if it violates the API definition or any other constraint for that parameter stated in a requirement.
 
@@ -181,14 +95,14 @@ This is a general rule that applies to all parameters, whether they are specifie
 
 Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc2616,HTTP/1.1 (RFC 2616)>>.
 
-include::recommendations/core/REC_etag.adoc[]
+include::recommendations/general/REC_etag.adoc[]
 
 [[cross-origin]]
 ==== Support for Cross-Origin Requests
 
 If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.
 
-include::recommendations/core/REC_cross-origin.adoc[]
+include::recommendations/general/REC_cross-origin.adoc[]
 
 Two common mechanisms to support cross-origin requests are:
 
@@ -205,23 +119,102 @@ While the OAPI Common Core standard does not specify any mandatory encoding, the
 
 [[rec_html]]
 HTML encoding recommendation:
-include::recommendations/core/REC_html.adoc[]
+include::recommendations/general/REC_html.adoc[]
 
 [[rec_json]]
 JSON encoding recommndation:
-include::recommendations/core/REC_json.adoc[]
+include::recommendations/general/REC_json.adoc[]
 
-The section <<mediatypes,Media Types>> includes a discussion on encoding media types for this standard.
+[[resource-requirements-section]]
+=== Resource Requirements
 
-[[CRS-core-section]]
-==== Coordinate reference systems
+The `core` resources used by all OGC Web APIs are introduced in <<core-resources-table>>. The requirements and recommendations applicable to these resources are provided in this sections below.
 
-As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, how to express and share the location of features in a consistent way is one of the most fundamental aspects of publishing geographic data and it is important to be clear about the coordinate reference system that coordinates are in.
+[#core-resources-table,reftext='{table-caption} {counter:table-num}']
+.Common Core Resources
+[width="90%",cols="2,6",options="header"]
+|===
+^|**URI Path** ^|**Description**
+^|"/" |the <<landing-page,landing page>>
+^|"/api" |the <<api-definition,API Definition>> document for this API
+^|"/conformance" |the <<conformance-classes,conformance>> information for this API
+|===
 
-For the reasons discussed in the Best Practices, OGC API - Common uses WGS 84 longitude and latitude as the default coordinate reference system.
+[[landing-page]]
+==== API landing page
 
-include::requirements/core/REQ_crs84.adoc[]
+Each API has a single landing page on the `{root}` node.
 
-==== Link Headers
+The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.
 
-include::recommendations/core/REC_link-header.adoc[]
+===== Operation
+
+include::requirements/core/REQ_root-op.adoc[]
+
+===== Response
+
+include::requirements/core/REQ_root-success.adoc[]
+
+In addition to the required resources, links to additional resources may be included in the Landing Page.
+
+The landing page returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[JSON schema].
+
+.landingPage.json
+[source, JSON]
+include::openapi/schemas/landingPage.json[]
+
+Examples of OGC landing pages are provided in <<landing-page-examples>>.
+
+===== Error Situations
+
+See <<http-status-codes>> for general guidance.
+
+[[api-definition]]
+==== API Definition
+
+Every API is expected to provide an API Definition resource which describes capabilities provided by that API. This resource can be used by developers to understand the API, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
+
+===== Operation
+
+include::requirements/core/REQ_api-definition-op.adoc[]
+
+include::recommendations/core/REC_api-definition-op.adoc[]
+
+===== Response
+
+include::requirements/core/REQ_api-definition-success.adoc[]
+
+include::recommendations/core/REC_api-definition-oas.adoc[]
+
+===== Error Situations
+
+See <<http-status-codes>> for general guidance.
+
+[[conformance-classes]]
+==== Declaration of Conformance Classes
+
+The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.
+
+The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed. It is always the same for every OGC Web API.
+
+Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.
+
+===== Operation
+
+include::requirements/core/REQ_conformance-op.adoc[]
+
+===== Response
+
+include::requirements/core/REQ_conformance-success.adoc[]
+
+The conformance resource returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.json[Conformance Schema]. 
+
+Examples of OGC conformance resources are provided in <<conformance-response-examples>>.
+
+.Conformance Schema
+[source, JSON]
+include::openapi/schemas/confClasses.json[]
+
+===== Error situations
+
+See <<http-status-codes>> for general guidance.

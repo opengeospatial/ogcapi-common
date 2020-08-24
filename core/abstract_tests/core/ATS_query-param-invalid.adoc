@@ -1,0 +1,15 @@
+[[ats_core_query-param-invalid]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/query-param-invalid* 
+^|Test Purpose |Validate that an error is returned when a query parameter does not comply with its' advertised behavior.
+^|Requirement |<<req_core_http,/req/core/query-param-invalid>>
+^|Test Method |DO FOR ALL query parameters advertised in the API definition +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Execute that operation using the query parameter +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}with values that do not comply with the advertised constraints on those values. +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}(Example: exceeding minimum or maximum values) +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the operation returns a reponse with the status code `400`. +
+{nbsp}{nbsp}DONE +
+DONE
+|===

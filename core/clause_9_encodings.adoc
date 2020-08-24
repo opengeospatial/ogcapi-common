@@ -3,7 +3,7 @@
 
 === Overview
 
-This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:
+This clause specifies two requirements classes for encodings to be used by an OGC Web API implementation. These encodings are commonly used encodings for spatial data on the web:
 
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
@@ -41,4 +41,4 @@ include::requirements/json/REQ_definition.adoc[]
 
 include::requirements/json/REQ_content.adoc[]
 
-An example JSON Schema for the landing page is available at link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[landingPage.json].
+An example JSON Schema for the landing page is available at link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[landingPage.json].

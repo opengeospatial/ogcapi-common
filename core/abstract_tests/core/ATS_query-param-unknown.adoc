@@ -1,0 +1,11 @@
+[[ats_core_query-param-unknown]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/query-param-unknown* 
+^|Test Purpose |Validate that an error is returned when a query parameter is used which has not been advertised through the API.
+^|Requirement |<<req_core_http,/req/core/query-param-unknown>>
+^|Test Method |DO FOR ALL operations advertised in the API definition +
+{nbsp}{nbsp}1. Execute that operation using a query parameter which is not advertised through the API definition. +
+{nbsp}{nbsp}2. Validate that the operation returns a reponse with the status code `400`. +
+DONE
+|===

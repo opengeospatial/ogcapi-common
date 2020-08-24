@@ -1,7 +1,8 @@
-== Architecture
+[[architecture-section]]
+=== Architecture
 The following "architecture" captures the core concepts which inform all OGC API standards.
 
-=== Datasets  
+==== Datasets  
 
 Web APIs implement a Resource Oriented approach to Web-based distributed computing. A coherent set of APIs must be based on a common understading of the Resources to be shared. For OGC APIs, those resources would be identified using an abstract concept of a geospatial dataset. Such a dataset would have the following characteristics:
 
@@ -18,7 +19,7 @@ Web APIs implement a Resource Oriented approach to Web-based distributed computi
 *   Keywords/Tags, and longer descriptions are also a commonly useful piece of metadata information
 *   Any other ISO 19115 metadata fields can also be associated with the dataset, but are nowhere near as essential to discovering and using geospatial data as those mentioned above. Meta data containing at minimum those essential elements can always be retrieved in ISO 19115 and potentially other formats.
 
-=== Processes  
+==== Processes  
 Processes take one or more datasets as input, add parameters, and produce one or more datasets as output. This ties the processes together with the data delivery services on both ends.  
 
 I suggested so far 3 kinds of processes which can all run on a server where the data lives:
@@ -29,11 +30,11 @@ I suggested so far 3 kinds of processes which can all run on a server where the 
 
 All of these kinds of processes could share aspects such as taking in an OGC API dataset as input and their output being usable as an OGC API dataset, for direct access and/or asynchronous delivery, and support multiple data partitioning/access mechanisms, estimates/billing elements, and so on.
 
-=== Server-side rendering  
+==== Server-side rendering  
 
 Highlighting here that the rendering of a styled maps based on multiple source data sets and a style as a parameter, outputting a styled 'rendered map' imagery dataset as a result, fits perfectly well the description of a process (3).
 
-=== Data partitioning  
+==== Data partitioning  
 
 For all of data access / exchange mechanisms, e.g. to retrieve coverages/vector features directly, for a process to access its input, or to retrieve the output from a process, or throughout a daisy chain of processes, there are a variety of ways in which data can be partitioned for efficient access. The most efficient way most likely depends on the overall workflow and the implementations on both ends. I am suggesting most of the OGC API should be agnostic of this and support many such ways, so that both ends of such connection or a workflow manager can negotiate the best approach. Examples of different ways to partition/access data include:
 
@@ -57,7 +58,7 @@ You might notice that this is color-coded based on where these API blocks origin
 * Very light blue: Catalogs (CSW)  
 * Violet: Tiles (WMTS)
 
-=== Resource Paths
+==== Resource Paths
 
 The resources exposed through OGC APIs are accessed through standardized URL templates. These "paths" and their associated resources are described in <<dataset-paths>>. This table documents the paths and resources as of December 2019. This information will be updated as these standards mature.
 

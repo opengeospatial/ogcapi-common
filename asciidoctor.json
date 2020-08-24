@@ -28,5 +28,20 @@
                 "r":[
                         "asciidoctor-diagram"
                 ]
+        },
+        "2":  {
+                "OGC_doc_number": "20-071",
+                "urn":"http://www.opengis.net/doc/EG/ogcapi-common/1.0",
+                "title":"OGC API - Common Users Guide",
+                "path":"users_guide/OAPI_Common_Users_Guide.adoc",
+                "options": ["--trace"],
+                "a":[
+                        "data-uri",
+                        "stylesdir=./resources/stylesheets",
+                        "dot=/usr/bin/dot"
+                ],
+                "r":[
+                        "asciidoctor-diagram"
+                ]
         }
  }

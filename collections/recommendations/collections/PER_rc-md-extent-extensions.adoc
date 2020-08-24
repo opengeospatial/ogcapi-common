@@ -8,6 +8,6 @@
 * Spatial extents in CRS84 or CRS84h and 
 * Temporal extents in the Gregorian calendar
 
-These are the only _enum_ values in link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/extent.yaml[extent.yaml]).
+These are the only _enum_ values in link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/extent.yaml[extent.yaml]).
 ^|C |Extensions to the Core MAY add additional reference systems to the `extent` object.
 |===

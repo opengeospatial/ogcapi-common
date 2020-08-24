@@ -2,7 +2,7 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/core/http* 
-^|Test Purpose |Validate that the resource paths advertised through the API conform with HTTP 1.1 and, where approprate, TLS.
+^|Test Purpose |Validate that the resources advertised through the API can be accessed using the HTTP 1.1 protocol and, where approprate, TLS.
 ^|Requirement |<<req_core_http,/req/core/http>>
 ^|Test Method |. All compliance tests shall be configured to use the HTTP 1.1 protocol exclusively.
 . For APIs which support HTTPS, all compliance tests shall be configured to use <<rfc2818,HTTP over TLS>> (RFC 2818) with their HTTP 1.1 protocol.

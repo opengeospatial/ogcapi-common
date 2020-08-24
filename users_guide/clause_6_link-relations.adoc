@@ -1,0 +1,75 @@
+[[link-relations-section]]
+=== Link Relations
+
+provides a discussion of link relations, the governing policies and standards, as well as how they should be used.
+
+Links between elements of an OGC API are encoded using the link relation schema provided in <<link-schema>>.
+
+[#link-schema,reftext='{figure-caption} {counter:figure-num}']
+.Link Schema
+[source,yaml]
+----
+include::../core/openapi/schemas/link.yaml[]
+----
+
+==== Href Attribute
+
+The `href` attribute is mandatory.
+
+"The Locator Attribute (href) supplies the data that allows an application to find a remote resource or resource fragment. The value of this attribute is an IRI which servers as the Uniform Resource Identifier for the remote resource." (W3C XLink Version 1.1)
+
+==== Rel Attribute
+
+The `rel` attribute is mandatory.
+
+"In the simplest case, a link relation type identifies the semantics of a link.  For example, a link with the relation type "copyright" indicates that the current link context has a copyright resource at the link target.
+
+Link relation types can also be used to indicate that the target resource has particular attributes, or exhibits particular behaviours; for example, a "service" link implies that the link target can be used as part of a defined protocol (in this case, a service description).
+
+Relation types are not to be confused with media types [RFC2046]; they do not identify the format of the representation that results when the link is dereferenced.  Rather, they only describe how the current context is related to another resource.
+
+Relation types SHOULD NOT infer any additional semantics based upon the presence or absence of another link relation type, or its own cardinality of occurrence.  An exception to this is the combination of the "alternate" and "stylesheet" registered relation types, which has special meaning in HTML for historical reasons.
+
+There are two kinds of relation types: registered and extension." (RFC8288)
+
+Relation types are discussed in more detail in <<relation-type-section,Relation Types>>.
+
+==== Type Attribute
+
+The `type` attribute is optional
+
+"The "type" attribute, when present, is a hint indicating what the media type of the result of dereferencing the link should be.  Note that this is only a hint; for example, it does not override the
+Content-Type header field of a HTTP response obtained by actually following the link.  The type attribute MUST NOT appear more than once in a given link-value; occurrences after the first MUST be ignored by parsers." (RFC8288)
+
+==== Hreflang Attribute
+
+The `hreflang` attribute is optional.
+
+"The "hreflang" attribute, when present, is a hint indicating what the language of the result of dereferencing the link should be.  Note that this is only a hint; for example, it does not override the Content-Language header field of a HTTP response obtained by actually following the link.  Multiple hreflang attributes on a single link-value indicate that multiple languages are available from the indicated resource." (RFC8288)
+
+==== Title Attribute
+
+The `title` attribute is optional.
+
+"The "title" attribute, when present, is used to label the destination of a link such that it can be used as a human-readable identifier (e.g., a menu entry) in the language indicated by the Content-Language header field (if present).  The title attribute MUST NOT appear more than once in a given link; occurrences after the first MUST be ignored by parsers." (RFC8288)
+
+==== Length Attribute
+
+The `length` attribute does not appear to be defined in the normative standards.
+
+[[relation-type-section]]
+=== Relation Types
+
+There are two kinds of relation types; registered and extension. 
+
+Registered relation types are registered in the IANA register at https://www.iana.org/assignments/link-relations/link-relations.xhtml[https://www.iana.org/assignments/link-relations/link-relations.xhtml]. Registered relation types are used in OGC API standards whenever appropriate.
+
+Extension relation types are those which are not registered with IANA. These extension types are in the form of "--- a URI [RFC3986] that uniquely identifies the relation type.  Although the URI can point to a resource that contains a definition of the semantics of the relation type, clients SHOULD NOT automatically access that resource to avoid overburdening its server.
+
+The URI used for an extension relation type SHOULD be under the control of the person or party defining it or be delegated to them.
+
+When extension relation types are compared, they MUST be compared as strings (after converting to URIs if serialised in a different format) in a case-insensitive fashion, character by character. Because of this, all-lowercase URIs SHOULD be used for extension relations.
+
+Note that while extension relation types are required to be URIs, a serialisation of links can specify that they are expressed in another form, as long as they can be converted to URIs." (RFC8288)
+
+Extension relation types used in OGC API Standards are registered at https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv[https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv] 

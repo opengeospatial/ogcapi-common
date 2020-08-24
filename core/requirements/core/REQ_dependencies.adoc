@@ -1,0 +1,6 @@
+[[req_core_dependencies]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/dependencies* 
+^|A |An implementation of the <<rc_core,http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core>> requirements class SHALL demonstrate that it also conforms with the <<rc_general,http://www.opengis.net/spec/ogcapi-common-1/1.0/req/general>> conformance class.
+|===

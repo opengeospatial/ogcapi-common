@@ -3,7 +3,13 @@
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/json/definition* 
 ^|Test Purpose |Verify support for JSON
-^|Requirement |<<req_json_definition,/req/json/definition>>
-^|Test Method|. A resource is requested with response media type of `application/json`
-. All `200` responses SHALL be encoded in the <<rfc8259,JSON (IETF RFC 8259)>> media type.
+^|Requirement |<<req_json_definition,/req/json/definition>> +
+<<req_json_content,/req/json/content>>
+^|Test Method|DO FOR EACH operation advertised for the API 
+
+. Execute the operation specifing `application/json` as the media type 
+. Validate that a document was returned with a status code `200`
+. Validate the contents of the returned document using test <<ats_json_content,/ats/json/content>>.
+
+DONE
 |===
