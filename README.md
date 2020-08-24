@@ -7,7 +7,7 @@ The [OGC API](https://ogcapi.ogc.org) family of standards is organized by resour
 ## OGC API - Common Users Guide
 It is the goal of the OGC to produce standards which are concise, complete, and testable. However, such documents do not fully capture the body of knowledge needed to successfully implement the standard. API-Common provides this non-normative information through the associated API-Common Best Practices document. The standard tells you what you must do. The Best Practices tell you how and why.
 
-The Best Practices are available in [HTML](https://github.com/opengeospatial/oapi_common/blob/master/20-071.html) and [PDF](https://github.com/opengeospatial/oapi_common/blob/master/20-071.pdf) formats.
+The Best Practices are available in [HTML](http://docs.opengeospatial.org/DRAFTS/20-071.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/20-071.pdf) formats.
 
 ## OGC API - Common - Part 1: Core
 
