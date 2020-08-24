@@ -132,7 +132,7 @@ In addition, links should be passed in the response using HTTP link headers. The
 
 include::recommendations/general/REC_link-header.adoc[]
 
-Additional information on the use of link relationships is provided in the link:https://github.com/opengeospatial/oapi_common/blob/master/20-071.pdf[OGC API - Common Users Guide]. 
+Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.pdf[OGC API - Common Users Guide]. 
 
 [[https-conventions]]
 === Use of HTTPS
