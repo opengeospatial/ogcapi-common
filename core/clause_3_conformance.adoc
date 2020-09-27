@@ -3,13 +3,13 @@ Conformance with this standard shall be checked using the tests specified in Ann
 
 This standard addresses one Standardization Target; <<webapi-definition,Web APIs>>
 
-OGC API - Common - Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.
+OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included or referenced in the Abstract Test Suite in each standard that implements conformance classes defined in this standard.
 
 This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
 === Core Requirements Class
 
-The _Core Requirements Class_ is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs.
+The _Core Requirements Class_ provides a minimal useful service interface for an OGC Web API. The requirements specified in this requirements class are recommended for all OGC Web APIs.
 
 The Core requirements class is specified in <<rc_core-section,(Chapter 8)>> *Requirements Class Core*.
 

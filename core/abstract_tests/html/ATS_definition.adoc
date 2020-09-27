@@ -1,7 +1,7 @@
 [[ats_html_definition]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/html/definition*
+^|*Abstract Test {counter:ats-id}* |*/conf/html/definition*
 ^|Test Purpose |Verify support for HTML
 ^|Requirement |<<req_html_definition,/req/html/definition>> +
 <<req_html_content,/req/html/content>>
@@ -9,7 +9,7 @@
 
 . Execute the operation specifing `text/html` as the media type 
 . Validate that a document was returned with a status code `200`
-. Validate the contents of the returned document using test <<ats_html_content,/ats/html/content>>.
+. Validate the contents of the returned document using test <<ats_html_content,/conf/html/content>>.
 
 DONE
 |===

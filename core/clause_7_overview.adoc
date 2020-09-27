@@ -15,12 +15,12 @@ A goal of OGC API standards is to provide rapid and easy access to spatial resou
 
 The OGC Modular Web API approach has several facets:
 
-* A common `core` which is the same for all OGC Web API standards. This OGC API - Common - Part 1: Core Standard provides the information needed by a client to understand and use an OGC Web API.
+* A common `core` which is recommended for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard provides the information needed by a client to understand and use an OGC Web API.
 * Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the _common_ requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.
 * Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
 * Modularization is not just about a single "service". OGC APIs provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.
 
-A more detailed discussion of modular APIs can be found in the API-Common link:http://docs.opengeospatial.org/DRAFTS/20-071.html#modular-api[OGC API - Common Users Guide] document.
+A more detailed discussion of modular APIs can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#modular-api[OGC API - Common Users Guide].
 
 [[using-api-introduction]]
 === Using APIs
