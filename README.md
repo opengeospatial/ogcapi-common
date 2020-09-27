@@ -13,13 +13,13 @@ The Best Practices are available in [HTML](http://docs.opengeospatial.org/DRAFTS
 
 The API-Common Core Standard defines the resources and operations which SHALL be common to all OGC API standards. This Standard defines the minimal requirements for an API to be discovered and used by any client.
 
-This standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/19-072.pdf) and [PDF](http://docs.opengeospatial.org/DRAFTS/19-072.html) formats.
+This standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/19-072.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/19-072.pdf) formats.
 
 ## OGC API - Common - Part 2: Collections
 
 The OGC API-Common Collections Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifing the above.
 
-This standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/20-024.pdf) and [PDF](http://docs.opengeospatial.org/DRAFTS/20-024.html) formats.
+This standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/20-024.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/20-024.pdf) formats.
 
 ## OGC API - Common - Part 3: CRS
 
