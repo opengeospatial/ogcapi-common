@@ -1,6 +1,18 @@
 [[overview]]
 == Overview
 
+The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access mechanisms are described in <<cr-table-2>>. 
+
+[#cr-table-2,reftext='{table-caption} {counter:table-num}']
+.Common Core Resources
+[cols="32,23,15,30",options="header"]
+!===
+^|Resource ^|URI ^|HTTP Method ^|Document Reference
+|Landing page |`/` ^|GET |<<landing-page,API Landing Page>>
+|API definition |`/api` ^|GET |<<api-definition,API Definition>>
+|Conformance declaration |`/conformance` ^|GET |<<conformance-classes,Declaration of Conformance Classes>>
+!===
+
 [[evolution-introduction]]
 === Evolution from OGC Web Services
 

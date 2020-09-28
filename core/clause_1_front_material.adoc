@@ -13,7 +13,7 @@ The OGC API - Common - Part 1: Core Standard defines the resources and access me
 ^|Resource ^|URI ^|HTTP Method ^|Document Reference
 |Landing page |`/` ^|GET |<<landing-page,API Landing Page>>
 |API definition |`/api` ^|GET |<<api-definition,API Definition>>
-|Conformance classes |`/conformance` ^|GET |<<conformance-classes,Declaration of Conformance Classes>>
+|Conformance declaration |`/conformance` ^|GET |<<conformance-classes,Declaration of Conformance Classes>>
 !===
 
 [big]*ii.    Keywords*
