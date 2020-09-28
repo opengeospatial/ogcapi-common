@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-08-24</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-09-26</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -689,7 +689,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common suite of standards. API-Common standards serve as reusable building-blocks. Developers of OGC standards will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
-<p>The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access mechanisms are supported by all conformant OGC Web APIs and are described in <a href="#cr-table">Table 1</a>.</p>
+<p>The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access mechanisms are described in <a href="#cr-table">Table 1</a>.</p>
 </div>
 <table id="cr-table" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Common Core Resources</caption>
@@ -761,7 +761,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Heazeltech LLC</p>
 </li>
 <li>
-<p>others TBD</p>
+<p>National Geospatial-Intelligence Agency (NGA)</p>
 </li>
 </ul>
 </div>
@@ -786,6 +786,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Heazeltech</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Sylvester Hagler</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">NGA</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">others</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TBD</p></td>
 </tr>
@@ -797,7 +801,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_scope"><a class="anchor" href="#_scope"></a>2. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This standard addresses Discovery operations directed against the API itself. It identifies resources, defines conformance classes, and specifies requirements which are applicable to all OGC API standards. It should be included as a normative reference by all such standards. Additional OGC Web API Standards will extend this core with resource-specific capabilities.</p>
+<p>This standard addresses Discovery operations directed against the API itself. It identifies the hosted resources, defines conformance classes, and provides both human and machine readable documentation of the API design. The requirements specified in this standard should be applicable to any Web API implementation.</p>
+</div>
+<div class="paragraph">
+<p>This standard provides the first stop for clients seeking to understand and use a new Web API. Use of this standard is strongly recommended for and new implementation of OGC Web API stadards. However, in keeping with the OGC&#8217;s principle of modular API standards, use of this standard is not required of OGC conformant Web API implementations.</p>
 </div>
 </div>
 </div>
@@ -811,7 +818,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This standard addresses one Standardization Target; <a href="#webapi-definition">Web APIs</a></p>
 </div>
 <div class="paragraph">
-<p>OGC API - Common - Part 1: Core provides a common foundation for OGC API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite in each separate standard that normatively references this standard.</p>
+<p>OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included or referenced in the Abstract Test Suite in each standard that implements conformance classes defined in this standard.</p>
 </div>
 <div class="paragraph">
 <p>This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the <code>/conformance</code> resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
@@ -819,7 +826,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_core_requirements_class"><a class="anchor" href="#_core_requirements_class"></a>3.1. Core Requirements Class</h3>
 <div class="paragraph">
-<p>The <em>Core Requirements Class</em> is the minimal useful service interface for an OGC API. The requirements specified in this requirements class are mandatory for all OGC APIs.</p>
+<p>The <em>Core Requirements Class</em> provides a minimal useful service interface for an OGC Web API. The requirements specified in this requirements class are recommended for all OGC Web APIs.</p>
 </div>
 <div class="paragraph">
 <p>The Core requirements class is specified in <a href="#rc_core-section">(Chapter 8)</a> <strong>Requirements Class Core</strong>.</p>
@@ -1268,7 +1275,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Additional information on the use of link relationships is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.pdf">OGC API - Common Users Guide</a>.</p>
+<p>Additional information on the use of link relationships is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html">OGC API - Common Users Guide</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1360,7 +1367,7 @@ API definitions are considered service descriptions.</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>A common <code>core</code> which is the same for all OGC Web API standards. This OGC API - Common - Part 1: Core Standard provides the information needed by a client to understand and use an OGC Web API.</p>
+<p>A common <code>core</code> which is recommended for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard provides the information needed by a client to understand and use an OGC Web API.</p>
 </li>
 <li>
 <p>Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the <em>common</em> requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.</p>
@@ -1374,7 +1381,7 @@ API definitions are considered service descriptions.</p></td>
 </ul>
 </div>
 <div class="paragraph">
-<p>A more detailed discussion of modular APIs can be found in the API-Common <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html#modular-api">OGC API - Common Users Guide</a> document.</p>
+<p>A more detailed discussion of modular APIs can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html#modular-api">OGC API - Common Users Guide</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1413,7 +1420,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The Core Requirements Class of API-Common describes how the core resources are accessed through an OGC conformant Web API. The requirements that make up this requirements class are grouped into two categories. <a href="#general-requirements-section">General requirements</a> are those requirements which are applicable regardless of the resource being accessed. <a href="#resource-requirements-section">Resource requirements</a> are the requirements which define the <code>core</code> resources and their applicable constraints.</p>
+<p>The Core Requirements Class of the API-Common Core Standard describes how <code>core</code> resources are accessed through an OGC conformant Web API. The requirements that make up this requirements class are grouped into two categories. <a href="#general-requirements-section">General requirements</a> are those requirements which are applicable regardless of the resource being accessed. <a href="#resource-requirements-section">Resource requirements</a> are the requirements which define the <code>core</code> resources and their applicable constraints.</p>
 </div>
 <div class="sect2">
 <h3 id="general-requirements-section"><a class="anchor" href="#general-requirements-section"></a>8.1. General Requirements</h3>
@@ -1780,7 +1787,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div class="sect2">
 <h3 id="resource-requirements-section"><a class="anchor" href="#resource-requirements-section"></a>8.2. Resource Requirements</h3>
 <div class="paragraph">
-<p>The <code>core</code> resources used by all OGC Web APIs are introduced in <a href="#core-resources-table">Table 4</a>. The requirements and recommendations applicable to these resources are provided in this sections below.</p>
+<p>The <code>core</code> resources are introduced in <a href="#core-resources-table">Table 4</a>. The requirements and recommendations applicable to these resources are provided in this sections below.</p>
 </div>
 <table id="core-resources-table" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 4. Common Core Resources</caption>
@@ -1812,7 +1819,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div class="sect3">
 <h4 id="landing-page"><a class="anchor" href="#landing-page"></a>8.2.1. API landing page</h4>
 <div class="paragraph">
-<p>Each API has a single landing page on the <code>{root}</code> node.</p>
+<p>A Web API has a single landing page on the <code>{root}</code> node.</p>
 </div>
 <div class="paragraph">
 <p>The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.</p>
@@ -1934,7 +1941,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div class="sect3">
 <h4 id="api-definition"><a class="anchor" href="#api-definition"></a>8.2.2. API Definition</h4>
 <div class="paragraph">
-<p>Every API is expected to provide an API Definition resource which describes capabilities provided by that API. This resource can be used by developers to understand the API, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.</p>
+<p>Every API should provide an API Definition resource which describes capabilities provided by that API. This resource can be used by developers to understand the API, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.</p>
 </div>
 <div class="sect4">
 <h5 id="_operation_2"><a class="anchor" href="#_operation_2"></a>Operation</h5>
@@ -2074,7 +2081,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <p>The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.</p>
 </div>
 <div class="paragraph">
-<p>The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed. It is always the same for every OGC Web API.</p>
+<p>The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed.</p>
 </div>
 <div class="paragraph">
 <p>Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.</p>
@@ -2685,9 +2692,6 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <div class="paragraph">
 <p>See <a href="#rc_oas30-security">Clause 10</a>, Security Section for a discussion of OpenAPI support for security controls.</p>
 </div>
-<div class="paragraph">
-<p>add additional text as needed</p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2736,7 +2740,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/http</strong></p>
+<p><strong>/conf/core/http</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2778,7 +2782,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/query-param-known</strong></p>
+<p><strong>/conf/core/query-param-known</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2817,7 +2821,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/query-param-unknown</strong></p>
+<p><strong>/conf/core/query-param-unknown</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2852,7 +2856,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/query-param-invalid</strong></p>
+<p><strong>/conf/core/query-param-invalid</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2895,7 +2899,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/root-op</strong></p>
+<p><strong>/conf/core/root-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2922,7 +2926,7 @@ DONE</p>
 <p>Validate that a document was returned with a status code <code>200</code></p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_core_root-success">/ats/core/root-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_core_root-success">/conf/core/root-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -2938,7 +2942,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/root-success</strong></p>
+<p><strong>/conf/core/root-success</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2995,12 +2999,12 @@ DONE</p>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/ats/html/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/conf/html/content</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/ats/json/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/conf/json/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -3016,7 +3020,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/api-definition-op</strong></p>
+<p><strong>/conf/core/api-definition-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3052,7 +3056,7 @@ DONE</p>
 <p>Validate that a document was returned with a status code <code>200</code></p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_core_api-definition-success">/ats/core/api-definition-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_core_api-definition-success">/conf/core/api-definition-success</a>.</p>
 </li>
 </ol>
 </div>
@@ -3071,7 +3075,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/api-definition-success</strong></p>
+<p><strong>/conf/core/api-definition-success</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3106,7 +3110,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/conformance-op</strong></p>
+<p><strong>/conf/core/conformance-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3136,7 +3140,7 @@ DONE</p>
 <p>Validate that a document was returned with a status code <code>200</code></p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_core_conformance-success">/ats/core/conformance-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_core_conformance-success">/conf/core/conformance-success</a>.</p>
 </li>
 </ol>
 </div>
@@ -3153,7 +3157,7 @@ THEN</p>
 <p>Validate that a document was returned with a status code <code>200</code></p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_core_conformance-success">/ats/core/conformance-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_core_conformance-success">/conf/core/conformance-success</a>.</p>
 </li>
 </ol>
 </div>
@@ -3172,7 +3176,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/core/conformance-success</strong></p>
+<p><strong>/conf/core/conformance-success</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3246,7 +3250,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/json/definition</strong></p>
+<p><strong>/conf/json/definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3276,7 +3280,7 @@ THEN</p>
 <p>Validate that a document was returned with a status code <code>200</code></p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_json_content">/ats/json/content</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_json_content">/conf/json/content</a>.</p>
 </li>
 </ol>
 </div>
@@ -3298,7 +3302,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/json/content</strong></p>
+<p><strong>/conf/json/content</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3369,7 +3373,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/html/definition</strong></p>
+<p><strong>/conf/html/definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3399,7 +3403,7 @@ THEN</p>
 <p>Validate that a document was returned with a status code <code>200</code></p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_html_content">/ats/html/content</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_html_content">/conf/html/content</a>.</p>
 </li>
 </ol>
 </div>
@@ -3421,7 +3425,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/html/content</strong></p>
+<p><strong>/conf/html/content</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3490,7 +3494,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/oas30/completeness</strong></p>
+<p><strong>/conf/oas30/completeness</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3522,7 +3526,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/oas30/exceptions-codes</strong></p>
+<p><strong>/conf/oas30/exceptions-codes</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3554,7 +3558,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/oas30/oas-definition-1</strong></p>
+<p><strong>/conf/oas30/oas-definition-1</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3593,7 +3597,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/oas30/oas-definition-2</strong></p>
+<p><strong>/conf/oas30/oas-definition-2</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3625,7 +3629,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/oas30/oas-impl</strong></p>
+<p><strong>/conf/oas30/oas-impl</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3664,7 +3668,7 @@ THEN</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/oas30/security</strong></p>
+<p><strong>/conf/oas30/security</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4032,7 +4036,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-25 22:21:53 -0400
+Last updated 2020-09-27 22:21:53 -0400
 </div>
 </div>
 </body>
