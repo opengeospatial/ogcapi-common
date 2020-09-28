@@ -10,7 +10,7 @@ For formats that require manual inspection, perform the following:
 
 . Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition
 
-. Validate that the landing page includes a "conformance" link to the conformance class declaration
+. Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration
 |===
 
 The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.

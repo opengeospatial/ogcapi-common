@@ -104,14 +104,13 @@ Each resource representation in this standard includes an array of links. Implem
 Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the `type` link attribute).
 |`collection`|The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
 |`current` |Refers to a resource containing the most recent item(s) in a collection of resources. [IANA]
-|`conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
-|`data`|Refers to the root resource of a dataset in an API. [OGC]
+|`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
+|`http://www.opengis.net/def/rel/ogc/1.0/data`|Refers to the root resource of a dataset in an API. [OGC]
 |`describedby`|Refers to a resource providing information about the link's context.[IANA] +
 Links to external resources which further describe the subject resource
 |`first`|An IRI that refers to the furthest preceding resource in a series of resources.[IANA]
 |`item`|The target IRI points to a resource that is a member of the collection represented by the context IRI.[IANA]
-|`items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
-|`last`|An IRI that refers to the furthest following resource in a series of resources.
+|`http://www.opengis.net/def/rel/ogc/1.0/items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
 |`license`|Refers to a license associated with this context. [IANA]
 |`next`|Indicates that the link's context is a part of a series, and that the next in the series is the link target. [IANA]
 |`prev`|Indicates that the link's context is a part of a series, and that the previous in the series is the link target. [IANA]

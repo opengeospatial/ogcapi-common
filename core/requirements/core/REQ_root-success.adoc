@@ -6,5 +6,5 @@
 ^|B |The content of that response SHALL be based upon the schema link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[landingPage.json] and include links to the following resources:
 
 * `/api` (relation type 'service-desc' or 'service-doc')
-* `/conformance` (relation type 'conformance')
+* `/conformance` (relation type 'http://www.opengis.net/def/rel/ogc/1.0/conformance')
 |===
