@@ -123,7 +123,7 @@ API definitions are considered service descriptions.
 |`start`|Refers to the first resource in a collection of resources.[IANA]
 |===
 
-OGC API hyperlinks are defined using the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/link.json[Hyperlink Schema].
+OGC API hyperlinks are defined using the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema].
 
 [source, JSON]
 include::openapi/schemas/link.json[]

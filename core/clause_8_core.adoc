@@ -157,7 +157,7 @@ include::requirements/core/REQ_root-success.adoc[]
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-The landing page returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json[JSON schema].
+The landing page returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[JSON schema].
 
 .landingPage.json
 [source, JSON]
@@ -193,11 +193,11 @@ See <<http-status-codes>> for general guidance.
 [[conformance-classes]]
 ==== Declaration of Conformance Classes
 
-The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.
+The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, a declaration of the Conformance Classes.
 
-The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed.
+The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Declaration is fixed.
 
-Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.
+Ease of access is also supported by the structure of the Conformance Declaration resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.
 
 ===== Operation
 
@@ -207,11 +207,11 @@ include::requirements/core/REQ_conformance-op.adoc[]
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
-The conformance resource returned by this operation is based on the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.json[Conformance Schema]. 
+The Conformance Declaration resource returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json[Conformance Declaration Schema]. 
 
-Examples of OGC conformance resources are provided in <<conformance-response-examples>>.
+Examples of OGC Conformance Declarations are provided in <<conformance-response-examples>>.
 
-.Conformance Schema
+.Conformance Declaration Schema
 [source, JSON]
 include::openapi/schemas/confClasses.json[]
 
