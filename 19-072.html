@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-09-26</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-09-28</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -721,7 +721,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#api-definition">API Definition</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance declaration</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/conformance</code></p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#conformance-classes">Declaration of Conformance Classes</a></p></td>
@@ -758,10 +758,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
+<p>Ecere Corporation</p>
+</li>
+<li>
 <p>Heazeltech LLC</p>
 </li>
 <li>
-<p>National Geospatial-Intelligence Agency (NGA)</p>
+<p>U.S. National Geospatial-Intelligence Agency</p>
+</li>
+<li>
+<p>U.S Army Geospatial Center</p>
 </li>
 </ul>
 </div>
@@ -782,12 +788,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Affiliation</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Chuck Heazel <em>(editor)</em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Charles Heazel <em>(editor)</em></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Heazeltech</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Jérôme Jacovella-St-Louis</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Ecere Corporation</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Sylvester Hagler</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">NGA</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">U.S. National Geospatial-Intelligence Agency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Jeffrey Harrison</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">U.S Army Geospatial Center</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">others</p></td>
@@ -1104,6 +1118,9 @@ OGC                {root}             path   parameters</code></pre>
 <div class="paragraph">
 <p>This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <a href="#rc2616">HTTP</a> and <a href="#rc3986">URI Syntax</a> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <a href="#rfc3986">RFC 3986</a> for details.</p>
 </div>
+<div class="paragraph">
+<p>Additional information on this topic is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html">OGC API - Common Users Guide</a>.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="link-relation-conventions"><a class="anchor" href="#link-relation-conventions"></a>6.3. Link relations</h3>
@@ -1143,11 +1160,11 @@ Refers to a representation of the current resource which is encoded using anothe
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource containing the most recent item(s) in a collection of resources. [IANA]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>conformance</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code><a href="http://www.opengis.net/def/rel/ogc/1.0/conformance" class="bare">http://www.opengis.net/def/rel/ogc/1.0/conformance</a></code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource that identifies the specifications that the link&#8217;s context conforms to. [OGC]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>data</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code><a href="http://www.opengis.net/def/rel/ogc/1.0/data" class="bare">http://www.opengis.net/def/rel/ogc/1.0/data</a></code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to the root resource of a dataset in an API. [OGC]</p></td>
 </tr>
 <tr>
@@ -1164,12 +1181,8 @@ Links to external resources which further describe the subject resource</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target IRI points to a resource that is a member of the collection represented by the context IRI.[IANA]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>items</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code><a href="http://www.opengis.net/def/rel/ogc/1.0/items" class="bare">http://www.opengis.net/def/rel/ogc/1.0/items</a></code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a resource that is comprised of members of the collection represented by the link&#8217;s context. [OGC]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>last</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An IRI that refers to the furthest following resource in a series of resources.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>license</code></p></td>
@@ -1204,7 +1217,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>OGC API hyperlinks are defined using the following <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/link.json">Hyperlink Schema</a>.</p>
+<p>OGC API hyperlinks are defined using the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json">Hyperlink Schema</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1347,6 +1360,46 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect1">
 <h2 id="overview"><a class="anchor" href="#overview"></a>7. Overview</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access mechanisms are described in <a href="#cr-table-2">Table 3</a>.</p>
+</div>
+<table id="cr-table-2" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Common Core Resources</caption>
+<colgroup>
+<col style="width: 32%;">
+<col style="width: 23%;">
+<col style="width: 15%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Resource</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">URI</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">HTTP Method</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Document Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Landing page</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/</code></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#landing-page">API Landing Page</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API definition</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/api</code></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#api-definition">API Definition</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance declaration</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>/conformance</code></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#conformance-classes">Declaration of Conformance Classes</a></p></td>
+</tr>
+</tbody>
+</table>
 <div class="sect2">
 <h3 id="evolution-introduction"><a class="anchor" href="#evolution-introduction"></a>7.1. Evolution from OGC Web Services</h3>
 <div class="paragraph">
@@ -1462,10 +1515,10 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect3">
 <h4 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>8.1.2. HTTP Status Codes</h4>
 <div class="paragraph">
-<p><a href="#status-codes">Table 3</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
+<p><a href="#status-codes">Table 4</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
 </div>
 <table id="status-codes" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Typical HTTP status codes</caption>
+<caption class="title">Table 4. Typical HTTP status codes</caption>
 <colgroup>
 <col style="width: 15%;">
 <col style="width: 85%;">
@@ -1541,7 +1594,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <a href="#status-codes">Table 3</a>.</p>
+<p>Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <a href="#status-codes">Table 4</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1787,10 +1840,10 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div class="sect2">
 <h3 id="resource-requirements-section"><a class="anchor" href="#resource-requirements-section"></a>8.2. Resource Requirements</h3>
 <div class="paragraph">
-<p>The <code>core</code> resources are introduced in <a href="#core-resources-table">Table 4</a>. The requirements and recommendations applicable to these resources are provided in this sections below.</p>
+<p>The <code>core</code> resources are introduced in <a href="#core-resources-table">Table 5</a>. The requirements and recommendations applicable to these resources are provided in this sections below.</p>
 </div>
 <table id="core-resources-table" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 4. Common Core Resources</caption>
+<caption class="title">Table 5. Common Core Resources</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1822,7 +1875,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <p>A Web API has a single landing page on the <code>{root}</code> node.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the landing page is to provide clients with a starting point for using the API. It provides the basic information needed to understand the purpose, structure, and capabilities of the API. The landing page also serves as the starting point for navigation. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.</p>
+<p>The purpose of the landing page is to provide clients with a starting point for using the API. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.</p>
 </div>
 <div class="sect4">
 <h5 id="_operation"><a class="anchor" href="#_operation"></a>Operation</h5>
@@ -1876,7 +1929,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the schema <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a> and include links to the following resources:</p>
+<p>The content of that response SHALL be based upon the schema <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a> and include links to the following resources:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1884,7 +1937,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <p><code>/api</code> (relation type 'service-desc' or 'service-doc')</p>
 </li>
 <li>
-<p><code>/conformance</code> (relation type 'conformance')</p>
+<p><code>/conformance</code> (relation type 'http://www.opengis.net/def/rel/ogc/1.0/conformance')</p>
 </li>
 </ul>
 </div></div></td>
@@ -1895,7 +1948,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <p>In addition to the required resources, links to additional resources may be included in the Landing Page.</p>
 </div>
 <div class="paragraph">
-<p>The landing page returned by this operation is based on the following <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">JSON schema</a>.</p>
+<p>The landing page returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">JSON schema</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">landingPage.json</div>
@@ -2078,13 +2131,13 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <div class="sect3">
 <h4 id="conformance-classes"><a class="anchor" href="#conformance-classes"></a>8.2.3. Declaration of Conformance Classes</h4>
 <div class="paragraph">
-<p>The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, the Conformance Classes.</p>
+<p>The OGC Web API Standards define a collection of modules which can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on which modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, a declaration of the Conformance Classes.</p>
 </div>
 <div class="paragraph">
-<p>The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Classes is fixed.</p>
+<p>The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Declaration is fixed.</p>
 </div>
 <div class="paragraph">
-<p>Ease of access is also supported by the structure of the Conformance Class resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.</p>
+<p>Ease of access is also supported by the structure of the Conformance Declaration resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation. Designed to be accessible to even the simplest client.</p>
 </div>
 <div class="sect4">
 <h5 id="_operation_3"><a class="anchor" href="#_operation_3"></a>Operation</h5>
@@ -2109,7 +2162,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL support the HTTP GET operation on all links from the landing page which have the relation type <code>conformance</code>.</p>
+<p>The server SHALL support the HTTP GET operation on all links from the landing page which have the relation type <code><a href="http://www.opengis.net/def/rel/ogc/1.0/conformance" class="bare">http://www.opengis.net/def/rel/ogc/1.0/conformance</a></code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2144,23 +2197,23 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the schema <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.json">confClasses.json</a> and list all OGC API conformance classes that the API conforms to.</p>
+<p>The content of that response SHALL be based upon the schema <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json">confClasses.json</a> and list all OGC API conformance classes that the API conforms to.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The conformance resource returned by this operation is based on the following <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.json">Conformance Schema</a>.</p>
+<p>The Conformance Declaration resource returned by this operation is based on the following <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json">Conformance Declaration Schema</a>.</p>
 </div>
 <div class="paragraph">
-<p>Examples of OGC conformance resources are provided in <a href="#conformance-response-examples">Conformance Examples</a>.</p>
+<p>Examples of OGC Conformance Declarations are provided in <a href="#conformance-response-examples">Conformance Examples</a>.</p>
 </div>
 <div class="listingblock">
-<div class="title">Conformance Schema</div>
+<div class="title">Conformance Declaration Schema</div>
 <div class="content">
 <pre class="highlight"><code class="language-JSON" data-lang="JSON">{
 "$schema": "http://json-schema.org/draft-07/schema#",
-"title": "Conformance Classes Schema",
+"title": "Conformance Declaration Schema",
 "description": "This schema defines the resource returned from the /Conformance path",
 "type": "object",
 "required": [
@@ -2417,7 +2470,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </tbody>
 </table>
 <div class="paragraph">
-<p>An example JSON Schema for the landing page is available at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a>.</p>
+<p>An example JSON Schema for the landing page is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a>.</p>
 </div>
 </div>
 </div>
@@ -2960,7 +3013,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate the landing page for all supported media types using the resources and tests identified in <a href="#landing-page-schema">Table 5</a></p>
+<p>Validate the landing page for all supported media types using the resources and tests identified in <a href="#landing-page-schema">Table 6</a></p>
 </div>
 <div class="paragraph">
 <p>For formats that require manual inspection, perform the following:</p>
@@ -2971,7 +3024,7 @@ DONE</p>
 <p>Validate that the landing page includes a "service-desc" and/or "service-doc" link to an API Definition</p>
 </li>
 <li>
-<p>Validate that the landing page includes a "conformance" link to the conformance class declaration</p>
+<p>Validate that the landing page includes a "http://www.opengis.net/def/rel/ogc/1.0/conformance" link to the conformance class declaration</p>
 </li>
 </ol>
 </div></div></td>
@@ -2982,7 +3035,7 @@ DONE</p>
 <p>The landing page may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate the landing page against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="landing-page-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 5. Schema and Tests for Landing Pages</caption>
+<caption class="title">Table 6. Schema and Tests for Landing Pages</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -2998,12 +3051,12 @@ DONE</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/conf/html/content</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/landingPage.json">landingPage.json</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/conf/json/content</a></p></td>
 </tr>
 </tbody>
@@ -3129,7 +3182,7 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>DO FOR EACH <code>conformance</code> link on the landing page:</p>
+<p>DO FOR EACH <code><a href="http://www.opengis.net/def/rel/ogc/1.0/conformance" class="bare">http://www.opengis.net/def/rel/ogc/1.0/conformance</a></code> link on the landing page:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3196,7 +3249,7 @@ THEN</p>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Validate the response document against the schema <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/schemas/confClasses.yaml">confClasses.yaml</a></p>
+<p>Validate the response document against the schema <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json">confClasses.yaml</a></p>
 </li>
 <li>
 <p>Validate that the document includes the conformance class "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core"</p>
@@ -3747,25 +3800,25 @@ THEN</p>
       "href": "http://www.example.com/oapi-c/api?f=text/html"
     },
     {
-      "rel": "ogc/conformance",
+      "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
       "type": "application/json",
       "title": "Conformance Declaration as JSON",
       "href": "http://www.example.com/oapi-c/conformance?f=application/json"
     },
     {
-      "rel": "ogc/conformance",
+      "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
       "type": "text/html",
       "title": "Conformance Declaration as HTML",
       "href": "http://www.example.com/oapi-c/conformance?f=text/html"
     },
     {
-      "rel": "ogc/data",
+      "rel": "http://www.opengis.net/def/rel/ogc/1.0/data",
       "type": "application/json",
       "title": "Collections Metadata as JSON",
       "href": "http://www.example.com/oapi-c/collections?f=application/json"
     },
     {
-      "rel": "ogc/data",
+      "rel": "http://www.opengis.net/def/rel/ogc/1.0/data",
       "type": "text/html",
       "title": "Collections Metadata as HTML",
       "href": "http://www.example.com/oapi-c/collections?f=text/html"
@@ -4036,7 +4089,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-27 22:21:53 -0400
+Last updated 2020-09-29 22:21:32 -0400
 </div>
 </div>
 </body>
