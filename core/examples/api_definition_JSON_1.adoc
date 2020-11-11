@@ -1,0 +1,19 @@
+[[json-api-definition]]
+.JSON API Definition
+=================
+This is an example of an API Definition response in JSON. It describes an implementation of the OGC API-Common Part 1 - Core Standard.
+
+This example also illustrates:
+
+. Extended metadata (x-keywords),
+. Multiple Servers,
+. The use of tags to associate external documentation,
+. Responses which reference the appropriate JSON schema
+
+[source,JSON]
+----
+
+include::../openapi/examples/openapiExample.json[]
+
+----
+=================

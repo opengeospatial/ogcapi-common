@@ -97,6 +97,8 @@ The link relationships used in API-Common Core are described in <<link-relations
 
 Each resource representation in this standard includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an *enclosure* link could reference a bulk download of a collection. Or a *related* link on a feature could reference a related feature.
 
+include::recommendations/general/PER_additional-relation-types.adoc[]
+
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
 [width="90%",cols="2,6",options="header"]
@@ -108,6 +110,7 @@ Refers to a representation of the current resource which is encoded using anothe
 |`current` |Refers to a resource containing the most recent item(s) in a collection of resources. [IANA]
 |`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
 |`http://www.opengis.net/def/rel/ogc/1.0/data`|Refers to the root resource of a dataset in an API. [OGC]
+|`http://www.opengis.net/def/rel/ogc/1.0/data-meta`|Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines. [OGC]
 |`describedby`|Refers to a resource providing information about the link's context.[IANA] +
 Links to external resources which further describe the subject resource
 |`first`|An IRI that refers to the furthest preceding resource in a series of resources.[IANA]
