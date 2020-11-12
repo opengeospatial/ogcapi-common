@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-09-28</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-11-11</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -471,7 +471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    19-072</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.7</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.9</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC&#174; Implementation Standard</p></td>
@@ -667,8 +667,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_examples_informative">Annex B: Examples (Informative)</a>
 <ul class="sectlevel2">
 <li><a href="#landing-page-examples">B.1. Example Landing Pages</a></li>
-<li><a href="#oas-examples">B.2. API Description Examples</a></li>
-<li><a href="#conformance-response-examples">B.3. Conformance Examples</a></li>
+<li><a href="#conformance-response-examples">B.2. Conformance Examples</a></li>
+<li><a href="#oas-examples">B.3. API Definition Examples</a></li>
 </ul>
 </li>
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
@@ -1133,6 +1133,35 @@ OGC                {root}             path   parameters</code></pre>
 <div class="paragraph">
 <p>Each resource representation in this standard includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an <strong>enclosure</strong> link could reference a bulk download of a collection. Or a <strong>related</strong> link on a feature could reference a related feature.</p>
 </div>
+<table id="per_general_additional-link-relations" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 1</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/per/general/additional-link-relations</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">Servers MAY link to resource types in addition to those identified in <a href="#link-relations-table">Table 2</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Those links SHOULD use link relation types defined in the <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA</a> or <a href="https://github.com/opengeospatial/NamingAuthority/blob/master/incubation/linkRelationTypes/linkrelations.csv">OGC</a> registries.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Those links SHOULD NOT use any of the link relation types identified in <a href="#link-relations-table">Table 2</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <table id="link-relations-table" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 2. Link Relations</caption>
 <colgroup>
@@ -1166,6 +1195,10 @@ Refers to a representation of the current resource which is encoded using anothe
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code><a href="http://www.opengis.net/def/rel/ogc/1.0/data" class="bare">http://www.opengis.net/def/rel/ogc/1.0/data</a></code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to the root resource of a dataset in an API. [OGC]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code><a href="http://www.opengis.net/def/rel/ogc/1.0/data-meta" class="bare">http://www.opengis.net/def/rel/ogc/1.0/data-meta</a></code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines. [OGC]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>describedby</code></p></td>
@@ -1586,7 +1619,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 1</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/general/additional-status-codes</strong></p>
 </div></div></td>
@@ -3843,22 +3876,7 @@ THEN</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="oas-examples"><a class="anchor" href="#oas-examples"></a>B.2. API Description Examples</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-include::examples/tbd.adoc[]
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="conformance-response-examples"><a class="anchor" href="#conformance-response-examples"></a>B.3. Conformance Examples</h3>
+<h3 id="conformance-response-examples"><a class="anchor" href="#conformance-response-examples"></a>B.2. Conformance Examples</h3>
 <div class="exampleblock">
 <div class="title">Example 3. Conformance Response</div>
 <div class="content">
@@ -3874,6 +3892,203 @@ include::examples/tbd.adoc[]
     "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html",
     "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json"
   ]
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="oas-examples"><a class="anchor" href="#oas-examples"></a>B.3. API Definition Examples</h3>
+<div id="json-api-definition" class="exampleblock">
+<div class="title">Example 4. JSON API Definition</div>
+<div class="content">
+<div class="paragraph">
+<p>This is an example of an API Definition response in JSON. It describes an implementation of the OGC API-Common Part 1 - Core Standard.</p>
+</div>
+<div class="paragraph">
+<p>This example also illustrates:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Extended metadata (x-keywords),</p>
+</li>
+<li>
+<p>Multiple Servers,</p>
+</li>
+<li>
+<p>The use of tags to associate external documentation,</p>
+</li>
+<li>
+<p>Responses which reference the appropriate JSON schema</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+  "openapi" : "3.0.2",
+  "info" : {
+    "title" : "A sample API conforming to the draft standard OGC API - Common - Part 1 - Core",
+    "version" : "1.0.0",
+    "description" : "This is a sample OpenAPI definition of the draft standard OGC API - Common - Part 1 - Core. This example is a generic OGC API definition that describes the Common Core of OGC Web APIs. This generic OpenAPI definition does not provide any details on the hosted content.",
+    "contact" : {
+      "name" : "Acme Corporation",
+      "email" : "info@example.org",
+      "url" : "http://example.org/"
+    },
+    "license" : {
+      "name" : "CC-BY 4.0 license",
+      "url" : "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "x-keywords" : [ "geospatial", "data", "api" ]
+  },
+  "servers" : [ {
+    "url" : "https://data.example.org/",
+    "description" : "Production server"
+  }, {
+    "url" : "https://dev.example.org/",
+    "description" : "Development server"
+  } ],
+  "tags" : [ {
+    "name" : "capabilities",
+    "description" : "essential characteristics of this API"
+  }, {
+    "name" : "data",
+    "description" : "access to data"
+  }, {
+    "name" : "server",
+    "description" : "Information about the server hosting this API",
+    "externalDocs" : {
+      "description" : "information",
+      "url" : "https://example.com/sample_api/documentation"
+    }
+  } ],
+  "paths" : {
+    "/" : {
+      "get" : {
+        "description" : "The landing page provides links to the API definition and the conformance statements for this API.",
+        "operationId" : "getLandingPage",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/f"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json"
+                }
+              }
+            }
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400"
+          },
+          "500" : {
+            "$ref" : "#/components/responses/500"
+          }
+        },
+        "summary" : "Landing page",
+        "tags" : [ "server" ]
+      }
+    },
+    "/api" : {
+      "get" : {
+        "description" : "This document",
+        "operationId" : "getAPIDefinition",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/f"
+        } ],
+        "responses" : {
+          "200" : {
+            "$ref" : "#/components/responses/200"
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400"
+          },
+          "default" : {
+            "$ref" : "#/components/responses/400"
+          }
+        },
+        "summary" : "This document",
+        "tags" : [ "server" ]
+      }
+    },
+    "/conformance" : {
+      "get" : {
+        "description" : "A list of all conformance classes that the server conforms to.",
+        "operationId" : "getConformanceClasses",
+        "parameters" : [ {
+          "$ref" : "#/components/parameters/f"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json"
+                }
+              }
+            }
+          },
+          "400" : {
+            "$ref" : "#/components/responses/400"
+          },
+          "500" : {
+            "$ref" : "#/components/responses/500"
+          }
+        },
+        "summary" : "API conformance definition",
+        "tags" : [ "server", "capabilities" ]
+      }
+    }
+  },
+  "components" : {
+    "parameters" : {
+      "f" : {
+        "description" : "The optional f parameter indicates the output format which the server shall provide as part of the response document.  The default format is JSON.",
+        "explode" : false,
+        "in" : "query",
+        "name" : "f",
+        "required" : false,
+        "schema" : {
+          "default" : "json",
+          "enum" : [ "json", "html" ],
+          "type" : "string"
+        },
+        "style" : "form"
+      }
+    },
+    "responses" : {
+      "200" : {
+        "description" : "successful operation"
+      },
+      "400" : {
+        "description" : "error response",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/exception.yaml"
+            }
+          }
+        }
+      },
+      "500" : {
+        "description" : "server errors",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/exception.yaml"
+            }
+          }
+        }
+      }
+    }
+  }
 }</code></pre>
 </div>
 </div>
@@ -4089,7 +4304,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-10 22:22:05 -0500
+Last updated 2020-11-11 22:22:33 -0500
 </div>
 </div>
 </body>
