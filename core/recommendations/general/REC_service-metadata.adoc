@@ -1,0 +1,8 @@
+[[rec_general_service-metadata]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/general/service-metadata* 
+2+|In order to maintain commonality between OGC Web Services and OGC Web APIs, the API should expose the Service Metadata defined in OWS-Common.
+^|A |The Service Metadata should be accessed using the `service-meta` link relation type,
+^|B |The JSON Schema at https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/serviceMetadata.json[https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/serviceMetadata.json] may be used to encode the Service Metadata.
+|===

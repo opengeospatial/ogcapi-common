@@ -124,6 +124,7 @@ A link to another representation of this resource.
 |`service-desc`|Identifies service description for the context that is primarily intended for consumption by machines. [IANA] +
 API definitions are considered service descriptions.
 |`service-doc`|Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
+|`service-meta`|Identifies general metadata for the context that is primarily intended for consumption by machines. [IANA]
 |`start`|Refers to the first resource in a collection of resources.[IANA]
 |===
 
@@ -136,7 +137,16 @@ In addition, links should be passed in the response using HTTP link headers. The
 
 include::recommendations/general/REC_link-header.adoc[]
 
-Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide]. 
+Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide].
+
+[[service-metadata-conventions]]
+=== Service Metadata
+
+OGC Web Services provide a set of metadata which identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provided the same information. 
+
+include::recommendations/general/REC_service-metadata.adoc[]
+
+The `Info` object serves this purpose for OpenAPI. An example of an OpenAPI `Info` object populated with OWS metadata is provided in the <<service-metadata-examples>> section.
 
 [[https-conventions]]
 === Use of HTTPS
