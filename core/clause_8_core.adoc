@@ -190,6 +190,12 @@ include::recommendations/core/REC_api-definition-oas.adoc[]
 
 See <<http-status-codes>> for general guidance.
 
+===== Service Metadata
+
+OGC Web Services provide a set of Service Metadata which identifies the service and provides information about the service provider. It is recommended that OGC Web APIs provide the same information.     
+
+include::recommendations/general/REC_service-metadata.adoc[]
+
 [[conformance-classes]]
 ==== Declaration of Conformance Classes
 

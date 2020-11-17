@@ -1,0 +1,10 @@
+[[rec_oas30_service-metadata]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/oas30/service-metadata* 
+2+|In order to maintain commonality between OGC Web Services and OGC Web APIs, an OGC Web API should expose the Service Metadata defined in OWS-Common.
+^|A |A Service Metadata response SHOULD include the Service Identification and Service Provider metadata defined in the <<ogc-06-121,OGC Web Services Common 2.0 Standard>>.
+^|B |Service Metadata SHOULD be encoded in the OpenAPI `Info` object.
+^|C |To simplify access, the Service Metadata SHOULD be available as a separate resource from the Service Definition. 
+^|D |The JSON Schema at https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/oasInfo.json[https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/oasInfo.json] MAY be used to encode the Service Metadata.
+|===

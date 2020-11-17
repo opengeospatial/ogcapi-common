@@ -139,15 +139,6 @@ include::recommendations/general/REC_link-header.adoc[]
 
 Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide].
 
-[[service-metadata-conventions]]
-=== Service Metadata
-
-OGC Web Services provide a set of metadata which identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provided the same information. 
-
-include::recommendations/general/REC_service-metadata.adoc[]
-
-The `Info` object serves this purpose for OpenAPI. An example of an OpenAPI `Info` object populated with OWS metadata is provided in the <<service-metadata-examples>> section.
-
 [[https-conventions]]
 === Use of HTTPS
 

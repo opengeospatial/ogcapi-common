@@ -62,6 +62,15 @@ The OpenAPI specification currently supports the following link:https://github.c
 
 include::requirements/oas30/REQ_security.adoc[]
 
+[[rc_oas30-service-metadata]]
+=== Service Metadata
+
+OGC Web Services provide a set of metadata which identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provide the same information. A `service-meta` link is provided on the Landing Page for this purpose. 
+
+include::recommendations/oas30/REC_service-metadata.adoc[]
+
+An example of an OpenAPI `Info` object populated with OWS metadata is provided in the <<service-metadata-examples>> section.
+
 === Further Information
 
 Additional guidance on using OpenAPI in OGC Web API implementations can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.pdf[OAPI-Common Users Guide].

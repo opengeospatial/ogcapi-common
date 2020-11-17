@@ -2,7 +2,11 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Recommendation {counter:rec-id}* |*/rec/general/service-metadata* 
-2+|In order to maintain commonality between OGC Web Services and OGC Web APIs, the API should expose the Service Metadata defined in OWS-Common.
-^|A |The Service Metadata should be accessed using the `service-meta` link relation type,
-^|B |The JSON Schema at https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/serviceMetadata.json[https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/serviceMetadata.json] may be used to encode the Service Metadata.
+2+|In order to maintain commonality between OGC Web Services and OGC Web APIs, an OGC Web API should expose the Service Metadata defined in OWS-Common.
+^|A |The server SHOULD support the HTTP GET operation on all links from the landing page which have the relation type ``service-meta``.
+^|B |A successful execution of the operation SHOULD be reported as a response with an HTTP status code ``200``.
+^|C |The content of that response SHOULD include the Service Identification and Service Provider metadata defined in the <<ogc-06-121,OGC Web Services Common 2.0 Standard>>.
+^|D |If the API definition document uses the OpenAPI Specification 3.0, +
+{nbsp}{nbsp}{nbsp}{nbsp}THEN +
+The response SHOULD follow the OpenAPI recommendations for <<rc_oas30-service-metadata,Service Metadata>>.
 |===
