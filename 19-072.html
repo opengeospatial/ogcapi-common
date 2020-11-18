@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-11-16</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-11-17</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -581,14 +581,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#fundamental-concepts">6.1. Web API Fundamentals</a></li>
 <li><a href="#identifier-conventions">6.2. Identifiers</a></li>
 <li><a href="#link-relation-conventions">6.3. Link relations</a></li>
-<li><a href="#service-metadata-conventions">6.4. Service Metadata</a></li>
-<li><a href="#https-conventions">6.5. Use of HTTPS</a></li>
-<li><a href="#api-definition-conventions">6.6. API definition</a>
+<li><a href="#https-conventions">6.4. Use of HTTPS</a></li>
+<li><a href="#api-definition-conventions">6.5. API definition</a>
 <ul class="sectlevel3">
-<li><a href="#_general_remarks">6.6.1. General remarks</a></li>
-<li><a href="#_role_of_openapi">6.6.2. Role of OpenAPI</a></li>
-<li><a href="#_references_to_openapi_components_in_normative_statements">6.6.3. References to OpenAPI components in normative statements</a></li>
-<li><a href="#_reusable_openapi_components">6.6.4. Reusable OpenAPI components</a></li>
+<li><a href="#_general_remarks">6.5.1. General remarks</a></li>
+<li><a href="#_role_of_openapi">6.5.2. Role of OpenAPI</a></li>
+<li><a href="#_references_to_openapi_components_in_normative_statements">6.5.3. References to OpenAPI components in normative statements</a></li>
+<li><a href="#_reusable_openapi_components">6.5.4. Reusable OpenAPI components</a></li>
 </ul>
 </li>
 </ul>
@@ -634,7 +633,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_complete_definition">10.2. Complete definition</a></li>
 <li><a href="#rc_oas30-exceptions">10.3. Exceptions</a></li>
 <li><a href="#rc_oas30-security">10.4. Security</a></li>
-<li><a href="#_further_information">10.5. Further Information</a></li>
+<li><a href="#rc_oas30-service-metadata">10.5. Service Metadata</a></li>
+<li><a href="#_further_information">10.6. Further Information</a></li>
 </ul>
 </li>
 <li><a href="#mediatypes">11. Media Types</a></li>
@@ -918,6 +918,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
+</li>
+<li>
+<p><a id="ogc-06-121"></a> Whiteside, A., Greenwood, J.: <strong>OGC Web Services Common Standard</strong>, version 2.0, <a href="http://portal.opengeospatial.org/files/?artifact_id=38867">OGC 06-121r9</a></p>
 </li>
 </ul>
 </div>
@@ -1331,45 +1334,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="service-metadata-conventions"><a class="anchor" href="#service-metadata-conventions"></a>6.4. Service Metadata</h3>
-<div class="paragraph">
-<p>OGC Web Services provide a set of metadata which identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provided the same information.</p>
-</div>
-<table id="rec_general_service-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/general/service-metadata</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">In order to maintain commonality between OGC Web Services and OGC Web APIs, the API should expose the Service Metadata defined in OWS-Common.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The Service Metadata should be accessed using the <code>service-meta</code> link relation type,</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The JSON Schema at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/serviceMetadata.json">https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/serviceMetadata.json</a> may be used to encode the Service Metadata.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The <code>Info</code> object serves this purpose for OpenAPI. An example of an OpenAPI <code>Info</code> object populated with OWS metadata is provided in the <a href="#service-metadata-examples">Service Metadata Examples</a> section.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="https-conventions"><a class="anchor" href="#https-conventions"></a>6.5. Use of HTTPS</h3>
+<h3 id="https-conventions"><a class="anchor" href="#https-conventions"></a>6.4. Use of HTTPS</h3>
 <div class="paragraph">
 <p>For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <a href="#rfc2818">HTTPS</a>, not <a href="#rfc2616">HTTP</a>.</p>
 </div>
@@ -1378,9 +1343,9 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="api-definition-conventions"><a class="anchor" href="#api-definition-conventions"></a>6.6. API definition</h3>
+<h3 id="api-definition-conventions"><a class="anchor" href="#api-definition-conventions"></a>6.5. API definition</h3>
 <div class="sect3">
-<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.6.1. General remarks</h4>
+<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.5.1. General remarks</h4>
 <div class="paragraph">
 <p>This OGC standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.</p>
 </div>
@@ -1389,7 +1354,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.6.2. Role of OpenAPI</h4>
+<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
 <div class="paragraph">
 <p>This standard uses OpenAPI 3.0 fragments in its' examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the <code>/conformance</code> path.</p>
 </div>
@@ -1398,7 +1363,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.6.3. References to OpenAPI components in normative statements</h4>
+<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.5.3. References to OpenAPI components in normative statements</h4>
 <div class="paragraph">
 <p>Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.</p>
 </div>
@@ -1426,7 +1391,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.6.4. Reusable OpenAPI components</h4>
+<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
 <div class="paragraph">
 <p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0">http://schemas.opengis.net/ogcapi/common/part1/1.0</a>.</p>
 </div>
@@ -1802,7 +1767,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/etag</strong></p>
 </div></div></td>
@@ -1828,7 +1793,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/cross-origin</strong></p>
 </div></div></td>
@@ -1876,7 +1841,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/html</strong></p>
 </div></div></td>
@@ -1899,7 +1864,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/general/json</strong></p>
 </div></div></td>
@@ -2114,7 +2079,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-op</strong></p>
 </div></div></td>
@@ -2182,7 +2147,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-oas</strong></p>
 </div></div></td>
@@ -2203,6 +2168,55 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <div class="paragraph">
 <p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="_service_metadata"><a class="anchor" href="#_service_metadata"></a>Service Metadata</h5>
+<div class="paragraph">
+<p>OGC Web Services provide a set of Service Metadata which identifies the service and provides information about the service provider. It is recommended that OGC Web APIs provide the same information.</p>
+</div>
+<table id="rec_general_service-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/general/service-metadata</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">In order to maintain commonality between OGC Web Services and OGC Web APIs, an OGC Web API should expose the Service Metadata defined in OWS-Common.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHOULD support the HTTP GET operation on all links from the landing page which have the relation type <code>service-meta</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A successful execution of the operation SHOULD be reported as a response with an HTTP status code <code>200</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The content of that response SHOULD include the Service Identification and Service Provider metadata defined in the <a href="#ogc-06-121">OGC Web Services Common 2.0 Standard</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the API definition document uses the OpenAPI Specification 3.0,<br>
+&#160;&#160;&#160;&#160;THEN<br>
+The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-service-metadata">Service Metadata</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -2780,7 +2794,57 @@ content:
 </table>
 </div>
 <div class="sect2">
-<h3 id="_further_information"><a class="anchor" href="#_further_information"></a>10.5. Further Information</h3>
+<h3 id="rc_oas30-service-metadata"><a class="anchor" href="#rc_oas30-service-metadata"></a>10.5. Service Metadata</h3>
+<div class="paragraph">
+<p>OGC Web Services provide a set of metadata which identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provide the same information. A <code>service-meta</code> link is provided on the Landing Page for this purpose.</p>
+</div>
+<table id="rec_oas30_service-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/oas30/service-metadata</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">In order to maintain commonality between OGC Web Services and OGC Web APIs, an OGC Web API should expose the Service Metadata defined in OWS-Common.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>A Service Metadata response SHOULD include the Service Identification and Service Provider metadata defined in the <a href="#ogc-06-121">OGC Web Services Common 2.0 Standard</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Service Metadata SHOULD be encoded in the OpenAPI <code>Info</code> object.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>To simplify access, the Service Metadata SHOULD be available as a separate resource from the Service Definition.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The JSON Schema at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/oasInfo.json">https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/oasInfo.json</a> MAY be used to encode the Service Metadata.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>An example of an OpenAPI <code>Info</code> object populated with OWS metadata is provided in the <a href="#service-metadata-examples">Service Metadata Examples</a> section.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_further_information"><a class="anchor" href="#_further_information"></a>10.6. Further Information</h3>
 <div class="paragraph">
 <p>Additional guidance on using OpenAPI in OGC Web API implementations can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.pdf">OAPI-Common Users Guide</a>.</p>
 </div>
@@ -4405,7 +4469,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-16 22:22:19 -0500
+Last updated 2020-11-17 22:22:34 -0500
 </div>
 </div>
 </body>
