@@ -4,6 +4,7 @@
 "description": "JSON schema for the OGC API - Common landing page",
 "type": "object",
 "required": [
+    "title",
     "links"
     ],
 "properties": {

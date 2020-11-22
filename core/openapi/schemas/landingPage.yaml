@@ -1,5 +1,6 @@
 type: object
 required:
+  - title
   - links
 properties:
   title:
