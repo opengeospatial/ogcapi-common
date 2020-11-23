@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-11-17</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-11-22</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -890,9 +890,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a id="rfc2616"></a> Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., Berners-Lee, T.: <strong>IETF RFC 2616, HTTP/1.1</strong>, <a href="http://tools.ietf.org/rfc/rfc2616.txt">http://tools.ietf.org/rfc/rfc2616.txt</a></p>
-</li>
-<li>
 <p><a id="rfc2818"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
 </li>
 <li>
@@ -905,7 +902,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="rfc6570"></a> Greforio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D.: <strong>IETF RFC 6570, URI Template</strong>, <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a></p>
 </li>
 <li>
-<p><a id="rfc7231"></a> Fielding, R., Reschke, JSchaub: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
+<p><a id="rfc7230"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</strong>, <a href="https://tools.ietf.org/rfc/rfc7230.txt">https://tools.ietf.org/rfc/rfc7230.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7231"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7232"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7232, Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests</strong>, <a href="https://tools.ietf.org/rfc/rfc7232.txt">https://tools.ietf.org/rfc/rfc7232.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7235"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7235, Hypertext Transfer Protocol (HTTP/1.1): Authentication</strong>, <a href="https://tools.ietf.org/rfc/rfc7235.txt">https://tools.ietf.org/rfc/rfc7235.txt</a></p>
 </li>
 <li>
 <p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a></p>
@@ -1758,7 +1764,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div class="sect3">
 <h4 id="_web_caching"><a class="anchor" href="#_web_caching"></a>8.1.4. Web Caching</h4>
 <div class="paragraph">
-<p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc2616">HTTP/1.1 (RFC 2616)</a>.</p>
+<p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc7232">HTTP/1.1 (RFC 7232)</a>.</p>
 </div>
 <table id="rec_general_etag" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1829,7 +1835,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <p>Additional content negotiation techniques are allowed, but support is not required of implementations conformant to this Standard.</p>
 </div>
 <div class="paragraph">
-<p>While the OAPI Common Core standard does not specify any mandatory encoding, the following encodings are recommended:</p>
+<p>While this standard does not specify any mandatory encoding, the following encodings are recommended:</p>
 </div>
 <div id="rec_html" class="paragraph">
 <p>HTML encoding recommendation:</p>
@@ -2001,6 +2007,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 "description": "JSON schema for the OGC API - Common landing page",
 "type": "object",
 "required": [
+    "title",
     "links"
     ],
 "properties": {
@@ -2967,119 +2974,15 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </div>
 <div class="sect4">
 <h5 id="_query_parameters"><a class="anchor" href="#_query_parameters"></a>Query Parameters</h5>
-<table id="ats_core_query-param-known" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 2</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/conf/core/query-param-known</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that a query parameter advertised through the API complies with its' advertised behavior.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_http">/req/core/query-param-known</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>DO FOR ALL query parameters advertised in the API definition<br>
-&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
-&#160;&#160;&#160;&#160;1. Execute that operation using the query parameter<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;with values that exercise all of the advertised constraints on those values.<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(Example: minimum and maximum values)<br>
-&#160;&#160;&#160;&#160;2. Validate that the operation performed as expected.<br>
-&#160;&#160;DONE<br>
-DONE</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="ats_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/conf/core/query-param-unknown</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that an error is returned when a query parameter is used which has not been advertised through the API.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_http">/req/core/query-param-unknown</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>DO FOR ALL operations advertised in the API definition<br>
-&#160;&#160;1. Execute that operation using a query parameter which is not advertised through the API definition.<br>
-&#160;&#160;2. Validate that the operation returns a reponse with the status code <code>400</code>.<br>
-DONE</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="ats_core_query-param-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/conf/core/query-param-invalid</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that an error is returned when a query parameter does not comply with its' advertised behavior.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_http">/req/core/query-param-invalid</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>DO FOR ALL query parameters advertised in the API definition<br>
-&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
-&#160;&#160;&#160;&#160;1. Execute that operation using the query parameter<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;with values that do not comply with the advertised constraints on those values.<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(Example: exceeding minimum or maximum values)<br>
-&#160;&#160;&#160;&#160;2. Validate that the operation returns a reponse with the status code <code>400</code>.<br>
-&#160;&#160;DONE<br>
-DONE</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Unresolved directive in abstract_tests/ATS_class_core.adoc - include::core/ATS_query-param-known.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in abstract_tests/ATS_class_core.adoc - include::core/ATS_query-param-unknown.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in abstract_tests/ATS_class_core.adoc - include::core/ATS_query-param-invalid.adoc[]</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -3091,7 +2994,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/root-op</strong></p>
 </div></div></td>
@@ -3134,7 +3037,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/root-success</strong></p>
 </div></div></td>
@@ -3212,7 +3115,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/api-definition-op</strong></p>
 </div></div></td>
@@ -3267,7 +3170,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/api-definition-success</strong></p>
 </div></div></td>
@@ -3302,7 +3205,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/conformance-op</strong></p>
 </div></div></td>
@@ -3368,7 +3271,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/conformance-success</strong></p>
 </div></div></td>
@@ -3442,7 +3345,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/json/definition</strong></p>
 </div></div></td>
@@ -3494,7 +3397,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/json/content</strong></p>
 </div></div></td>
@@ -3565,7 +3468,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/html/definition</strong></p>
 </div></div></td>
@@ -3617,7 +3520,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/html/content</strong></p>
 </div></div></td>
@@ -3686,7 +3589,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/completeness</strong></p>
 </div></div></td>
@@ -3718,7 +3621,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/exceptions-codes</strong></p>
 </div></div></td>
@@ -3750,7 +3653,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -3789,7 +3692,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/oas-definition-2</strong></p>
 </div></div></td>
@@ -3821,7 +3724,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/oas-impl</strong></p>
 </div></div></td>
@@ -3860,7 +3763,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/security</strong></p>
 </div></div></td>
@@ -4469,7 +4372,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-21 22:32:39 -0500
+Last updated 2020-11-22 22:23:19 -0500
 </div>
 </div>
 </body>
