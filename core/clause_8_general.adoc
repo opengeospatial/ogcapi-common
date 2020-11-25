@@ -83,13 +83,14 @@ include::requirements/general/REQ_query-param-invalid.adoc[]
 
 This is a general rule that applies to all parameters, whether they are specified in this document or in additional parts. A value is invalid if it violates the API definition or any other constraint for that parameter stated in a requirement.
 
+[[web-caching-section]]
 ==== Web Caching
 
 Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc7232,HTTP/1.1 (RFC 7232)>>.
 
 include::recommendations/general/REC_etag.adoc[]
 
-[[cross-origin]]
+[[cross-origin-section]]
 ==== Support for Cross-Origin Requests
 
 If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.
@@ -101,7 +102,8 @@ Two common mechanisms to support cross-origin requests are:
 * link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
-==== Encodings
+[[resource-encoding-section]]
+==== Resource Encodings
 
 A Web API provides access to <<resource-definition,resources>> through <<representation-definition,representations>> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate which encoding format to use through the content negotiation process defined in <<rfc7231,IETF RFC 7231>>.
 
@@ -116,3 +118,78 @@ include::recommendations/general/REC_html.adoc[]
 [[rec_json]]
 JSON encoding recommndation:
 include::recommendations/general/REC_json.adoc[]
+
+[[parameter-encoding-section]]
+==== Parameter Encoding
+
+===== Capitalization
+
+Parameter names SHALL be in Upper Camel Case.
+
+All parameter value strings SHALL have the first word and any subsequent words in the name capitalized. All other letters SHALL be lower case.
+
+EXAMPLE One possible `request` parameter value is ―GetCapabilities‖
+
+===== Parameter Value Lists
+Parameters values containing lists SHALL designate the list items using the comma (",") as a delimiter.
+
+Additional white space shall not be used to delimit list items. 
+
+Any list item values which include a space or comma SHALL escape the space or comma character using the URL encoding rules from <<rfc2396,IETF RFC 2396>>.
+
+All empty entries SHALL be represented by the empty string (""). 
+
+Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list ("") can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.
+
+===== Numeric and Boolean Values
+
+[source,java]
+----
+query         = *uric
+
+uric          = reserved | unreserved | escaped
+reserved      = ";" | "/" | "?" | ":" | "@" | "&" | "=" | "+" | "$" | ","
+unreserved    = alphanum | mark
+
+mark          = "-" | "_" | "." | "!" | "~" | "*" | "'" | "(" | ")"
+escaped       = "%" hex hex
+hex           = digit | "A" | "B" | "C" | "D" | "E" | "F" |
+                        "a" | "b" | "c" | "d" | "e" | "f"
+
+alphanum      = alpha | digit
+alpha         = lowalpha | upalpha
+
+lowalpha = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" |
+           "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" |
+           "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+upalpha  = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" |
+           "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" |
+           "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+digit    = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+----
+
+Integer numbers SHALL be represented using the URL encoding rules from <<rfc2396,IETF RFC 2396>> Section A.
+
+integer has a lexical representation consisting of a finite-length sequence of decimal digits (#x30-#x39) with an optional leading sign. If the sign is omitted, "+" is assumed. For example: -1, 0, 12678967543233, +100000. <<xmlschema-part2,XML Schema Part 2>>
+
+Real numbers SHALL be represented using the URL encoding rules from <<rfc2396,IETF RFC 2396>> Section A.
+
+decimal has a lexical representation consisting of a finite-length sequence of decimal digits (#x30-#x39) separated by a period as a decimal indicator. An optional leading sign is allowed. If the sign is omitted, "+" is assumed. Leading and trailing zeroes are optional. If the fractional part is zero, the period and following zero(es) can be omitted. For example: -1.23, 12678967.543233, +100000.00, 210.<<xmlschema-part2,XML Schema Part 2>>
+
+
+double values have a lexical representation consisting of a mantissa followed, optionally, by the character "E" or "e", followed by an exponent. The exponent ·must· be an integer. The mantissa must be a decimal number. The representations for exponent and mantissa must follow the lexical rules for integer and decimal. If the "E" or "e" and the following exponent are omitted, an exponent value of 0 is assumed. <<xmlschema-part2,XML Schema Part 2>>
+
+The special values positive and negative infinity and not-a-number have lexical representations INF, -INF and NaN, respectively. Lexical representations for zero may take a positive or negative sign.
+
+For example, -1E4, 1267.43233E12, 12.78e-2, 12 , -0, 0 and INF are all legal literals for double.
+
+
+shall be represented in a manner consistent with the specification for double-precision numbers in Section 3.2.5 of [XML Schema Part 2: Datatypes]. This representation allows for integer, decimal and exponential notations. This representation also allows special values representing infinity and not-a-number, which shall not be used except where specifically allowed by an Implementation Specification. A real value is allowed in all numeric fields unless the value is explicitly restricted to integer. 
+
+Boolean values shall be represented by the uppercase strings "TRUE" and "FALSE", representing Boolean true and false respectively.
+
+===== Parameter Names
+The set of all parameters and their names used in KVP encoding should be constant and fully specified by each specific OWS, except for allowed variations in capitalization.
+That is, these parameter names should not depend on the values of other parameters, such as the specific dataset being accessed). This constancy of parameter names is required to allow describing the operation request using WSDL, and is desirable to allow use of options available in the OperationsMetadata section of service metadata (or Capabilities) documents.
+EXAMPLE 1 The parameter named PARAMETER in WCS 1.0.0 GetCoverage requests fails this recommendation.
+EXAMPLE 2 The ―other sample dimension(s)‖ in WMS 1.3.0 GetMap requests fails this recommendation.
