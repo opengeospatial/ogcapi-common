@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-11-22</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-11-25</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -606,9 +606,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_http_1_1">8.1.1. HTTP 1.1</a></li>
 <li><a href="#http-status-codes">8.1.2. HTTP Status Codes</a></li>
 <li><a href="#query-parameter-requirements">8.1.3. Unknown or invalid query parameters</a></li>
-<li><a href="#_web_caching">8.1.4. Web Caching</a></li>
-<li><a href="#cross-origin">8.1.5. Support for Cross-Origin Requests</a></li>
-<li><a href="#_encodings">8.1.6. Encodings</a></li>
+<li><a href="#web-caching-section">8.1.4. Web Caching</a></li>
+<li><a href="#cross-origin-section">8.1.5. Support for Cross-Origin Requests</a></li>
+<li><a href="#resource-encoding-section">8.1.6. Resource Encodings</a></li>
+<li><a href="#parameter-encoding-section">8.1.7. Parameter Encoding</a></li>
 </ul>
 </li>
 <li><a href="#resource-requirements-section">8.2. Resource Requirements</a>
@@ -676,6 +677,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
 <li><a href="#Glossary">Annex D: Glossary</a></li>
 <li><a href="#Bibliography">Annex E: Bibliography</a></li>
+<li><a href="#bnf-annex">Annex F: Backus-Naur Forms</a>
+<ul class="sectlevel2">
+<li><a href="#uri-bnf-annex">F.1. BNF for URI</a></li>
+</ul>
+</li>
+<li><a href="#_ogc_web_api_guidelines">Annex G: OGC Web API Guidelines</a></li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -766,10 +773,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Heazeltech LLC</p>
 </li>
 <li>
-<p>U.S. National Geospatial-Intelligence Agency</p>
+<p>Hexagon</p>
+</li>
+<li>
+<p>U.K. Met Office</p>
+</li>
+<li>
+<p>Universitat Autònoma de Barcelona (CREAF)</p>
 </li>
 <li>
 <p>U.S. Army Geospatial Center</p>
+</li>
+<li>
+<p>U.S. Geological Survey</p>
+</li>
+<li>
+<p>U.S. National Aeronautics and Space Administration (NASA)</p>
+</li>
+<li>
+<p>U.S. National Geospatial-Intelligence Agency</p>
 </li>
 </ul>
 </div>
@@ -794,8 +816,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Heazeltech</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Jérôme Jacovella-St-Louis</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Ecere Corporation</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">David Blodgett</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">U.S. Geological Survey</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Sylvester Hagler</p></td>
@@ -806,8 +828,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">U.S. Army Geospatial Center</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">others</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TBD</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Frédéric Houbie</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Hexagon</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Jérôme Jacovella-St-Louis</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Ecere Corporation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Chris Little</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">U.K. Met Office</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Joan  Masó</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">UAB-CREAF</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Donald Sullivan</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">NASA</p></td>
 </tr>
 </tbody>
 </table>
@@ -927,6 +965,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a id="ogc-06-121"></a> Whiteside, A., Greenwood, J.: <strong>OGC Web Services Common Standard</strong>, version 2.0, <a href="http://portal.opengeospatial.org/files/?artifact_id=38867">OGC 06-121r9</a></p>
+</li>
+<li>
+<p><a id="xmlschema-part2"></a> W3C Recommendation: <strong>XML Schema Part 2: Datatypes Second Edition</strong>, 28 October 2004, <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></p>
 </li>
 </ul>
 </div>
@@ -1144,7 +1185,7 @@ OGC                {root}             path   parameters</code></pre>
 <div class="paragraph">
 <p>Each resource representation in this standard includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an <strong>enclosure</strong> link could reference a bulk download of a collection. Or a <strong>related</strong> link on a feature could reference a related feature.</p>
 </div>
-<table id="per_general_additional-link-relations" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_core_additional-link-relations" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1153,7 +1194,7 @@ OGC                {root}             path   parameters</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/general/additional-link-relations</strong></p>
+<p><strong>/per/core/additional-link-relations</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1309,7 +1350,7 @@ API definitions are considered service descriptions.</p></td>
 <div class="paragraph">
 <p>In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource.</p>
 </div>
-<table id="rec_general_link-header" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_core_link-header" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1318,7 +1359,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/general/link-header</strong></p>
+<p><strong>/rec/core/link-header</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1627,7 +1668,7 @@ API definitions are considered service descriptions.</p></td>
 <div class="paragraph">
 <p>More specific guidance is provided for each resource, where applicable.</p>
 </div>
-<table id="per_general_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_core_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1636,7 +1677,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/general/additional-status-codes</strong></p>
+<p><strong>/per/core/additional-status-codes</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1762,11 +1803,11 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="_web_caching"><a class="anchor" href="#_web_caching"></a>8.1.4. Web Caching</h4>
+<h4 id="web-caching-section"><a class="anchor" href="#web-caching-section"></a>8.1.4. Web Caching</h4>
 <div class="paragraph">
 <p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc7232">HTTP/1.1 (RFC 7232)</a>.</p>
 </div>
-<table id="rec_general_etag" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_core_etag" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1775,7 +1816,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/general/etag</strong></p>
+<p><strong>/rec/core/etag</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1788,11 +1829,11 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </table>
 </div>
 <div class="sect3">
-<h4 id="cross-origin"><a class="anchor" href="#cross-origin"></a>8.1.5. Support for Cross-Origin Requests</h4>
+<h4 id="cross-origin-section"><a class="anchor" href="#cross-origin-section"></a>8.1.5. Support for Cross-Origin Requests</h4>
 <div class="paragraph">
 <p>If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.</p>
 </div>
-<table id="rec_general_cross-origin" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_core_cross-origin" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1801,7 +1842,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/general/cross-origin</strong></p>
+<p><strong>/rec/core/cross-origin</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1827,7 +1868,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="_encodings"><a class="anchor" href="#_encodings"></a>8.1.6. Encodings</h4>
+<h4 id="resource-encoding-section"><a class="anchor" href="#resource-encoding-section"></a>8.1.6. Resource Encodings</h4>
 <div class="paragraph">
 <p>A Web API provides access to <a href="#resource-definition">resources</a> through <a href="#representation-definition">representations</a> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate which encoding format to use through the content negotiation process defined in <a href="#rfc7231">IETF RFC 7231</a>.</p>
 </div>
@@ -1840,7 +1881,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div id="rec_html" class="paragraph">
 <p>HTML encoding recommendation:</p>
 </div>
-<table id="rec_general_html" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_core_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1849,7 +1890,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/general/html</strong></p>
+<p><strong>/rec/core/html</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1863,7 +1904,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <div id="rec_json" class="paragraph">
 <p>JSON encoding recommndation:</p>
 </div>
-<table id="rec_general_json" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_core_json" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1872,7 +1913,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/general/json</strong></p>
+<p><strong>/rec/core/json</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1883,6 +1924,308 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect3">
+<h4 id="parameter-encoding-section"><a class="anchor" href="#parameter-encoding-section"></a>8.1.7. Parameter Encoding</h4>
+<div class="paragraph">
+<p>The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request.</p>
+</div>
+<div class="paragraph">
+<p>OGC Web API requests are issued using a Uniform Resource Identifier (URI). The URI syntax is defined in <a href="#rfc3986">IETF RFC 3986</a>. Rules for building URI Templates can be found in <a href="#rfc6570">IETF RFC 6570</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Backus-Naur Form (BNF) definition of a URI is provided in <a href="#uri-bnf-annex">Annex F</a>.</p>
+</div>
+<div class="sect4">
+<h5 id="_capitalization"><a class="anchor" href="#_capitalization"></a>Capitalization</h5>
+<div class="paragraph">
+<p><a href="#rfc3986">IETF RFC 3986</a> sections 6.2.2.1 and 2.1 provide the requirements for capitalization in URIs.</p>
+</div>
+<table id="req_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-capitalization</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Parameter names and values SHALL be case sensitive.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>IF a parameter name or value includes a precent encoded (escaped) character,<br>
+&#160;&#160;&#160;&#160;THEN<br>
+the upper case hexadecimal digits ("A" through "F") of that percent encoded character SHALL be equivalent to the lower case digits "a" through "f" respectively.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>All parameter value strings should have the first word and any subsequent words in the name capitalized. All other letters should be lower case.</p>
+</div>
+<div class="paragraph">
+<p>However, a Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.</p>
+</div>
+<table id="rec_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/query-param-capitalization</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Parameter names SHOULD be in Upper Camel Case.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_parameter_value_lists"><a class="anchor" href="#_parameter_value_lists"></a>Parameter Value Lists</h5>
+<div class="paragraph">
+<p>Parameters may pass more than one value. The folowing requirements define how to encode a list of parameter values.</p>
+</div>
+<table id="req_core_query-param-list-delimiter" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-list-delimiter</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Parameters values containing lists SHALL designate the list items using the comma (",") as a delimiter.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_core_query-param-list-escape" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-list-escape</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Any list item values which include a space or comma SHALL escape the space or comma character using the URL encoding rules from <a href="#rfc3986">IETF RFC 3986</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_core_query-param-list-empty" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-list-empty</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All empty entries SHALL be represented by the empty string ("").</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list ("") can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_numeric_and_boolean_values"><a class="anchor" href="#_numeric_and_boolean_values"></a>Numeric and Boolean Values</h5>
+<div class="paragraph">
+<p>Boolean values conform to the following requirement derived from <a href="#ogc-06-121">OWS-Common</a>.</p>
+</div>
+<table id="req_core_query-param-value-boolean" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-boolean</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Boolean values shall be represented by the uppercase strings "TRUE" and "FALSE", representing Boolean true and false respectively.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Integer values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-integer" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-integer</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading sign. If the sign is omitted, "+" is assumed.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Real numbers can be represented using either the decimal or double (exponential) format. The decimal format is typically used except for very large or small values.</p>
+</div>
+<div class="paragraph">
+<p>Decimal values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-decimal" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-decimal</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Decimal values SHALL be represented by a finite-length sequence of decimal digits separated by a period as a decimal indicator.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An optional leading sign is allowed.</p>
+</li>
+<li>
+<p>If the sign is omitted, "+" is assumed.</p>
+</li>
+<li>
+<p>Leading and trailing zeroes are optional.</p>
+</li>
+<li>
+<p>If the fractional part is zero, the period and following zero(es) can be omitted.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Double values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-double" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-double</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Double values SHALL be represented by a mantissa followed, optionally, by the character "E" or "e", followed by an exponent.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The exponent SHALL be an integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The mantissa SHALL be a decimal number.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The representations for exponent and mantissa SHALL follow the lexical rules for integer and decimal.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the "E" or "e" and the following exponent are omitted, an exponent value of 0 SHALL be assumed.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Special values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-special" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-special</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The special values positive and negative infinity and not-a-number SHALL be represented using the strings <code>INF</code>, <code>-INF</code> and <code>NaN</code>, respectively.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1934,7 +2277,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/root-op</strong></p>
 </div></div></td>
@@ -1963,7 +2306,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/root-success</strong></p>
 </div></div></td>
@@ -2054,7 +2397,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/api-definition-op</strong></p>
 </div></div></td>
@@ -2086,7 +2429,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-op</strong></p>
 </div></div></td>
@@ -2116,7 +2459,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/api-definition-success</strong></p>
 </div></div></td>
@@ -2154,7 +2497,7 @@ The server SHALL respond with a response with the status code <code>400</code>.<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-oas</strong></p>
 </div></div></td>
@@ -2181,16 +2524,16 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <div class="paragraph">
 <p>OGC Web Services provide a set of Service Metadata which identifies the service and provides information about the service provider. It is recommended that OGC Web APIs provide the same information.</p>
 </div>
-<table id="rec_general_service-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_core_service-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/general/service-metadata</strong></p>
+<p><strong>/rec/core/service-metadata</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2246,7 +2589,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/conformance-op</strong></p>
 </div></div></td>
@@ -2281,7 +2624,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/conformance-success</strong></p>
 </div></div></td>
@@ -2421,7 +2764,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -2441,7 +2784,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -2472,7 +2815,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -2528,7 +2871,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -2548,7 +2891,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -2614,7 +2957,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -2634,7 +2977,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-2</strong></p>
 </div></div></td>
@@ -2657,7 +3000,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/oas30/oas-impl</strong></p></td>
 </tr>
 <tr>
@@ -2676,7 +3019,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/completeness</strong></p>
 </div></div></td>
@@ -2711,7 +3054,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/exceptions-codes</strong></p>
 </div></div></td>
@@ -2786,7 +3129,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/security</strong></p>
 </div></div></td>
@@ -2812,7 +3155,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/oas30/service-metadata</strong></p>
 </div></div></td>
@@ -4366,13 +4709,294 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bnf-annex"><a class="anchor" href="#bnf-annex"></a>Annex F: Backus-Naur Forms</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="uri-bnf-annex"><a class="anchor" href="#uri-bnf-annex"></a>F.1. BNF for URI</h3>
+<div class="paragraph">
+<p>The following Augmented Backus-Naur Form (ABNF) is from Appendix A of <a href="#rfc3986">IETF RFC 3986</a>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>hier-part     = "//" authority path-abempty
+             / path-absolute
+             / path-rootless
+             / path-empty</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>URI-reference = URI / relative-ref</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>absolute-URI  = scheme ":" hier-part [ "?" query ]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>relative-ref  = relative-part [ "?" query ] [ "#" fragment ]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>relative-part = "//" authority path-abempty
+                 / path-absolute
+                 / path-noscheme
+                 / path-empty</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>scheme        = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>authority     = [ userinfo "@" ] host [ ":" port ]
+userinfo      = *( unreserved / pct-encoded / sub-delims / ":" )
+host          = IP-literal / IPv4address / reg-name
+port          = *DIGIT</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>IP-literal    = "[" ( IPv6address / IPvFuture  ) "]"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>IPvFuture     = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>IPv6address   =                             6( h16 ":" ) ls32
+              /                       "::" 5( h16 ":" ) ls32
+              / [               h16 ] "::" 4( h16 ":" ) ls32
+              / [ *1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32
+              / [ *2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32
+              / [ *3( h16 ":" ) h16 ] "::"    h16 ":"   ls32
+              / [ *4( h16 ":" ) h16 ] "::"              ls32
+              / [ *5( h16 ":" ) h16 ] "::"              h16
+              / [ *6( h16 ":" ) h16 ] "::"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>h16           = 1*4HEXDIG
+ls32          = ( h16 ":" h16 ) / IPv4address
+IPv4address   = dec-octet "." dec-octet "." dec-octet "."</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>dec-octet     = DIGIT                 ; 0-9
+              / %x31-39 DIGIT         ; 10-99
+              / "1" 2DIGIT            ; 100-199
+              / "2" %x30-34 DIGIT     ; 200-249
+              / "25" %x30-35          ; 250-255</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>reg-name      = *( unreserved / pct-encoded / sub-delims )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>path          = path-abempty    ; begins with "/" or is empty
+              / path-absolute   ; begins with "/" but not "//"
+              / path-noscheme   ; begins with a non-colon segment
+              / path-rootless   ; begins with a segment
+              / path-empty      ; zero characters</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>path-abempty  = *( "/" segment )
+path-absolute = "/" [ segment-nz *( "/" segment ) ]
+path-noscheme = segment-nz-nc *( "/" segment )
+path-rootless = segment-nz *( "/" segment )
+path-empty    = 0&lt;pchar&gt;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>segment       = *pchar
+segment-nz    = 1*pchar
+segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+              ; non-zero-length segment without any colon ":"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>query         = *( pchar / "/" / "?" )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>fragment      = *( pchar / "/" / "?" )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pct-encoded   = "%" HEXDIG HEXDIG</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+reserved      = gen-delims / sub-delims
+gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
+              / "*" / "+" / "," / ";" / "="</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ogc_web_api_guidelines"><a class="anchor" href="#_ogc_web_api_guidelines"></a>Annex G: OGC Web API Guidelines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following table discusses how this standard addresses the design principles documented in the <a href="https://github.com/opengeospatial/OGC-Web-API-Guidelines">OGC Web API Guidelines</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 18.1818%;">
+<col style="width: 72.7273%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>#</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Principle</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Discussion</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Don’t Reinvent</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Keep It Simple and Intuitive</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">3</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use Well-Known Resource Types</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Construct consistent URIs</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use HTTP Methods consistent with RFC 2616</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Put Selection Criteria behind the ‘?’</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Error Handling and use of HTTP Status Codes</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use of HTTP Status Codes</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use of HTTP Header</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">10</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Content Negotiation</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Pagination</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Processing Resources</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">13</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support Metadata</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">14</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Consider your Security needs</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">15</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API Description</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">16</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use IANA well-known identifiers</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">17</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use explicit geospatial relations</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">18</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support W3C Cross-Origin Resource Sharing</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">19</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Resource encodings</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">20</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Good APIs are testable from the beginning</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-24 22:22:45 -0500
+Last updated 2020-11-26 22:22:19 -0500
 </div>
 </div>
 </body>
