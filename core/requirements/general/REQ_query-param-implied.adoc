@@ -1,8 +1,12 @@
-[[req_core_query-param-known]]
+[[req_core_query-param-implied]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/core/query-param-known* 
-2+|IF the API definition of the query parameters specifies explicit parameter names AND a query parameter name matches one of those names + 
+^|*Requirement {counter:req-id}* |*/req/core/query-param-implied*
+2+|IF the API definition of the query parameters does not specify explicit parameter names +
+{nbsp}{nbsp}{nbsp}{nbsp}AND +
+a request query parameter name falls within the valid range of one of the query parameter definitions +
+{nbsp}{nbsp}{nbsp}{nbsp}AND +
+that query parameter name is valid for the current state of the server + 
 {nbsp}{nbsp}{nbsp}{nbsp}THEN +
 {nbsp}{nbsp}{nbsp}{nbsp}IF the request URI includes a query parameter value that is not valid for that parameter +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}THEN +
