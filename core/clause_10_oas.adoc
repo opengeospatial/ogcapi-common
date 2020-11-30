@@ -71,6 +71,39 @@ include::recommendations/oas30/REC_service-metadata.adoc[]
 
 An example of an OpenAPI `Info` object populated with OWS metadata is provided in the <<service-metadata-examples>> section.
 
+[[rc_oas30-query-parameter]]
+=== Query Parameter Definition
+
+OpenAPI defines query parameters using the `Parameter` object with the `in` property set to "query". The parameter name is a literal value provided by the `name` property. Since the parameter names are literals, each parameter must be described separately. 
+
+API-Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition. a requirement that few implemetor would accept. 
+
+OpenAPI provides a capability that allows additional parameters to be specified without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will still be considered "specified" for purposes of validation (see <<per_core-query-param-specified,/per/core/query-param-specified>> and <<per_core-query-param-tolerance,/per/core/query-param-tolerance>>.
+
+[[schema_free-form]]
+.OpenAPI schema for additional "free-form" query parameters
+[source,YAML]
+----
+in: query
+name: freeFormParameters
+schema:
+  type: object
+  additionalProperties: true
+style: form
+----
+
+Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of `freeFormParameters` is this object:
+
+[source,JSON]
+----
+{
+  "my_first_parameter": "some value",
+  "my_other_parameter": 42
+}
+----
+
+In the request URI this would be expressed as `&my_first_parameter=some%20value&my_other_parameter=42`.
+
 === Further Information
 
 Additional guidance on using OpenAPI in OGC Web API implementations can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.pdf[OAPI-Common Users Guide].
