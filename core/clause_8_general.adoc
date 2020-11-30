@@ -41,47 +41,17 @@ include::recommendations/general/PER_additional-status-codes.adoc[]
 [[query-parameter-requirements]]
 ==== Query parameters
 
-Validation of query parameters in the request URL is complicated. Ideally, the parameter names and valid values would be completely defined in the API definition. However, there are a number of reasons why this may not be possible.
-
-OGC Web API standards do not mandate a language nor data model for the API defintion. While OpenAPI does support this level of detail, other API description languages may not. Therefore, an API standard cannot assume the presence of a capabilty which iteself is not required.
-
-Provision of this level of detail may result in an API which is difficult to use or maintain. Consider an API which allows queries against resource properties. A full specification of the query parameters would list all possible combinations of Feature Type and Property as well as the valid values for each. If the hosted content is subject to change, then each change would have to be reflected in the API definition. Implementors are unlikely to invest the resource needed to provide and maintain this level of detail. Likewise, client implementors would be reluctant to parse and extract this information. The increased complexity does not provide a comprable value to implementors or users.
-
-A requirement for complete documentation of all query parameters would limit the abilty of a server to implement soft failures. For example, an API server may be able to identify and correct simple errors such as misspellings and capitalization. An OGC Web API standard should not preclude provision of this capabilty.
-
-To accomodate this variety, the requirements for query parameter validation are defined around three casses:
-
-* CASE A: The query parameter is fully described in the API definition
-* CASE B: The query parameter is partially described in the API documentation
-* CASE C: The server is able to detect and correct errors in the query parameter
-
-*CASE A:*
-
-include::requirements/general/REQ_query-param-known.adoc[]
-
-This is the ideal case. The query parameter is fully defined in the API definition and the query parameter in the request URL matches that definition.
-
-*CASE B:*
-
-include::requirements/general/REQ_query-param-implied.adoc[]
-
-This is the case where the definition of a query parameter provides some lattitude. For example, if the API server allows querying on resource properties. In that case, the parameter definition may be a bounded range of possible values. However, all possible values may not be valid at any one time. If the query parameter name matches one of the properties currently hosted, then the request can proceed.  
-
-*CASE C:*
-
-include::requirements/general/REQ_query-param-corrected.adoc[]
-
-An API implementation may choose to be forgiving of minor errors in the query parameters. The goal here is not to ignore the errors, but the inform the client of the error and instruct them on how to fix it.
-
-Status codes 307 and 307 are specified for this purpose. Both refer the client to a new (corrected) URI for the resource. 
-
-Status code 308 indicates that the new URI is a permanent change. This is the most relevant response since the original URI will never be valid. However, Status Code 308 is defined in a separate RFC from the rest of the HTTP suite and may not be implemented by the client. Status Code 307 indicates that the new URI is a temporary change. While this staus is somewhat misleading, this code is incorporated in the main body of HTTP standards. So it is more likely to be implemented by a client.
-
-It is imperative that the redirect URI is correct. For that reason, subrequirements B and C assure that a redirect URI is not returned until ALL errors have been resolved.
-
 include::requirements/general/REQ_query-param-unknown.adoc[]
 
-If the query parameter cannot be validated or corrected, then tell the client.  
+include::requirements/general/REQ_query-param-invalid.adoc[]
+
+The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the abilty of the API server to tolerate errors. 
+
+A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement for it to list every endpoint for which there is a non-404 behaviour, for it to list every possible query parameter that might affect the behaviour of an endpoint, or for it to list every possible value that each query parameter might accept.
+
+include::recommendations/general/PER_query-param-specified.adoc[]
+
+include::recommendations/general/PER_query-param-tolerance.adoc[]
 
 [[web-caching-section]]
 ==== Web Caching
