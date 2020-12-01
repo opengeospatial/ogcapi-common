@@ -635,7 +635,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#rc_oas30-exceptions">10.3. Exceptions</a></li>
 <li><a href="#rc_oas30-security">10.4. Security</a></li>
 <li><a href="#rc_oas30-service-metadata">10.5. Service Metadata</a></li>
-<li><a href="#_further_information">10.6. Further Information</a></li>
+<li><a href="#rc_oas30-query-parameter">10.6. Query Parameter Definition</a></li>
+<li><a href="#_further_information">10.7. Further Information</a></li>
 </ul>
 </li>
 <li><a href="#mediatypes">11. Media Types</a></li>
@@ -1702,38 +1703,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 <div class="sect3">
 <h4 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>8.1.3. Query parameters</h4>
-<div class="paragraph">
-<p>Validation of query parameters in the request URL is complicated. Ideally, the parameter names and valid values would be completely defined in the API definition. However, there are a number of reasons why this may not be possible.</p>
-</div>
-<div class="paragraph">
-<p>OGC Web API standards do not mandate a language nor data model for the API defintion. While OpenAPI does support this level of detail, other API description languages may not. Therefore, an API standard cannot assume the presence of a capabilty which iteself is not required.</p>
-</div>
-<div class="paragraph">
-<p>Provision of this level of detail may result in an API which is difficult to use or maintain. Consider an API which allows queries against resource properties. A full specification of the query parameters would list all possible combinations of Feature Type and Property as well as the valid values for each. If the hosted content is subject to change, then each change would have to be reflected in the API definition. Implementors are unlikely to invest the resource needed to provide and maintain this level of detail. Likewise, client implementors would be reluctant to parse and extract this information. The increased complexity does not provide a comprable value to implementors or users.</p>
-</div>
-<div class="paragraph">
-<p>A requirement for complete documentation of all query parameters would limit the abilty of a server to implement soft failures. For example, an API server may be able to identify and correct simple errors such as misspellings and capitalization. An OGC Web API standard should not preclude provision of this capabilty.</p>
-</div>
-<div class="paragraph">
-<p>To accomodate this variety, the requirements for query parameter validation are defined around three casses:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>CASE A: The query parameter is fully described in the API definition</p>
-</li>
-<li>
-<p>CASE B: The query parameter is partially described in the API documentation</p>
-</li>
-<li>
-<p>CASE C: The server is able to detect and correct errors in the query parameter</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>CASE A:</strong></p>
-</div>
-<table id="req_core_query-param-known" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1742,27 +1712,18 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-known</strong></p>
+<p><strong>/req/core/query-param-unknown</strong></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">IF the API definition of the query parameters specifies explicit parameter names AND a query parameter name matches one of those names<br>
-&#160;&#160;&#160;&#160;THEN<br>
-&#160;&#160;&#160;&#160;IF the request URI includes a query parameter value that is not valid for that parameter<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;THEN<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;The server SHALL return a response with the status code 400.<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ELSE<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;The server SHALL meet the requirements specified for that parameter.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that is not specified in the API definition.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>This is the ideal case. The query parameter is fully defined in the API definition and the query parameter in the request URL matches that definition.</p>
-</div>
-<div class="paragraph">
-<p><strong>CASE B:</strong></p>
-</div>
-<table id="req_core_query-param-implied" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_core_query-param-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -1771,100 +1732,117 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-implied</strong></p>
+<p><strong>/req/core/query-param-invalid</strong></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">IF the API definition of the query parameters does not specify explicit parameter names<br>
-&#160;&#160;&#160;&#160;AND<br>
-a request query parameter name falls within the valid range of one of the query parameter definitions<br>
-&#160;&#160;&#160;&#160;AND<br>
-that query parameter name is valid for the current state of the server<br>
-&#160;&#160;&#160;&#160;THEN<br>
-&#160;&#160;&#160;&#160;IF the request URI includes a query parameter value that is not valid for that parameter<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;THEN<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;The server SHALL return a response with the status code 400.<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ELSE<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;The server SHALL meet the requirements specified for that parameter.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that has an invalid value.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>This is the case where the definition of a query parameter provides some lattitude. For example, if the API server allows querying on resource properties. In that case, the parameter definition may be a bounded range of possible values. However, all possible values may not be valid at any one time. If the query parameter name matches one of the properties currently hosted, then the request can proceed.</p>
+<p>The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the abilty of the API server to tolerate errors.</p>
 </div>
 <div class="paragraph">
-<p><strong>CASE C:</strong></p>
+<p>A service implementer should endeavour to provide as much detail in the server&#8217;s API definition as the API definition language allows. However, there is no requirement for it to list every endpoint for which there is a non-404 behaviour, for it to list every possible query parameter that might affect the behaviour of an endpoint, or for it to list every possible value that each query parameter might accept.</p>
 </div>
-<table id="req_core_query-param-corrected" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_core-query-param-specified" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-corrected</strong></p>
+<p><strong>/per/core/query-param-specified</strong></p>
 </div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">IF a query parameter does not meet the criteria for any of the query parameter names defined in the API definition AND the server is able to correct the error,<br>
-&#160;&#160;&#160;&#160;THEN</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL respond with a 307 or 308 status and the corrected URL,</p>
+<p>The specification of a query parameter in the API definition MAY encompass a <span class="underline">range</span> of parameter names. Any query parameter which falls within the specified range can be considered "specified" in the API definition.</p>
+</div>
+<div class="paragraph">
+<p>Examples of a parameter range include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A reqular expression which defines the valid parameter names,</p>
+</li>
+<li>
+<p>A URL Template segment which defines the valid parameter names,</p>
+</li>
+<li>
+<p>An indication that all parameter names are accepted (no parameter validation).</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL validate the full URL prior to returning a 307 or 308 response,</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL only generate a 307 or 308 response if more serious errors are not detected.</p>
+<p>The API definition language chosen may not be capable of expressing the desired range of values. In that case the server SHOULD provide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A definition of the parameter range which best expresses the intended use of that parameter,</p>
+</li>
+<li>
+<p>Additional human readable text documenting the actual range of validity.</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>An API implementation may choose to be forgiving of minor errors in the query parameters. The goal here is not to ignore the errors, but the inform the client of the error and instruct them on how to fix it.</p>
-</div>
-<div class="paragraph">
-<p>Status codes 307 and 307 are specified for this purpose. Both refer the client to a new (corrected) URI for the resource.</p>
-</div>
-<div class="paragraph">
-<p>Status code 308 indicates that the new URI is a permanent change. This is the most relevant response since the original URI will never be valid. However, Status Code 308 is defined in a separate RFC from the rest of the HTTP suite and may not be implemented by the client. Status Code 307 indicates that the new URI is a temporary change. While this staus is somewhat misleading, this code is incorporated in the main body of HTTP standards. So it is more likely to be implemented by a client.</p>
-</div>
-<div class="paragraph">
-<p>It is imperative that the redirect URI is correct. For that reason, subrequirements B and C assure that a redirect URI is not returned until ALL errors have been resolved.</p>
-</div>
-<table id="req_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_core-query-param-tolerance" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-unknown</strong></p>
+<p><strong>/per/core/query-param-tolerance</strong></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">IF a query parameter name does not meet the criteria for CASE A, B, or C<br>
-&#160;&#160;&#160;&#160;THEN<br>
-The server SHALL return a response with the status code <code>400</code>.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Servers MAY display tolerance for requests with incorrect query parameters. These acts of tolerance include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>accept alternate capitalizations, spellings, and/or aliases of parameters,</p>
+</li>
+<li>
+<p>ignore unknown/unrecognized parameters,</p>
+</li>
+<li>
+<p>return a response with a status code of 400 and an exception report indicating unrecognized query parameters,</p>
+</li>
+<li>
+<p>return a response with a status code of 30x redirecting the client to a more correct version of the request.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Servers should not be excessively tolerant. The response a client receives from the server should be a reasonable response for the request submitted.</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>If the query parameter cannot be validated or corrected, then tell the client.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="web-caching-section"><a class="anchor" href="#web-caching-section"></a>8.1.4. Web Caching</h4>
@@ -2012,7 +1990,7 @@ The server SHALL return a response with the status code <code>400</code>.</p></t
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -2072,7 +2050,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-list-delimiter</strong></p>
 </div></div></td>
@@ -2092,7 +2070,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-list-escape</strong></p>
 </div></div></td>
@@ -2112,7 +2090,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-list-empty</strong></p>
 </div></div></td>
@@ -2141,7 +2119,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-boolean</strong></p>
 </div></div></td>
@@ -2164,7 +2142,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-integer</strong></p>
 </div></div></td>
@@ -2190,7 +2168,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-decimal</strong></p>
 </div></div></td>
@@ -2229,7 +2207,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-double</strong></p>
 </div></div></td>
@@ -2276,7 +2254,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-special</strong></p>
 </div></div></td>
@@ -2332,6 +2310,12 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <div class="paragraph">
 <p>The purpose of the landing page is to provide clients with a starting point for using the API. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.</p>
 </div>
+<div class="paragraph">
+<p>The landing page includes three metadata elements; title, description, and attribution. Only the title is required. These three elements describe the API as a whole. Clients can expect to encounter metadata which is more resource-specific as they follow links and paths from the landing page.</p>
+</div>
+<div class="paragraph">
+<p>While the three metadata elements are defined as text strings, the attribution element is special. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <a href="#json-landing-page">landing page</a> for an example of the use of markup in the attribution element.</p>
+</div>
 <div class="sect4">
 <h5 id="_operation"><a class="anchor" href="#_operation"></a>Operation</h5>
 <table id="req_core_root-op" class="tableblock frame-all grid-all" style="width: 90%;">
@@ -2341,7 +2325,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/root-op</strong></p>
 </div></div></td>
@@ -2370,7 +2354,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/root-success</strong></p>
 </div></div></td>
@@ -2426,6 +2410,11 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
         "description": "A textual description of the API",
         "type": "string"
         },
+    "attribution" : {
+        "type" : "string",
+        "title" : "attribution for the API",
+        "description" : "The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup."
+        },
     "links": {
         "description": "Links to the resources exposed through this API.",
         "type": "array",
@@ -2461,7 +2450,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/api-definition-op</strong></p>
 </div></div></td>
@@ -2523,7 +2512,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/api-definition-success</strong></p>
 </div></div></td>
@@ -2653,7 +2642,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/conformance-op</strong></p>
 </div></div></td>
@@ -2688,7 +2677,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/conformance-success</strong></p>
 </div></div></td>
@@ -2828,7 +2817,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -2848,7 +2837,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -2935,7 +2924,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -2955,7 +2944,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -3021,7 +3010,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -3041,7 +3030,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/oas-definition-2</strong></p>
 </div></div></td>
@@ -3064,7 +3053,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>/req/oas30/oas-impl</strong></p></td>
 </tr>
 <tr>
@@ -3083,7 +3072,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/completeness</strong></p>
 </div></div></td>
@@ -3118,7 +3107,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/exceptions-codes</strong></p>
 </div></div></td>
@@ -3193,7 +3182,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/oas30/security</strong></p>
 </div></div></td>
@@ -3258,7 +3247,44 @@ content:
 </div>
 </div>
 <div class="sect2">
-<h3 id="_further_information"><a class="anchor" href="#_further_information"></a>10.6. Further Information</h3>
+<h3 id="rc_oas30-query-parameter"><a class="anchor" href="#rc_oas30-query-parameter"></a>10.6. Query Parameter Definition</h3>
+<div class="paragraph">
+<p>OpenAPI defines query parameters using the <code>Parameter</code> object with the <code>in</code> property set to "query". The parameter name is a literal value provided by the <code>name</code> property. Since the parameter names are literals, each parameter must be described separately.</p>
+</div>
+<div class="paragraph">
+<p>API-Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition. a requirement that few implemetor would accept.</p>
+</div>
+<div class="paragraph">
+<p>OpenAPI provides a capability that allows additional parameters to be specified without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will still be considered "specified" for purposes of validation (see <a href="#per_core-query-param-specified">/per/core/query-param-specified</a> and <a href="#per_core-query-param-tolerance">/per/core/query-param-tolerance</a>.</p>
+</div>
+<div id="schema_free-form" class="listingblock">
+<div class="title">OpenAPI schema for additional "free-form" query parameters</div>
+<div class="content">
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">in: query
+name: freeFormParameters
+schema:
+  type: object
+  additionalProperties: true
+style: form</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of <code>freeFormParameters</code> is this object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+  "my_first_parameter": "some value",
+  "my_other_parameter": 42
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the request URI this would be expressed as <code>&amp;my_first_parameter=some%20value&amp;my_other_parameter=42</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_further_information"><a class="anchor" href="#_further_information"></a>10.7. Further Information</h3>
 <div class="paragraph">
 <p>Additional guidance on using OpenAPI in OGC Web API implementations can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.pdf">OAPI-Common Users Guide</a>.</p>
 </div>
@@ -4341,6 +4367,7 @@ THEN</p>
 <pre class="highlight"><code class="language-JSON" data-lang="JSON">{
   "title": "Example API Landing Page",
   "description": "This is an example of an API landing page in JSON format",
+  "attribution": "&lt;a href='www.ign.es' rel=' '&gt;IGN&lt;/a&gt; &lt;a href='www.govdata.de/dl-de/by-2-0'&gt;(c)&lt;/a&gt;",
   "links": [
     {
       "rel": "service-desc",
@@ -5164,7 +5191,7 @@ sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-29 22:22:23 -0500
+Last updated 2020-11-30 22:22:15 -0500
 </div>
 </div>
 </body>
