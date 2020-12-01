@@ -30,6 +30,10 @@ A Web API has a single landing page on the `{root}` node.
 
 The purpose of the landing page is to provide clients with a starting point for using the API. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.
 
+The landing page includes three metadata elements; title, description, and attribution. Only the title is required. These three elements describe the API as a whole. Clients can expect to encounbter metadata which is more resource specific as they follow the links and paths from the landing page. 
+
+While the three metadata elements are defined as character strings, the attribution element is special. Specifically, it is intented to contain markup text. Markup allows a character string to import images and format text. The capabilities are only limited by the markup language used. See the example <<json-landing-page,landing page>> for an example of the use of markup in the attribution element.
+
 ===== Operation
 
 include::requirements/core/REQ_root-op.adoc[]
