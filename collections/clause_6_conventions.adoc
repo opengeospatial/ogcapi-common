@@ -69,6 +69,10 @@ Temporal geometry is measured relative to an underlying temporal coordinate refe
 
 <<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
 
+=== Timezones
+
+A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Greenwich Mean Time, also referred to as "Z" for Zulu Time), should be used for all temporal data passed or returned to/from OGC Web APIs. ISO 8601 accounts for local time by specifying an offset to UTC. When time zone offsets are used in a temporal element of a client request, the server processing the request should interpret temporal information with respect to the client’s requested time zone. When there is no time zone offset expressed in a temporal element, the server should assume a UTC zone. The local time zone of client or server should not be assumed; it shall either be explicitly stated as an offset or assumed to be UTC.
+
 === API definition
 
 ==== General remarks

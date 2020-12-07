@@ -97,7 +97,7 @@ The link relationships used in API-Common Core are described in <<link-relations
 
 Each resource representation in this standard includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an *enclosure* link could reference a bulk download of a collection. Or a *related* link on a feature could reference a related feature.
 
-include::recommendations/general/PER_additional-relation-types.adoc[]
+include::../general/recommendations/general/PER_additional-relation-types.adoc[]
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
@@ -135,7 +135,7 @@ include::openapi/schemas/link.json[]
 
 In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource. 
 
-include::recommendations/general/REC_link-header.adoc[]
+include::../general/recommendations/general/REC_link-header.adoc[]
 
 Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide].
 

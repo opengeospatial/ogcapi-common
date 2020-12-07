@@ -6,7 +6,7 @@ include::requirements/requirements_class_core.adoc[]
 
 The Core Requirements Class of the API-Common Core Standard describes how `core` resources are accessed through an OGC conformant Web API. The requirements that make up this requirements class are grouped into two categories. <<general-requirements-section,General requirements>> are those requirements which are applicable regardless of the resource being accessed. <<resource-requirements-section,Resource requirements>> are the requirements which define the `core` resources and their applicable constraints. 
 
-include::clause_8_general.adoc[]
+include::../general/clause_8_general.adoc[]
 
 [[resource-requirements-section]]
 === Resource Requirements
@@ -81,7 +81,7 @@ See <<http-status-codes>> for general guidance.
 
 OGC Web Services provide a set of Service Metadata which identifies the service and provides information about the service provider. It is recommended that OGC Web APIs provide the same information.     
 
-include::recommendations/general/REC_service-metadata.adoc[]
+include::../general/recommendations/general/REC_service-metadata.adoc[]
 
 [[conformance-classes]]
 ==== Declaration of Conformance Classes
