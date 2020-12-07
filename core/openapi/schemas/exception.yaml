@@ -1,8 +1,22 @@
+title: Exception Schema
+description: JSON schema for exceptions
 type: object
 required:
-  - code
+- type
+- details
 properties:
-  code:
-    type: string
-  description:
-    type: string
+  type:
+    enum:
+    - OgcApiExceptionReport
+  httpStatus:
+    type: integer
+  details:
+    type: array
+    items:
+      type: object
+      required:
+      - description
+      properties:
+        description:
+          type: string
+    minItems: 1
