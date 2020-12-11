@@ -9,10 +9,6 @@ include::requirements/requirements_class_oas30.adoc[]
 
 include::requirements/oas30/REQ_oas-definition-1.adoc[]
 
-CAUTION: link:https://github.com/opengeospatial/WFS_FES/issues/117[ISSUE 117] +
-
-The OpenAPI media type has not been registered yet with IANA and will likely change. We need to update the media type after registration.
-
 include::requirements/oas30/REQ_oas-definition-2.adoc[]
 
 Two example OpenAPI documents are included in <<oas-examples,Annex B>>.
@@ -40,7 +36,7 @@ description: An error occurred.
 content:
   application/json:
     schema:
-      $ref: https://raw.githubusercontent.com/opengeospatial/OAPI/openapi/schemas/exception.yaml
+      $ref: http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/exception.yaml
   text/html:
     schema:
       type: string
@@ -66,100 +62,50 @@ The OpenAPI specification currently supports the following link:https://github.c
 
 include::requirements/oas30/REQ_security.adoc[]
 
-[[rc_oas30-usage]]
-=== Using OpenAPI (Informative)
+[[rc_oas30-service-metadata]]
+=== Service Metadata
 
-The following section describes the main components of an OpenAPI document and how they should be used to construct API requests. The authoritative source is the OpenAPI 3.0 standard available https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasObject[here].
+OGC Web Services provide a set of metadata which identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provide the same information. A `service-meta` link is provided on the Landing Page for this purpose. 
 
-==== OpenAPI Document (root)
+include::recommendations/oas30/REC_service-metadata.adoc[]
 
-The OpenAPI document (Root) contains descriptive information about the API and serves as the root for the other parts of the document.
+An example of an OpenAPI `Info` object populated with OWS metadata is provided in the <<service-metadata-examples>> section.
 
-==== Paths
+[[rc_oas30-query-parameter]]
+=== Query Parameter Definition
 
-All API resources are accessed through a path. The Paths field of the OpenAPI document defines all of the paths available through this API. The Paths field is a collection of Paths Objects. Each Paths Object includes the URL or URL template for this path, any Server Objects specific to this Path, Parameters which are applicable to this Path, and an Operation Object for each of the HTTP Verbs applicable to this Path.
+OpenAPI defines query parameters using the `Parameter` object with the `in` property set to "query". The parameter name is a literal value provided by the `name` property. Since the parameter names are literals, each parameter must be described separately. 
 
-==== Operations
+API-Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition. a requirement that few implemetor would accept. 
 
-Operation Objects provide the details needed to create an HTTP request and response. Specifically, they provide definitions of the request message (including parameters) and all possible responses. In addition, they define any operation specific Server Objects or Security Requirements.
+OpenAPI provides a capability that allows additional parameters to be specified without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will still be considered "specified" for purposes of validation (see <<per_core-query-param-specified,/per/core/query-param-specified>> and <<per_core-query-param-tolerance,/per/core/query-param-tolerance>>.
 
-==== Parameters
-
-Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its' structure (if needed).  
-
-Parameter Objects can be defined at the following levels:
-
-* Path - applicable to all operations on this path. 
-* Operation - only applicable to this operation. Overrides any parameters defined at the Path level which have the same name. 
-
-==== Servers
-
-An API is not restricted to a single server. Furthermore, the set of valid servers may be different for different sections of the API. An OpenAPI Server Object describes a single server. Most important, it provides the URL to that server. Server Objects are grouped into arrays. These arrays provide a list of the servers which can be used to access a section of the API.
-
-.Example Array of Server Objects
-
+[[schema_free-form]]
+.OpenAPI schema for additional "free-form" query parameters
 [source,YAML]
 ----
-servers:
-  - url: https://dev.example.org/
-    description: Development server
-  - url: https://data.example.org/
-    description: Production server
+in: query
+name: freeFormParameters
+schema:
+  type: object
+  additionalProperties: true
+style: form
 ----
 
-Server Objects can be defined on following levels:
+Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of `freeFormParameters` is this object:
 
-* Root - applicable to the whole API unless overriden
-* Path - applicable to all operations on this path. Servers defined at the Rool level are still valid.
-* Operation - only applicable to this operation. Overrides any servers defined at the Path or Root level. 
+[source,JSON]
+----
+{
+  "my_first_parameter": "some value",
+  "my_other_parameter": 42
+}
+----
 
-===== Building URLs
+In the request URI this would be expressed as `&my_first_parameter=some%20value&my_other_parameter=42`.
 
-An OpenAPI document can describe a large number of URLs. Extracting all of the URLs is a non-trivial task. The OpenAPI objects used to construct URLs are:
+=== Further Information
 
-* Server Objects (URL template for the root and variables to populate it)
-* Paths Objects (URL template for the path and parameters)
-* Operation Objects (including parameters)
-
-They are organized as follows:
-
-{Server Object}/{Path Object}/?{Parameters}
-
-Server Objects may be found at the OpenAPI document, Path Object, and Operation Object level. Given this potentially large number of servers, how do you create the valid paths?
-
-We can assume that the authors of a OAS document are not doing it for their personal enjoyment. Therefore, if a Server Object is included, there must be a reason for its' presence. So the Server Objects with the most restrictive scope are the ones we should use.  Clients should look for Server Objects in the following order:
-
-. The Operation Object,
-. Then Path Item,
-. The root.
-
-The first scope where a Server Object is found dictates the behavior completely.
-
-
- IF Server Objects are supplied
-     THEN save them for latter
-     ELSE create a Server Object for the host of the OpenAPI document
- DO FOR each Path
-     IF Server Objects are included, THEN
-         Use them instead of those previously identified
-     IF Parameter Objects are included, THEN
-         save them for latter
-     DO FOR Each Operation
-         IF Server Objects are included, THEN
-             Use them instead of those previously identified
-         IF Parameter Objects are included THEN
-             IF this parameter was previously defined
-                 THEN replace the previous definition
-                 ELSE add this parameter to the set.
-         DO FOR Each Server Object
-             Extract all URL roots
-             DO FOR each URL root
-                 Concatenate the URL root and Path to create a working URL
-                 Concatenate the working URL with the Parameters
-                 Save the completed URL for future use
-             CONTINUE
-         DONE
-     DONE
- DONE
+Additional guidance on using OpenAPI in OGC Web API implementations can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.pdf[OAPI-Common Users Guide].
 
 

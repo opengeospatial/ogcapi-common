@@ -1,0 +1,30 @@
+[appendix]
+:appendix-caption: Annex
+== OGC Web API Guidelines
+
+The following table discusses how this standard addresses the design principles documented in the https://github.com/opengeospatial/OGC-Web-API-Guidelines[OGC Web API Guidelines].
+
+[cols = "^1,^2,^8",frame = "all",grid = "all"]
+|===
+|*#* |*Principle* |*Discussion*
+|1 |Don’t Reinvent |
+|2 |Keep It Simple and Intuitive |
+|3 |Use Well-Known Resource Types |
+|4 |Construct consistent URIs |
+|5 |Use HTTP Methods consistent with RFC 2616 |
+|6 |Put Selection Criteria behind the ‘?’ |
+|7 |Error Handling and use of HTTP Status Codes |
+|8 |Use of HTTP Status Codes |
+|9 |Use of HTTP Header |
+|10 |Content Negotiation |
+|11 |Pagination |
+|12 |Processing Resources |
+|13 |Support Metadata |
+|14 |Consider your Security needs |
+|15 |API Description |
+|16 |Use IANA well-known identifiers |
+|17 |Use explicit geospatial relations |
+|18 |Support W3C Cross-Origin Resource Sharing |
+|19 |Resource encodings |
+|20 |Good APIs are testable from the beginning |
+|===

@@ -2,12 +2,12 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Permission {counter:per-id}* |*/per/collections/rc-md-extent-extensions*
-^|A |The Core only specifies requirements for spatial and temporal extents. However, the `extent` object MAY be extended with additional members to represent other extents, such as thermal or pressure ranges.
-^|B |The Core only supports 
+^|A |API-Common only specifies requirements for spatial and temporal extents. However, the `extent` object MAY be extended with additional members to represent other extents, such as thermal or pressure ranges.
+^|B |API-Common only supports 
 
 * Spatial extents in CRS84 or CRS84h and 
 * Temporal extents in the Gregorian calendar
 
-These are the only _enum_ values in link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/extent.yaml[extent.yaml]).
-^|C |Extensions to the Core MAY add additional reference systems to the `extent` object.
+These are the only _enum_ values in link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/extent.yaml[extent.yaml]).
+^|C |Extensions MAY add additional reference systems to the `extent` object.
 |===

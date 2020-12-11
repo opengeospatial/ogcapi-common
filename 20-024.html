@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Draft OGC API - Common - Part 2: Collections</title>
+<title>Draft OGC API - Common - Part 2: Geospatial Data</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>Draft OGC API - Common - Part 2: Collections</h1>
+<h1>Draft OGC API - Common - Part 2: Geospatial Data</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-05-04</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-12-07</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -487,7 +487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API - Common - Part 2: Collections</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API - Common - Part 2: Geospatial Data</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -581,20 +581,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_coordinate_reference_systems">6.4. Coordinate Reference Systems</a></li>
-<li><a href="#_api_definition">6.5. API definition</a>
+<li><a href="#_timezones">6.5. Timezones</a></li>
+<li><a href="#_api_definition">6.6. API definition</a>
 <ul class="sectlevel3">
-<li><a href="#_general_remarks">6.5.1. General remarks</a></li>
-<li><a href="#_role_of_openapi">6.5.2. Role of OpenAPI</a></li>
-<li><a href="#_references_to_openapi_components_in_normative_statements">6.5.3. References to OpenAPI components in normative statements</a></li>
-<li><a href="#_reusable_openapi_components">6.5.4. Reusable OpenAPI components</a></li>
+<li><a href="#_general_remarks">6.6.1. General remarks</a></li>
+<li><a href="#_role_of_openapi">6.6.2. Role of OpenAPI</a></li>
+<li><a href="#_references_to_openapi_components_in_normative_statements">6.6.3. References to OpenAPI components in normative statements</a></li>
+<li><a href="#_reusable_openapi_components">6.6.4. Reusable OpenAPI components</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#overview">7. Overview</a>
 <ul class="sectlevel2">
-<li><a href="#resources-introduction">7.1. Resources</a></li>
-<li><a href="#collections-introduction">7.2. Collections</a></li>
+<li><a href="#collections-introduction">7.1. Collections</a></li>
 </ul>
 </li>
 <li><a href="#rc_collections-section">8. Requirements Class "Collections"</a>
@@ -613,10 +613,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#limit-parameter-requirements">8.2.3. Parameter limit</a></li>
 </ul>
 </li>
-<li><a href="#general-requirements">8.3. General Requirements</a>
+<li><a href="#general-requirements">8.3. General Requirements</a></li>
+<li><a href="#general-requirements-section">8.4. General Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#http_status_codes">8.3.1. HTTP status codes</a></li>
-<li><a href="#_coordinate_reference_systems_crs">8.3.2. Coordinate Reference Systems (CRS)</a></li>
+<li><a href="#_http_1_1">8.4.1. HTTP 1.1</a></li>
+<li><a href="#http-status-codes">8.4.2. HTTP Status Codes</a></li>
+<li><a href="#query-parameter-requirements">8.4.3. Query parameters</a></li>
+<li><a href="#web-caching-section">8.4.4. Web Caching</a></li>
+<li><a href="#cross-origin-section">8.4.5. Support for Cross-Origin Requests</a></li>
+<li><a href="#resource-encoding-section">8.4.6. Resource Encodings</a></li>
+<li><a href="#parameter-encoding-section">8.4.7. Parameter Encoding</a></li>
 </ul>
 </li>
 </ul>
@@ -626,7 +632,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_overview">9.1. Overview</a></li>
 <li><a href="#rc_html-section">9.2. Requirement Class "HTML"</a></li>
 <li><a href="#rc_json-section">9.3. Requirement Class "JSON"</a></li>
-<li><a href="#rc_geojson-section">9.4. Requirement Class "GeoJSON"</a></li>
 </ul>
 </li>
 <li><a href="#mediatypes">10. Media Types</a></li>
@@ -683,7 +688,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the OGC API - Common - Part 2: Collections Standard (API-Collections) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.</p>
+<p>The purpose of the OGC API - Common - Part 2: Geospatial Data Standard (API-GeoData) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted geospatial resources, common parameters for selecting subsets of those resources, and URI templates for identifying the above.</p>
 </div>
 <div class="paragraph">
 <p>This common connection is sufficient to start the client down the path to resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.</p>
@@ -695,7 +700,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The following are keywords to be used by search engines and document catalogues.</p>
 </div>
 <div class="paragraph">
-<p>ogcdoc, OGC document, geographic information, spatial data, spatial things, dataset, distribution, API, geojson, html, OpenAPI, REST, Common</p>
+<p>ogcdoc, OGC document, geographic information, spatial data, spatial things, dataset, distribution, API, json, html, OpenAPI, REST, Common</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">iii.   Preface</strong></p>
@@ -757,13 +762,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_scope"><a class="anchor" href="#_scope"></a>2. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The OGC API - Common suite of standards provides a set of modular API standards which can be used to build resource and mission-specific Web API standards. The OGC API - Common - Part 2: Collections Standard (API-Collections) is one of those modules.</p>
+<p>The OGC API - Common suite of standards provides a set of modular API standards which can be used to build resource and mission-specific Web API standards. The OGC API - Common - Part 2: Geospatial Data Standard (API-GeoData) is one of those modules.</p>
 </div>
 <div class="paragraph">
-<p>API-Collections describes discovery and query operations for resources which are typically packaged into sets or collections of related resources. Operations are defined for both the <code>collection</code> resource and for the individual member resources (<code>items</code>) that make up the collection. Operations are also defined for the <code>collections</code> resource. <code>Collections</code> is a collection of collections. It serves as a single access point for the collections hosted by an API.</p>
+<p>API-GeoData describes discovery and query operations for geospatial resources. These resources are typically packaged into sets or collections of related resources. Therefore, this Standard defines operations for both the <code>collection</code> of Geospatial resources and for the individual members (<code>items</code>) that make up the collection. Operations are also defined for the <code>collections</code> resource. <code>Collections</code> is a collection of the geospatial data collections. It serves as a single access point for the geospatial data hosted by an API.</p>
 </div>
 <div class="paragraph">
-<p>API-Collections does not specify the nature of the resources that make up a collection nor of the collection itself. Rather, it provides a basic capability which should be applicable to any resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.</p>
+<p>API-GeoData does not specify the nature of the geospatial data that make up a collection nor of the collection itself. Rather, it provides a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.</p>
 </div>
 </div>
 </div>
@@ -777,13 +782,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The one Standardization Target for this standard is Web APIs.</p>
 </div>
 <div class="paragraph">
-<p>API-Collections defines an API module intended for re-use by other OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite for each separate standard that normatively references this standard.</p>
+<p>API-GeoData defines an API module intended for re-use by other OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite for each separate standard that normatively references this standard.</p>
 </div>
 <div class="paragraph">
 <p>This standard identifies three <a href="#ctc-definition">conformance classes</a>. The conformance classes implemented by an OGC API are advertised through the /conformance path on the landing page. Each conformance class is defined by one <a href="#requirements-class-definition">requirements class</a>. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Collections</em> conformance class must pass all tests specified in Annex A for the <em>Collections</em> requirements class.</p>
 </div>
 <div class="paragraph">
-<p>The requirements classes for API-Collections are:</p>
+<p>The requirements classes for API-GeoData are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -793,7 +798,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>The <em>Collections Requirements Class</em> extends the API-Common <em>Core</em> to enable discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
+<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
 </div>
 <div class="paragraph">
 <p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <em>Collections Requirements Class</em> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
@@ -808,7 +813,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="#rc_html-section">HTML</a></p>
 </li>
 <li>
-<p><a href="#rc_geojson-section">GeoJSON</a></p>
+<p><a href="#rc_json-section">JSON</a></p>
 </li>
 </ul>
 </div>
@@ -816,10 +821,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <em>HTML</em> and <em>GeoJSON</em> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
+<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <em>HTML</em> and <em>JSON</em> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
 </div>
 <div class="paragraph">
-<p>Neither of these encodings is mandatory. An implementor of the <em>API-Collections</em> standard may decide to implement another encoding instead of, or in addition to, these two.</p>
+<p>Neither of these encodings is mandatory. An implementor of the <em>API-GeoData</em> standard may decide to implement another encoding instead of, or in addition to, these two.</p>
 </div>
 </div>
 </div>
@@ -831,6 +836,39 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p><a id="rfc2818"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
+</li>
+<li>
+<p><a id="rfc3339"></a> Klyne, G., Newman, C.: <strong>IETF RFC 3339, Date and Time on the Internet: Timestamps</strong>, <a href="http://tools.ietf.org/rfc/rfc3339.txt">http://tools.ietf.org/rfc/rfc3339.txt</a></p>
+</li>
+<li>
+<p><a id="rfc3986"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3986, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3986.txt">http://tools.ietf.org/rfc/rfc3986.txt</a></p>
+</li>
+<li>
+<p><a id="rfc6570"></a> Greforio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D.: <strong>IETF RFC 6570, URI Template</strong>, <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a></p>
+</li>
+<li>
+<p><a id="rfc7230"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</strong>, <a href="https://tools.ietf.org/rfc/rfc7230.txt">https://tools.ietf.org/rfc/rfc7230.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7231"></a> Fielding, R., Reschke, JSchaub: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7232"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7232, Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests</strong>, <a href="https://tools.ietf.org/rfc/rfc7232.txt">https://tools.ietf.org/rfc/rfc7232.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7235"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7235, Hypertext Transfer Protocol (HTTP/1.1): Authentication</strong>, <a href="https://tools.ietf.org/rfc/rfc7235.txt">https://tools.ietf.org/rfc/rfc7235.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7538"></a> Reschke, J.: <strong>IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)</strong>, <a href="https://tools.ietf.org/rfc/rfc7538.txt">https://tools.ietf.org/rfc/rfc7538.txt</a></p>
+</li>
+<li>
+<p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a>* <a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
+</li>
+<li>
+<p><a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
+</li>
 <li>
 <p><a id="iso8601_1"></a> ISO 8601-1:2019, <strong>Date and time - Representations for information interchange - Part 1: Basic rules</strong></p>
 </li>
@@ -844,43 +882,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="iso19111"></a> ISO 19111:2019, <strong>Geographic information ⎯ Spatial referencing by coordinates</strong></p>
 </li>
 <li>
+<p><a id="jschema"></a> json-schema-org: <strong>JSON Schema,</strong> September 2019, <a href="https://json-schema.org/specification.html" class="bare">https://json-schema.org/specification.html</a></p>
+</li>
+<li>
+<p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
+</li>
+<li>
+<p><a id="ogc-06-121"></a> Whiteside, A., Greenwood, J.: <strong>OGC Web Services Common Standard</strong>, version 2.0, <a href="http://portal.opengeospatial.org/files/?artifact_id=38867">OGC 06-121r9</a></p>
+</li>
+<li>
 <p><a id="sfsql"></a> Herring, J.: OGC 06-104r4,<strong>OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=25354">http://portal.opengeospatial.org/files/?artifact_id=25354</a></p>
 </li>
 <li>
 <p><a id="gmlsf"></a> van den Brink, L., Portele, C., Vretanos, P.: OGC 10-100r3, <strong>Geography Markup Language (GML) Simple Features Profile</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=42729">http://portal.opengeospatial.org/files/?artifact_id=42729</a></p>
 </li>
 <li>
-<p><a id="apicore"></a> Heazel, C.: OGC 19-072, <strong>OGC API - Common - Part 1: Core</strong>, <a href="https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf">https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf</a></p>
-</li>
-<li>
-<p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
-</li>
-<li>
-<p><a id="rfc2616"></a> Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P., Berners-Lee, T.: <strong>IETF RFC 2616, HTTP/1.1</strong>, <a href="http://tools.ietf.org/rfc/rfc2616.txt">http://tools.ietf.org/rfc/rfc2616.txt</a></p>
-</li>
-<li>
-<p><a id="rfc2818"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
-</li>
-<li>
-<p><a id="rfc3339"></a> Klyne, G., Newman, C.: <strong>IETF RFC 3339, Date and Time on the Internet: Timestamps</strong>, <a href="http://tools.ietf.org/rfc/rfc3339.txt">http://tools.ietf.org/rfc/rfc3339.txt</a></p>
-</li>
-<li>
-<p><a id="rfc3896"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3896, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3896.txt">http://tools.ietf.org/rfc/rfc3896.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7231"></a> Fielding, R., Reschke, JSchaub: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7946"></a> Butler, H., Daly, M., Doyle, A., Gillies, S., Hagen, S., Schaub, T.: <strong>IETF RFC 7946, The GeoJSON Format</strong>, <a href="https://tools.ietf.org/rfc/rfc7946.txt">https://tools.ietf.org/rfc/rfc7946.txt</a></p>
-</li>
-<li>
-<p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a>* <a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
+<p><a id="apicore"></a> Heazel, C.: OGC 19-072, <strong>OGC API - Common - Part 1: Core</strong>, <a href="https://github.com/opengeospatial/oapi_common/blob/April-2020-Updates/19-072.pdf">https://github.com/opengeospatial/oapi_common/blob/master/19-072.pdf</a></p>
 </li>
 <li>
 <p><a id="html5"></a> W3C: <strong>HTML5, W3C Recommendation</strong>, <a href="http://www.w3.org/TR/html5/">http://www.w3.org/TR/html5/</a></p>
 </li>
 <li>
 <p><a id="schema_org"></a><strong>Schema.org</strong>: <a href="http://schema.org/docs/schemas.html">http://schema.org/docs/schemas.html</a></p>
+</li>
+<li>
+<p><a id="xmlschema-part2"></a> W3C Recommendation: <strong>XML Schema Part 2: Datatypes Second Edition</strong>, 28 October 2004, <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></p>
 </li>
 </ul>
 </div>
@@ -1011,14 +1037,6 @@ abstraction of real world phenomena (<a href="#iso19101">ISO 19101-1:2014</a>)</
 <li>
 <p><strong>Feature Collection</strong><br>
 a set of <strong>Features</strong> from a <strong>dataset</strong></p>
-</li>
-</ul>
-</div>
-<div id="foundation-resources-definition" class="ulist">
-<ul>
-<li>
-<p><strong>Foundation Resources</strong><br>
-resources which are provided by every OGC API to help clients to understand the offerings and capabilities of that API. (<a href="#apicore">OGC 19-072</a>)</p>
 </li>
 </ul>
 </div>
@@ -1180,7 +1198,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <h2 id="conventions-section"><a class="anchor" href="#conventions-section"></a>6. Conventions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>All conventions described in the <a href="#apicore">OGC API - Common Part 1: Core Standard</a> are also applicable to this API-Common Part 2: Collections Standard except where modified in the following section.</p>
+<p>All conventions described in the <a href="#apicore">OGC API - Common Part 1: Core Standard</a> are also applicable to this API-Common Part 2: Geospatial Data Standard except where modified in the following section.</p>
 </div>
 <div class="sect2">
 <h3 id="identifiers-section"><a class="anchor" href="#identifiers-section"></a>6.1. Identifiers</h3>
@@ -1278,7 +1296,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.</p>
 </div>
 <div class="paragraph">
-<p>This OGC API - Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.</p>
+<p>This OGC API - Common Geospatial Data standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1291,16 +1309,22 @@ API using an architectural style that is founded on the technologies of the Web.
 </ul>
 </div>
 <div class="paragraph">
-<p>Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <a href="#rfc3339">RFC 3339</a>. In data, other temporal coordinate reference systems may be used where appropriate.</p>
+<p>Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Geospatial Data Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <a href="#rfc3339">RFC 3339</a>. In data, other temporal coordinate reference systems may be used where appropriate.</p>
 </div>
 <div class="paragraph">
 <p><a href="#iso19111">ISO 19111</a> provides the conceptual model for Coordinate Reference Systems.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.5. API definition</h3>
+<h3 id="_timezones"><a class="anchor" href="#_timezones"></a>6.5. Timezones</h3>
+<div class="paragraph">
+<p>A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Greenwich Mean Time, also referred to as "Z" for Zulu Time), should be used for all temporal data passed or returned to/from OGC Web APIs. ISO 8601 accounts for local time by specifying an offset to UTC. When time zone offsets are used in a temporal element of a client request, the server processing the request should interpret temporal information with respect to the client’s requested time zone. When there is no time zone offset expressed in a temporal element, the server should assume a UTC zone. The local time zone of client or server should not be assumed; it shall either be explicitly stated as an offset or assumed to be UTC.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.6. API definition</h3>
 <div class="sect3">
-<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.5.1. General remarks</h4>
+<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.6.1. General remarks</h4>
 <div class="paragraph">
 <p>So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding.</p>
 </div>
@@ -1309,7 +1333,7 @@ API using an architectural style that is founded on the technologies of the Web.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
+<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.6.2. Role of OpenAPI</h4>
 <div class="paragraph">
 <p>This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.</p>
 </div>
@@ -1321,7 +1345,7 @@ API using an architectural style that is founded on the technologies of the Web.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.5.3. References to OpenAPI components in normative statements</h4>
+<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.6.3. References to OpenAPI components in normative statements</h4>
 <div class="paragraph">
 <p>Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.</p>
 </div>
@@ -1349,21 +1373,9 @@ API using an architectural style that is founded on the technologies of the Web.
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
+<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.6.4. Reusable OpenAPI components</h4>
 <div class="paragraph">
 <p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document.</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Caution</div>
-</td>
-<td class="content">
-During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/ogcapi_common/1.0/openapi/".
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -1373,30 +1385,15 @@ During the development phase, these components use a base URL of "https://raw.gi
 <h2 id="overview"><a class="anchor" href="#overview"></a>7. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This API-Common Collections Standard provides a common connection between the API landing page and resource-specific specifications or standards.</p>
+<p>This API-Common Geospatial Data Standard provides a common connection between the API landing page and resource-specific specifications or standards.</p>
 </div>
 <div class="sect2">
-<h3 id="resources-introduction"><a class="anchor" href="#resources-introduction"></a>7.1. Resources</h3>
-<div class="paragraph">
-<p>An OGC API provides a lightweight interface to access one or more resources. The resources addressed by OGC APIs fall into three categories; Foundation Resources, Spatial Resources, and Information Resources. While the focus of this Standard is on Spatial Resources, it may be used for Information Resources as well.</p>
-</div>
-<div id="foundation-resources-introduction" class="paragraph">
-<p><strong>Foundation Resources</strong> are those resources which are provided by every OGC API to help clients understand the offerings and capabilities of that API. Those resources are defined in OGC API - Common - Part 1: Core Standard. Other OGC API standards re-use these resources and, where necessary, extend them to address their unique requirements.</p>
-</div>
-<div id="spatial-resources-introduction" class="paragraph">
-<p><strong>Spatial Resources</strong> are the resources which we usually think of as Geospatial Data. They include Features, Coverages, and Images. This OGC API - Common - Part 2: Collections Standard defines the basic patterns for accessing Spatial Resources. Additional OGC API Standards have been developed which extend API-Common Collections for specific Spatial Resource types.</p>
-</div>
-<div id="information-resources-introduction" class="paragraph">
-<p><strong>Information Resources</strong> are non-spatial resources which support the operation of an API or the access and use of Spatial Resources. These resources are typically not the subject of an OAG API standard. Rather, they are a supporting element of a broader OGC API standard.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="collections-introduction"><a class="anchor" href="#collections-introduction"></a>7.2. Collections</h3>
+<h3 id="collections-introduction"><a class="anchor" href="#collections-introduction"></a>7.1. Collections</h3>
 <div class="paragraph">
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial/temporal resources.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the OGC API - Common - Part 2: Collections Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.</p>
+<p>The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.</p>
 </div>
 <div class="paragraph">
 <p>A contentous issue is the term used to describe an aggregation of resources. The term should be consistent with its' coloquial use, should indicate that the members of the aggregation are somehow associated, and it should be independent of any resource type.</p>
@@ -1487,7 +1484,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </tbody>
 </table>
 <div class="paragraph">
-<p>This Requirements Class describes the resources and operations used to discover and query resource collections exposed thorugh an OGC Web API. It does not include any requirements about how the resources are aggregated into collections. That detail is reserved for resource-specific OGC Web API standards.</p>
+<p>This Requirements Class describes the resources and operations used to discover and query resource collections exposed through an OGC Web API. It does not include any requirements about how the resources are aggregated into collections. That detail is reserved for resource-specific OGC Web API standards.</p>
 </div>
 <div class="paragraph">
 <p>The three resources defined in this Requirements Class are summarized in <a href="#collection-resources">Table 1</a>. Detailed requirements for each of these resources are provided in the <a href="#collection-resource-requirements">Resource Requirements</a> section.</p>
@@ -1637,13 +1634,13 @@ During the development phase, these components use a base URL of "https://raw.gi
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json">collections.json</a>.</p>
+<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The collections metadata returned by this operation is based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
+<p>The collections metadata returned by this operation is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">collections.json</div>
@@ -1754,7 +1751,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>collections</code> property of the Collections Metadata provides a description of each collection. These descriptions are based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. This schema is described in detail in the <a href="#collection-information">Collection Information</a> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.</p>
+<p>The <code>collections</code> property of the Collections Metadata provides a description of each collection. These descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Information Schema</a>. This schema is described in detail in the <a href="#collection-information">Collection Information</a> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.</p>
 </div>
 <table id="req_collections_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1893,7 +1890,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <div class="sect4">
 <h5 id="_error_situations"><a class="anchor" href="#_error_situations"></a>Error situations</h5>
 <div class="paragraph">
-<p>See <a href="#http-status-codes">[http-status-codes]</a> for general guidance.</p>
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
 </div>
 </div>
 </div>
@@ -1960,7 +1957,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json">collectionInfo.json</a>.</p>
+<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">collectionInfo.json</a>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1972,7 +1969,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </tbody>
 </table>
 <div class="paragraph">
-<p>Collection Information is based on the <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Information are provided in <a href="#collection-information-examples">Collection Information Examples</a>.</p>
+<p>Collection Information is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Information are provided in <a href="#collection-information-examples">Collection Information Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Collection Information Schema</div>
@@ -2005,7 +2002,7 @@ During the development phase, these components use a base URL of "https://raw.gi
             },
         "extent": {"$href": "extent.json"},
         "itemType": {
-            "description": "indicator about the type of the items in the collection",
+            "description": "indicator about the type of the items in the collection if the collection has an accessible /collection/{collectionId}/items endpoint",
             "type": "string",
             "default": "unknown"
             },
@@ -2030,6 +2027,26 @@ During the development phase, these components use a base URL of "https://raw.gi
 <div class="paragraph">
 <p>This schema is further constrained by the following requirements and recommendations.</p>
 </div>
+<table id="rec_collections_rc-md-item-type" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/collections/rc-md-item-type</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If a resource at the path <code>/collection/{collectionId}/items</code> is supported by the API and is accessible, then the <code>itemType</code> key SHOULD be included in the collection object to indicate the type of the items (e.g. <code>feature</code> or <code>record</code>).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>To support hypermedia navigation, the <code>links</code> property must be populated with sufficient hyperlinks to navigate through the whole dataset.</p>
 </div>
@@ -2085,7 +2102,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-md-items-descriptions</strong></p>
 </div></div></td>
@@ -2140,7 +2157,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-md-extent-single</strong></p>
 </div></div></td>
@@ -2168,13 +2185,13 @@ During the development phase, these components use a base URL of "https://raw.gi
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The Core only specifies requirements for spatial and temporal extents. However, the <code>extent</code> object MAY be extended with additional members to represent other extents, such as thermal or pressure ranges.</p>
+<p>API-Common only specifies requirements for spatial and temporal extents. However, the <code>extent</code> object MAY be extended with additional members to represent other extents, such as thermal or pressure ranges.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The Core only supports</p>
+<p>API-Common only supports</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2187,13 +2204,13 @@ During the development phase, these components use a base URL of "https://raw.gi
 </ul>
 </div>
 <div class="paragraph">
-<p>These are the only <em>enum</em> values in <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/extent.yaml">extent.yaml</a>).</p>
+<p>These are the only <em>enum</em> values in <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/extent.yaml">extent.yaml</a>).</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Extensions to the Core MAY add additional reference systems to the <code>extent</code> object.</p>
+<p>Extensions MAY add additional reference systems to the <code>extent</code> object.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2202,10 +2219,10 @@ During the development phase, these components use a base URL of "https://raw.gi
 <div class="sect4">
 <h5 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>Error situations</h5>
 <div class="paragraph">
-<p>See <a href="#http-status-codes">[http-status-codes]</a> for general guidance.</p>
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">[status-codes]</a>).</p>
+<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">Table 3</a>).</p>
 </div>
 </div>
 </div>
@@ -2309,7 +2326,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <div class="sect4">
 <h5 id="_error_situations_3"><a class="anchor" href="#_error_situations_3"></a>Error situations</h5>
 <div class="paragraph">
-<p>See <a href="#http-status-codes">[http-status-codes]</a> for general guidance.</p>
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
 </div>
 </div>
 </div>
@@ -2317,7 +2334,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 <div class="sect2">
 <h3 id="parameter-requirements"><a class="anchor" href="#parameter-requirements"></a>8.2. Parameter Requirements</h3>
 <div class="paragraph">
-<p>Query parameters are used in URLs to limit the resources which are returned on a GET request. The OGC API - Common - Part 2: Collections Standard defines three query parameters for use in OGC API standards:</p>
+<p>Query parameters are used in URLs to limit the resources which are returned on a GET request. The OGC API - Common - Part 2: Geospatial Data Standard defines three query parameters for use in OGC API standards:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2333,92 +2350,8 @@ During the development phase, these components use a base URL of "https://raw.gi
 </ul>
 </div>
 <div class="paragraph">
-<p>Use of these query parameters with any specific operation is optional. Developers of API-Collections servers should include supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
+<p>Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should include supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
 </div>
-<div class="paragraph">
-<p>OGC API servers are subject to the following requirements when handling query parameters.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If a parameter <strong>is</strong> included in the API definition:</p>
-</li>
-</ul>
-</div>
-<table id="req_core_query-param-known" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-known</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If a query parameter is specified in the API definition, then the server SHALL meet the requirements specified for that parameter.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p>If a parameter <strong>is not</strong> included in the API definition:</p>
-</li>
-</ul>
-</div>
-<table id="req_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-unknown</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that is not specified in the API definition.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p>Query parameters will be validated:</p>
-</li>
-</ul>
-</div>
-<table id="req_core_query-param-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-invalid</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that has an invalid value.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 <div class="sect3">
 <h4 id="bbox-parameter-requirements"><a class="anchor" href="#bbox-parameter-requirements"></a>8.2.1. Parameter bbox</h4>
 <table id="req_collections_rc-bbox-definition" class="tableblock frame-all grid-all" style="width: 90%;">
@@ -2428,7 +2361,7 @@ During the development phase, these components use a base URL of "https://raw.gi
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-definition</strong></p>
 </div></div></td>
@@ -2463,7 +2396,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-response</strong></p>
 </div></div></td>
@@ -2500,7 +2433,7 @@ explode: false</code></pre>
 <p>Lower left corner, coordinate axis 2</p>
 </li>
 <li>
-<p>Lower left corner, coordinate axis 3 (optional)</p>
+<p>Minimum value, coordinate axis 3 (optional)</p>
 </li>
 <li>
 <p>Upper right corner, coordinate axis 1</p>
@@ -2509,7 +2442,7 @@ explode: false</code></pre>
 <p>Upper right corner, coordinate axis 2</p>
 </li>
 <li>
-<p>Upper right corner, coordinate axis 3 (optional)</p>
+<p>Maximum value, coordinate axis 3 (optional)</p>
 </li>
 </ul>
 </div></div></td>
@@ -2555,7 +2488,7 @@ explode: false</code></pre>
 <p>If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.</p>
 </div>
 <div class="paragraph">
-<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/parameters/bbox.yaml">bbox.yaml</a>.</p>
+<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/parameters/bbox.yaml">bbox.yaml</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2567,7 +2500,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-definition</strong></p>
 </div></div></td>
@@ -2598,7 +2531,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-response</strong></p>
 </div></div></td>
@@ -2708,7 +2641,7 @@ datetime            = date-time / interval</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/April-2020-Updates/collections/openapi/parameters/datetime.yaml">datetime.yaml</a>.</p>
+<p>A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/parameters/datetime.yaml">datetime.yaml</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2723,7 +2656,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-definition</strong></p>
 </div></div></td>
@@ -2779,7 +2712,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-response</strong></p>
 </div></div></td>
@@ -2814,7 +2747,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-1</strong></p>
 </div></div></td>
@@ -2834,7 +2767,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-2</strong></p>
 </div></div></td>
@@ -2854,7 +2787,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-3</strong></p>
 </div></div></td>
@@ -2895,18 +2828,53 @@ explode: false</code></pre>
 <div class="sect2">
 <h3 id="general-requirements"><a class="anchor" href="#general-requirements"></a>8.3. General Requirements</h3>
 <div class="paragraph">
-<p>The following general requirements and recommendations apply to all OGC APIs which implement the API-Common Collections conformance class.</p>
+<p>The following general requirements and recommendations apply to all OGC APIs which implement the API-Common Geospatial Data Standard.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="general-requirements-section"><a class="anchor" href="#general-requirements-section"></a>8.4. General Requirements</h3>
+<div class="paragraph">
+<p>The following requirements and recommentations are applicable to all OGC Web APIs.</p>
 </div>
 <div class="sect3">
-<h4 id="http_status_codes"><a class="anchor" href="#http_status_codes"></a>8.3.1. HTTP status codes</h4>
+<h4 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>8.4.1. HTTP 1.1</h4>
 <div class="paragraph">
-<p>This API standard does not impose any restrictions on which features of the HTTP and HTTPS protocols may be used. API clients should be prepared to handle any legal HTTP or HTTPS status code.</p>
+<p>The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.</p>
 </div>
+<table id="req_core_http" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/http</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>OGC Web APIs SHALL conform to <a href="#rfc2616">HTTP 1.1</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the API supports HTTPS, then the API SHALL also conform to <a href="#rfc2818">HTTP over TLS</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>8.4.2. HTTP Status Codes</h4>
 <div class="paragraph">
-<p>The <strong>Status Codes</strong> listed in <a href="#status_codes">Table 3</a> are of particular relevance to implementors of this standard. Status codes 200, 400, and 404 are called out in API requirements. Therefore, support for these status codes is mandatory for all compliant implementations. The remainder of the status codes in <a href="#status_codes">Table 3</a> are not mandatory, but are important for the implementation of a well functioning API. Support for these status codes is strongly encouraged for both client and server implementations.</p>
+<p><a href="#status-codes">Table 3</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
 </div>
-<table id="status_codes" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Typical HTTP status codes<a id="table_2"></a></caption>
+<table id="status-codes" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Typical HTTP status codes</caption>
 <colgroup>
 <col style="width: 15%;">
 <col style="width: 85%;">
@@ -2923,8 +2891,24 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A successful request.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>302</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource was found but resides temporarily under a different URI. A 302 response is not evidence that the operation has been successfully completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>303</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server is redirecting the user agent to a different resource. A 303 response is not evidence that the operation has been successfully completed.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>304</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An <a href="#web_caching">entity tag was provided in the request</a> and the resource has not been changed since the previous request.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An <a href="#web-caching">entity tag</a> was provided in the request and the resource has not changed since the previous request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>307</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>308</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>400</code></p></td>
@@ -2936,7 +2920,7 @@ explode: false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>403</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server understood the request, but is refusing to fulfil it. While status code <code>401</code> indicates missing or bad authentication, status code <code>403</code> indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server understood the request, but is refusing to fulfill it. While status code <code>401</code> indicates missing or bad authentication, status code <code>403</code> indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>404</code></p></td>
@@ -2974,21 +2958,295 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers MAY support other capabilities of the HTTP protocol and, therefore, MAY return status codes in addition to those listed in <a href="#status-codes">[status-codes]</a>.</p>
+<p>Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <a href="#status-codes">Table 3</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_coordinate_reference_systems_crs"><a class="anchor" href="#_coordinate_reference_systems_crs"></a>8.3.2. Coordinate Reference Systems (CRS)</h4>
+<h4 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>8.4.3. Query parameters</h4>
+<table id="req_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-unknown</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that is not specified in the API definition.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_core_query-param-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-invalid</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The server SHALL respond with a response with the status code <code>400</code>, if the request URI includes a query parameter that has an invalid value.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>As discussed in Chapter 9 of the W3C/OGC Spatial Data on the Web (SDW) <a href="#SDWBP">Best Practices document</a>, how to express and share the location of resources in a consistent way is one of the most fundamental aspects of publishing geographic data. Therefore, clearly stating the CRS rules for the coordinates is very important.</p>
+<p>The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the abilty of the API server to tolerate errors.</p>
 </div>
 <div class="paragraph">
-<p>For the reasons discussed in the SDW Best Practice, OGC APIs use WGS84 longitude and latitude as the default CRS.</p>
+<p>A service implementer should endeavour to provide as much detail in the server&#8217;s API definition as the API definition language allows. However, there is no requirement for it to list every endpoint for which there is a non-404 behaviour, for it to list every possible query parameter that might affect the behaviour of an endpoint, or for it to list every possible value that each query parameter might accept.</p>
 </div>
-<table id="req_core_crs84" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="per_core-query-param-specified" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 5</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/per/core/query-param-specified</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The specification of a query parameter in the API definition MAY encompass a <span class="underline">range</span> of parameter names. Any query parameter which falls within the specified range can be considered "specified" in the API definition.</p>
+</div>
+<div class="paragraph">
+<p>Examples of a parameter range include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A reqular expression which defines the valid parameter names,</p>
+</li>
+<li>
+<p>A URL Template segment which defines the valid parameter names,</p>
+</li>
+<li>
+<p>An indication that all parameter names are accepted (no parameter validation).</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The API definition language chosen may not be capable of expressing the desired range of values. In that case the server SHOULD provide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A definition of the parameter range which best expresses the intended use of that parameter,</p>
+</li>
+<li>
+<p>Additional human readable text documenting the actual range of validity.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="per_core-query-param-tolerance" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/per/core/query-param-tolerance</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Servers MAY display tolerance for requests with incorrect query parameters. These acts of tolerance include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>accept alternate capitalizations, spellings, and/or aliases of parameters,</p>
+</li>
+<li>
+<p>ignore unknown/unrecognized parameters,</p>
+</li>
+<li>
+<p>return a response with a status code of 400 and an exception report indicating unrecognized query parameters,</p>
+</li>
+<li>
+<p>return a response with a status code of 30x redirecting the client to a more correct version of the request.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Servers should not be excessively tolerant. The response a client receives from the server should be a reasonable response for the request submitted.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="web-caching-section"><a class="anchor" href="#web-caching-section"></a>8.4.4. Web Caching</h4>
+<div class="paragraph">
+<p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc7232">HTTP/1.1 (RFC 7232)</a>.</p>
+</div>
+<table id="rec_core_etag" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/etag</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The service SHOULD support entity tags and the associated headers as specified by HTTP/1.1.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="cross-origin-section"><a class="anchor" href="#cross-origin-section"></a>8.4.5. Support for Cross-Origin Requests</h4>
+<div class="paragraph">
+<p>If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.</p>
+</div>
+<table id="rec_core_cross-origin" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/cross-origin</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the server is intended to be accessed from a browser, cross-origin requests SHOULD be supported. Note that support can also be added in a proxy layer on top of the server.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Two common mechanisms to support cross-origin requests are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">Cross-origin resource sharing (CORS)</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/JSONP">JSONP (JSON with padding)</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resource-encoding-section"><a class="anchor" href="#resource-encoding-section"></a>8.4.6. Resource Encodings</h4>
+<div class="paragraph">
+<p>A Web API provides access to <a href="#resource-definition">resources</a> through <a href="#representation-definition">representations</a> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate which encoding format to use through the content negotiation process defined in <a href="#rfc7231">IETF RFC 7231</a>.</p>
+</div>
+<div class="paragraph">
+<p>Additional content negotiation techniques are allowed, but support is not required of implementations conformant to this Standard.</p>
+</div>
+<div class="paragraph">
+<p>While this standard does not specify any mandatory encoding, the following encodings are recommended:</p>
+</div>
+<div id="rec_html" class="paragraph">
+<p>HTML encoding recommendation:</p>
+</div>
+<table id="rec_core_html" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/html</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>To support browsing an API with a web browser and to enable search engines to crawl and index the dataset, implementations SHOULD consider supporting an HTML encoding.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rec_json" class="paragraph">
+<p>JSON encoding recommndation:</p>
+</div>
+<table id="rec_core_json" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/json</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>To support processing of an API with a web applet, implementations SHOULD consider supporting a JSON encoding.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="parameter-encoding-section"><a class="anchor" href="#parameter-encoding-section"></a>8.4.7. Parameter Encoding</h4>
+<div class="paragraph">
+<p>The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request.</p>
+</div>
+<div class="paragraph">
+<p>OGC Web API requests are issued using a Uniform Resource Identifier (URI). The URI syntax is defined in <a href="#rfc3986">IETF RFC 3986</a>. Rules for building URI Templates can be found in <a href="#rfc6570">IETF RFC 6570</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Backus-Naur Form (BNF) definition of a URI is provided in <a href="#uri-bnf-annex">Annex F</a>.</p>
+</div>
+<div class="sect4">
+<h5 id="_capitalization"><a class="anchor" href="#_capitalization"></a>Capitalization</h5>
+<div class="paragraph">
+<p><a href="#rfc3986">IETF RFC 3986</a> sections 6.2.2.1 and 2.1 provide the requirements for capitalization in URIs.</p>
+</div>
+<table id="req_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2997,19 +3255,281 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/crs84</strong></p>
+<p><strong>/req/core/query-param-capitalization</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Unless the client explicitly requests a different coordinate reference system, all spatial geometries SHALL be in the  <a href="http://www.opengis.net/def/crs/OGC/1.3/CRS84">CRS84</a> (WGS 84 longitude/latitude) CRS for geometries without height information and <a href="http://www.opengis.net/def/crs/OGC/0/CRS84h">CRS84h</a> (WGS 84 longitude/latitude plus ellipsoidal height) for geometries with height information.</p>
+<p>Parameter names and values SHALL be case sensitive.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>IF a parameter name or value includes a precent encoded (escaped) character,<br>
+&#160;&#160;&#160;&#160;THEN<br>
+the upper case hexadecimal digits ("A" through "F") of that percent encoded character SHALL be equivalent to the lower case digits "a" through "f" respectively.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The implementations compliant with API-Collections are not required to support publishing geometries in CRS other than <a href="http://www.opengis.net/def/crs/OGC/1.3/CRS84" class="bare">http://www.opengis.net/def/crs/OGC/1.3/CRS84</a>. API-Collections also does not specify a capability to request geometries in a different CRS than the native one of the published resource. Such a capability will be specified in other OGC API standards.</p>
+<p>All parameter value strings should have the first word and any subsequent words in the name capitalized. All other letters should be lower case.</p>
+</div>
+<div class="paragraph">
+<p>However, a Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.</p>
+</div>
+<table id="rec_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/query-param-capitalization</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Parameter names SHOULD be in Upper Camel Case.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_parameter_value_lists"><a class="anchor" href="#_parameter_value_lists"></a>Parameter Value Lists</h5>
+<div class="paragraph">
+<p>Parameters may pass more than one value. The folowing requirements define how to encode a list of parameter values.</p>
+</div>
+<table id="req_core_query-param-list-delimiter" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-list-delimiter</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Parameters values containing lists SHALL designate the list items using the comma (",") as a delimiter.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_core_query-param-list-escape" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-list-escape</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Any list item values which include a space or comma SHALL escape the space or comma character using the URL encoding rules from <a href="#rfc3986">IETF RFC 3986</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_core_query-param-list-empty" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-list-empty</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>All empty entries SHALL be represented by the empty string ("").</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list ("") can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_numeric_and_boolean_values"><a class="anchor" href="#_numeric_and_boolean_values"></a>Numeric and Boolean Values</h5>
+<div class="paragraph">
+<p>Boolean values conform to the following requirement derived from <a href="#ogc-06-121">OWS-Common</a>.</p>
+</div>
+<table id="req_core_query-param-value-boolean" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-boolean</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Boolean values shall be represented by the uppercase strings "TRUE" and "FALSE", representing Boolean true and false respectively.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Integer values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-integer" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-integer</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading sign. If the sign is omitted, "+" is assumed.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Real numbers can be represented using either the decimal or double (exponential) format. The decimal format is typically used except for very large or small values.</p>
+</div>
+<div class="paragraph">
+<p>Decimal values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-decimal" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-decimal</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Decimal values SHALL be represented by a finite-length sequence of decimal digits separated by a period as a decimal indicator.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An optional leading sign is allowed.</p>
+</li>
+<li>
+<p>If the sign is omitted, "+" is assumed.</p>
+</li>
+<li>
+<p>Leading and trailing zeroes are optional.</p>
+</li>
+<li>
+<p>If the fractional part is zero, the period and following zero(es) can be omitted.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Double values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-double" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-double</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Double values SHALL be represented by a mantissa followed, optionally, by the character "E" or "e", followed by an exponent.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The exponent SHALL be an integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The mantissa SHALL be a decimal number.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The representations for exponent and mantissa SHALL follow the lexical rules for integer and decimal.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the "E" or "e" and the following exponent are omitted, an exponent value of 0 SHALL be assumed.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Special values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+</div>
+<table id="req_core_query-param-value-special" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/core/query-param-value-special</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The special values positive and negative infinity and not-a-number SHALL be represented using the strings <code>INF</code>, <code>-INF</code> and <code>NaN</code>, respectively.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -3021,7 +3541,7 @@ explode: false</code></pre>
 <div class="sect2">
 <h3 id="_overview"><a class="anchor" href="#_overview"></a>9.1. Overview</h3>
 <div class="paragraph">
-<p>This clause specifies three requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
+<p>This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3030,9 +3550,6 @@ explode: false</code></pre>
 </li>
 <li>
 <p><a href="#rc_json-section">JSON</a></p>
-</li>
-<li>
-<p><a href="#rc_geojson-section">GeoJSON</a></p>
 </li>
 </ul>
 </div>
@@ -3098,7 +3615,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -3118,7 +3635,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -3149,7 +3666,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -3205,7 +3722,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -3225,7 +3742,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -3245,123 +3762,7 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
-<p>JSON Schema for the Collections Metadata and Collection Information is available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collections.yaml">collections.yaml</a> and <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
-</div>
-<div class="paragraph">
-<p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="rc_geojson-section"><a class="anchor" href="#rc_geojson-section"></a>9.4. Requirement Class "GeoJSON"</h3>
-<div class="paragraph">
-<p>GeoJSON is a commonly used format that is simple to understand and well supported by tools and software libraries. Since most Web developers are comfortable with using a JSON-based format, supporting GeoJSON is recommended if the resource can be represented in GeoJSON for the intended use.</p>
-</div>
-<table id="rc_geojson" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geojson" class="bare">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geojson</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_collections">Requirements Class "OAPI Collections"</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc7946">GeoJSON</a></p></td>
-</tr>
-</tbody>
-</table>
-<table id="req_geojson_definition" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/geojson/definition</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><code>200</code>-responses of the server SHALL support the following media types:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/geo+json</code> for resources that include feature content, and</p>
-</li>
-<li>
-<p><code>application/json</code> for all other resources.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="req_geojson_content" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/geojson/content</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Every <code>200</code>-response with the media type <code>application/geo+json</code> SHALL be</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A <a href="https://tools.ietf.org/html/rfc7946#section-3.3">GeoJSON FeatureCollection Object</a> for feature collections, and</p>
-</li>
-<li>
-<p>A <a href="https://tools.ietf.org/html/rfc7946#section-3.2">GeoJSON Feature Object</a> for features.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The schema of all responses with the media type <code>application/json</code> SHALL conform with the JSON Schema specified for that resource.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The following schema names are not GeoJSON. They need to be updated.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Templates for the definition of the schemas for the GeoJSON responses in JSON Schema definitions are available at <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collections.yaml">collections.yaml</a> and <a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/collections/openapi/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
+<p>JSON Schema for the Collections Metadata and Collection Information is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml">collections.yaml</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
 </div>
 <div class="paragraph">
 <p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
@@ -3617,7 +4018,7 @@ The following schema names are not GeoJSON. They need to be updated.
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json">collections.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geo_content">/ats/geo/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4137,7 +4538,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collectionInfo.json">collectionInfo.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_geojson_content">/ats/geojson/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/ats/json/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4236,7 +4637,7 @@ explode: false</code></pre>
 </div>
 <div class="sect2">
 <h3 id="_conformance_class_geojson"><a class="anchor" href="#_conformance_class_geojson"></a>A.3. Conformance Class GeoJSON</h3>
-<table id="ats_geojson" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_json" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -4246,7 +4647,7 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/geojson" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/geojson</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4254,7 +4655,7 @@ explode: false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_geojson">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geojson</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_geojson">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -4264,7 +4665,7 @@ explode: false</code></pre>
 </table>
 <div class="sect3">
 <h4 id="_geojson_definition"><a class="anchor" href="#_geojson_definition"></a>A.3.1. GeoJSON Definition</h4>
-<table id="ats_geojson_definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_json_definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -4273,19 +4674,19 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/geojson/definition</strong></p>
+<p><strong>/ats/json/definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Verify support for JSON and GeoJSON</p>
+<p>Verify support for JSON</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_geojson_definition">/req/geojson/definition</a></p>
+<p><a href="#req_json_definition">/req/json/definition</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4293,20 +4694,10 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>A resource is requested with response media type of <code>application/geo+json</code></p>
+<p>A resource is requested with response media type of <code>application/json</code></p>
 </li>
 <li>
-<p>All <code>200</code>-responses SHALL support the following media types:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/geo+json</code> for resources that include feature content, and</p>
-</li>
-<li>
-<p><code>application/json</code> for all other resources.</p>
-</li>
-</ul>
-</div>
+<p>All <code>200</code>-responses SHALL support the media type <code>application/json</code>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4316,7 +4707,7 @@ explode: false</code></pre>
 </div>
 <div class="sect3">
 <h4 id="_geojson_content"><a class="anchor" href="#_geojson_content"></a>A.3.2. GeoJSON Content</h4>
-<table id="ats_geojson_content" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_json_content" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -4325,19 +4716,19 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/geojson/content</strong></p>
+<p><strong>/ats/json/content</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Verify the content of a GeoJSON document given an input document and schema.</p>
+<p>Verify the content of a JSON document given an input document and schema.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_geojson_content">/req/geojson/content</a></p>
+<p><a href="#req_json_content">/req/json/content</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4345,7 +4736,7 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Validate that the document is a GeoJSON document.</p>
+<p>Validate that the document is a JSON document.</p>
 </li>
 <li>
 <p>Validate the document against the schema using a JSON Schema validator.</p>
@@ -4593,6 +4984,9 @@ include::examples/tbd.adoc[]
 <div class="ulist">
 <ul>
 <li>
+<p><a id="fielding-2000"></a> Fielding, Roy Thomas. <strong>Architectural Styles and the Design of Network-based Software Architectures</strong>. Doctoral dissertation, University of California, Irvine, 2000.</p>
+</li>
+<li>
 <p><a id="YAML"></a> <strong>YAML Ain&#8217;t Markup Language</strong> [online, viewed 2020-03-16]. Edited by O. Ben-Kiki, C. Evans, Ingy döt Net. Available at <a href="https://yaml.org">https://yaml.org</a>.</p>
 </li>
 <li>
@@ -4600,6 +4994,9 @@ include::examples/tbd.adoc[]
 </li>
 <li>
 <p><a id="link-relations"></a> Internet Assigned Numbers Authority (IANA). <strong>Link Relation Types</strong> [online, viewed 2020-03-16], Available at <a href="https://www.iana.org/assignments/link-relations/link-relations.xml">https://www.iana.org/assignments/link-relations/link-relations.xml</a>.</p>
+</li>
+<li>
+<p><a id="ogc08-131"></a> Open Geospatial Consortium: <strong>The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications</strong>, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
 </li>
 <li>
 <p><a id="SDWBP"></a> Open Geospatial Consortium (OGC) / World Wide Web Consortium (W3C): <strong>Spatial Data on the Web Best Practices</strong> [online]. Edited by J. Tandy, L. van den Brink, P. Barnaghi. 2017 [viewed 2020-03-16]. Available at <a href="https://www.w3.org/TR/sdw-bp/">https://www.w3.org/TR/sdw-bp/</a>.</p>
@@ -4621,17 +5018,13 @@ include::examples/tbd.adoc[]
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Open Geospatial Consortium (OGC). OGC 10-100r3: <strong>Geography Markup Language (GML) Simple Features Profile</strong> [online]. Edited by L. van den Brink, C. Portele, P. Vretanos. 2012 [viewed 2020-03-16]. Available at <a href="http://portal.opengeospatial.org/files/?artifact_id=42729">http://portal.opengeospatial.org/files/?artifact_id=42729</a>
-nternet Engineering Task Force (IETF). RFC 7946: <strong>The GeoJSON Format</strong> [online]. Edited by H. Butler, M. Daly, A. Doyle, S. Gillies, S. Hagen, T. Schaub. 2016 [viewed 2020-03-16]. Available at <a href="http://tools.ietf.org/rfc/rfc7946.txt">http://tools.ietf.org/rfc/rfc7946.txt</a></p>
-</div>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-28 22:24:35 -0400
+Last updated 2020-12-10 22:22:49 -0500
 </div>
 </div>
 </body>

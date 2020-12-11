@@ -1,6 +1,18 @@
 [[overview]]
 == Overview
 
+The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms which are useful for a client seeking to understand the offerings and capabilities of an API. These resources and their access mechanisms are described in <<cr-table-2>>. 
+
+[#cr-table-2,reftext='{table-caption} {counter:table-num}']
+.Common Core Resources
+[cols="32,23,15,30",options="header"]
+!===
+^|Resource ^|URI ^|HTTP Method ^|Document Reference
+|Landing page |`/` ^|GET |<<landing-page,API Landing Page>>
+|API definition |`/api` ^|GET |<<api-definition,API Definition>>
+|Conformance declaration |`/conformance` ^|GET |<<conformance-classes,Declaration of Conformance Classes>>
+!===
+
 [[evolution-introduction]]
 === Evolution from OGC Web Services
 
@@ -8,68 +20,25 @@ OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP arch
 
 The OGC API - Common suite of standards specify common modules for defining OGC Web API standards that follow the current Web architecture. In particular, the recommendations as defined in the <<SDWBP,W3C/OGC best practices for sharing Spatial Data on the Web>> as well as the <<DWBP,W3C best practices for sharing Data on the Web>>.
 
-In addition to the general alignment with the architecture of the Web (e.g., consistency with HTTP/HTTPS, hypermedia controls), another goal for OGC API standards is modularization. This goal has several facets:
-
-* A common `core` which is the same for all OGC Web API standards. This OGC API - Common - Core Standard provides the information needed by a client to understand and use an OGC Web API.
-* Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the _common_ requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.
-* Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
-* Modularization is not just about a single "service". OGC APIs can provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.
-
 [[modular-API-introduction]]
 === Modular APIs
 
 A goal of OGC API standards is to provide rapid and easy access to spatial resources. To meet this goal, the needs of both the resource provider and the resource consumer must be considered. The approach specified in this standard is to provide a modular framework of API components. This framework provides a consistent "look and feel" across all OGC APIs. When API servers and clients are built from the same set of modules, the likelihood that they will integrate at run-time is greatly enhanced.
 
-A more detailed discussion of modular APIs can be found in the API-Common link:https://github.com/opengeospatial/oapi_common/blob/master/19-072BP.html#modular-api[Best Practices] document.
+The OGC Modular Web API approach has several facets:
 
-[[navigation-introduction]]
-=== Navigation
+* A common `core` which is recommended for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard provides the information needed by a client to understand and use an OGC Web API.
+* Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the _common_ requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.
+* Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
+* Modularization is not just about a single "service". OGC APIs provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks which together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.
 
-OGC APIs are designed to support two access patterns; Hypermedia Access, and Direct Access.
+A more detailed discussion of modular APIs can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#modular-api[OGC API - Common Users Guide].
 
-A Direct Access client has been designed to work with an API-Common conformant API. Standardizing paths, resource types, parameters, etc. equip a client with most of the information needed to use a conformant API. These clients can quickly access resources with minimal time spent on API discovery.
+[[using-api-introduction]]
+=== Using APIs
 
-A hypermedia access client needs little a-prioi information beyond a URL to the landing page and the abilty to identify and follow the links found there. A common web browser should be sufficient.
+OGC API Standards are expected to support two different approaches that clients may use when accessing a conformant API.
+ 
+In the first approach, clients are implemented with knowledge about the standard and its resource types. The clients navigate the resources based on this knowledge and based on the responses provided by the API. The API definition may be used to determine details, e.g., on filter parameters, but this may not be necessary depending on the needs of the client. These are clients that are in general able to use multiple APIs as long as they implement OGC API Standards.
 
-[[direct-access-introduction]]
-==== Direct Access
-
-Direct Access requires that the resource consumer possesses knowledge of the path to the resource prior to attempting access. Typically this knowledge comes from the use of standard paths, receiving the path from another entity, or by processing an API definition resource. Direct access is particularly applicable to software analytics where there is no human in the loop.
-
-[[hypermedia-access-introduction]]
-==== Hypermedia Access
-
-Hypermedia Access is the use of hypermedia links to navigate from one resource to another. This pattern is typical of the Web Browser environment. A resource consumer starts from a landing page, selects a link on that page and then moves on to the referenced resource.
-
-Navigation of hyperlinks is facilitated if the hyperlink includes information about the resource type at the link destination. Therefore, OGC APIs use a set of common link relationships. The link relationships used in API-Common Core are described in <<link-relations-table>>.
-
-[#link-relations-table,reftext='{table-caption} {counter:table-num}']
-.Link Relations
-[width="90%",cols="2,6",options="header"]
-|===
-^|**Link Relation** ^|**Purpose**
-|`alternate` |Refers to a substitute for this context [IANA] Links to this resource represented using another media type (the media type is specified in the `type` link attribute)
-|`collection`|The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
-|`current` |Refers to a resource containing the most recent item(s) in a collection of resources. [IANA]
-|`conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
-|`data`|Refers to the root resource of a dataset in an API. [OGC]
-|`describedby`|Refers to a resource providing information about the link's context.[IANA] +
-Links to external resources which further describe the subject resource
-|`first`|An IRI that refers to the furthest preceding resource in a series of resources.[IANA]
-|`item`|The target IRI points to a resource that is a member of the collection represented by the context IRI.[IANA]
-|`items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
-|`last`|An IRI that refers to the furthest following resource in a series of resources.
-|`license`|Refers to a license associated with this context. [IANA]
-|`next`|Indicates that the link's context is a part of a series, and that the next in the series is the link target. [IANA]
-|`prev`|Indicates that the link's context is a part of a series, and that the previous in the series is the link target. [IANA]
-|`self`|Conveys an identifier for the link's context. [IANA] links to this resource.
-|`service-desc`|Identifies service description for the context that is primarily intended for consumption by machines. [IANA] +
-API definitions are considered service descriptions.
-|`service-doc`|Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
-|`start`|Refers to the first resource in a collection of resources.[IANA]
-|===
-
-OGC API hyperlinks are defined using the following link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/link.json[Hyperlink Schema].
-
-[source, JSON]
-include::openapi/schemas/link.json[]
+The other approach targets developers that are not familiar with the OGC API standards, but want to interact with spatial data provided by an API that happens to implement OGC API Standards. In this case the developer will study and use the API definition - typically an OpenAPI document - to understand the API and implement the code to interact with the API. This assumes familiarity with the API definition language and the related tooling, but it should not be necessary to study the OGC API standards.

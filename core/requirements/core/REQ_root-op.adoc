@@ -2,5 +2,6 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/core/root-op*
-^|A |The server SHALL support the HTTP GET operation at the path `/`.
+^|A |The server SHALL support the HTTP GET operation on the URI `{root}/`.
+^|B |The response to the HTTP GET request issued in `A` SHALL satisfy requirement <<req_core_root_success,/req/core/root-success>>.
 |===

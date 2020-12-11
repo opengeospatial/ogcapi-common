@@ -1,4 +1,4 @@
-:Title: Draft OGC API - Common - Part 1: Core
+:Title: OGC API - Common - Part 1: Core
 :titletext: {Title}
 :doctype: book
 :encoding: utf-8
@@ -19,10 +19,10 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   2020-05-04
+|Publication Date:   2020-12-07
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-common-1/1.0
 |Internal reference number of this OGC(R) document:    19-072
-|Version: 0.0.6
+|Version: 0.0.9
 |Category: OGC(R) Implementation Standard
 |Editor:   Charles Heazel
 |===
@@ -105,6 +105,13 @@ include::annex_examples.adoc[]
 
 include::annex_history.adoc[]
 
+include::annex_glossary.adoc[]
+
 include::annex_bibliography.adoc[]
+
+include::annex_bnf.adoc[]
+
+include::annex_api_guidelines.adoc[]
+
 
 <<<

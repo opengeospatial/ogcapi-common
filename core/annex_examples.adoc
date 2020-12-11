@@ -7,13 +7,17 @@
 
 include::examples/landing_page_JSON_1.adoc[]
 
-[[oas-examples]]
-=== API Description Examples
-
-NOTE: include::examples/tbd.adoc[]
-
 [[conformance-response-examples]]
 === Conformance Examples
 
 include::examples/conformance_response_JSON_1.adoc[]
 
+[[oas-examples]]
+=== API Definition Examples
+
+include::examples/api_definition_JSON_1.adoc[]
+
+[[service-metadata-examples]]
+=== Service Metadata Examples
+
+include::examples/service-metadata_JSON_1.adoc[]

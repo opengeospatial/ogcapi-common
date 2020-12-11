@@ -1,0 +1,207 @@
+:authors: Chuck Heazel, Joan Maso
+:authors_email: TBA
+:date: 2020-07-20
+:title: OGC API - Common
+:swgname: OGC API - Common
+:shortname: Common API
+:resources: geospatial
+:resource: geospatial
+:relevant_spec: OGC Web API Common Implementation Specification Standards
+:relevant_spec_docnum:  20-063r1
+:githubrepo: https://github.com/opengeospatial/oapi_common
+:base_swg: OWS Common SWG
+:target_start_date: August 2020
+:target_end_date: December 2020
+:dwg_review: Architecture DWG
+:dwg_review_meeting: September 2020 Virtual OGC Member Meeting
+:conveners: {authors}
+
+== {swgname}
+
+[cols="15,40",width="75%",options="",align="center"]
+|===
+|TITLE: a| {swgname} Standards Working Group Charter
+|AUTHOR NAME(s): | {authors}
+|EMAIL: | {authors_email}
+|DATE: | {date}
+|CATEGORY: | SWG Charter
+|===
+
+To: OGC members & interested parties
+
+The OGC members listed below have proposed that the OWS Common SWG be re-chartered as the "{swgname} SWG". The SWG proposal provided in this document meets the requirements of the OGC Technical Committee (TC) Policies and Procedures. The SWG name, statement of purpose, scope, list of deliverables, audience, and language specified in the proposal will constitute the SWG’s official charter.
+
+This SWG will operate under the OGC IPR Policy. The eligibility requirements for becoming a participant in the SWG at the first meeting (see details below) are that:
+
+•	You must be an employee of an OGC member organization or an individual member of OGC;
+
+•	The OGC member must have signed the OGC Membership agreement;
+
+•	You must notify the SWG chair of your intent to participate to the first meeting. Members may do so by logging onto the OGC Portal and navigating to the Observer page and clicking on the link for the SWG they wish to join and;
+
+•	You must attend meetings of the SWG. The next meeting of this SWG is at the time and date fixed below. Attendance may be by teleconference.
+
+Of course, participants also may join the SWG at any time. The OGC and the SWG welcomes all interested parties.
+
+Non-OGC members who wish to participate may contact us about joining the OGC. In addition, the public may access some of the resources maintained for each SWG: the SWG public description, the SWG Charter, Change Requests, and public comments, which will be linked from the SWG’s page.
+
+Please feel free to forward this announcement to any other appropriate lists. The OGC is an open standards organization; we encourage your feedback.
+
+=== Purpose of the {swgname} Standards Working Group
+
+The purpose of this Standards Working Group is to:
+
+* Develop and maintain a family of {swgname} standards.
+* Develop and maintain extensions of the {swgname} standards as identified in the Scope of Work section.
+* Maintain the OWS Common Standard making additions and extensions to that standard as necessary.
+
+The formal proposed name of the new multi-part standard is "{swgname}". The short name “{shortname}” may also be used to refer to this effort in the charter and work products.
+
+=== Business Value Proposition
+
+The http://docs.opengeospatial.org/wp/16-019r4/16-019r4.html[OGC® Open Geospatial APIs - White Paper] noted that "The recent proliferation of APIs for geospatial applications has degraded the interoperability previously established by open standards. This degradation is due both to the variability of API practices across the IT industry as well as variability in geospatial APIs specifically. Advancements in API practices is needed across the software development profession". This proliferation of APIs is evidenced, in part, by statistics from the https://www.programmableweb.com/news/apis-show-faster-growth-rate-2019-previous-years/research/2019/07/17[Programmable Web] - one of the largest directories of APIs on the Web - which reported in July 2019 that it had seen faster growth than in previous years. With more than 22,000 APIs registered by July 2019, this showed a significant increase from when the directory started tracking APIs in 2005.
+
+There are currently millions of datasets, offered by more than 200,000 servers that implement OGC Web Services (OWS) standards. OGC recognizes that the OWS standards are part of an operational standards baseline that must be maintained. However, there is also recognition within the OGC that Web API technology has advanced in the recent half-decade and therefore offers some capabilities that could benefit OGC Members, their customers and stakeholders. This implies that there is a need for OGC to develop a series of Web API standards that offer similar capabilities to those offered by OWS standards. The OGC API suite of standards have been conceived to address this need. To ensure consistency across OGC API standards, a multi-part standard called OGC API - Common will specify both mandatory and optional capabilities that all implementations of OGC API standards may support.
+
+=== Scope of Work
+
+OpenAPI frameworks have helped make describing and sharing API definitions more suitable for interoperability standardization. The concept of a {shortname} was demonstrated in various OGC Innovation Program initiatives.
+
+The {swgname} SWG will build on those preliminary efforts to more fully develop and document a family of {shortname} standards that will provide a modernized, common, and consistent interface to services that aligns with the current architecture of the Web and the
+Spatial Data on the Web Best Practices (https://www.w3.org/TR/sdw-bp/).
+
+* Architecture: The {swgname} standards will define API building blocks which can be used to construct Web APIs. The purpose of these standards is to make {resources} resources accessible through Web APIs. Additional resource types may also be supported where these resources support the creation, access, and use of Geospatial resources.
+
+*	Encodings: The first version of the {shortname} will support JSON and HTML as encodings for descriptions of {resource} resources in the API. No encoding will be mandatory and other encodings may be used as well. The HTTP focus is designed to support the use of multiple formats and defines rules about how servers can return the encoding that the client can best handle (“content negotiation”).
+
+* Reuse: The use of unique {shortname} resources or components will be minimized and, where available, existing industry-standards or patterns that are commonly used by developers will be used instead.
+
+The primary goal of the {shortname} SWG is to serve as a coordinating body across the constellation of OGC Web API Standards. Part of that role is to identify API modules which may have common applicability to other OGC API standards and, where appropriate, mature those modules as additional parts of the {shortname} family of standards.
+
+The "{swgname}" SWG will also develop the core of "{swgname}" as quickly as possible and work on extensions after that, driven by community interest. An important aspect is to ensure that implementing the standard will lead to efficient implementations, happy developers of both server and client components, and satisfied users of such components.
+
+Before finalizing parts of the future versions of the "{swgname}", completion of goals should be verified:
+
+*	Working implementations of all capabilities must be available and tested; and
+*	Implementation feedback must be taken into account.
+
+A consequence of this verification is that the period between the availability of what is considered a mature draft and the finalization of the candidate standard may be longer than in the past, depending on the availability of evidence about the suitability of the candidate standard based on implementations. Developers should be encouraged as early as possible to implement the draft API specification and provide feedback. An aspect of this is public access to drafts from the beginning. To this end, the SWG intends to use a public GitHub repository in the development of this standard as this is the environment many developers are familiar with and use on a daily basis.
+
+==== Statement of relationship of planned work to the current OGC standards baseline
+
+This proposed standard is intended to be a major component of the OGC API framework. The proposed standard will take advantage of Web API patterns identified in OGC API standards (e.g., OGC API – Features) and other ongoing API efforts to better align with current and emerging IT practices.
+
+==== What is Out of Scope?
+
+Standards are important for interoperability. At the same time, it is important that standards only state requirements that are important for a significantly large group of users. Proposals for new parts of {swgname} or change requests to existing parts must identify the user group that will benefit from the proposal and for each proposed conformance class; otherwise the proposal will be considered out-of-scope.
+
+If a community has a need to develop a profile, the profile should be specified and governed by that community and will not be included in the {swgname} program of work.
+
+==== Specific Contribution of Existing Work as a Starting Point
+
+The starting point for the work will be the draft documents that currently are on the proposed SWG's repository ({githubrepo}). This charter also recognizes the prior work done by the {base_swg}. Upon approval of this Charter, responsibility for {swgname} shall be transferred to the proposed {swgname} SWG.
+
+The work shall also be informed by the following specifications and by recommendations found in:
+
+*	OGC/W3C Spatial Data Working Group on the Web Best Practices (https://www.w3.org/TR/sdw-bp/);
+*	OGC Geospatial API White Paper [OGC 16-019r4];
+*	OGC API - Features - Part 1: Core standard, [OGC 17-069r3];
+*   OGC Web API Guidelines (https://github.com/opengeospatial/OGC-Web-API-Guidelines).
+
+Each of these documents recommends an emphasis on resource-oriented APIs in future OGC standards development including use of tools such as OpenAPI.
+
+==== Is this a persistent SWG?
+
+
+* [x] Yes
+* [ ] No
+
+==== When can SWG be inactivated?
+
+The {swgname} SWG is a standing one, maintaining the suite through corrigenda, feature extensions, new features, etc. as requested by the membership. Any newly adopted Web API module which shows common applicability will be added to the the {swgname} program of work.
+
+=== Description of Deliverables
+
+==== Initial Deliverables
+
+The following deliverables will result from the work of this SWG:
+
+*	A final version of the "{swgname} - Part 1: Core" document for submission to the TC;
+*	Identification of at least three prototype implementations of the core based on the standard — although more would be preferred; and
+*	Zero or more additional parts as time and community interest permits.
+
+Part 1 will cover basic capabilities and define high-level metadata. Capabilities for richer {resource} interfaces or extension for unique {resource} resource considerations will be specified in additional parts.
+
+The targeted start date is in {target_start_date} once charter is approved. Formal approval of the core {shortname} is envisaged to take place nearer {target_end_date}.
+
+==== Additional SWG Tasks
+
+The overarching task of the SWG is to hunt for commonality across the Web API efforts and document those elements as OGC standards.
+
+The SWG will also develop the following extensions:
+
+* OGC API - Common - Part 2: Geospatial Data
+* OGC API - Common - Part 3: Coordinate Reference Systems
+
+=== IPR Policy for this SWG
+
+* [x] RAND-Royalty Free
+* [ ] RAND for fee
+
+=== Anticipated Participants
+
+* Geospatial resource providers.
+* Developers implementing services.
+* Users of geospatial resources.
+
+=== Domain Working Group Endorsement
+
+The {dwg_review} will review the proof-of-concept at {githubrepo} and this SWG charter. A statement of endorsement is anticipated at the {dwg_review_meeting}.
+
+=== Other Informative Remarks about this SWG
+
+[loweralpha, start=1]
+. Similar or Applicable Standards Work (OGC and Elsewhere).
+
+The following standards work may be applicable to the work of the proposed SWG:
+
+* 06-121r9, OGC Web Service Common Implementation Specification Standard
+* 17-069, OGC API - Features
+* 18-062, OGC API - Processes
+* 19-086, OGC API - Environmental Data Retrieval
+* 19-087, OGC API - Coverages
+* 20-004, OGC API - Records
+* 20-009, OGC API - Styles
+* 20-057, OGC API - Tiles
+* 20-058, OGC API - Maps
+
+Additionally, the proposed SWG will monitor other OGC API work ongoing in various Standards and Innovation Program activities.
+
+[loweralpha, start=2]
+. Details of the First Meeting
+The first meeting of the SWG will be within four weeks of approval of the SWG.
+
+[loweralpha, start=3]
+. Projected On-going Meeting Schedule
+The work of this SWG will be carried out primarily on GitHub and via email, conference calls, with potential face-to-face meetings at OGC TC meetings as agreed to by the SWG members. The teleconference calls will be scheduled as needed and posted to the OGC portal. Voting on {shortname} content will be limited to SWG members only.
+
+[loweralpha, start=4]
+. Supporters of the Proposal (Charter Members)
+
+The following people support this proposal and are committed to the Charter and projected meeting schedule. These members are known as SWG Founding or Charter members. The charter members agree to the SoW and IPR terms as defined in this charter. The charter members have voting rights beginning the day the SWG is officially formed. Charter Members are shown on the public SWG page.
+
+[cols=",",width="75%",options="header",align="center"]
+|===
+|Name| Organization
+|Chris Little  | Met Office
+|Clemens Portele  | interactive instruments
+|Joan Maso  | UAB-CREAF
+|Chuck Heazel  | Heazel Tech
+|Jerome Jacovella St Louis  | Ecere
+|===
+
+[loweralpha, start=5]
+. Convener(s)
+
+{authors}
+

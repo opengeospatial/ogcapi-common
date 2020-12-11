@@ -1,0 +1,112 @@
+{
+    "openapi": "3.0.2",
+    "info": { 
+       "title": "A sample API conforming to the draft standard OGC API - Common - Part 1: Core",
+       "version": "1.0.0",
+       "description": "This is a sample OpenAPI definition of the draft standard 'OGC API - Common - Part 1: Core'. This example is a generic OGC API definition that uses path parameters to describe all feature collections and all features. The generic OpenAPI definition does not provide any details on the collections or the feature content. This information is only available from accessing the feature collection resources. There is [another example](ogcapi-features-1-example2.yaml) that specifies each collection explicitly.",
+       "contact": {
+          "name": "Acme Corporation",
+          "email": "info@example.org",
+          "url": "http://example.org/"
+          },
+       "license": {
+          "name": "CC-BY 4.0 license",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+       "x-keywords": ["geospatial", "data", "api"]
+       },
+    "servers": [
+       {
+           "url": "https://data.example.org/",
+           "description": "Production server"
+           },
+       {
+           "url": "https://dev.example.org/",
+           "description": "Development server"
+           }
+       ],
+    "tags": [
+       {
+           "name": "Capabilities",
+           "description": "essential characteristics of this API"
+           },
+       {    
+           "name": "Data",
+           "description": "access to data"
+           },
+       {
+           "name": "server",
+           "description": "Information about the server hosting this API", 
+           "externalDocs": {
+               "description": "information", 
+               "url": "https://example.com/sample_api/documentation"
+               }
+           }
+       ],
+    "paths": {
+       "/": {
+           "get": {
+               "description": "The landing page provides links to the API definition and the conformance statements for this API.", 
+               "parameters": [{"$ref": "#/components/parameters/f"}],
+               "operationId": "getLandingPage", 
+               "responses": {
+                   "200": {"$ref": "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json"},
+                   "400": {"$ref": "#/components/responses/400"}, 
+                   "500": {"$ref": "#/components/responses/500"}
+                   }, 
+               "summary": "Landing page", 
+               "tags": ["server"]
+               }
+            }, 
+       "/api": {
+           "get": {
+               "description": "This document", 
+               "parameters": [{"$ref": "#/components/parameters/f"}], 
+               "responses": {
+                   "200": {"$ref": "#/components/responses/200"}, 
+                   "400": {"$ref": "#/components/responses/400"}, 
+                   "default": {"$ref": "#/components/responses/400"}
+                   }, 
+               "summary": "This document", 
+               "tags": ["server"]
+               }
+           },
+       "/conformance": {
+           "get": {
+      
+               "description": "A list of all conformance classes specified in a standard that the server conforms to.", 
+               "parameters": [{"$ref": "#/components/parameters/f"}], 
+               "operationId": "getConformanceDeclaration",
+               "responses": {
+                   "200": {"$ref": "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json"}, 
+                   "400": {"$ref": "#/components/responses/400"}, 
+                   "500": {"$ref": "#/components/responses/500"}
+                   }, 
+               "summary": "API conformance definition", 
+               "tags": ["server"]
+               }
+           }
+       },
+    "components": {
+       "parameters": {
+           "f": {
+               "description": "The optional f parameter indicates the output format which the server shall provide as part of the response document.  The default format is GeoJSON.", 
+               "explode": false, 
+               "in": "query", 
+               "name": "f", 
+               "required": false, 
+               "schema": {
+                   "default": "json", 
+                   "enum": ["json", "html"], 
+                   "type": "string"
+                   }, 
+               "style": "form"
+               }
+           },
+       "responses": {
+           "200": {"description": "successful operation"},
+           "500": {"$ref": "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/exception.yaml"},
+           "400": {"$ref": "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/exception.yaml"}
+           }
+       }
+    }

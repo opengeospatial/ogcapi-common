@@ -1,7 +1,7 @@
 [[conventions-section]]
 == Conventions
 
-All conventions described in the <<apicore,OGC API - Common Part 1: Core Standard>> are also applicable to this API-Common Part 2: Collections Standard except where modified in the following section.
+All conventions described in the <<apicore,OGC API - Common Part 1: Core Standard>> are also applicable to this API-Common Part 2: Geospatial Data Standard except where modified in the following section.
 
 [[identifiers-section]]
 === Identifiers
@@ -60,14 +60,18 @@ Standardized concepts are also needed for temporal characteristics. The temporal
 
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-This OGC API - Common Collections standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
+This OGC API - Common Geospatial Data standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
 
 * CRS84 - WGS 84 longitude and latitude without height
 * CRS84h - WGS 84 longitude and latitude with ellipsoidal height
 
-Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Collections Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
+Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Geospatial Data Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
 
 <<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
+
+=== Timezones
+
+A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Greenwich Mean Time, also referred to as "Z" for Zulu Time), should be used for all temporal data passed or returned to/from OGC Web APIs. ISO 8601 accounts for local time by specifying an offset to UTC. When time zone offsets are used in a temporal element of a client request, the server processing the request should interpret temporal information with respect to the client’s requested time zone. When there is no time zone offset expressed in a temporal element, the server should assume a UTC zone. The local time zone of client or server should not be assumed; it shall either be explicitly stated as an offset or assumed to be UTC.
 
 === API definition
 
@@ -101,5 +105,3 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 ==== Reusable OpenAPI components
 
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
-
-CAUTION: During the development phase, these components use a base URL of "https://raw.githubusercontent.com/opengeospatial/oapi_common/master/", but eventually they are expected to be available under the base URL "http://schemas.opengis.net/ogcapi_common/1.0/openapi/".

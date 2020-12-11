@@ -1,15 +1,15 @@
 .Conformance Response
 =================
-This example response in JSON is for an implementation of the OGC API-Features Standard that supports OpenAPI 3.0 for the API definition and HTML and GeoJSON as encodings for resources.
+This example response in JSON is for an implementation of the OGC API-Common Standard that supports OpenAPI 3.0 for the API definition and HTML and JSON as encodings for resources.
 
 [source,JSON]
 ----
 {
   "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/core",
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30",
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/html",
-    "http://www.opengis.net/spec/ogcapi-features-1/1.0/req/geojson"
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html",
+    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json"
   ]
 }
 ----
