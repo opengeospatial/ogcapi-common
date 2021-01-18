@@ -34,9 +34,13 @@ include::requirements/general/REQ_http.adoc[]
 |`500` |An internal error occurred in the server.
 !===
 
-More specific guidance is provided for each resource, where applicable.
+The return status codes described in <<status-codes>> do not cover all possible conditions. 
 
 include::recommendations/general/PER_additional-status-codes.adoc[]
+
+When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. <<rfc7807,IETF RFC 7807>> addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+
+include::recommendations/general/REC_problem-details.adoc[]
 
 [[query-parameter-requirements]]
 ==== Query parameters

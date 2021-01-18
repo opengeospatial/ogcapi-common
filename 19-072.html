@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-12-07</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-01-18</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -639,7 +639,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_further_information">10.7. Further Information</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">11. Media Types</a></li>
+<li><a href="#mediatypes">11. Media Types</a>
+<ul class="sectlevel2">
+<li><a href="#mediatypes-response">11.1. Normal Response Media Types</a></li>
+<li><a href="#mediatypes-oas30">11.2. OpenAPI Media Types</a></li>
+<li><a href="#mediatype-problems">11.3. Problem Details Media Types</a></li>
+</ul>
+</li>
 <li><a href="#_security_considerations">12. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
@@ -954,6 +960,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a id="rfc7538"></a> Reschke, J.: <strong>IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)</strong>, <a href="https://tools.ietf.org/rfc/rfc7538.txt">https://tools.ietf.org/rfc/rfc7538.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7807"></a> Nottingham, M., Wilde, E.: <strong>IETF RFC 7807, Problem Details for HTTP APIs</strong>, <a href="https://tools.ietf.org/rfc/rfc7807.txt">https://tools.ietf.org/rfc/rfc7807.txt</a></p>
 </li>
 <li>
 <p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a></p>
@@ -1678,7 +1687,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>More specific guidance is provided for each resource, where applicable.</p>
+<p>The return status codes described in <a href="#status-codes">Table 4</a> do not cover all possible conditions.</p>
 </div>
 <table id="per_core_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1697,6 +1706,26 @@ API definitions are considered service descriptions.</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <a href="#status-codes">Table 4</a>.</p>
 </div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. <a href="#rfc7807">IETF RFC 7807</a> addresses this need by providing "Problem Details" response schemas for both JSON and XML.</p>
+</div>
+<table id="rec_core_problem-details" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/problem-details</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">An OGC Web API should include a "Problem Details" report in any error response in accordance with <a href="#rfc7807">IETF RFC 7807</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1856,7 +1885,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/etag</strong></p>
 </div></div></td>
@@ -1882,7 +1911,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/cross-origin</strong></p>
 </div></div></td>
@@ -1930,7 +1959,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/html</strong></p>
 </div></div></td>
@@ -1953,7 +1982,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/json</strong></p>
 </div></div></td>
@@ -2024,7 +2053,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -2032,7 +2061,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Parameter names SHOULD be in Upper Camel Case.</p>
+<p>Query parameter names SHOULD be in kebab case. (lower case with dash "-" delimiters)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2432,7 +2461,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/service-metadata</strong></p>
 </div></div></td>
@@ -2528,7 +2557,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-op</strong></p>
 </div></div></td>
@@ -2596,7 +2625,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-oas</strong></p>
 </div></div></td>
@@ -2865,7 +2894,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -2960,8 +2989,28 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </tr>
 </tbody>
 </table>
+<table id="rec_json_problem-details" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/json/problem-details</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">An OGC Web API which is returning an RFC 7807 "Problem Details" report in JSON should set the <code>Content-Type</code> header to "application/problem+json" and structure the report using the JSON Schema <a href="https://github.com/opengeospatial/ogcapi-common/blob/master/core/openapi/schemas/exception.json">here</a>.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>An example JSON Schema for the landing page is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a>.</p>
+</div>
+<div class="paragraph">
+<p>An example JSON Problem Details report is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/examples/ExceptionExample.json">ExceptionExample.json</a>.</p>
 </div>
 </div>
 </div>
@@ -3205,7 +3254,7 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/oas30/service-metadata</strong></p>
 </div></div></td>
@@ -3291,12 +3340,17 @@ style: form</code></pre>
 <div class="sect1">
 <h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="mediatypes-response"><a class="anchor" href="#mediatypes-response"></a>11.1. Normal Response Media Types</h3>
 <div class="paragraph">
 <p>The typical media type for all "web pages" in an OGC Web API would be <code>text/html</code>.</p>
 </div>
 <div class="paragraph">
 <p>The media type that would typically be used in an OGC Web API for machine-to-machine exchanges would be <code>application/json</code>.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="mediatypes-oas30"><a class="anchor" href="#mediatypes-oas30"></a>11.2. OpenAPI Media Types</h3>
 <div class="paragraph">
 <p>The media types for an OpenAPI definition are <code>vnd.oai.openapi+json;version=3.0</code> (JSON) and <code>application/vnd.oai.openapi;version=3.0</code> (YAML).</p>
 </div>
@@ -3311,6 +3365,23 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mediatype-problems"><a class="anchor" href="#mediatype-problems"></a>11.3. Problem Details Media Types</h3>
+<div class="paragraph">
+<p>OGC API-Common recommends that implementers use <a href="#rfc7807">IETF RFC 7807</a> when constructing the response body for an error condition. The media types for an RFC 7807 Problem Details response body are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>application/problem+json - for responses in JSON</p>
+</li>
+<li>
+<p>application/problem+xml - for responses in XML</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -5188,7 +5259,7 @@ sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-01-17 22:22:41 -0500
+Last updated 2021-01-18 18:31:06 UTC
 </div>
 </div>
 </body>
