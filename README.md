@@ -15,7 +15,7 @@ The API-Common Core Standard defines the resources and operations which SHALL be
 
 This standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/19-072.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/19-072.pdf) formats.
 
-## OGC API - Common - Part 2: Collections
+## OGC API - Common - Part 2: Geospatial Data
 
 The OGC API-Common Collections Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifing the above.
 
