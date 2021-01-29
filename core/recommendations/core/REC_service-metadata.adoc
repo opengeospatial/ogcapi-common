@@ -1,0 +1,8 @@
+[[rec_core_service-metadata]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/core/service-metadata* 
+2+|In order to maintain commonality between OGC Web Services and OGC Web APIs, an OGC Web API should expose Service Metadata.
+^|A |The server SHOULD support the HTTP GET operation on all links from the landing page which have the relation type ``service-meta``.
+^|B |A successful execution of the operation SHOULD be reported as a response with an HTTP status code ``200``.
+|===

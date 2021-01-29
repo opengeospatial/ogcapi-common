@@ -48,9 +48,11 @@ The landing page returned by this operation is based on the following link:https
 [source, JSON]
 include::openapi/schemas/landingPage.json[]
 
-OGC Web Services provide a set of Service Metadata which identifies the service and provides information about the service provider. It is recommended that OGC Web APIs provide the same information.     
+It is recommended that OGC Web APIs provide a set of Service Metadata which identifies the service and provides information about the service provider.     
 
-include::../general/recommendations/general/REC_service-metadata.adoc[]
+include::recommendations/core/REC_service-metadata.adoc[]
+
+Additional information about Service Metadata can be found in the http://docs.opengeospatial.org/DRAFTS/20-071.pdf[OAPI-Common Users Guide].
 
 Examples of OGC landing pages are provided in <<landing-page-examples>>.
 

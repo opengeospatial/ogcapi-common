@@ -3,4 +3,5 @@
 |===
 ^|*Recommendation {counter:rec-id}* |*/rec/core/query-param-capitalization* 
 ^|A |Query parameter names SHOULD be in kebab case. (lower case with dash "-" delimiters)
+^|B |Query parameter values are usually reflective of the internal structure of the target resource. Unless otherwise specified, these values SHOULD be in Kebab case.
 |===
