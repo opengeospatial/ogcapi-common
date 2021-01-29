@@ -1,10 +1,11 @@
 type: object
 required:
-  - title
   - links
 properties:
   title:
     type: string
+    title: The title of the API.
+    description: While a title is not required, implementors are strongly advised to include one.
     example: Buildings in Bonn
   description:
     type: string
