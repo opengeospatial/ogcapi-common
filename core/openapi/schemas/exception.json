@@ -26,20 +26,6 @@
             "type": "string",
             "description": "A URI reference that identifies the specific occurrence of the problem.  It may or may not yield further information if dereferenced."
         },
-        "details": {
-            "description": "An OGC extension to RFC 7807 which allows multiple details.",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "required": [ "description" ],
-                "properties": {
-                    "description": {
-                        "type": "string"
-                    }
-                }
-            },
-            "minItems": 1
-        },
-    "additionalProperties": true
+     "additionalProperties": true
     }
 }

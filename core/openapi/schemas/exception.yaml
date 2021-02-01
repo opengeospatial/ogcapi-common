@@ -1,5 +1,5 @@
 title: Exception Schema
-description: SON schema for exceptions based on RFC 7807
+description: JSON schema for exceptions based on RFC 7807
 type: object
 required:
 - type
@@ -14,13 +14,3 @@ properties:
     type: string
   instance: 
     type: string
-  details:
-    type: array
-    items:
-      type: object
-      required:
-      - description
-      properties:
-        description:
-          type: string
-    minItems: 1
