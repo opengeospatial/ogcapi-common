@@ -6,7 +6,6 @@
 
 *   accept alternate capitalizations, spellings, and/or aliases of parameters,
 *   ignore unknown/unrecognized parameters,
-*   return a response with a status code of 400 and an exception report indicating unrecognized query parameters,
 *   return a response with a status code of 30x redirecting the client to a more correct version of the request.
 ^|B |Servers should not be excessively tolerant. The response a client receives from the server should be a reasonable response for the request submitted.  
 |===

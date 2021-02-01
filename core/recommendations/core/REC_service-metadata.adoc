@@ -1,0 +1,9 @@
+[[rec_core_service-metadata]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/core/service-metadata* 
+2+|A Web API SHOULD provide service metadata.
+^|A |A Web API service SHOULD provide one or more service metadata resources accessible by an HTTP GET operation.
+^|B |The landing page for a Web API service SHOULD provide links to the service metadata resources using the relation type ``service-meta``.
+^|C |A successful execution of the operation SHOULD be reported as a response with an HTTP status code ``200``.
+|===

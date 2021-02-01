@@ -3,6 +3,7 @@
 
 The following requirements and recommentations are applicable to all OGC Web APIs.
 
+[[http-protocol]]
 ==== HTTP 1.1
 
 The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.
@@ -108,15 +109,20 @@ The Backus-Naur Form (BNF) definition of a URI is provided in <<uri-bnf-annex,An
 
 include::requirements/general/REQ_query-param-capitalization.adoc[]
 
-All parameter value strings should have the first word and any subsequent words in the name capitalized. All other letters should be lower case.
-
-However, a Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.
+In order to minimize capitalization issues for implementors of OGC Web API standards:
 
 include::recommendations/general/REC_query-param-capitalization.adoc[]
 
+A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.
+
 ===== Parameter Value Lists
 
-Parameters may pass more than one value. The folowing requirements define how to encode a list of parameter values.
+Parameters may pass more than one value. These lists of parameter values may be passed in two ways.
+
+. Repeated name:value pairs where the parameter name is repeated for each value in the list
+. A parameter name followed by a delimited list of values.
+
+The folowing requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is uses.
 
 include::requirements/general/REQ_query-param-list-delimiter.adoc[]
 
@@ -128,25 +134,27 @@ Thus, two successive commas indicates an empty item, as does a leading comma or 
 
 ===== Numeric and Boolean Values
 
-Boolean values conform to the following requirement derived from <<ogc-06-121,OWS-Common>>.
+Geospatial is a mathematical discipline. The clear and accurate exchange of mathematical values is essential. The encoding rules in this section standarize the encoding of numeric and boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
+
+Boolean values conform to the following requirement.
 
 include::requirements/general/REQ_query-param-value-boolean.adoc[]
 
-Integer values conform to the following requirement derived from <<xmlschema-part2,XML Schema Part 2>>.
+Integer values conform to the following requirement.
 
 include::requirements/general/REQ_query-param-value-integer.adoc[]
 
 Real numbers can be represented using either the decimal or double (exponential) format. The decimal format is typically used except for very large or small values.
 
-Decimal values conform to the following requirement derived from <<xmlschema-part2,XML Schema Part 2>>. 
+Decimal values conform to the following requirement. 
 
 include::requirements/general/REQ_query-param-value-decimal.adoc[]
 
-Double values conform to the following requirement derived from <<xmlschema-part2,XML Schema Part 2>>. 
+Double values conform to the following requirement. 
 
 include::requirements/general/REQ_query-param-value-double.adoc[]
 
-Special values conform to the following requirement derived from <<xmlschema-part2,XML Schema Part 2>>. 
+Special values conform to the following requirement. 
 
 include::requirements/general/REQ_query-param-value-special.adoc[]
 

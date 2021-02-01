@@ -69,7 +69,7 @@ OGC Web Services provide a set of metadata which identifies the service and prov
 
 include::recommendations/oas30/REC_service-metadata.adoc[]
 
-An example of an OpenAPI `Info` object populated with OWS metadata is provided in the <<service-metadata-examples>> section.
+An example of a populated OpenAPI `Info` object is provided in the <<service-metadata-examples>> section.
 
 [[rc_oas30-query-parameter]]
 === Query Parameter Definition

@@ -86,6 +86,8 @@ OGC                {root}             path   parameters
 
 This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rc2616,HTTP>> and <<rc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
 
+NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (ex. image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementors should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
+
 Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide]. 
 
 [[link-relation-conventions]]
