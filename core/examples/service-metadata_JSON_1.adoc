@@ -1,7 +1,7 @@
 [[service-metadata]]
 .Service Metadata
 =================
-This is an example of the encoding of OWS-Common Service Metadata in an OpenAPI Info object. While not required, inclusion of this metadata provides common descriptive metadata for OGC Web Services and OGC Web APIs. 
+This is an example of how to extend the OpenAPI `info` object to include identifying metadata about both the service and the service provider. 
 
 [source,JSON]
 ----

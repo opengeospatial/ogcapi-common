@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2020-12-07</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-02-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -603,7 +603,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#general-requirements-section">8.1. General Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_http_1_1">8.1.1. HTTP 1.1</a></li>
+<li><a href="#http-protocol">8.1.1. HTTP 1.1</a></li>
 <li><a href="#http-status-codes">8.1.2. HTTP Status Codes</a></li>
 <li><a href="#query-parameter-requirements">8.1.3. Query parameters</a></li>
 <li><a href="#web-caching-section">8.1.4. Web Caching</a></li>
@@ -639,7 +639,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_further_information">10.7. Further Information</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">11. Media Types</a></li>
+<li><a href="#mediatypes">11. Media Types</a>
+<ul class="sectlevel2">
+<li><a href="#mediatypes-response">11.1. Normal Response Media Types</a></li>
+<li><a href="#mediatypes-oas30">11.2. OpenAPI Media Types</a></li>
+<li><a href="#mediatype-problems">11.3. Problem Details Media Types</a></li>
+</ul>
+</li>
 <li><a href="#_security_considerations">12. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
@@ -956,6 +962,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="rfc7538"></a> Reschke, J.: <strong>IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)</strong>, <a href="https://tools.ietf.org/rfc/rfc7538.txt">https://tools.ietf.org/rfc/rfc7538.txt</a></p>
 </li>
 <li>
+<p><a id="rfc7807"></a> Nottingham, M., Wilde, E.: <strong>IETF RFC 7807, Problem Details for HTTP APIs</strong>, <a href="https://tools.ietf.org/rfc/rfc7807.txt">https://tools.ietf.org/rfc/rfc7807.txt</a></p>
+</li>
+<li>
 <p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a></p>
 </li>
 <li>
@@ -1173,6 +1182,18 @@ OGC                {root}             path   parameters</code></pre>
 </div>
 <div class="paragraph">
 <p>This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <a href="#rc2616">HTTP</a> and <a href="#rc3986">URI Syntax</a> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <a href="#rfc3986">RFC 3986</a> for details.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+OGC Web API standards may include a community-defined identifier as part of a URI (ex. image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementors should take care that these identifiers are properly encoded (see <a href="#rfc3986">RFC 3986</a>) in the URIs for all hosted resources.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Additional information on this topic is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html">OGC API - Common Users Guide</a>.</p>
@@ -1574,7 +1595,7 @@ API definitions are considered service descriptions.</p></td>
 <p>The following requirements and recommentations are applicable to all OGC Web APIs.</p>
 </div>
 <div class="sect3">
-<h4 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>8.1.1. HTTP 1.1</h4>
+<h4 id="http-protocol"><a class="anchor" href="#http-protocol"></a>8.1.1. HTTP 1.1</h4>
 <div class="paragraph">
 <p>The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.</p>
 </div>
@@ -1678,7 +1699,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>More specific guidance is provided for each resource, where applicable.</p>
+<p>The return status codes described in <a href="#status-codes">Table 4</a> do not cover all possible conditions.</p>
 </div>
 <table id="per_core_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1697,6 +1718,26 @@ API definitions are considered service descriptions.</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <a href="#status-codes">Table 4</a>.</p>
 </div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. <a href="#rfc7807">IETF RFC 7807</a> addresses this need by providing "Problem Details" response schemas for both JSON and XML.</p>
+</div>
+<table id="rec_core_problem-details" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/problem-details</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">An OGC Web API should include a "Problem Details" report in any error response in accordance with <a href="#rfc7807">IETF RFC 7807</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1827,9 +1868,6 @@ API definitions are considered service descriptions.</p></td>
 <p>ignore unknown/unrecognized parameters,</p>
 </li>
 <li>
-<p>return a response with a status code of 400 and an exception report indicating unrecognized query parameters,</p>
-</li>
-<li>
 <p>return a response with a status code of 30x redirecting the client to a more correct version of the request.</p>
 </li>
 </ul>
@@ -1856,7 +1894,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 2</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/etag</strong></p>
 </div></div></td>
@@ -1882,7 +1920,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/cross-origin</strong></p>
 </div></div></td>
@@ -1930,7 +1968,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/html</strong></p>
 </div></div></td>
@@ -1953,7 +1991,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/json</strong></p>
 </div></div></td>
@@ -2012,10 +2050,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </tbody>
 </table>
 <div class="paragraph">
-<p>All parameter value strings should have the first word and any subsequent words in the name capitalized. All other letters should be lower case.</p>
-</div>
-<div class="paragraph">
-<p>However, a Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.</p>
+<p>In order to minimize capitalization issues for implementors of OGC Web API standards:</p>
 </div>
 <table id="rec_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2024,7 +2059,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -2032,16 +2067,38 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Parameter names SHOULD be in Upper Camel Case.</p>
+<p>Query parameter names SHOULD be in kebab case. (lower case with dash "-" delimiters)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Query parameter values are usually reflective of the internal structure of the target resource. Unless otherwise specified, these values SHOULD be in Kebab case.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_parameter_value_lists"><a class="anchor" href="#_parameter_value_lists"></a>Parameter Value Lists</h5>
 <div class="paragraph">
-<p>Parameters may pass more than one value. The folowing requirements define how to encode a list of parameter values.</p>
+<p>Parameters may pass more than one value. These lists of parameter values may be passed in two ways.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Repeated name:value pairs where the parameter name is repeated for each value in the list</p>
+</li>
+<li>
+<p>A parameter name followed by a delimited list of values.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The folowing requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is uses.</p>
 </div>
 <table id="req_core_query-param-list-delimiter" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2058,7 +2115,13 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Parameters values containing lists SHALL designate the list items using the comma (",") as a delimiter.</p>
+<p>Parameters values containing lists SHOULD specify the delimiter to be used in the API definition.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The default list item delimiter SHALL be the comma (",").</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2110,7 +2173,10 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <div class="sect4">
 <h5 id="_numeric_and_boolean_values"><a class="anchor" href="#_numeric_and_boolean_values"></a>Numeric and Boolean Values</h5>
 <div class="paragraph">
-<p>Boolean values conform to the following requirement derived from <a href="#ogc-06-121">OWS-Common</a>.</p>
+<p>Geospatial is a mathematical discipline. The clear and accurate exchange of mathematical values is essential. The encoding rules in this section standarize the encoding of numeric and boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <a href="#k-and-r-1978">Kernighan and Ritchie</a>.</p>
+</div>
+<div class="paragraph">
+<p>Boolean values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-boolean" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2127,13 +2193,13 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Boolean values shall be represented by the uppercase strings "TRUE" and "FALSE", representing Boolean true and false respectively.</p>
+<p>Boolean values shall be represented by the lowercase strings "true" and "false", representing Boolean true and false respectively.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Integer values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Integer values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-integer" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2150,7 +2216,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading sign. If the sign is omitted, "+" is assumed.</p>
+<p>Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading negative "-" sign. Positive values are assumed is the leading sign is omitted.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2159,7 +2225,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>Real numbers can be represented using either the decimal or double (exponential) format. The decimal format is typically used except for very large or small values.</p>
 </div>
 <div class="paragraph">
-<p>Decimal values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Decimal values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-decimal" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2181,10 +2247,10 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <div class="ulist">
 <ul>
 <li>
-<p>An optional leading sign is allowed.</p>
+<p>An optional leading negative sign ("-") is allowed.</p>
 </li>
 <li>
-<p>If the sign is omitted, "+" is assumed.</p>
+<p>If the sign is omitted, positive ("+") is assumed.</p>
 </li>
 <li>
 <p>Leading and trailing zeroes are optional.</p>
@@ -2198,7 +2264,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </tbody>
 </table>
 <div class="paragraph">
-<p>Double values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Double values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-double" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2215,7 +2281,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Double values SHALL be represented by a mantissa followed, optionally, by the character "E" or "e", followed by an exponent.</p>
+<p>Double values SHALL be represented by a mantissa followed, optionally, by the character "e", followed by an exponent.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2239,13 +2305,13 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the "E" or "e" and the following exponent are omitted, an exponent value of 0 SHALL be assumed.</p>
+<p>If the "e" and the following exponent are omitted, an exponent value of 0 SHALL be assumed.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Special values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Special values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-special" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2262,7 +2328,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The special values positive and negative infinity and not-a-number SHALL be represented using the strings <code>INF</code>, <code>-INF</code> and <code>NaN</code>, respectively.</p>
+<p>The special values positive and negative infinity and not-a-number SHALL be represented using the strings <code>inf</code>, <code>-inf</code> and <code>nan</code>, respectively.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2311,7 +2377,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>The purpose of the landing page is to provide clients with a starting point for using the API. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.</p>
 </div>
 <div class="paragraph">
-<p>The landing page includes three metadata elements; title, description, and attribution. Only the title is required. These three elements describe the API as a whole. Clients can expect to encounter metadata which is more resource-specific as they follow links and paths from the landing page.</p>
+<p>The landing page includes three metadata elements; title, description, and attribution. These three elements describe the API as a whole. Clients can expect to encounter metadata which is more resource-specific as they follow links and paths from the landing page.</p>
 </div>
 <div class="paragraph">
 <p>While the three metadata elements are defined as text strings, the attribution element is special. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <a href="#json-landing-page">landing page</a> for an example of the use of markup in the attribution element.</p>
@@ -2395,12 +2461,12 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 "description": "JSON schema for the OGC API - Common landing page",
 "type": "object",
 "required": [
-    "title",
     "links"
     ],
 "properties": {
     "title": {
-        "description": "The title of the API",
+        "title": "The title of the API.",
+        "description": "While a title is not required, implementors are strongly advised to include one.",
         "type": "string"
         },
     "description": {
@@ -2423,7 +2489,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </div>
 </div>
 <div class="paragraph">
-<p>OGC Web Services provide a set of Service Metadata which identifies the service and provides information about the service provider. It is recommended that OGC Web APIs provide the same information.</p>
+<p>It is recommended that OGC Web APIs provide a set of Service Metadata which identifies the service and provides information about the service provider.</p>
 </div>
 <table id="rec_core_service-metadata" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2432,42 +2498,37 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/service-metadata</strong></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">In order to maintain commonality between OGC Web Services and OGC Web APIs, an OGC Web API should expose the Service Metadata defined in OWS-Common.</p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">A Web API SHOULD provide service metadata.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHOULD support the HTTP GET operation on all links from the landing page which have the relation type <code>service-meta</code>.</p>
+<p>A Web API service SHOULD provide one or more service metadata resources accessible by an HTTP GET operation.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A successful execution of the operation SHOULD be reported as a response with an HTTP status code <code>200</code>.</p>
+<p>The landing page for a Web API service SHOULD provide links to the service metadata resources using the relation type <code>service-meta</code>.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHOULD include the Service Identification and Service Provider metadata defined in the <a href="#ogc-06-121">OGC Web Services Common 2.0 Standard</a>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the API definition document uses the OpenAPI Specification 3.0,<br>
-&#160;&#160;&#160;&#160;THEN<br>
-The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-service-metadata">Service Metadata</a>.</p>
+<p>A successful execution of the operation SHOULD be reported as a response with an HTTP status code <code>200</code>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Additional information about Service Metadata can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.pdf">OAPI-Common Users Guide</a>.</p>
+</div>
 <div class="paragraph">
 <p>Examples of OGC landing pages are provided in <a href="#landing-page-examples">Example Landing Pages</a>.</p>
 </div>
@@ -2528,7 +2589,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-op</strong></p>
 </div></div></td>
@@ -2596,7 +2657,7 @@ The response SHOULD follow the OpenAPI recommendations for <a href="#rc_oas30-se
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/api-definition-oas</strong></p>
 </div></div></td>
@@ -2865,7 +2926,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -2961,7 +3022,13 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </tbody>
 </table>
 <div class="paragraph">
+<p>Unresolved directive in clause_9_encodings.adoc - include::recommendations/json/REC_Problem-Details.adoc[]</p>
+</div>
+<div class="paragraph">
 <p>An example JSON Schema for the landing page is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json">landingPage.json</a>.</p>
+</div>
+<div class="paragraph">
+<p>An example JSON Problem Details report is available at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/examples/ExceptionExample.json">ExceptionExample.json</a>.</p>
 </div>
 </div>
 </div>
@@ -3187,7 +3254,7 @@ content:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>For cases, where the operations of the API are access-controlled, the security scheme(s) and requirements SHALL be documented in the OpenAPI definition.</p>
+<p>If the operations of the API are access-controlled, the security scheme(s) and requirements SHALL be documented in the OpenAPI definition.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3205,18 +3272,18 @@ content:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/oas30/service-metadata</strong></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">In order to maintain commonality between OGC Web Services and OGC Web APIs, an OGC Web API should expose the Service Metadata defined in OWS-Common.</p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">An OGC Web API SHOULD expose service metadata.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A Service Metadata response SHOULD include the Service Identification and Service Provider metadata defined in the <a href="#ogc-06-121">OGC Web Services Common 2.0 Standard</a>.</p>
+<p>That Service Metadata SHOULD provide identifying metadata about both the service and the provider of that service.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3231,16 +3298,10 @@ content:
 <p>To simplify access, the Service Metadata SHOULD be available as a separate resource from the Service Definition.</p>
 </div></div></td>
 </tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The JSON Schema at <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/oasInfo.json">https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/oasInfo.json</a> MAY be used to encode the Service Metadata.</p>
-</div></div></td>
-</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>An example of an OpenAPI <code>Info</code> object populated with OWS metadata is provided in the <a href="#service-metadata-examples">Service Metadata Examples</a> section.</p>
+<p>An example of a populated OpenAPI <code>Info</code> object is provided in the <a href="#service-metadata-examples">Service Metadata Examples</a> section.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3291,12 +3352,17 @@ style: form</code></pre>
 <div class="sect1">
 <h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="mediatypes-response"><a class="anchor" href="#mediatypes-response"></a>11.1. Normal Response Media Types</h3>
 <div class="paragraph">
 <p>The typical media type for all "web pages" in an OGC Web API would be <code>text/html</code>.</p>
 </div>
 <div class="paragraph">
 <p>The media type that would typically be used in an OGC Web API for machine-to-machine exchanges would be <code>application/json</code>.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="mediatypes-oas30"><a class="anchor" href="#mediatypes-oas30"></a>11.2. OpenAPI Media Types</h3>
 <div class="paragraph">
 <p>The media types for an OpenAPI definition are <code>vnd.oai.openapi+json;version=3.0</code> (JSON) and <code>application/vnd.oai.openapi;version=3.0</code> (YAML).</p>
 </div>
@@ -3311,6 +3377,23 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mediatype-problems"><a class="anchor" href="#mediatype-problems"></a>11.3. Problem Details Media Types</h3>
+<div class="paragraph">
+<p>OGC API-Common recommends that implementers use <a href="#rfc7807">IETF RFC 7807</a> when constructing the response body for an error condition. The media types for an RFC 7807 Problem Details response body are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>application/problem+json - for responses in JSON</p>
+</li>
+<li>
+<p>application/problem+xml - for responses in XML</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -4647,7 +4730,7 @@ THEN</p>
 <div class="title">Example 5. Service Metadata</div>
 <div class="content">
 <div class="paragraph">
-<p>This is an example of the encoding of OWS-Common Service Metadata in an OpenAPI Info object. While not required, inclusion of this metadata provides common descriptive metadata for OGC Web Services and OGC Web APIs.</p>
+<p>This is an example of how to extend the OpenAPI <code>info</code> object to include identifying metadata about both the service and the service provider.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4655,7 +4738,7 @@ THEN</p>
   "info" : {
     "title" : "My Web API",
     "version" : "1.0.0",
-    "description" : "This example shows population of an OpenAPI Info element with OWS-Common Service Metadata. The Service Identification and Service Provider sections are addressed. .",
+    "description" : "This example shows population of an OpenAPI Info element with identifying metadata for both the service and the service provider.",
     "contact" : {
       "name" : "Acme Corporation",
       "email" : "info@example.org",
@@ -4873,6 +4956,9 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 <p><a id="fielding2000"></a> Fielding, Roy Thomas: <strong>Architectural Styles and the Design of Network-based Software Architectures</strong>. Doctoral dissertation, University of California, Irvine, 2000, <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf">https://www.ics.uci.edu/fielding/pubs/dissertation/fielding_dissertation.pdf</a></p>
 </li>
 <li>
+<p><a id="k-and-r-1978"></a> Kernighan, B., Richie, D.: <strong>The C Programming Language</strong>, Bell Laboratories, 1978</p>
+</li>
+<li>
 <p><a id="link-relations"></a> IANA: <strong>Link Relation Types</strong>, <a href="https://www.iana.org/assignments/link-relations/link-relations.xml" class="bare">https://www.iana.org/assignments/link-relations/link-relations.xml</a></p>
 </li>
 <li>
@@ -5083,102 +5169,119 @@ sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Don’t Reinvent</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Great care was taken in the development of this standard to only address capabilities which were not already standardized and to define how the needed capabilites integrate into a single API.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Keep It Simple and Intuitive</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Web APIs are developed using a building block approach. Conformance Classes are defined which encompase requirements sufficient to create a usable software module and no more. Complex APIs are constructed by assembling the applicable Conformance Classes.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">3</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use Well-Known Resource Types</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Except where unique to OGC Web APIs, all resources types are IANA or OGC registered types.<br>
+OGC Web API standards do not mandate an encoding. The encodings supported by an API are specified by the corresponding Conformance Classes. All encodings used to-date are IANA registered media types.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Construct consistent URIs</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Web APIs are build from standardized modules, using standardized patterns. This modular approach assures that the URIs are consistent across OGC Web APIs.<br>
+OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use HTTP Methods consistent with RFC 2616</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC web APIs are restricted to the HTTP methods defined in IETF <a href="#rfc7231">RFC 7231</a> which replaces RFC 2616</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Put Selection Criteria behind the ‘?’</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This principle is addressed in <a href="#identifier-conventions">Identifiers</a>  of this Standard.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Error Handling and use of HTTP Status Codes</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-protocol">HTTP 1.1</a> and <a href="#http-status-codes">HTTP Status Codes</a> mandate compliance with this guideline.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use of HTTP Status Codes</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-status-codes">HTTP Status Codes</a> provides a list of the HTTP status codes that implementors of this standard shoudl be prepared to generate and accept. This list is not exhaustive (see guideline #1).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use of HTTP Header</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC API Common does not preclude use of HTTP headers where it is appropriate to do so.<br>
+Due to the common use of the HATEOAS pattern in OGC Web APIs, HTTP headers are not always accessible. The use of query parameter overrides is allowed.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">10</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Content Negotiation</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IETF <a href="#rfc7231">RFC 7231</a> content negotiation is used on all transactions.<br>
+Note that the <code>accepts</code> header may be over-ridden by a query parameters (see #9).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Pagination</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">None of the resources defined in API-Common Core are large enough to require pagenation.<br>
+If an OpenAPI document is used as the API definition, then pagination could become an issue. The question of how to handle large OpenAPI documents is still an open issue being worked across the Standards Working Groups.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Processing Resources</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Does not apply to this Standard.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">13</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support Metadata</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This standard violates this principle. Extensive support for metadata is provided as linked resources. Examples include the relation types <code>service-desc</code>,<code>service-doc</code>, <code>service-meta</code>, and <code>data-meta</code>. These relation types can be used on any resource, providing context for the metadata referenced.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">14</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Consider your Security needs</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">While not mandated, use of HTTPS vs. HTTP is encouraged throughout this standard.<br>
+Authenitcation is not precluded by this standard, but in keeping with guideline #1, this standard does not presume to dictate what authentication methods can be used.<br>
+API-Common - Core only defines GET requests. The security issues associated with CRUD are not applicable to this standard.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">15</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API Description</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The API definition is avaliable using the <code>service-desc</code> (machine readable) and <code>service-doc</code> (human readable) associations from the landing page.<br>
+OpenAPI is the only API definition type currently supported.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">16</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use IANA well-known identifiers</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IANA identifiers are used where they are available. Where no IANA identifiers are appropriate, OGC registered identifiers are used.<br>
+OGC identifiers are only used after they have been reviewed and approved by the OGC Naming Authority.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">17</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use explicit geospatial relations</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">There are no geospatial relations in OGC API-Common Part 1.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">18</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support W3C Cross-Origin Resource Sharing</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This guideline is address in <a href="#cross-origin-section">Support for Cross-Origin Requests</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">19</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Resource encodings</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes for both HTML and JSON have been defined.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">20</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Good APIs are testable from the beginning</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The Abstract Test Suite (ATS) for this standard is provided in Annex A.<br>
+The ATS is defined to sufficient level of detail to validate that it is:<br>
+1) implementable<br>
+2) comprehensive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">21</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Specify whether operations are safe and/or idempotent</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">According to IETF <a href="#rfc7231">RFC 7231</a> "the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe." and the "PUT, DELETE, and safe request methods are idempotent". All request methods in this standard (GET) are both safe and idempotent.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5188,7 +5291,7 @@ sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-10 22:22:49 -0500
+Last updated 2021-02-07 22:18:08 -0500
 </div>
 </div>
 </body>

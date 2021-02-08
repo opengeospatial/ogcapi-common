@@ -1,22 +1,16 @@
 title: Exception Schema
-description: JSON schema for exceptions
+description: JSON schema for exceptions based on RFC 7807
 type: object
 required:
 - type
-- details
 properties:
-  type:
-    enum:
-    - OgcApiExceptionReport
-  httpStatus:
+  type: 
+    type: string
+  title: 
+    type: string
+  status:
     type: integer
-  details:
-    type: array
-    items:
-      type: object
-      required:
-      - description
-      properties:
-        description:
-          type: string
-    minItems: 1
+  detail: 
+    type: string
+  instance: 
+    type: string

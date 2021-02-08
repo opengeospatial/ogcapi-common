@@ -616,7 +616,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#general-requirements">8.3. General Requirements</a></li>
 <li><a href="#general-requirements-section">8.4. General Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_http_1_1">8.4.1. HTTP 1.1</a></li>
+<li><a href="#http-protocol">8.4.1. HTTP 1.1</a></li>
 <li><a href="#http-status-codes">8.4.2. HTTP Status Codes</a></li>
 <li><a href="#query-parameter-requirements">8.4.3. Query parameters</a></li>
 <li><a href="#web-caching-section">8.4.4. Web Caching</a></li>
@@ -2837,7 +2837,7 @@ explode: false</code></pre>
 <p>The following requirements and recommentations are applicable to all OGC Web APIs.</p>
 </div>
 <div class="sect3">
-<h4 id="_http_1_1"><a class="anchor" href="#_http_1_1"></a>8.4.1. HTTP 1.1</h4>
+<h4 id="http-protocol"><a class="anchor" href="#http-protocol"></a>8.4.1. HTTP 1.1</h4>
 <div class="paragraph">
 <p>The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.</p>
 </div>
@@ -2941,7 +2941,7 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
-<p>More specific guidance is provided for each resource, where applicable.</p>
+<p>The return status codes described in <a href="#status-codes">Table 3</a> do not cover all possible conditions.</p>
 </div>
 <table id="per_core_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2960,6 +2960,26 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <a href="#status-codes">Table 3</a>.</p>
 </div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. <a href="#rfc7807">IETF RFC 7807</a> addresses this need by providing "Problem Details" response schemas for both JSON and XML.</p>
+</div>
+<table id="rec_core_problem-details" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/core/problem-details</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">An OGC Web API should include a "Problem Details" report in any error response in accordance with <a href="#rfc7807">IETF RFC 7807</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3090,9 +3110,6 @@ explode: false</code></pre>
 <p>ignore unknown/unrecognized parameters,</p>
 </li>
 <li>
-<p>return a response with a status code of 400 and an exception report indicating unrecognized query parameters,</p>
-</li>
-<li>
 <p>return a response with a status code of 30x redirecting the client to a more correct version of the request.</p>
 </li>
 </ul>
@@ -3119,7 +3136,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/etag</strong></p>
 </div></div></td>
@@ -3145,7 +3162,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/cross-origin</strong></p>
 </div></div></td>
@@ -3193,7 +3210,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/html</strong></p>
 </div></div></td>
@@ -3216,7 +3233,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/json</strong></p>
 </div></div></td>
@@ -3275,10 +3292,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </tbody>
 </table>
 <div class="paragraph">
-<p>All parameter value strings should have the first word and any subsequent words in the name capitalized. All other letters should be lower case.</p>
-</div>
-<div class="paragraph">
-<p>However, a Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.</p>
+<p>In order to minimize capitalization issues for implementors of OGC Web API standards:</p>
 </div>
 <table id="rec_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3287,7 +3301,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -3295,16 +3309,38 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Parameter names SHOULD be in Upper Camel Case.</p>
+<p>Query parameter names SHOULD be in kebab case. (lower case with dash "-" delimiters)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Query parameter values are usually reflective of the internal structure of the target resource. Unless otherwise specified, these values SHOULD be in Kebab case.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_parameter_value_lists"><a class="anchor" href="#_parameter_value_lists"></a>Parameter Value Lists</h5>
 <div class="paragraph">
-<p>Parameters may pass more than one value. The folowing requirements define how to encode a list of parameter values.</p>
+<p>Parameters may pass more than one value. These lists of parameter values may be passed in two ways.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Repeated name:value pairs where the parameter name is repeated for each value in the list</p>
+</li>
+<li>
+<p>A parameter name followed by a delimited list of values.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The folowing requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is uses.</p>
 </div>
 <table id="req_core_query-param-list-delimiter" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3321,7 +3357,13 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Parameters values containing lists SHALL designate the list items using the comma (",") as a delimiter.</p>
+<p>Parameters values containing lists SHOULD specify the delimiter to be used in the API definition.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The default list item delimiter SHALL be the comma (",").</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3373,7 +3415,10 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <div class="sect4">
 <h5 id="_numeric_and_boolean_values"><a class="anchor" href="#_numeric_and_boolean_values"></a>Numeric and Boolean Values</h5>
 <div class="paragraph">
-<p>Boolean values conform to the following requirement derived from <a href="#ogc-06-121">OWS-Common</a>.</p>
+<p>Geospatial is a mathematical discipline. The clear and accurate exchange of mathematical values is essential. The encoding rules in this section standarize the encoding of numeric and boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <a href="#k-and-r-1978">Kernighan and Ritchie</a>.</p>
+</div>
+<div class="paragraph">
+<p>Boolean values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-boolean" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3390,13 +3435,13 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Boolean values shall be represented by the uppercase strings "TRUE" and "FALSE", representing Boolean true and false respectively.</p>
+<p>Boolean values shall be represented by the lowercase strings "true" and "false", representing Boolean true and false respectively.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Integer values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Integer values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-integer" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3413,7 +3458,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading sign. If the sign is omitted, "+" is assumed.</p>
+<p>Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading negative "-" sign. Positive values are assumed is the leading sign is omitted.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3422,7 +3467,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>Real numbers can be represented using either the decimal or double (exponential) format. The decimal format is typically used except for very large or small values.</p>
 </div>
 <div class="paragraph">
-<p>Decimal values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Decimal values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-decimal" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3444,10 +3489,10 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <div class="ulist">
 <ul>
 <li>
-<p>An optional leading sign is allowed.</p>
+<p>An optional leading negative sign ("-") is allowed.</p>
 </li>
 <li>
-<p>If the sign is omitted, "+" is assumed.</p>
+<p>If the sign is omitted, positive ("+") is assumed.</p>
 </li>
 <li>
 <p>Leading and trailing zeroes are optional.</p>
@@ -3461,7 +3506,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </tbody>
 </table>
 <div class="paragraph">
-<p>Double values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Double values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-double" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3478,7 +3523,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Double values SHALL be represented by a mantissa followed, optionally, by the character "E" or "e", followed by an exponent.</p>
+<p>Double values SHALL be represented by a mantissa followed, optionally, by the character "e", followed by an exponent.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3502,13 +3547,13 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the "E" or "e" and the following exponent are omitted, an exponent value of 0 SHALL be assumed.</p>
+<p>If the "e" and the following exponent are omitted, an exponent value of 0 SHALL be assumed.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Special values conform to the following requirement derived from <a href="#xmlschema-part2">XML Schema Part 2</a>.</p>
+<p>Special values conform to the following requirement.</p>
 </div>
 <table id="req_core_query-param-value-special" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3525,7 +3570,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The special values positive and negative infinity and not-a-number SHALL be represented using the strings <code>INF</code>, <code>-INF</code> and <code>NaN</code>, respectively.</p>
+<p>The special values positive and negative infinity and not-a-number SHALL be represented using the strings <code>inf</code>, <code>-inf</code> and <code>nan</code>, respectively.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3666,7 +3711,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -5024,7 +5069,7 @@ include::examples/tbd.adoc[]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-10 22:22:49 -0500
+Last updated 2021-02-07 22:18:08 -0500
 </div>
 </div>
 </body>
