@@ -17,7 +17,7 @@ copyright and intellectual property shall be vested to the OGC.
 
 The OGC API-Standard has been developed by the OWS Common 1.2 Standards Working Group (SWG). OGC members may participate as follows: 
 
-Join the [mailing list](https://lists.opengeospatial.org/mailman/listinfo/owsCommon-1.2.swg)
+Join the [mailing list](https://lists.ogc.org/mailman/listinfo/ogcapi-common.swg)
 
 Most all work on the specification takes place in [GitHub](https://github.com/opengeospatial/oapi_common/issues), so browse there to get a good idea of what is happening, as well as past decisions.
 
