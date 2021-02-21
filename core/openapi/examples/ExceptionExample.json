@@ -3,15 +3,5 @@
  "title": "Your request parameters didn't validate.",
  "status": 400,
  "detail": "the 'age' and 'color' parameters do not validate",
- "instance": "urn:uuid:ebd2e7f0-1b27-11e8-accf-0ed5f89f718b",
- "details": [
-     {
-     "name": "age",
-     "description": "must be a positive integer"
-     },
-     {
-     "name": "color",
-     "description": "must be 'green', 'red' or 'blue'"
-     }
-   ]
+ "instance": "urn:uuid:ebd2e7f0-1b27-11e8-accf-0ed5f89f718b"
  }
