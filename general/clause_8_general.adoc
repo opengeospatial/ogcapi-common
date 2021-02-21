@@ -77,6 +77,17 @@ Two common mechanisms to support cross-origin requests are:
 * link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
+[[string-internationalization-section]]
+====  String Internationalization
+
+If the server supports representing resources in multiple languages, the usual HTTP content negotiation mechanisms apply. The client states its language preferences in the ``Accept-Language`` header of a request and the server responds with responses that have linguistic text in the language that best matches the requested languages and the capabilities of the server.
+
+include::recommendations/general/REC_string-internationalization.adoc[]
+
+For example, if JSON-LD is used as an encoding, the built-in capabilities to https://www.w3.org/TR/json-ld/#string-internationalization[annotate a string with its language] should be used.
+
+The http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml[link object] based on <<rfc8288,RFC 8288 (Web Linking)>> includes a ``hreflang`` attribute that can be used to state the language of the referenced resource. This can be used to include links to the same data in, for example, English or French. Just like with <<resource-encoding-section,multiple encodings>>, a server that wants to use language-specific links will have to support a mechanism to mint language-specific URIs for resources in order to express links to, for example, the same resource in another language. Again, this document does not mandate any particular approach how such a capability is supported by the server.
+
 [[resource-encoding-section]]
 ==== Resource Encodings
 
@@ -93,6 +104,19 @@ include::recommendations/general/REC_html.adoc[]
 [[rec_json]]
 JSON encoding recommndation:
 include::recommendations/general/REC_json.adoc[]
+
+Requirement <<req_core_http,``/req/core/http``>> implies that the encoding of a server response is determined using content negotiation as specified by the HTTP RFC.
+
+The section <<mediatypes-section,Media Types>> includes guidance on media types for <<rc_encoding-section,encodings>> that are specified in this document.
+
+Note that any server that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, for example, to alternate representations of the same resource. This document does not mandate any particular approach how this is supported by the server.
+
+As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, for example, to manipulate ("hack") URIs in the browser address bar, can study the API definition.
+
+Two common approaches are to use: 
+
+* an additional path for each encoding of each resource (this can be expressed, for example, using format specific suffixes like ".html");
+* an additional query parameter (for example, "accept" or "f") that overrides the Accept header of the HTTP request.
 
 [[parameter-encoding-section]]
 ==== Parameter Encoding

@@ -90,16 +90,30 @@ NOTE: OGC Web API standards may include a community-defined identifier as part o
 
 Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide]. 
 
+[[link-conventions]]
+=== Links
+
+OGC Web API Standards use <<rfc8288,RFC 8288 (Web Linking)>>  to express relationships between resources. Resource representations defined in these standards commonly include an "links" element. A "links" element is an array of individual hyperlink elements. These "links" elements provide a convention for associating related resources.
+
+The individual hyperlink elements that make up a "links" element are defined using the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema].
+
+[source, JSON]
+include::openapi/schemas/link.json[]
+
+In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource. 
+
+include::../general/recommendations/general/REC_link-header.adoc[]
+
 [[link-relation-conventions]]
 === Link relations
 
-<<rfc8288,RFC 8288 (Web Linking)>> is used to express relationships between resources. Link relation types from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] are used wherever possible. Additional link relation types are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/incubation/linkRelationTypes/linkrelations.csv[OGC Link Relation Registry].
+Link relation types identify the semantics a link. For example, a link with the relation type "service-meta" indicates that the current link context has service metadata at the link target.
 
-The link relationships used in API-Common Core are described in <<link-relations-table>>.
+Link relation types are expressed using the "rel" property from the link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema]. 
 
-Each resource representation in this standard includes an array of links. Implementations are free to add additional links for all resources provided by the API. For example, an *enclosure* link could reference a bulk download of a collection. Or a *related* link on a feature could reference a related feature.
+The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
 
-include::../general/recommendations/general/PER_additional-relation-types.adoc[]
+The link relationships used in API-Common Core are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
@@ -108,36 +122,17 @@ include::../general/recommendations/general/PER_additional-relation-types.adoc[]
 ^|**Link Relation** ^|**Purpose**
 |`alternate` |Refers to a substitute for this context [IANA]. + 
 Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the `type` link attribute).
-|`collection`|The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
-|`current` |Refers to a resource containing the most recent item(s) in a collection of resources. [IANA]
 |`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
-|`http://www.opengis.net/def/rel/ogc/1.0/data`|Refers to the root resource of a dataset in an API. [OGC]
-|`http://www.opengis.net/def/rel/ogc/1.0/data-meta`|Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines. [OGC]
 |`describedby`|Refers to a resource providing information about the link's context.[IANA] +
 Links to external resources which further describe the subject resource
-|`first`|An IRI that refers to the furthest preceding resource in a series of resources.[IANA]
-|`item`|The target IRI points to a resource that is a member of the collection represented by the context IRI.[IANA]
-|`http://www.opengis.net/def/rel/ogc/1.0/items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
 |`license`|Refers to a license associated with this context. [IANA]
-|`next`|Indicates that the link's context is a part of a series, and that the next in the series is the link target. [IANA]
-|`prev`|Indicates that the link's context is a part of a series, and that the previous in the series is the link target. [IANA]
 |`self`|Conveys an identifier for the link's context. [IANA] +
 A link to another representation of this resource.
 |`service-desc`|Identifies service description for the context that is primarily intended for consumption by machines. [IANA] +
 API definitions are considered service descriptions.
 |`service-doc`|Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
 |`service-meta`|Identifies general metadata for the context that is primarily intended for consumption by machines. [IANA]
-|`start`|Refers to the first resource in a collection of resources.[IANA]
 |===
-
-OGC API hyperlinks are defined using the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema].
-
-[source, JSON]
-include::openapi/schemas/link.json[]
-
-In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource. 
-
-include::../general/recommendations/general/REC_link-header.adoc[]
 
 Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide].
 
