@@ -111,9 +111,9 @@ Link relation types identify the semantics a link. For example, a link with the 
 
 Link relation types are expressed using the "rel" property from the link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema]. 
 
-The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/incubation/linkRelationTypes/linkrelations.csv[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
+The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
 
-The link relationships used in API-Common Core are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrents it.
+The link relationships used in API-Common Core are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
