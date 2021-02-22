@@ -2,7 +2,7 @@
 [cols="1,4",width="90%"]
 |===
 2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-common/1.0/conf/core
+2+|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
 |Target type |Web API
 |Requirements Class |<<rc_core,http://www.opengis.net/spec/ogcapi-common/1.0/req/core>>
 |===
@@ -11,7 +11,7 @@
 
 ===== HTTP
 
-include::core/ATS_http.adoc[]
+include::general/ATS_http.adoc[]
 
 ===== Query Parameters
 
