@@ -1,0 +1,33 @@
+[[ats_core_query-param-value-special]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-value-special* 
+^|Test Purpose |Validate for every query parameter where the value is a numeric: +
+{nbsp}{nbsp}**In the case of a client**: that the values for special case numerics are represented as follows: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a. Positive infinity is represented by the string "inf" +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b. Negative infinity is represented by the string "-inf" +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b. "Not A Number" is represented by the string "-nan" +
+{nbsp}{nbsp}**In the case of a server**: that the server correctly interprets special case values.
+^|Requirement |<<req_core_query-param-value-special,/req/core/query-param-value-special>>
+^|Test Method (Client) |DO FOR ALL query parameters advertised in the API definition where the parameter value is a numeric +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a value of infinity +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the value is represented using the string "inf" +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a value of negative infinity +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the value is represented using the string "-inf" +
+{nbsp}{nbsp}DONE +
+{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and the machine representation of Not a Number for the value +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the value is represented using the string "nan" +
+{nbsp}{nbsp}DONE +
+DONE
+^|Test Method (Server) |DO FOR ALL query parameters advertised in the API definition where the parameter value is a numeric +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and the string "inf" for the parameter value +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value as an infinite value +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and the string "-inf" for the parameter value +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the server properly interprets that parameter value as a negative infinite value +
+{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and the string "nan" for the parameter value +
+{nbsp}{nbsp}{nbsp}{nbsp}6. Validate that the server properly interprets that parameter value as not a number +
+{nbsp}{nbsp}DONE +
+DONE
+|===
