@@ -7,37 +7,38 @@ The following table discusses how this standard addresses the design principles 
 [cols = "^1,^2,8",frame = "all",grid = "all"]
 |===
 |*#* |*Principle* ^|*Discussion*
-|1 |Don’t Reinvent |Great care was taken in the development of this standard to only address capabilities which were not already standardized and to define how the needed capabilites integrate into a single API.
-|2 |Keep It Simple and Intuitive |OGC Web APIs are developed using a building block approach. Conformance Classes are defined which encompase requirements sufficient to create a usable software module and no more. Complex APIs are constructed by assembling the applicable Conformance Classes.
-|3 |Use Well-Known Resource Types |Except where unique to OGC Web APIs, all resources types are IANA or OGC registered types. +
-OGC Web API standards do not mandate an encoding. The encodings supported by an API are specified by the corresponding Conformance Classes. All encodings used to-date are IANA registered media types.
-|4 |Construct consistent URIs |OGC Web APIs are build from standardized modules, using standardized patterns. This modular approach assures that the URIs are consistent across OGC Web APIs. +
-OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements.
-|5 |Use HTTP Methods consistent with RFC 2616 |OGC web APIs are restricted to the HTTP methods defined in IETF <<rfc7231,RFC 7231>> which replaces RFC 2616 
-|6 |Put Selection Criteria behind the ‘?’ |This principle is addressed in <<identifier-conventions>>  of this Standard.
-|7 |Error Handling and use of HTTP Status Codes |<<http-protocol>> and <<http-status-codes>> mandate compliance with this guideline.
-|8 |Use of HTTP Status Codes |<<http-status-codes>> provides a list of the HTTP status codes that implementors of this standard shoudl be prepared to generate and accept. This list is not exhaustive (see guideline #1).
-|9 |Use of HTTP Header |OGC API Common does not preclude use of HTTP headers where it is appropriate to do so. +
-Due to the common use of the HATEOAS pattern in OGC Web APIs, HTTP headers are not always accessible. The use of query parameter overrides is allowed.  
-|10 |Content Negotiation |IETF <<rfc7231,RFC 7231>> content negotiation is used on all transactions. +
-Note that the `accepts` header may be over-ridden by a query parameters (see #9).
-|11 |Pagination |None of the resources defined in API-Common Core are large enough to require pagenation. +
+|1 |*Don’t reinvent* |Great care was taken in the development of this standard to only address capabilities which were not already standardized and to define how the needed capabilites integrate into a single API.
+|2 |*Keep it simple and intuitive* |OGC Web APIs are developed using a building block approach. Conformance Classes are defined which encompase requirements sufficient to create a usable software module and no more. Complex APIs are constructed by assembling the applicable Conformance Classes.
+|3 |*Use well-known resource types* |Except where unique to a specific Conformance Class, all resources types are IANA or OGC registered types. +
+OGC Web API standards do not mandate an encoding. The encodings supported by an API are specified by the corresponding encoding Conformance Classes. All encodings used to-date are IANA registered media types.
+|4 |*Construct consistent URIs* |OGC Web APIs are built from standardized modules using standardized patterns. This modular approach assures that the URIs are consistent across OGC Web APIs. +
+OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements used to create OGC Web API URLs.
+|5 |*Use HTTP methods consistent with RFC 7231* |OGC web APIs are restricted to the HTTP methods defined in IETF <<rfc7231,RFC 7231>>. 
+|6 |*Put selection criteria behind the ‘?’* |<<identifier-conventions,Section 6.1>> of this Standard defines the conventions to be used when creating URIs for OGC Web API standards. This includes the use of the "?" to deliminate query parameters from the rest of the URI. +
+Note that this does not preclude the use of resource identifiers (ex. collection identifiers) as part of the path. However those can be considered identifying criteria rather than selection criteria.
+|7 |*Error handling and use of HTTP status codes* |This standard identifies the applicable HTTP status codes and under what conditions they should be returned. Status codes and supporting information are returned in the HTTP response using a reporting structure based on RFC 7807.
+|8 |*Use explicit list of HTTP status codes* |<<http-status-codes>> provides a list of the HTTP status codes that implementors of this standard should be prepared to generate and accept. This list is not exhaustive (see guideline #1).
+|9 |*Use of HTTP header* |OGC API Common does not preclude use of HTTP headers where it is appropriate to do so. +
+Only standard HTTP headers are used. +
+Due to the common use of the HATEOAS pattern in OGC Web APIs, HTTP headers are not always accessible. The use of query parameter overrides is allowed.
+|10 |*Content negotiation* |IETF <<rfc7231,RFC 7231>> content negotiation is avalable on all transactions. +
+Since the HTTP headers are not always accessible, content negotiation may be performed through a query parameter (see #9).
+|11 |*Pagination* |None of the resources defined in API-Common Core are large enough to require pagenation. +
 If an OpenAPI document is used as the API definition, then pagination could become an issue. The question of how to handle large OpenAPI documents is still an open issue being worked across the Standards Working Groups. 
-|12 |Processing Resources |Does not apply to this Standard.
-|13 |Support Metadata |This standard violates this principle. Extensive support for metadata is provided as linked resources. Examples include the relation types `service-desc`,`service-doc`, `service-meta`, and `data-meta`. These relation types can be used on any resource, providing context for the metadata referenced.  
-|14 |Consider your Security needs |While not mandated, use of HTTPS vs. HTTP is encouraged throughout this standard. +
+|12 |*Processing resources* |Processing resources are not addressed by this Standard.
+|13 |*Support metadata* |Support for metadata is provided through metadata resource links. Examples include links with the relation type `service-desc`,`service-doc`, `service-meta`, or `data-meta`.  
+|14 |*Consider your security needs* |While not mandated, use of HTTPS vs. HTTP is encouraged throughout this standard. +
 Authenitcation is not precluded by this standard, but in keeping with guideline #1, this standard does not presume to dictate what authentication methods can be used. +
 API-Common - Core only defines GET requests. The security issues associated with CRUD are not applicable to this standard.
-|15 |API Description |The API definition is avaliable using the `service-desc` (machine readable) and `service-doc` (human readable) associations from the landing page. +
+|15 |*API description* |The API definition is avaliable using the `service-desc` (machine readable) and `service-doc` (human readable) associations from the landing page. +
 OpenAPI is the only API definition type currently supported.
-|16 |Use IANA well-known identifiers |IANA identifiers are used where they are available. Where no IANA identifiers are appropriate, OGC registered identifiers are used. +
+|16 |*Use well-known identifiers* |IANA identifiers are used where they are available. Where no IANA identifiers are appropriate, OGC registered identifiers are used. +
 OGC identifiers are only used after they have been reviewed and approved by the OGC Naming Authority.
-|17 |Use explicit geospatial relations |There are no geospatial relations in OGC API-Common Part 1.
-|18 |Support W3C Cross-Origin Resource Sharing |This guideline is address in <<cross-origin-section>>.
-|19 |Resource encodings |Conformance classes for both HTML and JSON have been defined.
-|20 |Good APIs are testable from the beginning |The Abstract Test Suite (ATS) for this standard is provided in Annex A. +
-The ATS is defined to sufficient level of detail to validate that it is: +
-1) implementable +
-2) comprehensive
-|21 |Specify whether operations are safe and/or idempotent |According to IETF <<rfc7231,RFC 7231>> "the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe." and the "PUT, DELETE, and safe request methods are idempotent". All request methods in this standard (GET) are both safe and idempotent.
+|17 |*Use explicit relations* |All relations in this standard are typed using relation types registered in the IANA or the OGC relation type registers.
+|18 |*Support W3C cross-origin resource sharing* |This guideline is addressed in <<cross-origin-section>>.
+|19 |*Resource encodings* |Conformance classes for both HTML and JSON have been defined. Implementation of both the HTML and JSON Conformance Classes is recommended.
+|20 |*Good APIs are testable from the beginning* |The Abstract Test Suite (ATS) for this standard is provided in Annex A. +
+The ATS is defined to sufficient level of detail to validate that it is implementable and comprehensive
+|21 |*Specify whether operations are safe and/or idempotent* |According to IETF <<rfc7231,RFC 7231>> "the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe." and the "PUT, DELETE, and safe request methods are idempotent". All request methods in this standard (GET) are both safe and idempotent.
+|22 |*Make resources discoverable* |All resouces defined in this standard can be navigated to through resource links and optional standard paths. All resource links are typed using registered relation types. These links are encoded using a standard link structure which includes the media type, language, and title of the resource.
 |===

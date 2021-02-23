@@ -1,0 +1,35 @@
+[[ats_core_query-param-value-decimal]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-value-decimal* 
+^|Test Purpose |Validate for every query parameter where the value is an decimal: +
+{nbsp}{nbsp}**In the case of a client**: that the values are represented by numeric strings with: +
+{nbsp}{nbsp}{nbsp}{nbsp}a) an optional leading negative "-" sign character and +
+{nbsp}{nbsp}{nbsp}{nbsp}b) a period to indicate the fractional portion of the value. +
+{nbsp}{nbsp}**In the case of a server**: that the server correctly interprets properly encoded decimal values.
+^|Requirement |<<req_core_query-param-value-decimal,/req/core/query-param-value-decimal>>
+^|Test Method (Client) |DO FOR ALL query parameters advertised in the API definition where the parameter value is a decimal number +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a positive decimal value with at least two fractional digits +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the value is represented by a numeric string with no leading sign and at least two digits after the period (".") character +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a negative decimal value with at least two fractional digits +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the value is represented by a numeric string with a leading negative sign ("-") and at least two digits after the period (".") character +
+{nbsp}{nbsp}DONE +
+DONE
+^|Test Method (Server) |DO FOR ALL query parameters advertised in the API definition where the parameter value is a decimal number +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a parameter value which is: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) an unsigned numeric string preceeded by one or more zeros +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value as an unsigned decimal value +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a parameter value which is: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) a signed negative numeric string +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the server properly interprets that parameter value as a signed negative decimal value +
+{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and a parameter value which: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) is an unsigned numeric string preceeded by one or more zeros +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) does not contain non-numereic characters (".") +
+{nbsp}{nbsp}{nbsp}{nbsp}6. Validate that the server properly interprets that parameter value as an unsigned decimal value with a fractional value of zero +
+{nbsp}{nbsp}DONE +
+DONE
+|===

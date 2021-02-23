@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-02-01</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-02-23</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -471,7 +471,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    19-072</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.0.9</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Version: 0.8.0</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Category: OGC&#174; Implementation Standard</p></td>
@@ -785,6 +785,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Hexagon</p>
 </li>
 <li>
+<p>Interactive Instruments GmbH</p>
+</li>
+<li>
 <p>U.K. Met Office</p>
 </li>
 <li>
@@ -827,6 +830,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">David Blodgett</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">U.S. Geological Survey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Clemens Portele</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Interactive Instruments</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Sylvester Hagler</p></td>
@@ -1223,22 +1230,27 @@ OGC Web API standards may include a community-defined identifier as part of a UR
     "properties": {
         "href": {
             "type": "string",
+            "description": "Supplies the URI to a remote resource(or resource fragment).",
             "example": "http://data.example.com/buildings/123"
             },
         "rel": {
             "type": "string",
+            "description": "The type or semantics of the relation.",
             "example": "alternate"
             },
         "type": {
             "type": "string",
+            "description": "A hint indicating what the media type of the result of dereferencing the link should be.",
             "example": "application/geo+json"
             },
         "hreflang": {
             "type": "string",
+            "description": "A hint indicating what the language of the result of dereferencing the link should be.",
             "example": "en"
             },
         "title": {
             "type": "string",
+            "description": "Used to label the destination of a link such that it can be used as a human-readable identifier.",
             "example": "Trierer Strasse 70, 53115 Bonn"
             },
         "length": {
@@ -1287,10 +1299,10 @@ OGC Web API standards may include a community-defined identifier as part of a UR
 <p>Link relation types are expressed using the "rel" property from the <a href="https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json">Hyperlink Schema</a>.</p>
 </div>
 <div class="paragraph">
-<p>The "rel" property is populated using values from the <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA Link Relations Registry</a> wherever possible. Additional values are registered with the <a href="https://github.com/opengeospatial/NamingAuthority/blob/master/incubation/linkRelationTypes/linkrelations.csv">OGC Link Relation Registry</a>. Additional relation type values can be used if neither of these registers suffice.</p>
+<p>The "rel" property is populated using values from the <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA Link Relations Registry</a> wherever possible. Additional values are registered with the <a href="https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv">OGC Link Relation Registry</a>. Additional relation type values can be used if neither of these registers suffice.</p>
 </div>
 <div class="paragraph">
-<p>The link relationships used in API-Common Core are described in <a href="#link-relations-table">Table 2</a>. Additional relation types may be used if the implementation warrents it.</p>
+<p>The link relationships used in API-Common Core are described in <a href="#link-relations-table">Table 2</a>. Additional relation types may be used if the implementation warrants it.</p>
 </div>
 <table id="link-relations-table" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 2. Link Relations</caption>
@@ -2776,7 +2788,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
         "description": "ConformsTo is an array of URLs.  Each URL should correspond to a defined OGC Conformance class.  Unrecognized URLs should be ignored",
         "items": {
             "type": "string",
-            "example": "http://www.opengis.net/spec/OAPI-Common-1/1.0/req/core"
+            "example": "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core"
             }
         }
     }
@@ -3442,7 +3454,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-common/1.0/conf/core</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -3500,7 +3512,7 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 </div>
 <div class="sect4">
 <h5 id="_query_parameters"><a class="anchor" href="#_query_parameters"></a>Query Parameters</h5>
-<table id="ats_core_query-param-known" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -3509,19 +3521,19 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/conf/core/query-param-known</strong></p>
+<p><strong>/conf/core/query-param-capitalization</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that a query parameter advertised through the API complies with its' advertised behavior.</p>
+<p>Validate that a parameter name is correctly capitalized</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_http">/req/core/query-param-known</a></p>
+<p><a href="#req_core_query-param-capitalization">/req/core/query-param-capitalization</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3529,46 +3541,14 @@ The OpenAPI media type has not been registered yet with IANA and may change.
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>DO FOR ALL query parameters advertised in the API definition<br>
 &#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
-&#160;&#160;&#160;&#160;1. Execute that operation using the query parameter<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;with values that exercise all of the advertised constraints on those values.<br>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(Example: minimum and maximum values)<br>
-&#160;&#160;&#160;&#160;2. Validate that the operation performed as expected.<br>
+&#160;&#160;&#160;&#160;1. Execute that operation using that query parameter<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;capitalized as specified in the API definition<br>
+&#160;&#160;&#160;&#160;2. Validate that the operation returns a reponse with the status code <code>200</code>.<br>
+&#160;&#160;&#160;&#160;3. Execute that operation using that query parameter<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;with captialization inverse of that specified in the API definition<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(Example: "Range" vs. "rANGE")<br>
+&#160;&#160;&#160;&#160;4. Validate that the operation returns a reponse with the status code <code>400</code>.<br>
 &#160;&#160;DONE<br>
-DONE</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="ats_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/conf/core/query-param-unknown</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that an error is returned when a query parameter is used which has not been advertised through the API.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_http">/req/core/query-param-unknown</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>DO FOR ALL operations advertised in the API definition<br>
-&#160;&#160;1. Execute that operation using a query parameter which is not advertised through the API definition.<br>
-&#160;&#160;2. Validate that the operation returns a reponse with the status code <code>400</code>.<br>
 DONE</p>
 </div></div></td>
 </tr>
@@ -3581,7 +3561,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/query-param-invalid</strong></p>
 </div></div></td>
@@ -3589,13 +3569,13 @@ DONE</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that an error is returned when a query parameter does not comply with its' advertised behavior.</p>
+<p>Validate that an error is returned when a query parameter contains a value which is not valid for that parameter.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_core_http">/req/core/query-param-invalid</a></p>
+<p><a href="#req_core_query-param-invalid">/req/core/query-param-invalid</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3613,6 +3593,509 @@ DONE</p>
 </tr>
 </tbody>
 </table>
+<table id="ats_core_query-param-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-unknown</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate that an error is returned when a query parameter is used which has not been specified in the API definition.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-unknown">/req/core/query-param-unknown</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL operations advertised in the API definition<br>
+&#160;&#160;1. Execute that operation using a query parameter which is not specified in the API definition.<br>
+&#160;&#160;2. Validate that the operation returns a reponse with the status code <code>400</code>.<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-list-delimiter" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-list-delimiter</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value may be a list:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that the correct delimiter is used to delineate items in the list.<br>
+&#160;&#160;<strong>In the case of a server</strong>: that the server uses the designated delimiter to parse the items from the list.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-list-delimiter">/req/core/query-param-list-delimiter</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Identify the list delimiter for this API<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a. As advertised in the API definition OR<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b. Use a comma (",") if no delimiter is advertised.<br>
+&#160;&#160;&#160;&#160;2. Generate a set of requests using that parameter and a<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;statistically significant set of valid parameter list values<br>
+&#160;&#160;&#160;&#160;3. Validate that the delimter identified in #1 is used to construct the lists.<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a value which<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;is a delimited list of items<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a value where:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a. the value is a delimited list AND<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b. the delimiter used to construct the list is not valid for this server<br>
+&#160;&#160;&#160;&#160;4. Validate that the server returns a status code <code>400</code><br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-list-empty" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-list-empty</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value may be a list:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that an empty list value is represented by an empty string ("").<br>
+&#160;&#160;<strong>In the case of a server</strong>: that the server interprets an empty string ("") as an empty list.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-list-empty">/req/core/query-param-list-empty</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and an empty list<br>
+&#160;&#160;&#160;&#160;2. Validate that the empty list is represented by an empty string ("")<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and an empty string ("") for the parameter value.<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value as an empty list<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-list-escape" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-list-escape</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value may be a list:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that any space or comma characters in the values are properly escaped<br>
+&#160;&#160;<strong>In the case of a server</strong>: that all escaped space and comma characters that appear in the values are properly processed.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-list-escape">/req/core/query-param-list-escape</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a set of requests using that parameter and a<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;statistically significant set of valid parameter values<br>
+&#160;&#160;&#160;&#160;2. Validate that all space and comma characters are properly escaped.<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a value which<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;includes an escaped space or comma<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a value which<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;includes an non-escaped space or comma<br>
+&#160;&#160;&#160;&#160;4. Validate that the server returns a status code <code>400</code><br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-value-boolean" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-value-boolean</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value is a boolean:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that the values are represented either by the string "true" or the string "false".<br>
+&#160;&#160;<strong>In the case of a server</strong>: that the server correctly interprets boolean values of "true" and "false".</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-value-boolean">/req/core/query-param-value-boolean</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a boolean<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a value of true<br>
+&#160;&#160;&#160;&#160;2. Validate that the value is represented using the string "true"<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a value of false<br>
+&#160;&#160;&#160;&#160;4. Validate that the value is represented using the string "false"<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a boolean<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and the string "true" for the parameter value<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value as true boolean value<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and the string "false" for the parameter value<br>
+&#160;&#160;&#160;&#160;4. Validate that the server properly interprets that parameter value as false boolean value<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-value-decimal" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-value-decimal</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value is an decimal:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that the values are represented by numeric strings with:<br>
+&#160;&#160;&#160;&#160;a) an optional leading negative "-" sign character and<br>
+&#160;&#160;&#160;&#160;b) a period to indicate the fractional portion of the value.<br>
+&#160;&#160;<strong>In the case of a server</strong>: that the server correctly interprets properly encoded decimal values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-value-decimal">/req/core/query-param-value-decimal</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a decimal number<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a positive decimal value with at least two fractional digits<br>
+&#160;&#160;&#160;&#160;2. Validate that the value is represented by a numeric string with no leading sign and at least two digits after the period (".") character<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a negative decimal value with at least two fractional digits<br>
+&#160;&#160;&#160;&#160;4. Validate that the value is represented by a numeric string with a leading negative sign ("-") and at least two digits after the period (".") character<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a decimal number<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a parameter value which is:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a) an unsigned numeric string preceeded by one or more zeros<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b) contains at least two factional digits followed by one or more zeros<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value as an unsigned decimal value<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a parameter value which is:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a) a signed negative numeric string<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b) contains at least two factional digits followed by one or more zeros<br>
+&#160;&#160;&#160;&#160;4. Validate that the server properly interprets that parameter value as a signed negative decimal value<br>
+&#160;&#160;&#160;&#160;5. Generate a request using that parameter and a parameter value which:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a) is an unsigned numeric string preceeded by one or more zeros<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b) does not contain non-numereic characters (".")<br>
+&#160;&#160;&#160;&#160;6. Validate that the server properly interprets that parameter value as an unsigned decimal value with a fractional value of zero<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-value-double" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-value-double</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value is an double:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that the values are represented by a mantissa and an exponent where:<br>
+&#160;&#160;&#160;&#160;a) the exponent is an integer<br>
+&#160;&#160;&#160;&#160;b) the mantissa is a decimal and<br>
+&#160;&#160;&#160;&#160;e) an "e" is used to delineate between the two.<br>
+&#160;&#160;<strong>In the case of a server</strong>: that the server correctly interprets properly encoded double values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-value-double">/req/core/query-param-value-double</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a double value<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a positive numeric value greater than 4,294,967,296 with at least two fractional digits<br>
+&#160;&#160;&#160;&#160;2. Validate that the value is represented by:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a. a decimal number,<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b. followed by the character "e",<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;c. followed by an integer number<br>
+&#160;&#160;&#160;&#160;3. Validate the decimal number using the <a href="#ats_core_query-param-value-decimal">Test for Decimal Parmeters</a><br>
+&#160;&#160;&#160;&#160;4. Validate the integer number using the <a href="#ats_core_query-param-value-integer">Test for Integer Parmeters</a><br>
+&#160;&#160;&#160;&#160;5. Validate that encoded value is a correct represented of the numeric value (step 1) represented using scientific notation<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a double value<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a parameter value which is:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a) greater than 4,294,967,296<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b) contains at least two factional digits followed by one or more zeros<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a parameter value which is:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a) less than -4,294,967,296<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b) contains at least two factional digits followed by one or more zeros<br>
+&#160;&#160;&#160;&#160;4. Validate that the server properly interprets that parameter value<br>
+&#160;&#160;&#160;&#160;5. Generate a request using that parameter and a parameter value which is:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a) Less than 4,294,967,296<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b) Greater than -4,294,967,295<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;c) Represented as a single decimal number<br>
+&#160;&#160;&#160;&#160;6. Validate that the server properly interprets that parameter value<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-value-integer" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-value-integer</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value is an integer:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that the values are represented by numeric strings with an optional leading negative "-" character.<br>
+&#160;&#160;<strong>In the case of a server</strong>: that the server correctly interprets properly encoded integer values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-value-integer">/req/core/query-param-value-integer</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is an integer<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a positive integer value<br>
+&#160;&#160;&#160;&#160;2. Validate that the value is represented by a numeric string with no leading sign<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a negative integer value<br>
+&#160;&#160;&#160;&#160;4. Validate that the value is represented by a numeric string with a leading negative sign ("-")<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is an integer<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and an unsigned numeric string for the parameter value<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value as an unsigned integer<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a negative signed numeric string for the parameter value<br>
+&#160;&#160;&#160;&#160;4. Validate that the server properly interprets that parameter value as a signed negative integer value<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="ats_core_query-param-value-special" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/conf/core/query-param-value-special</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate for every query parameter where the value is a numeric:<br>
+&#160;&#160;<strong>In the case of a client</strong>: that the values for special case numerics are represented as follows:<br>
+&#160;&#160;&#160;&#160;&#160;&#160;a. Positive infinity is represented by the string "inf"<br>
+&#160;&#160;&#160;&#160;&#160;&#160;b. Negative infinity is represented by the string "-inf"<br>
+&#160;&#160;&#160;&#160;&#160;&#160;b. "Not A Number" is represented by the string "-nan"<br>
+&#160;&#160;<strong>In the case of a server</strong>: that the server correctly interprets special case values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_core_query-param-value-special">/req/core/query-param-value-special</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Client)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a numeric<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and a value of infinity<br>
+&#160;&#160;&#160;&#160;2. Validate that the value is represented using the string "inf"<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and a value of negative infinity<br>
+&#160;&#160;&#160;&#160;4. Validate that the value is represented using the string "-inf"<br>
+&#160;&#160;DONE<br>
+&#160;&#160;&#160;&#160;5. Generate a request using that parameter and the machine representation of Not a Number for the value<br>
+&#160;&#160;&#160;&#160;4. Validate that the value is represented using the string "nan"<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method (Server)</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR ALL query parameters advertised in the API definition where the parameter value is a numeric<br>
+&#160;&#160;DO FOR ALL operations for which that parameter is valid<br>
+&#160;&#160;&#160;&#160;1. Generate a request using that parameter and the string "inf" for the parameter value<br>
+&#160;&#160;&#160;&#160;2. Validate that the server properly interprets that parameter value as an infinite value<br>
+&#160;&#160;&#160;&#160;3. Generate a request using that parameter and the string "-inf" for the parameter value<br>
+&#160;&#160;&#160;&#160;4. Validate that the server properly interprets that parameter value as a negative infinite value<br>
+&#160;&#160;&#160;&#160;5. Generate a request using that parameter and the string "nan" for the parameter value<br>
+&#160;&#160;&#160;&#160;6. Validate that the server properly interprets that parameter value as not a number<br>
+&#160;&#160;DONE<br>
+DONE</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -3624,7 +4107,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/root-op</strong></p>
 </div></div></td>
@@ -3667,7 +4150,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/root-success</strong></p>
 </div></div></td>
@@ -3745,7 +4228,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/api-definition-op</strong></p>
 </div></div></td>
@@ -3800,7 +4283,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/api-definition-success</strong></p>
 </div></div></td>
@@ -3835,7 +4318,7 @@ DONE</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/conformance-op</strong></p>
 </div></div></td>
@@ -3901,7 +4384,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/core/conformance-success</strong></p>
 </div></div></td>
@@ -3950,7 +4433,7 @@ THEN</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common/1.0/conf/json" class="bare">http://www.opengis.net/spec/ogcapi-common/1.0/conf/json</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -3975,7 +4458,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/json/definition</strong></p>
 </div></div></td>
@@ -4027,7 +4510,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/json/content</strong></p>
 </div></div></td>
@@ -4073,7 +4556,7 @@ THEN</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common/1.0/conf/html" class="bare">http://www.opengis.net/spec/ogcapi-common/1.0/conf/html</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4098,7 +4581,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/html/definition</strong></p>
 </div></div></td>
@@ -4150,7 +4633,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/html/content</strong></p>
 </div></div></td>
@@ -4196,7 +4679,7 @@ THEN</p>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common/1.0/conf/oas3" class="bare">http://www.opengis.net/spec/ogcapi-common/1.0/conf/oas3</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas3" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas3</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -4219,7 +4702,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/completeness</strong></p>
 </div></div></td>
@@ -4251,7 +4734,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/exceptions-codes</strong></p>
 </div></div></td>
@@ -4283,7 +4766,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/oas-definition-1</strong></p>
 </div></div></td>
@@ -4322,7 +4805,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/oas-definition-2</strong></p>
 </div></div></td>
@@ -4354,7 +4837,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/oas-impl</strong></p>
 </div></div></td>
@@ -4393,7 +4876,7 @@ THEN</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/conf/oas30/security</strong></p>
 </div></div></td>
@@ -4574,7 +5057,7 @@ THEN</p>
   "info" : {
     "title" : "A sample API conforming to the draft standard OGC API - Common - Part 1 - Core",
     "version" : "1.0.0",
-    "description" : "This is a sample OpenAPI definition of the draft standard OGC API - Common - Part 1 - Core. This example is a generic OGC API definition that describes the Common Core of OGC Web APIs. This generic OpenAPI definition does not provide any details on the hosted content.",
+    "description" : "This is a sample OpenAPI definition of the OGC API - Common - Part 1 - Core Standard. This example is a generic OGC API definition that describes the Common Core of OGC Web APIs. This generic OpenAPI definition does not provide any details on the hosted content.",
     "contact" : {
       "name" : "Acme Corporation",
       "email" : "info@example.org",
@@ -5181,120 +5664,125 @@ sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Don’t Reinvent</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Don’t reinvent</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Great care was taken in the development of this standard to only address capabilities which were not already standardized and to define how the needed capabilites integrate into a single API.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Keep It Simple and Intuitive</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Keep it simple and intuitive</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Web APIs are developed using a building block approach. Conformance Classes are defined which encompase requirements sufficient to create a usable software module and no more. Complex APIs are constructed by assembling the applicable Conformance Classes.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">3</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use Well-Known Resource Types</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Except where unique to OGC Web APIs, all resources types are IANA or OGC registered types.<br>
-OGC Web API standards do not mandate an encoding. The encodings supported by an API are specified by the corresponding Conformance Classes. All encodings used to-date are IANA registered media types.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use well-known resource types</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Except where unique to a specific Conformance Class, all resources types are IANA or OGC registered types.<br>
+OGC Web API standards do not mandate an encoding. The encodings supported by an API are specified by the corresponding encoding Conformance Classes. All encodings used to-date are IANA registered media types.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Construct consistent URIs</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Web APIs are build from standardized modules, using standardized patterns. This modular approach assures that the URIs are consistent across OGC Web APIs.<br>
-OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Construct consistent URIs</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Web APIs are built from standardized modules using standardized patterns. This modular approach assures that the URIs are consistent across OGC Web APIs.<br>
+OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements used to create OGC Web API URLs.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use HTTP Methods consistent with RFC 2616</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC web APIs are restricted to the HTTP methods defined in IETF <a href="#rfc7231">RFC 7231</a> which replaces RFC 2616</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use HTTP methods consistent with RFC 7231</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC web APIs are restricted to the HTTP methods defined in IETF <a href="#rfc7231">RFC 7231</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Put Selection Criteria behind the ‘?’</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This principle is addressed in <a href="#identifier-conventions">Identifiers</a>  of this Standard.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Put selection criteria behind the ‘?’</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#identifier-conventions">Section 6.1</a> of this Standard defines the conventions to be used when creating URIs for OGC Web API standards. This includes the use of the "?" to deliminate query parameters from the rest of the URI.<br>
+Note that this does not preclude the use of resource identifiers (ex. collection identifiers) as part of the path. However those can be considered identifying criteria rather than selection criteria.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Error Handling and use of HTTP Status Codes</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-protocol">HTTP 1.1</a> and <a href="#http-status-codes">HTTP Status Codes</a> mandate compliance with this guideline.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Error handling and use of HTTP status codes</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This standard identifies the applicable HTTP status codes and under what conditions they should be returned. Status codes and supporting information are returned in the HTTP response using a reporting structure based on RFC 7807.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use of HTTP Status Codes</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-status-codes">HTTP Status Codes</a> provides a list of the HTTP status codes that implementors of this standard shoudl be prepared to generate and accept. This list is not exhaustive (see guideline #1).</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use explicit list of HTTP status codes</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-status-codes">HTTP Status Codes</a> provides a list of the HTTP status codes that implementors of this standard should be prepared to generate and accept. This list is not exhaustive (see guideline #1).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use of HTTP Header</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use of HTTP header</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC API Common does not preclude use of HTTP headers where it is appropriate to do so.<br>
+Only standard HTTP headers are used.<br>
 Due to the common use of the HATEOAS pattern in OGC Web APIs, HTTP headers are not always accessible. The use of query parameter overrides is allowed.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">10</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Content Negotiation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IETF <a href="#rfc7231">RFC 7231</a> content negotiation is used on all transactions.<br>
-Note that the <code>accepts</code> header may be over-ridden by a query parameters (see #9).</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Content negotiation</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IETF <a href="#rfc7231">RFC 7231</a> content negotiation is avalable on all transactions.<br>
+Since the HTTP headers are not always accessible, content negotiation may be performed through a query parameter (see #9).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Pagination</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Pagination</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">None of the resources defined in API-Common Core are large enough to require pagenation.<br>
 If an OpenAPI document is used as the API definition, then pagination could become an issue. The question of how to handle large OpenAPI documents is still an open issue being worked across the Standards Working Groups.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Processing Resources</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Does not apply to this Standard.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Processing resources</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Processing resources are not addressed by this Standard.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">13</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support Metadata</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This standard violates this principle. Extensive support for metadata is provided as linked resources. Examples include the relation types <code>service-desc</code>,<code>service-doc</code>, <code>service-meta</code>, and <code>data-meta</code>. These relation types can be used on any resource, providing context for the metadata referenced.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Support metadata</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support for metadata is provided through metadata resource links. Examples include links with the relation type <code>service-desc</code>,<code>service-doc</code>, <code>service-meta</code>, or <code>data-meta</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">14</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Consider your Security needs</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Consider your security needs</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">While not mandated, use of HTTPS vs. HTTP is encouraged throughout this standard.<br>
 Authenitcation is not precluded by this standard, but in keeping with guideline #1, this standard does not presume to dictate what authentication methods can be used.<br>
 API-Common - Core only defines GET requests. The security issues associated with CRUD are not applicable to this standard.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">15</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API Description</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>API description</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The API definition is avaliable using the <code>service-desc</code> (machine readable) and <code>service-doc</code> (human readable) associations from the landing page.<br>
 OpenAPI is the only API definition type currently supported.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">16</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use IANA well-known identifiers</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use well-known identifiers</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IANA identifiers are used where they are available. Where no IANA identifiers are appropriate, OGC registered identifiers are used.<br>
 OGC identifiers are only used after they have been reviewed and approved by the OGC Naming Authority.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">17</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Use explicit geospatial relations</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">There are no geospatial relations in OGC API-Common Part 1.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use explicit relations</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">All relations in this standard are typed using relation types registered in the IANA or the OGC relation type registers.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">18</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support W3C Cross-Origin Resource Sharing</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This guideline is address in <a href="#cross-origin-section">Support for Cross-Origin Requests</a>.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Support W3C cross-origin resource sharing</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This guideline is addressed in <a href="#cross-origin-section">Support for Cross-Origin Requests</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">19</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Resource encodings</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes for both HTML and JSON have been defined.</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Resource encodings</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes for both HTML and JSON have been defined. Implementation of both the HTML and JSON Conformance Classes is recommended.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">20</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Good APIs are testable from the beginning</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Good APIs are testable from the beginning</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The Abstract Test Suite (ATS) for this standard is provided in Annex A.<br>
-The ATS is defined to sufficient level of detail to validate that it is:<br>
-1) implementable<br>
-2) comprehensive</p></td>
+The ATS is defined to sufficient level of detail to validate that it is implementable and comprehensive</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">21</p></td>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Specify whether operations are safe and/or idempotent</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Specify whether operations are safe and/or idempotent</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">According to IETF <a href="#rfc7231">RFC 7231</a> "the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe." and the "PUT, DELETE, and safe request methods are idempotent". All request methods in this standard (GET) are both safe and idempotent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">22</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Make resources discoverable</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">All resouces defined in this standard can be navigated to through resource links and optional standard paths. All resource links are typed using registered relation types. These links are encoded using a standard link structure which includes the media type, language, and title of the resource.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5304,7 +5792,7 @@ The ATS is defined to sufficient level of detail to validate that it is:<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-01 18:26:46 UTC
+Last updated 2021-02-23 21:41:46 UTC
 </div>
 </div>
 </body>
