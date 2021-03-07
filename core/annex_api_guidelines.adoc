@@ -21,10 +21,10 @@ Note that this does not preclude the use of resource identifiers (ex. collection
 |9 |*Use of HTTP header* |OGC API Common does not preclude use of HTTP headers where it is appropriate to do so. +
 Only standard HTTP headers are used. +
 Due to the common use of the HATEOAS pattern in OGC Web APIs, HTTP headers are not always accessible. The use of query parameter overrides is allowed.
-|10 |*Content negotiation* |IETF <<rfc7231,RFC 7231>> content negotiation is avalable on all transactions. +
+|10 |*Allow flexible content negotiation* |IETF <<rfc7231,RFC 7231>> content negotiation is avalable on all transactions. +
 Since the HTTP headers are not always accessible, content negotiation may be performed through a query parameter (see #9).
-|11 |*Pagination* |None of the resources defined in API-Common Core are large enough to require pagenation. +
-If an OpenAPI document is used as the API definition, then pagination could become an issue. The question of how to handle large OpenAPI documents is still an open issue being worked across the Standards Working Groups. 
+|11 |*Pagination* |Of the resources defined in API-Common Core only the conformance resource is "listable". We do not anticipate the conformance resource to grow to any size, so support for pagenation would add complexity will little to no value (violating #2) +
+If an OpenAPI document is used as the API definition, then pagination could become an issue for this resource. The question of how to handle large OpenAPI documents is still an open issue being worked across the Standards Working Groups. 
 |12 |*Processing resources* |Processing resources are not addressed by this Standard.
 |13 |*Support metadata* |Support for metadata is provided through metadata resource links. Examples include links with the relation type `service-desc`,`service-doc`, `service-meta`, or `data-meta`.  
 |14 |*Consider your security needs* |While not mandated, use of HTTPS vs. HTTP is encouraged throughout this standard. +
@@ -41,4 +41,5 @@ OGC identifiers are only used after they have been reviewed and approved by the 
 The ATS is defined to sufficient level of detail to validate that it is implementable and comprehensive
 |21 |*Specify whether operations are safe and/or idempotent* |According to IETF <<rfc7231,RFC 7231>> "the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe." and the "PUT, DELETE, and safe request methods are idempotent". All request methods in this standard (GET) are both safe and idempotent.
 |22 |*Make resources discoverable* |All resouces defined in this standard can be navigated to through resource links and optional standard paths. All resource links are typed using registered relation types. These links are encoded using a standard link structure which includes the media type, language, and title of the resource.
+|23 |"Make default behavior explicit" |
 |===
