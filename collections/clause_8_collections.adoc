@@ -4,7 +4,7 @@
 
 include::requirements/requirements_class_collections.adoc[]
 
-This Requirements Class describes the resources and operations used to discover and query resource collections exposed through an OGC Web API. It does not include any requirements about how the resources are aggregated into collections. That detail is reserved for resource-specific OGC Web API standards.
+This Requirements Class describes the resources and operations used to discover and query resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards.
 
 The three resources defined in this Requirements Class are summarized in <<collection-resources>>. Detailed requirements for each of these resources are provided in the <<collection-resource-requirements,Resource Requirements>> section.
 
@@ -14,7 +14,7 @@ The three resources defined in this Requirements Class are summarized in <<colle
 |===
 ^|Path Fragment ^|Name ^|Description
 |/collections |Collections Metadata |Information which describes the set of suppoprted Collections
-|/collections/{collectionId} |Collection Information |Information about a specific Collection
+|/collections/{collectionId} |Collection Description |Information about a specific Collection
 |/collections/{collectionId}/items |Collection Resource |The resources in a specific Collection
 |===
 
@@ -40,7 +40,7 @@ This section expresses the requirements for resources and operations used to dis
 [[collections-metadata]]
 ==== Collections Metadata
 
-OGC APIs typically organize their Spatial Resources into collections. Information about those collections is accessed through the /collections path.
+OGC APIs typically organize their Spatial Resources into collections. Information about those collections is accessed through the `/collections` path.
 
 ===== Operation
 
@@ -74,32 +74,34 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-descriptions.adoc[]
 
-The `collections` property of the Collections Metadata provides a description of each collection. These descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Information Schema]. This schema is described in detail in the <<collection-information, Collection Information>> section of this Standard. The following requirements and recommendations govern the use of Collection Information in the Collections Metadata.
+The `collections` property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Description Schema]. This schema is described in detail in the <<collection-description, Collection Description>> section of this Standard. 
 
 include::requirements/collections/REQ_rc-md-items.adoc[]
 
-The `timeStamp` of when the response was generated
+The `timeStamp` property of the Collections Metadata indicates when the response was generated.
 
 include::requirements/collections/REQ_rc-timeStamp.adoc[]
 
-The `numberMatched` property of the Collections Metadata
+The `numberMatched` property of the Collections Metadata indicates the number of collection descriptions included in the Collections Metadata. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controled through selection parameters provided by the client.
 
 include::requirements/collections/REQ_rc-numberMatched.adoc[]
 
-The `numberReturned` property of the Collections Metadata
+The Collections Metadata should describe all of the collections accessible through the API. However, in some cases that is impractical. An API implementation has the option of limiting the size of the Collections Metadata response.  
+
+include::recommendations/collections/PER_rc-md-items.adoc[]
+
+The number of collection descriptions included in a Collections Metadata response may be a subset of the number matched. This can due to a server imposed limit or the client specified <<limit-parameter-requirements,limit>> parameter. In that case, the `numberReturned` property of the Collections Metadata indicates the number of collection descriptions returned in this "page" of the Collections Metadata. 
 
 include::requirements/collections/REQ_rc-numberReturned.adoc[]
 
-The Collections Metadata should describe all of the collections accessible through the API. However, in some cases that is impractical. As long as they provide a way to retrieve the remaining metadata as well, developers have an option to only return a subset.
-
-include::recommendations/collections/PER_rc-md-items.adoc[]
+If the Collections Metadata contains a subset of the selected collection descriptions (numberReturned is less than numberMatched) then the Collections Metadata should contain links for navigating to the rest of the collection descriptions as described in the <<limit-parameter-requirements,limit parameter>> section.
 
 ===== Error situations
 
 See <<http-status-codes>> for general guidance.
 
-[[collection-information]]
-==== Collection Information
+[[collection-description]]
+==== Collection Description
 
 Each resource collection is described by a set of metadata. That metadata is accessed directly using the `/collections/{collectionId}` path or as an entry in the `collections` property of the Collections Metadata resource.
 
@@ -115,9 +117,9 @@ No parameters have been standardized for this operation.
 
 include::requirements/collections/REQ_src-md-success.adoc[]
 
-Collection Information is based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Information Schema]. Examples of Collection Information are provided in <<collection-information-examples>>.
+Collection Descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Information Schema]. Examples of Collection Descriptions are provided in <<collection-description-examples>>.
 
-.Collection Information Schema
+.Collection Description Schema
 [source, JSON]
 include::openapi/schemas/collectionInfo.json[]
 
@@ -133,7 +135,7 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
 
-Additional requirements and recommendations apply to the `extent` property of the Collection Information.
+Additional requirements and recommendations apply to the `extent` property of the Collection Description.
 
 include::requirements/collections/REQ_rc-md-extent.adoc[]
 

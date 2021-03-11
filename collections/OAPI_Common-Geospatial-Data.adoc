@@ -19,7 +19,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   2020-12-07
+|Publication Date:   2021-03-10
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-common-2/1.0
 |Internal reference number of this OGC(R) document:    20-024
 |Version: 0.0.1
@@ -35,7 +35,7 @@
 [cols = "^", frame = "none", grid = "none"]
 |===
 |*Copyright notice*
-|Copyright (C) 2020 Open Geospatial Consortium
+|Copyright (C) 2021 Open Geospatial Consortium
 |To obtain additional rights of use, visit http://www.opengeospatial.org/legal/
 |===
 
@@ -102,6 +102,8 @@ include::annex_ats.adoc[]
 include::annex_examples.adoc[]
 
 include::annex_history.adoc[]
+
+include::annex_glossary.adoc[]
 
 include::annex_bibliography.adoc[]
 
