@@ -15,7 +15,7 @@
         "timeStamp": {
             "type": "string",
             "format": "date-time"
-            },
+            },    
         "numberMatched": {
             "type": "integer",
             "min": "0"

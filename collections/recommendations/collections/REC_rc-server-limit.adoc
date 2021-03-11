@@ -1,0 +1,6 @@
+[[rec_collections_rc-server-limit]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-server-limit* 
+^|A |Clients SHOULD be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
+|===

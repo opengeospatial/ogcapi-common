@@ -122,6 +122,7 @@ The link relationships used in API-Common Core are described in <<link-relations
 ^|**Link Relation** ^|**Purpose**
 |`alternate` |Refers to a substitute for this context [IANA]. + 
 Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the `type` link attribute).
+|`http://www.opengis.net/def/rel/ogc/1.0/data-meta` |Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.
 |`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
 |`describedby`|Refers to a resource providing information about the link's context.[IANA] +
 Links to external resources which further describe the subject resource

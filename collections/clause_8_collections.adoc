@@ -123,7 +123,16 @@ Collection Descriptions are based on the link:http://schemas.opengis.net/ogcapi/
 [source, JSON]
 include::openapi/schemas/collectionDesc.json[]
 
-This schema is further constrained by the following requirements and recommendations.
+The purpose of the Colletion Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection.
+
+The landing page includes three metadata elements; title, 
+description, and attribution. These three elements describe the API as a
+ whole. Clients can expect to encounter metadata which is more 
+resource-specific as they follow links and paths from the landing page.
+
+While Collection Description contains four properties are defined as text strings, the attribution element is special. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection description>> for an example of the use of markup in the attribution element.
+
+The Collection Description schema is further constrained by the following requirements and recommendations.
 
 include::recommendations/collections/REC_rc-md-item-type.adoc[]
 
@@ -272,6 +281,10 @@ The number of resources returned depends on the server and the value of the `lim
 *   If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
 
 include::requirements/collections/REQ_rc-limit-response.adoc[]
+
+include::recommendations/collections/PER_rc-server-limit.adoc[]
+
+include::recommendations/collections/REC_rc-server-limit.adoc[]
 
 The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first `page`. Additional pages can be accessed through hyperlink navigation.
 

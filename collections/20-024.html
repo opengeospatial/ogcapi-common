@@ -665,8 +665,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_examples_informative">Annex B: Examples (Informative)</a>
 <ul class="sectlevel2">
-<li><a href="#collections-metadata-examples">B.1. Collections Metadata Examples</a></li>
-<li><a href="#collection-description-examples">B.2. Collection Description Examples</a></li>
+<li><a href="#collections-metadata-examples">B.1. Collections Metadata Example</a></li>
+<li><a href="#collection-description-examples">B.2. Collection Description Examples</a>
+<ul class="sectlevel3">
+<li><a href="#_building_collection">B.2.1. Building Collection</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
@@ -1134,6 +1138,10 @@ API using an architectural style that is founded on the technologies of the Web.
 Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the <code>type</code> link attribute).</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code><a href="http://www.opengis.net/def/rel/ogc/1.0/data-meta" class="bare">http://www.opengis.net/def/rel/ogc/1.0/data-meta</a></code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>collection</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]</p></td>
 </tr>
@@ -1566,7 +1574,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The collections metadata returned by this operation is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
+<p>The collections metadata returned by this operation is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Example</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">collections.json</div>
@@ -1925,6 +1933,11 @@ API definitions are considered service descriptions.</p></td>
             "description": "a description of the members of the collection",
             "type": "string"
             },
+        "attribution" : {
+            "type" : "string",
+            "title" : "attribution for the collection",
+            "description" : "The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup."
+            },
         "links": {
             "type": "array",
             "items": {"$href": "link.json"}
@@ -1954,7 +1967,19 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>This schema is further constrained by the following requirements and recommendations.</p>
+<p>The purpose of the Colletion Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection.</p>
+</div>
+<div class="paragraph">
+<p>The landing page includes three metadata elements; title,
+description, and attribution. These three elements describe the API as a
+ whole. Clients can expect to encounter metadata which is more
+resource-specific as they follow links and paths from the landing page.</p>
+</div>
+<div class="paragraph">
+<p>While Collection Description contains four properties are defined as text strings, the attribution element is special. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <a href="#collection-description-examples">collection description</a> for an example of the use of markup in the attribution element.</p>
+</div>
+<div class="paragraph">
+<p>The Collection Description schema is further constrained by the following requirements and recommendations.</p>
 </div>
 <table id="rec_collections_rc-md-item-type" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2666,6 +2691,46 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
+<table id="per_collections_rc-server-limit" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/per/collections/rc-server-limit</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If a server is configured with a maximum response size, then the server MAY page responses which exceed that threshold.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_collections_rc-server-limit" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/collections/rc-server-limit</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Clients SHOULD be prepared to handle a paged response even if they have not specified a <code>limit</code> parameter in their query.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first <code>page</code>. Additional pages can be accessed through hyperlink navigation.</p>
 </div>
@@ -2676,7 +2741,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-1</strong></p>
 </div></div></td>
@@ -2696,7 +2761,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-2</strong></p>
 </div></div></td>
@@ -2716,7 +2781,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-3</strong></p>
 </div></div></td>
@@ -2739,7 +2804,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/collections/rc-prev</strong></p>
 </div></div></td>
@@ -2879,7 +2944,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/core/additional-status-codes</strong></p>
 </div></div></td>
@@ -2902,7 +2967,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/problem-details</strong></p>
 </div></div></td>
@@ -2968,7 +3033,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/core/query-param-specified</strong></p>
 </div></div></td>
@@ -3020,7 +3085,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/core/query-param-tolerance</strong></p>
 </div></div></td>
@@ -3065,7 +3130,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/etag</strong></p>
 </div></div></td>
@@ -3091,7 +3156,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/cross-origin</strong></p>
 </div></div></td>
@@ -3130,7 +3195,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/string-i18n</strong></p>
 </div></div></td>
@@ -3171,7 +3236,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/html</strong></p>
 </div></div></td>
@@ -3194,7 +3259,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/json</strong></p>
 </div></div></td>
@@ -3270,7 +3335,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>IF a parameter name or value includes a precent encoded (escaped) character,<br>
+<p>IF a parameter name or value includes a percent encoded (escaped) character,<br>
 &#160;&#160;&#160;&#160;THEN<br>
 the upper case hexadecimal digits ("A" through "F") of that percent encoded character SHALL be equivalent to the lower case digits "a" through "f" respectively.</p>
 </div></div></td>
@@ -3287,7 +3352,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -3697,7 +3762,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -4891,31 +4956,18 @@ explode: false</code></pre>
 <h2 id="_examples_informative"><a class="anchor" href="#_examples_informative"></a>Annex B: Examples (Informative)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="collections-metadata-examples"><a class="anchor" href="#collections-metadata-examples"></a>B.1. Collections Metadata Examples</h3>
-<div class="exampleblock">
-<div class="title">Example 4. Collection metadata response document</div>
-<div class="content">
+<h3 id="collections-metadata-examples"><a class="anchor" href="#collections-metadata-examples"></a>B.1. Collections Metadata Example</h3>
 <div class="paragraph">
-<p>This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". The metadata includes links to the collection resource in all formats that are supported by the API (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "items").</p>
+<p>This collections metadata example response in JSON is for a dataset with a single "buildings" feature collection.</p>
 </div>
 <div class="paragraph">
-<p>There is a link to the feature collections response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
+<p>There is a link to the collections response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
 </div>
 <div class="paragraph">
-<p>Representations of this resource in other formats are referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "alternate".</p>
+<p>Representations of this resource in other formats are referenced (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "alternate").</p>
 </div>
 <div class="paragraph">
-<p>An additional link is to a GML application schema for the dataset - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".</p>
-</div>
-<div class="paragraph">
-<p>A bulk download of all the features in the dataset is referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "enclosure"</p>
-</div>
-<div class="paragraph">
-<p>Finally there are also links to the license information for the building data (using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "license").</p>
-</div>
-<div class="paragraph">
-<p>Reference system information is not provided as the service provides geometries only in the default system (spatial: WGS 84 longitude/latitude; temporal:
-Gregorian calendar).</p>
+<p>An additional link is to a GML application schema for the collection (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "describedBy").</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4938,9 +4990,6 @@ Gregorian calendar).</p>
         "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
       },
       "links": [
-        { "href": "http://data.example.org/collections/buildings/items",
-          "rel": "items", "type": "application/geo+json",
-          "title": "Buildings" },
         { "href": "http://example.org/concepts/building.html",
           "rel": "describedBy", "type": "text/html",
           "title": "Feature catalogue for buildings" }
@@ -4951,21 +5000,76 @@ Gregorian calendar).</p>
 </div>
 </div>
 </div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="collection-description-examples"><a class="anchor" href="#collection-description-examples"></a>B.2. Collection Description Examples</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-include::examples/tbd.adoc[]
-</td>
-</tr>
-</table>
+<div class="sect3">
+<h4 id="_building_collection"><a class="anchor" href="#_building_collection"></a>B.2.1. Building Collection</h4>
+<div class="paragraph">
+<p>This Collection Description example response in JSON is for a single "buildings" collection.</p>
+</div>
+<div class="paragraph">
+<p>The basic descriptive information includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"id": an identifier for this collection</p>
+</li>
+<li>
+<p>"title": the title of this collection</p>
+</li>
+<li>
+<p>"description": self evident</p>
+</li>
+<li>
+<p>"attribution": markup providing attribution (owner, producer, logo, etc.) of this collection</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The response includes links to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is a link to the response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
+</li>
+<li>
+<p>Representations of this response in other formats are referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "alternate".</p>
+</li>
+<li>
+<p>An additional link is to a GML application schema for the collection - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finally, this response includes both spatial and temporal extents.</p>
+</div>
+<div class="paragraph">
+<p>Reference system information is not provided as the service provides geometries only in the default system (spatial: WGS 84 longitude/latitude; temporal: Gregorian calendar).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "id": "1234567890",
+  "title": "Example Collection Description Response",
+  "description": "This is an example of a Collection Description in JSON format",
+  "attribution": "&lt;a href='www.ign.es' rel=' '&gt;IGN&lt;/a&gt; &lt;a href='www.govdata.de/dl-de/by-2-0'&gt;(c)&lt;/a&gt;",
+  "links": [
+    { "href": "http://data.example.org/collections.json",
+      "rel": "self", "type": "application/json", "title": "this document" },
+    { "href": "http://data.example.org/collections.html",
+      "rel": "alternate", "type": "text/html", "title": "this document as HTML" },
+    { "href": "http://schemas.example.org/1.0/foobar.xsd",
+      "rel": "describedBy", "type": "application/xml", "title": "XML schema for Acme Corporation data" }
+  ],
+  "extent": {
+    "spatial": [ 7.01, 50.63, 7.22, 50.78 ],
+    "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
+    }
+}</pre>
+</div>
+</div>
 </div>
 </div>
 </div>

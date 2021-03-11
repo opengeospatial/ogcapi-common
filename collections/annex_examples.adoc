@@ -3,12 +3,15 @@
 == Examples (Informative)
 
 [[collections-metadata-examples]]
-=== Collections Metadata Examples
+=== Collections Metadata Example
 
-include::examples/collections_metadata_JSON_1.adoc[]
+include::examples/collections_metadata_JSON.adoc[]
 
 [[collection-description-examples]]
 === Collection Description Examples
 
-NOTE: include::examples/tbd.adoc[]
+==== Building Collection
+
+include::examples/collection_description_JSON.adoc[]
+
 

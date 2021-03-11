@@ -11,7 +11,10 @@ properties:
     example: address
   description:
     type: string
-    example: An address.
+    example: An address
+  attribution:
+    type: string
+    title: attribution for the collection
   links:
     type: array
     items:
