@@ -41,5 +41,5 @@ OGC identifiers are only used after they have been reviewed and approved by the 
 The ATS is defined to sufficient level of detail to validate that it is implementable and comprehensive
 |21 |*Specify whether operations are safe and/or idempotent* |According to IETF <<rfc7231,RFC 7231>> "the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe." and the "PUT, DELETE, and safe request methods are idempotent". All request methods in this standard (GET) are both safe and idempotent.
 |22 |*Make resources discoverable* |All resouces defined in this standard can be navigated to through resource links and optional standard paths. All resource links are typed using registered relation types. These links are encoded using a standard link structure which includes the media type, language, and title of the resource.
-|23 |"Make default behavior explicit" |
+|23 |*Make default behavior explicit* |This Standard defines the proper and allowed responses for any valid or invalid request. 
 |===
