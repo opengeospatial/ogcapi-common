@@ -10,15 +10,15 @@ The three resources defined in this Requirements Class are summarized in <<colle
 
 [#collection-resources,reftext='{table-caption} {counter:table-num}']
 .Collection Resources
-[width="90%",cols="10,10,20",options="header"]
+[width="90%",cols="10,10,5,20",options="header"]
 |===
-^|Path Fragment ^|Name ^|Description
-|/collections |Collections Metadata |Information which describes the set of suppoprted Collections
-|/collections/{collectionId} |Collection Description |Information about a specific Collection
-|/collections/{collectionId}/items |Collection Resource |The resources in a specific Collection
+^|Resource ^|URI ^|HTTP Method ^|Description
+|<<collections-metadata,Collections Metadata>> |/collections ^|GET |Information which describes the set of suppoprted Collections 
+|<<collection-description,Collection Description>> |/collections/{collectionId} ^|GET |Information about a specific Collection
+|<<collection-resource,Collection Resource>> |/collections/{collectionId}/items ^|GET |The resources in a specific Collection
 |===
 
-This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. Three parameters are also defined for use in these operations. These parameters are defined in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
+This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. Three parameters are defined for use in these operations. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
 
 [#parameter-summary,reftext='{table-caption} {counter:table-num}']
 .Parameter Summary
@@ -74,7 +74,7 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-descriptions.adoc[]
 
-The `collections` property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Description Schema]. This schema is described in detail in the <<collection-description, Collection Description>> section of this Standard. 
+The `collections` property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json[Collection Description Schema]. This schema is described in detail in the <<collection-description, Collection Description>> section of this Standard. 
 
 include::requirements/collections/REQ_rc-md-items.adoc[]
 
@@ -117,11 +117,11 @@ No parameters have been standardized for this operation.
 
 include::requirements/collections/REQ_src-md-success.adoc[]
 
-Collection Descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Information Schema]. Examples of Collection Descriptions are provided in <<collection-description-examples>>.
+Collection Descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json[Collection Description Schema]. Examples of Collection Descriptions are provided in <<collection-description-examples>>.
 
 .Collection Description Schema
 [source, JSON]
-include::openapi/schemas/collectionInfo.json[]
+include::openapi/schemas/collectionDesc.json[]
 
 This schema is further constrained by the following requirements and recommendations.
 
@@ -188,7 +188,7 @@ Query parameters are used in URLs to limit the resources which are returned on a
 * <<parameter-datetime-requirements,datetime>>: Date and Time
 * <<limit-parameter-requirements,limit>>: Response resource count limit
 
-Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should include supported parameters in the API definition as describe in <<apicore,API-Core>>.
+Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should document their supported parameters in the API definition as describe in <<apicore,API-Core>>.
 
 [[bbox-parameter-requirements]]
 ==== Parameter bbox
@@ -197,7 +197,7 @@ include::requirements/collections/REQ_rc-bbox-definition.adoc[]
 
 include::requirements/collections/REQ_rc-bbox-response.adoc[]
 
-"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the rectangular area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
+"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 
 In case of a degenerated bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
 

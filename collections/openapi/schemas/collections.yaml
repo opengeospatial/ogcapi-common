@@ -19,4 +19,4 @@ properties:
   collections:
     type: array
     items:
-      $ref: collectionInfo.yaml
+      $ref: collectionDesc.yaml

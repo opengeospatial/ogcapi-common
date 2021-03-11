@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Draft OGC API - Common - Part 2: Geospatial Data</title>
+<title>OGC API - Common - Part 2: Geospatial Data</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>Draft OGC API - Common - Part 2: Geospatial Data</h1>
+<h1>OGC API - Common - Part 2: Geospatial Data</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-03-10</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-03-11</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -487,7 +487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API - Common - Part 2: Geospatial Data</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API - Common - Part 2: Geospatial Data</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -801,16 +801,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><a href="#rc_collections-section">Collections</a></p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
-</div>
-<div class="paragraph">
-<p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <em>Collections Requirements Class</em> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><a href="#rc_encoding-section">Encodings</a></p>
 <div class="ulist">
@@ -827,7 +817,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <em>HTML</em> and <em>JSON</em> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
+<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
+</div>
+<div class="paragraph">
+<p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <a href="#rc_collections-section"><em>Collections Requirements Class</em></a> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <a href="#rc_html-section"><em>HTML</em></a> and <a href="#rc_json-section"><em>JSON</em></a> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
 </div>
 <div class="paragraph">
 <p>Neither of these encodings is mandatory. An implementor of the <em>API-GeoData</em> standard may decide to implement another encoding instead of, or in addition to, these two.</p>
@@ -922,7 +918,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="terms_and_definitions"><a class="anchor" href="#terms_and_definitions"></a>5. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document uses the terms defined in Sub-clause 5 of <a href="#apicore">OGC API - Common - Part 1: Core</a> (OGC 19-072), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
+<p>This document uses the terms defined in Sub-clause 5 of <a href="#apicore">OGC API - Common - Part 1: Core</a> (OGC 19-072), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "shall" (not "must") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
 </div>
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
@@ -1108,7 +1104,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p>The normative provisions in this standard are denoted by the URI <code><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0</a></code>.</p>
 </div>
 <div class="paragraph">
-<p>All <a href="#requirement-definition">Requirements</a>, <a href="#ctm-definition">Conformance Modules</a>, and <a href="#ctc-definition">Conformance Classes</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
+<p>All <a href="#requirement-definition">Requirements</a>, <a href="#requirements-class-definition">Requirement Classes</a>, <a href="#ctm-definition">Conformance Modules</a>, and <a href="#ctc-definition">Conformance Classes</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1417,37 +1413,42 @@ API definitions are considered service descriptions.</p></td>
 <table id="collection-resources" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 2. Collection Resources</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 50%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Path Fragment</th>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Name</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Resource</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">URI</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">HTTP Method</th>
 <th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collections-metadata">Collections Metadata</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Collections Metadata</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information which describes the set of suppoprted Collections</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-description">Collection Description</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Collection Description</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information about a specific Collection</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-resource">Collection Resource</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/items</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Collection Resource</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The resources in a specific Collection</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <a href="#collection-resource-requirements">Resource Requirements</a> section. Three parameters are also defined for use in these operations. These parameters are defined in the <a href="#parameter-requirements">Parameter Requirements</a> section. A summary of the parameters is provided in <a href="#parameter-summary">Table 3</a>.</p>
+<p>This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <a href="#collection-resource-requirements">Resource Requirements</a> section. Three parameters are defined for use in these operations. These parameters are documented in the <a href="#parameter-requirements">Parameter Requirements</a> section. A summary of the parameters is provided in <a href="#parameter-summary">Table 3</a>.</p>
 </div>
 <table id="parameter-summary" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 3. Parameter Summary</caption>
@@ -1598,7 +1599,7 @@ API definitions are considered service descriptions.</p></td>
             },
         "collections": {
             "type": "array",
-            "items": {"$href": "collectionInfo.json"}
+            "items": {"$href": "collectionDesc.json"}
             }
         }
     }</code></pre>
@@ -1676,7 +1677,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>collections</code> property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Description Schema</a>. This schema is described in detail in the <a href="#collection-description">Collection Description</a> section of this Standard.</p>
+<p>The <code>collections</code> property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json">Collection Description Schema</a>. This schema is described in detail in the <a href="#collection-description">Collection Description</a> section of this Standard.</p>
 </div>
 <table id="req_collections_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1885,7 +1886,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">collectionInfo.json</a>.</p>
+<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json">collectionInfo.json</a>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1897,14 +1898,14 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Collection Descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Descriptions are provided in <a href="#collection-description-examples">Collection Description Examples</a>.</p>
+<p>Collection Descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json">Collection Description Schema</a>. Examples of Collection Descriptions are provided in <a href="#collection-description-examples">Collection Description Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Collection Description Schema</div>
 <div class="content">
 <pre class="highlight"><code class="language-JSON" data-lang="JSON">{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Collection Information Schema",
+    "title": "Collection Description Schema",
     "description": "This schema defines metadata resource returned from /collections/{collectionId}.",
     "type": "object",
     "required": [
@@ -1930,7 +1931,7 @@ API definitions are considered service descriptions.</p></td>
             },
         "extent": {"$href": "extent.json"},
         "itemType": {
-            "description": "indicator about the type of the items in the collection if the collection has an accessible /collection/{collectionId}/items endpoint",
+            "description": "An indicator about the type of the items in the collection.",
             "type": "string",
             "default": "unknown"
             },
@@ -2278,7 +2279,7 @@ API definitions are considered service descriptions.</p></td>
 </ul>
 </div>
 <div class="paragraph">
-<p>Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should include supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
+<p>Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should document their supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="bbox-parameter-requirements"><a class="anchor" href="#bbox-parameter-requirements"></a>8.2.1. Parameter bbox</h4>
@@ -2390,7 +2391,7 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
-<p>"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the rectangular area specified in the parameter <code>bbox</code>. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.</p>
+<p>"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter <code>bbox</code>. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.</p>
 </div>
 <div class="paragraph">
 <p>In case of a degenerated bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.</p>
@@ -2485,7 +2486,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The temporal information is either a date-time or a time interval. The parameter value SHALL conform to the following syntax (using <a href="https://tools.ietf.org/html/rfc2234">ABNF</a>):</p>
+<p>Temporal geometries are either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using <a href="https://tools.ietf.org/html/rfc2234">ABNF</a>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3792,7 +3793,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </tbody>
 </table>
 <div class="paragraph">
-<p>JSON Schema for the Collections Metadata and Collection Description is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml">collections.yaml</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
+<p>JSON Schema for the Collections Metadata and Collection Description is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml">collections.yaml</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.yaml">collectionDesc.yaml</a>.</p>
 </div>
 <div class="paragraph">
 <p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
@@ -5169,7 +5170,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-11 01:44:31 UTC
+Last updated 2021-03-11 16:05:40 UTC
 </div>
 </div>
 </body>

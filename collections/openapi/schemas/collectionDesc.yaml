@@ -19,7 +19,7 @@ properties:
   extent:
     $ref: extent.yaml
   itemType:
-    description: indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint
+    description: An indicator about the type of the items in the collection
     type: string
     default: unknown
   crs:

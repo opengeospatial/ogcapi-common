@@ -11,16 +11,15 @@ This standard identifies three <<ctc-definition,conformance classes>>. The confo
 The requirements classes for API-GeoData are:
 
 * <<rc_collections-section,Collections>>
-
-The _Collections Requirements Class_ enables discovery and query access to <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
-
-The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The _Collections Requirements Class_ specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.
-
 * <<rc_encoding-section,Encodings>>
 ** <<rc_html-section,HTML>>
 ** <<rc_json-section,JSON>>
 
-The _Collections_ requirements class does not mandate a specific encoding or format for representing resources. The _HTML_ and _JSON_ requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
+The _Collections Requirements Class_ enables discovery and query access to <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
+
+The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <<rc_collections-section,_Collections Requirements Class_>> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.
+
+The _Collections_ requirements class does not mandate a specific encoding or format for representing resources. The <<rc_html-section,_HTML_>> and <<rc_json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
 Neither of these encodings is mandatory. An implementor of the _API-GeoData_ standard may decide to implement another encoding instead of, or in addition to, these two.
 
