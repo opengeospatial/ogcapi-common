@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-02-23</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-03-01</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-1/1.0</a></p></td>
@@ -863,6 +863,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Donald Sullivan</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">NASA</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Panagiotis (Peter) A. Vretanos</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">CubeWerx Inc.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1205,7 +1209,7 @@ OGC Web API standards may include a community-defined identifier as part of a UR
 </table>
 </div>
 <div class="paragraph">
-<p>Additional information on this topic is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html">OGC API - Common Users Guide</a>.</p>
+<p>Additional information on this topic is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html#identifiers-section">OGC API - Common Users Guide</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1356,7 +1360,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Additional information on the use of link relationships is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html">OGC API - Common Users Guide</a>.</p>
+<p>Additional information on the use of link relationships is provided in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html#link-relations-section">OGC API - Common Users Guide</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2538,7 +2542,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </tbody>
 </table>
 <div class="paragraph">
-<p>Additional information about Service Metadata can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.pdf">OAPI-Common Users Guide</a>.</p>
+<p>Additional information about Service Metadata can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html#service-metadata-section">OAPI-Common Users Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p>Examples of OGC landing pages are provided in <a href="#landing-page-examples">Example Landing Pages</a>.</p>
@@ -3369,7 +3373,7 @@ style: form</code></pre>
 <div class="sect2">
 <h3 id="_further_information"><a class="anchor" href="#_further_information"></a>10.7. Further Information</h3>
 <div class="paragraph">
-<p>Additional guidance on using OpenAPI in OGC Web API implementations can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.pdf">OAPI-Common Users Guide</a>.</p>
+<p>Additional guidance on using OpenAPI in OGC Web API implementations can be found in the <a href="http://docs.opengeospatial.org/DRAFTS/20-071.html#oas30-usage-section">OAPI-Common Users Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -4947,9 +4951,9 @@ THEN</p>
   "links": [
     {
       "rel": "service-desc",
-      "type": "application/json",
+      "type": "application/vnd.oai.openapi+json;version=3.0",
       "title": "API definition for this endpoint as JSON",
-      "href": "http://www.example.com/oapi-c/api?f=application/json"
+      "href": "http://www.example.com/oapi-c/api?f=application/vnd.oai.openapi+json;version=3.0"
     },
     {
       "rel": "service-doc",
@@ -5792,7 +5796,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-23 21:41:46 UTC
+Last updated 2021-02-27 18:18:48 UTC
 </div>
 </div>
 </body>

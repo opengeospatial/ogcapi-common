@@ -88,7 +88,7 @@ This document does not restrict the lexical space of URIs used in the API beyond
 
 NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (ex. image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementors should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
 
-Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide]. 
+Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#identifiers-section[OGC API - Common Users Guide]. 
 
 [[link-conventions]]
 === Links
@@ -134,7 +134,7 @@ API definitions are considered service descriptions.
 |`service-meta`|Identifies general metadata for the context that is primarily intended for consumption by machines. [IANA]
 |===
 
-Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide].
+Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#link-relations-section[OGC API - Common Users Guide].
 
 [[https-conventions]]
 === Use of HTTPS

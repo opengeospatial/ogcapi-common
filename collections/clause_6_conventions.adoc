@@ -6,40 +6,41 @@ All conventions described in the <<apicore,OGC API - Common Part 1: Core Standar
 [[identifiers-section]]
 === Identifiers
 
-The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-2/1.0`.
+The normative provisions in this standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-2/1.0`.
 
 All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
 
 [[link-relations-section]]
 === Link relations
 
-<<rfc8288,RFC 8288 (Web Linking)>> is used to express relationships between resources. Link relation types from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
+<<rfc8288,RFC 8288 (Web Linking)>> is used by this standard to express relationships between resources. Link relation types from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
 
-The following link-relations are useed by this OGC Standard.
+The link relationships used in API-Common GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
-* *alternate*: Refers to a substitute for this context. [IANA]
+[#link-relations-table,reftext='{table-caption} {counter:table-num}']
+.Link Relations
+[width="90%",cols="2,6",options="header"]
+|===
+^|**Link Relation** ^|**Purpose**
+|`alternate` |Refers to a substitute for this context [IANA]. + 
+Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the `type` link attribute).
+|`collection` |The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
+|`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
+|`http://www.opengis.net/def/rel/ogc/1.0/data` |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
+|`describedby`|Refers to a resource providing information about the link's context.[IANA] +
+Links to external resources which further describe the subject resource
+|`item` |The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
+|`http://www.opengis.net/def/rel/ogc/1.0/items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
+|`license`|Refers to a license associated with this context. [IANA]
+|`self`|Conveys an identifier for the link's context. [IANA] +
+A link to another representation of this resource.
+|`service-desc`|Identifies service description for the context that is primarily intended for consumption by machines. [IANA] +
+API definitions are considered service descriptions.
+|`service-doc`|Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
+|`service-meta`|Identifies general metadata for the context that is primarily intended for consumption by machines. [IANA]
+|===
 
-* *collection*: The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
-
-* *conformance*: Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
-
-* *data*: Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
-
-* *describedBy*: Refers to a resource providing information about the link's context. [IANA]
-
-* *item*: The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
-
-* *items*: Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
-
-* *license*: Refers to a license associated with this context. [IANA]
-
-* *self*: Conveys an identifier for the link's context. [IANA]
-
-* *service-desc*: Identifies service description for the context that is primarily intended for consumption by machines. [IANA]
-
-** API definitions are considered service descriptions.
-
-* *service-doc*: Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
+Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#link-relations-section[OGC API - Common Users Guide].
 
 === Geometry
 
@@ -65,7 +66,7 @@ This OGC API - Common Geospatial Data standard does not mandate the use of a spe
 * CRS84 - WGS 84 longitude and latitude without height
 * CRS84h - WGS 84 longitude and latitude with ellipsoidal height
 
-Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Geospatial Data Standard does not mandate a specific temporal coordinate reference system, but uses the Gregorian calendar and all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
+Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Geospatial Data Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
 
 <<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
 
@@ -77,31 +78,29 @@ A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Gre
 
 ==== General remarks
 
-So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding.
-
 This OGC standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
+
+So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. OpenAPI is one way to provide that machine readable documentation.
 
 ==== Role of OpenAPI
 
-This document uses OpenAPI 3.0 fragments as examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the /conformance path.
+This document uses OpenAPI 3.0 fragments in its' examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
-This approach is used to avoid lock-in to a specific approach to defining an API. This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
-
-In this document, fragments of OpenAPI definitions are shown in YAML. This is because YAML is easier to format than JSON and is typically used by OpenAPI editors.
+This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
 ==== References to OpenAPI components in normative statements
 
-Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.
+Some normative statements (requirements, recommendations and permissions) state that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.
 
 In this case, the following changes to the pre-defined OpenAPI component are permitted:
 
 * If the server supports an XML encoding, `xml` properties may be added to the relevant OpenAPI schema components.
-* The range of values of a parameter or property may be extended (additional values) or constrained (if a subset of all possible values is applicable to the server). An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an _enum_.
+* The range of values of a parameter or property may be extended (additional values) or constrained (only a subset of all possible values is allowed). An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an _enum_.
 * Additional properties may be added to the schema definition of a Response Object.
-* Informative text may be changed or added, like comments or description properties.
+* Informative text, such as comments or description properties, may be changed or added.
 
 For OGC API definitions that do not conform to the <<openapi,OpenAPI Specification 3.0>>, the normative statement should be interpreted in the context of the API definition language used.
 
 ==== Reusable OpenAPI components
 
-Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
+Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0] and http://schemas.opengis.net/ogcapi/common/part2/1.0[http://schemas.opengis.net/ogcapi/common/part2/1.0]

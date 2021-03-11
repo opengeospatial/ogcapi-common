@@ -18,9 +18,9 @@ This example also illustrates the `self` and `alternate` association types.
   "links": [
     {
       "rel": "service-desc",
-      "type": "application/json",
+      "type": "application/vnd.oai.openapi+json;version=3.0",
       "title": "API definition for this endpoint as JSON",
-      "href": "http://www.example.com/oapi-c/api?f=application/json"
+      "href": "http://www.example.com/oapi-c/api?f=application/vnd.oai.openapi+json;version=3.0"
     },
     {
       "rel": "service-doc",
