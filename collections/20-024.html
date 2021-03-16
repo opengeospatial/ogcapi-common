@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-03-11</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-03-16</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -1439,19 +1439,19 @@ API definitions are considered service descriptions.</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collections-metadata">Collections Metadata</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information which describes the set of suppoprted Collections</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information which describes the set of supported Collections</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-description">Collection Description</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information about a specific Collection</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information about a specific collection of geospatial data with links to distribution</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-resource">Collection Resource</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-resource">Collection</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/items</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The resources in a specific Collection</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A specific distribution of geospatial data</p></td>
 </tr>
 </tbody>
 </table>
@@ -1967,19 +1967,18 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>The purpose of the Colletion Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection.</p>
+<p>The purpose of the Collection Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection. Many of the properties of the Collection Description are self-explanitory. However, a few call for additional explanation.</p>
 </div>
+<div class="sect5">
+<h6 id="_attribution"><a class="anchor" href="#_attribution"></a>Attribution</h6>
 <div class="paragraph">
-<p>The landing page includes three metadata elements; title,
-description, and attribution. These three elements describe the API as a
- whole. Clients can expect to encounter metadata which is more
-resource-specific as they follow links and paths from the landing page.</p>
+<p>The attribution element is a special type of string property. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <a href="#collection-description-examples">collection description</a> for an example of the use of markup in the attribution element.</p>
 </div>
-<div class="paragraph">
-<p>While Collection Description contains four properties are defined as text strings, the attribution element is special. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <a href="#collection-description-examples">collection description</a> for an example of the use of markup in the attribution element.</p>
 </div>
+<div class="sect5">
+<h6 id="_item_type"><a class="anchor" href="#_item_type"></a>Item Type</h6>
 <div class="paragraph">
-<p>The Collection Description schema is further constrained by the following requirements and recommendations.</p>
+<p>A Collection Description describes a collection of items. The itemType property identifies the type of item which has been collected.</p>
 </div>
 <table id="rec_collections_rc-md-item-type" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2001,6 +2000,9 @@ resource-specific as they follow links and paths from the landing page.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect5">
+<h6 id="_links"><a class="anchor" href="#_links"></a>Links</h6>
 <div class="paragraph">
 <p>To support hypermedia navigation, the <code>links</code> property must be populated with sufficient hyperlinks to navigate through the whole dataset.</p>
 </div>
@@ -2075,8 +2077,24 @@ resource-specific as they follow links and paths from the landing page.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect5">
+<h6 id="_extent"><a class="anchor" href="#_extent"></a>Extent</h6>
 <div class="paragraph">
-<p>Additional requirements and recommendations apply to the <code>extent</code> property of the Collection Description.</p>
+<p>The extent property defines a spatial-temporal surface which encompasses all of the items in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bbox provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations.</p>
+</li>
+<li>
+<p>Envelope addresses the case where the explicit identification of axis is desired. Indoor navigation, for example, may use this option.</p>
+</li>
+<li>
+<p>Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.</p>
+</li>
+</ul>
 </div>
 <table id="req_collections_rc-md-extent" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2093,13 +2111,39 @@ resource-specific as they follow links and paths from the landing page.</p>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>For each spatial resource collection, the <code>extent</code> property, if provided, SHALL provide bounding boxes that include all spatial geometries and time intervals that include all temporal geometries in this collection. The temporal extent may use <code>null</code> values to indicate an open time interval.</p>
+<p>For each spatial resource collection, the <code>extent</code> property, if provided, SHALL define boundaries that encompass the spatial and temporal properties of all of the resources in this collection. The temporal extent may use <code>null</code> values to indicate an open time interval.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>If a spatial resource has multiple properties with spatial or temporal information, it is the decision of the API implementation whether only a single spatial or temporal geometry property is used to determine the extent or all relevant geometries.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_collections_rc-md-extent" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/collections/rc-md-extent</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an extent contains multiple spatial boundaries (multiple bbox, a bbox and envelope, etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an extent contains multiple temporal intervals, then the extent SHOULD include as the first interval an interval which represents the union of all of the other intervals.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2111,7 +2155,7 @@ resource-specific as they follow links and paths from the landing page.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-md-extent-single</strong></p>
 </div></div></td>
@@ -2169,6 +2213,7 @@ resource-specific as they follow links and paths from the landing page.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>Error situations</h5>
@@ -2718,7 +2763,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-server-limit</strong></p>
 </div></div></td>
@@ -2741,7 +2786,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-1</strong></p>
 </div></div></td>
@@ -2761,7 +2806,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-2</strong></p>
 </div></div></td>
@@ -2781,7 +2826,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-3</strong></p>
 </div></div></td>
@@ -2967,7 +3012,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/problem-details</strong></p>
 </div></div></td>
@@ -3130,7 +3175,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/etag</strong></p>
 </div></div></td>
@@ -3156,7 +3201,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/cross-origin</strong></p>
 </div></div></td>
@@ -3195,7 +3240,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/string-i18n</strong></p>
 </div></div></td>
@@ -3236,7 +3281,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/html</strong></p>
 </div></div></td>
@@ -3259,7 +3304,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/json</strong></p>
 </div></div></td>
@@ -3352,7 +3397,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -3762,7 +3807,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -4514,7 +4559,7 @@ explode: false</code></pre>
 <p>These tests are invoked by other tests.</p>
 </div>
 <div class="sect4">
-<h5 id="_extent"><a class="anchor" href="#_extent"></a>Extent</h5>
+<h5 id="_extent_2"><a class="anchor" href="#_extent_2"></a>Extent</h5>
 <table id="ats_collections_rc-md-extent" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -4682,7 +4727,7 @@ explode: false</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_links"><a class="anchor" href="#_links"></a>Links</h5>
+<h5 id="_links_2"><a class="anchor" href="#_links_2"></a>Links</h5>
 <table id="ats_collections_rc-md-links" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -5274,7 +5319,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-11 16:05:40 UTC
+Last updated 2021-03-16 21:24:24 +0100
 </div>
 </div>
 </body>

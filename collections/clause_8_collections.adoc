@@ -13,9 +13,9 @@ The three resources defined in this Requirements Class are summarized in <<colle
 [width="90%",cols="10,10,5,20",options="header"]
 |===
 ^|Resource ^|URI ^|HTTP Method ^|Description
-|<<collections-metadata,Collections Metadata>> |/collections ^|GET |Information which describes the set of suppoprted Collections 
-|<<collection-description,Collection Description>> |/collections/{collectionId} ^|GET |Information about a specific Collection
-|<<collection-resource,Collection Resource>> |/collections/{collectionId}/items ^|GET |The resources in a specific Collection
+|<<collections-metadata,Collections Metadata>> |/collections ^|GET |Information which describes the set of supported Collections 
+|<<collection-description,Collection Description>> |/collections/{collectionId} ^|GET |Information about a specific collection of geospatial data with links to distribution
+|<<collection-resource,Collection>> |/collections/{collectionId}/items ^|GET |A specific distribution of geospatial data
 |===
 
 This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. Three parameters are defined for use in these operations. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
