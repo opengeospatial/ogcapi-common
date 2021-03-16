@@ -123,18 +123,19 @@ Collection Descriptions are based on the link:http://schemas.opengis.net/ogcapi/
 [source, JSON]
 include::openapi/schemas/collectionDesc.json[]
 
-The purpose of the Colletion Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection.
+The purpose of the Collection Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection. Many of the properties of the Collection Description are self-explanitory. However, a few call for additional explanation.
 
-The landing page includes three metadata elements; title, 
-description, and attribution. These three elements describe the API as a
- whole. Clients can expect to encounter metadata which is more 
-resource-specific as they follow links and paths from the landing page.
+====== Attribution
 
-While Collection Description contains four properties are defined as text strings, the attribution element is special. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection description>> for an example of the use of markup in the attribution element.
+The attribution element is a special type of string property. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection description>> for an example of the use of markup in the attribution element.
 
-The Collection Description schema is further constrained by the following requirements and recommendations.
+====== Item Type
+
+A Collection Description describes a collection of items. The itemType property identifies the type of item which has been collected.
 
 include::recommendations/collections/REC_rc-md-item-type.adoc[]
+
+====== Links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
@@ -144,9 +145,17 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
 
-Additional requirements and recommendations apply to the `extent` property of the Collection Description.
+====== Extent
+
+The extent property defines a spatial-temporal surface which encompasses all of the items in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
+
+* Bbox provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
+* Envelope addresses the case where the explicit identification of axis is desired. Indoor navigation, for example, may use this option.
+* Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.
 
 include::requirements/collections/REQ_rc-md-extent.adoc[]
+
+include::recommendations/collections/REC_rc-md-extent.adoc[]
 
 include::recommendations/collections/REC_rc-md-extent-single.adoc[]
 
