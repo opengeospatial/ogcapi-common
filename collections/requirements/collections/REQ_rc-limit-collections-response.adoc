@@ -1,0 +1,7 @@
+[[req_collections_rc-limit-collections-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-limit-collections-response* 
+^|A |If the `limit` parameter is provided by the client and supported by the server, then the response SHALL not contain more items in the `collections` element than specified by the `limit` parameter. 
+^|B |If the API definition specifies a maximum value for the `limit` parameter, the response SHALL not contain more items in the `collections` element than this maximum value.
+|===

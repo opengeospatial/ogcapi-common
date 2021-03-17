@@ -1,0 +1,9 @@
+[[req_collections_rc-limit-unsupported-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-limit-unsupported-response*
+^|A|If the `limit` parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.
+|===
+
+NOTE: This requirement does not preclude server imposed limits on the size of a response.
+
