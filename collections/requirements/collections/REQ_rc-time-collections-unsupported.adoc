@@ -1,6 +1,6 @@
-[[req_collections_rc-time-unsupported-response]]
+[[req_collections_rc-time-collections-unsupported]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-time-unsupported-response*
+^|*Requirement {counter:req-id}* |*/req/collections/rc-time-collections-unsupported*
 ^|A|If the `datetime` parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.
 |===

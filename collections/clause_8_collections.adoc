@@ -88,11 +88,17 @@ A client may select a subset of the hosted collections using the <<bbox-paramete
 
 The requirements governing the processing of these parameters are:
 
+include::requirements/collections/REQ_rc-bbox-collections-unsupported.adoc[]
+
 include::requirements/collections/REQ_rc-bbox-collections-response.adoc[]
+
+include::requirements/collections/REQ_rc-time-collections-unsupported.adoc[]
 
 include::requirements/collections/REQ_rc-time-collections-response.adoc[]
 
 The number of collections returned in a response may be further limited by the client using the `limit` parameter. When applied against the `/collections` resource, the <<limit-parameter-requirements,`limit`>> parameter indicates the maximum number of collections which should be included in a single response.
+
+include::requirements/collections/REQ_rc-limit-collections-unsupported.adoc[]
 
 include::requirements/collections/REQ_rc-limit-collections-response.adoc[]
 
@@ -205,6 +211,12 @@ The following parameters may be used with this operation:
 
 ===== Response
 
+include::requirements/collections/REQ_rc-bbox-items-unsupported.adoc[]
+
+include::requirements/collections/REQ_rc-time-items-unsupported.adoc[]
+
+include::requirements/collections/REQ_rc-limit-items-unsupported.adoc[]
+
 include::requirements/collections/REQ_rc-response.adoc[]
 
 ===== Error situations
@@ -261,10 +273,6 @@ The `datetime` parameter is defined as follows:
 
 include::requirements/collections/REQ_rc-time-definition.adoc[]
 
-If a server does not support the `time` parameter, then the following requirement applies:
-
-include::requirements/collections/REQ_rc-time-unsupported-response.adoc[]
-
 While the processing of the `datetime` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
 include::requirements/collections/REQ_rc-time-response.adoc[]
@@ -310,10 +318,6 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 The `limit` parameter limits the number of resources that can be returned in a single response.
 
 include::requirements/collections/REQ_rc-limit-definition.adoc[]
-
-If a server does not support the `limit` parameter, then the following requirement applies:
-
-include::requirements/collections/REQ_rc-limit-unsupported-response.adoc[]
 
 While the processing of the `limit` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 

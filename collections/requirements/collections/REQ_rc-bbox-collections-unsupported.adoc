@@ -1,0 +1,6 @@
+[[req_collections_rc-bbox-collections-unsupported]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-bbox-collections-unsupported*
+^|A|If the `bbox` parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.
+|===
