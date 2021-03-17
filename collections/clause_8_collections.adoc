@@ -15,7 +15,7 @@ The three resources defined in this Requirements Class are summarized in <<colle
 ^|Resource ^|URI ^|HTTP Method ^|Description
 |<<collections-metadata,Collections Metadata>> |/collections ^|GET |Information which describes the set of supported Collections 
 |<<collection-description,Collection Description>> |/collections/{collectionId} ^|GET |Information about a specific collection of geospatial data with links to distribution
-|<<collection-resource,Collection>> |/collections/{collectionId}/items ^|GET |A specific distribution of geospatial data
+|<<collection-resource,Collection Resource>> |/collections/{collectionId}/items ^|GET |A specific distribution of geospatial data
 |===
 
 This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. 
@@ -52,7 +52,7 @@ include::requirements/collections/REQ_rc-md-op.adoc[]
 
 The following query parameters can be used with this operation:
 
-* <<boundingbox-parameter-requirements,Bounding Box>>: Limits the contents of the `collections` element to those collections whose spatial extent intersects the bounding box specified by the Bounding Box parameter.
+* <<bbox-parameter-requirements,Bounding Box>>: Limits the contents of the `collections` element to those collections whose spatial extent intersects the bounding box specified by the Bounding Box parameter.
 * <<datetime-parameter-requirements,Date Time>> Limits the contents of the `collections` element to those collections whose temporal extent intersects the instance or period specified by the Date Time parameter. 
 * <<limit-parameter-requirements,Limit>>: Limits the contents of the `collections` element to the number of items specified by the Limit parameter.
 
@@ -200,14 +200,11 @@ include::requirements/collections/REQ_rc-op.adoc[]
 
 The following parameters may be used with this operation:
 
-* <<boundingbox-parameter-requirements,Bounding Box>>: Selects items from the collection whose spatial extent intersects the bounding box specified by the Bounding Box parameter.
+* <<bbox-parameter-requirements,Bounding Box>>: Selects items from the collection whose spatial extent intersects the bounding box specified by the Bounding Box parameter.
 * <<datetime-parameter-requirements,Date Time>> Selects items from the collection whose temporal extent intersects the instance or period specified by the Date Time parameter. 
 * <<limit-parameter-requirements,Limit>>: Limits the size of the response to the number of items specified by the Limit parameter.
 
-[width="90%",cols="2,6a"]
-|===
-|Note: |Since the type of resource which makes up the collection is not defined, the behavior of any parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.
-|===
+NOTE: Since the type of resource which makes up the collection is not defined, the behavior of any parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.
 
 ===== Response
 

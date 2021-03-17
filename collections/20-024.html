@@ -1448,7 +1448,7 @@ API definitions are considered service descriptions.</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information about a specific collection of geospatial data with links to distribution</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-resource">Collection</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-resource">Collection Resource</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/items</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A specific distribution of geospatial data</p></td>
@@ -1537,7 +1537,7 @@ API definitions are considered service descriptions.</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#boundingbox-parameter-requirements">Bounding Box</a>: Limits the contents of the <code>collections</code> element to those collections whose spatial extent intersects the bounding box specified by the Bounding Box parameter.</p>
+<p><a href="#bbox-parameter-requirements">Bounding Box</a>: Limits the contents of the <code>collections</code> element to those collections whose spatial extent intersects the bounding box specified by the Bounding Box parameter.</p>
 </li>
 <li>
 <p><a href="#datetime-parameter-requirements">Date Time</a> Limits the contents of the <code>collections</code> element to those collections whose temporal extent intersects the instance or period specified by the Date Time parameter.</p>
@@ -2509,7 +2509,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#boundingbox-parameter-requirements">Bounding Box</a>: Selects items from the collection whose spatial extent intersects the bounding box specified by the Bounding Box parameter.</p>
+<p><a href="#bbox-parameter-requirements">Bounding Box</a>: Selects items from the collection whose spatial extent intersects the bounding box specified by the Bounding Box parameter.</p>
 </li>
 <li>
 <p><a href="#datetime-parameter-requirements">Date Time</a> Selects items from the collection whose temporal extent intersects the instance or period specified by the Date Time parameter.</p>
@@ -2519,20 +2519,18 @@ This requirement does not preclude server imposed limits on the size of a respon
 </li>
 </ul>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
+<div class="admonitionblock note">
+<table>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Note:</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Since the type of resource which makes up the collection is not defined, the behavior of any parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.</p>
-</div></div></td>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Since the type of resource which makes up the collection is not defined, the behavior of any parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.
+</td>
 </tr>
-</tbody>
 </table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_response_3"><a class="anchor" href="#_response_3"></a>Response</h5>
