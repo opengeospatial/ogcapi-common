@@ -10,15 +10,17 @@ The three resources defined in this Requirements Class are summarized in <<colle
 
 [#collection-resources,reftext='{table-caption} {counter:table-num}']
 .Collection Resources
-[width="90%",cols="10,10,20",options="header"]
+[width="90%",cols="10,10,5,20",options="header"]
 |===
-^|Path Fragment ^|Name ^|Description
-|/collections |Collections Metadata |Information which describes the set of suppoprted Collections
-|/collections/{collectionId} |Collection Description |Information about a specific Collection
-|/collections/{collectionId}/items |Collection Resource |The resources in a specific Collection
+^|Resource ^|URI ^|HTTP Method ^|Description
+|<<collections-metadata,Collections Metadata>> |/collections ^|GET |Information which describes the set of supported Collections 
+|<<collection-description,Collection Description>> |/collections/{collectionId} ^|GET |Information about a specific collection of geospatial data with links to distribution
+|<<collection-resource,Collection Resource>> |/collections/{collectionId}/items ^|GET |A specific distribution of geospatial data
 |===
 
-This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. Three parameters are also defined for use in these operations. These parameters are defined in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
+This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. 
+
+Three parameters are defined for use in these operations. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
 
 [#parameter-summary,reftext='{table-caption} {counter:table-num}']
 .Parameter Summary
@@ -50,9 +52,9 @@ include::requirements/collections/REQ_rc-md-op.adoc[]
 
 The following query parameters can be used with this operation:
 
-* <<boundingbox-parameter-requirements,Bounding Box>>
-* <<datetime-parameter-requirements,Date Time>>
-* <<limit-parameter-requirements,Limit>>
+* <<bbox-parameter-requirements,Bounding Box>>: Limits the contents of the `collections` element to those collections whose spatial extent intersects the bounding box specified by the Bounding Box parameter.
+* <<datetime-parameter-requirements,Date Time>> Limits the contents of the `collections` element to those collections whose temporal extent intersects the instance or period specified by the Date Time parameter. 
+* <<limit-parameter-requirements,Limit>>: Limits the contents of the `collections` element to the number of items specified by the Limit parameter.
 
 ===== Response
 
@@ -74,23 +76,41 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-descriptions.adoc[]
 
-The `collections` property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Description Schema]. This schema is described in detail in the <<collection-description, Collection Description>> section of this Standard. 
-
-include::requirements/collections/REQ_rc-md-items.adoc[]
-
 The `timeStamp` property of the Collections Metadata indicates when the response was generated.
 
 include::requirements/collections/REQ_rc-timeStamp.adoc[]
 
-The `numberMatched` property of the Collections Metadata indicates the number of collection descriptions included in the Collections Metadata. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controled through selection parameters provided by the client.
+The `collections` property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json[Collection Description Schema]. This schema is described in detail in the <<collection-description, Collection Description>> section of this Standard. 
+
+include::requirements/collections/REQ_rc-md-items.adoc[]
+
+A client may select a subset of the hosted collections using the <<bbox-parameter-requirements,`bbox`>> and the <<datetime-parameter-requirements,`datetime`>> parameter. These parameters are evaluated against the `extent` element of the Collection Description for each collection.
+
+The requirements governing the processing of these parameters are:
+
+include::requirements/collections/REQ_rc-bbox-collections-unsupported.adoc[]
+
+include::requirements/collections/REQ_rc-bbox-collections-response.adoc[]
+
+include::requirements/collections/REQ_rc-time-collections-unsupported.adoc[]
+
+include::requirements/collections/REQ_rc-time-collections-response.adoc[]
+
+The number of collections returned in a response may be further limited by the client using the `limit` parameter. When applied against the `/collections` resource, the <<limit-parameter-requirements,`limit`>> parameter indicates the maximum number of collections which should be included in a single response.
+
+include::requirements/collections/REQ_rc-limit-collections-unsupported.adoc[]
+
+include::requirements/collections/REQ_rc-limit-collections-response.adoc[]
+
+The `numberMatched` property of the Collections Metadata indicates the number of collection descriptions included in the Collections Metadata. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controled through the <<bbox-parameter-requirements,`bbox`>>, <<datetime-parameter-requirements,`datetime`>> and other selection parameters provided by the client.
 
 include::requirements/collections/REQ_rc-numberMatched.adoc[]
 
-The Collections Metadata should describe all of the collections accessible through the API. However, in some cases that is impractical. An API implementation has the option of limiting the size of the Collections Metadata response.  
+The Collections Metadata response should describe all of the collections that meet the client's selection criteria. However, in some cases that is impractical. An API implementation has the option of limiting the size of the Collections Metadata response.  
 
 include::recommendations/collections/PER_rc-md-items.adoc[]
 
-The number of collection descriptions included in a Collections Metadata response may be a subset of the number matched. This can due to a server imposed limit or the client specified <<limit-parameter-requirements,limit>> parameter. In that case, the `numberReturned` property of the Collections Metadata indicates the number of collection descriptions returned in this "page" of the Collections Metadata. 
+The number of collection descriptions included in a Collections Metadata response may be a subset of the number matched. In that case, the `numberReturned` property of the Collections Metadata indicates the number of collection descriptions returned in this "page" of the Collections Metadata. 
 
 include::requirements/collections/REQ_rc-numberReturned.adoc[]
 
@@ -117,15 +137,25 @@ No parameters have been standardized for this operation.
 
 include::requirements/collections/REQ_src-md-success.adoc[]
 
-Collection Descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json[Collection Information Schema]. Examples of Collection Descriptions are provided in <<collection-description-examples>>.
+Collection Descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json[Collection Description Schema]. Examples of Collection Descriptions are provided in <<collection-description-examples>>.
 
 .Collection Description Schema
 [source, JSON]
-include::openapi/schemas/collectionInfo.json[]
+include::openapi/schemas/collectionDesc.json[]
 
-This schema is further constrained by the following requirements and recommendations.
+The purpose of the Collection Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection. Many of the properties of the Collection Description are self-explanitory. However, a few call for additional explanation.
+
+====== Attribution
+
+The attribution element is a special type of string property. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection description>> for an example of the use of markup in the attribution element.
+
+====== Item Type
+
+A Collection Description describes a collection of items. The itemType property identifies the type of item which has been collected.
 
 include::recommendations/collections/REC_rc-md-item-type.adoc[]
+
+====== Links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
@@ -135,9 +165,17 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
 
-Additional requirements and recommendations apply to the `extent` property of the Collection Description.
+====== Extent
+
+The extent property defines a spatial-temporal surface which encompasses all of the items in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
+
+* Bbox provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
+* Envelope addresses the case where the explicit identification of axis is desired. Indoor navigation, for example, may use this option.
+* Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.
 
 include::requirements/collections/REQ_rc-md-extent.adoc[]
+
+include::recommendations/collections/REC_rc-md-extent.adoc[]
 
 include::recommendations/collections/REC_rc-md-extent-single.adoc[]
 
@@ -160,18 +198,21 @@ include::requirements/collections/REQ_rc-op.adoc[]
 
 ===== Parameters
 
-The following query parameters can be used with this operation:
+The following parameters may be used with this operation:
 
-* <<boundingbox-parameter-requirements,Bounding Box>>
-* <<datetime-parameter-requirements,Date Time>>
-* <<limit-parameter-requirements,Limit>>
+* <<bbox-parameter-requirements,Bounding Box>>: Selects items from the collection whose spatial extent intersects the bounding box specified by the Bounding Box parameter.
+* <<datetime-parameter-requirements,Date Time>> Selects items from the collection whose temporal extent intersects the instance or period specified by the Date Time parameter. 
+* <<limit-parameter-requirements,Limit>>: Limits the size of the response to the number of items specified by the Limit parameter.
 
-[width="90%",cols="2,6a"]
-|===
-|Note: |Since the type of resource which makes up the collection is not defined, the behavior of these parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.
-|===
+NOTE: Since the type of resource which makes up the collection is not defined, the behavior of any parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.
 
 ===== Response
+
+include::requirements/collections/REQ_rc-bbox-items-unsupported.adoc[]
+
+include::requirements/collections/REQ_rc-time-items-unsupported.adoc[]
+
+include::requirements/collections/REQ_rc-limit-items-unsupported.adoc[]
 
 include::requirements/collections/REQ_rc-response.adoc[]
 
@@ -188,18 +229,24 @@ Query parameters are used in URLs to limit the resources which are returned on a
 * <<parameter-datetime-requirements,datetime>>: Date and Time
 * <<limit-parameter-requirements,limit>>: Response resource count limit
 
-Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should include supported parameters in the API definition as describe in <<apicore,API-Core>>.
+The behavior generated by these parameters is specific to the operation and resource upon which they are applied. Those behaviors are described for each resource type and operation in the <<collection-resource-requirements,Resource Requirements>> section.
+
+Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should document their supported parameters in the API definition as describe in <<apicore,API-Core>>.
 
 [[bbox-parameter-requirements]]
 ==== Parameter bbox
 
+The `bbox` parameter is defined as follows:
+
 include::requirements/collections/REQ_rc-bbox-definition.adoc[]
+
+While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
 include::requirements/collections/REQ_rc-bbox-response.adoc[]
 
-"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the rectangular area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
+"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 
-In case of a degenerated bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
+In case of a degenerate bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
 
 This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this standard.
 
@@ -219,7 +266,11 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 [[datetime-parameter-requirements]]
 ==== Parameter datetime
 
+The `datetime` parameter is defined as follows:
+
 include::requirements/collections/REQ_rc-time-definition.adoc[]
+
+While the processing of the `datetime` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
 include::requirements/collections/REQ_rc-time-response.adoc[]
 
@@ -263,7 +314,11 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 
 The `limit` parameter limits the number of resources that can be returned in a single response.
 
-include::requirements/collections/REQ_rc-limit-definition.adoc[[]
+include::requirements/collections/REQ_rc-limit-definition.adoc[]
+
+While the processing of the `limit` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::requirements/collections/REQ_rc-limit-response.adoc[]
 
 The number of resources returned depends on the server and the value of the `limit` parameter.
 
@@ -271,7 +326,9 @@ The number of resources returned depends on the server and the value of the `lim
 *   The server may have a default value for the limit, and a maximum limit.
 *   If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
 
-include::requirements/collections/REQ_rc-limit-response.adoc[]
+include::recommendations/collections/PER_rc-server-limit.adoc[]
+
+include::recommendations/collections/REC_rc-server-limit.adoc[]
 
 The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first `page`. Additional pages can be accessed through hyperlink navigation.
 

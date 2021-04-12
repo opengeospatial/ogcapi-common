@@ -1,0 +1,6 @@
+[[per_collections_rc-server-limit]]
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/collections/rc-server-limit* 
+^|A |If a server is configured with a maximum response size, then the server MAY page responses which exceed that threshold.
+|===

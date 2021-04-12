@@ -15,7 +15,7 @@
         "timeStamp": {
             "type": "string",
             "format": "date-time"
-            },
+            },    
         "numberMatched": {
             "type": "integer",
             "min": "0"
@@ -26,7 +26,7 @@
             },
         "collections": {
             "type": "array",
-            "items": {"$href": "collectionInfo.json"}
+            "items": {"$href": "collectionDesc.json"}
             }
         }
     }

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Collection Information Schema",
+    "title": "Collection Description Schema",
     "description": "This schema defines metadata resource returned from /collections/{collectionId}.",
     "type": "object",
     "required": [
@@ -20,15 +20,19 @@
             "description": "a description of the members of the collection",
             "type": "string"
             },
+        "attribution" : {
+            "type" : "string",
+            "title" : "attribution for the collection",
+            "description" : "The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup."
+            },
         "links": {
             "type": "array",
             "items": {"$href": "link.json"}
             },
         "extent": {"$href": "extent.json"},
         "itemType": {
-            "description": "indicator about the type of the items in the collection if the collection has an accessible /collection/{collectionId}/items endpoint",
-            "type": "string",
-            "default": "unknown"
+            "description": "An indicator about the type of the items in the collection.",
+            "type": "string"
             },
         "crs": {
             "description": "the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system",

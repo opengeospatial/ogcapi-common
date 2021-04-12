@@ -8,7 +8,7 @@ All conventions described in the <<apicore,OGC API - Common Part 1: Core Standar
 
 The normative provisions in this standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-2/1.0`.
 
-All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
+All <<requirement-definition,Requirements>>, <<requirements-class-definition,Requirement Classes>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
 
 [[link-relations-section]]
 === Link relations
@@ -24,6 +24,7 @@ The link relationships used in API-Common GeoData are described in <<link-relati
 ^|**Link Relation** ^|**Purpose**
 |`alternate` |Refers to a substitute for this context [IANA]. + 
 Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the `type` link attribute).
+|`http://www.opengis.net/def/rel/ogc/1.0/data-meta` |Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.
 |`collection` |The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
 |`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
 |`http://www.opengis.net/def/rel/ogc/1.0/data` |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]

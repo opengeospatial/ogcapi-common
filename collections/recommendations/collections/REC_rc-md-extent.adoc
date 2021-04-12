@@ -1,0 +1,7 @@
+[[rec_collections_rc-md-extent]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-md-extent* 
+^|A |If an extent contains multiple spatial boundaries (multiple bbox, a bbox and envelope, etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.
+^|B |If an extent contains multiple temporal intervals, then the extent SHOULD include as the first interval an interval which represents the union of all of the other intervals.
+|===

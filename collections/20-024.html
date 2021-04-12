@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Draft OGC API - Common - Part 2: Geospatial Data</title>
+<title>OGC API - Common - Part 2: Geospatial Data</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>Draft OGC API - Common - Part 2: Geospatial Data</h1>
+<h1>OGC API - Common - Part 2: Geospatial Data</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-03-10</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-04-12</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -487,7 +487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Draft OGC API - Common - Part 2: Geospatial Data</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC API - Common - Part 2: Geospatial Data</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -665,8 +665,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_examples_informative">Annex B: Examples (Informative)</a>
 <ul class="sectlevel2">
-<li><a href="#collections-metadata-examples">B.1. Collections Metadata Examples</a></li>
-<li><a href="#collection-description-examples">B.2. Collection Description Examples</a></li>
+<li><a href="#collections-metadata-examples">B.1. Collections Metadata Example</a></li>
+<li><a href="#collection-description-examples">B.2. Collection Description Examples</a>
+<ul class="sectlevel3">
+<li><a href="#_building_collection">B.2.1. Building Collection</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
@@ -801,16 +805,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><a href="#rc_collections-section">Collections</a></p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
-</div>
-<div class="paragraph">
-<p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <em>Collections Requirements Class</em> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><a href="#rc_encoding-section">Encodings</a></p>
 <div class="ulist">
@@ -827,7 +821,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <em>HTML</em> and <em>JSON</em> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
+<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
+</div>
+<div class="paragraph">
+<p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <a href="#rc_collections-section"><em>Collections Requirements Class</em></a> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
+</div>
+<div class="paragraph">
+<p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <a href="#rc_collections-section"><em>Collections Requirements Class</em></a> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Collections Requirements Class</em> does not mandate a specific encoding or format for representing resources. The <a href="#rc_html-section"><em>HTML</em></a> and <a href="#rc_json-section"><em>JSON</em></a> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
 </div>
 <div class="paragraph">
 <p>Neither of these encodings is mandatory. An implementor of the <em>API-GeoData</em> standard may decide to implement another encoding instead of, or in addition to, these two.</p>
@@ -922,7 +928,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="terms_and_definitions"><a class="anchor" href="#terms_and_definitions"></a>5. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document uses the terms defined in Sub-clause 5 of <a href="#apicore">OGC API - Common - Part 1: Core</a> (OGC 19-072), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
+<p>This document uses the terms defined in Sub-clause 5 of <a href="#apicore">OGC API - Common - Part 1: Core</a> (OGC 19-072), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "shall" (not "must") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.</p>
 </div>
 <div class="paragraph">
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
@@ -1108,7 +1114,7 @@ API using an architectural style that is founded on the technologies of the Web.
 <p>The normative provisions in this standard are denoted by the URI <code><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0</a></code>.</p>
 </div>
 <div class="paragraph">
-<p>All <a href="#requirement-definition">Requirements</a>, <a href="#ctm-definition">Conformance Modules</a>, and <a href="#ctc-definition">Conformance Classes</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
+<p>All <a href="#requirement-definition">Requirements</a>, <a href="#requirements-class-definition">Requirement Classes</a>, <a href="#ctm-definition">Conformance Modules</a>, and <a href="#ctc-definition">Conformance Classes</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1136,6 +1142,10 @@ API using an architectural style that is founded on the technologies of the Web.
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>alternate</code></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Refers to a substitute for this context [IANA].<br>
 Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the <code>type</code> link attribute).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code><a href="http://www.opengis.net/def/rel/ogc/1.0/data-meta" class="bare">http://www.opengis.net/def/rel/ogc/1.0/data-meta</a></code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>collection</code></p></td>
@@ -1417,37 +1427,45 @@ API definitions are considered service descriptions.</p></td>
 <table id="collection-resources" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 2. Collection Resources</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 50%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 44.4445%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Path Fragment</th>
-<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Name</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Resource</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">URI</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">HTTP Method</th>
 <th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collections-metadata">Collections Metadata</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Collections Metadata</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information which describes the set of suppoprted Collections</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information which describes the set of supported Collections</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-description">Collection Description</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Collection Description</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information about a specific Collection</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Information about a specific collection of geospatial data with links to distribution</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#collection-resource">Collection Resource</a></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/collections/{collectionId}/items</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Collection Resource</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The resources in a specific Collection</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A specific distribution of geospatial data</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <a href="#collection-resource-requirements">Resource Requirements</a> section. Three parameters are also defined for use in these operations. These parameters are defined in the <a href="#parameter-requirements">Parameter Requirements</a> section. A summary of the parameters is provided in <a href="#parameter-summary">Table 3</a>.</p>
+<p>This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <a href="#collection-resource-requirements">Resource Requirements</a> section.</p>
+</div>
+<div class="paragraph">
+<p>Three parameters are defined for use in these operations. These parameters are documented in the <a href="#parameter-requirements">Parameter Requirements</a> section. A summary of the parameters is provided in <a href="#parameter-summary">Table 3</a>.</p>
 </div>
 <table id="parameter-summary" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 3. Parameter Summary</caption>
@@ -1525,13 +1543,13 @@ API definitions are considered service descriptions.</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#boundingbox-parameter-requirements">Bounding Box</a></p>
+<p><a href="#bbox-parameter-requirements">Bounding Box</a>: Limits the contents of the <code>collections</code> element to those collections whose spatial extent intersects the bounding box specified by the Bounding Box parameter.</p>
 </li>
 <li>
-<p><a href="#datetime-parameter-requirements">Date Time</a></p>
+<p><a href="#datetime-parameter-requirements">Date Time</a> Limits the contents of the <code>collections</code> element to those collections whose temporal extent intersects the instance or period specified by the Date Time parameter.</p>
 </li>
 <li>
-<p><a href="#limit-parameter-requirements">Limit</a></p>
+<p><a href="#limit-parameter-requirements">Limit</a>: Limits the contents of the <code>collections</code> element to the number of items specified by the Limit parameter.</p>
 </li>
 </ul>
 </div>
@@ -1565,7 +1583,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The collections metadata returned by this operation is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Examples</a>.</p>
+<p>The collections metadata returned by this operation is based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json">collections.json</a> JSON schema. Examples of collections metadata are provided in <a href="#collections-metadata-examples">Collections Metadata Example</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">collections.json</div>
@@ -1598,7 +1616,7 @@ API definitions are considered service descriptions.</p></td>
             },
         "collections": {
             "type": "array",
-            "items": {"$href": "collectionInfo.json"}
+            "items": {"$href": "collectionDesc.json"}
             }
         }
     }</code></pre>
@@ -1676,7 +1694,30 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>collections</code> property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Description Schema</a>. This schema is described in detail in the <a href="#collection-description">Collection Description</a> section of this Standard.</p>
+<p>The <code>timeStamp</code> property of the Collections Metadata indicates when the response was generated.</p>
+</div>
+<table id="req_collections_rc-timeStamp" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-timeStamp</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If a property <code>timeStamp</code> is included in the response, the value SHALL be set to the time stamp when the response was generated.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>collections</code> property of the Collections Metadata provides a description of each individual collection hosted by the API. These descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json">Collection Description Schema</a>. This schema is described in detail in the <a href="#collection-description">Collection Description</a> section of this Standard.</p>
 </div>
 <table id="req_collections_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1685,7 +1726,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-items</strong></p>
 </div></div></td>
@@ -1705,30 +1746,245 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>timeStamp</code> property of the Collections Metadata indicates when the response was generated.</p>
+<p>A client may select a subset of the hosted collections using the <a href="#bbox-parameter-requirements"><code>bbox</code></a> and the <a href="#datetime-parameter-requirements"><code>datetime</code></a> parameter. These parameters are evaluated against the <code>extent</code> element of the Collection Description for each collection.</p>
 </div>
-<table id="req_collections_rc-timeStamp" class="tableblock frame-all grid-all" style="width: 90%;">
+<div class="paragraph">
+<p>The requirements governing the processing of these parameters are:</p>
+</div>
+<table id="req_collections_rc-bbox-collections-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/collections/rc-timeStamp</strong></p>
+<p><strong>/req/collections/rc-bbox-collections-unsupported</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If a property <code>timeStamp</code> is included in the response, the value SHALL be set to the time stamp when the response was generated.</p>
+<p>If the <code>bbox</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_collections_rc-bbox-collections-response" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-bbox-collections-response</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>bbox</code> parameter is provided by the client and supported by the server, then only extents that have a spatial geometry that intersect the geometry specified by the <code>bbox</code> parameter SHALL be part of the result set.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an extent has multiple spatial geometries, it is the decision of the server whether only a single spatial geometry is used to determine the extent or all relevant geometries.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The <code>bbox</code> parameter SHALL also match all collections that do not have an extent element with a spatial geometry.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The bounding box parameter is provided with four or six numbers, depending on whether the coordinate reference system includes a vertical axis (height or depth):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lower left corner, coordinate axis 1</p>
+</li>
+<li>
+<p>Lower left corner, coordinate axis 2</p>
+</li>
+<li>
+<p>Minimum value, coordinate axis 3 (optional)</p>
+</li>
+<li>
+<p>Upper right corner, coordinate axis 1</p>
+</li>
+<li>
+<p>Upper right corner, coordinate axis 2</p>
+</li>
+<li>
+<p>Maximum value, coordinate axis 3 (optional)</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The values for the CRS axis 1 and 2 SHALL be interpreted as WGS84 longitude/latitude (<a href="http://www.opengis.net/def/crs/OGC/1.3/CRS84" class="bare">http://www.opengis.net/def/crs/OGC/1.3/CRS84</a>) unless a  different coordinate reference system is specified in a parameter <code>bbox-crs</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The coordinate values SHALL be within the extent specified for the coordinate reference system.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_collections_rc-time-collections-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-time-collections-unsupported</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>datetime</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_collections_rc-time-collections-response" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-time-collections-response</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>datetime</code> parameter is provided by the client and supported by the server, then only extents that have a temporal geometry that intersects the interval specified by the <code>datetime</code> parameter SHALL be part of the result set.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an extent has multiple temporal geometries, the API implementor decides whether only a single temporal geometry is used to determine the extent or all relevant temporal geometry.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The <code>datetime</code> parameter SHALL match all collections which do not have an extent element with a temporal geometry.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Temporal geometries are either a date-time value or a time interval. The parameter value conforms to the following syntax (using <a href="https://tools.ietf.org/html/rfc2234">ABNF</a>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">interval-closed     = date-time "/" date-time
+interval-open-start = "../" date-time
+interval-open-end   = date-time "/.."
+interval            = interval-closed / interval-open-start / interval-open-end
+datetime            = date-time / interval</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The syntax of <code>date-time</code> is specified by <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339, 5.6</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">F</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Open ranges in time intervals at the start or end are supported using a double-dot (<code>..</code>).</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>numberMatched</code> property of the Collections Metadata indicates the number of collection descriptions included in the Collections Metadata. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controled through selection parameters provided by the client.</p>
+<p>The number of collections returned in a response may be further limited by the client using the <code>limit</code> parameter. When applied against the <code>/collections</code> resource, the <a href="#limit-parameter-requirements"><code>limit</code></a> parameter indicates the maximum number of collections which should be included in a single response.</p>
+</div>
+<table id="req_collections_rc-limit-collections-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-limit-collections-unsupported</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>limit</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This requirement does not preclude server imposed limits on the size of a response.
+</td>
+</tr>
+</table>
+</div>
+<table id="req_collections_rc-limit-collections-response" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-limit-collections-response</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>limit</code> parameter is provided by the client and supported by the server, then the response SHALL not contain more items in the <code>collections</code> element than specified by the <code>limit</code> parameter.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the API definition specifies a maximum value for the <code>limit</code> parameter, the response SHALL not contain more items in the <code>collections</code> element than this maximum value.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>numberMatched</code> property of the Collections Metadata indicates the number of collection descriptions included in the Collections Metadata. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controled through the <a href="#bbox-parameter-requirements"><code>bbox</code></a>, <a href="#datetime-parameter-requirements"><code>datetime</code></a> and other selection parameters provided by the client.</p>
 </div>
 <table id="req_collections_rc-numberMatched" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1737,7 +1993,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberMatched</strong></p>
 </div></div></td>
@@ -1760,7 +2016,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The Collections Metadata should describe all of the collections accessible through the API. However, in some cases that is impractical. An API implementation has the option of limiting the size of the Collections Metadata response.</p>
+<p>The Collections Metadata response should describe all of the collections that meet the client&#8217;s selection criteria. However, in some cases that is impractical. An API implementation has the option of limiting the size of the Collections Metadata response.</p>
 </div>
 <table id="per_collections_rc-md-items" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1783,7 +2039,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The number of collection descriptions included in a Collections Metadata response may be a subset of the number matched. This can due to a server imposed limit or the client specified <a href="#limit-parameter-requirements">limit</a> parameter. In that case, the <code>numberReturned</code> property of the Collections Metadata indicates the number of collection descriptions returned in this "page" of the Collections Metadata.</p>
+<p>The number of collection descriptions included in a Collections Metadata response may be a subset of the number matched. In that case, the <code>numberReturned</code> property of the Collections Metadata indicates the number of collection descriptions returned in this "page" of the Collections Metadata.</p>
 </div>
 <table id="req_collections_rc-numberReturned" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1792,7 +2048,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberReturned</strong></p>
 </div></div></td>
@@ -1836,7 +2092,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/src-md-op</strong></p>
 </div></div></td>
@@ -1871,7 +2127,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/src-md-success</strong></p>
 </div></div></td>
@@ -1885,7 +2141,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">collectionInfo.json</a>.</p>
+<p>The content of that response SHALL be based upon the JSON schema <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json">collectionInfo.json</a>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1897,14 +2153,14 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Collection Descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.json">Collection Information Schema</a>. Examples of Collection Descriptions are provided in <a href="#collection-description-examples">Collection Description Examples</a>.</p>
+<p>Collection Descriptions are based on the <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json">Collection Description Schema</a>. Examples of Collection Descriptions are provided in <a href="#collection-description-examples">Collection Description Examples</a>.</p>
 </div>
 <div class="listingblock">
 <div class="title">Collection Description Schema</div>
 <div class="content">
 <pre class="highlight"><code class="language-JSON" data-lang="JSON">{
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Collection Information Schema",
+    "title": "Collection Description Schema",
     "description": "This schema defines metadata resource returned from /collections/{collectionId}.",
     "type": "object",
     "required": [
@@ -1924,15 +2180,19 @@ API definitions are considered service descriptions.</p></td>
             "description": "a description of the members of the collection",
             "type": "string"
             },
+        "attribution" : {
+            "type" : "string",
+            "title" : "attribution for the collection",
+            "description" : "The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup."
+            },
         "links": {
             "type": "array",
             "items": {"$href": "link.json"}
             },
         "extent": {"$href": "extent.json"},
         "itemType": {
-            "description": "indicator about the type of the items in the collection if the collection has an accessible /collection/{collectionId}/items endpoint",
-            "type": "string",
-            "default": "unknown"
+            "description": "An indicator about the type of the items in the collection.",
+            "type": "string"
             },
         "crs": {
             "description": "the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system",
@@ -1953,7 +2213,18 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="paragraph">
-<p>This schema is further constrained by the following requirements and recommendations.</p>
+<p>The purpose of the Collection Description is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection. Many of the properties of the Collection Description are self-explanitory. However, a few call for additional explanation.</p>
+</div>
+<div class="sect5">
+<h6 id="_attribution"><a class="anchor" href="#_attribution"></a>Attribution</h6>
+<div class="paragraph">
+<p>The attribution element is a special type of string property. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <a href="#collection-description-examples">collection description</a> for an example of the use of markup in the attribution element.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_item_type"><a class="anchor" href="#_item_type"></a>Item Type</h6>
+<div class="paragraph">
+<p>A Collection Description describes a collection of items. The itemType property identifies the type of item which has been collected.</p>
 </div>
 <table id="rec_collections_rc-md-item-type" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1975,6 +2246,9 @@ API definitions are considered service descriptions.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect5">
+<h6 id="_links"><a class="anchor" href="#_links"></a>Links</h6>
 <div class="paragraph">
 <p>To support hypermedia navigation, the <code>links</code> property must be populated with sufficient hyperlinks to navigate through the whole dataset.</p>
 </div>
@@ -1985,7 +2259,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-items-links</strong></p>
 </div></div></td>
@@ -2049,8 +2323,24 @@ API definitions are considered service descriptions.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect5">
+<h6 id="_extent"><a class="anchor" href="#_extent"></a>Extent</h6>
 <div class="paragraph">
-<p>Additional requirements and recommendations apply to the <code>extent</code> property of the Collection Description.</p>
+<p>The extent property defines a spatial-temporal surface which encompasses all of the items in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bbox provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations.</p>
+</li>
+<li>
+<p>Envelope addresses the case where the explicit identification of axis is desired. Indoor navigation, for example, may use this option.</p>
+</li>
+<li>
+<p>Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.</p>
+</li>
+</ul>
 </div>
 <table id="req_collections_rc-md-extent" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2059,7 +2349,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-extent</strong></p>
 </div></div></td>
@@ -2067,13 +2357,39 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>For each spatial resource collection, the <code>extent</code> property, if provided, SHALL provide bounding boxes that include all spatial geometries and time intervals that include all temporal geometries in this collection. The temporal extent may use <code>null</code> values to indicate an open time interval.</p>
+<p>For each spatial resource collection, the <code>extent</code> property, if provided, SHALL define boundaries that encompass the spatial and temporal properties of all of the resources in this collection. The temporal extent may use <code>null</code> values to indicate an open time interval.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>If a spatial resource has multiple properties with spatial or temporal information, it is the decision of the API implementation whether only a single spatial or temporal geometry property is used to determine the extent or all relevant geometries.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_collections_rc-md-extent" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/collections/rc-md-extent</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an extent contains multiple spatial boundaries (multiple bbox, a bbox and envelope, etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an extent contains multiple temporal intervals, then the extent SHOULD include as the first interval an interval which represents the union of all of the other intervals.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2085,7 +2401,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-md-extent-single</strong></p>
 </div></div></td>
@@ -2144,6 +2460,7 @@ API definitions are considered service descriptions.</p></td>
 </tbody>
 </table>
 </div>
+</div>
 <div class="sect4">
 <h5 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>Error situations</h5>
 <div class="paragraph">
@@ -2168,7 +2485,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-op</strong></p>
 </div></div></td>
@@ -2192,38 +2509,108 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect4">
 <h5 id="_parameters_3"><a class="anchor" href="#_parameters_3"></a>Parameters</h5>
 <div class="paragraph">
-<p>The following query parameters can be used with this operation:</p>
+<p>The following parameters may be used with this operation:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#boundingbox-parameter-requirements">Bounding Box</a></p>
+<p><a href="#bbox-parameter-requirements">Bounding Box</a>: Selects items from the collection whose spatial extent intersects the bounding box specified by the Bounding Box parameter.</p>
 </li>
 <li>
-<p><a href="#datetime-parameter-requirements">Date Time</a></p>
+<p><a href="#datetime-parameter-requirements">Date Time</a> Selects items from the collection whose temporal extent intersects the instance or period specified by the Date Time parameter.</p>
 </li>
 <li>
-<p><a href="#limit-parameter-requirements">Limit</a></p>
+<p><a href="#limit-parameter-requirements">Limit</a>: Limits the size of the response to the number of items specified by the Limit parameter.</p>
 </li>
 </ul>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 90%;">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Since the type of resource which makes up the collection is not defined, the behavior of any parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_3"><a class="anchor" href="#_response_3"></a>Response</h5>
+<table id="req_collections_rc-bbox-items-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Note:</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Since the type of resource which makes up the collection is not defined, the behavior of these parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.</p>
+<p><strong>/req/collections/rc-bbox-items-unsupported</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>bbox</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+<table id="req_collections_rc-time-items-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-time-items-unsupported</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>datetime</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="req_collections_rc-limit-items-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-limit-items-unsupported</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the <code>limit</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This requirement does not preclude server imposed limits on the size of a response.
+</td>
+</tr>
+</table>
 </div>
-<div class="sect4">
-<h5 id="_response_3"><a class="anchor" href="#_response_3"></a>Response</h5>
 <table id="req_collections_rc-response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2231,7 +2618,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-response</strong></p>
 </div></div></td>
@@ -2278,10 +2665,16 @@ API definitions are considered service descriptions.</p></td>
 </ul>
 </div>
 <div class="paragraph">
-<p>Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should include supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
+<p>The behavior generated by these parameters is specific to the operation and resource upon which they are applied. Those behaviors are described for each resource type and operation in the <a href="#collection-resource-requirements">Resource Requirements</a> section.</p>
+</div>
+<div class="paragraph">
+<p>Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should document their supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="bbox-parameter-requirements"><a class="anchor" href="#bbox-parameter-requirements"></a>8.2.1. Parameter bbox</h4>
+<div class="paragraph">
+<p>The <code>bbox</code> parameter is defined as follows:</p>
+</div>
 <table id="req_collections_rc-bbox-definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2289,7 +2682,7 @@ API definitions are considered service descriptions.</p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-definition</strong></p>
 </div></div></td>
@@ -2317,6 +2710,9 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>While the processing of the <code>bbox</code> parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.</p>
+</div>
 <table id="req_collections_rc-bbox-response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2324,7 +2720,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-response</strong></p>
 </div></div></td>
@@ -2332,7 +2728,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>bbox</code> parameter is provided by the client, only resources that have a spatial geometry that intersects the bounding box SHALL be part of the result set.</p>
+<p>If the <code>bbox</code> parameter is provided by the client and supported by the server, then only resources that have a spatial geometry that intersects the bounding box SHALL be part of the result set.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2390,10 +2786,10 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
-<p>"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the rectangular area specified in the parameter <code>bbox</code>. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.</p>
+<p>"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter <code>bbox</code>. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.</p>
 </div>
 <div class="paragraph">
-<p>In case of a degenerated bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.</p>
+<p>In case of a degenerate bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.</p>
 </div>
 <div class="paragraph">
 <p>This standard does not specify requirements for the parameter <code>bbox-crs</code>. Those requirements will be specified in a later version of this standard.</p>
@@ -2421,6 +2817,9 @@ explode: false</code></pre>
 </div>
 <div class="sect3">
 <h4 id="datetime-parameter-requirements"><a class="anchor" href="#datetime-parameter-requirements"></a>8.2.2. Parameter datetime</h4>
+<div class="paragraph">
+<p>The <code>datetime</code> parameter is defined as follows:</p>
+</div>
 <table id="req_collections_rc-time-definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2428,7 +2827,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-definition</strong></p>
 </div></div></td>
@@ -2452,6 +2851,9 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>While the processing of the <code>datetime</code> parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.</p>
+</div>
 <table id="req_collections_rc-time-response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2459,7 +2861,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-response</strong></p>
 </div></div></td>
@@ -2467,13 +2869,13 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>datetime</code> parameter is provided, only resources that have a temporal geometry that intersects the temporal information in the <code>datetime</code> parameter SHALL be part of the result set.</p>
+<p>If the <code>datetime</code> parameter is provided by the client and supported by the server, then only resources that have a temporal geometry that intersects the temporal information in the <code>datetime</code> parameter SHALL be part of the result set.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If a resourcee has multiple temporal properties, the API implementor decides whether only a single temporal property is used to determine the extent or all relevant temporal properties.</p>
+<p>If a resource has multiple temporal properties, the API implementor decides whether only a single temporal property is used to determine the extent or all relevant temporal properties.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2485,7 +2887,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The temporal information is either a date-time or a time interval. The parameter value SHALL conform to the following syntax (using <a href="https://tools.ietf.org/html/rfc2234">ABNF</a>):</p>
+<p>Temporal geometries are either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using <a href="https://tools.ietf.org/html/rfc2234">ABNF</a>):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2584,7 +2986,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-definition</strong></p>
 </div></div></td>
@@ -2618,20 +3020,7 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The number of resources returned depends on the server and the value of the <code>limit</code> parameter.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The client can request a limit to the number of resources returned.</p>
-</li>
-<li>
-<p>The server may have a default value for the limit, and a maximum limit.</p>
-</li>
-<li>
-<p>If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.</p>
-</li>
-</ul>
+<p>While the processing of the <code>limit</code> parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.</p>
 </div>
 <table id="req_collections_rc-limit-response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2640,7 +3029,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-response</strong></p>
 </div></div></td>
@@ -2648,7 +3037,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The response SHALL not contain more resources than specified by the optional <code>limit</code> parameter.</p>
+<p>If the <code>limit</code> parameter is provided by the client and supported by the server, then the response SHALL not contain more resources than specified by the <code>limit</code> parameter.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2666,6 +3055,62 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
+<p>The number of resources returned depends on the server and the value of the <code>limit</code> parameter.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The client can request a limit to the number of resources returned.</p>
+</li>
+<li>
+<p>The server may have a default value for the limit, and a maximum limit.</p>
+</li>
+<li>
+<p>If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.</p>
+</li>
+</ul>
+</div>
+<table id="per_collections_rc-server-limit" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/per/collections/rc-server-limit</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If a server is configured with a maximum response size, then the server MAY page responses which exceed that threshold.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="rec_collections_rc-server-limit" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/rec/collections/rc-server-limit</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Clients SHOULD be prepared to handle a paged response even if they have not specified a <code>limit</code> parameter in their query.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
 <p>The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first <code>page</code>. Additional pages can be accessed through hyperlink navigation.</p>
 </div>
 <table id="rec_collections_rc-next-1" class="tableblock frame-all grid-all" style="width: 90%;">
@@ -2675,7 +3120,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-1</strong></p>
 </div></div></td>
@@ -2695,7 +3140,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-2</strong></p>
 </div></div></td>
@@ -2715,7 +3160,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-3</strong></p>
 </div></div></td>
@@ -2738,7 +3183,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/collections/rc-prev</strong></p>
 </div></div></td>
@@ -2776,7 +3221,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/http</strong></p>
 </div></div></td>
@@ -2878,7 +3323,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 4</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/core/additional-status-codes</strong></p>
 </div></div></td>
@@ -2901,7 +3346,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/problem-details</strong></p>
 </div></div></td>
@@ -2921,7 +3366,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-unknown</strong></p>
 </div></div></td>
@@ -2941,7 +3386,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-invalid</strong></p>
 </div></div></td>
@@ -2967,7 +3412,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 5</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/core/query-param-specified</strong></p>
 </div></div></td>
@@ -3019,7 +3464,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/core/query-param-tolerance</strong></p>
 </div></div></td>
@@ -3064,7 +3509,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/etag</strong></p>
 </div></div></td>
@@ -3090,7 +3535,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/cross-origin</strong></p>
 </div></div></td>
@@ -3129,7 +3574,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/string-i18n</strong></p>
 </div></div></td>
@@ -3170,7 +3615,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/html</strong></p>
 </div></div></td>
@@ -3193,7 +3638,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/json</strong></p>
 </div></div></td>
@@ -3255,7 +3700,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -3269,7 +3714,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>IF a parameter name or value includes a precent encoded (escaped) character,<br>
+<p>IF a parameter name or value includes a percent encoded (escaped) character,<br>
 &#160;&#160;&#160;&#160;THEN<br>
 the upper case hexadecimal digits ("A" through "F") of that percent encoded character SHALL be equivalent to the lower case digits "a" through "f" respectively.</p>
 </div></div></td>
@@ -3286,7 +3731,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/core/query-param-capitalization</strong></p>
 </div></div></td>
@@ -3334,7 +3779,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-list-delimiter</strong></p>
 </div></div></td>
@@ -3360,7 +3805,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-list-escape</strong></p>
 </div></div></td>
@@ -3380,7 +3825,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-list-empty</strong></p>
 </div></div></td>
@@ -3412,7 +3857,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-boolean</strong></p>
 </div></div></td>
@@ -3435,7 +3880,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-integer</strong></p>
 </div></div></td>
@@ -3461,7 +3906,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-decimal</strong></p>
 </div></div></td>
@@ -3500,7 +3945,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-double</strong></p>
 </div></div></td>
@@ -3547,7 +3992,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 40</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/core/query-param-value-special</strong></p>
 </div></div></td>
@@ -3645,7 +4090,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 41</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -3665,7 +4110,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 42</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -3696,7 +4141,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -3752,7 +4197,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 43</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -3772,7 +4217,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 44</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -3792,7 +4237,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </tbody>
 </table>
 <div class="paragraph">
-<p>JSON Schema for the Collections Metadata and Collection Description is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml">collections.yaml</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionInfo.yaml">collectionInfo.yaml</a>.</p>
+<p>JSON Schema for the Collections Metadata and Collection Description is available at <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml">collections.yaml</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.yaml">collectionDesc.yaml</a>.</p>
 </div>
 <div class="paragraph">
 <p>These are generic schemas that do not include any application schema information about specific resource types or their properties.</p>
@@ -4448,7 +4893,7 @@ explode: false</code></pre>
 <p>These tests are invoked by other tests.</p>
 </div>
 <div class="sect4">
-<h5 id="_extent"><a class="anchor" href="#_extent"></a>Extent</h5>
+<h5 id="_extent_2"><a class="anchor" href="#_extent_2"></a>Extent</h5>
 <table id="ats_collections_rc-md-extent" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -4616,7 +5061,7 @@ explode: false</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_links"><a class="anchor" href="#_links"></a>Links</h5>
+<h5 id="_links_2"><a class="anchor" href="#_links_2"></a>Links</h5>
 <table id="ats_collections_rc-md-links" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -4890,31 +5335,18 @@ explode: false</code></pre>
 <h2 id="_examples_informative"><a class="anchor" href="#_examples_informative"></a>Annex B: Examples (Informative)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="collections-metadata-examples"><a class="anchor" href="#collections-metadata-examples"></a>B.1. Collections Metadata Examples</h3>
-<div class="exampleblock">
-<div class="title">Example 4. Collection metadata response document</div>
-<div class="content">
+<h3 id="collections-metadata-examples"><a class="anchor" href="#collections-metadata-examples"></a>B.1. Collections Metadata Example</h3>
 <div class="paragraph">
-<p>This feature collection metadata example response in JSON is for a dataset with a single collection "buildings". The metadata includes links to the collection resource in all formats that are supported by the API (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "items").</p>
+<p>This collections metadata example response in JSON is for a dataset with a single "buildings" feature collection.</p>
 </div>
 <div class="paragraph">
-<p>There is a link to the feature collections response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
+<p>There is a link to the collections response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
 </div>
 <div class="paragraph">
-<p>Representations of this resource in other formats are referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "alternate".</p>
+<p>Representations of this resource in other formats are referenced (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "alternate").</p>
 </div>
 <div class="paragraph">
-<p>An additional link is to a GML application schema for the dataset - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".</p>
-</div>
-<div class="paragraph">
-<p>A bulk download of all the features in the dataset is referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "enclosure"</p>
-</div>
-<div class="paragraph">
-<p>Finally there are also links to the license information for the building data (using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "license").</p>
-</div>
-<div class="paragraph">
-<p>Reference system information is not provided as the service provides geometries only in the default system (spatial: WGS 84 longitude/latitude; temporal:
-Gregorian calendar).</p>
+<p>An additional link is to a GML application schema for the collection (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "describedBy").</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4937,9 +5369,6 @@ Gregorian calendar).</p>
         "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
       },
       "links": [
-        { "href": "http://data.example.org/collections/buildings/items",
-          "rel": "items", "type": "application/geo+json",
-          "title": "Buildings" },
         { "href": "http://example.org/concepts/building.html",
           "rel": "describedBy", "type": "text/html",
           "title": "Feature catalogue for buildings" }
@@ -4950,21 +5379,76 @@ Gregorian calendar).</p>
 </div>
 </div>
 </div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="collection-description-examples"><a class="anchor" href="#collection-description-examples"></a>B.2. Collection Description Examples</h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-include::examples/tbd.adoc[]
-</td>
-</tr>
-</table>
+<div class="sect3">
+<h4 id="_building_collection"><a class="anchor" href="#_building_collection"></a>B.2.1. Building Collection</h4>
+<div class="paragraph">
+<p>This Collection Description example response in JSON is for a single "buildings" collection.</p>
+</div>
+<div class="paragraph">
+<p>The basic descriptive information includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"id": an identifier for this collection</p>
+</li>
+<li>
+<p>"title": the title of this collection</p>
+</li>
+<li>
+<p>"description": self evident</p>
+</li>
+<li>
+<p>"attribution": markup providing attribution (owner, producer, logo, etc.) of this collection</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The response includes links to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is a link to the response itself (<a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a>: "self").</p>
+</li>
+<li>
+<p>Representations of this response in other formats are referenced using <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">link relation type</a> "alternate".</p>
+</li>
+<li>
+<p>An additional link is to a GML application schema for the collection - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedBy".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Finally, this response includes both spatial and temporal extents.</p>
+</div>
+<div class="paragraph">
+<p>Reference system information is not provided as the service provides geometries only in the default system (spatial: WGS 84 longitude/latitude; temporal: Gregorian calendar).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "id": "1234567890",
+  "title": "Example Collection Description Response",
+  "description": "This is an example of a Collection Description in JSON format",
+  "attribution": "&lt;a href='www.ign.es' rel=' '&gt;IGN&lt;/a&gt; &lt;a href='www.govdata.de/dl-de/by-2-0'&gt;(c)&lt;/a&gt;",
+  "links": [
+    { "href": "http://data.example.org/collections.json",
+      "rel": "self", "type": "application/json", "title": "this document" },
+    { "href": "http://data.example.org/collections.html",
+      "rel": "alternate", "type": "text/html", "title": "this document as HTML" },
+    { "href": "http://schemas.example.org/1.0/foobar.xsd",
+      "rel": "describedBy", "type": "application/xml", "title": "XML schema for Acme Corporation data" }
+  ],
+  "extent": {
+    "spatial": [ 7.01, 50.63, 7.22, 50.78 ],
+    "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
+    }
+}</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -5169,7 +5653,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-11 01:44:31 UTC
+Last updated 2021-04-12 17:10:22 +0100
 </div>
 </div>
 </body>

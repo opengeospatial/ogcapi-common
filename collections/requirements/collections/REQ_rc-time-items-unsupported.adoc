@@ -1,0 +1,6 @@
+[[req_collections_rc-time-items-unsupported]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-time-items-unsupported*
+^|A|If the `datetime` parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.
+|===
