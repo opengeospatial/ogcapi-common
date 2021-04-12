@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-03-17</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-04-12</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -827,7 +827,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <a href="#rc_collections-section"><em>Collections Requirements Class</em></a> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
 </div>
 <div class="paragraph">
-<p>The <em>Collections</em> requirements class does not mandate a specific encoding or format for representing resources. The <a href="#rc_html-section"><em>HTML</em></a> and <a href="#rc_json-section"><em>JSON</em></a> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
+<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
+</div>
+<div class="paragraph">
+<p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <a href="#rc_collections-section"><em>Collections Requirements Class</em></a> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Collections Requirements Class</em> does not mandate a specific encoding or format for representing resources. The <a href="#rc_html-section"><em>HTML</em></a> and <a href="#rc_json-section"><em>JSON</em></a> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
 </div>
 <div class="paragraph">
 <p>Neither of these encodings is mandatory. An implementor of the <em>API-GeoData</em> standard may decide to implement another encoding instead of, or in addition to, these two.</p>
@@ -1760,7 +1766,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>bbox</code> parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.</p>
+<p>If the <code>bbox</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1852,7 +1858,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>datetime</code> parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.</p>
+<p>If the <code>datetime</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1934,7 +1940,7 @@ datetime            = date-time / interval</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>limit</code> parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.</p>
+<p>If the <code>limit</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2548,7 +2554,7 @@ Since the type of resource which makes up the collection is not defined, the beh
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>bbox</code> parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.</p>
+<p>If the <code>bbox</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2568,7 +2574,7 @@ Since the type of resource which makes up the collection is not defined, the beh
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>datetime</code> parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.</p>
+<p>If the <code>datetime</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2588,7 +2594,7 @@ Since the type of resource which makes up the collection is not defined, the beh
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the <code>limit</code> parameter is provided by the client but it is not supported by the server, then the server SHALLL process the request as if the parameter had not been provided.</p>
+<p>If the <code>limit</code> parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2783,7 +2789,7 @@ explode: false</code></pre>
 <p>"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter <code>bbox</code>. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.</p>
 </div>
 <div class="paragraph">
-<p>In case of a degenerated bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.</p>
+<p>In case of a degenerate bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.</p>
 </div>
 <div class="paragraph">
 <p>This standard does not specify requirements for the parameter <code>bbox-crs</code>. Those requirements will be specified in a later version of this standard.</p>
@@ -2869,7 +2875,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If a resourcee has multiple temporal properties, the API implementor decides whether only a single temporal property is used to determine the extent or all relevant temporal properties.</p>
+<p>If a resource has multiple temporal properties, the API implementor decides whether only a single temporal property is used to determine the extent or all relevant temporal properties.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5647,7 +5653,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-17 18:22:05 +0100
+Last updated 2021-04-12 17:10:22 +0100
 </div>
 </div>
 </body>
