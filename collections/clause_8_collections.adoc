@@ -246,7 +246,7 @@ include::requirements/collections/REQ_rc-bbox-response.adoc[]
 
 "Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 
-In case of a degenerated bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
+In case of a degenerate bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
 
 This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this standard.
 

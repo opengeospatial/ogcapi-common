@@ -24,7 +24,6 @@ properties:
   itemType:
     description: An indicator about the type of the items in the collection
     type: string
-    default: unknown
   crs:
     description: the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
     type: array
