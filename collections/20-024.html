@@ -2332,13 +2332,10 @@ This requirement does not preclude server imposed limits on the size of a respon
 <div class="ulist">
 <ul>
 <li>
-<p>Bbox provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations.</p>
+<p>Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations.</p>
 </li>
 <li>
-<p>Envelope addresses the case where the explicit identification of axis is desired. Indoor navigation, for example, may use this option.</p>
-</li>
-<li>
-<p>Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.</p>
+<p>Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.</p>
 </li>
 </ul>
 </div>
@@ -2383,7 +2380,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If an extent contains multiple spatial boundaries (multiple bbox, a bbox and envelope, etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.</p>
+<p>If an extent contains multiple spatial boundaries (multiple bbox, etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.</p>
 </div></div></td>
 </tr>
 <tr>

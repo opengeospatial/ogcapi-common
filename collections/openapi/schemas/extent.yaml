@@ -23,26 +23,6 @@ properties:
             maxItems: 6
           items:
             type: number
-    envelope:
-      description: The space enclosed by an n-dimension shape defined by ranges of
-        values along two or more axis
-      type: array
-      minItems: 2
-      items:
-        type: object
-        description: Each axis is defined by the axis name and the range (min, max).
-        required:
-        - axisName
-        - range
-        properties:
-          axisName:
-            type: string
-          range:
-            type: array
-            minItems: 2
-            maxItems: 2
-            items:
-              type: number
     crs:
       description: Coordinate reference system of the coordinates in the spatial extent
         (property `spatial`).
