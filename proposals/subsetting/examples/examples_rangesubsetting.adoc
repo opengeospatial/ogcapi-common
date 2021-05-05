@@ -1,0 +1,12 @@
+These examples return a range subset of a coverage in the negotiated format, including domain set, range type (and metadata if applicable) to the extent than they can be described in that format:
+
+* {datasetAPI}/collections/{coverageid}/coverage?range-subset=B02,B03,B04 -- returns only the bands with IDs B02, B03 and B04 from the coverage
+* {datasetAPI}/collections/{coverageid}/coverage?range-subset=3,4,5 -- returns the 4th, 5th and 6th band (0-based indexing, as listed in the Range Type) from the coverage
+* {datasetAPI}/collections/{coverageid}/coverage?range-subset=B07,* -- returns the band B07 and all subsequent bands from the coverage
+
+A `rangeset` resource, also supporting subsetting, may be available in some implementations, for some formats/media types.
+The following examples using this resource return only the sample values for a subset of a coverage in the negotiated format, without domain set, range type or metadata:
+
+* {datasetAPI}/collections/{coverageid}/rangeset?range-subset=B02,B03,B04 -- returns only the bands with IDs B02, B03 and B04 from the coverage
+* {datasetAPI}/collections/{coverageid}/rangeset?range-subset=3,4,5 -- returns the 4th, 5th and 6th band (0-based indexing, as listed in the Range Type) from the coverage
+* {datasetAPI}/collections/{coverageid}/rangeset?range-subset=B07,* -- returns the band B07 and all subsequent bands from the coverage

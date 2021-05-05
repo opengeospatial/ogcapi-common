@@ -1,0 +1,22 @@
+[[req_coverage_rangesubset-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/coverage-rangesubset/definition*
+^|A |The operation SHALL support a parameter `range-subset` with the following characteristics (using an Extended Backus Naur Form (EBNF) fragment):
+
+[source,EBNF]
+----
+  RangeSubsetSpec:   "range-subset"=band[,bandName]*
+  band:              {bandName}\|{bandIndex}\|"*"
+  bandName:          {text}
+  bandIndex:         {number}
+
+  Where:
+     {number} is an integer number, and
+     {text} is some general ASCII text.
+----
+
+^|B |The band name SHALL be the same as one of the `id` defined in the RangeType DataRecord fields, or else return a 400 status code.
+^|C |The band index SHALL be an integer between 0 and the number of bands - 1 defined in the RangeType DataRecord fields, or else return a 400 status code.
+^|D |If a valid band index conflicts with a band name, it SHALL be interpreted as a band name.
+|===

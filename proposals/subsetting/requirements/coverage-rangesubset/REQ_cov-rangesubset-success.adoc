@@ -1,0 +1,9 @@
+[[req_coverage_rangesubset-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/coverage-rangesubset/success*
+^|A |The `range-subset` parameter SHALL be applied to the coverage (and rangeset, if available as a separate resource).
+^|B |Only the bands of the coverage addressed SHALL be returned that correspond to one of the bands selected by the range subset expression
+whereby a `*` (asterisk) at the begining or at the end of the comma-separated list denotes all other bands before or after the listed bands, respectively.
+The RangeType shall be adjusted accordingly to the new selected bands.
+|===

@@ -1,0 +1,8 @@
+[[req_domainset_subset-conformance]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/domainset-subset/conformance*
+2+|The list of Conformance Classes advertised by the API SHALL include:
+^|A |http://www.opengis.net/spec/ogcapi-coverages-1/1.0/conf/geodata-coverage
+^|B |http://www.opengis.net/spec/ogcapi-coverages-1/1.0/conf/domainset-subset
+|===

@@ -1,0 +1,7 @@
+[[req_domainset_subset-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/domainset-subset/success*
+^|A |The `subset` parameter SHALL be applied to the domainset
+^|B |Only that part of the domainset addressed SHALL be returned that falls within the bounds of the subset expression whereby a `*` (asterisk) in the position of a lower or upper limit along an axis denotes the DomainSet's minimum or maximum extent along this axis, respectively. The DomainSet shall be adjusted accordingly to the new boundaries (in case of trimming) and the reduced dimension (in case of slicing).
+|===

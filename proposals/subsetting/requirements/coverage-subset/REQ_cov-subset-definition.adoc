@@ -1,0 +1,32 @@
+[[req_coverage_subset-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/coverage-subset/definition*
+^|A |The operation SHALL support a parameter `subset` with the following characteristics (using an Extended Backus Naur Form (EBNF) fragment):
+
+[source,EBNF]
+----
+  SubsetSpec:        "subset"=axisName(intervalOrPoint)
+  axisName:          {text}
+  intervalOrPoint:   interval \| point
+  interval:          low : high
+  low:               point \| *
+  high:              point \| *
+  point:             {number} \| "{text}"
+
+  Where:
+     \" = double quote = ASCII code 0x42,
+     {number} is an integer or floating-point number, and
+     {text} is some general ASCII text (such as a time and date notation in ISO 8601).
+----
+^|B |The axis name SHALL be the same as one of the `axisLabels` defined in the DomainSet or else return a 400 status code.
+^|C |If the intervalOrPoint values fall entirely outside the range of valid values defined by the DomainSet for the identified axis,a 204 status code SHALL be returned
+^|D |For a CRS where an axis can wrap around, such as subsetting across the dateline (anti-meridian) in a geographic CRS, a `low` value greater than `high` SHALL
+be supported to indicate an extent crossing that wrapping point.
+|===
+
+NOTE: When the intervalOrPoint values fall partially outside of the range of valid values defined by the DomainSet for the identified axis,
+the service is expected to return the non-empty portion of the coverage resulting from the subset.
+For subsetting on the range set, and for coverage media types with no geo-referencing mechanisms (e.g. PNG), NO_DATA values or transparency should be used.
+If a georeferencing mechanism is available within the negotiated media type, the service could decide whether to use NO_DATA values
+or simply return the properly geo-referenced values within the domain set.

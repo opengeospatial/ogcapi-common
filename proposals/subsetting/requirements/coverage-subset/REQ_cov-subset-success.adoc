@@ -1,0 +1,7 @@
+[[req_coverage_subset-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/coverage-subset/success*
+^|A |The `subset` parameter SHALL be applied to the coverage (and rangeset, if available as a separate resource).
+^|B |Only that part of the coverage addressed SHALL be returned that falls within the bounds of the subset expression whereby a `*` (asterisk) in the position of a lower or upper limit along an axis denotes the coverage's minimum or maximum extent along this axis, respectively. The DomainSet shall be adjusted accordingly to the new boundaries (in case of trimming) and the reduced dimension (in case of slicing).
+|===
