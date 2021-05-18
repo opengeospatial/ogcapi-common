@@ -46,9 +46,9 @@ include::recommendations/general/REC_problem-details.adoc[]
 [[query-parameter-requirements]]
 ==== Query parameters
 
-include::requirements/general/REQ_query-param-unknown.adoc[]
+===== Parameter Names
 
-include::requirements/general/REQ_query-param-invalid.adoc[]
+include::requirements/general/REQ_query-param-unknown.adoc[]
 
 The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the abilty of the API server to tolerate errors. 
 
@@ -57,6 +57,16 @@ A service implementer should endeavour to provide as much detail in the server's
 include::recommendations/general/PER_query-param-specified.adoc[]
 
 include::recommendations/general/PER_query-param-tolerance.adoc[]
+
+===== Parameter Values
+
+include::requirements/general/REQ_query-param-invalid.adoc[]
+
+The criteria for a parameter value to be considered "invalid" varies with the expressiveness of the API definition language used and the abilty of the API server to tolerate errors.  
+
+A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement to list every possible value that each query parameter might accept. Rather, the API implementation should include a reasonable degree of error recovery.
+
+include::recommendations/general/PER_query-param-value-tolerance.adoc[]
 
 [[web-caching-section]]
 ==== Web Caching

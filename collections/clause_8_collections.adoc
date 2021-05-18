@@ -15,7 +15,6 @@ The three resources defined in this Requirements Class are summarized in <<colle
 ^|Resource ^|URI ^|HTTP Method ^|Description
 |<<collections-metadata,Collections Metadata>> |/collections ^|GET |Information which describes the set of available Collections 
 |<<collection-description,Collection Description>> |/collections/{collectionId} ^|GET |Information about a specific collection of geospatial data with links to distribution
-|<<collection-resource,Collection Resource>> |/collections/{collectionId}/items ^|GET |A specific distribution of geospatial data
 |===
 
 This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. 
@@ -151,7 +150,7 @@ The attribution element is a special type of string property. Specifically, it c
 
 ====== Item Type
 
-A Collection Description describes a collection of items. The itemType property identifies the type of item which has been collected.
+A collection can be accessed by enumerating items. In this case, the `itemType` property in Collection Description identifies the type of item.
 
 include::recommendations/collections/REC_rc-md-item-type.adoc[]
 
@@ -167,7 +166,7 @@ include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
 
 ====== Extent
 
-The extent property defines a spatial-temporal surface which encompasses all of the items in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
+The extent property defines a spatial-temporal surface which encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
 
 * Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
 * Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.
@@ -185,39 +184,6 @@ include::recommendations/collections/PER_rc-md-extent-extensions.adoc[]
 See <<http-status-codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).
-
-[[collection-resource]]
-==== Collection Resource
-
-A collection resource is the content of the collection as opposed to metadata about that collection. This standard defines the general behavior of this operation, but detailed requirements are the purview of the API standard for that resource type.
-
-===== Operation
-
-include::requirements/collections/REQ_rc-op.adoc[]
-
-===== Parameters
-
-The following parameters may be used with this operation:
-
-* <<bbox-parameter-requirements,Bounding Box>>: Selects items from the collection whose spatial extent intersects the bounding box specified by the Bounding Box parameter.
-* <<datetime-parameter-requirements,Date Time>> Selects items from the collection whose temporal extent intersects the instance or period specified by the Date Time parameter. 
-* <<limit-parameter-requirements,Limit>>: Limits the size of the response to the number of items specified by the Limit parameter.
-
-NOTE: Since the type of resource which makes up the collection is not defined, the behavior of any parameters must be tailored to the structure and information content of specific resource types. That tailoring will take place in resource-specific OGC API standards.
-
-===== Response
-
-include::requirements/collections/REQ_rc-bbox-items-unsupported.adoc[]
-
-include::requirements/collections/REQ_rc-time-items-unsupported.adoc[]
-
-include::requirements/collections/REQ_rc-limit-items-unsupported.adoc[]
-
-include::requirements/collections/REQ_rc-response.adoc[]
-
-===== Error situations
-
-See <<http-status-codes>> for general guidance.
 
 [[parameter-requirements]]
 === Parameter Requirements

@@ -1,0 +1,10 @@
+[[per_core-query-param-value-tolerance]]
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/core/query-param-value-tolerance*
+^|A |Servers MAY display tolerance for requests where a parameter has an incorrect value. These acts of tolerance include:  
+
+*   substituting default values for invalid ones,
+*   correcting formatting errors (e.x. convert integers to float).
+^|B |Servers should not be excessively tolerant. The response a client receives from the server should be a reasonable response for the request submitted.  
+|===
