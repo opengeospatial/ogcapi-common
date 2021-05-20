@@ -50,7 +50,7 @@ include::recommendations/general/REC_problem-details.adoc[]
 
 include::requirements/general/REQ_query-param-unknown.adoc[]
 
-The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the abilty of the API server to tolerate errors. 
+The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the ability of the API server to tolerate errors. 
 
 A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement for it to list every endpoint for which there is a non-404 behaviour, for it to list every possible query parameter that might affect the behaviour of an endpoint, or for it to list every possible value that each query parameter might accept.
 
@@ -62,7 +62,7 @@ include::recommendations/general/PER_query-param-tolerance.adoc[]
 
 include::requirements/general/REQ_query-param-invalid.adoc[]
 
-The criteria for a parameter value to be considered "invalid" varies with the expressiveness of the API definition language used and the abilty of the API server to tolerate errors.  
+The criteria for a parameter value to be considered "invalid" varies with the expressiveness of the API definition language used and the ability of the API server to tolerate errors.  
 
 A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement to list every possible value that each query parameter might accept. Rather, the API implementation should include a reasonable degree of error recovery.
 
@@ -112,7 +112,7 @@ HTML encoding recommendation:
 include::recommendations/general/REC_html.adoc[]
 
 [[rec_json]]
-JSON encoding recommndation:
+JSON encoding recommendation:
 include::recommendations/general/REC_json.adoc[]
 
 Requirement <<req_core_http,``/req/core/http``>> implies that the encoding of a server response is determined using content negotiation as specified by the HTTP RFC.
@@ -156,7 +156,7 @@ Parameters may pass more than one value. These lists of parameter values may be 
 . Repeated name:value pairs where the parameter name is repeated for each value in the list
 . A parameter name followed by a delimited list of values.
 
-The folowing requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is uses.
+The folowing requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is used.
 
 include::requirements/general/REQ_query-param-list-delimiter.adoc[]
 
@@ -168,7 +168,7 @@ Thus, two successive commas indicates an empty item, as does a leading comma or 
 
 ===== Numeric and Boolean Values
 
-Geospatial is a mathematical discipline. The clear and accurate exchange of mathematical values is essential. The encoding rules in this section standarize the encoding of numeric and boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
+Geospatial is a mathematical discipline. The clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
 
 Boolean values conform to the following requirement.
 
