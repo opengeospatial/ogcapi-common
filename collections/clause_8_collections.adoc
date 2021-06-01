@@ -19,16 +19,18 @@ The three resources defined in this Requirements Class are summarized in <<colle
 
 This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. 
 
-Three parameters are defined for use in these operations. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
+Three parameters are defined for use with the <<<collections-metadata,Collections Metadata>> resource. These parameters subset the set of <<collection-description,Collection Description>> entries returned based on spatial, temporal, and volumetric filters. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
+
+NOTE: These parameters may also be used with other resources, but their behavior will be specific for that resource and operation. 
 
 [#parameter-summary,reftext='{table-caption} {counter:table-num}']
 .Parameter Summary
 [width="90%",cols="10,10,60",options="header"]
 |===
 ^|Parameter Name ^|Target ^|Description
-|Bounding Box |Extent |Selects resources which have an Extent element that intersects the bounding box
-|Date-Time|Extent |Selects resources which have an Extent element that intersects the specified time period
-|Limit |The result set |Limits the number of resources which can be returned in one response
+|Bounding Box |Extent |Selects <<collection-description,Collection Description>> resources which have an Extent element that intersects the bounding box
+|Date-Time|Extent |Selects <<collection-description,Collection Description>> resources which have an Extent element that intersects the specified time period
+|Limit |The result set |Limits the number of <<collection-description,Collection Description>> resources which can be returned in one response
 |===
 
 Finally, requirements which have general applicablity are provided in the <<general-requirements,General Requirements>> section.
@@ -295,7 +297,7 @@ include::recommendations/collections/PER_rc-server-limit.adoc[]
 
 include::recommendations/collections/REC_rc-server-limit.adoc[]
 
-The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first `page`. Additional pages can be accessed through hyperlink navigation.
+The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 
 include::recommendations/collections/REC_rc-next-1.adoc[]
 
