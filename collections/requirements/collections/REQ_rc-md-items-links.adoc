@@ -6,6 +6,5 @@
 
 * A link to this response document (relation: `self`),
 * A link to the response document in every other media type supported by the API (relation: `alternate`).
-^|B |The `links` property of the response SHALL include an item for each supported encoding of that collection with a link to the collection resource (relation: `items`).
 ^|B |All links SHALL include the `rel` and `type` properties.
 |===

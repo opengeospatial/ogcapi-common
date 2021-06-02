@@ -152,7 +152,7 @@ The attribution element is a special type of string property. Specifically, it c
 
 ====== Item Type
 
-A collection can be accessed by enumerating items. In this case, the `itemType` property in Collection Description identifies the type of item.
+In some Geospatial collections, the members (`items`) that make up that collection can be individually accessed by a client. In this case, the `itemType` property in Collection Description identifies the type of the `items` accessible from that collection.  
 
 include::recommendations/collections/REC_rc-md-item-type.adoc[]
 
