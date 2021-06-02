@@ -6,7 +6,7 @@ There is a link to the collections response itself (link:https://www.iana.org/as
 
 Representations of this resource in other formats are referenced (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "alternate").
 
-An additional link is to a GML application schema for the collection (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "describedBy").
+An additional link is to a GML application schema for the collection (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "describedby").
 
 ----
 {
@@ -16,7 +16,7 @@ An additional link is to a GML application schema for the collection (link:https
     { "href": "http://data.example.org/collections.html",
       "rel": "alternate", "type": "text/html", "title": "this document as HTML" },
     { "href": "http://schemas.example.org/1.0/foobar.xsd",
-      "rel": "describedBy", "type": "application/xml", "title": "XML schema for Acme Corporation data" }
+      "rel": "describedby", "type": "application/xml", "title": "XML schema for Acme Corporation data" }
   ],
   "collections": [
     {
@@ -29,7 +29,7 @@ An additional link is to a GML application schema for the collection (link:https
       },
       "links": [
         { "href": "http://example.org/concepts/building.html",
-          "rel": "describedBy", "type": "text/html",
+          "rel": "describedby", "type": "text/html",
           "title": "Feature catalogue for buildings" }
       ]
     }
