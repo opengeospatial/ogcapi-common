@@ -107,7 +107,7 @@ include::../general/recommendations/general/REC_link-header.adoc[]
 [[link-relation-conventions]]
 === Link relations
 
-Link relation types identify the semantics a link. For example, a link with the relation type "service-meta" indicates that the current link context has service metadata at the link target.
+Link relation types identify the semantics of a link. For example, a link with the relation type "service-meta" indicates that the current link context has service metadata at the link target.
 
 Link relation types are expressed using the "rel" property from the link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema]. 
 
@@ -155,7 +155,7 @@ So that developers can more easily learn how to use the API, good documentation 
 
 ==== Role of OpenAPI
 
-This standard uses OpenAPI 3.0 fragments in its' examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.  
+This standard uses OpenAPI 3.0 fragments in its examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.  
 
 This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 

@@ -9,7 +9,7 @@
 "properties": {
     "conformsTo": {
         "type": "array",
-        "description": "ConformsTo is an array of URLs.  Each URL should correspond to a defined OGC Conformance class.  Unrecognized URLs should be ignored",
+        "description": "conformsTo is an array of URLs.  Each URL should correspond to a defined OGC Conformance class.  Unrecognized URLs should be ignored",
         "items": {
             "type": "string",
             "example": "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core"
