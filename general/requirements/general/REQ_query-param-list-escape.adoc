@@ -2,5 +2,5 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/core/query-param-list-escape* 
-^|A |Any list item values which include a space or comma SHALL escape the space or comma character using the URL encoding rules from <<rfc3986,IETF RFC 3986>>
+^|A |Any list item values that include a space or comma SHALL escape the space or comma character using the URL encoding rules from <<rfc3986,IETF RFC 3986>>
 |===

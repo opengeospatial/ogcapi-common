@@ -18,20 +18,20 @@
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}c. followed by an integer number +
 {nbsp}{nbsp}{nbsp}{nbsp}3. Validate the decimal number using the <<ats_core_query-param-value-decimal,Test for Decimal Parmeters>> +
 {nbsp}{nbsp}{nbsp}{nbsp}4. Validate the integer number using the <<ats_core_query-param-value-integer,Test for Integer Parmeters>> +
-{nbsp}{nbsp}{nbsp}{nbsp}5. Validate that encoded value is a correct represented of the numeric value (step 1) represented using scientific notation +
+{nbsp}{nbsp}{nbsp}{nbsp}5. Validate that encoded value is a correct represention of the numeric value (step 1) represented using scientific notation +
 {nbsp}{nbsp}DONE +
 DONE
 ^|Test Method (Server) |DO FOR ALL query parameters advertised in the API definition where the parameter value is a double value +
 {nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
-{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a parameter value which is: +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a parameter value that is: +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) greater than 4,294,967,296 +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
 {nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value +
-{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a parameter value which is: +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a parameter value that is: +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) less than -4,294,967,296 +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
 {nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the server properly interprets that parameter value +
-{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and a parameter value which is: +
+{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and a parameter value that is: +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) Less than 4,294,967,296 +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) Greater than -4,294,967,295 +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}c) Represented as a single decimal number +

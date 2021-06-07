@@ -90,7 +90,7 @@
     "components": {
        "parameters": {
            "f": {
-               "description": "The optional f parameter indicates the output format which the server shall provide as part of the response document.  The default format is GeoJSON.", 
+               "description": "The optional f parameter indicates the output format that the server shall provide as part of the response document.  The default format is GeoJSON.", 
                "explode": false, 
                "in": "query", 
                "name": "f", 

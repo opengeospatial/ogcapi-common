@@ -52,7 +52,7 @@ include::requirements/general/REQ_query-param-unknown.adoc[]
 
 The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the abilty of the API server to tolerate errors. 
 
-A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement for it to list every endpoint for which there is a non-404 behaviour, for it to list every possible query parameter that might affect the behaviour of an endpoint, or for it to list every possible value that each query parameter might accept.
+A service implementor should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement for it to list every endpoint for which there is a non-404 behaviour, for it to list every possible query parameter that might affect the behaviour of an endpoint, or for it to list every possible value that each query parameter might accept.
 
 include::recommendations/general/PER_query-param-specified.adoc[]
 
@@ -64,7 +64,7 @@ include::requirements/general/REQ_query-param-invalid.adoc[]
 
 The criteria for a parameter value to be considered "invalid" varies with the expressiveness of the API definition language used and the abilty of the API server to tolerate errors.  
 
-A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement to list every possible value that each query parameter might accept. Rather, the API implementation should include a reasonable degree of error recovery.
+A service implementor should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement to list every possible value that each query parameter might accept. Rather, the API implementation should include a reasonable degree of error recovery.
 
 include::recommendations/general/PER_query-param-value-tolerance.adoc[]
 
@@ -101,7 +101,7 @@ The http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml
 [[resource-encoding-section]]
 ==== Resource Encodings
 
-A Web API provides access to <<resource-definition,resources>> through <<representation-definition,representations>> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate which encoding format to use through the content negotiation process defined in <<rfc7231,IETF RFC 7231>>.
+A Web API provides access to <<resource-definition,resources>> through <<representation-definition,representations>> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate the encoding format to use through the content negotiation process defined in <<rfc7231,IETF RFC 7231>>.
 
 Additional content negotiation techniques are allowed, but support is not required of implementations conformant to this Standard.
 

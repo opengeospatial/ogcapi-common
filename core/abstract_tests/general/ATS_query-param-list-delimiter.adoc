@@ -18,7 +18,7 @@
 DONE
 ^|Test Method (Server) |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
 {nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
-{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a value which +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a value that +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}is a delimited list of items +
 {nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value +
 {nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a value where: +

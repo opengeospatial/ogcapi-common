@@ -18,17 +18,17 @@
 DONE
 ^|Test Method (Server) |DO FOR ALL query parameters advertised in the API definition where the parameter value is a decimal number +
 {nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
-{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a parameter value which is: +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a parameter value that is: +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) an unsigned numeric string preceeded by one or more zeros +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
 {nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value as an unsigned decimal value +
-{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a parameter value which is: +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a parameter value that is: +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) a signed negative numeric string +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
 {nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the server properly interprets that parameter value as a signed negative decimal value +
-{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and a parameter value which: +
+{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and a parameter value that: +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) is an unsigned numeric string preceeded by one or more zeros +
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) does not contain non-numereic characters (".") +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) does not contain non-numeric characters (".") +
 {nbsp}{nbsp}{nbsp}{nbsp}6. Validate that the server properly interprets that parameter value as an unsigned decimal value with a fractional value of zero +
 {nbsp}{nbsp}DONE +
 DONE

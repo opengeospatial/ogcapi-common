@@ -65,7 +65,7 @@ include::requirements/oas30/REQ_security.adoc[]
 [[rc_oas30-service-metadata]]
 === Service Metadata
 
-OGC Web Services provide a set of metadata which identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provide the same information. A `service-meta` link is provided on the Landing Page for this purpose. 
+OGC Web Services provide a set of metadata that identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provide the same information. A `service-meta` link is provided on the Landing Page for this purpose. 
 
 include::recommendations/oas30/REC_service-metadata.adoc[]
 
@@ -106,6 +106,6 @@ In the request URI this would be expressed as `&my_first_parameter=some%20value&
 
 === Further Information
 
-Additional guidance on using OpenAPI in OGC Web API implementations can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#oas30-usage-section[OAPI-Common Users Guide].
+Additional guidance on using OpenAPI in OGC Web API implementations can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#oas30-usage-section[OGC API - Common Users Guide].
 
 

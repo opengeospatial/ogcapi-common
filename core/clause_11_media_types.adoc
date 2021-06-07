@@ -18,7 +18,7 @@ NOTE: The OpenAPI media type has not been registered yet with IANA and may chang
 [[mediatype-problems]]
 === Problem Details Media Types
 
-OGC API-Common recommends that implementers use <<rfc7807,IETF RFC 7807>> when constructing the response body for an error condition. The media types for an RFC 7807 Problem Details response body are:
+OGC API-Common recommends that implementors use <<rfc7807,IETF RFC 7807>> when constructing the response body for an error condition. The media types for an RFC 7807 Problem Details response body are:
 
 * application/problem+json - for responses in JSON
 * application/problem+xml - for responses in XML
