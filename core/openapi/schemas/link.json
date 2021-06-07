@@ -10,7 +10,7 @@
     "properties": {    
         "href": {
             "type": "string",
-            "description": "Supplies the URI to a remote resource(or resource fragment).",
+            "description": "Supplies the URI to a remote resource (or resource fragment).",
             "example": "http://data.example.com/buildings/123"
             },
         "rel": {
