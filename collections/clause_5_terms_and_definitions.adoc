@@ -14,11 +14,19 @@ feature that acts as a function to return values from its range for any direct p
 
 [[dataset-definition]]
 * *Dataset* +
-collection of data, published or curated by a single agent, and available for access or download in one or more serializations or formats (<<DCAT,DCAT>>)
+A collection of data, published or curated by a single agent, and available for access or download in one or more representations. (<<DCAT,DCAT>>)
+
+[[dataservice-definition]]
+* *Data Service* +
+A collection of operations that provides access to one or more <<dataset-definition,datasets>> or data processing functions. (<<DCAT,DCAT>>) +
++
+|===
+|*NOTE:*| A Data Service has an `endpointURL` property. This property is defined as "The root location or primary endpoint of the service (a Web-resolvable IRI)." 
+|===
 
 [[distribution-definition]]
 * *Distribution* +
-specific representation of a <<dataset-definition,dataset>>. (<<DCAT,DCAT>>) +
+A specific representation of a <<dataset-definition,dataset>>. A <<dataset-definition,dataset>> might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). (<<DCAT,DCAT>>) +
  +
 EXAMPLE: a downloadable file, an RSS feed or an API.
 
