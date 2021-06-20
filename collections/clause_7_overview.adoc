@@ -24,7 +24,7 @@ Based on these definitions, the term `collection` will be used in this standard 
 
 OGC Web API standards should extend this definition to address the specific properties of the resources they describe.
 
-[[view-introduction]]
+[[views-introduction]]
 === Views
 
 A collection of geospatial data may be represented in more than one way.  For example, a point cloud may be represented as a collection of Features, or as a Coverage, or as a color-coded map. Each is a representation of the same data. But the access methods and returned data structures are very different. OGC Web API standards refer to these representations as `views`.

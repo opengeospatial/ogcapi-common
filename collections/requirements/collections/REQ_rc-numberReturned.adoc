@@ -2,6 +2,6 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/collections/rc-numberReturned* 
-^|A |If a property `numberReturned` is included in the response, the value SHALL be identical to the number of items in the `collections` array in the Collections Metadata document.
+^|A |If a property `numberReturned` is included in the response, the value SHALL be identical to the number of items in the `collections` array in the `Collections` document.
 ^|B |A server MAY omit this information in a response, if the information about the number of resources in the response is not known or difficult to compute.
 |===

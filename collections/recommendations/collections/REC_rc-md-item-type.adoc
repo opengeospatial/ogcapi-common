@@ -2,5 +2,5 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-md-item-type* 
-^|A |If the members (`items`) that make up a collection can be individually accessed by a client, then the `itemType` key SHOULD be included in the Collection Description to indicate the type of the items (e.g. `feature` or `record`).
+^|A |If the members (`items`) that make up a collection can be individually accessed by a client, then the `itemType` key SHOULD be included in the Collection resource to indicate the type of the items (e.g. `feature` or `record`).
 |===
