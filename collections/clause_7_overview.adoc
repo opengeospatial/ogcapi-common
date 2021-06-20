@@ -23,3 +23,32 @@ Based on these definitions, the term `collection` will be used in this standard 
 * <<collection-definition,Collection>>: A body of resources that belong or are used together. An aggregate, set, or group of related resources.
 
 OGC Web API standards should extend this definition to address the specific properties of the resources they describe.
+
+[[view-introduction]]
+=== Views
+
+A collection of geospatial data may be represented in more than one way.  For example, a point cloud may be represented as a collection of Features, or as a Coverage, or as a color-coded map. Each is a representation of the same data. But the access methods and returned data structures are very different. OGC Web API standards refer to these representations as `views`.
+
+`Views` should not be confused with encodings. HTTP content negotiation allows a client to negotiate the encoding (XML, JSON, etc.) to be used for the returned data. Regardless of the encoding, the underlying data model is the same. A `view`, on the other hand, is both a data model and a set of access mechanisms. It is an addressible resource in its own right and must be treated as such.
+
+The API-Common Geodata Standard does not define any `views`. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend API-Common Geodata.
+
+The IRI for a view of a collection folows the IRI template:
+
+ /collections/{collectionId}/{viewId}
+ 
+Where:
+
+. collectionId = an identifier for the collection
+. viewId = an identifier for the type of view.
+
+So the IRIs for the point cloud described above could be:
+
+For Features: `/collections/mycollection/items`
+ 
+For coverages: `/collections/mycollection/coverage`
+
+For Maps: `/collections/mycollection/maps`
+
+The view identifiers are maintained as a controlled vocabulary by the OGC.
+
