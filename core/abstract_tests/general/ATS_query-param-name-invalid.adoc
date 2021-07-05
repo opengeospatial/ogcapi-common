@@ -1,9 +1,9 @@
-[[ats_core_query-param-invalid]]
+[[ats_core_query-param-name-invalid]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-invalid* 
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-name-invalid* 
 ^|Test Purpose |Validate that an error is returned when a query parameter contains a value that is not valid for that parameter.
-^|Requirement |<<req_core_query-param-invalid,/req/core/query-param-invalid>>
+^|Requirement |<<req_core_query-param-name-invalid,/req/core/query-param-name-invalid>>
 ^|Test Method |DO FOR ALL query parameters advertised in the API definition +
 {nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
 {nbsp}{nbsp}{nbsp}{nbsp}1. Execute that operation using the query parameter +

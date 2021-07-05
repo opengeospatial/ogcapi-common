@@ -1,9 +1,9 @@
-[[ats_core_query-param-unknown]]
+[[ats_core_query-param-name-unknown]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-unknown* 
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-name-unknown* 
 ^|Test Purpose |Validate that an error is returned when a query parameter is used that has not been specified in the API definition.
-^|Requirement |<<req_core_query-param-unknown,/req/core/query-param-unknown>>
+^|Requirement |<<req_core_query-param-name-unknown,/req/core/query-param-name-unknown>>
 ^|Test Method |DO FOR ALL operations advertised in the API definition +
 {nbsp}{nbsp}1. Execute that operation using a query parameter that is not specified in the API definition. +
 {nbsp}{nbsp}2. Validate that the operation returns a reponse with the status code `400`. +

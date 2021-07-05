@@ -1,8 +1,8 @@
-[[per_core-query-param-tolerance]]
+[[per_core-query-param-name-tolerance]]
 [width="90%",cols="2,6a"]
 |===
-^|*Permission {counter:per-id}* |*/per/core/query-param-tolerance*
-^|A |Servers MAY display tolerance for requests with incorrect query parameters. These acts of tolerance include:  
+^|*Permission {counter:per-id}* |*/per/core/query-param-name-tolerance*
+^|A |Servers MAY display tolerance for requests with incorrect query parameter names. These acts of tolerance include:  
 
 *   accept alternate capitalizations, spellings, and/or aliases of parameters,
 *   ignore unknown/unrecognized parameters,

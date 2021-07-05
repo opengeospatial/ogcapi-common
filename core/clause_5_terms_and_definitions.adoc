@@ -1,12 +1,23 @@
 [[terms_and_definitions]]
 == Terms and Definitions
-This document uses the terms defined in Sub-clause 5.3 of https://portal.opengeospatial.org/files/?artifact_id=38867[OGC Web Services Common] (OGC 06-121r9), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
+This document used the terms defined in https://portal.ogc.org/public_ogc/directives/directives.php[OGC Policy Directive 49], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.
+
+This document also uses terms defined in the OGC Standard for Modular specifications https://portal.opengeospatial.org/files/?artifact_id=34762[(OGC 08-131r3)], also known as the 'ModSpec'. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.
 
 For the purposes of this document, the following additional terms and definitions apply.
 
+[[kebab-case-definition]]
+* *Kebab case* +
+A case style where punctuation is removed and spaces are replaced by single hyphens. All letters are in lower case when used in OGC documentation. (https://en.wikipedia.org/wiki/Letter_case[Wikipedia] 
+
 [[landing-page-definition]]
 * *Landing Page* +
-This is the root resource of an API. It serves as the root node of the API Resource tree and provides the information needed to navigate all of the resources exposed through the API.
+any page whose primary purpose is to contain a description of something else. (https://www.w3.org/TR/urls-in-data/)[W3C, URLs in Data Primer] +
++
+|===
+|*NOTE 1:*| Landing pages often provide summaries or additional information about the thing that they describe. Examples are landing pages for images on Flickr or videos on YouTube, which are HTML pages that embed the media that they describe and provide access to comments and other metadata about it. Landing pages for documents are often tables of contents or abstracts.
+|*NOTE 2:*| A landing page for a Web API serves as the root node of the API Resource tree and provides the information needed to navigate all the resources exposed through the API.
+|===
 
 [[representation-definition]]
 * *Representation* +
@@ -19,7 +30,11 @@ the current or intended state of a <<resource-definition,resource>> encoded for 
 
 [[resource-type-definition]]
 * *Resource Type* +
-the definition of a type of <<resource-definition,resource>>. Resource types are re-usable components that are independent of where the resource resides in the API.  
+a type of <<resource-definition,resource>>.  +
++
+|===
+|*NOTE:*| Resource types are re-usable components that are independent of where the resource resides in the API." 
+|===
 
 [[uri-definition]]
 * *Uniform Resource Identifier (URI)* +

@@ -28,7 +28,7 @@ The normative provisions in this draft standard are denoted by the URI `http://w
 
 <<resource-definition,Resources>> described in this document are denoted by partial URIs that are relative to the `root` node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the `url` field of the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object[Server Object]. In this document the tag `{root}` designates the root node of a URI.
 
-The partial URIs used to identify <<resource-definition,Resources>> in this document are refered to as the resource `path`. The purpose of a resource `path` is to identify the referenced resource [underline]##within the context of this standard##. Implementors are encouraged to use these partial URIs in their implementations, thereby providing a common look and feel to OGC APIs.
+The partial URIs used to identify <<resource-definition,Resources>> in this document are refered to as the resource `path`. The purpose of a resource `path` is to identify the referenced resource [underline]##within the context of this standard##. Implementers are encouraged to use these partial URIs in their implementations, thereby providing a common look and feel to OGC APIs.
 
 This standard defines <<resource-definition,Resources>>, which may appear in more than one place in the API. These <<resource-type-definition,Resource Types>> are identified by name rather than by URI. 
 
@@ -86,7 +86,7 @@ OGC                {root}            path            parameters
 
 This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rc2616,HTTP>> and <<rc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
 
-NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (ex. image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementors should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
+NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (ex. image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementers should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
 
 Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#identifiers-section[OGC API - Common Users Guide]. 
 
@@ -142,7 +142,7 @@ Additional information on the use of link relationships is provided in the link:
 
 For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
 
-OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementors should be aware that optional capabilities that are not in common use could be an impediment to interoperability.
+OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities that are not in common use could be an impediment to interoperability.
 
 [[api-definition-conventions]]
 === API definition

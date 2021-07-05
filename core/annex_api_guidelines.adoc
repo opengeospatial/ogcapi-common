@@ -17,7 +17,7 @@ OGC Web API Common defines stylistic conventions for query parameters, query val
 |6 |*Put selection criteria behind the ‘?’* |<<identifier-conventions,Section 6.1>> of this Standard defines the conventions to be used when creating URIs for OGC Web API standards. This includes the use of the "?" to deliminate query parameters from the rest of the URI. +
 Note that this does not preclude the use of resource identifiers (ex. collection identifiers) as part of the path. However those can be considered identifying criteria rather than selection criteria.
 |7 |*Error handling and use of HTTP status codes* |This standard identifies the applicable HTTP status codes and under what conditions they should be returned. Status codes and supporting information are returned in the HTTP response using a reporting structure based on RFC 7807.
-|8 |*Use explicit list of HTTP status codes* |<<http-status-codes>> provides a list of the HTTP status codes that implementors of this standard should be prepared to generate and accept. This list is not exhaustive (see guideline #1).
+|8 |*Use explicit list of HTTP status codes* |<<http-status-codes>> provides a list of the HTTP status codes that implementers of this standard should be prepared to generate and accept. This list is not exhaustive (see guideline #1).
 |9 |*Use of HTTP header* |OGC API Common does not preclude use of HTTP headers where it is appropriate to do so. +
 Only standard HTTP headers are used. +
 Due to the common use of the HATEOAS pattern in OGC Web APIs, HTTP headers are not always accessible. The use of query parameter overrides is allowed.

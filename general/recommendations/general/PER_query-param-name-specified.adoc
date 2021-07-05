@@ -1,7 +1,7 @@
-[[per_core-query-param-specified]]
+[[per_core-query-param-name-specified]]
 [width="90%",cols="2,6a"]
 |===
-^|*Permission {counter:per-id}* |*/per/core/query-param-specified*
+^|*Permission {counter:per-id}* |*/per/core/query-param-name-specified*
 ^|A |The specification of a query parameter in the API definition MAY encompass a [underline]#range# of parameter names. Any query parameter that falls within the specified range can be considered "specified" in the API definition.
 
 Examples of a parameter range include:

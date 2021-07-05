@@ -86,7 +86,7 @@ See <<http-status-codes>> for general guidance.
 [[conformance-classes]]
 ==== Declaration of Conformance Classes
 
-The OGC Web API Standards define a collection of modules that can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementors have a choice on the modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, a declaration of the Conformance Classes.
+The OGC Web API Standards define a collection of modules that can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementers have a choice on the modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, a declaration of the Conformance Classes.
 
 The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URL is all that should be required. Therefore, the path to the Conformance Declaration is fixed.
 
