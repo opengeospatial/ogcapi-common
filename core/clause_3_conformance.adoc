@@ -1,21 +1,21 @@
 == Conformance
-Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the OGC Compliance Testing web site.
+Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the https://cite.opengeospatial.org/teamengine/[OGC Compliance Testing web site].
 
-This standard addresses one Standardization Target; <<webapi-definition,Web APIs>>
+This standard addresses one Standardization Target: <<webapi-definition,Web APIs>>
 
-OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included or referenced in the Abstract Test Suite in each standard that implements conformance classes defined in this standard.
+OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. The assumption is that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included or referenced in the Abstract Test Suite (ATS) in each standard that implements conformance classes defined in this standard.
 
-This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
+This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the implementation instance of the API's landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
 === Core Requirements Class
 
-The _Core Requirements Class_ provides a minimal useful service interface for an OGC Web API. The requirements specified in this requirements class are recommended for all OGC Web APIs.
+The requirements specified in the _Core Requirements Class_ provide a minimal useful service interface for an OGC Web API. The requirements specified in this requirements class are recommended for all OGC Web APIs.
 
 The Core requirements class is specified in <<rc_core-section,(Chapter 8)>> *Requirements Class Core*.
 
 === Encoding Requirements Classes
 
-The _Core_ requirements class does not mandate a specific encoding or format for representations of resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify the encoding of resource representations using:
+The _Core_ Requirements Class does not mandate a specific encoding or format for representations of resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify the encoding of resource representations using:
 
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>

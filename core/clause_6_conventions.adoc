@@ -28,9 +28,9 @@ The normative provisions in this draft standard are denoted by the URI `http://w
 
 <<resource-definition,Resources>> described in this document are denoted by partial URIs that are relative to the `root` node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the `url` field of the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object[Server Object]. In this document the tag `{root}` designates the root node of a URI.
 
-The partial URIs used to identify <<resource-definition,Resources>> in this document are refered to as the resource `path`. The purpose of a resource `path` is to identify the referenced resource [underline]##within the context of this standard##. Implementers are encouraged to use these partial URIs in their implementations, thereby providing a common look and feel to OGC APIs.
+The partial URIs used to identify <<resource-definition,Resources>> in this document are referred to as the resource `path`. The purpose of a resource `path` is to identify the referenced resource [underline]##within the context of this standard##. Implementers are encouraged to use these partial URIs in their implementations, thereby providing a common look and feel to OGC APIs.
 
-This standard defines <<resource-definition,Resources>>, which may appear in more than one place in the API. These <<resource-type-definition,Resource Types>> are identified by name rather than by URI. 
+The OGC API - Common - Part 1 Standard defines <<resource-definition,Resources>>, which may appear in more than one place in the API. These <<resource-type-definition,Resource Types>> are identified by name rather than by URI. 
 
 *Summary for Developers:*
 
@@ -64,11 +64,11 @@ The following rules should be used when interpreting the BNF for use with this s
 * `scheme` is assumed to be `HTTP` or `HTTPS` 
 * `authority` is provided by the API developer 
 * `{root}` designates the `scheme`, `authority`, and `path` to the root node of the API implementation. 
-* only the `path-absolute` and `path-rootless` patterns are used
-* parameters passed as part of an operation are encoded in the `query`. 
-* parameters passed in HTTP headers or as cookies are out of scope for this Standard.
+* Only the `path-absolute` and `path-rootless` patterns are used
+* Parameters passed as part of an operation are encoded in the `query`. 
+* Parameters passed in HTTP headers or as cookies are out of scope for this Standard.
 
-The following example shows a URI categorised according to RFC 3986 and OGC Web API standards.
+The following example shows a URI categorized according to RFC 3986 and OGC Web API standards.
 
 [#uri-components,reftext='{image-caption} {counter:image-num}']
 .Example URI and Components
@@ -140,7 +140,7 @@ Additional information on the use of link relationships is provided in the link:
 [[https-conventions]]
 === Use of HTTPS
 
-For simplicity, this document only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. It is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>>, not <<rfc2616,HTTP>>.
+For simplicity, this OGC Standard only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>> and not <<rfc2616,HTTP>>.
 
 OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities that are not in common use could be an impediment to interoperability.
 
@@ -149,15 +149,15 @@ OGC Web API standards do not prohibit the use of any valid HTTP option. However,
 
 ==== General remarks
 
-This OGC standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
+This OGC standard specifies requirements and recommendations for the development of APIs that share spatial resources while using a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
 
-So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. OpenAPI is one way to provide that machine readable documentation.
+So that client developers can more easily learn how to use the API, good documentation is essential. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. The used of OpenAPI is one way to provide that machine readable documentation.
 
 ==== Role of OpenAPI
 
-This standard uses OpenAPI 3.0 fragments in its examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.  
+This OGC API standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.  
 
-This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
+This standard includes a <<rc_oas30-section,conformance class>> for OGC API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
 ==== References to OpenAPI components in normative statements
 

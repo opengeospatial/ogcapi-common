@@ -3,7 +3,7 @@
 
 === Basic requirements
 
-APIs conforming to this requirements class document themselves by an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument[OpenAPI Document].
+APIs conforming to this requirements class are self documenting using an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#oasDocument[OpenAPI Document].
 
 include::requirements/requirements_class_oas30.adoc[]
 
@@ -21,7 +21,7 @@ include::requirements/oas30/REQ_completeness.adoc[]
 
 Note APIs that, for example, are access-controlled (see <<security,Security>>), support web cache validation, support CORS, or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http-status-codes>>.
 
-Clients have to be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors may occur in the transport layer outside of the server.
+Clients should be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors may occur in the transport layer outside of the server.
 
 [[rc_oas30-exceptions]]
 === Exceptions
@@ -50,13 +50,13 @@ OpenAPI uses two constructs to describe the security features of an API; Securit
 
 Security Requirements can be defined on following levels:
 
-* Root - applicable to the whole API unless overriden
+* Root - applicable to the whole API except when overridden by Security Requirements defined at a lower level of the API.
 * Operation - only applicable to this operation. Overrides any requirements defined at the Root level. 
 
 The OpenAPI specification currently supports the following link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#security-scheme-object[security schemes]:
 
 * HTTP authentication,
-* an API key (either as a header or as a query parameter),
+* An API key (either as a header or as a query parameter),
 * OAuth2's common flows (implicit, password, application and access code) as defined in RFC6749, and
 * OpenID Connect Discovery.
 
@@ -76,7 +76,7 @@ An example of a populated OpenAPI `Info` object is provided in the <<service-met
 
 OpenAPI defines query parameters using the `Parameter` object with the `in` property set to "query". The parameter name is a literal value provided by the `name` property. Since the parameter names are literals, each parameter must be described separately. 
 
-API-Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition. a requirement that few implemetor would accept. 
+API-Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition. a requirement that few implementers would accept. 
 
 OpenAPI provides a capability that allows additional parameters to be specified without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will still be considered "specified" for purposes of validation (see <<per_core-query-param-specified,/per/core/query-param-specified>> and <<per_core-query-param-tolerance,/per/core/query-param-tolerance>>.
 

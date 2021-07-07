@@ -1,0 +1,232 @@
+Part A to be completed once.  Iterate Part B as needed.
+
+
+PART A
+
+
+1. Evaluator:
+        Heidi Vanparys, hevan@sdfe.dk
+
+2. Submission: OGC 19-072, OGC API - Common - Part 1: Core
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: General
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: correct the typos as proposed in https://github.com/opengeospatial/ogcapi-common/pull/236
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: General
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: copied from https://github.com/opengeospatial/ogcapi-common/issues/237
+
+A few editorial remarks on the reference to the OpenAPI spec: what happens when a version 3.0.4 would be released? I would suggest updating the reference to use the same wording as in the OGC API – Features spec. See also https://github.com/opengeospatial/ogcapi-features/issues/339#issuecomment-594409672
+
+Note: In 10.1, it is stated that a dependency of requirements class http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30 is 
+OpenAPI Specification 3.0.**2**, that should be changed to OpenAPI Specification 3.0 (as the URI and the media type also indicate).
+
+And perhaps example 4, JSON API Definition, should also be updated, in order to reflect that the latest patch version at the time of publication of the standard was 3.0.3 and not 3.0.2.
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: 5. Terms and Definitions
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/238
+
+Editorial comment: change the boiler-plate text in the "Terms and definitions" to the text from https://github.com/opengeospatial/templates/blob/master/standard_template/standard/clause_4_terms_and_definitions.adoc.
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: 5. Terms and Definitions
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/239
+W3C actually has a definition for "landing page", see https://www.w3.org/TR/urls-in-data/#dfn-landing-page. So a suggestion for update:
+
+**landing page**
+page whose primary purpose is to contain a description of something else ([W3C, URLs in Data Primer](https://www.w3.org/TR/urls-in-data))
+
+Note 1 to entry: Landing pages often provide summaries or additional information about the thing that they describe. Examples are landing pages for images on Flickr or videos on YouTube, which are HTML pages that embed the media that they describe and provide access to comments and other metadata about it. Landing pages for documents are often tables of contents or abstracts.
+
+Note 2 to entry: A landing page for a Web API serves as the root node of the API Resource tree and provides the information needed to navigate all the resources exposed through the API.
+
+Depending on how much extra notes you want in the standard, you could either both of the previous notes or only the second one (the first note is copy-pasted from https://www.w3.org/TR/urls-in-data/#dfn-landing-page).
+
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: 5. Terms and Definitions
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/240
+
+I would suggest using the following instead:
+
+resource
+entity that might be identified ([Dublin Core Metadata Initiative - DCMI Metadata Terms](
+https://www.iso.org/obp/ui/#iso:std:iso:15836:-2:ed-1:v1:en:term:3.1.10))
+
+web resource
+resource that is identified by an HTTP URI
+
+I am not sure the definition of resource can be found on https://www.dublincore.org/specifications/dublin-core/dcmi-terms/ but the ISO version defines "resource" like that, see link above.
+
+Perhaps some notes can be added referring to the dissertation in the current definition, if needed. Or some of the text in https://www.rfc-editor.org/rfc/rfc3986.html on "resource".
+
+In addition: add perhaps the following reference (or similar) to the bibliography:
+[DCMI] DCMI USAGE BOARD. DCMI Metadata Terms [online]. DCMI Recommendation. Dublin Core Metadata Initiative, 20 January 2020. Available from: http://dublincore.org/documents/dcmi-terms/. This standard is also published as ISO 15836:2019, 
+Information and documentation — The Dublin Core metadata element set.
+
+Perhaps a line should be added stating that in the remainder of the document resource will be used for brevity, but web resource is of course meant.
+
+Related to https://github.com/opengeospatial/ogcapi-features/issues/558.
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: 5. Terms and Definitions
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/241
+
+
+Minor editorial comment:
+
+1. The second part of the definition of "resource type" should be moved to a note instead.
+2. "The definition of something is not the same thing as the something": "the definition" should be removed from the definition (🙂). That leaves "type of resource". Perhaps it is enough to just use a synonym? E.g. "kind of resource"? I don't think the reader will be in doubt of what is meant in this case. See also https://www.oxfordlearnersdictionaries.com/definition/english/type_1 and https://www.freethesaurus.com/type
+
+So:
+
+**resource type**
+kind of resource
+
+Note to entry: Resource types are re-usable components which are independent of where the resource resides in the API.
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: 7.1. Evolution from OGC Web Services
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/242
+
+Current the text states:
+
+> OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP architectural style using XML for payloads. This was the state-of-the-art when OGC Web Services (OWS) were originally designed in the late 1990s. [...]
+
+For people that are trying to get familiar with the old suite of standards and/or the new suite of standards and try to understand the difference between the architectural styles, it is a bit of a jungle sometimes. I think it would be helpful to add more background information in the form of a link to another document diving deeper into that topic.
+
+I tried to find something useful, perhaps the following could do, but they may very well be more suited articles out there.
+
+Feng, Xinyang, Shen, Jianjing and Fan, Ying: REST: An alternative to RPC for Web services architecture. In: 2009 First International Conference on Future Information Networks (2009), https://doi.org/10.1109/ICFIN.2009.5339611 (also available on http://www.ece.uvic.ca/~zhengl/seng422/materials/Lab7_paper.pdf)
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: 8.1.2 HTTP Status Codes
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/243
+
+A reference to [RFC 7231](https://www.rfc-editor.org/info/rfc7231) should be added.
+
+
+PART B
+
+
+1. Requirement: -
+
+
+2. Implementation Specification Section number: 5. Terms and Definitions
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/244
+
+a. The text of the requirement 3, A, is missing a hyphen between value and tolerance: it should be "/per/core/query-param-value-tolerance does not apply" instead of "/per/core/query-param-value tolerance does not apply".
+b. Consider using /query-param-name-unknown, /per/core/query-param-name-specified and /per/core/query-param-name-tolerance instead of /query-param-unknown, /per/core/query-param-specified and /per/core/query-param-tolerance, as the section is called "Parameter Names".
+c. Consider using /req/core/query-param-value-invalid instead of /req/core/query-param-invalid (in style with /per/core/query-param-value-tolerance) as the section is called "Parameter values".
+
+
+PART B
+
+
+1. Requirement: Recommendation 8, /rec/core/query-param-capitalization
+
+
+2. Implementation Specification Section number:
+
+
+3. Criticality: Editorial
+
+
+4. Comments/justifications for changes: Copied from https://github.com/opengeospatial/ogcapi-common/issues/245
+
+Editorial: Move the definition of kebab case to the Terms and definitions (currently in Recommendation 8).

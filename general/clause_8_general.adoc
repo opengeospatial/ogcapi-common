@@ -1,7 +1,7 @@
 [[general-requirements-section]]
 === General Requirements
 
-The following requirements and recommentations are applicable to all OGC Web APIs.
+The following requirements and recommendations are applicable to all OGC Web APIs.
 
 [[http-protocol]]
 ==== HTTP 1.1
@@ -39,7 +39,7 @@ The return status codes described in <<status-codes>> do not cover all possible 
 
 include::recommendations/general/PER_additional-status-codes.adoc[]
 
-When a server encounters an error in the processing of a request, it may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be prefered. <<rfc7807,IETF RFC 7807>> addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+When a server encounters an error in the processing of a request, the server may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. <<rfc7807,IETF RFC 7807>> addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
 include::recommendations/general/REC_problem-details.adoc[]
 
@@ -52,7 +52,7 @@ include::requirements/general/REQ_query-param-name-unknown.adoc[]
 
 The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the ability of the API server to tolerate errors. 
 
-A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement for it to list every endpoint for which there is a non-404 behaviour, for it to list every possible query parameter that might affect the behaviour of an endpoint, or for it to list every possible value that each query parameter might accept.
+A service implementer should endeavor to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement for the API definition to list every endpoint for which there is a non-404 behavior, for it to list every possible query parameter that might affect the behavior of an endpoint, or for it to list every possible value that each query parameter might accept.
 
 include::recommendations/general/PER_query-param-name-specified.adoc[]
 
@@ -71,7 +71,7 @@ include::recommendations/general/PER_query-param-value-tolerance.adoc[]
 [[web-caching-section]]
 ==== Web Caching
 
-Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc7232,HTTP/1.1 (RFC 7232)>>.
+Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc7232,HTTP 1.1 (RFC 7232)>>.
 
 include::recommendations/general/REC_etag.adoc[]
 
@@ -105,7 +105,7 @@ A Web API provides access to <<resource-definition,resources>> through <<represe
 
 Additional content negotiation techniques are allowed, but support is not required of implementations conformant to this Standard.
 
-While this standard does not specify any mandatory encoding, the following encodings are recommended:
+While this Standard does not specify any mandatory encoding, the following encodings are recommended:
 
 [[rec_html]]
 HTML encoding recommendation:
@@ -119,14 +119,14 @@ Requirement <<req_core_http,``/req/core/http``>> implies that the encoding of a 
 
 The section <<mediatypes-section,Media Types>> includes guidance on media types for <<rc_encoding-section,encodings>> that are specified in this document.
 
-Note that any server that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, for example, to alternate representations of the same resource. This document does not mandate any particular approach how this is supported by the server.
+Note that any server that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, such as, to alternate representations of the same resource. This Standard does not mandate any particular approach how this is supported by the server.
 
-As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, for example, to manipulate ("hack") URIs in the browser address bar, can study the API definition.
+As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, such as, to manipulating ("hacking") URIs in the browser address bar, can study the API Definition document for that server.
 
 Two common approaches are to use: 
 
-* an additional path for each encoding of each resource (this can be expressed, for example, using format specific suffixes like ".html");
-* an additional query parameter (for example, "accept" or "f") that overrides the Accept header of the HTTP request.
+* An additional path for each encoding of each resource (this can be expressed, for example, using format specific suffixes like ".html");
+* An additional query parameter (for example, "accept" or "f") that overrides the Accept header of the HTTP request.
 
 [[parameter-encoding-section]]
 ==== Parameter Encoding
@@ -147,7 +147,7 @@ In order to minimize capitalization issues for implementers of OGC Web API stand
 
 include::recommendations/general/REC_query-param-capitalization.adoc[]
 
-A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this standard.
+A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this Standard.
 
 ===== Parameter Value Lists
 
@@ -156,7 +156,7 @@ Parameters may pass more than one value. These lists of parameter values may be 
 . Repeated name:value pairs where the parameter name is repeated for each value in the list
 . A parameter name followed by a delimited list of values.
 
-The folowing requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is used.
+The following requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is used.
 
 include::requirements/general/REQ_query-param-list-delimiter.adoc[]
 
@@ -168,7 +168,7 @@ Thus, two successive commas indicates an empty item, as does a leading comma or 
 
 ===== Numeric and Boolean Values
 
-Geospatial is a mathematical discipline. The clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
+The Geospatial field is a mathematical discipline. A clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and Boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
 
 Boolean values conform to the following requirement.
 

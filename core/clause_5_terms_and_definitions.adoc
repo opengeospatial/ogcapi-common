@@ -8,12 +8,13 @@ For the purposes of this document, the following additional terms and definition
 
 [[kebab-case-definition]]
 * *Kebab case* +
-A case style where punctuation is removed and spaces are replaced by single hyphens. All letters are in lower case when used in OGC documentation. (https://en.wikipedia.org/wiki/Letter_case[Wikipedia] 
+A case style where punctuation is removed and spaces are replaced by single hyphens. All letters are in lower case when used in OGC documentation. (https://en.wikipedia.org/wiki/Letter_case[Wikipedia]) 
 
 [[landing-page-definition]]
 * *Landing Page* +
-any page whose primary purpose is to contain a description of something else. (https://www.w3.org/TR/urls-in-data/)[W3C, URLs in Data Primer] +
+Any page whose primary purpose is to contain a description of something else. (https://www.w3.org/TR/urls-in-data/[W3C, URLs in Data Primer]) +
 +
+[width="90%",cols="1,10"]
 |===
 |*NOTE 1:*| Landing pages often provide summaries or additional information about the thing that they describe. Examples are landing pages for images on Flickr or videos on YouTube, which are HTML pages that embed the media that they describe and provide access to comments and other metadata about it. Landing pages for documents are often tables of contents or abstracts.
 |*NOTE 2:*| A landing page for a Web API serves as the root node of the API Resource tree and provides the information needed to navigate all the resources exposed through the API.
