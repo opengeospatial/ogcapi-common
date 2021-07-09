@@ -19,7 +19,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   2021-06-20
+|Publication Date:   2021-07-09
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/IS/ogcapi-common-2/1.0
 |Internal reference number of this OGC(R) document:    20-024
 |Version: 0.0.1
@@ -91,11 +91,13 @@ include::clause_7_overview.adoc[]
 
 include::clause_8_collections.adoc[]
 
-include::clause_9_encodings.adoc[]
+include::clause_9_simple_query.adoc[]
 
-include::clause_10_media_types.adoc[]
+include::clause_10_encodings.adoc[]
 
-include::clause_11_security_considerations.adoc[]
+include::clause_11_media_types.adoc[]
+
+include::clause_12_security_considerations.adoc[]
 
 include::annex_ats.adoc[]
 

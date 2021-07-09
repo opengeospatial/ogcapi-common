@@ -1,0 +1,6 @@
+[[req_collections_rc-subset-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-subset-response* 
+^|A|If the number of items in the `collections` element is less than the number available through the API, then the `numberMatched` and `numberReurned` properties SHALL be included in the Collections response.
+|===
