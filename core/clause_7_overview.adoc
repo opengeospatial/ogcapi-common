@@ -18,7 +18,7 @@ The OGC API - Common - Part 1: Core Standard defines the resources and access me
 
 OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP architectural style using XML for payloads. This was the state-of-the-art when OGC Web Services (OWS) were originally designed in the late 1990s and early 2000s. However, technology has evolved. New Resource-Oriented APIs provide an alternative to Service-Oriented Web Services. New OGC Web API standards are under development to provide API alternatives to the OWS standards.
 
-The OGC API - Common suite of standards specify common modules for defining OGC Web API standards that follow the current Web architecture. In particular, the recommendations as defined in the <<SDWBP,W3C/OGC best practices for sharing Spatial Data on the Web>> as well as the <<DWBP,W3C best practices for sharing Data on the Web>>.
+The OGC API - Common Standard specifies common modules for defining OGC Web API standards that follow the current Web architecture. In particular, the recommendations as defined in the <<SDWBP,W3C/OGC best practices for sharing Spatial Data on the Web>> as well as the <<DWBP,W3C best practices for sharing Data on the Web>>.
 
 A detailed discussion of OGC Web Services and Web APIs can be found in the http://docs.opengeospatial.org/DRAFTS/20-071.html#ug-evolution-from-web-services[OGC API Common Users Guide].
 
@@ -30,7 +30,7 @@ A goal of OGC API standards is to provide rapid and easy access to spatial resou
 The OGC Modular Web API approach has several facets:
 
 * A common `core` that is recommended for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard provides the information needed by a client to understand and use an OGC Web API.
-* Clear separation between common requirements and more resource specific capabilities. The OGC API - Common suite of standards specify the _common_ requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.
+* Clear separation between common requirements and more resource specific capabilities. The OGC API - Common Standard specifies the _common_ requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.
 * Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
 * Modularization is not just about a single "service". OGC APIs provide building blocks that can be reused in APIs in general. In other words, a server supporting the OGC-Feature API should not be seen as a standalone service.  Rather, this server should be viewed as a collection of API building blocks that together implement API-Feature capabilities. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from the Feature, Coverage, and other current or future OGC Web API standards.
 

@@ -2,7 +2,7 @@
 
 [big]*i.     Abstract*
 
-The OGC has extended their suite of standards to include  https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common suite of standards. API-Common specifies reusable building-blocks. Developers of OGC standards will use these building-blocks in the construction of OGC Web API Standards. The goal is a modular suite of coherent OGC Web API standards that can be adapted by a system designer to meet the unique requirements of their system.
+The OGC has extended their suite of standards to include  https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common Standard. API-Common specifies reusable building-blocks. Developers of OGC standards will use these building-blocks in the construction of OGC Web API Standards. The goal is a modular suite of coherent OGC Web API standards that can be adapted by a system designer to meet the unique requirements of their system.
 
 The OGC API - Common - Part 1: Core Standard defines the resources and access mechanisms that are useful for a client seeking to understand the offerings and capabilities of an OGC API. These resources and their access mechanisms are described in <<cr-table>>. 
 
