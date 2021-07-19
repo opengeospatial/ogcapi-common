@@ -1,5 +1,7 @@
 [[terms_and_definitions]]
-== Terms and Definitions
+== Terms, Definitions and Abbreviated Terms
+
+=== Terms and Definitions
 This document uses the terms defined in Sub-clause 5 of <<apicore,OGC API - Common - Part 1: Core>> (OGC 19-072), which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word "shall" (not "must") is the verb form used to indicate a requirement to be strictly followed to conform to this standard.
 
 For the purposes of this document, the following additional terms and definitions apply.
@@ -104,5 +106,30 @@ API using an architectural style that is founded on the technologies of the Web.
 
 [[web-resource-definition]]
 * *Web Resource* +
-a <<resource-definition>> resource that is identified by an IRI.
+a <<resource-definition,resource>> that is identified by an IRI.
+
+=== Abbreviated terms
+
+API::
+    Application Programming Interface
+CORS::
+    Cross-Origin Resource Sharing
+CRS::
+    Coordinate Reference System
+HTTP::
+    Hypertext Transfer Protocol
+HTTPS::
+    Hypertext Transfer Protocol Secure
+IANA::
+    Internet Assigned Numbers Authority
+IRI::
+    Internationalized Resource Identifier
+OGC::
+    Open Geospatial Consortium
+TRS::
+    Temporal Coordinate Reference System
+URI::
+    Uniform Resource Identifier
+YAML::
+    YAML Ain’t Markup Language
 
