@@ -10,6 +10,10 @@ OGC Web APIs are not a Web Services in the traditional sense. Rather, they defin
 
 include::abstract_tests/ATS_class_core.adoc[]
 
+=== Conformance Class Landing Page
+
+include::abstract_tests/ATS_class_landing-page.adoc[]
+
 === Conformance Class JSON
 
 include::abstract_tests/ATS_class_json.adoc[]

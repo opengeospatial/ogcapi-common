@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-07-16</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-07-20</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -611,41 +611,52 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#collection-description">8.1.2. Resource Collection</a></li>
 </ul>
 </li>
-<li><a href="#general-requirements-section">8.2. General Requirements</a>
-<ul class="sectlevel3">
-<li><a href="#http-protocol">8.2.1. HTTP 1.1</a></li>
-<li><a href="#http-status-codes">8.2.2. HTTP Status Codes</a></li>
-<li><a href="#query-parameter-requirements">8.2.3. Query parameters</a></li>
-<li><a href="#web-caching-section">8.2.4. Web Caching</a></li>
-<li><a href="#cross-origin-section">8.2.5. Support for Cross-Origin Requests</a></li>
-<li><a href="#string-internationalization-section">8.2.6. String Internationalization</a></li>
-<li><a href="#resource-encoding-section">8.2.7. Resource Encodings</a></li>
-<li><a href="#parameter-encoding-section">8.2.8. Parameter Encoding</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#rc-simple-query-section">9. Requirements Class "Simple Query"</a>
+<li><a href="#rc_core-section">9. Core Requirements Class</a>
 <ul class="sectlevel2">
-<li><a href="#parameter-requirements">9.1. Parameter Requirements</a>
+<li><a href="#http-protocol">9.1. HTTP 1.1</a></li>
+<li><a href="#http-status-codes">9.2. HTTP Status Codes</a></li>
+<li><a href="#query-parameter-requirements">9.3. Query parameters</a>
 <ul class="sectlevel3">
-<li><a href="#bbox-parameter-requirements">9.1.1. Parameter bbox</a></li>
-<li><a href="#datetime-parameter-requirements">9.1.2. Parameter datetime</a></li>
-<li><a href="#limit-parameter-requirements">9.1.3. Parameter limit</a></li>
+<li><a href="#_parameter_names">9.3.1. Parameter Names</a></li>
+<li><a href="#_parameter_values">9.3.2. Parameter Values</a></li>
 </ul>
 </li>
-<li><a href="#target-resource-requirements">9.2. Target Resource Requirements</a></li>
+<li><a href="#web-caching-section">9.4. Web Caching</a></li>
+<li><a href="#cross-origin-section">9.5. Support for Cross-Origin Requests</a></li>
+<li><a href="#string-internationalization-section">9.6. String Internationalization</a></li>
+<li><a href="#resource-encoding-section">9.7. Resource Encodings</a></li>
+<li><a href="#parameter-encoding-section">9.8. Parameter Encoding</a>
+<ul class="sectlevel3">
+<li><a href="#_capitalization">9.8.1. Capitalization</a></li>
+<li><a href="#_parameter_value_lists">9.8.2. Parameter Value Lists</a></li>
+<li><a href="#_numeric_and_boolean_values">9.8.3. Numeric and Boolean Values</a></li>
 </ul>
 </li>
-<li><a href="#rc_encoding-section">10. Encoding Requirements Classes</a>
+</ul>
+</li>
+<li><a href="#rc-simple-query-section">10. Requirements Class "Simple Query"</a>
 <ul class="sectlevel2">
-<li><a href="#_overview">10.1. Overview</a></li>
-<li><a href="#rc_html-section">10.2. Requirement Class "HTML"</a></li>
-<li><a href="#rc_json-section">10.3. Requirement Class "JSON"</a></li>
+<li><a href="#parameter-requirements">10.1. Parameter Requirements</a>
+<ul class="sectlevel3">
+<li><a href="#bbox-parameter-requirements">10.1.1. Parameter bbox</a></li>
+<li><a href="#datetime-parameter-requirements">10.1.2. Parameter datetime</a></li>
+<li><a href="#limit-parameter-requirements">10.1.3. Parameter limit</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">11. Media Types</a></li>
-<li><a href="#_security_considerations">12. Security Considerations</a></li>
+<li><a href="#target-resource-requirements">10.2. Target Resource Requirements</a></li>
+</ul>
+</li>
+<li><a href="#rc_encoding-section">11. Encoding Requirements Classes</a>
+<ul class="sectlevel2">
+<li><a href="#_overview">11.1. Overview</a></li>
+<li><a href="#rc_html-section">11.2. Requirement Class "HTML"</a></li>
+<li><a href="#rc_json-section">11.3. Requirement Class "JSON"</a></li>
+</ul>
+</li>
+<li><a href="#mediatypes">12. Media Types</a></li>
+<li><a href="#_security_considerations">13. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
@@ -2332,13 +2343,46 @@ This requirement does not preclude server imposed limits on the size of a respon
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="general-requirements-section"><a class="anchor" href="#general-requirements-section"></a>8.2. General Requirements</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rc_core-section"><a class="anchor" href="#rc_core-section"></a>9. Core Requirements Class</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The following requirements and recommendations are applicable to all OGC Web APIs.</p>
 </div>
-<div class="sect3">
-<h4 id="http-protocol"><a class="anchor" href="#http-protocol"></a>8.2.1. HTTP 1.1</h4>
+<table id="rc_core" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2616">RFC 2616 (HTTP/1.1)</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2818">RFC 2818 (HTTP over TLS)</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc8288">RFC 8288 (Web Linking)</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="http-protocol"><a class="anchor" href="#http-protocol"></a>9.1. HTTP 1.1</h3>
 <div class="paragraph">
 <p>The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.</p>
 </div>
@@ -2369,8 +2413,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>8.2.2. HTTP Status Codes</h4>
+<div class="sect2">
+<h3 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>9.2. HTTP Status Codes</h3>
 <div class="paragraph">
 <p><a href="#status-codes">Table 4</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
 </div>
@@ -2485,10 +2529,10 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>9.3. Query parameters</h3>
 <div class="sect3">
-<h4 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>8.2.3. Query parameters</h4>
-<div class="sect4">
-<h5 id="_parameter_names"><a class="anchor" href="#_parameter_names"></a>Parameter Names</h5>
+<h4 id="_parameter_names"><a class="anchor" href="#_parameter_names"></a>9.3.1. Parameter Names</h4>
 <table id="req_core_query-param-name-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2504,7 +2548,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL respond with a response with the status code <code>400</code>, IF</p>
+<p>The server SHALL respond with a response with the status code <code>400</code> IF</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2620,8 +2664,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tbody>
 </table>
 </div>
-<div class="sect4">
-<h5 id="_parameter_values"><a class="anchor" href="#_parameter_values"></a>Parameter Values</h5>
+<div class="sect3">
+<h4 id="_parameter_values"><a class="anchor" href="#_parameter_values"></a>9.3.2. Parameter Values</h4>
 <table id="req_core_query-param-value-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2637,7 +2681,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL respond with a response with the status code <code>400</code>, IF</p>
+<p>The server SHALL respond with a response with the status code <code>400</code> IF</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2696,8 +2740,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="web-caching-section"><a class="anchor" href="#web-caching-section"></a>8.2.4. Web Caching</h4>
+<div class="sect2">
+<h3 id="web-caching-section"><a class="anchor" href="#web-caching-section"></a>9.4. Web Caching</h3>
 <div class="paragraph">
 <p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc7232">HTTP 1.1 (RFC 7232)</a>.</p>
 </div>
@@ -2722,8 +2766,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="cross-origin-section"><a class="anchor" href="#cross-origin-section"></a>8.2.5. Support for Cross-Origin Requests</h4>
+<div class="sect2">
+<h3 id="cross-origin-section"><a class="anchor" href="#cross-origin-section"></a>9.5. Support for Cross-Origin Requests</h3>
 <div class="paragraph">
 <p>If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.</p>
 </div>
@@ -2761,8 +2805,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="string-internationalization-section"><a class="anchor" href="#string-internationalization-section"></a>8.2.6. String Internationalization</h4>
+<div class="sect2">
+<h3 id="string-internationalization-section"><a class="anchor" href="#string-internationalization-section"></a>9.6. String Internationalization</h3>
 <div class="paragraph">
 <p>If the server supports representing resources in multiple languages, the usual HTTP content negotiation mechanisms apply. The client states its language preferences in the <code>Accept-Language</code> header of a request and the server responds with responses that have linguistic text in the language that best matches the requested languages and the capabilities of the server.</p>
 </div>
@@ -2793,8 +2837,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 <p>The <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml">link object</a> based on <a href="#rfc8288">RFC 8288 (Web Linking)</a> includes a <code>hreflang</code> attribute that can be used to state the language of the referenced resource. This can be used to include links to the same data in, for example, English or French. Just like with <a href="#resource-encoding-section">multiple encodings</a>, a server that wants to use language-specific links will have to support a mechanism to mint language-specific URIs for resources in order to express links to, for example, the same resource in another language. Again, this document does not mandate any particular approach how such a capability is supported by the server.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="resource-encoding-section"><a class="anchor" href="#resource-encoding-section"></a>8.2.7. Resource Encodings</h4>
+<div class="sect2">
+<h3 id="resource-encoding-section"><a class="anchor" href="#resource-encoding-section"></a>9.7. Resource Encodings</h3>
 <div class="paragraph">
 <p>A Web API provides access to <a href="#resource-definition">resources</a> through <a href="#representation-definition">representations</a> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate the encoding format to use through the content negotiation process defined in <a href="#rfc7231">IETF RFC 7231</a>.</p>
 </div>
@@ -2876,8 +2920,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="parameter-encoding-section"><a class="anchor" href="#parameter-encoding-section"></a>8.2.8. Parameter Encoding</h4>
+<div class="sect2">
+<h3 id="parameter-encoding-section"><a class="anchor" href="#parameter-encoding-section"></a>9.8. Parameter Encoding</h3>
 <div class="paragraph">
 <p>The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request.</p>
 </div>
@@ -2887,8 +2931,8 @@ This requirement does not preclude server imposed limits on the size of a respon
 <div class="paragraph">
 <p>The Backus-Naur Form (BNF) definition of a URI is provided in <a href="#uri-bnf-annex">Annex F</a>.</p>
 </div>
-<div class="sect4">
-<h5 id="_capitalization"><a class="anchor" href="#_capitalization"></a>Capitalization</h5>
+<div class="sect3">
+<h4 id="_capitalization"><a class="anchor" href="#_capitalization"></a>9.8.1. Capitalization</h4>
 <div class="paragraph">
 <p><a href="#rfc3986">IETF RFC 3986</a> sections 6.2.2.1 and 2.1 provide the requirements for capitalization in URIs.</p>
 </div>
@@ -2953,8 +2997,8 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this Standard.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_parameter_value_lists"><a class="anchor" href="#_parameter_value_lists"></a>Parameter Value Lists</h5>
+<div class="sect3">
+<h4 id="_parameter_value_lists"><a class="anchor" href="#_parameter_value_lists"></a>9.8.2. Parameter Value Lists</h4>
 <div class="paragraph">
 <p>Parameters may pass more than one value. These lists of parameter values may be passed in two ways.</p>
 </div>
@@ -3041,8 +3085,8 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_numeric_and_boolean_values"><a class="anchor" href="#_numeric_and_boolean_values"></a>Numeric and Boolean Values</h5>
+<div class="sect3">
+<h4 id="_numeric_and_boolean_values"><a class="anchor" href="#_numeric_and_boolean_values"></a>9.8.3. Numeric and Boolean Values</h4>
 <div class="paragraph">
 <p>The Geospatial field is a mathematical discipline. A clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and Boolean primitives when included in a URI. These rules are based on the computer science basic data types identified by <a href="#k-and-r-1978">Kernighan and Ritchie</a>.</p>
 </div>
@@ -3208,9 +3252,8 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="rc-simple-query-section"><a class="anchor" href="#rc-simple-query-section"></a>9. Requirements Class "Simple Query"</h2>
+<h2 id="rc-simple-query-section"><a class="anchor" href="#rc-simple-query-section"></a>10. Requirements Class "Simple Query"</h2>
 <div class="sectionbody">
 <table id="rc_simple_query" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3266,7 +3309,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>This Requirements Class describes the resources and operations used to discover and query resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <a href="#views-introduction">Views Section</a>).</p>
 </div>
 <div class="sect2">
-<h3 id="parameter-requirements"><a class="anchor" href="#parameter-requirements"></a>9.1. Parameter Requirements</h3>
+<h3 id="parameter-requirements"><a class="anchor" href="#parameter-requirements"></a>10.1. Parameter Requirements</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">NOTE</dt>
@@ -3298,7 +3341,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should document their supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="bbox-parameter-requirements"><a class="anchor" href="#bbox-parameter-requirements"></a>9.1.1. Parameter bbox</h4>
+<h4 id="bbox-parameter-requirements"><a class="anchor" href="#bbox-parameter-requirements"></a>10.1.1. Parameter bbox</h4>
 <div class="paragraph">
 <p>The <code>bbox</code> parameter is used to select resources based on the geospatial footprint or extent.</p>
 </div>
@@ -3446,7 +3489,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="datetime-parameter-requirements"><a class="anchor" href="#datetime-parameter-requirements"></a>9.1.2. Parameter datetime</h4>
+<h4 id="datetime-parameter-requirements"><a class="anchor" href="#datetime-parameter-requirements"></a>10.1.2. Parameter datetime</h4>
 <div class="paragraph">
 <p>The <code>datetime</code> parameter selects resources based on their temporal extent. The definition of temporal extent is specific to the resource type being filtered.</p>
 </div>
@@ -3608,7 +3651,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="limit-parameter-requirements"><a class="anchor" href="#limit-parameter-requirements"></a>9.1.3. Parameter limit</h4>
+<h4 id="limit-parameter-requirements"><a class="anchor" href="#limit-parameter-requirements"></a>10.1.3. Parameter limit</h4>
 <div class="paragraph">
 <p>The <code>limit</code> parameter limits the number of resources that can be returned in a single response.</p>
 </div>
@@ -3832,7 +3875,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="target-resource-requirements"><a class="anchor" href="#target-resource-requirements"></a>9.2. Target Resource Requirements</h3>
+<h3 id="target-resource-requirements"><a class="anchor" href="#target-resource-requirements"></a>10.2. Target Resource Requirements</h3>
 <div class="paragraph">
 <p>The target of the parameters defined in this conformance class is the <a href="#collection-description">Collection</a> resource described in the <a href="#rc-collections-section">Collections</a> Requirements Class. The purpose of these parameters is to select a subset of <a href="#collection-description">Collection</a> resources to be included in the response to a <a href="#collections-metadata">/collections</a> request.</p>
 </div>
@@ -4052,10 +4095,10 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>10. Encoding Requirements Classes</h2>
+<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>11. Encoding Requirements Classes</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_overview"><a class="anchor" href="#_overview"></a>10.1. Overview</h3>
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>11.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
@@ -4074,7 +4117,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>10.2. Requirement Class "HTML"</h3>
+<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>11.2. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>Geographic information that is only accessible in formats like GeoJSON or GML has two issues:</p>
 </div>
@@ -4197,7 +4240,7 @@ explode: false</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>10.3. Requirement Class "JSON"</h3>
+<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>11.3. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>JSON is a text syntax that facilitates structured data interchange between programming languages. It commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.</p>
 </div>
@@ -4287,7 +4330,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>12. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JSON media types that would typically be supported by a server that supports JSON are:</p>
@@ -4327,7 +4370,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
+<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>13. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="#OAComm">OGC API - Common - Part 1: Core</a>, Clause 11.</p>
@@ -5382,7 +5425,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-16 15:26:16 +0100
+Last updated 2021-07-20 20:55:13 +0100
 </div>
 </div>
 </body>

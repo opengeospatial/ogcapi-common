@@ -104,6 +104,8 @@ In addition, links should be passed in the response using HTTP link headers. The
 
 include::../general/recommendations/general/REC_link-header.adoc[]
 
+Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#links-section[OGC API - Common Users Guide]. 
+
 [[link-relation-conventions]]
 === Link relations
 
@@ -144,6 +146,8 @@ For simplicity, this OGC Standard only refers to the HTTP protocol. This is not 
 
 OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities that are not in common use could be an impediment to interoperability.
 
+Additional information on the use of HTTPS to secure API transactions is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#https-section[OGC API - Common Users Guide]. 
+
 [[api-definition-conventions]]
 === API definition
 
@@ -175,4 +179,6 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 ==== Reusable OpenAPI components
 
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0].
+
+Additional information on the use of OpenAPI as an API definition is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#openapi-section[OGC API - Common Users Guide]. 
 

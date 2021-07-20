@@ -1,8 +1,8 @@
-[[req_core_conformance-op]]
+[[req_landing-page_conformance-op]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/core/conformance-op* 
+^|*Requirement {counter:req-id}* |*/req/landing-page/conformance-op* 
 ^|A |The server SHALL support the HTTP GET operation on the URI `{root}/conformance`.
 ^|B |The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `http://www.opengis.net/def/rel/ogc/1.0/conformance`.
-^|C |The responses to all HTTP GET requests issued in `A` and `B` SHALL satisfy requirement <<req_core_conformance_success,/req/core/conformance-success>>.
+^|C |The responses to all HTTP GET requests issued in `A` and `B` SHALL satisfy requirement <<req_landing-page_conformance_success,/req/landing-page/conformance-success>>.
 |===

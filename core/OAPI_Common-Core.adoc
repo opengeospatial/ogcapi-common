@@ -35,7 +35,7 @@
 [cols = "^", frame = "none", grid = "none"]
 |===
 |*Copyright notice*
-|Copyright (C) 2020 Open Geospatial Consortium
+|Copyright (C) 2021 Open Geospatial Consortium
 |To obtain additional rights of use, visit http://www.opengeospatial.org/legal/
 |===
 
@@ -89,7 +89,9 @@ include::clause_6_conventions.adoc[]
 
 include::clause_7_overview.adoc[]
 
-include::clause_8_core.adoc[]
+include::../general/clause_8_general.adoc[]
+
+include::clause_8_landing-page.adoc[]
 
 include::clause_9_encodings.adoc[]
 

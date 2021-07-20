@@ -44,3 +44,6 @@ OGC API Standards are expected to support two different approaches that clients 
 In the first approach, clients are implemented with knowledge about the standard used to build the API and the associated resource types. The clients navigate the resources based on this knowledge and based on the responses provided by the API. The API definition may be used to determine details, e.g., on filter parameters, but this may not be necessary depending on the needs of the client. These are clients that are in general able to use multiple APIs as long as they implement OGC API Standards.
 
 The other approach targets developers that are not familiar with OGC API Standards but want to interact with spatial data provided by an API that happens to implement OGC API Standards. In this case the developer will study and use the API definition - typically an OpenAPI document - to understand the API and implement the code to interact with that API. This assumes familiarity with the API definition language and the related tooling, but it should not be necessary to study the OGC API standards.
+
+A more detailed discussion of navigating Web APIs can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#api-navigation[OGC API - Common Users Guide].
+

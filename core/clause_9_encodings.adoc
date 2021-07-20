@@ -8,7 +8,7 @@ This clause specifies two requirements classes for encodings that may be used by
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
-Neither of these encodings are mandatory. An implementation of the <<rc_core-section,Core>> requirements class may implement one, both, or none of them. Other encodings are possible.
+Neither of these encodings are mandatory. An implementation of the OGC API - Common Standard may implement one, both, or none of them. Other encodings are possible.
 
 [[rc_html-section]]
 === Requirement Class "HTML"

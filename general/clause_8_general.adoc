@@ -1,17 +1,19 @@
-[[general-requirements-section]]
-=== General Requirements
+[[rc_core-section]]
+== Core Requirements Class
 
 The following requirements and recommendations are applicable to all OGC Web APIs.
 
+include::requirements/requirements_class_core.adoc[]
+
 [[http-protocol]]
-==== HTTP 1.1
+=== HTTP 1.1
 
 The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.
 
 include::requirements/general/REQ_http.adoc[]
 
 [[http-status-codes]]
-==== HTTP Status Codes
+=== HTTP Status Codes
 
 <<status-codes>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
 
@@ -44,9 +46,9 @@ When a server encounters an error in the processing of a request, the server may
 include::recommendations/general/REC_problem-details.adoc[]
 
 [[query-parameter-requirements]]
-==== Query parameters
+=== Query parameters
 
-===== Parameter Names
+==== Parameter Names
 
 include::requirements/general/REQ_query-param-name-unknown.adoc[]
 
@@ -58,7 +60,7 @@ include::recommendations/general/PER_query-param-name-specified.adoc[]
 
 include::recommendations/general/PER_query-param-name-tolerance.adoc[]
 
-===== Parameter Values
+==== Parameter Values
 
 include::requirements/general/REQ_query-param-value-invalid.adoc[]
 
@@ -69,14 +71,14 @@ A service implementer should endeavour to provide as much detail in the server's
 include::recommendations/general/PER_query-param-value-tolerance.adoc[]
 
 [[web-caching-section]]
-==== Web Caching
+=== Web Caching
 
 Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <<rfc7232,HTTP 1.1 (RFC 7232)>>.
 
 include::recommendations/general/REC_etag.adoc[]
 
 [[cross-origin-section]]
-==== Support for Cross-Origin Requests
+=== Support for Cross-Origin Requests
 
 If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.
 
@@ -88,7 +90,7 @@ Two common mechanisms to support cross-origin requests are:
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
 [[string-internationalization-section]]
-====  String Internationalization
+===  String Internationalization
 
 If the server supports representing resources in multiple languages, the usual HTTP content negotiation mechanisms apply. The client states its language preferences in the ``Accept-Language`` header of a request and the server responds with responses that have linguistic text in the language that best matches the requested languages and the capabilities of the server.
 
@@ -99,7 +101,7 @@ For example, if JSON-LD is used as an encoding, the built-in capabilities to htt
 The http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml[link object] based on <<rfc8288,RFC 8288 (Web Linking)>> includes a ``hreflang`` attribute that can be used to state the language of the referenced resource. This can be used to include links to the same data in, for example, English or French. Just like with <<resource-encoding-section,multiple encodings>>, a server that wants to use language-specific links will have to support a mechanism to mint language-specific URIs for resources in order to express links to, for example, the same resource in another language. Again, this document does not mandate any particular approach how such a capability is supported by the server.
 
 [[resource-encoding-section]]
-==== Resource Encodings
+=== Resource Encodings
 
 A Web API provides access to <<resource-definition,resources>> through <<representation-definition,representations>> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate the encoding format to use through the content negotiation process defined in <<rfc7231,IETF RFC 7231>>.
 
@@ -129,7 +131,7 @@ Two common approaches are to use:
 * An additional query parameter (for example, "accept" or "f") that overrides the Accept header of the HTTP request.
 
 [[parameter-encoding-section]]
-==== Parameter Encoding
+=== Parameter Encoding
 
 The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request. 
 
@@ -137,7 +139,7 @@ OGC Web API requests are issued using a Uniform Resource Identifier (URI). The U
 
 The Backus-Naur Form (BNF) definition of a URI is provided in <<uri-bnf-annex,Annex F>>. 
 
-===== Capitalization
+==== Capitalization
 
 <<rfc3986,IETF RFC 3986>> sections 6.2.2.1 and 2.1 provide the requirements for capitalization in URIs.
 
@@ -149,7 +151,7 @@ include::recommendations/general/REC_query-param-capitalization.adoc[]
 
 A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this Standard.
 
-===== Parameter Value Lists
+==== Parameter Value Lists
 
 Parameters may pass more than one value. These lists of parameter values may be passed in two ways.
 
@@ -166,7 +168,7 @@ include::requirements/general/REQ_query-param-list-empty.adoc[]
 
 Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.
 
-===== Numeric and Boolean Values
+==== Numeric and Boolean Values
 
 The Geospatial field is a mathematical discipline. A clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and Boolean primitives when included in a URI. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
 
@@ -191,4 +193,3 @@ include::requirements/general/REQ_query-param-value-double.adoc[]
 Special values conform to the following requirement. 
 
 include::requirements/general/REQ_query-param-value-special.adoc[]
-

@@ -1,30 +1,25 @@
-[[rc_core-section]]
-== Requirement Class "Core"
+[[rc_landing-page-section]]
+== Landing Page Requirements Class
 :sectnums:
 
-include::requirements/requirements_class_core.adoc[]
+include::requirements/requirements_class_landing-page.adoc[]
 
-The Core Requirements Class of the API-Common Core Standard describes how `core` resources are accessed through an OGC conformant Web API. The requirements that make up this requirements class are grouped into two categories. <<general-requirements-section,General requirements>> are requirements that are applicable regardless of the resource being accessed. <<resource-requirements-section,Resource requirements>> are requirements that define the `core` resources and their applicable constraints. 
+The Landing Page Requirements Class of the API-Common Core Standard describes how the `Landing Page` and its associated resources are accessed through an OGC conformant Web API. 
 
-include::../general/clause_8_general.adoc[]
+The Landing Page resources are introduced in <<lp-resources-table>>. The requirements and recommendations applicable to these resources are provided in the sections below.
 
-[[resource-requirements-section]]
-=== Resource Requirements
-
-The `core` resources are introduced in <<core-resources-table>>. The requirements and recommendations applicable to these resources are provided in the sections below.
-
-[#core-resources-table,reftext='{table-caption} {counter:table-num}']
-.Common Core Resources
-[width="90%",cols="2,6",options="header"]
-|===
-^|**URI Path** ^|**Description**
-^|"/" |the <<landing-page,landing page>>
-^|"/api" |the <<api-definition,API Definition>> document for this API
-^|"/conformance" |the <<conformance-classes,conformance>> information for this API
-|===
+[#lp-resources-table,reftext='{table-caption} {counter:table-num}']
+.Landing Page Resources
+[cols="30,20,15,40",options="header"]
+!===
+^|Resource ^|URI ^|HTTP Method ^|*Description*
+|Landing page |`/` ^|GET |the <<landing-page,landing page>>
+|API definition |`/api` ^|GET |the <<api-definition,API Definition>> document for this API
+|Conformance declaration |`/conformance` ^|GET |the <<conformance-classes,conformance>> information for this API
+!===
 
 [[landing-page]]
-==== API landing page
+=== API landing page
 
 An OGC Web API has a single landing page on the `{root}` node.
 
@@ -34,11 +29,11 @@ The landing page includes three metadata elements: title, description, and attri
 
 While the three metadata elements are defined as text strings, the attribution element is special. Specifically, The attribution element can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<json-landing-page,landing page>> for an example of the use of markup in the attribution element.
 
-===== Operation
+==== Operation
 
 include::requirements/core/REQ_root-op.adoc[]
 
-===== Response
+==== Response
 
 include::requirements/core/REQ_root-success.adoc[]
 
@@ -58,33 +53,33 @@ Examples of OGC landing pages are provided in <<landing-page-examples>>.
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-===== Error Situations
+==== Error Situations
 
 See <<http-status-codes>> for general guidance.
 
 [[api-definition]]
-==== API Definition
+=== API Definition
 
 Every API implementation should provide an API Definition resource that describes capabilities provided by that API. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
 
-===== Operation
+==== Operation
 
 include::requirements/core/REQ_api-definition-op.adoc[]
 
 include::recommendations/core/REC_api-definition-op.adoc[]
 
-===== Response
+==== Response
 
 include::requirements/core/REQ_api-definition-success.adoc[]
 
 include::recommendations/core/REC_api-definition-oas.adoc[]
 
-===== Error Situations
+==== Error Situations
 
 See <<http-status-codes>> for general guidance.
 
 [[conformance-classes]]
-==== Declaration of Conformance Classes
+=== Declaration of Conformance Classes
 
 The OGC Web API Standards define a collection of modules that can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is "what are you?" In other words, what modules were used to create you? Since implementers have a choice on the modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, a declaration of the Conformance Classes.
 
@@ -92,11 +87,11 @@ The list of Conformance Classes is key to understanding and using an OGC Web API
 
 Ease of access is also supported by the structure of the Conformance Declaration resource. It is a simple list of URIs. This is a structure that requires almost no parsing and little interpretation and is designed to be accessible to even the simplest client.
 
-===== Operation
+==== Operation
 
 include::requirements/core/REQ_conformance-op.adoc[]
 
-===== Response
+==== Response
 
 include::requirements/core/REQ_conformance-success.adoc[]
 
@@ -108,6 +103,6 @@ Examples of OGC Conformance Declarations are provided in <<conformance-response-
 [source, JSON]
 include::openapi/schemas/confClasses.json[]
 
-===== Error situations
+==== Error situations
 
 See <<http-status-codes>> for general guidance.

@@ -3,29 +3,35 @@ Conformance with this standard shall be checked using the tests specified in Ann
 
 This standard addresses one Standardization Target: <<webapi-definition,Web APIs>>
 
-OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. The assumption is that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included or referenced in the Abstract Test Suite (ATS) in each standard that implements conformance classes defined in this standard.
+OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. The assumption is that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included in or referenced by the Abstract Test Suite (ATS) in each standard that implements conformance classes defined in this standard.
 
-This standard identifies four conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the implementation instance of the API's landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
+This standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the implementation instance of the API's landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
 === Core Requirements Class
 
-The requirements specified in the _Core Requirements Class_ provide a minimal useful service interface for an OGC Web API. The requirements specified in this requirements class are recommended for all OGC Web APIs.
+The requirements specified in the _Core Requirements Class_ are applicable to all OGC API standards. They assure consistent use of the HTTP protocols, provide rules for the construction of URIs, and define requirements governing the use and processing of URI query parameters. Through these requirements, OGC API-Common seeks to assure that implementations of OGC API standards will provide a predictable interface for their peers.  
 
-The Core requirements class is specified in <<rc_core-section,(Chapter 8)>> *Requirements Class Core*.
+The Core requirements class is specified in <<rc_core-section,(Chapter 8)>> *Core Requirements Class*.
+
+=== Landing Page Requirements Class
+
+The requirements specified in the _Landing Page Requirements Class_ provide a minimal useful service interface for an OGC Web API. These resources convey a basic understanding of the API and provide a starting point for further discovery. The requirements specified in this requirements class are recommended for all OGC Web APIs.
+
+The Landing Page requirements class is specified in <<rc_landing-page-section,(Chapter 9)>> *Landing Page Requirements Class*.
 
 === Encoding Requirements Classes
 
-The _Core_ Requirements Class does not mandate a specific encoding or format for representations of resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify the encoding of resource representations using:
+The OGC API - Common Standard does not mandate a specific encoding or format for representations of resources. However, both _HTML_ and _JSON_ are commonly used encodings for spatial data on the web. The _HTML_ and _JSON_ requirements classes specify the encoding of resource representations using:
 
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
 Neither of these encodings is mandatory. An implementer of the _API-Common_ standard may decide to implement another encodings instead of, or in addition to, these two.
 
-The Encoding Requirements Classes are specified in <<rc_encoding-section,(Chapter 9)>> *Encoding Requirements Classes*.
+The Encoding Requirements Classes are specified in <<rc_encoding-section,(Chapter 10)>> *Encoding Requirements Classes*.
 
 === OpenAPI 3.0 Requirements Class
 
-The _API-Common - core_ Standard does not mandate any encoding or format for the formal definition of the API. The preferred option is the OpenAPI 3.0 specification. The _OpenAPI 3.0_ requirements class has been specified for APIs implementing OpenAPI 3.0.
+The OGC API - Common Standard does not mandate any encoding or format for the formal definition of the API. The preferred option is the OpenAPI 3.0 specification. The _OpenAPI 3.0_ requirements class has been specified for APIs implementing OpenAPI 3.0.
 
-The OpenAPI 3.0 Requirements Class is specified in <<rc_oas30-section,(Chapter 10)>> *OpenAPI 3.0 Requirements Class*.
+The OpenAPI 3.0 Requirements Class is specified in <<rc_oas30-section,(Chapter 11)>> *OpenAPI 3.0 Requirements Class*.
