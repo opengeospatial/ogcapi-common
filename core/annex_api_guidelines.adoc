@@ -12,7 +12,7 @@ The following table discusses how this standard addresses the design principles 
 |3 |*Use well-known resource types* |Except where unique to a specific Conformance Class, all resources types are IANA or OGC registered types. +
 OGC Web API standards do not mandate an encoding. The encodings supported by an API are specified by the corresponding encoding Conformance Classes. All encodings used to-date are IANA registered media types.
 |4 |*Construct consistent URIs* |OGC Web APIs are built from standardized modules using standardized patterns. This modular approach assures that the URIs are consistent across OGC Web APIs. +
-OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements used to create OGC Web API URLs.
+OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements used to create OGC Web API URIs.
 |5 |*Use HTTP methods consistent with RFC 7231* |OGC web APIs are restricted to the HTTP methods defined in IETF <<rfc7231,RFC 7231>>. 
 |6 |*Put selection criteria behind the ‘?’* |<<identifier-conventions,Section 6.1>> of this Standard defines the conventions to be used when creating URIs for OGC Web API standards. This includes the use of the "?" to deliminate query parameters from the rest of the URI. +
 Note that this does not preclude the use of resource identifiers (ex. collection identifiers) as part of the path. However those can be considered identifying criteria rather than selection criteria.

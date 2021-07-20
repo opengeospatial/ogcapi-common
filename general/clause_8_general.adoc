@@ -164,11 +164,11 @@ include::requirements/general/REQ_query-param-list-escape.adoc[]
 
 include::requirements/general/REQ_query-param-list-empty.adoc[]
 
-Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list ("") can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.
+Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.
 
 ===== Numeric and Boolean Values
 
-The Geospatial field is a mathematical discipline. A clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and Boolean primitives when included in a URL. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
+The Geospatial field is a mathematical discipline. A clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and Boolean primitives when included in a URI. These rules are based on the computer science basic data types identified by <<k-and-r-1978,Kernighan and Ritchie>>.   
 
 Boolean values conform to the following requirement.
 

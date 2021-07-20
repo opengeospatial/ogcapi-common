@@ -1,5 +1,7 @@
 [[terms_and_definitions]]
-== Terms and Definitions
+== Terms, Definitions and Abbreviated Terms
+
+=== Terms and Definitions
 This document used the terms defined in https://portal.ogc.org/public_ogc/directives/directives.php[OGC Policy Directive 49], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this standard and OGC documents do not use the equivalent phrases in the ISO/IEC Directives, Part 2.
 
 This document also uses terms defined in the OGC Standard for Modular specifications https://portal.opengeospatial.org/files/?artifact_id=34762[(OGC 08-131r3)], also known as the 'ModSpec'. The definitions of terms such as standard, specification, requirement, and conformance test are provided in the ModSpec.
@@ -56,4 +58,24 @@ API using an architectural style that is founded on the technologies of the Web.
 
 [[web-resource-definition]]
 * *Web Resource* +
-a <<resource-definition,resource>> that is identified by an IRI.
+a <<resource-definition,resource>> that is identified by a URI.
+
+=== Abbreviated terms
+
+API::
+    Application Programming Interface
+CORS::
+    Cross-Origin Resource Sharing
+HTTP::
+    Hypertext Transfer Protocol
+HTTPS::
+    Hypertext Transfer Protocol Secure
+IANA::
+    Internet Assigned Numbers Authority
+OGC::
+    Open Geospatial Consortium
+URI::
+    Uniform Resource Identifier
+YAML::
+    YAML Ain’t Markup Language
+

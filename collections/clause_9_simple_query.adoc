@@ -11,7 +11,7 @@ This Requirements Class describes the resources and operations used to discover 
 
 NOTE:: The definitions and requirements in this section are not specific to any resource. They could be moved to a registry and then referenced or imported from there. 
 
-Query parameters are used in URLs to limit the resources which are returned on a GET request. The OGC API - Common - Part 2: Geospatial Data Standard defines three query parameters for use in OGC API standards:
+Query parameters are used in URIs to limit the resources which are returned on a GET request. The OGC API - Common - Part 2: Geospatial Data Standard defines three query parameters for use in OGC API standards:
 
 * <<bbox-parameter-requirements,bbox>>: Bounding Box
 * <<parameter-datetime-requirements,datetime>>: Date and Time

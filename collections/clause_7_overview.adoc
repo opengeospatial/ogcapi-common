@@ -33,7 +33,7 @@ A collection of geospatial data may be represented in more than one way.  For ex
 
 The API-Common Geodata Standard does not define any `views`. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend API-Common Geodata.
 
-The IRI for a view of a collection folows the IRI template:
+The URI for a view of a collection folows the URI template:
 
  /collections/{collectionId}/{viewId}
  
@@ -42,7 +42,7 @@ Where:
 . collectionId = an identifier for the collection
 . viewId = an identifier for the type of view.
 
-So the IRIs for the point cloud described above could be:
+So the URIs for the point cloud described above could be:
 
 For Features: `/collections/mycollection/items`
  
