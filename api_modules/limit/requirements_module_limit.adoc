@@ -1,0 +1,37 @@
+[[rm_limit]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Module*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/limit
+|Target type |Web API Query Parameter
+|===
+
+The `limit` parameter limits the number of resources that can be returned in a single response.
+
+include::./REQ_rc-limit-definition.adoc[]
+
+While the processing of the `limit` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::./REQ_rc-limit-response.adoc[]
+
+The number of resources returned depends on the server and the value of the `limit` parameter.
+
+*   The client can request a limit to the number of resources returned.
+*   The server may have a default value for the limit, and a maximum limit.
+*   If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
+
+include::./PER_rc-server-limit.adoc[]
+
+include::./REC_rc-server-limit.adoc[]
+
+The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
+
+include::./REC_rc-next-1.adoc[]
+
+include::./REC_rc-next-2.adoc[]
+
+include::./REC_rc-next-3.adoc[]
+
+Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
+
+include::./PER_rc-prev.adoc[]
