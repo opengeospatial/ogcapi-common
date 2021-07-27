@@ -1,0 +1,37 @@
+[[rm_bbox]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Module*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/bbox
+|Target type |Web API Query Parameter
+|===
+
+The `bbox` parameter is used to select resources based on the geospatial footprint or extent.
+
+The `bbox` parameter is defined as follows:
+
+include::./REQ_rc-bbox-definition.adoc[]
+
+While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::./REQ_rc-bbox-response.adoc[]
+
+"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
+
+In case of a degenerate bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
+
+This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this standard.
+
+For WGS 84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian (180th meridian) the first value (west-most box edge) is larger than the third value (east-most box edge).
+
+.The bounding box of the New Zealand Exclusive Economic Zone
+=================
+The bounding box of the New Zealand Exclusive Economic Zone in WGS84 (from 160.6°E to 170°W and from 55.95°S to 25.89°S) would be represented in JSON as `[ 160.6, -55.95, -170, -25.89 ]` and in a query as `bbox=160.6,-55.95,-170,-25.89`.
+=================
+
+Note that the server will return an error if a latitude value of ``160.0`` is used.
+
+If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
+
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://schemas.opengis.net/ogcapi/common/part2/1.0/parameters/bbox.yaml[bbox.yaml].
+

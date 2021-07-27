@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-07-20</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-07-25</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -613,50 +613,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#rc_core-section">9. Core Requirements Class</a>
+<li><a href="#rc-simple-query-section">9. Requirements Class "Simple Query"</a>
 <ul class="sectlevel2">
-<li><a href="#http-protocol">9.1. HTTP 1.1</a></li>
-<li><a href="#http-status-codes">9.2. HTTP Status Codes</a></li>
-<li><a href="#query-parameter-requirements">9.3. Query parameters</a>
+<li><a href="#parameter-requirements">9.1. Parameter Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_parameter_names">9.3.1. Parameter Names</a></li>
-<li><a href="#_parameter_values">9.3.2. Parameter Values</a></li>
+<li><a href="#bbox-parameter-requirements">9.1.1. Parameter bbox</a></li>
+<li><a href="#datetime-parameter-requirements">9.1.2. Parameter datetime</a></li>
+<li><a href="#limit-parameter-requirements">9.1.3. Parameter limit</a></li>
 </ul>
 </li>
-<li><a href="#web-caching-section">9.4. Web Caching</a></li>
-<li><a href="#cross-origin-section">9.5. Support for Cross-Origin Requests</a></li>
-<li><a href="#string-internationalization-section">9.6. String Internationalization</a></li>
-<li><a href="#resource-encoding-section">9.7. Resource Encodings</a></li>
-<li><a href="#parameter-encoding-section">9.8. Parameter Encoding</a>
-<ul class="sectlevel3">
-<li><a href="#_capitalization">9.8.1. Capitalization</a></li>
-<li><a href="#_parameter_value_lists">9.8.2. Parameter Value Lists</a></li>
-<li><a href="#_numeric_and_boolean_values">9.8.3. Numeric and Boolean Values</a></li>
+<li><a href="#target-resource-requirements">9.2. Target Resource Requirements</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#rc-simple-query-section">10. Requirements Class "Simple Query"</a>
+<li><a href="#rc_encoding-section">10. Encoding Requirements Classes</a>
 <ul class="sectlevel2">
-<li><a href="#parameter-requirements">10.1. Parameter Requirements</a>
-<ul class="sectlevel3">
-<li><a href="#bbox-parameter-requirements">10.1.1. Parameter bbox</a></li>
-<li><a href="#datetime-parameter-requirements">10.1.2. Parameter datetime</a></li>
-<li><a href="#limit-parameter-requirements">10.1.3. Parameter limit</a></li>
+<li><a href="#_overview">10.1. Overview</a></li>
+<li><a href="#rc_html-section">10.2. Requirement Class "HTML"</a></li>
+<li><a href="#rc_json-section">10.3. Requirement Class "JSON"</a></li>
 </ul>
 </li>
-<li><a href="#target-resource-requirements">10.2. Target Resource Requirements</a></li>
-</ul>
-</li>
-<li><a href="#rc_encoding-section">11. Encoding Requirements Classes</a>
-<ul class="sectlevel2">
-<li><a href="#_overview">11.1. Overview</a></li>
-<li><a href="#rc_html-section">11.2. Requirement Class "HTML"</a></li>
-<li><a href="#rc_json-section">11.3. Requirement Class "JSON"</a></li>
-</ul>
-</li>
-<li><a href="#mediatypes">12. Media Types</a></li>
-<li><a href="#_security_considerations">13. Security Considerations</a></li>
+<li><a href="#mediatypes">11. Media Types</a></li>
+<li><a href="#_security_considerations">12. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
@@ -838,12 +815,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
-</div>
-<div class="paragraph">
-<p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. The <a href="#rc_collections-section"><em>Collections Requirements Class</em></a> specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
 </div>
 <div class="paragraph">
 <p>The <em>Collections Requirements Class</em> enables discovery and query access to <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
@@ -1529,7 +1500,7 @@ API definitions are considered service descriptions.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Requirements Class "Core"</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -1960,7 +1931,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 <div class="sect4">
 <h5 id="_error_situations"><a class="anchor" href="#_error_situations"></a>Error situations</h5>
 <div class="paragraph">
-<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
+<p>See <a href="#http-status-codes">[http-status-codes]</a> for general guidance.</p>
 </div>
 </div>
 </div>
@@ -2335,10 +2306,10 @@ This requirement does not preclude server imposed limits on the size of a respon
 <div class="sect4">
 <h5 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>Error situations</h5>
 <div class="paragraph">
-<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
+<p>See <a href="#http-status-codes">[http-status-codes]</a> for general guidance.</p>
 </div>
 <div class="paragraph">
-<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">Table 4</a>).</p>
+<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">[status-codes]</a>).</p>
 </div>
 </div>
 </div>
@@ -2346,914 +2317,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc_core-section"><a class="anchor" href="#rc_core-section"></a>9. Core Requirements Class</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The following requirements and recommendations are applicable to all OGC Web APIs.</p>
-</div>
-<table id="rc_core" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2616">RFC 2616 (HTTP/1.1)</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc2818">RFC 2818 (HTTP over TLS)</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc8288">RFC 8288 (Web Linking)</a></p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect2">
-<h3 id="http-protocol"><a class="anchor" href="#http-protocol"></a>9.1. HTTP 1.1</h3>
-<div class="paragraph">
-<p>The standards used for Web APIs are built on the HTTP protocol. Therefore, conformance with HTTP or a closely related protocol is required.</p>
-</div>
-<table id="req_core_http" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/http</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>OGC Web APIs SHALL conform to <a href="#rfc2616">HTTP 1.1</a>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the API supports HTTPS, then the API SHALL also conform to <a href="#rfc2818">HTTP over TLS</a>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>9.2. HTTP Status Codes</h3>
-<div class="paragraph">
-<p><a href="#status-codes">Table 4</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
-</div>
-<table id="status-codes" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Typical HTTP status codes</caption>
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 85%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Status code</th>
-<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>200</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A successful request.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>302</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource was found but resides temporarily under a different URI. A 302 response is not evidence that the operation has been successfully completed.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>303</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server is redirecting the user agent to a different resource. A 303 response is not evidence that the operation has been successfully completed.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>304</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An <a href="#web-caching">entity tag</a> was provided in the request and the resource has not changed since the previous request.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>307</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>308</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>400</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>401</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The request requires user authentication. The response includes a <code>WWW-Authenticate</code> header field containing a challenge applicable to the requested resource.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>403</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server understood the request, but is refusing to fulfill it. While status code <code>401</code> indicates missing or bad authentication, status code <code>403</code> indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>404</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The requested resource does not exist on the server. For example, a path parameter had an incorrect value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>405</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>406</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Content negotiation failed. For example, the <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>500</code></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An internal error occurred in the server.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The return status codes described in <a href="#status-codes">Table 4</a> do not cover all possible conditions. See <a href="#rfc7231">IETF RFC 7231</a> for a complete list of HTTP status codes.</p>
-</div>
-<table id="per_core_additional-status-codes" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 2</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/core/additional-status-codes</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <a href="#status-codes">Table 4</a>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>When a server encounters an error in the processing of a request, the server may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. <a href="#rfc7807">IETF RFC 7807</a> addresses this need by providing "Problem Details" response schemas for both JSON and XML.</p>
-</div>
-<table id="rec_core_problem-details" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/problem-details</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock">An OGC Web API should include a "Problem Details" report in any error response in accordance with <a href="#rfc7807">IETF RFC 7807</a>.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="query-parameter-requirements"><a class="anchor" href="#query-parameter-requirements"></a>9.3. Query parameters</h3>
-<div class="sect3">
-<h4 id="_parameter_names"><a class="anchor" href="#_parameter_names"></a>9.3.1. Parameter Names</h4>
-<table id="req_core_query-param-name-unknown" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-name-unknown</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL respond with a response with the status code <code>400</code> IF</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>the request URI includes a query parameter that is not specified in the API definition</p>
-</li>
-<li>
-<p>/per/core/query-param-specified does not apply, and</p>
-</li>
-<li>
-<p>/per/core/query-param-tolerance does not apply.</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The criteria for a parameter to be "specified" in the API definition depends on the API definition language used, the complexity of the resources exposed, and the ability of the API server to tolerate errors.</p>
-</div>
-<div class="paragraph">
-<p>A service implementer should endeavor to provide as much detail in the server&#8217;s API definition as the API definition language allows. However, there is no requirement for the API definition to list every endpoint for which there is a non-404 behavior, for it to list every possible query parameter that might affect the behavior of an endpoint, or for it to list every possible value that each query parameter might accept.</p>
-</div>
-<table id="per_core-query-param-name-specified" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/core/query-param-name-specified</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The specification of a query parameter in the API definition MAY encompass a <span class="underline">range</span> of parameter names. Any query parameter that falls within the specified range can be considered "specified" in the API definition.</p>
-</div>
-<div class="paragraph">
-<p>Examples of a parameter range include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A regular expression that defines the valid parameter names,</p>
-</li>
-<li>
-<p>A URI Template segment that defines the valid parameter names,</p>
-</li>
-<li>
-<p>An indication that all parameter names are accepted (no parameter validation).</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The API definition language chosen may not be capable of expressing the desired range of values. In that case the server SHOULD provide:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A definition of the parameter range that best expresses the intended use of that parameter,</p>
-</li>
-<li>
-<p>Additional human readable text documenting the actual range of validity.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="per_core-query-param-name-tolerance" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 4</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/core/query-param-name-tolerance</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers MAY display tolerance for requests with incorrect query parameter names. These acts of tolerance include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Accept alternate capitalizations, spellings, and/or aliases of parameters,</p>
-</li>
-<li>
-<p>Ignore unknown/unrecognized parameters,</p>
-</li>
-<li>
-<p>Return a response with a status code of 30x redirecting the client to a more correct version of the request.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers should not be excessively tolerant. The response a client receives from the server should be a reasonable response for the request submitted.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_parameter_values"><a class="anchor" href="#_parameter_values"></a>9.3.2. Parameter Values</h4>
-<table id="req_core_query-param-value-invalid" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-value-invalid</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The server SHALL respond with a response with the status code <code>400</code> IF</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>the request URI includes a query parameter that has an invalid value and</p>
-</li>
-<li>
-<p>/per/core/query-param-value-tolerance does not apply.</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The criteria for a parameter value to be considered "invalid" varies with the expressiveness of the API definition language used and the ability of the API server to tolerate errors.</p>
-</div>
-<div class="paragraph">
-<p>A service implementer should endeavour to provide as much detail in the server&#8217;s API definition as the API definition language allows. However, there is no requirement to list every possible value that each query parameter might accept. Rather, the API implementation should include a reasonable degree of error recovery.</p>
-</div>
-<table id="per_core-query-param-value-tolerance" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 5</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/core/query-param-value-tolerance</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers MAY display tolerance for requests where a parameter has an incorrect value. These acts of tolerance include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>substituting default values for invalid ones,</p>
-</li>
-<li>
-<p>correcting formatting errors (e.g. convert integers to float).</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Servers should not be excessively tolerant. The response a client receives from the server should be a reasonable response for the request submitted.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="web-caching-section"><a class="anchor" href="#web-caching-section"></a>9.4. Web Caching</h3>
-<div class="paragraph">
-<p>Entity tags are a mechanism for web cache validation and for supporting conditional requests to reduce network traffic. Entity tags are specified by <a href="#rfc7232">HTTP 1.1 (RFC 7232)</a>.</p>
-</div>
-<table id="rec_core_etag" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/etag</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The service SHOULD support entity tags and the associated headers as specified by HTTP 1.1.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="cross-origin-section"><a class="anchor" href="#cross-origin-section"></a>9.5. Support for Cross-Origin Requests</h3>
-<div class="paragraph">
-<p>If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.</p>
-</div>
-<table id="rec_core_cross-origin" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/cross-origin</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the server is intended to be accessed from a browser, cross-origin requests SHOULD be supported. Note that support can also be added in a proxy layer on top of the server.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Two common mechanisms to support cross-origin requests are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">Cross-origin resource sharing (CORS)</a></p>
-</li>
-<li>
-<p><a href="https://en.wikipedia.org/wiki/JSONP">JSONP (JSON with padding)</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="string-internationalization-section"><a class="anchor" href="#string-internationalization-section"></a>9.6. String Internationalization</h3>
-<div class="paragraph">
-<p>If the server supports representing resources in multiple languages, the usual HTTP content negotiation mechanisms apply. The client states its language preferences in the <code>Accept-Language</code> header of a request and the server responds with responses that have linguistic text in the language that best matches the requested languages and the capabilities of the server.</p>
-</div>
-<table id="rec_core-string-internationalization" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/string-i18n</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>For encodings that support string internationalization, the server SHOULD include information about the language for each string value that includes linguistic text.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>For example, if JSON-LD is used as an encoding, the built-in capabilities to <a href="https://www.w3.org/TR/json-ld/#string-internationalization">annotate a string with its language</a> should be used.</p>
-</div>
-<div class="paragraph">
-<p>The <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml">link object</a> based on <a href="#rfc8288">RFC 8288 (Web Linking)</a> includes a <code>hreflang</code> attribute that can be used to state the language of the referenced resource. This can be used to include links to the same data in, for example, English or French. Just like with <a href="#resource-encoding-section">multiple encodings</a>, a server that wants to use language-specific links will have to support a mechanism to mint language-specific URIs for resources in order to express links to, for example, the same resource in another language. Again, this document does not mandate any particular approach how such a capability is supported by the server.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="resource-encoding-section"><a class="anchor" href="#resource-encoding-section"></a>9.7. Resource Encodings</h3>
-<div class="paragraph">
-<p>A Web API provides access to <a href="#resource-definition">resources</a> through <a href="#representation-definition">representations</a> of those resources. One property of a representation is the format used to encode it for transfer. Components negotiate the encoding format to use through the content negotiation process defined in <a href="#rfc7231">IETF RFC 7231</a>.</p>
-</div>
-<div class="paragraph">
-<p>Additional content negotiation techniques are allowed, but support is not required of implementations conformant to this Standard.</p>
-</div>
-<div class="paragraph">
-<p>While this Standard does not specify any mandatory encoding, the following encodings are recommended:</p>
-</div>
-<div id="rec_html" class="paragraph">
-<p>HTML encoding recommendation:</p>
-</div>
-<table id="rec_core_html" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/html</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>To support browsing an API with a web browser and to enable search engines to crawl and index the dataset, implementations SHOULD consider supporting an HTML encoding.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div id="rec_json" class="paragraph">
-<p>JSON encoding recommendation:</p>
-</div>
-<table id="rec_core_json" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 11</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/json</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>To support processing of an API with a web applet, implementations SHOULD consider supporting a JSON encoding.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Requirement <a href="#req_core_http"><code>/req/core/http</code></a> implies that the encoding of a server response is determined using content negotiation as specified by the HTTP RFC.</p>
-</div>
-<div class="paragraph">
-<p>The section <a href="#mediatypes-section">Media Types</a> includes guidance on media types for <a href="#rc_encoding-section">encodings</a> that are specified in this document.</p>
-</div>
-<div class="paragraph">
-<p>Note that any server that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, such as, to alternate representations of the same resource. This Standard does not mandate any particular approach how this is supported by the server.</p>
-</div>
-<div class="paragraph">
-<p>As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, such as, to manipulating ("hacking") URIs in the browser address bar, can study the API Definition document for that server.</p>
-</div>
-<div class="paragraph">
-<p>Two common approaches are to use:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An additional path for each encoding of each resource (this can be expressed, for example, using format specific suffixes like ".html");</p>
-</li>
-<li>
-<p>An additional query parameter (for example, "accept" or "f") that overrides the Accept header of the HTTP request.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="parameter-encoding-section"><a class="anchor" href="#parameter-encoding-section"></a>9.8. Parameter Encoding</h3>
-<div class="paragraph">
-<p>The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request.</p>
-</div>
-<div class="paragraph">
-<p>OGC Web API requests are issued using a Uniform Resource Identifier (URI). The URI syntax is defined in <a href="#rfc3986">IETF RFC 3986</a>. Rules for building URI Templates can be found in <a href="#rfc6570">IETF RFC 6570</a>.</p>
-</div>
-<div class="paragraph">
-<p>The Backus-Naur Form (BNF) definition of a URI is provided in <a href="#uri-bnf-annex">Annex F</a>.</p>
-</div>
-<div class="sect3">
-<h4 id="_capitalization"><a class="anchor" href="#_capitalization"></a>9.8.1. Capitalization</h4>
-<div class="paragraph">
-<p><a href="#rfc3986">IETF RFC 3986</a> sections 6.2.2.1 and 2.1 provide the requirements for capitalization in URIs.</p>
-</div>
-<table id="req_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-capitalization</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Parameter names and values SHALL be case sensitive.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>IF a parameter name or value includes a percent encoded (escaped) character,<br>
-&#160;&#160;&#160;&#160;THEN<br>
-the upper case hexadecimal digits ("A" through "F") of that percent encoded character SHALL be equivalent to the lower case digits "a" through "f" respectively.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>In order to minimize capitalization issues for implementers of OGC Web API standards:</p>
-</div>
-<table id="rec_core_query-param-capitalization" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/core/query-param-capitalization</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Query parameter names SHOULD be in <a href="#kebab-case-definition">Kebab case</a>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Query parameter values are usually reflective of the internal structure of the target resource. Unless otherwise specified, these values SHOULD be in <a href="#kebab-case-definition">kebab case</a>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>A Web API may allow filtering on properties of the target resource. In that case, the parameter name would be the name of the resource property. These names are defined by the standards and specifications defining the resource and cannot be constrained by this Standard.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameter_value_lists"><a class="anchor" href="#_parameter_value_lists"></a>9.8.2. Parameter Value Lists</h4>
-<div class="paragraph">
-<p>Parameters may pass more than one value. These lists of parameter values may be passed in two ways.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Repeated name:value pairs where the parameter name is repeated for each value in the list</p>
-</li>
-<li>
-<p>A parameter name followed by a delimited list of values.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The following requirements define how to encode a delimited list (case 2) of parameter values. They do not apply if replication (case 1) is used.</p>
-</div>
-<table id="req_core_query-param-list-delimiter" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-list-delimiter</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Parameters values containing lists SHOULD specify the delimiter to be used in the API definition.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The default list item delimiter SHALL be the comma (",").</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="req_core_query-param-list-escape" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-list-escape</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Any list item values that include a space or comma SHALL escape the space or comma character using the URI encoding rules from <a href="#rfc3986">IETF RFC 3986</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="req_core_query-param-list-empty" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-list-empty</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>All empty entries SHALL be represented by the empty string.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_numeric_and_boolean_values"><a class="anchor" href="#_numeric_and_boolean_values"></a>9.8.3. Numeric and Boolean Values</h4>
-<div class="paragraph">
-<p>The Geospatial field is a mathematical discipline. A clear and accurate exchange of mathematical values is essential. The encoding rules in this section standardize the encoding of numeric and Boolean primitives when included in a URI. These rules are based on the computer science basic data types identified by <a href="#k-and-r-1978">Kernighan and Ritchie</a>.</p>
-</div>
-<div class="paragraph">
-<p>Boolean values conform to the following requirement.</p>
-</div>
-<table id="req_core_query-param-value-boolean" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-value-boolean</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Boolean values shall be represented by the lowercase strings "true" and "false", representing Boolean true and false respectively.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Integer values conform to the following requirement.</p>
-</div>
-<table id="req_core_query-param-value-integer" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-value-integer</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading negative "-" sign. Positive values are assumed if the leading sign is omitted.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Real numbers can be represented using either the decimal or double (exponential) format. The decimal format is typically used except for very large or small values.</p>
-</div>
-<div class="paragraph">
-<p>Decimal values conform to the following requirement.</p>
-</div>
-<table id="req_core_query-param-value-decimal" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-value-decimal</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Decimal values SHALL be represented by a finite-length sequence of decimal digits separated by a period as a decimal indicator.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An optional leading negative sign ("-") is allowed.</p>
-</li>
-<li>
-<p>If the sign is omitted, positive ("+") is assumed.</p>
-</li>
-<li>
-<p>Leading and trailing zeroes are optional.</p>
-</li>
-<li>
-<p>If the fractional part is zero, the period and following zero(es) can be omitted.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Double values conform to the following requirement.</p>
-</div>
-<table id="req_core_query-param-value-double" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-value-double</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Double values SHALL be represented by a mantissa followed, optionally, by the character "e", followed by an exponent.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The exponent SHALL be an integer.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The mantissa SHALL be a decimal number.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The representations for exponent and mantissa SHALL follow the lexical rules for integer and decimal.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">E</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the "e" and the following exponent are omitted, an exponent value of 0 SHALL be assumed.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>Special values conform to the following requirement.</p>
-</div>
-<table id="req_core_query-param-value-special" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/core/query-param-value-special</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The special values positive and negative infinity and not-a-number SHALL be represented using the strings <code>inf</code>, <code>-inf</code> and <code>nan</code>, respectively.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="rc-simple-query-section"><a class="anchor" href="#rc-simple-query-section"></a>10. Requirements Class "Simple Query"</h2>
+<h2 id="rc-simple-query-section"><a class="anchor" href="#rc-simple-query-section"></a>9. Requirements Class "Simple Query"</h2>
 <div class="sectionbody">
 <table id="rc_simple_query" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3309,7 +2373,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>This Requirements Class describes the resources and operations used to discover and query resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <a href="#views-introduction">Views Section</a>).</p>
 </div>
 <div class="sect2">
-<h3 id="parameter-requirements"><a class="anchor" href="#parameter-requirements"></a>10.1. Parameter Requirements</h3>
+<h3 id="parameter-requirements"><a class="anchor" href="#parameter-requirements"></a>9.1. Parameter Requirements</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">NOTE</dt>
@@ -3341,7 +2405,25 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <p>Use of these query parameters with any specific operation is optional. Developers of API-GeoData servers should document their supported parameters in the API definition as describe in <a href="#apicore">API-Core</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="bbox-parameter-requirements"><a class="anchor" href="#bbox-parameter-requirements"></a>10.1.1. Parameter bbox</h4>
+<h4 id="bbox-parameter-requirements"><a class="anchor" href="#bbox-parameter-requirements"></a>9.1.1. Parameter bbox</h4>
+<table id="rm_bbox" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Module</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/bbox" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/bbox</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API Query Parameter</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>The <code>bbox</code> parameter is used to select resources based on the geospatial footprint or extent.</p>
 </div>
@@ -3355,7 +2437,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-definition</strong></p>
 </div></div></td>
@@ -3433,7 +2515,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-response</strong></p>
 </div></div></td>
@@ -3489,7 +2571,25 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="datetime-parameter-requirements"><a class="anchor" href="#datetime-parameter-requirements"></a>10.1.2. Parameter datetime</h4>
+<h4 id="datetime-parameter-requirements"><a class="anchor" href="#datetime-parameter-requirements"></a>9.1.2. Parameter datetime</h4>
+<table id="rm_datetime" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Module</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/datetime" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/datetime</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API Query Parameter</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>The <code>datetime</code> parameter selects resources based on their temporal extent. The definition of temporal extent is specific to the resource type being filtered.</p>
 </div>
@@ -3503,7 +2603,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-definition</strong></p>
 </div></div></td>
@@ -3564,7 +2664,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-response</strong></p>
 </div></div></td>
@@ -3651,7 +2751,25 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="limit-parameter-requirements"><a class="anchor" href="#limit-parameter-requirements"></a>10.1.3. Parameter limit</h4>
+<h4 id="limit-parameter-requirements"><a class="anchor" href="#limit-parameter-requirements"></a>9.1.3. Parameter limit</h4>
+<table id="rm_limit" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Module</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/limit" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/limit</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API Query Parameter</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>The <code>limit</code> parameter limits the number of resources that can be returned in a single response.</p>
 </div>
@@ -3662,7 +2780,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-definition</strong></p>
 </div></div></td>
@@ -3705,7 +2823,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-response</strong></p>
 </div></div></td>
@@ -3753,7 +2871,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 6</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/collections/rc-server-limit</strong></p>
 </div></div></td>
@@ -3773,7 +2891,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-server-limit</strong></p>
 </div></div></td>
@@ -3796,7 +2914,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-1</strong></p>
 </div></div></td>
@@ -3816,7 +2934,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-2</strong></p>
 </div></div></td>
@@ -3836,7 +2954,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-3</strong></p>
 </div></div></td>
@@ -3859,7 +2977,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/collections/rc-prev</strong></p>
 </div></div></td>
@@ -3875,7 +2993,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="target-resource-requirements"><a class="anchor" href="#target-resource-requirements"></a>10.2. Target Resource Requirements</h3>
+<h3 id="target-resource-requirements"><a class="anchor" href="#target-resource-requirements"></a>9.2. Target Resource Requirements</h3>
 <div class="paragraph">
 <p>The target of the parameters defined in this conformance class is the <a href="#collection-description">Collection</a> resource described in the <a href="#rc-collections-section">Collections</a> Requirements Class. The purpose of these parameters is to select a subset of <a href="#collection-description">Collection</a> resources to be included in the response to a <a href="#collections-metadata">/collections</a> request.</p>
 </div>
@@ -3898,7 +3016,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-collections-response</strong></p>
 </div></div></td>
@@ -3930,7 +3048,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 32</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-time-collections-response</strong></p>
 </div></div></td>
@@ -3965,7 +3083,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 33</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-collections-response</strong></p>
 </div></div></td>
@@ -3994,7 +3112,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 34</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-subset-response</strong></p>
 </div></div></td>
@@ -4017,7 +3135,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 35</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberMatched</strong></p>
 </div></div></td>
@@ -4046,7 +3164,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/per/collections/rc-md-items</strong></p>
 </div></div></td>
@@ -4069,7 +3187,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 36</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberReturned</strong></p>
 </div></div></td>
@@ -4095,10 +3213,10 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>11. Encoding Requirements Classes</h2>
+<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>10. Encoding Requirements Classes</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_overview"><a class="anchor" href="#_overview"></a>11.1. Overview</h3>
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>10.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
@@ -4117,7 +3235,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>11.2. Requirement Class "HTML"</h3>
+<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>10.2. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>Geographic information that is only accessible in formats like GeoJSON or GML has two issues:</p>
 </div>
@@ -4174,7 +3292,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 37</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -4194,7 +3312,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 38</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -4225,7 +3343,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -4240,7 +3358,7 @@ explode: false</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>11.3. Requirement Class "JSON"</h3>
+<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>10.3. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>JSON is a text syntax that facilitates structured data interchange between programming languages. It commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.</p>
 </div>
@@ -4281,7 +3399,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 39</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -4301,7 +3419,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 40</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -4330,7 +3448,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>12. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JSON media types that would typically be supported by a server that supports JSON are:</p>
@@ -4370,7 +3488,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>13. Security Considerations</h2>
+<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="#OAComm">OGC API - Common - Part 1: Core</a>, Clause 11.</p>
@@ -4544,7 +3662,7 @@ explode: false</code></pre>
 <p>In case the response includes a "crs" property, validate that the first value is either: "http://www.opengis.net/def/crs/OGC/1.3/CRS84" or "http://www.opengis.net/def/crs/OGC/0/CRS84h"</p>
 </li>
 <li>
-<p>Validate the collections content for all supported media types using the resources and tests identified in <a href="#collections-metadata-schema">Table 5</a></p>
+<p>Validate the collections content for all supported media types using the resources and tests identified in <a href="#collections-metadata-schema">Table 4</a></p>
 </li>
 </ol>
 </div></div></td>
@@ -4555,7 +3673,7 @@ explode: false</code></pre>
 <p>The Collections content may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="collections-metadata-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 5. Schema and Tests for Collections content</caption>
+<caption class="title">Table 4. Schema and Tests for Collections content</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -4752,7 +3870,7 @@ explode: false</code></pre>
 <p>Verify that if the collection entry includes an extent property, that that property complies with <a href="#ats_collections_rc-md-extent">/collections/rc-md-extent</a></p>
 </li>
 <li>
-<p>Validate each collection entry for all supported media types using the resources and tests identified in <a href="#collection-entry-schema">Table 6</a></p>
+<p>Validate each collection entry for all supported media types using the resources and tests identified in <a href="#collection-entry-schema">Table 5</a></p>
 </li>
 </ol>
 </div></div></td>
@@ -4763,7 +3881,7 @@ explode: false</code></pre>
 <p>The collection entries may be encoded in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.</p>
 </div>
 <table id="collection-entry-schema" class="tableblock frame-all grid-all" style="width: 90%;">
-<caption class="title">Table 6. Schema and Tests for Collection Entries</caption>
+<caption class="title">Table 5. Schema and Tests for Collection Entries</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -5425,7 +4543,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-20 20:55:13 +0100
+Last updated 2021-07-25 22:07:45 +0100
 </div>
 </div>
 </body>

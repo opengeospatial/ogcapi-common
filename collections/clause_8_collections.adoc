@@ -154,5 +154,3 @@ include::recommendations/collections/PER_rc-md-extent-extensions.adoc[]
 See <<http-status-codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).
-
-include::../general/clause_8_general.adoc[]
