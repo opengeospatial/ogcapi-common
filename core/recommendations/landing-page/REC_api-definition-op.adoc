@@ -1,0 +1,8 @@
+[[rec_landing-page_api-definition-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/landing-page/api-definition-op* 
+^|A |The server SHOULD support the HTTP GET operation on the URI
+`{root}/api`.
+^|B |The response to the HTTP GET request issued in `A` SHOULD satisfy requirement <<req_core_api-definition-success,/req/landing-page/api-definition-success>>.
+|===

@@ -1,7 +1,7 @@
-[[rec_core_service-metadata]]
+[[rec_landing-page_service-metadata]]
 [width="90%",cols="2,6a"]
 |===
-^|*Recommendation {counter:rec-id}* |*/rec/core/service-metadata* 
+^|*Recommendation {counter:rec-id}* |*/rec/landing-page/service-metadata* 
 2+|A Web API SHOULD provide service metadata.
 ^|A |A Web API service SHOULD provide one or more service metadata resources accessible by an HTTP GET operation.
 ^|B |The landing page for a Web API service SHOULD provide links to the service metadata resources using the relation type ``service-meta``.

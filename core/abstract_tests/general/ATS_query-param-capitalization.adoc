@@ -9,8 +9,8 @@
 {nbsp}{nbsp}{nbsp}{nbsp}1. Execute that operation using that query parameter +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}capitalized as specified in the API definition +
 {nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the operation returns a reponse with the status code `200`. +
-{nbsp}{nbsp}{nbsp}{nbsp}3. Execute that operation using that query parameter +
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}with captialization inverse of that specified in the API definition +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Execute that operation using that query parameter with captialization +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}inverse of that specified in the API definition +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}(Example: "Range" vs. "rANGE") +
 {nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the operation returns a reponse with the status code `400`. +
 {nbsp}{nbsp}DONE +

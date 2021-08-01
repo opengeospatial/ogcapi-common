@@ -5,7 +5,7 @@
 ^|Test Purpose |Verify support for JSON
 ^|Requirement |<<req_json_definition,/req/json/definition>> +
 <<req_json_content,/req/json/content>>
-^|Test Method|DO FOR EACH operation advertised for the API 
+^|Test Method|DO FOR EACH resource and operation defined in the Landing Page Conformance Class: 
 
 . Execute the operation specifing `application/json` as the media type 
 . Validate that a document was returned with a status code `200`

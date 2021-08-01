@@ -4,8 +4,9 @@
 2+|*Conformance Class*
 2+|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json
 |Target type |Web API
-|Requirements Class |<<rc_geojson,http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json>>
-|Dependency |<<ats_core,Conformance Class "OAPI Core">>
+|Requirements Class |<<rc_json,http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json>>
+|Dependency |<<ats_core,Core Conformance Class>>
+|Dependency |<<ats_landing-page,Landing Page Conformance Class>>
 |===
 
 ==== JSON Definition

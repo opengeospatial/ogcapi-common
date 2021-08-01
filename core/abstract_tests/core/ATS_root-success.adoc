@@ -20,6 +20,6 @@ The landing page may be retrieved in a number of different formats. The followin
 [width="90%",cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[landingPage.json]|<<ats_html_content,/conf/html/content>>
-|JSON |link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[landingPage.json] |<<ats_json_content,/conf/json/content>>
+|HTML |link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/landingPage.json[landingPage.json]|<<ats_html_content,/conf/html/content>>
+|JSON |link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/landingPage.json[landingPage.json] |<<ats_json_content,/conf/json/content>>
 |===

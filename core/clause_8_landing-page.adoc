@@ -31,21 +31,21 @@ While the three metadata elements are defined as text strings, the attribution e
 
 ==== Operation
 
-include::requirements/core/REQ_root-op.adoc[]
+include::requirements/landing-page/REQ_root-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_root-success.adoc[]
+include::requirements/landing-page/REQ_root-success.adoc[]
 
-The landing page returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json[JSON schema].
+The landing page returned by this operation is based on the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/landingPage.json[JSON schema].
 
 .landingPage.json
 [source, JSON]
 include::openapi/schemas/landingPage.json[]
 
-That OGC Web APIs provide a set of Service Metadata that identifies the service and provides information about the service provider is recommended.     
+It is recommended that OGC Web APIs provide a set of Service Metadata. That metadata should identify the service and provide information about the service provider.     
 
-include::recommendations/core/REC_service-metadata.adoc[]
+include::recommendations/landing-page/REC_service-metadata.adoc[]
 
 Additional information about Service Metadata can be found in the http://docs.opengeospatial.org/DRAFTS/20-071.html#service-metadata-section[OGC API - Common Users Guide].
 
@@ -60,19 +60,19 @@ See <<http-status-codes>> for general guidance.
 [[api-definition]]
 === API Definition
 
-Every API implementation should provide an API Definition resource that describes capabilities provided by that API. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
+Every API implementation should provide an API Definition resource that describes the capabilities provided by that API. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
 
 ==== Operation
 
-include::requirements/core/REQ_api-definition-op.adoc[]
+include::requirements/landing-page/REQ_api-definition-op.adoc[]
 
-include::recommendations/core/REC_api-definition-op.adoc[]
+include::recommendations/landing-page/REC_api-definition-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_api-definition-success.adoc[]
+include::requirements/landing-page/REQ_api-definition-success.adoc[]
 
-include::recommendations/core/REC_api-definition-oas.adoc[]
+include::recommendations/landing-page/REC_api-definition-oas.adoc[]
 
 ==== Error Situations
 
@@ -89,13 +89,13 @@ Ease of access is also supported by the structure of the Conformance Declaration
 
 ==== Operation
 
-include::requirements/core/REQ_conformance-op.adoc[]
+include::requirements/landing-page/REQ_conformance-op.adoc[]
 
 ==== Response
 
-include::requirements/core/REQ_conformance-success.adoc[]
+include::requirements/landing-page/REQ_conformance-success.adoc[]
 
-The Conformance Declaration resource returned by this operation is based on the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json[Conformance Declaration Schema]. 
+The Conformance Declaration resource returned by this operation is based on the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/confClasses.json[Conformance Declaration Schema]. 
 
 Examples of OGC Conformance Declarations are provided in <<conformance-response-examples>>.
 

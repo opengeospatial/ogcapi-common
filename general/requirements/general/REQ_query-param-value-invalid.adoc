@@ -5,5 +5,6 @@
 ^|A |The server SHALL respond with a response with the status code ``400`` IF 
 
 . the request URI includes a query parameter that has an invalid value and
+. /per/core/query-param-value-specified does not apply and
 . /per/core/query-param-value-tolerance does not apply.
 |===

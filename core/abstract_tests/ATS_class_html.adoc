@@ -5,7 +5,8 @@
 2+|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
 |Target type |Web API
 |Requirements Class |<<rc_html,http://www.opengis.net/spec/ogcapi-common/1.0/req/html>>
-|Dependency |<<ats_core,Conformance Class "OAPI Core">>
+|Dependency |<<ats_core,Core Conformance Class>>
+|Dependency |<<ats_landing-page,Landing Page Conformance Class>>
 |===
 
 ==== HTML Definition

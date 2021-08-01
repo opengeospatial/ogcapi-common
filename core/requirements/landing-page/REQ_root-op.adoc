@@ -3,5 +3,5 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/landing-page/root-op*
 ^|A |The server SHALL support the HTTP GET operation on the URI `{root}/`.
-^|B |The response to the HTTP GET request issued in `A` SHALL satisfy requirement <<req_landing-page_root_success,/req/landing-page/root-success>>.
+^|B |The response to the HTTP GET request issued in `A` SHALL satisfy requirement <<req_landing-page_root-success,/req/landing-page/root-success>>.
 |===

@@ -16,7 +16,7 @@ A case style where punctuation is removed and spaces are replaced by single hyph
 * *Landing Page* +
 Any page whose primary purpose is to contain a description of something else. (https://www.w3.org/TR/urls-in-data/[W3C, URLs in Data Primer]) +
 +
-[width="90%",cols="1,10"]
+[width="90%",cols="2,10"]
 |===
 |*NOTE 1:*| Landing pages often provide summaries or additional information about the thing that they describe. Examples are landing pages for images on Flickr or videos on YouTube, which are HTML pages that embed the media that they describe and provide access to comments and other metadata about it. Landing pages for documents are often tables of contents or abstracts.
 |*NOTE 2:*| A landing page for a Web API serves as the root node of the API Resource tree and provides the information needed to navigate all the resources exposed through the API.
@@ -30,7 +30,7 @@ the current or intended state of a <<resource-definition,resource>> encoded for 
 * *Resource* +
 entity that might be identified (<<iso15836-2,Dublin Core Metadata Initiative - DCMI Metadata Terms>>) +
 +
-[width="90%",cols="1,10"]
+[width="90%",cols="2,10"]
 |===
 |*NOTE:*| The term "resource", when used in the context of an OGC Web API standard, should be understood to mean a <<web-resource-definition,Web Resource>> unless otherwise indicated. 
 |===
@@ -39,14 +39,14 @@ entity that might be identified (<<iso15836-2,Dublin Core Metadata Initiative - 
 * *Resource Type* +
 a type of <<resource-definition,resource>>.  +
 +
-[width="90%",cols="1,10"]
+[width="90%",cols="2,10"]
 |===
 |*NOTE:*| Resource types are re-usable components that are independent of where the resource resides in the API." 
 |===
 
 [[uri-definition]]
 * *Uniform Resource Identifier (URI)* +
-an identifier consisting of a sequence of characters matching the syntax rule named <<identifier-concepts,<URI>>>. (<<rfc3986,IETF RFC 3986>>)
+an identifier consisting of a sequence of characters matching the syntax rule named "<URI>". (<<rfc3986,IETF RFC 3986>>)
 
 [[url-definition]]
 * *Uniform Resource Locator (URL)* +

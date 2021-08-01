@@ -24,7 +24,7 @@ The <<WEBARCH,Architecture of the World Wide Web>> establishes the URI as the si
 
 In accordance with OGC policy, only the <<url-definition,Uniform Resource Locator (URL)>> form of URIs is used. 
 
-The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`. All <<requirement-definition,Requirements>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
+The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`. All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
 
 <<resource-definition,Resources>> described in this document are denoted by partial URIs that are relative to the `root` node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the `url` field of the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object[Server Object]. In this document the tag `{root}` designates the root node of a URI.
 
@@ -84,7 +84,7 @@ URI     https://example.com:8042/myapi/mydata/?name=roads#centerline
 OGC                {root}            path            parameters         
 ----
 
-This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rc2616,HTTP>> and <<rc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
+This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rfc7231,HTTP>> and <<rfc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
 
 NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (ex. image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementers should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
 
@@ -95,7 +95,7 @@ Additional information on this topic is provided in the link:http://docs.opengeo
 
 OGC Web API Standards use <<rfc8288,RFC 8288 (Web Linking)>>  to express relationships between resources. Resource representations defined in these standards commonly include an "links" element. A "links" element is an array of individual hyperlink elements. These "links" elements provide a convention for associating related resources.
 
-The individual hyperlink elements that make up a "links" element are defined using the following link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema].
+The individual hyperlink elements that make up a "links" element are defined using the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.json[Hyperlink Schema].
 
 [source, JSON]
 include::openapi/schemas/link.json[]
@@ -111,7 +111,7 @@ Additional information on this topic is provided in the link:http://docs.opengeo
 
 Link relation types identify the semantics of a link. For example, a link with the relation type "service-meta" indicates that the current link context has service metadata at the link target.
 
-Link relation types are expressed using the "rel" property from the link:https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/link.json[Hyperlink Schema]. 
+Link relation types are expressed using the "rel" property from the link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.json[Hyperlink Schema]. 
 
 The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
 
@@ -142,7 +142,7 @@ Additional information on the use of link relationships is provided in the link:
 [[https-conventions]]
 === Use of HTTPS
 
-For simplicity, this OGC Standard only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>> and not <<rfc2616,HTTP>>.
+For simplicity, this OGC Standard only refers to the HTTP protocol. This is not meant to exclude the use of HTTPS. This is simply a shorthand notation for "HTTP or HTTPS". In fact, most servers are expected to use <<rfc2818,HTTPS>> and not <<rfc7231,HTTP>>.
 
 OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities that are not in common use could be an impediment to interoperability.
 
