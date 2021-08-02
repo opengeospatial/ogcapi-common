@@ -22,7 +22,7 @@ In case of a degenerate bounding box, the resulting geometry is used. For exampl
 
 This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this standard.
 
-For WGS 84 longitude/latitude the bounding box is in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian (180th meridian) the first value (west-most box edge) is larger than the third value (east-most box edge).
+The bounding box for WGS 84 longitude/latitude is, in most cases, the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian (180th meridian) the first value (west-most box edge) is larger than the third value (east-most box edge).
 
 .The bounding box of the New Zealand Exclusive Economic Zone
 =================
@@ -33,5 +33,5 @@ Note that the server will return an error if a latitude value of ``160.0`` is us
 
 If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
 
-A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://schemas.opengis.net/ogcapi/common/part2/1.0/parameters/bbox.yaml[bbox.yaml].
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/bbox.yaml[bbox.yaml].
 

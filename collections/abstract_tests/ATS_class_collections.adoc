@@ -5,41 +5,47 @@
 2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
 |Target type |Web API
 |Requirements Class |<<rc_collections,http://www.opengis.net/spec/ogcapi_common-2/1.0/req/collections>>
-|Dependency |<<ats_core,Conformance Class "OAPI Core">>
+|Dependency |http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
 |===
 
-==== General Tests
-
-===== CRS 84
-
-include::collections/ATS_crs84.adoc[]
-
-==== Feature Collections {root}/collections
+=== Collections {root}/collections
 
 include::collections/ATS_rc-md-op.adoc[]
 
 include::collections/ATS_rc-md-success.adoc[]
 
-==== Feature Collection {root}/collections/{collectionId}
+=== Collection {root}/collections/{collectionId}
 
 include::collections/ATS_src-md-op.adoc[]
 
 include::collections/ATS_src-md-success.adoc[]
 
-==== Second Tier Tests
+=== Second Tier Tests
 These tests are invoked by other tests.
 
-===== Extent
+==== Links
 
-include::collections/ATS_rc-md-extent.adoc[]
+include::collections/ATS_rc-md-links.adoc[]
 
-===== Items
+==== Time Stamp
+
+include::collections/ATS_rc-md-timestamp.adoc[]
+
+==== Items
 
 include::collections/ATS_rc-md-items.adoc[]
 
 include::collections/ATS_rc-md-items-links.adoc[]
 
-===== Links
+==== Parameters
 
-include::collections/ATS_rc-md-links.adoc[]
+include::collections/ATS_rc-bbox-unsupported.adoc[]
+
+include::collections/ATS_rc-datetime-unsupported.adoc[]
+
+include::collections/ATS_rc-limit-unsupported.adoc[]
+
+==== Extent
+
+include::collections/ATS_rc-md-extent.adoc[]
 

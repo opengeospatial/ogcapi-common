@@ -8,7 +8,7 @@ All conventions described in the <<apicore,OGC API - Common Part 1: Core Standar
 
 The normative provisions in this standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-2/1.0`.
 
-All <<requirement-definition,Requirements>>, <<requirements-class-definition,Requirement Classes>>, <<ctm-definition,Conformance Modules>>, and <<ctc-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
+All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
 
 Additional information about the use of Identifiers in API-Common is provided in the http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide].
 
@@ -81,19 +81,19 @@ A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Gre
 
 ==== General remarks
 
-This OGC standard specifies requirements and recommendations for APIs that share spatial resources and want to follow a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
+This OGC standard specifies requirements and recommendations for the development of APIs that share spatial resources using a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
 
-So that developers can more easily learn how to use the API, good documentation is essential for every API. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. OpenAPI is one way to provide that machine readable documentation.
+So that developers can more easily learn how to use the API, good documentation is essential. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. OpenAPI is one way to provide that machine readable documentation.
 
 ==== Role of OpenAPI
 
-This document uses OpenAPI 3.0 fragments in its' examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
+This OGC API Standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
-This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
+This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
 ==== References to OpenAPI components in normative statements
 
-Some normative statements (requirements, recommendations and permissions) state that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.
+Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.
 
 In this case, the following changes to the pre-defined OpenAPI component are permitted:
 
@@ -107,3 +107,5 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 ==== Reusable OpenAPI components
 
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0] and http://schemas.opengis.net/ogcapi/common/part2/1.0[http://schemas.opengis.net/ogcapi/common/part2/1.0]
+
+Additional information on the use of OpenAPI as an API definition is provided in the http://docs.opengeospatial.org/DRAFTS/20-071.html#openapi-section[OGC API - Common Users Guide].

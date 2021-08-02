@@ -1,7 +1,7 @@
-[[req_collections_rc-time-collections-response]]
+[[req_collections_rc-datetime-collection-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-time-collections-response* 
+^|*Requirement {counter:req-id}* |*/req/collections/rc-datetime-collection-response* 
 ^|A|The `datetime` parameter SHALL be evaluated against the `interval` element of the `extent` property of all `Collection` resources hosted by the API server.
 ^|B|Only `Collection` resources whose `extent` property intersects the temporal interval specified by the `datetime` parameter SHALL be included in the `Collections` response.
 ^|C|The `datetime` parameter SHALL also match all collections that do not have an `extent` element with a temporal geometry.

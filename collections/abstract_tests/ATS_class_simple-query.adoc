@@ -1,0 +1,48 @@
+[[ats_simple-query]]
+[cols="1,4",width="90%"]
+|===
+2+|*Conformance Class*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query
+|Target type |Web API
+|Requirements Class |<<rc_simple-query,http://www.opengis.net/spec/ogcapi_common-2/1.0/req/simple-query>>
+|Dependency |<<ats_collections,Collections Conformance Class>>
+|===
+
+==== Top Level Tests
+
+include::simple-query/ATS_rc-op.adoc[]
+
+include::simple-query/ATS_rc-response.adoc[]
+
+==== Query Parameter Tests
+
+include::simple-query/ATS_rc-bbox-definition.adoc[]
+
+include::simple-query/ATS_rc-bbox-response.adoc[]
+
+include::simple-query/ATS_rc-datetime-definition.adoc[]
+
+include::simple-query/ATS_rc-datetime-response.adoc[]
+
+include::simple-query/ATS_rc-limit-definition.adoc[]
+
+include::simple-query/ATS_rc-limit-response.adoc[]
+
+==== Spatial and Temporal Filtering
+
+include::simple-query/ATS_rc-bbox-collection-response.adoc[]
+
+include::simple-query/ATS_rc-datetime-collection-response.adoc[]
+
+include::simple-query/ATS_rc-limit-collection-response.adoc[]
+
+==== Partial Returns
+
+include::simple-query/ATS_rc-subset-response.adoc[]
+
+include::simple-query/ATS_rc-numberMatched.adoc[]
+
+include::simple-query/ATS_rc-numberReturned.adoc[]
+
+
+

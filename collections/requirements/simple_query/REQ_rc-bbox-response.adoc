@@ -1,7 +1,7 @@
-[[req_collections_rc-bbox-collections-response]]
+[[req_collections_rc-bbox-collection-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-bbox-collections-response*
+^|*Requirement {counter:req-id}* |*/req/collections/rc-bbox-collection-response*
 ^|A|The `bbox` parameter SHALL be evaluated against the `bbox` element of the `extent` property of all `Collection` resources hosted by the API server.
 ^|B|Only `Collection` resources whose `extent` property intersects the geometry specified by the `bbox` parameter SHALL be included in the `Collections` response.
 ^|C|The `bbox` parameter SHALL also match all collections that do not have an `extent` element with a spatial geometry.

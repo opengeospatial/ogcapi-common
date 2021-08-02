@@ -1,0 +1,13 @@
+[[ats_collections_rc-bbox-unsupported]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-bbox-unsupported*
+^|Test Purpose |Validate that each collection provided by the server is described in the Collections Metadata.
+^|Requirement |<<req_collections_rc-bbox-unsupported,/req/collections/rc-bbox-unsupported>>
+^|Test Method |. Verify that there is an entry in the `collections` array of the Collections Metadata for each feature collection provided by the API.
+. Verify that each collection entry includes an identifier.
+. Verify that each collection entry includes links in accordance with <<ats_collections_rc-md-items-links,/collections/rc-md-items-links>>.
+. Verify that if the collection entry includes an extent property, that that property complies with <<ats_collections_rc-md-extent,/collections/rc-md-extent>>
+. Validate each collection entry for all supported media types using the resources and tests identified in <<collection-entry-schema>>
+|===
+

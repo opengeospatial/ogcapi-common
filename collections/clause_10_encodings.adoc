@@ -3,12 +3,12 @@
 
 === Overview
 
-This clause specifies two requirements classes for encodings to be used by an OGC API implementation. These encodings are commonly used encodings for spatial data on the web:
+This clause specifies two requirements classes for encodings to be used with the <<collections-metadata,Collections>> and <<collection-description,Collection>> resources. These encodings are commonly used encodings for spatial data on the web:
 
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
-None of these encodings are mandatory. An implementation of the <<rc_collections-section,Collections>> requirements class may implement either, both, or none of them. 
+None of these encodings are mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or none of them. 
 
 [[rc_html-section]]
 === Requirement Class "HTML"
@@ -41,7 +41,7 @@ include::requirements/json/REQ_definition.adoc[]
 
 include::requirements/json/REQ_content.adoc[]
 
-JSON Schema for the Collections and Collection responses are available at link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.yaml[collections.yaml] and link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.yaml[collectionDesc.yaml].
+JSON Schema for the Collections and Collection responses are available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.yaml[collections.yaml] and link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.yaml[collectionDesc.yaml].
 
 These are generic schemas that do not include any application schema information about specific resource types or their properties.
 

@@ -16,17 +16,9 @@ Repeat these tests using the following parameter tests:
 
 *DateTime:*
 
-* Parameter <<ats_collections_rc-time-definition,/ats/collections/rc-time-definition>>
-* Response <<ats_collections_rc-time-response,/ats/collections/rc-time-response>>
+* Parameter <<ats_collections_rc-datetime-definition,/ats/collections/rc-datetime-definition>>
+* Response <<ats_collections_rc-datetime-response,/ats/collections/rc-datetime-response>>
 
 Execute requests with combinations of the "bbox" and "datetime" query parameters
 and verify that only features are returned that match both selection criteria.
 |===
-
-include::ATS_rc-bbox-definition.adoc[]
-
-include::ATS_rc-bbox-response.adoc[]
-
-include::ATS_rc-time-definition.adoc[]
-
-include::ATS_rc-time-response.adoc[]

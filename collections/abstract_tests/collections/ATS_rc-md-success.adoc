@@ -16,6 +16,6 @@ The Collections content may be retrieved in a number of different formats. The f
 [width="90%",cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json[collections.json]|<<ats_html_content,/ats/html/content>>
-|JSON |link:https://raw.githubusercontent.com/opengeospatial/oapi_common/master/standard/openapi/schemas/collections.json[collections.json] |<<ats_geo_content,/ats/geo/content>>
+|HTML |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json]|<<ats_html_content,/ats/html/content>>
+|JSON |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json] |<<ats_geo_content,/ats/geo/content>>
 |===

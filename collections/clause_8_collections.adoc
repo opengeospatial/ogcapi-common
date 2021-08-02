@@ -4,9 +4,9 @@
 
 include::requirements/requirements_class_collections.adoc[]
 
-This Requirements Class describes the resources and operations used to discover and query resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>)..
+This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>)..
 
-The two resources defined in this Requirements Class are summarized in <<collection-resources>>. Detailed requirements for each of these resources are provided in the <<collection-resource-requirements,Resource Requirements>> section.
+The two resources defined in this Requirements Class are summarized in <<collection-resources>>. 
 
 [#collection-resources,reftext='{table-caption} {counter:table-num}']
 .Collection Resources
@@ -17,43 +17,20 @@ The two resources defined in this Requirements Class are summarized in <<collect
 |<<collection-description,Collection>> |/collections/{collectionId} ^|GET |Information about a specific collection of geospatial data with links to distribution
 |===
 
-This Requirements Class also describes the operations which can be performed on these resources. Requirements for these operations are included with their associated resource descriptions in the <<collection-resource-requirements,Resource Requirements>> section. 
-
-Three parameters are defined for use with the <<collections-metadata,Collections>> resource. These parameters subset the set of <<collection-description,Collection>> entries returned based on spatial, temporal, and volumetric filters. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. A summary of the parameters is provided in <<parameter-summary>>.
-
-NOTE: These parameters may also be used with other resources, but their behavior will be specific for that resource and operation. 
-
-[#parameter-summary,reftext='{table-caption} {counter:table-num}']
-.Parameter Summary
-[width="90%",cols="10,10,60",options="header"]
-|===
-^|Parameter Name ^|Target ^|Description
-|Bounding Box |Extent |Selects <<collection-description,Collection>> entries which have an Extent element that intersects the bounding box
-|Date-Time|Extent |Selects <<collection-description,Collection>> entries which have an Extent element that intersects the specified time period
-|Limit |The result set |Limits the number of <<collection-description,Collection>> entries which can be returned in one response
-|===
-
-Finally, requirements which have general applicablity are provided in the <<general-requirements,General Requirements>> section.
-
-[[collection-resource-requirements]]
-=== Resource Requirements
-
-This section expresses the requirements for resources and operations used to discover and query resource collections.
-
 [[collections-metadata]]
-==== Collections
+=== Collections
 
-OGC APIs typically organize their Spatial Resources into collections. Information about those collections is accessed through the `/collections` path.
+OGC APIs typically organize their Spatial Resources into collections. Information about those collections is accessed through the `/collections` path and the http://www.opengis.net/def/rel/ogc/1.0/data link relation.
 
-===== Operation
+==== Operation
 
 include::requirements/collections/REQ_rc-md-op.adoc[]
 
-===== Response
+==== Response
 
 include::requirements/collections/REQ_rc-md-success.adoc[]
 
-The collections response returned by this operation is based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collections.json[collections.json] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
+The collections response returned by this operation is based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
 
 .collections.json
 [source, JSON]
@@ -73,40 +50,40 @@ The `timeStamp` property of the Collections response indicates when the response
 
 include::requirements/collections/REQ_rc-timeStamp.adoc[]
 
-The `collections` property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json[Resource Collection Schema]. This schema is described in detail in the <<collection-description,Resource Collection>> section of this Standard. 
+The `collections` property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[Resource Collection Schema]. This schema is described in detail in the <<collection-description,Resource Collection>> section of this Standard. 
 
 include::requirements/collections/REQ_rc-md-items.adoc[]
 
 A client may wish to select a subset of the hosted collections using HTTP query parameters. The <<rc-simple-query-section,Simple Query>> Conformance Class defines the <<bbox-parameter-requirements,`bbox`>> and the <<datetime-parameter-requirements,`datetime`>> parameter for that purpose.  It also defines how a server should process those parameters. These parameters are evaluated against the `extent` element of each Collection item in the Collections response.
 
-The requirements governing the processing of these parameters are:
+The requirements governing the processing of these parameters are provided by the <<rc-simple-query-section,Simple Query>> Requirements Class.
 
-include::requirements/collections/REQ_rc-bbox-collections-unsupported.adoc[]
+include::requirements/collections/REQ_rc-bbox-unsupported.adoc[]
 
-include::requirements/collections/REQ_rc-time-collections-unsupported.adoc[]
+include::requirements/collections/REQ_rc-datetime-unsupported.adoc[]
 
 The <<rc-simple-query-section,Simple Query>> Conformance Class also defines a parameter to limit the number of collections returned in a response. This <<limit-parameter-requirements,`limit`>> parameter indicates the maximum number of collections which should be included in a single response.
 
-include::requirements/collections/REQ_rc-limit-collections-unsupported.adoc[]
+include::requirements/collections/REQ_rc-limit-unsupported.adoc[]
 
-===== Error situations
+==== Error situations
 
 See <<http-status-codes>> for general guidance.
 
 [[collection-description]]
-==== Resource Collection
+=== Resource Collection
 
 Each resource collection is described by a set of metadata. That metadata is accessed directly using the `/collections/{collectionId}` path or as an entry in the `collections` property of the Collections resource.
 
-===== Operation
+==== Operation
 
 include::requirements/collections/REQ_src-md-op.adoc[]
 
-===== Response
+==== Response
 
 include::requirements/collections/REQ_src-md-success.adoc[]
 
-Collection responses are based on the link:http://schemas.opengis.net/ogcapi/common/part2/1.0/schemas/collectionDesc.json[Resource Collection Schema]. Examples of Collection responses are provided in <<collection-description-examples>>.
+Collection responses are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[Resource Collection Schema]. Examples of Collection responses are provided in <<collection-description-examples>>.
 
 .Collection Resource Schema
 [source, JSON]
@@ -114,17 +91,17 @@ include::openapi/schemas/collectionDesc.json[]
 
 The purpose of the Collection resource is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection. Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.
 
-====== Attribution
+===== Attribution
 
 The attribution element is a special type of string property. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
 
-====== Item Type
+===== Item Type
 
 In some Geospatial collections, the members (`items`) that make up that collection can be individually accessed by a client. In this case, the `itemType` property in the Collection resource identifies the type of the `items` accessible from that collection.  
 
 include::recommendations/collections/REC_rc-md-item-type.adoc[]
 
-====== Links
+===== Links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
@@ -134,7 +111,7 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
 
-====== Extent
+===== Extent
 
 The extent property defines a spatial-temporal surface which encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
 
@@ -149,7 +126,7 @@ include::recommendations/collections/REC_rc-md-extent-single.adoc[]
 
 include::recommendations/collections/PER_rc-md-extent-extensions.adoc[]
 
-===== Error situations
+==== Error situations
 
 See <<http-status-codes>> for general guidance.
 

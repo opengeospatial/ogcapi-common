@@ -6,11 +6,11 @@ This API-Common Geospatial Data Standard provides a common connection between th
 [[collections-introduction]]
 === Collections
 
-Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial/temporal resources.
+Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its holdings as aggregates of spatial/temporal resources.
 
 The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.
 
-A contentous issue is the term used to describe an aggregation of resources. The term should be consistent with its' coloquial use, should indicate that the members of the aggregation are somehow associated, and it should be independent of any resource type.
+A contentous issue is the term used to describe an aggregation of resources. The term should be consistent with its coloquial use, should indicate that the members of the aggregation are somehow associated, and it should be independent of any resource type.
 
 Merriam Websters Dictionary provides a few relevant definitions :
 
@@ -31,7 +31,7 @@ A collection of geospatial data may be represented in more than one way.  For ex
 
 `Views` should not be confused with encodings. HTTP content negotiation allows a client to negotiate the encoding (XML, JSON, etc.) to be used for the returned data. Regardless of the encoding, the underlying data model is the same. A `view`, on the other hand, is both a data model and a set of access mechanisms. It is an addressible resource in its own right and must be treated as such.
 
-The API-Common Geodata Standard does not define any `views`. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend API-Common Geodata.
+The API-Common Geodata Standard does not define any `views`. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend the API-Common Geodata Standard.
 
 The URI for a view of a collection folows the URI template:
 
@@ -52,3 +52,4 @@ For Maps: `/collections/mycollection/maps`
 
 The view identifiers are maintained as a controlled vocabulary by the OGC.
 
+Additional information on Views is provided in the http://docs.opengeospatial.org/DRAFTS/20-071.html#views-section[OGC API - Common Users Guide].

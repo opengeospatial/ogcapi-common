@@ -10,7 +10,15 @@ OGC Web APIs are not a Web Services in the traditional sense. Rather, they defin
 
 include::abstract_tests/ATS_class_collections.adoc[]
 
-=== Conformance Class GeoJSON
+=== Conformance Class Simple query
+
+include::abstract_tests/ATS_class_simple-query.adoc[]
+
+=== Conformance Class Subsetting
+
+include::abstract_tests/ATS_class_subsetting.adoc[]
+
+=== Conformance Class JSON
 
 include::abstract_tests/ATS_class_json.adoc[]
 
