@@ -20,5 +20,5 @@ Repeat these tests using the following parameter tests:
 * Response <<ats_collections_rc-datetime-response,/ats/collections/rc-datetime-response>>
 
 Execute requests with combinations of the "bbox" and "datetime" query parameters
-and verify that only features are returned that match both selection criteria.
+and verify that only resources that match both selection criteria are returned.
 |===

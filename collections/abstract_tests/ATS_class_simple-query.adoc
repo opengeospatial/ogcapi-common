@@ -10,11 +10,17 @@
 
 ==== Top Level Tests
 
-include::simple-query/ATS_rc-op.adoc[]
+These tests generate the request-response pairs needed for all other tests in this Conformance Class.
 
-include::simple-query/ATS_rc-response.adoc[]
+include::simple-query/ATS_rc-op-bbox.adoc[]
 
-==== Query Parameter Tests
+include::simple-query/ATS_rc-op-datetime.adoc[]
+
+include::simple-query/ATS_rc-op-limit.adoc[]
+
+==== Support Tests
+
+These tests are reached through the top level tests.
 
 include::simple-query/ATS_rc-bbox-definition.adoc[]
 
@@ -28,21 +34,6 @@ include::simple-query/ATS_rc-limit-definition.adoc[]
 
 include::simple-query/ATS_rc-limit-response.adoc[]
 
-==== Spatial and Temporal Filtering
-
-include::simple-query/ATS_rc-bbox-collection-response.adoc[]
-
-include::simple-query/ATS_rc-datetime-collection-response.adoc[]
-
-include::simple-query/ATS_rc-limit-collection-response.adoc[]
-
-==== Partial Returns
-
-include::simple-query/ATS_rc-subset-response.adoc[]
-
-include::simple-query/ATS_rc-numberMatched.adoc[]
-
-include::simple-query/ATS_rc-numberReturned.adoc[]
-
+include::simple-query/ATS_rc-paged-response.adoc[]
 
 

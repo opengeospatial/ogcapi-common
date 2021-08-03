@@ -2,9 +2,9 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-limit-response*
-^|Test Purpose |Validate that the dataTime query parameters are processed correctly.
+^|Test Purpose |Validate that the limit query parameters are processed correctly.
 ^|Requirement |<<req_collections_rc-limit-response,/req/collections/rc-limit-response>>
-^|Test Method |. Verify that only resources that have a temporal geometry that intersects the temporal information in the `datetime` parameter were included in the result set
-. Verify that all resources in the collection that are not associated with a temporal geometry are included in the result set
-. Validate that the datetime parameter complies with the syntax described in <<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>>.
+^|Test Method |. Count the resources which are on the first level of the returned result set. Any nested objects contained within the explicitly requested items are not be counted.
+. Verify that this count is not greater than the value specified for the limit parameter.
+. If the API definition specifies a maximum value for limit parameter, verify that the count does not exceed this maximum value.
 |===

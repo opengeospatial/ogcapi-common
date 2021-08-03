@@ -1,4 +1,4 @@
-[[ats_cllections]]
+[[ats_collections]]
 [cols="1,4",width="90%"]
 |===
 2+|*Conformance Class*
@@ -8,44 +8,28 @@
 |Dependency |http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
 |===
 
-=== Collections {root}/collections
+==== Collections {root}/collections
 
 include::collections/ATS_rc-md-op.adoc[]
 
 include::collections/ATS_rc-md-success.adoc[]
 
-=== Collection {root}/collections/{collectionId}
+include::collections/ATS_rc-md-links.adoc[]
+
+include::collections/ATS_rc-md-timestamp.adoc[]
+
+include::collections/ATS_rc-md-items.adoc[]
+
+include::collections/ATS_rc-md-simple-query-unsupported.adoc[]
+
+==== Collection {root}/collections/{collectionId}
 
 include::collections/ATS_src-md-op.adoc[]
 
 include::collections/ATS_src-md-success.adoc[]
 
-=== Second Tier Tests
-These tests are invoked by other tests.
-
-==== Links
-
-include::collections/ATS_rc-md-links.adoc[]
-
-==== Time Stamp
-
-include::collections/ATS_rc-md-timestamp.adoc[]
-
-==== Items
-
-include::collections/ATS_rc-md-items.adoc[]
+include::collections/ATS_rc-md-collection-content.adoc[]
 
 include::collections/ATS_rc-md-items-links.adoc[]
 
-==== Parameters
-
-include::collections/ATS_rc-bbox-unsupported.adoc[]
-
-include::collections/ATS_rc-datetime-unsupported.adoc[]
-
-include::collections/ATS_rc-limit-unsupported.adoc[]
-
-==== Extent
-
 include::collections/ATS_rc-md-extent.adoc[]
-

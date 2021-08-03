@@ -1,0 +1,24 @@
+[[ats_collections_rc-md-collection-content]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-md-collection-content*
+^|Test Purpose |Validate that a Collection document complies with the required structure and values.
+^|Requirement |<<req_collections_rc-md-items-links,/req/collections/rc-md-items-links>>, <<req_collections_rc-md-extent,/req/collections/rc-md-extent>>
+^|Test Method |FOR a each Collection document, validate:
+
+. That the Collection document includes an `id` property.
+. That the Collection document complies with <<ats_collections_rc-md-items-links,/ats/collections/rc-md-items-links>>
+. That any extent properties included in the Collection document comply with <<ats_collections_rc-md-extent,/collections/rc-md-extent>>
+. Validate the content of the Collection document for all supported media types using the resources and tests identified in <<collection-metadata-schema>>
+|===
+
+The Collection content may be retrieved in a number of different formats. The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.
+
+[#collection-metadata-schema,reftext='{table-caption} {counter:table-num}']
+.Schema and Tests for Collection content
+[width="90%",cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[collectionDesc.json]|<<ats_html_content,/ats/html/content>>
+|JSON |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[collectionDesc.json]|<<ats_json_content,/ats/json/content>>
+|===

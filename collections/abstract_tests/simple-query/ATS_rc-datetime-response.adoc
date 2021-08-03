@@ -6,5 +6,5 @@
 ^|Requirement |<<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>>
 ^|Test Method |. Verify that only resources that have a temporal geometry that intersects the temporal information in the `datetime` parameter were included in the result set
 . Verify that all resources in the collection that are not associated with a temporal geometry are included in the result set
-. Validate that the datetime parameter complies with the syntax described in <<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>>.
+. Validate that the processing of the datetime parameter complies with the syntax described in <<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>> (D, E, and F).
 |===

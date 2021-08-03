@@ -63,11 +63,11 @@ The server also has the option of limiting the size of the Collections response.
 
 include::recommendations/simple_query/PER_rc-md-items.adoc[]
 
-==== Filtered Response
+==== Paged Response
 
 If the collections response does not contain all of the collection resources available from this server, then the client must be informed of that fact.
 
-include::requirements/simple_query/REQ_rc-subset-response.adoc[]
+include::requirements/simple_query/REQ_rc-paged-response.adoc[]
 
 The `numberMatched` property of the Collections response indicates the number of Collection items included in the Collections response. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controled through the <<bbox-parameter-requirements,`bbox`>>, <<datetime-parameter-requirements,`datetime`>> and other selection parameters provided by the client.
 

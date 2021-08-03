@@ -2,9 +2,10 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-md-items-links* 
-^|Test Purpose |Validate that each Feature Collection metadata entry in the Collections Metadata document includes all required links.
+^|Test Purpose |Validate that a Collection document includes all required links.
 ^|Requirement |<<req_collections_rc-md-items-links,/req/collections/rc-md-items-links>>
-^|Test Method |. Verify that each Collection item in the Collections Metadata document includes a `link` property for each supported encoding. 
-. Verify that the `links` properties of the collection includes an item for each supported encoding with a link to the features resource (relation: `items`).
+^|Test Method |. Verify that the Collection document includes a `links` property. 
+. Verify that the `links` property includes an item which referes back to the Collection document (relation: `self`).
+. Verify that the `links` property includes an item for each supported encoding and that each item includes an `href` to an appropriate resource (relation: `alternate`).
 . Verify that all links include the `rel` and `type` link parameters.
 |===
