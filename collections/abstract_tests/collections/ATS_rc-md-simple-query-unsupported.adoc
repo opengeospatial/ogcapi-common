@@ -3,7 +3,9 @@
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-md-simple-query-unsupported*
 ^|Test Purpose |Validate proper handling of the Simple Query parameters if the <<rc-simple-query-section,Simple Query>> Conformance Class has not been implemented.
-^|Requirement |<<req_collections_rc-bbox-unsupported,/req/collections/rc-bbox-unsupported>>, <<req_collections_rc-datetime-unsupported,/req/collections/rc-datetime-unsupported>>, <<req_collections_rc-limit-unsupported,/req/collections/rc-limit-unsupported>>
+^|Requirement |<<req_collections_rc-bbox-unsupported,/req/collections/rc-bbox-unsupported>> + 
+<<req_collections_rc-datetime-unsupported,/req/collections/rc-datetime-unsupported>> + 
+<<req_collections_rc-limit-unsupported,/req/collections/rc-limit-unsupported>>
 ^|Test Method |IF the <<rc-simple-query-section,Simple Query>> Conformance Class is not supported by this API implementation, THEN:
 
 . Issue an HTTP GET request to the URL {root}/collections which includes the `bbox`, `datetime`, and `limit` query parameters.

@@ -3,7 +3,8 @@
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-md-collection-content*
 ^|Test Purpose |Validate that a Collection document complies with the required structure and values.
-^|Requirement |<<req_collections_rc-md-items-links,/req/collections/rc-md-items-links>>, <<req_collections_rc-md-extent,/req/collections/rc-md-extent>>
+^|Requirement |<<req_collections_rc-md-items-links,/req/collections/rc-md-items-links>> + 
+<<req_collections_rc-md-extent,/req/collections/rc-md-extent>>
 ^|Test Method |FOR a each Collection document, validate:
 
 . That the Collection document includes an `id` property.

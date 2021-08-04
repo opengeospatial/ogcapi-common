@@ -2,9 +2,9 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-timestamp*
-^|Test Purpose |If a `timeStamp` property is included in the Collections response, then validate that the value of that property equates to the time that the response was generated.
+^|Test Purpose |If a `timeStamp` property is included in the Collections document, then validate that the value of that property equates to the time that the response was generated.
 ^|Requirement |<<req_collections_rc-timeStamp,/req/collections/rc-timestamp>>
-^|Test Method |IF the Collections response contains a `timeStamp` property, THEN
+^|Test Method |IF the Collections document contains a `timeStamp` property, THEN
 
 . Get the current date and time
 . Verify that the value of that property is within two minutes of the current date and time.

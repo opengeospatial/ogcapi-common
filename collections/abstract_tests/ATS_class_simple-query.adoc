@@ -8,27 +8,31 @@
 |Dependency |<<ats_collections,Collections Conformance Class>>
 |===
 
-==== Top Level Tests
+Conformance with the <<rc-simple-query,Simple Query>> Conformance Class is demonstrated by execution of the following tests:
 
-These tests generate the request-response pairs needed for all other tests in this Conformance Class.
+. <<ats_collections_rc-op-bbox,/ats/collections/rc-op-bbox>>
+. <<ats_collections_rc-op-datetime,/ats/collections/rc-op-datetime>>
+. <<ats_collections_rc-op-limit,/ats/collections/rc-op-limit>>
+
+==== Bounding Box Tests
 
 include::simple-query/ATS_rc-op-bbox.adoc[]
-
-include::simple-query/ATS_rc-op-datetime.adoc[]
-
-include::simple-query/ATS_rc-op-limit.adoc[]
-
-==== Support Tests
-
-These tests are reached through the top level tests.
 
 include::simple-query/ATS_rc-bbox-definition.adoc[]
 
 include::simple-query/ATS_rc-bbox-response.adoc[]
 
+==== Date-Time Tests
+
+include::simple-query/ATS_rc-op-datetime.adoc[]
+
 include::simple-query/ATS_rc-datetime-definition.adoc[]
 
 include::simple-query/ATS_rc-datetime-response.adoc[]
+
+==== Limit Tests
+
+include::simple-query/ATS_rc-op-limit.adoc[]
 
 include::simple-query/ATS_rc-limit-definition.adoc[]
 

@@ -8,7 +8,14 @@
 |Dependency |http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
 |===
 
-==== Collections {root}/collections
+Conformance with the <<rc-collections,Collections>> Conformance Class is demonstrated by execution, in order, of the following tests:
+
+. <<ats_collections_rc-md-op,/ats/collections/rc-md-op>>
+. <<ats_collections_src-md-op,/ats/collections/src-md-op>>
+
+IF the <<rc-simple-query-section,Simple Query>> Conformance Class has not been implemented, then also execute test <<ats_collections_rc-md-simple-query-unsupported,ats/collections/rc-md-simple-query-unsupported>>
+
+==== Collections {root}/collections Tests
 
 include::collections/ATS_rc-md-op.adoc[]
 
@@ -20,9 +27,7 @@ include::collections/ATS_rc-md-timestamp.adoc[]
 
 include::collections/ATS_rc-md-items.adoc[]
 
-include::collections/ATS_rc-md-simple-query-unsupported.adoc[]
-
-==== Collection {root}/collections/{collectionId}
+==== Collection {root}/collections/{collectionId} Tests
 
 include::collections/ATS_src-md-op.adoc[]
 
@@ -33,3 +38,7 @@ include::collections/ATS_rc-md-collection-content.adoc[]
 include::collections/ATS_rc-md-items-links.adoc[]
 
 include::collections/ATS_rc-md-extent.adoc[]
+
+==== Simple Query Tests
+
+include::collections/ATS_rc-md-simple-query-unsupported.adoc[]

@@ -3,11 +3,12 @@
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-op-datetime*
 ^|Test Purpose |Validate that resources can be identified and extracted from an API server using the datetime query parameter.
-^|Requirement |<<req_collections_rc-datetime-definition,/req/collections/rc-datetime-definition>>, <<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>>
+^|Requirement |<<req_collections_rc-datetime-definition,/req/collections/rc-datetime-definition>> +
+<<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>>
 ^|Test Method |. Select a valid datetime value which intersects a subset of the resource collections available through the API implementation.
 . Construct a datetime query parameter using the selected value.
 . Validate the datetime query parameter using <<ats_collections_rc-datetime-definition,/ats/collections/rc-datetime-definition>>
-. Issue an HTTP GET request to the URL {root}/collections. Include the validated datetime query parameter.
+. Issue an HTTP GET request to the URL `{root}/collections`. Include the validated datetime query parameter.
 . Validate that a document was returned with a status code 200
 . Validate the contents of the returned document using:
 .. <<ats_collections_rc-md-success,/ats/collections_rc-md-success>> and

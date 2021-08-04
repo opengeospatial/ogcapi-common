@@ -3,7 +3,10 @@
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections_rc-md-success*
 ^|Test Purpose |Validate that the Collections content complies with the required structure and contents.
-^|Requirement |<<req_collections_rc-md-success,/req/collections/rc-md-success>>, <<req_collections_rc-md-links,/req/collections/rc-md-links>>, <<req_collections_rc-timestamp,/req/collections/rc-timestamp>>, <<req_collections_rc-md-items,/req/collections/rc-md-items>>
+^|Requirement |<<req_collections_rc-md-success,/req/collections/rc-md-success>> + 
+<<req_collections_rc-md-links,/req/collections/rc-md-links>> +
+<<req_collections_rc-timestamp,/req/collections/rc-timestamp>> +
+<<req_collections_rc-md-items,/req/collections/rc-md-items>>
 ^|Test Method |. Validate that the response document complies with <<ats_collections_rc-md-links,/ats/collections/rc-md-links>>
 . Validate that the response document complies with <<ats_collections_rc-timestamp,/ats/collections/rc-timestamp>>
 . Validate that the response document complies with <<ats_collections_rc-md-items,/ats/collections/rc-md-items>>

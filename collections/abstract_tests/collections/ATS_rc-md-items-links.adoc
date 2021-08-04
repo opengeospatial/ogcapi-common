@@ -6,6 +6,6 @@
 ^|Requirement |<<req_collections_rc-md-items-links,/req/collections/rc-md-items-links>>
 ^|Test Method |. Verify that the Collection document includes a `links` property. 
 . Verify that the `links` property includes an item which referes back to the Collection document (relation: `self`).
-. Verify that the `links` property includes an item for each supported encoding and that each item includes an `href` to an appropriate resource (relation: `alternate`).
+. Verify that the `links` property includes an item for each supported encoding of this Collection document and that each of these items includes an `href` to an appropriate resource (relation: `alternate`).
 . Verify that all links include the `rel` and `type` link parameters.
 |===

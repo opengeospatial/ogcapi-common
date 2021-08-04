@@ -2,12 +2,13 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-op-limit*
-^|Test Purpose |Validate that resources can be identified and extracted from an API server using the datetime query parameter.
-^|Requirement |<<req_collections_rc-limit-definition,/req/collections/rc-limit-definition>>, <<req_collections_rc-limit-response,/req/collections/rc-limit-response>>
+^|Test Purpose |Validate that the client can place a limit on the number of resources returned.
+^|Requirement |<<req_collections_rc-limit-definition,/req/collections/rc-limit-definition>> +
+<<req_collections_rc-limit-response,/req/collections/rc-limit-response>>
 ^|Test Method |. Select a valid limit value which is less than the number of resource collections available through the API implementation and less than any limits advertised for the server.
 . Construct a limit query parameter using the selected value.
 . Validate the limit query parameter using <<ats_collections_rc-limit-definition,/ats/collections/rc-limit-definition>>
-. Issue an HTTP GET request to the URL {root}/collections. Include the validated limit query parameter.
+. Issue an HTTP GET request to the URL `{root}/collections`. Include the validated limit query parameter.
 . Validate that a document was returned with a status code 200
 . Validate the contents of the returned document using:
 .. <<ats_collections_rc-md-success,/ats/collections_rc-md-success>> and

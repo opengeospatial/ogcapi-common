@@ -3,8 +3,9 @@
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-datetime-response*
 ^|Test Purpose |Validate that the dataTime query parameters are processed correctly.
-^|Requirement |<<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>>
+^|Requirement |<<req_collections_rc-datetime-definition,/req/collections/rc-datetime-definition>> +
+<<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>>
 ^|Test Method |. Verify that only resources that have a temporal geometry that intersects the temporal information in the `datetime` parameter were included in the result set
 . Verify that all resources in the collection that are not associated with a temporal geometry are included in the result set
-. Validate that the processing of the datetime parameter complies with the syntax described in <<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>> (D, E, and F).
+. Validate that the processing of the datetime parameter complies with the syntax described in <<req_collections_rc-datetime-definition,/req/collections/rc-datetime-definition>> (B, C, and D).
 |===
