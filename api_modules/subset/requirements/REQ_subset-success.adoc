@@ -1,0 +1,8 @@
+[[req_collection_rc-subset-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collection/subset-success*
+^|A |Only that part of the resource that falls within the bounds of the subset expression SHALL be returned.
+^|B |If an lower limit of the subset expression is populated with an asterix "*" THEN the mainumum extent of the resource along that axis SHALL be selected.
+^|C |If an upper limit of the subset expression is populated with an asterix "*" THEN the maximum extent of the resource along that axis SHALL be selected.
+|===

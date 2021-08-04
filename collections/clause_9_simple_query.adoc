@@ -49,15 +49,15 @@ A client may select a subset of the hosted collections using the <<bbox-paramete
 
 The requirements governing the processing of these parameters are:
 
-include::requirements/simple_query/REQ_rc-bbox-response.adoc[]
+include::requirements/simple_query/REQ_rc-bbox-collection-response.adoc[]
 
-include::requirements/simple_query/REQ_rc-datetime-response.adoc[]
+include::requirements/simple_query/REQ_rc-datetime-collection-response.adoc[]
 
 ==== Volumetric Filtering
 
 The client may limit the number of collections returned in a response by using the `limit` parameter. When applied against the `/collections` resource, the <<limit-parameter-requirements,`limit`>> parameter indicates the maximum number of collections which should be included in a single response.
 
-include::requirements/simple_query/REQ_rc-limit-response.adoc[]
+include::requirements/simple_query/REQ_rc-limit-collection-response.adoc[]
 
 The server also has the option of limiting the size of the Collections response.  
 

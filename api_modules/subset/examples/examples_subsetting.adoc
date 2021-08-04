@@ -1,0 +1,10 @@
+These examples return a subset of a coverage in the negotiated format, including domain set, range type (and metadata if applicable) to the extent than they can be described in that format:
+
+* {datasetAPI}/collections/{coverageid}/coverage?subset=Lat(40:50),Lon(10:20) -- returns a cutout (trim) from the coverage for the extent between corner coordinates (Lat: 40, Lon: 10) and (Lat: 50, Lon: 20)
+* {datasetAPI}/collections/{coverageid}/coverage?subset=time("2019-03-27") -- returns a coverage slice at the timestamp (if the coverage is has 2D spatial dimensions plus time, the result will be a 2D image with its full spatial extent)
+
+A `rangeset` resource, also supporting subsetting, may be available in some implementations, for some formats/media types.
+The following examples using this resource return only the sample values for a subset of a coverage in the negotiated format, without domain set, range type or metadata:
+
+* {datasetAPI}/collections/{coverageid}/coverage/rangeset?subset=Lat(40:50),Lon(10:20)  -- returns a coverage cutout/trim between (Lat: 40, Lon: 10) and (Lat: 50, Lon: 20)
+* {datasetAPI}/collections/{coverageid}/coverage/rangeset?subset=time("2019-03-27") -- returns a coverage slice at the timestamp given, with all data available in the other dimensions (if the coverage is has 2D spatial dimensions plus time, the result will be a 2D image with its full spatial extent)

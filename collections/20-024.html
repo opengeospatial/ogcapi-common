@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-03</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-04</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -653,31 +653,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
 <li><a href="#_conformance_class_collections">A.2. Conformance Class Collections</a>
 <ul class="sectlevel3">
-<li><a href="#_collections_rootcollections">A.2.1. Collections {root}/collections</a></li>
-<li><a href="#_collection_rootcollectionscollectionid">A.2.2. Collection {root}/collections/{collectionId}</a></li>
+<li><a href="#_collections_rootcollections_tests">A.2.1. Collections {root}/collections Tests</a></li>
+<li><a href="#_collection_rootcollectionscollectionid_tests">A.2.2. Collection {root}/collections/{collectionId} Tests</a></li>
+<li><a href="#_simple_query_tests">A.2.3. Simple Query Tests</a></li>
 </ul>
 </li>
 <li><a href="#_conformance_class_simple_query">A.3. Conformance Class Simple query</a>
 <ul class="sectlevel3">
-<li><a href="#_top_level_tests">A.3.1. Top Level Tests</a></li>
-<li><a href="#_support_tests">A.3.2. Support Tests</a></li>
+<li><a href="#_bounding_box_tests">A.3.1. Bounding Box Tests</a></li>
+<li><a href="#_date_time_tests">A.3.2. Date-Time Tests</a></li>
+<li><a href="#_limit_tests">A.3.3. Limit Tests</a></li>
 </ul>
 </li>
-<li><a href="#_conformance_class_subsetting">A.4. Conformance Class Subsetting</a>
+<li><a href="#_conformance_class_json">A.4. Conformance Class JSON</a>
 <ul class="sectlevel3">
-<li><a href="#_under_construction">A.4.1. Under Construction</a></li>
+<li><a href="#_geojson_definition">A.4.1. GeoJSON Definition</a></li>
+<li><a href="#_geojson_content">A.4.2. GeoJSON Content</a></li>
 </ul>
 </li>
-<li><a href="#_conformance_class_json">A.5. Conformance Class JSON</a>
+<li><a href="#_conformance_class_html">A.5. Conformance Class HTML</a>
 <ul class="sectlevel3">
-<li><a href="#_geojson_definition">A.5.1. GeoJSON Definition</a></li>
-<li><a href="#_geojson_content">A.5.2. GeoJSON Content</a></li>
-</ul>
-</li>
-<li><a href="#_conformance_class_html">A.6. Conformance Class HTML</a>
-<ul class="sectlevel3">
-<li><a href="#_html_definition">A.6.1. HTML Definition</a></li>
-<li><a href="#_html_content">A.6.2. HTML Content</a></li>
+<li><a href="#_html_definition">A.5.1. HTML Definition</a></li>
+<li><a href="#_html_content">A.5.2. HTML Content</a></li>
 </ul>
 </li>
 </ul>
@@ -2573,7 +2570,7 @@ explode: false</code></pre>
 <div class="paragraph">
 <p>The <code>datetime</code> parameter is defined as follows:</p>
 </div>
-<table id="req_collections_rc-time-definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_collections_rc-datetime-definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2582,7 +2579,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/collections/rc-time-definition</strong></p>
+<p><strong>/req/collections/rc-datetime-definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2634,7 +2631,7 @@ datetime            = date-time / interval</code></pre>
 <div class="paragraph">
 <p>While the processing of the <code>datetime</code> parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.</p>
 </div>
-<table id="req_collections_rc-time-response" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_collections_rc-datetime-response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2643,7 +2640,7 @@ datetime            = date-time / interval</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/collections/rc-time-response</strong></p>
+<p><strong>/req/collections/rc-datetime-response</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3003,19 +3000,13 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The <code>bbox</code> parameter SHALL be evaluated against the <code>bbox</code> element of the <code>extent</code> property of all <code>Collection</code> resources hosted by the API server.</p>
+<p>The API server SHALL process the <code>bbox</code> parameter against the <code>Collection</code> resources (/collections/{collectionId}) accessible through that API.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Only <code>Collection</code> resources whose <code>extent</code> property intersects the geometry specified by the <code>bbox</code> parameter SHALL be included in the <code>Collections</code> response.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The <code>bbox</code> parameter SHALL also match all collections that do not have an <code>extent</code> element with a spatial geometry.</p>
+<p>The <code>bbox</code> parameter SHALL be evaluated against the geometry defined by the <code>bbox</code> element of the <code>extent</code> property of the <code>Collection</code> resource.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3035,19 +3026,13 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The <code>datetime</code> parameter SHALL be evaluated against the <code>interval</code> element of the <code>extent</code> property of all <code>Collection</code> resources hosted by the API server.</p>
+<p>The API server SHALL process the <code>datetime</code> parameter against the <code>Collection</code> resources (/collections/{collectionId}) accessible through that API.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Only <code>Collection</code> resources whose <code>extent</code> property intersects the temporal interval specified by the <code>datetime</code> parameter SHALL be included in the <code>Collections</code> response.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The <code>datetime</code> parameter SHALL also match all collections that do not have an <code>extent</code> element with a temporal geometry.</p>
+<p>The <code>datetime</code> parameter SHALL be evaluated against the temporal geometry defined by the <code>interval</code> element of the <code>extent</code> property of the <code>Collection</code> resource.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3521,8 +3506,24 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Conformance with the <a href="#rc-collections">Collections</a> Conformance Class is demonstrated by execution, in order, of the following tests:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#ats_collections_rc-md-op">/ats/collections/rc-md-op</a></p>
+</li>
+<li>
+<p><a href="#ats_collections_src-md-op">/ats/collections/src-md-op</a></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>IF the <a href="#rc-simple-query-section">Simple Query</a> Conformance Class has not been implemented, then also execute test <a href="#ats_collections_rc-md-simple-query-unsupported">ats/collections/rc-md-simple-query-unsupported</a></p>
+</div>
 <div class="sect3">
-<h4 id="_collections_rootcollections"><a class="anchor" href="#_collections_rootcollections"></a>A.2.1. Collections {root}/collections</h4>
+<h4 id="_collections_rootcollections_tests"><a class="anchor" href="#_collections_rootcollections_tests"></a>A.2.1. Collections {root}/collections Tests</h4>
 <table id="ats_collections_rc-md-op" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3544,7 +3545,8 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-md-op">/req/collections/rc-md-op</a>, <a href="#req_collections_rc-md-success">/req/collections/rc-md-success</a></p>
+<p><a href="#req_collections_rc-md-op">/req/collections/rc-md-op</a><br>
+<a href="#req_collections_rc-md-success">/req/collections/rc-md-success</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3586,7 +3588,10 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-md-success">/req/collections/rc-md-success</a>, <a href="#req_collections_rc-md-links">/req/collections/rc-md-links</a>, <a href="#req_collections_rc-timestamp">/req/collections/rc-timestamp</a>, <a href="#req_collections_rc-md-items">/req/collections/rc-md-items</a></p>
+<p><a href="#req_collections_rc-md-success">/req/collections/rc-md-success</a><br>
+<a href="#req_collections_rc-md-links">/req/collections/rc-md-links</a><br>
+<a href="#req_collections_rc-timestamp">/req/collections/rc-timestamp</a><br>
+<a href="#req_collections_rc-md-items">/req/collections/rc-md-items</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3700,7 +3705,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If a <code>timeStamp</code> property is included in the Collections response, then validate that the value of that property equates to the time that the response was generated.</p>
+<p>If a <code>timeStamp</code> property is included in the Collections document, then validate that the value of that property equates to the time that the response was generated.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3712,7 +3717,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>IF the Collections response contains a <code>timeStamp</code> property, THEN</p>
+<p>IF the Collections document contains a <code>timeStamp</code> property, THEN</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3748,7 +3753,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that each collection provided by the server is described in the Collections response.</p>
+<p>Validate that each collection accessible through the API is described in the Collections document.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3762,13 +3767,13 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Verify that the Collections response includes a <code>collections</code> property.</p>
+<p>Verify that the Collections document includes a <code>collections</code> property.</p>
 </li>
 <li>
 <p>Verify that the <code>collections</code> property is an array.</p>
 </li>
 <li>
-<p>Verify that there is an entry in the <code>collections</code> property for each resource collection provided by the API.</p>
+<p>Verify that there is an entry in the <code>collections</code> property for each resource collection accessible through the API.</p>
 </li>
 <li>
 <p>Verify that each entry in the <code>collections</code> array is valid according to <a href="#ats_collections_rc-md-collection-content">/ats/collections/rc-md-collection-content</a>.</p>
@@ -3778,54 +3783,9 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
-<table id="ats_collections_rc-md-simple-query-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-md-simple-query-unsupported</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate proper handling of the Simple Query parameters if the <a href="#rc-simple-query-section">Simple Query</a> Conformance Class has not been implemented.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-bbox-unsupported">/req/collections/rc-bbox-unsupported</a>, <a href="#req_collections_rc-datetime-unsupported">/req/collections/rc-datetime-unsupported</a>, <a href="#req_collections_rc-limit-unsupported">/req/collections/rc-limit-unsupported</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>IF the <a href="#rc-simple-query-section">Simple Query</a> Conformance Class is not supported by this API implementation, THEN:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Issue an HTTP GET request to the URL {root}/collections which includes the <code>bbox</code>, <code>datetime</code>, and <code>limit</code> query parameters.</p>
-</li>
-<li>
-<p>Validate that a document was returned with a status code 200</p>
-</li>
-<li>
-<p>Validate the contents of the returned document using test <a href="#ats_collections_rc-md-success">/ats/collections/rc-md-success</a>.</p>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect3">
-<h4 id="_collection_rootcollectionscollectionid"><a class="anchor" href="#_collection_rootcollectionscollectionid"></a>A.2.2. Collection {root}/collections/{collectionId}</h4>
+<h4 id="_collection_rootcollectionscollectionid_tests"><a class="anchor" href="#_collection_rootcollectionscollectionid_tests"></a>A.2.2. Collection {root}/collections/{collectionId} Tests</h4>
 <table id="ats_collections_src-md-op" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -3833,7 +3793,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/src-md-op</strong></p>
 </div></div></td>
@@ -3847,7 +3807,8 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_src-md-op">/req/collections/src-md-op</a>, <a href="#req_collections_src-md-success">/ats/collections/req-md-success</a></p>
+<p><a href="#req_collections_src-md-op">/req/collections/src-md-op</a><br>
+<a href="#req_collections_src-md-success">/ats/collections/req-md-success</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3875,7 +3836,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/src-md-success</strong></p>
 </div></div></td>
@@ -3914,7 +3875,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-collection-content</strong></p>
 </div></div></td>
@@ -3928,7 +3889,8 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-md-items-links">/req/collections/rc-md-items-links</a>, <a href="#req_collections_rc-md-extent">/req/collections/rc-md-extent</a></p>
+<p><a href="#req_collections_rc-md-items-links">/req/collections/rc-md-items-links</a><br>
+<a href="#req_collections_rc-md-extent">/req/collections/rc-md-extent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3992,7 +3954,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-items-links</strong></p>
 </div></div></td>
@@ -4020,7 +3982,7 @@ explode: false</code></pre>
 <p>Verify that the <code>links</code> property includes an item which referes back to the Collection document (relation: <code>self</code>).</p>
 </li>
 <li>
-<p>Verify that the <code>links</code> property includes an item for each supported encoding and that each item includes an <code>href</code> to an appropriate resource (relation: <code>alternate</code>).</p>
+<p>Verify that the <code>links</code> property includes an item for each supported encoding of this Collection document and that each of these items includes an <code>href</code> to an appropriate resource (relation: <code>alternate</code>).</p>
 </li>
 <li>
 <p>Verify that all links include the <code>rel</code> and <code>type</code> link parameters.</p>
@@ -4037,7 +3999,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-md-extent</strong></p>
 </div></div></td>
@@ -4079,6 +4041,56 @@ explode: false</code></pre>
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_simple_query_tests"><a class="anchor" href="#_simple_query_tests"></a>A.2.3. Simple Query Tests</h4>
+<table id="ats_collections_rc-md-simple-query-unsupported" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/ats/collections/rc-md-simple-query-unsupported</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate proper handling of the Simple Query parameters if the <a href="#rc-simple-query-section">Simple Query</a> Conformance Class has not been implemented.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_collections_rc-bbox-unsupported">/req/collections/rc-bbox-unsupported</a><br>
+<a href="#req_collections_rc-datetime-unsupported">/req/collections/rc-datetime-unsupported</a><br>
+<a href="#req_collections_rc-limit-unsupported">/req/collections/rc-limit-unsupported</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>IF the <a href="#rc-simple-query-section">Simple Query</a> Conformance Class is not supported by this API implementation, THEN:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue an HTTP GET request to the URL {root}/collections which includes the <code>bbox</code>, <code>datetime</code>, and <code>limit</code> query parameters.</p>
+</li>
+<li>
+<p>Validate that a document was returned with a status code 200</p>
+</li>
+<li>
+<p>Validate the contents of the returned document using test <a href="#ats_collections_rc-md-success">/ats/collections/rc-md-success</a>.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_conformance_class_simple_query"><a class="anchor" href="#_conformance_class_simple_query"></a>A.3. Conformance Class Simple query</h3>
@@ -4108,11 +4120,24 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="_top_level_tests"><a class="anchor" href="#_top_level_tests"></a>A.3.1. Top Level Tests</h4>
 <div class="paragraph">
-<p>These tests generate the request-response pairs needed for all other tests in this Conformance Class.</p>
+<p>Conformance with the <a href="#rc-simple-query">Simple Query</a> Conformance Class is demonstrated by execution of the following tests:</p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#ats_collections_rc-op-bbox">/ats/collections/rc-op-bbox</a></p>
+</li>
+<li>
+<p><a href="#ats_collections_rc-op-datetime">/ats/collections/rc-op-datetime</a></p>
+</li>
+<li>
+<p><a href="#ats_collections_rc-op-limit">/ats/collections/rc-op-limit</a></p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_bounding_box_tests"><a class="anchor" href="#_bounding_box_tests"></a>A.3.1. Bounding Box Tests</h4>
 <table id="ats_collections_rc-op-bbox" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -4134,7 +4159,8 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-bbox-definition">/req/collections/rc-bbox-definition</a>, <a href="#req_collections_rc-bbox-response">/req/collections/rc-bbox-response</a></p>
+<p><a href="#req_collections_rc-bbox-definition">/req/collections/rc-bbox-definition</a><br>
+<a href="#req_collections_rc-bbox-response">/req/collections/rc-bbox-response</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4151,7 +4177,7 @@ explode: false</code></pre>
 <p>Validate the bbox query parameter using <a href="#ats_collections_rc-bbox-definition">/ats/collections/rc-bbox-definition</a></p>
 </li>
 <li>
-<p>Issue an HTTP GET request to the URL {root}/collections. Include the validated bbox query parameter.</p>
+<p>Issue an HTTP GET request to the URL <code>{root}/collections</code>. Include the validated bbox query parameter.</p>
 </li>
 <li>
 <p>Validate that a document was returned with a status code 200</p>
@@ -4177,7 +4203,7 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
-<table id="ats_collections_rc-op-datetime" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="ats_collections_rc-bbox-definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -4186,147 +4212,13 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-op-datetime</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that resources can be identified and extracted from an API server using the datetime query parameter.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-datetime-definition">/req/collections/rc-datetime-definition</a>, <a href="#req_collections_rc-datetime-response">/req/collections/rc-datetime-response</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Select a valid datetime value which intersects a subset of the resource collections available through the API implementation.</p>
-</li>
-<li>
-<p>Construct a datetime query parameter using the selected value.</p>
-</li>
-<li>
-<p>Validate the datetime query parameter using <a href="#ats_collections_rc-datetime-definition">/ats/collections/rc-datetime-definition</a></p>
-</li>
-<li>
-<p>Issue an HTTP GET request to the URL {root}/collections. Include the validated datetime query parameter.</p>
-</li>
-<li>
-<p>Validate that a document was returned with a status code 200</p>
-</li>
-<li>
-<p>Validate the contents of the returned document using:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><a href="#ats_collections_rc-md-success">/ats/collections_rc-md-success</a> and</p>
-</li>
-<li>
-<p><a href="#ats_collections_rc-datetime-response">/ats/collections/rc-datetime-response</a> and</p>
-</li>
-<li>
-<p><a href="#ats_collections_rc-paged-response">/ats/collections/rc-paged-response</a>.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="ats_collections_rc-op-limit" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-op-limit</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that resources can be identified and extracted from an API server using the datetime query parameter.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-limit-definition">/req/collections/rc-limit-definition</a>, <a href="#req_collections_rc-limit-response">/req/collections/rc-limit-response</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Select a valid limit value which is less than the number of resource collections available through the API implementation and less than any limits advertised for the server.</p>
-</li>
-<li>
-<p>Construct a limit query parameter using the selected value.</p>
-</li>
-<li>
-<p>Validate the limit query parameter using <a href="#ats_collections_rc-limit-definition">/ats/collections/rc-limit-definition</a></p>
-</li>
-<li>
-<p>Issue an HTTP GET request to the URL {root}/collections. Include the validated limit query parameter.</p>
-</li>
-<li>
-<p>Validate that a document was returned with a status code 200</p>
-</li>
-<li>
-<p>Validate the contents of the returned document using:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><a href="#ats_collections_rc-md-success">/ats/collections_rc-md-success</a> and</p>
-</li>
-<li>
-<p><a href="#ats_collections_rc-limit-response">/ats/collections/rc-limit-response</a> and</p>
-</li>
-<li>
-<p><a href="#ats_collections_rc-paged-response">/ats/collections/rc-paged-response</a>.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_support_tests"><a class="anchor" href="#_support_tests"></a>A.3.2. Support Tests</h4>
-<div class="paragraph">
-<p>These tests are reached through the top level tests.</p>
-</div>
-<table id="ats_collections_rc-bbox-definition" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-bbox-definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the bounding box query parameters are constructed correctly.</p>
+<p>Validate that the bounding box query parameter is constructed correctly.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4409,7 +4301,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-bbox-response</strong></p>
 </div></div></td>
@@ -4417,13 +4309,63 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the bounding box query parameters are processed corrrectly.</p>
+<p>Validate that the <code>bbox</code> query parameter is processed correctly.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-bbox-response">/req/collections/rc-bbox-response</a></p>
+<p><a href="#req_collections_rc-bbox-response">/req/collections/rc-bbox-response</a><br>
+<a href="#req_collections_rc-bbox-collection-response">/req/collections/rc-bbox-collection-response</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR each <code>Collection</code> in the <code>collections</code> element of the response:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Extract the spatial geometry from the <code>bbox</code> element of the <code>extent</code> property of the <code>Collection</code> resource.</p>
+</li>
+<li>
+<p>IF there is a spatial geometry, verify that the coordinate reference system of the spatial geometry is WGS 84 longitude/latitude (<a href="http://www.opengis.net/def/crs/OGC/1.3/CRS84" class="bare">http://www.opengis.net/def/crs/OGC/1.3/CRS84</a> or <a href="http://www.opengis.net/def/crs/OGC/0/CRS84h" class="bare">http://www.opengis.net/def/crs/OGC/0/CRS84h</a>.</p>
+</li>
+<li>
+<p>IF there is a spatial geometry, verify that the spatial geometry intersects the bounding box defined by the <code>bbox</code> parameter.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_date_time_tests"><a class="anchor" href="#_date_time_tests"></a>A.3.2. Date-Time Tests</h4>
+<table id="ats_collections_rc-op-datetime" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/ats/collections/rc-op-datetime</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate that resources can be identified and extracted from an API server using the datetime query parameter.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_collections_rc-datetime-definition">/req/collections/rc-datetime-definition</a><br>
+<a href="#req_collections_rc-datetime-response">/req/collections/rc-datetime-response</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4431,13 +4373,35 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Verify that only resources that have a spatial geometry that intersects the bounding box are returned as part of the result set.</p>
+<p>Select a valid datetime value which intersects a subset of the resource collections available through the API implementation.</p>
 </li>
 <li>
-<p>Verify that the <code>bbox</code> parameter matched all resources in the collection that were not associated with a spatial geometry (this is only applicable for datasets that include resources without a spatial geometry).</p>
+<p>Construct a datetime query parameter using the selected value.</p>
 </li>
 <li>
-<p>Verify that the coordinate reference system of the geometries is WGS 84 longitude/latitude ("http://www.opengis.net/def/crs/OGC/1.3/CRS84" or "http://www.opengis.net/def/crs/OGC/0/CRS84h") since no parameter <code>bbox-crs</code> was specified in the request.</p>
+<p>Validate the datetime query parameter using <a href="#ats_collections_rc-datetime-definition">/ats/collections/rc-datetime-definition</a></p>
+</li>
+<li>
+<p>Issue an HTTP GET request to the URL <code>{root}/collections</code>. Include the validated datetime query parameter.</p>
+</li>
+<li>
+<p>Validate that a document was returned with a status code 200</p>
+</li>
+<li>
+<p>Validate the contents of the returned document using:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><a href="#ats_collections_rc-md-success">/ats/collections_rc-md-success</a> and</p>
+</li>
+<li>
+<p><a href="#ats_collections_rc-datetime-response">/ats/collections/rc-datetime-response</a> and</p>
+</li>
+<li>
+<p><a href="#ats_collections_rc-paged-response">/ats/collections/rc-paged-response</a>.</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div></div></td>
@@ -4451,7 +4415,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-datetime-definition</strong></p>
 </div></div></td>
@@ -4459,7 +4423,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the dateTime query parameters are constructed correctly.</p>
+<p>Validate that the dateTime query parameter is constructed correctly.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4494,7 +4458,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/ats/collections/rc-datetime-response</strong></p>
 </div></div></td>
@@ -4502,13 +4466,64 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the dataTime query parameters are processed correctly.</p>
+<p>Validate that the <code>datetime</code> query parameter is processed correctly.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-datetime-response">/req/collections/rc-datetime-response</a></p>
+<p><a href="#req_collections_rc-datetime-definition">/req/collections/rc-datetime-definition</a><br>
+<a href="#req_collections_rc-datetime-response">/req/collections/rc-datetime-response</a><br>
+<a href="#req_collections_rc-datetime-collection-response">/req/collections/rc-datetime-collection-response</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Method</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>DO FOR each <code>Collection</code> in the <code>collections</code> element of the response:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Extract the temporal geometry from the <code>interval</code> element of the <code>extent</code> property of the <code>Collection</code> resource.</p>
+</li>
+<li>
+<p>IF there is a temporal geometry, verify that the temporal geometry intersects the temporal period defined by the <code>datetime</code> parameter.</p>
+</li>
+<li>
+<p>IF there is a temporal geometry, validate that the processing of the datetime parameter complies with the syntax described in /req/collections/rc-datetime-definition (B, C, and D).</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_limit_tests"><a class="anchor" href="#_limit_tests"></a>A.3.3. Limit Tests</h4>
+<table id="ats_collections_rc-op-limit" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/ats/collections/rc-op-limit</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Validate that the client can place a limit on the number of resources returned.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><a href="#req_collections_rc-limit-definition">/req/collections/rc-limit-definition</a><br>
+<a href="#req_collections_rc-limit-response">/req/collections/rc-limit-response</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4516,13 +4531,35 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Verify that only resources that have a temporal geometry that intersects the temporal information in the <code>datetime</code> parameter were included in the result set</p>
+<p>Select a valid limit value which is less than the number of resource collections available through the API implementation and less than any limits advertised for the server.</p>
 </li>
 <li>
-<p>Verify that all resources in the collection that are not associated with a temporal geometry are included in the result set</p>
+<p>Construct a limit query parameter using the selected value.</p>
 </li>
 <li>
-<p>Validate that the processing of the datetime parameter complies with the syntax described in <a href="#req_collections_rc-datetime-response">/req/collections/rc-datetime-response</a> (D, E, and F).</p>
+<p>Validate the limit query parameter using <a href="#ats_collections_rc-limit-definition">/ats/collections/rc-limit-definition</a></p>
+</li>
+<li>
+<p>Issue an HTTP GET request to the URL <code>{root}/collections</code>. Include the validated limit query parameter.</p>
+</li>
+<li>
+<p>Validate that a document was returned with a status code 200</p>
+</li>
+<li>
+<p>Validate the contents of the returned document using:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><a href="#ats_collections_rc-md-success">/ats/collections_rc-md-success</a> and</p>
+</li>
+<li>
+<p><a href="#ats_collections_rc-limit-response">/ats/collections/rc-limit-response</a> and</p>
+</li>
+<li>
+<p><a href="#ats_collections_rc-paged-response">/ats/collections/rc-paged-response</a>.</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div></div></td>
@@ -4544,7 +4581,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the limit query parameters are constructed correctly.</p>
+<p>Validate that the limit query parameter is constructed correctly.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4593,7 +4630,8 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-limit-response">/req/collections/rc-limit-response</a></p>
+<p><a href="#req_collections_rc-limit-response">/req/collections/rc-limit-response</a><br>
+<a href="#req_collections_rc-limit-collection-response">/req/collections/rc-limit-collection-response</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4601,10 +4639,10 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Count the resources which are on the first level of the returned result set. Any nested objects contained within the explicitly requested items are not be counted.</p>
+<p>Count the items in the <code>collections</code> element of the response:</p>
 </li>
 <li>
-<p>Verify that this count is not greater than the value specified for the limit parameter.</p>
+<p>Verify that this count is not greater than the value specified for the <code>limit</code> parameter.</p>
 </li>
 <li>
 <p>If the API definition specifies a maximum value for limit parameter, verify that the count does not exceed this maximum value.</p>
@@ -4629,13 +4667,14 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Test Purpose</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Validate that the dateTime query parameters are constructed correctly.</p>
+<p>Validate that the <code>numberMatched</code> and <code>numberReturned</code> parameters, if present, are populated correctly..</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-numberMatched">/req/collections/rc-numberMatched</a>, <a href="#req_collections_rc-numberReturned">/req/collections/rc-numberReturned</a></p>
+<p><a href="#req_collections_rc-numberMatched">/req/collections/rc-numberMatched</a><br>
+<a href="#req_collections_rc-numberReturned">/req/collections/rc-numberReturned</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4646,7 +4685,7 @@ explode: false</code></pre>
 <p>IF the <code>numerMatched</code> property is included in the response, THEN verify that the value of the <code>numberMatched</code> parameter is identical to the number of hosted resources that meet the selection parameters provided by the client.</p>
 </li>
 <li>
-<p>IF the <code>numerReturned</code> property is included in the response, THEN verify that the value of the <code>numberReturned</code> parameter is identical to the number of resources returned in the response.</p>
+<p>IF the <code>numberReturned</code> property is included in the response, THEN verify that the value of the <code>numberReturned</code> parameter is identical to the number of resources returned in the response.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4656,40 +4695,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conformance_class_subsetting"><a class="anchor" href="#_conformance_class_subsetting"></a>A.4. Conformance Class Subsetting</h3>
-<table id="ats_subsetting" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Conformance Class</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/subsetting" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/subsetting</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements Class</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_collections">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/subsetting</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_collections">Collections Conformance Class</a></p></td>
-</tr>
-</tbody>
-</table>
-<div class="sect3">
-<h4 id="_under_construction"><a class="anchor" href="#_under_construction"></a>A.4.1. Under Construction</h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="_conformance_class_json"><a class="anchor" href="#_conformance_class_json"></a>A.5. Conformance Class JSON</h3>
+<h3 id="_conformance_class_json"><a class="anchor" href="#_conformance_class_json"></a>A.4. Conformance Class JSON</h3>
 <table id="ats_json" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4717,7 +4723,7 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_geojson_definition"><a class="anchor" href="#_geojson_definition"></a>A.5.1. GeoJSON Definition</h4>
+<h4 id="_geojson_definition"><a class="anchor" href="#_geojson_definition"></a>A.4.1. GeoJSON Definition</h4>
 <table id="ats_json_definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -4759,7 +4765,7 @@ explode: false</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_geojson_content"><a class="anchor" href="#_geojson_content"></a>A.5.2. GeoJSON Content</h4>
+<h4 id="_geojson_content"><a class="anchor" href="#_geojson_content"></a>A.4.2. GeoJSON Content</h4>
 <table id="ats_json_content" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -4802,7 +4808,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conformance_class_html"><a class="anchor" href="#_conformance_class_html"></a>A.6. Conformance Class HTML</h3>
+<h3 id="_conformance_class_html"><a class="anchor" href="#_conformance_class_html"></a>A.5. Conformance Class HTML</h3>
 <table id="ats_html" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
@@ -4830,7 +4836,7 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="_html_definition"><a class="anchor" href="#_html_definition"></a>A.6.1. HTML Definition</h4>
+<h4 id="_html_definition"><a class="anchor" href="#_html_definition"></a>A.5.1. HTML Definition</h4>
 <table id="ats_html_definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -4865,7 +4871,7 @@ explode: false</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_html_content"><a class="anchor" href="#_html_content"></a>A.6.2. HTML Content</h4>
+<h4 id="_html_content"><a class="anchor" href="#_html_content"></a>A.5.2. HTML Content</h4>
 <table id="ats_html_content" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -5231,7 +5237,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-03 13:30:38 +0100
+Last updated 2021-08-04 13:32:22 +0100
 </div>
 </div>
 </body>

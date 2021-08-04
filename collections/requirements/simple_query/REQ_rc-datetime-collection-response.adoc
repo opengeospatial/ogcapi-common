@@ -1,0 +1,7 @@
+[[req_collections_rc-datetime-collection-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-datetime-collection-response* 
+^|A|The API server SHALL process the `datetime` parameter against the `Collection` resources (/collections/{collectionId}) accessible through that API. 
+^|B|The `datetime` parameter SHALL be evaluated against the temporal geometry defined by the `interval` element of the `extent` property of the `Collection` resource. 
+|===
