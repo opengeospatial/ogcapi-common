@@ -83,13 +83,26 @@ include::requirements/collections/REQ_src-md-op.adoc[]
 
 include::requirements/collections/REQ_src-md-success.adoc[]
 
-Collection responses are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[Resource Collection Schema]. Examples of Collection responses are provided in <<collection-description-examples>>.
+==== Error Situations
+
+See <<http-status-codes>> for general guidance.
+
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).
+
+[[collection-resource-definition-section]]
+==== Collection Resource Definition
+
+include::requirements/collections/requirements_module_collection.adoc[]
+
+Examples of Collection resources are provided in <<collection-description-examples>>.
+
+include::requirements/collections/REQ_collection-definition.adoc[]
 
 .Collection Resource Schema
 [source, JSON]
-include::openapi/schemas/collectionDesc.json[]
+include::./openapi/schemas/collectionDesc.json[]
 
-The purpose of the Collection resource is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection. Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.
+Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.
 
 ===== Attribution
 
@@ -125,9 +138,3 @@ include::recommendations/collections/REC_rc-md-extent.adoc[]
 include::recommendations/collections/REC_rc-md-extent-single.adoc[]
 
 include::recommendations/collections/PER_rc-md-extent-extensions.adoc[]
-
-==== Error situations
-
-See <<http-status-codes>> for general guidance.
-
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).

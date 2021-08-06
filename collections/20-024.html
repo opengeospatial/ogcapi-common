@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-04</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-06</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -616,7 +616,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_operation_2">8.2.1. Operation</a></li>
 <li><a href="#_response_2">8.2.2. Response</a></li>
-<li><a href="#_error_situations_2">8.2.3. Error situations</a></li>
+<li><a href="#_error_situations_2">8.2.3. Error Situations</a></li>
+<li><a href="#collection-resource-definition-section">8.2.4. Collection Resource Definition</a></li>
 </ul>
 </li>
 </ul>
@@ -692,6 +693,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
 <li><a href="#Glossary">Annex D: Glossary</a></li>
 <li><a href="#Bibliography">Annex E: Bibliography</a></li>
+<li><a href="#http-status-codes">Annex F: HTTP Status Codes</a></li>
+<li><a href="#_ogc_web_api_guidelines">Annex G: OGC Web API Guidelines</a></li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1655,7 +1658,7 @@ API definitions are considered service descriptions.</p></td>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json">collections.json</a>.</p>
+<p>The content of that response SHALL comply with the requirements in the  <a href="#collection-resource-definition-section">Collection Resource Definition</a> section of this Standard.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1908,7 +1911,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 <div class="sect3">
 <h4 id="_error_situations"><a class="anchor" href="#_error_situations"></a>8.1.3. Error situations</h4>
 <div class="paragraph">
-<p>See <a href="#http-status-codes">[http-status-codes]</a> for general guidance.</p>
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
 </div>
 </div>
 </div>
@@ -1969,7 +1972,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of that response SHALL be based upon the JSON schema <a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json">collectionDesc.json</a>.</p>
+<p>The content of that response SHALL comply with the requirements in the  <a href="#collection-resource-definition-section">Collection Resource Definition</a> section of this Standard.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1980,9 +1983,77 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Collection responses are based on the <a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json">Resource Collection Schema</a>. Examples of Collection responses are provided in <a href="#collection-description-examples">Collection Object Examples</a>.</p>
 </div>
+<div class="sect3">
+<h4 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>8.2.3. Error Situations</h4>
+<div class="paragraph">
+<p>See <a href="#http-status-codes">HTTP Status Codes</a> for general guidance.</p>
+</div>
+<div class="paragraph">
+<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">Table 5</a>).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="collection-resource-definition-section"><a class="anchor" href="#collection-resource-definition-section"></a>8.2.4. Collection Resource Definition</h4>
+<table id="rm_collection" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Module</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/collection" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/collection</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The Collection resource provides clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#req_collections_collection-definition">/req/collections/collection-definition</a><br>
+<a href="#req_collections_rc-md-items-links">/req/collections/rc-md-items-links</a><br>
+<a href="#req_collections_rc-md-extent">/req/collections/rc-md-extent</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Recommendations and Permissions</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rec_collections_rc-md-item-type">/rec/collections/rc-md-item-type</a><br>
+<a href="#rec_collections_rc-md-items-desciptions">/rec/collections/rc-md-items-descriptions</a><br>
+<a href="#rec_collections_rc-md-extent">/rec/collections/rc-md-extent</a><br>
+<a href="#rec_collections_rc-md-extent-single">/rec/collections/rc-md-extent-single</a><br>
+<a href="#per_collections_rc-md-extent-extensions">/per/collections/rc-md-extent-extensions</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Examples of Collection resources are provided in <a href="#collection-description-examples">Collection Object Examples</a>.</p>
+</div>
+<table id="req_collections_collection-definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/collection-definition</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The content of a <code>Collection</code> resource SHALL be based upon the JSON schema <a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json">collectionDesc.json</a>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="listingblock">
 <div class="title">Collection Resource Schema</div>
 <div class="content">
@@ -2041,7 +2112,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 </div>
 </div>
 <div class="paragraph">
-<p>The purpose of the Collection resource is to provide clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection. Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.</p>
+<p>Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.</p>
 </div>
 <div class="sect4">
 <h5 id="_attribution"><a class="anchor" href="#_attribution"></a>Attribution</h5>
@@ -2087,7 +2158,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 11</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-items-links</strong></p>
 </div></div></td>
@@ -2168,7 +2239,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 12</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-md-extent</strong></p>
 </div></div></td>
@@ -2278,15 +2349,6 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_error_situations_2"><a class="anchor" href="#_error_situations_2"></a>8.2.3. Error situations</h4>
-<div class="paragraph">
-<p>See <a href="#http-status-codes">[http-status-codes]</a> for general guidance.</p>
-</div>
-<div class="paragraph">
-<p>If the parameter <code>collectionId</code> does not exist on the server, the status code of the response will be <code>404</code> (see <a href="#status-codes">[status-codes]</a>).</p>
 </div>
 </div>
 </div>
@@ -2405,7 +2467,7 @@ This requirement does not preclude server imposed limits on the size of a respon
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-definition</strong></p>
 </div></div></td>
@@ -2483,7 +2545,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 14</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-response</strong></p>
 </div></div></td>
@@ -2577,7 +2639,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 15</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-datetime-definition</strong></p>
 </div></div></td>
@@ -2638,7 +2700,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 16</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-datetime-response</strong></p>
 </div></div></td>
@@ -2754,7 +2816,7 @@ datetime            = date-time / interval</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 17</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-definition</strong></p>
 </div></div></td>
@@ -2797,7 +2859,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 18</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-response</strong></p>
 </div></div></td>
@@ -2992,7 +3054,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 19</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-bbox-collection-response</strong></p>
 </div></div></td>
@@ -3018,7 +3080,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 20</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-datetime-collection-response</strong></p>
 </div></div></td>
@@ -3050,7 +3112,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 21</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-limit-collection-response</strong></p>
 </div></div></td>
@@ -3105,7 +3167,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 22</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-paged-response</strong></p>
 </div></div></td>
@@ -3128,7 +3190,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberMatched</strong></p>
 </div></div></td>
@@ -3157,7 +3219,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberReturned</strong></p>
 </div></div></td>
@@ -3263,7 +3325,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -3283,7 +3345,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -3370,7 +3432,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -3390,7 +3452,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -3889,7 +3951,8 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><a href="#req_collections_rc-md-items-links">/req/collections/rc-md-items-links</a><br>
+<p><a href="#req_collections_collection-definition">/req/collections/collection-definition</a><br>
+<a href="#req_collections_rc-md-items-links">/req/collections/rc-md-items-links</a><br>
 <a href="#req_collections_rc-md-extent">/req/collections/rc-md-extent</a></p>
 </div></div></td>
 </tr>
@@ -5231,13 +5294,240 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>Annex F: HTTP Status Codes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="#status-codes">Table 5</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
+</div>
+<table id="status-codes" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Typical HTTP status codes</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Status code</th>
+<th class="tableblock halign-center valign-top" style="background-color: #FFFFFF;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>200</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A successful request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>302</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource was found but resides temporarily under a different URI. A 302 response is not evidence that the operation has been successfully completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>303</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server is redirecting the user agent to a different resource. A 303 response is not evidence that the operation has been successfully completed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>304</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An entity tag was provided in the request and the resource has not changed since the previous request.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>307</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>308</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>400</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server cannot or will not process the request due to an apparent client error. For example, a query parameter had an incorrect value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>401</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The request requires user authentication. The response includes a <code>WWW-Authenticate</code> header field containing a challenge applicable to the requested resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>403</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The server understood the request, but is refusing to fulfill it. While status code <code>401</code> indicates missing or bad authentication, status code <code>403</code> indicates that authentication is not the issue, but the client is not authorized to perform the requested operation on the resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>404</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The requested resource does not exist on the server. For example, a path parameter had an incorrect value.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>405</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The request method is not supported. For example, a POST request was submitted, but the resource only supports GET requests.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>406</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Content negotiation failed. For example, the <code>Accept</code> header submitted in the request did not support any of the media types supported by the server for the requested resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>500</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">An internal error occurred in the server.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The status codes described in <a href="#status-codes">Table 5</a> do not cover all possible conditions. See <a href="#rfc7231">IETF RFC 7231</a> for a complete list of HTTP status codes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ogc_web_api_guidelines"><a class="anchor" href="#_ogc_web_api_guidelines"></a>Annex G: OGC Web API Guidelines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following table discusses how this standard addresses the design principles documented in the <a href="https://github.com/opengeospatial/OGC-Web-API-Guidelines">OGC Web API Guidelines</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 18.1818%;">
+<col style="width: 72.7273%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>#</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Principle</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Discussion</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Don’t reinvent</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Great care was taken in the development of this standard to only address capabilities that were not already standardized and to define how the needed capabilites integrate into a single API.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Keep it simple and intuitive</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Web APIs are developed using a building block approach. Conformance Classes are defined that encompase requirements sufficient to create a usable software module and no more. Complex APIs are constructed by assembling the applicable Conformance Classes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">3</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use well-known resource types</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Except where unique to a specific Conformance Class, all resources types are IANA or OGC registered types.<br>
+OGC Web API standards do not mandate an encoding. The encodings supported by an API are specified by the corresponding encoding Conformance Classes. All encodings used to-date are IANA registered media types.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">4</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Construct consistent URIs</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC Web APIs are built from standardized modules using standardized patterns. This modular approach assures that the URIs are consistent across OGC Web APIs.<br>
+OGC Web API Common defines stylistic conventions for query parameters, query values, identifiers, and path elements used to create OGC Web API URIs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">5</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use HTTP methods consistent with RFC 7231</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC web APIs are restricted to the HTTP methods defined in IETF <a href="#rfc7231">RFC 7231</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Put selection criteria behind the ‘?’</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#identifier-conventions">Section 6.1</a> of this Standard defines the conventions to be used when creating URIs for OGC Web API standards. This includes the use of the "?" to deliminate query parameters from the rest of the URI.<br>
+Note that this does not preclude the use of resource identifiers (ex. collection identifiers) as part of the path. However those can be considered identifying criteria rather than selection criteria.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Error handling and use of HTTP status codes</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This standard identifies the applicable HTTP status codes and under what conditions they should be returned. Status codes and supporting information are returned in the HTTP response using a reporting structure based on RFC 7807.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use explicit list of HTTP status codes</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-status-codes">HTTP Status Codes</a> provides a list of the HTTP status codes that implementers of this standard should be prepared to generate and accept. This list is not exhaustive (see guideline #1).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use of HTTP header</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">OGC API Common does not preclude use of HTTP headers where it is appropriate to do so.<br>
+Only standard HTTP headers are used.<br>
+Due to the common use of the HATEOAS pattern in OGC Web APIs, HTTP headers are not always accessible. The use of query parameter overrides is allowed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">10</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Allow flexible content negotiation</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IETF <a href="#rfc7231">RFC 7231</a> content negotiation is avalable on all transactions.<br>
+Since the HTTP headers are not always accessible, content negotiation may be performed through a query parameter (see #9).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Pagination</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Of the resources defined in API-Common Core only the conformance resource is "listable". We do not anticipate the conformance resource to grow to any size, so support for pagenation would add complexity will little to no value (violating #2)<br>
+If an OpenAPI document is used as the API definition, then pagination could become an issue for this resource. The question of how to handle large OpenAPI documents is still an open issue being worked across the Standards Working Groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Processing resources</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Processing resources are not addressed by this Standard.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">13</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Support metadata</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support for metadata is provided through metadata resource links. Examples include links with the relation type <code>service-desc</code>,<code>service-doc</code>, <code>service-meta</code>, or <code>data-meta</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">14</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Consider your security needs</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">While not mandated, use of HTTPS vs. HTTP is encouraged throughout this standard.<br>
+Authenitcation is not precluded by this standard, but in keeping with guideline #1, this standard does not presume to dictate what authentication methods can be used.<br>
+API-Common - Core only defines GET requests. The security issues associated with CRUD are not applicable to this standard.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">15</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>API description</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The API definition is avaliable using the <code>service-desc</code> (machine readable) and <code>service-doc</code> (human readable) associations from the landing page.<br>
+OpenAPI is the only API definition type currently supported.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">16</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use well-known identifiers</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">IANA identifiers are used where they are available. Where no IANA identifiers are appropriate, OGC registered identifiers are used.<br>
+OGC identifiers are only used after they have been reviewed and approved by the OGC Naming Authority.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">17</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use explicit relations</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">All relations in this standard are typed using relation types registered in the IANA or the OGC relation type registers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">18</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Support W3C cross-origin resource sharing</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This guideline is addressed in <a href="#cross-origin-section">[cross-origin-section]</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">19</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Resource encodings</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance classes for both HTML and JSON have been defined. Implementation of both the HTML and JSON Conformance Classes is recommended.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">20</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Good APIs are testable from the beginning</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The Abstract Test Suite (ATS) for this standard is provided in Annex A.<br>
+The ATS is defined to sufficient level of detail to validate that it is implementable and comprehensive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">21</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Specify whether operations are safe and/or idempotent</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">According to IETF <a href="#rfc7231">RFC 7231</a> "the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe." and the "PUT, DELETE, and safe request methods are idempotent". All request methods in this standard (GET) are both safe and idempotent.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">22</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Make resources discoverable</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">All resouces defined in this standard can be navigated to through resource links and optional standard paths. All resource links are typed using registered relation types. These links are encoded using a standard link structure that includes the media type, language, and title of the resource.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">23</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Make default behavior explicit</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This Standard defines the proper and allowed responses for any valid or invalid request.</p></td>
+</tr>
+</tbody>
+</table>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-04 13:32:22 +0100
+Last updated 2021-08-06 15:20:53 +0100
 </div>
 </div>
 </body>
