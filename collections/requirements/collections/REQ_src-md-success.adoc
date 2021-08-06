@@ -3,6 +3,6 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/collections/src-md-success* 
 ^|A|A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
-^|B |The content of that response SHALL comply with the requirements in the  <<collection-resource-definition-section,Collection Resource Definition>> section of this Standard.
+^|B |The content of that response SHALL comply with the requirements in the  <<rm_collection,http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/collection>> Requirements Class secribed in  section <<collection-resource-definition-section,Collection Resource Definition>> of this Standard.
 ^|C|The content of that response SHALL be consistent with the content for this collection in the ``/collections`` response. That is, the values for ``id``, ``title``, ``description`` and ``extent`` SHALL be identical.
 |===
