@@ -19,7 +19,7 @@ A goal of OGC API standards is to provide rapid and easy access to spatial resou
 
 The OGC Modular Web API approach has several facets:
 
-* A common `core` that is required for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard defines this `core` in the <<rc_core-section,Core Requirements Class>>.
+* A common `core` that is recommended for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard defines this `core` in the <<rc_core-section,Core Requirements Class>>.
 * Common descriptive resources which allow clients to learn the purpose and capabilities of an API as well as how they should be used. These resources are defined in the <<rc_landing-page-section,Landing Page Requirements Class>>.
 * Clear separation between common requirements and more resource specific capabilities. The OGC API - Common Standard specifies the _common_ requirements that may be relevant to almost anyone who wants to build an API for spatial resources. Resource-specific requirements are addressed in resource-specific OGC standards.
 * Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.

@@ -456,13 +456,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Open Geospatial Consortium</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Submission Date: 2021-08-01</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Submission Date: 2021-08-09</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-01</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-09</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/is/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/is/ogcapi-common-1/1.0</a></p></td>
@@ -740,7 +740,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>The OGC has extended their suite of standards to include  <a href="https://en.wikipedia.org/wiki/Resource-oriented_architecture">Resource Oriented Architectures</a> and <a href="https://portal.ogc.org/files/?artifact_id=71776&amp;version=1">Web APIs</a>. In the course of developing these standards, some practices proved to be common across more than one of those standards. These common practices are documented in the OGC API - Common Standard. API-Common specifies reusable building-blocks. Developers of OGC standards will use these building-blocks in the construction of OGC Web API Standards. The goal is a modular suite of coherent OGC Web API standards that can be adapted by a system designer to meet the unique requirements of their system.</p>
+<p>The OGC has extended their suite of standards to include <a href="https://en.wikipedia.org/wiki/Resource-oriented_architecture">Resource Oriented Architectures</a> and <a href="https://portal.ogc.org/files/?artifact_id=71776&amp;version=1">Web APIs</a>. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of the OGC API - Common - Part 1: Core Standard (API-Core) is to define those fundamental building blocks and requirements which are applicable to all OGC Web API Standards.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">ii.    Keywords</strong></p>
@@ -1221,7 +1224,7 @@ a <a href="#resource-definition">resource</a> that is identified by a URI.</p>
 <p>The normative provisions in this draft standard are denoted by the URI <code><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0</a></code>. All <a href="#requirement-definition">Requirements</a>, <a href="#requirements-module-definition">Requirements Modules</a> and <a href="#ctm-definition">Conformance Modules</a> that appear in this document are denoted by partial URIs that are relative to this base.</p>
 </div>
 <div class="paragraph">
-<p><a href="#resource-definition">Resources</a> described in this document are denoted by partial URIs that are relative to the <code>root</code> node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the <code>url</code> field of the <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#server-object">Server Object</a>. In this document the tag <code>{root}</code> designates the root node of a URI.</p>
+<p><a href="#resource-definition">Resources</a> described in this document are denoted by partial URIs that are relative to the <code>root</code> node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the <code>url</code> field of the <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#server-object">Server Object</a>. In this document the tag <code>{root}</code> designates the root node of a URI.</p>
 </div>
 <div class="paragraph">
 <p>The partial URIs used to identify <a href="#resource-definition">Resources</a> in this document are referred to as the resource <code>path</code>. The purpose of a resource <code>path</code> is to identify the referenced resource <span class="underline">within the context of this standard</span>. Implementers are encouraged to use these partial URIs in their implementations, thereby providing a common look and feel to OGC APIs.</p>
@@ -1574,7 +1577,7 @@ API definitions are considered service descriptions.</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>A common <code>core</code> that is required for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard defines this <code>core</code> in the <a href="#rc_core-section">Core Requirements Class</a>.</p>
+<p>A common <code>core</code> that is recommended for all OGC Web API implementations. This OGC API - Common - Part 1: Core Standard defines this <code>core</code> in the <a href="#rc_core-section">Core Requirements Class</a>.</p>
 </li>
 <li>
 <p>Common descriptive resources which allow clients to learn the purpose and capabilities of an API as well as how they should be used. These resources are defined in the <a href="#rc_landing-page-section">Landing Page Requirements Class</a>.</p>
@@ -1615,7 +1618,7 @@ API definitions are considered service descriptions.</p></td>
 <h2 id="rc_core-section"><a class="anchor" href="#rc_core-section"></a>8. Core Requirements Class</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following requirements and recommendations are applicable to all OGC Web APIs.</p>
+<p>The following requirements and recommendations define protocol-level conventions that should be applicable to all OGC Web APIs.</p>
 </div>
 <table id="rc_core" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -2560,10 +2563,6 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Core Requirements Class</a></p></td>
-</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -3096,10 +3095,6 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Core Requirements Class</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_landing-page">Landing Page Requirements Class</a></p></td>
 </tr>
 <tr>
@@ -3127,7 +3122,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Every <code>200</code>-response of an operation of the API SHALL support the media type <code>text/html</code>.</p>
+<p><code>200</code>-responses of the server SHALL support the <code>text/html</code> media type for the <a href="#landing-page">Landing Page</a> and <a href="#conformance-classes">Conformance</a> resources.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3153,7 +3148,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <ul>
 <li>
 <p>All information identified in the schemas of the
-<a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#responseObject">Response Object</a> in the HTML <code>&lt;body/&gt;</code>, and</p>
+<a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#responseObject">Response Object</a> in the HTML <code>&lt;body/&gt;</code>, and</p>
 </li>
 <li>
 <p>All links in HTML <code>&lt;a/&gt;</code> elements in the HTML <code>&lt;body/&gt;</code>.</p>
@@ -3207,10 +3202,6 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Core Requirements Class</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_landing-page">Landing Page Requirements Class</a></p></td>
 </tr>
 <tr>
@@ -3238,7 +3229,7 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><code>200</code>-responses of the server SHALL support the <code>application/json</code> media type.</p>
+<p><code>200</code>-responses of the server SHALL support the <code>application/json</code> media type for the <a href="#landing-page">Landing Page</a> and <a href="#conformance-classes">Conformance</a> resources.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3318,14 +3309,6 @@ The document SHOULD conform to the <a href="#rc_oas30-section">OpenAPI Specifica
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_core">Core Requirements Class</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_landing-page">Landing Page Requirements Class</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
@@ -6100,7 +6083,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-01 22:10:59 +0100
+Last updated 2021-08-09 14:31:17 +0100
 </div>
 </div>
 </body>
