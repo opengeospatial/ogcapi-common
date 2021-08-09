@@ -47,12 +47,14 @@ Additional information on the use of link relationships is provided in the link:
 
 === Geometry
 
-==== Spatial Geometry
+[[spatial-geometry-section]]
+==== Geospatial Geometry
 
-Standardized concepts for spatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
+Standardized concepts for geospatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
 
-The spatial geometry used in the OGC API - Common Standards is documented in the <<gmlsf,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
+The geospatial geometry used in the OGC API - Common Standards is documented in the <<gmlsf,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
 
+[[temporal-geometry-section]]
 ==== Temporal Geometry
 
 Standardized concepts are also needed for temporal characteristics. The temporal geometry used in the API-Common Standards is defined in <<iso19108,ISO 19108>>. Only a subset of this geometry is used. Specifically:

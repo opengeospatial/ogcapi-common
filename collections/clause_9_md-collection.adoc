@@ -1,0 +1,21 @@
+[[rc-multi-dimension-collection-section]]
+== Multi-Dimension Collection Requirements Class
+:sectnums:
+
+include::requirements/requirements_class_multi-dimension-collection.adoc[]
+
+The <<rc-collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections>> defines a <<collection-resource-definition-section,Collection>> resource which supports both <<spatial-geometry-section,geospatial>> and <<temporal-geometry-section,temporal>> geometries. These geometries are not sufficient to fully characterize some resouce types. This <<rc-multi-dimension-collection-section,Multi-Dimension Collection>> Conformance Class extends the <<collection-resource-definition-section,Collection>> resource to support domain-specific geometries with an unlimited number of domain-specific axis. This Conformance Class also defines how that geometry can be evaluated throught HTTP query parameters.
+
+[[multi-dimension-collection-definition]]
+=== Multi-Dimension Collection Definition
+
+The Multi-Dimension Collection is an extension of the `Collection` resouce. So all of the requirements defined in  <<collection-resource-definition-section,Requirements Module Collection>> are required.
+
+Support for domain-specific Collections is supplied by the `Extent with Uniform Additional Dimensions` requirements modlue.
+
+include::../api_modules/extent-uad/requirements_module_extent-uad.adoc[]
+
+Multi-Dimension Collections can be selected using the `Subset` requirements module.
+
+include::../api_modules/subset/requirements_module_subset.adoc[]
+

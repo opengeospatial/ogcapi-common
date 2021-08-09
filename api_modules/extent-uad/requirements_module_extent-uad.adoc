@@ -1,0 +1,51 @@
+[[rm_extent-uniform-additional-dimensions]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Module*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/extent-uad
+|Target type |Web API Resource
+|Dependencies |<<rc_collections-section,Collections>> Requirements Class
+|===
+
+The `Extent with Uniform Additional Dimensions` (Extent-uad) resource extends the <<collection-extent-section,Extent>> object defined in the <<rc-collections-sectionhttp,//www.opengis.net/spec/ogcapi-common-2/1.0/req/collections>> Requirements Class to support domain-specific geometries. 
+
+The `extent-uad` parameter is defined as follows:
+
+include::requirements/REQ_extent-uad-definition.adoc[]
+
+And is described below using a JSON Schema fragment:
+
+[source,JSON]
+----
+"uniform": {
+    "description": " extends the Extent object to support domain-specific geometries defined by axis names and the occupied interval alone each access.",
+    "type": "object",
+    "properties": {
+        "orderedAxes": {
+            "description": "axis labels of all dimensions listed in CRS order. Spatial dimensions should be listed separately here.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string"
+                }
+            },
+        "intervals": {
+            "description": "One interval for each axis. An interval describes the extent of the dataset along that axis.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "description": "Lower and upper bound values of the interval.", 
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                    "type": "string",
+                    "nullable": "true"
+                    }
+                }
+            }
+        }
+    }
+
+----
+
