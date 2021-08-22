@@ -8,19 +8,19 @@
 |Dependency |<<ats_core,Core Conformance Class>>
 |===
 
-==== Landing Page {root}/
+==== Landing Page
 
 include::core/ATS_root-op.adoc[]
 
 include::core/ATS_root-success.adoc[]
 
-==== API Definition Path {root}/api (link)
+==== API Definition
 
 include::core/ATS_api-definition-op.adoc[]
 
 include::core/ATS_api-definition-success.adoc[]
 
-==== Conformance Path {root}/conformance
+==== Conformance Declaration
 
 include::core/ATS_conformance-op.adoc[]
 

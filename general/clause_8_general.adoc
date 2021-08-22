@@ -192,6 +192,6 @@ Double values conform to the following requirement.
 
 include::requirements/general/REQ_query-param-value-double.adoc[]
 
-Special values conform to the following requirement. 
+Special values, if supported, should conform to the following recommendation. 
 
-include::requirements/general/REQ_query-param-value-special.adoc[]
+include::recommendations/general/REC_query-param-value-special.adoc[]

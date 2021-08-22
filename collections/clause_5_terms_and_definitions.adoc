@@ -45,6 +45,10 @@ a set of *Features* from a *dataset*
 * *Geometry* +
 An ordered set of _n_-dimensional points in a given coordinate reference system. (<<SDWBP,W3C/OGC Spatial Data on the Web Best Practice>>)
 
+[[ogc-webapi-definition]]
+* *OGC Web API* +
+A <<webapi-definition,Web API>> that implements one or more <<ctc-definition,Conformance Classes>> from an OGC API Standard.
+
 [[resource-definition]]
 * *Resource* +
 entity that might be identified (<<iso15836-2,Dublin Core Metadata Initiative - DCMI Metadata Terms>>) +

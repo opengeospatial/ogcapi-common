@@ -2,24 +2,14 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-list-delimiter* 
-^|Test Purpose |Validate for every query parameter where the value may be a list: +
-{nbsp}{nbsp}**In the case of a client**: that the correct delimiter is used to delineate items in the list. +
-{nbsp}{nbsp}**In the case of a server**: that the server uses the designated delimiter to parse the items from the list.
+^|Test Purpose |For every query parameter where the value may be a list, validate that the server uses the designated delimiter to parse the items from the list. 
 ^|Requirement |<<req_core_query-param-list-delimiter,/req/core/query-param-list-delimiter>>
-^|Test Method (Client) |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
+^|Test Method |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
 {nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
-{nbsp}{nbsp}{nbsp}{nbsp}1. Identify the list delimiter for this API +
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a. As advertised in the API definition OR +
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b. Use a comma (",") if no delimiter is advertised. +
-{nbsp}{nbsp}{nbsp}{nbsp}2. Generate a set of requests using that parameter and a +
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}statistically significant set of valid parameter list values +
-{nbsp}{nbsp}{nbsp}{nbsp}3. Validate that the delimter identified in #1 is used to construct the lists. +
-{nbsp}{nbsp}DONE +
-DONE
-^|Test Method (Server) |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
-{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
-{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a value that +
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}is a delimited list of items +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a value that is a delimited  +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}list of items. Use a delimiter that is: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a. As advertised in the API definition OR +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b. A comma (",") if no delimiter is advertised. +
 {nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value +
 {nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a value where: +
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a. the value is a delimited list AND +

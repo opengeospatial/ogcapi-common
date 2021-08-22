@@ -10,12 +10,12 @@ The Landing Page resources are introduced in <<lp-resources-table>>. The require
 
 [#lp-resources-table,reftext='{table-caption} {counter:table-num}']
 .Landing Page Resources
-[cols="30,20,15,40",options="header"]
+[cols="30,15,40",options="header"]
 !===
-^|Resource ^|URI ^|HTTP Method ^|*Description*
-|Landing page |`/` ^|GET |the <<landing-page,landing page>>
-|API definition |`/api` ^|GET |the <<api-definition,API Definition>> document for this API
-|Conformance declaration |`/conformance` ^|GET |the <<conformance-classes,conformance>> information for this API
+^|Resource ^|HTTP Method ^|*Description*
+|Landing Page ^|GET |the <<landing-page,landing page>>
+|API Definition ^|GET |the <<api-definition,API Definition>> document for this API
+|Conformance Declaration ^|GET |the <<conformance-classes,conformance>> information for this API
 !===
 
 [[landing-page]]
@@ -37,21 +37,19 @@ include::requirements/landing-page/REQ_root-op.adoc[]
 
 include::requirements/landing-page/REQ_root-success.adoc[]
 
-The landing page returned by this operation is based on the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/landingPage.json[JSON schema].
+The Landing Page returned by this operation is based on the following OpenAPI schema.
 
-.landingPage.json
-[source, JSON]
-include::openapi/schemas/landingPage.json[]
+.landingPage.yaml
+[source, YAML]
+include::openapi/schemas/landingPage.yaml[]
 
-It is recommended that OGC Web APIs provide a set of Service Metadata. That metadata should identify the service and provide information about the service provider.     
-
-include::recommendations/landing-page/REC_service-metadata.adoc[]
-
-Additional information about Service Metadata can be found in the http://docs.opengeospatial.org/DRAFTS/20-071.html#service-metadata-section[OGC API - Common Users Guide].
+In addition to the required resources, links to additional resources may be included in the Landing Page.
 
 Examples of OGC landing pages are provided in <<landing-page-examples>>.
 
-In addition to the required resources, links to additional resources may be included in the Landing Page.
+A JSON schema for the Landing Page resource can be found on the link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/landingPage.yaml[OGC Schema Repository]. 
+
+Additional information about the Landing Page can be found in the http://docs.opengeospatial.org/DRAFTS/20-071.html#landing-page-section[OGC API - Common Users Guide].
 
 ==== Error Situations
 
@@ -95,13 +93,15 @@ include::requirements/landing-page/REQ_conformance-op.adoc[]
 
 include::requirements/landing-page/REQ_conformance-success.adoc[]
 
-The Conformance Declaration resource returned by this operation is based on the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/confClasses.json[Conformance Declaration Schema]. 
-
-Examples of OGC Conformance Declarations are provided in <<conformance-response-examples>>.
+The Conformance Declaration returned by this operation is based on the following OpenAPI schema.
 
 .Conformance Declaration Schema
-[source, JSON]
-include::openapi/schemas/confClasses.json[]
+[source, YAML]
+include::openapi/schemas/confClasses.yaml[]
+
+A JSON schema for the Landing Page resource can be found on the link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/confClasses.yaml[OGC Schema Repository]. 
+
+Examples of OGC Conformance Declarations are provided in <<conformance-response-examples>>.
 
 ==== Error situations
 
