@@ -1,7 +1,7 @@
 [[json-api-definition]]
 .JSON API Definition
 =================
-This is an example of an API Definition response in JSON. It describes an implementation of the OGC API-Common Part 1 - Core Standard.
+This is an example of an API Definition response in JSON (YAML). It describes an implementation of the OGC API-Common Part 1 - Core Standard.
 
 This example also illustrates:
 
@@ -10,7 +10,7 @@ This example also illustrates:
 . The use of tags to associate external documentation,
 . Responses that reference the appropriate JSON schema
 
-[source,JSON]
+[source,YAML]
 ----
 
 include::../openapi/examples/openapiExample_1.yaml[]

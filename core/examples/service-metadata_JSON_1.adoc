@@ -3,10 +3,10 @@
 =================
 This is an example of how to extend the OpenAPI `info` object to include identifying metadata about both the service and the service provider. 
 
-[source,JSON]
+[source,YAML]
 ----
 
-include::../openapi/examples/serviceMetadataExample.json[]
+include::../openapi/examples/ServiceMetadataExample.yaml[]
 
 ----
 =================

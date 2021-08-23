@@ -456,13 +456,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">Open Geospatial Consortium</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Submission Date: 2021-08-22</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Submission Date: 2021-08-23</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-22</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-23</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/is/ogcapi-common-1/1.0" class="bare">http://www.opengis.net/doc/is/ogcapi-common-1/1.0</a></p></td>
@@ -4916,7 +4916,7 @@ DONE</p>
 <div class="title">Example 2. JSON Landing Page</div>
 <div class="content">
 <div class="paragraph">
-<p>This example Landing Page response in JSON is for an implementation of the OGC API-Common Standard that supports:</p>
+<p>This example Landing Page response in JSON (YAML) is for an implementation of the OGC API-Common Standard that supports:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4936,61 +4936,58 @@ DONE</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
-  "title": "Example API Landing Page",
-  "description": "This is an example of an API landing page in JSON format",
-  "attribution": "&lt;a href='www.ign.es' rel=' '&gt;IGN&lt;/a&gt; &lt;a href='www.govdata.de/dl-de/by-2-0'&gt;(c)&lt;/a&gt;",
-  "links": [
-    {
-      "rel": "service-desc",
-      "type": "application/vnd.oai.openapi+json;version=3.0",
-      "title": "API definition for this endpoint as JSON",
-      "href": "http://www.example.com/oapi-c/api?f=application/vnd.oai.openapi+json;version=3.0"
-    },
-    {
-      "rel": "service-doc",
-      "type": "text/html",
-      "title": "API definition for this endpoint as HTML",
-      "href": "http://www.example.com/oapi-c/api?f=text/html"
-    },
-    {
-      "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
-      "type": "application/json",
-      "title": "Conformance Declaration as JSON",
-      "href": "http://www.example.com/oapi-c/conformance?f=application/json"
-    },
-    {
-      "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
-      "type": "text/html",
-      "title": "Conformance Declaration as HTML",
-      "href": "http://www.example.com/oapi-c/conformance?f=text/html"
-    },
-    {
-      "rel": "http://www.opengis.net/def/rel/ogc/1.0/data",
-      "type": "application/json",
-      "title": "Collections Metadata as JSON",
-      "href": "http://www.example.com/oapi-c/collections?f=application/json"
-    },
-    {
-      "rel": "http://www.opengis.net/def/rel/ogc/1.0/data",
-      "type": "text/html",
-      "title": "Collections Metadata as HTML",
-      "href": "http://www.example.com/oapi-c/collections?f=text/html"
-    },
-    {
-      "rel": "alternate",
-      "type": "text/html",
-      "title": "This Document as HTML",
-      "href": "http://www.example.com/oapi-c?f=text/html"
-    },
-    {
-      "rel": "self",
-      "type": "application/json",
-      "title": "This Document",
-      "href": "http://www.example.com/oapi-c?f=application/json"
-    }
-  ]
-}</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">title: Example API Landing Page
+description: This is an example of an API landing page in JSON format
+attribution: "&lt;a href='www.ign.es' rel=' '&gt;IGN&lt;/a&gt; &lt;a href='www.govdata.de/dl-de/by-2-0'&gt;(c)&lt;/a&gt;"
+links:
+- rel: service-desc
+  type: application/json
+  title: API definition for this endpoint as JSON
+  href: http://www.example.com/oapi-c/api?f=application/json
+- rel: service-desc
+  type: text/html
+  title: API definition for this endpoint as HTML
+  href: http://www.example.com/oapi-c/api?f=text/html
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data-meta
+  type: application/xml
+  title: ISO 19115 Metadata as XML
+  href: http://www.example.com/oapi-c/data-meta?f=application/xml
+- rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+  type: application/json
+  title: Conformance Declaration as JSON
+  href: http://www.example.com/oapi-c/conformance?f=application/json
+- rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+  type: application/xml
+  title: Conformance Declaration as XML
+  href: http://www.example.com/oapi-c/conformance?f=application/xml
+- rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+  type: text/html
+  title: Conformance Declaration as HTML
+  href: http://www.example.com/oapi-c/conformance?f=text/html
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data
+  type: application/json
+  title: Collections Metadata as JSON
+  href: http://www.example.com/oapi-c/collections?f=application/json
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data
+  type: application/xml
+  title: Collections Metadata as XML
+  href: http://www.example.com/oapi-c/collections?f=application/xml
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data
+  type: text/html
+  title: Collections Metadata as HTML
+  href: http://www.example.com/oapi-c/collections?f=text/html
+- rel: self
+  type: application/json
+  title: This Document
+  href: http://www.example.com/oapi-c?f=application/json
+- rel: alternate
+  type: application/xml
+  title: This Document as XML
+  href: http://www.example.com/oapi-c?f=application/xml
+- rel: alternate
+  type: text/html
+  title: This Document as HTML
+  href: http://www.example.com/oapi-c?f=text/html</code></pre>
 </div>
 </div>
 </div>
@@ -5006,14 +5003,12 @@ DONE</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
-  "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core",
-    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30",
-    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html",
-    "http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json"
-  ]
-}</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">conformsTo:
+- http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+- http://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page
+- http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30
+- http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html
+- http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json</code></pre>
 </div>
 </div>
 </div>
@@ -5025,7 +5020,7 @@ DONE</p>
 <div class="title">Example 4. JSON API Definition</div>
 <div class="content">
 <div class="paragraph">
-<p>This is an example of an API Definition response in JSON. It describes an implementation of the OGC API-Common Part 1 - Core Standard.</p>
+<p>This is an example of an API Definition response in JSON (YAML). It describes an implementation of the OGC API-Common Part 1 - Core Standard.</p>
 </div>
 <div class="paragraph">
 <p>This example also illustrates:</p>
@@ -5048,7 +5043,7 @@ DONE</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">openapi: 3.0.2
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">openapi: 3.0.2
 info:
   title: &gt;-
     A sample API conforming to the draft standard OGC API - Common - Part 1:
@@ -5171,48 +5166,44 @@ components:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
-  "info" : {
-    "title" : "My Web API",
-    "version" : "1.0.0",
-    "description" : "This example shows population of an OpenAPI Info element with identifying metadata for both the service and the service provider.",
-    "contact" : {
-      "name" : "Acme Corporation",
-      "email" : "info@example.org",
-      "url" : "http://example.org/",
-      "x-OGC-serviceContact" : {
-        "individualName" : "John Smith",
-        "positionName" : "System Administrator",
-        "role" : "pointOfcontact",
-        "hoursOfService" : "24 Hours",
-        "contractInstructions" : "None",
-        "onlineResource" : "http://example.org/contact",
-        "address" : {
-          "deliveryPoint" : "123 Any Street",
-          "city" : "Boston",
-          "administrativeArea" : "MA",
-          "postalCode" : "12345",
-          "country" : "USA",
-          "electronicMailAddress" : "smith.j@example.org"
-        },
-        "telephone" : {
-          "voice" : "+1.123.456.7890",
-          "facsimile" : "+1.123.456.7890 "
-        }
-      }
-    },
-    "license" : {
-      "name" : "CC-BY 4.0 license",
-      "url" : "https://creativecommons.org/licenses/by/4.0/"
-    },
-    "x-serviceType" : "http://www.opengis.net/doc/IS/ogcapi-common-1/1.0",
-    "x-serviceTypeVersion" : "1.0",
-    "x-profile" : "DGIWG",
-    "x-keywords" : [ "geospatial", "data", "api" ],
-    "x-fees" : "None",
-    "x-accessConstraints" : "None"
-  }
-}</code></pre>
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">info:
+  title: My Web API
+  version: 1.0.0
+  description: This example shows population of an OpenAPI Info element with identifying
+    metadata for both the service and the service provider.
+  contact:
+    name: Acme Corporation
+    email: info@example.org
+    url: http://example.org/
+    x-OGC-serviceContact:
+      individualName: John Smith
+      positionName: System Administrator
+      role: pointOfcontact
+      hoursOfService: 24 Hours
+      contractInstructions: None
+      onlineResource: http://example.org/contact
+      address:
+        deliveryPoint: 123 Any Street
+        city: Boston
+        administrativeArea: MA
+        postalCode: '12345'
+        country: USA
+        electronicMailAddress: smith.j@example.org
+      telephone:
+        voice: "+1.123.456.7890"
+        facsimile: "+1.123.456.7890 "
+  license:
+    name: CC-BY 4.0 license
+    url: https://creativecommons.org/licenses/by/4.0/
+  x-serviceType: http://www.opengis.net/doc/IS/ogcapi-common-1/1.0
+  x-serviceTypeVersion: '1.0'
+  x-profile: DGIWG
+  x-keywords:
+  - geospatial
+  - data
+  - api
+  x-fees: None
+  x-accessConstraints: None</code></pre>
 </div>
 </div>
 </div>
@@ -5769,7 +5760,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-22 22:01:34 +0100
+Last updated 2021-08-23 12:40:22 +0100
 </div>
 </div>
 </body>

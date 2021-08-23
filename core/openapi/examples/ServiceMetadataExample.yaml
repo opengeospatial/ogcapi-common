@@ -1,0 +1,38 @@
+info:
+  title: My Web API
+  version: 1.0.0
+  description: This example shows population of an OpenAPI Info element with identifying
+    metadata for both the service and the service provider.
+  contact:
+    name: Acme Corporation
+    email: info@example.org
+    url: http://example.org/
+    x-OGC-serviceContact:
+      individualName: John Smith
+      positionName: System Administrator
+      role: pointOfcontact
+      hoursOfService: 24 Hours
+      contractInstructions: None
+      onlineResource: http://example.org/contact
+      address:
+        deliveryPoint: 123 Any Street
+        city: Boston
+        administrativeArea: MA
+        postalCode: '12345'
+        country: USA
+        electronicMailAddress: smith.j@example.org
+      telephone:
+        voice: "+1.123.456.7890"
+        facsimile: "+1.123.456.7890 "
+  license:
+    name: CC-BY 4.0 license
+    url: https://creativecommons.org/licenses/by/4.0/
+  x-serviceType: http://www.opengis.net/doc/IS/ogcapi-common-1/1.0
+  x-serviceTypeVersion: '1.0'
+  x-profile: DGIWG
+  x-keywords:
+  - geospatial
+  - data
+  - api
+  x-fees: None
+  x-accessConstraints: None
