@@ -1337,6 +1337,18 @@ properties:
     type: integer</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The <code>href</code> value is not restricted to absolute links. Relative links are also allowed.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource.</p>
 </div>
@@ -2555,17 +2567,17 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Landing Page</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">the <a href="#landing-page">landing page</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">API Definition</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">the <a href="#api-definition">API Definition</a> document for this API</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Conformance Declaration</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">the <a href="#conformance-classes">conformance</a> information for this API</p></td>
 </tr>
 </tbody>
@@ -5036,169 +5048,114 @@ DONE</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
-  "openapi" : "3.0.3",
-  "info" : {
-    "title" : "A sample API conforming to the draft standard OGC API - Common - Part 1 - Core",
-    "version" : "1.0.0",
-    "description" : "This is a sample OpenAPI definition of the OGC API - Common - Part 1 - Core Standard. This example is a generic OGC API definition that describes the Common Core of OGC Web APIs. This generic OpenAPI definition does not provide any details on the hosted content.",
-    "contact" : {
-      "name" : "Acme Corporation",
-      "email" : "info@example.org",
-      "url" : "http://example.org/"
-    },
-    "license" : {
-      "name" : "CC-BY 4.0 license",
-      "url" : "https://creativecommons.org/licenses/by/4.0/"
-    },
-    "x-keywords" : [ "geospatial", "data", "api" ]
-  },
-  "servers" : [ {
-    "url" : "https://data.example.org/",
-    "description" : "Production server"
-  }, {
-    "url" : "https://dev.example.org/",
-    "description" : "Development server"
-  } ],
-  "tags" : [ {
-    "name" : "capabilities",
-    "description" : "essential characteristics of this API"
-  }, {
-    "name" : "data",
-    "description" : "access to data"
-  }, {
-    "name" : "server",
-    "description" : "Information about the server hosting this API",
-    "externalDocs" : {
-      "description" : "information",
-      "url" : "https://example.com/sample_api/documentation"
-    }
-  } ],
-  "paths" : {
-    "/" : {
-      "get" : {
-        "description" : "The landing page provides links to the API definition and the conformance statements for this API.",
-        "operationId" : "getLandingPage",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/f"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/landingPage.json"
-                }
-              }
-            }
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400"
-          },
-          "500" : {
-            "$ref" : "#/components/responses/500"
-          }
-        },
-        "summary" : "Landing page",
-        "tags" : [ "server" ]
-      }
-    },
-    "/api" : {
-      "get" : {
-        "description" : "This document",
-        "operationId" : "getAPIDefinition",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/f"
-        } ],
-        "responses" : {
-          "200" : {
-            "$ref" : "#/components/responses/200"
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400"
-          },
-          "default" : {
-            "$ref" : "#/components/responses/400"
-          }
-        },
-        "summary" : "This document",
-        "tags" : [ "server" ]
-      }
-    },
-    "/conformance" : {
-      "get" : {
-        "description" : "A list of all conformance classes that the server conforms to.",
-        "operationId" : "getConformanceClasses",
-        "parameters" : [ {
-          "$ref" : "#/components/parameters/f"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/confClasses.json"
-                }
-              }
-            }
-          },
-          "400" : {
-            "$ref" : "#/components/responses/400"
-          },
-          "500" : {
-            "$ref" : "#/components/responses/500"
-          }
-        },
-        "summary" : "API conformance definition",
-        "tags" : [ "server", "capabilities" ]
-      }
-    }
-  },
-  "components" : {
-    "parameters" : {
-      "f" : {
-        "description" : "The optional f parameter indicates the output format which the server shall provide as part of the response document.  The default format is JSON.",
-        "explode" : false,
-        "in" : "query",
-        "name" : "f",
-        "required" : false,
-        "schema" : {
-          "default" : "json",
-          "enum" : [ "json", "html" ],
-          "type" : "string"
-        },
-        "style" : "form"
-      }
-    },
-    "responses" : {
-      "200" : {
-        "description" : "successful operation"
-      },
-      "400" : {
-        "description" : "error response",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/exception.yaml"
-            }
-          }
-        }
-      },
-      "500" : {
-        "description" : "server errors",
-        "content" : {
-          "application/json" : {
-            "schema" : {
-              "$ref" : "https://github.com/opengeospatial/oapi_common/blob/master/core/openapi/schemas/exception.yaml"
-            }
-          }
-        }
-      }
-    }
-  }
-}</code></pre>
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">openapi: 3.0.2
+info:
+  title: &gt;-
+    A sample API conforming to the draft standard OGC API - Common - Part 1:
+    Core
+  version: 1.0.0
+  description: &gt;-
+    'This is a sample OpenAPI definition of the draft standard OGC API - Common - Part 1: Core.'
+  contact:
+    name: Acme Corporation
+    email: info@example.org
+    url: http://example.org/
+  license:
+    name: CC-BY 4.0 license
+    url: https://creativecommons.org/licenses/by/4.0/
+  x-keywords:
+    - geospatial
+    - data
+    - api
+servers:
+  - url: https://data.example.org/
+    description: Production server
+  - url: https://dev.example.org/
+    description: Development server
+tags:
+  - name: Capabilities
+    description: essential characteristics of this API
+  - name: server
+    description: Information about the server hosting this API
+    externalDocs:
+      description: information
+      url: https://example.com/sample_api/documentation
+paths:
+  /:
+    get:
+      description: &gt;-
+        The landing page provides links to the API definition and the
+        conformance statements for this API.
+      parameters:
+        - $ref: '#/components/parameters/f'
+      operationId: getLandingPage
+      responses:
+        '200':
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/ogcapi-common/master/core/openapi/3.0/API-Common-Part-1_1_0.yaml#/components/responses/LandingPage'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+      summary: Landing page
+      tags:
+        - server
+  /api:
+    get:
+      description: This document
+      parameters:
+        - $ref: '#/components/parameters/f'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        default:
+          $ref: '#/components/responses/400'
+      summary: This document
+      tags:
+        - server
+  /conformance:
+    get:
+      description: &gt;-
+        A list of all conformance classes specified in a standard that the
+        server conforms to.
+      parameters:
+        - $ref: '#/components/parameters/f'
+      operationId: getConformanceDeclaration
+      responses:
+        '200':
+          $ref: 'https://raw.githubusercontent.com/opengeospatial/ogcapi-common/master/core/openapi/3.0/API-Common-Part-1_1_0.yaml#/components/responses/ConfClasses'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+      summary: API conformance definition
+      tags:
+        - server
+components:
+  parameters:
+    f:
+      description: &gt;-
+        The optional f parameter indicates the output format that the server
+        shall provide as part of the response document.  The default format is JSON.
+      explode: false
+      in: query
+      name: f
+      required: false
+      schema:
+        default: json
+        enum:
+          - json
+          - html
+        type: string
+      style: form
+  responses:
+    '200':
+      description: successful operation
+    '400':
+      $ref: 'https://raw.githubusercontent.com/opengeospatial/ogcapi-common/master/core/openapi/3.0/API-Common-Part-1_1_0.yaml#/components/responses/400'
+    '500':
+      $ref: 'https://raw.githubusercontent.com/opengeospatial/ogcapi-common/master/core/openapi/3.0/API-Common-Part-1_1_0.yaml#/components/responses/500'</code></pre>
 </div>
 </div>
 </div>
