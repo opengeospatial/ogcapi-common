@@ -586,13 +586,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_coordinate_reference_systems">6.4. Coordinate Reference Systems</a></li>
-<li><a href="#_timezones">6.5. Timezones</a></li>
-<li><a href="#_api_definition">6.6. API definition</a>
+<li><a href="#_api_definition">6.5. API definition</a>
 <ul class="sectlevel3">
-<li><a href="#_general_remarks">6.6.1. General remarks</a></li>
-<li><a href="#_role_of_openapi">6.6.2. Role of OpenAPI</a></li>
-<li><a href="#_references_to_openapi_components_in_normative_statements">6.6.3. References to OpenAPI components in normative statements</a></li>
-<li><a href="#_reusable_openapi_components">6.6.4. Reusable OpenAPI components</a></li>
+<li><a href="#_general_remarks">6.5.1. General remarks</a></li>
+<li><a href="#_role_of_openapi">6.5.2. Role of OpenAPI</a></li>
+<li><a href="#_references_to_openapi_components_in_normative_statements">6.5.3. References to OpenAPI components in normative statements</a></li>
+<li><a href="#_reusable_openapi_components">6.5.4. Reusable OpenAPI components</a></li>
 </ul>
 </li>
 </ul>
@@ -699,8 +698,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_revision_history">Annex C: Revision History</a></li>
 <li><a href="#Glossary">Annex D: Glossary</a></li>
 <li><a href="#Bibliography">Annex E: Bibliography</a></li>
-<li><a href="#http-status-codes">Annex F: HTTP Status Codes</a></li>
-<li><a href="#_ogc_web_api_guidelines">Annex G: OGC Web API Guidelines</a></li>
+<li><a href="#bnf-annex">Annex F: Backus-Naur Forms</a>
+<ul class="sectlevel2">
+<li><a href="#uri-bnf-annex">F.1. BNF for URI</a></li>
+<li><a href="#date-time-bnf-annex">F.2. BNF for Date-Time</a></li>
+</ul>
+</li>
+<li><a href="#http-status-codes">Annex G: HTTP Status Codes</a></li>
+<li><a href="#_ogc_web_api_guidelines">Annex H: OGC Web API Guidelines</a></li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -1295,17 +1300,10 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect3">
 <h4 id="_temporal_geometry"><a class="anchor" href="#_temporal_geometry"></a>6.3.2. Temporal Geometry</h4>
 <div class="paragraph">
-<p>Standardized concepts are also needed for temporal characteristics. The temporal geometry used in the API-Common Standards is defined in <a href="#iso19108">ISO 19108</a>. Only a subset of this geometry is used. Specifically:</p>
+<p>Standardized concepts for temporal characteristics are also needed in order to share date and time information between applications. OGC API Common adopts the Gregorian calendar and a 24 hour time keeping system for its temporal geometry. All representations of that geometry which are discussed in this document conform to <a href="#rfc3339">RFC 3339</a>.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>TM_Instant - a point representing position in time</p>
-</li>
-<li>
-<p>TM_Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM_Instant)</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>An <a href="#rfc5234">ABNF</a> representation of the RFC 3339 format is provided in <a href="#date-time-bnf-annex">Annex F</a>.</p>
 </div>
 </div>
 </div>
@@ -1335,15 +1333,9 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_timezones"><a class="anchor" href="#_timezones"></a>6.5. Timezones</h3>
-<div class="paragraph">
-<p>A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Greenwich Mean Time, also referred to as "Z" for Zulu Time), should be used for all temporal data passed or returned to/from OGC Web APIs. ISO 8601 accounts for local time by specifying an offset to UTC. When time zone offsets are used in a temporal element of a client request, the server processing the request should interpret temporal information with respect to the client’s requested time zone. When there is no time zone offset expressed in a temporal element, the server should assume a UTC zone. The local time zone of client or server should not be assumed; it shall either be explicitly stated as an offset or assumed to be UTC.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.6. API definition</h3>
+<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.5. API definition</h3>
 <div class="sect3">
-<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.6.1. General remarks</h4>
+<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.5.1. General remarks</h4>
 <div class="paragraph">
 <p>This OGC standard specifies requirements and recommendations for the development of APIs that share spatial resources using a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.</p>
 </div>
@@ -1352,7 +1344,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.6.2. Role of OpenAPI</h4>
+<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
 <div class="paragraph">
 <p>This OGC API Standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the <code>/conformance</code> path.</p>
 </div>
@@ -1361,7 +1353,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.6.3. References to OpenAPI components in normative statements</h4>
+<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.5.3. References to OpenAPI components in normative statements</h4>
 <div class="paragraph">
 <p>Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.</p>
 </div>
@@ -1389,7 +1381,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.6.4. Reusable OpenAPI components</h4>
+<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
 <div class="paragraph">
 <p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0">http://schemas.opengis.net/ogcapi/common/part1/1.0</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0">http://schemas.opengis.net/ogcapi/common/part2/1.0</a></p>
 </div>
@@ -5459,6 +5451,9 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 <p><a id="rfc3986"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3986, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3986.txt">http://tools.ietf.org/rfc/rfc3986.txt</a></p>
 </li>
 <li>
+<p><a id="rfc5234"></a> Crocker, D., Overell, P.: <strong>IETF RFC 5234, Augmented BNF for Syntax Specifications: ABNF</strong>, <a href="https://tools.ietf.org/html/rfc5234">https://tools.ietf.org/html/rfc5234</a></p>
+</li>
+<li>
 <p><a id="rfc6570"></a> Greforio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D.: <strong>IETF RFC 6570, URI Template</strong>, <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a></p>
 </li>
 <li>
@@ -5505,7 +5500,192 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 </div>
 <div class="sect1">
-<h2 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>Annex F: HTTP Status Codes</h2>
+<h2 id="bnf-annex"><a class="anchor" href="#bnf-annex"></a>Annex F: Backus-Naur Forms</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="uri-bnf-annex"><a class="anchor" href="#uri-bnf-annex"></a>F.1. BNF for URI</h3>
+<div class="paragraph">
+<p>The following Augmented Backus-Naur Form (<a href="#rfc3339">ABNF</a>) is from Appendix A of <a href="#rfc3986">IETF RFC 3986</a>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>hier-part     = "//" authority path-abempty
+             / path-absolute
+             / path-rootless
+             / path-empty</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>URI-reference = URI / relative-ref</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>absolute-URI  = scheme ":" hier-part [ "?" query ]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>relative-ref  = relative-part [ "?" query ] [ "#" fragment ]</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>relative-part = "//" authority path-abempty
+                 / path-absolute
+                 / path-noscheme
+                 / path-empty</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>scheme        = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>authority     = [ userinfo "@" ] host [ ":" port ]
+userinfo      = *( unreserved / pct-encoded / sub-delims / ":" )
+host          = IP-literal / IPv4address / reg-name
+port          = *DIGIT</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>IP-literal    = "[" ( IPv6address / IPvFuture  ) "]"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>IPvFuture     = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>IPv6address   =                             6( h16 ":" ) ls32
+              /                       "::" 5( h16 ":" ) ls32
+              / [               h16 ] "::" 4( h16 ":" ) ls32
+              / [ *1( h16 ":" ) h16 ] "::" 3( h16 ":" ) ls32
+              / [ *2( h16 ":" ) h16 ] "::" 2( h16 ":" ) ls32
+              / [ *3( h16 ":" ) h16 ] "::"    h16 ":"   ls32
+              / [ *4( h16 ":" ) h16 ] "::"              ls32
+              / [ *5( h16 ":" ) h16 ] "::"              h16
+              / [ *6( h16 ":" ) h16 ] "::"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>h16           = 1*4HEXDIG
+ls32          = ( h16 ":" h16 ) / IPv4address
+IPv4address   = dec-octet "." dec-octet "." dec-octet "."</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>dec-octet     = DIGIT                 ; 0-9
+              / %x31-39 DIGIT         ; 10-99
+              / "1" 2DIGIT            ; 100-199
+              / "2" %x30-34 DIGIT     ; 200-249
+              / "25" %x30-35          ; 250-255</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>reg-name      = *( unreserved / pct-encoded / sub-delims )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>path          = path-abempty    ; begins with "/" or is empty
+              / path-absolute   ; begins with "/" but not "//"
+              / path-noscheme   ; begins with a non-colon segment
+              / path-rootless   ; begins with a segment
+              / path-empty      ; zero characters</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>path-abempty  = *( "/" segment )
+path-absolute = "/" [ segment-nz *( "/" segment ) ]
+path-noscheme = segment-nz-nc *( "/" segment )
+path-rootless = segment-nz *( "/" segment )
+path-empty    = 0&lt;pchar&gt;</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>segment       = *pchar
+segment-nz    = 1*pchar
+segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+              ; non-zero-length segment without any colon ":"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>query         = *( pchar / "/" / "?" )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>fragment      = *( pchar / "/" / "?" )</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pct-encoded   = "%" HEXDIG HEXDIG</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+reserved      = gen-delims / sub-delims
+gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
+              / "*" / "+" / "," / ";" / "="</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="date-time-bnf-annex"><a class="anchor" href="#date-time-bnf-annex"></a>F.2. BNF for Date-Time</h3>
+<div class="paragraph">
+<p>The following Augmented Backus-Naur Form (ABNF) is from <a href="#rfc3339">IETF RFC 3339</a>.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>date-fullyear  = 4DIGIT
+date-month     = 2DIGIT  ; 01-12
+date-mday      = 2DIGIT  ; 01-28, 01-29, 01-30, 01-31 based on month/year
+time-hour      = 2DIGIT  ; 00-23
+time-minute    = 2DIGIT  ; 00-59
+time-second    = 2DIGIT  ; 00-58, 00-59, 00-60 based on leap second rules
+time-secfrac   = "." 1*DIGIT
+time-numoffset = ("+" / "-") time-hour ":" time-minute
+time-offset    = "Z" / time-numoffset
+partial-time   = time-hour ":" time-minute ":" time-second [time-secfrac]
+full-date      = date-fullyear "-" date-month "-" date-mday
+full-time      = partial-time time-offset
+date-time      = full-date "T" full-time</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that unlike ISO 8601, the local time zone offset is required by RFC 3339.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="http-status-codes"><a class="anchor" href="#http-status-codes"></a>Annex G: HTTP Status Codes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="#status-codes">Table 5</a> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.</p>
@@ -5583,7 +5763,7 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ogc_web_api_guidelines"><a class="anchor" href="#_ogc_web_api_guidelines"></a>Annex G: OGC Web API Guidelines</h2>
+<h2 id="_ogc_web_api_guidelines"><a class="anchor" href="#_ogc_web_api_guidelines"></a>Annex H: OGC Web API Guidelines</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The following table discusses how this standard addresses the design principles documented in the <a href="https://github.com/opengeospatial/OGC-Web-API-Guidelines">OGC Web API Guidelines</a>.</p>
@@ -5735,7 +5915,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-25 17:33:04 +0100
+Last updated 2021-08-25 20:06:30 +0100
 </div>
 </div>
 </body>
