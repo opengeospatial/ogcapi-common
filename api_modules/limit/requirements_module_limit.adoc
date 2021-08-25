@@ -22,7 +22,7 @@ The number of resources returned depends on the server and the value of the `lim
 
 include::./PER_rc-server-limit.adoc[]
 
-include::./REC_rc-server-limit.adoc[]
+Since many servers will place a limit on the size of their responses, clients should be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
 
 The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 

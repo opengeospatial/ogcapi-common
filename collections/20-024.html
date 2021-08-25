@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-09</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-25</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -640,15 +640,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#rc_encoding-section">10. Encoding Requirements Classes</a>
+<li><a href="#rc-subset-section">10. Subset Requirements Class</a>
 <ul class="sectlevel2">
-<li><a href="#_overview">10.1. Overview</a></li>
-<li><a href="#rc_html-section">10.2. Requirement Class "HTML"</a></li>
-<li><a href="#rc_json-section">10.3. Requirement Class "JSON"</a></li>
+<li><a href="#subset-parameter-requirements">10.1. Parameter subset</a></li>
+<li><a href="#subset-target-resource">10.2. Target Resource</a></li>
 </ul>
 </li>
-<li><a href="#mediatypes">11. Media Types</a></li>
-<li><a href="#_security_considerations">12. Security Considerations</a></li>
+<li><a href="#rc_encoding-section">11. Encoding Requirements Classes</a>
+<ul class="sectlevel2">
+<li><a href="#_overview">11.1. Overview</a></li>
+<li><a href="#rc_html-section">11.2. Requirement Class "HTML"</a></li>
+<li><a href="#rc_json-section">11.3. Requirement Class "JSON"</a></li>
+</ul>
+</li>
+<li><a href="#mediatypes">12. Media Types</a></li>
+<li><a href="#_security_considerations">13. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
@@ -707,7 +713,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
+<p>The OGC has extended their suite of standards to include <a href="https://en.wikipedia.org/wiki/Resource-oriented_architecture">Resource Oriented Architectures</a> and <a href="https://portal.ogc.org/files/?artifact_id=71776&amp;version=1">Web APIs</a>. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
 </div>
 <div class="paragraph">
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.</p>
@@ -811,7 +817,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The one Standardization Target for this standard is Web APIs.</p>
 </div>
 <div class="paragraph">
-<p>API-GeoData defines an API module intended for re-use by other OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite for each separate standard that normatively references this standard.</p>
+<p>API-GeoData defines API modules intended for re-use by other OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite for each separate standard that normatively references this standard.</p>
+</div>
+<div class="paragraph">
+<p>API-GeoData builds on API modules defined in the <code>OGC API - Common - Part 1: Core</code> (<a href="#apicore">API-Core</a>) Standard. Each <a href="#requirements-class-definition">Requirements Class</a> in the API-GeoData Standard identifies the API-Core <a href="#ctc-definition">Conformance Classes</a> upon which it depends.</p>
+</div>
+<div class="paragraph">
+<p>Proof of conformance with a Requirements Class includes demonstration of conformance with all dependencies of that Requirements Class. Unless otherwise specified, conformance only has to be demonstrated for those operations, parameters, and resources which are defined in that Requirements Class.</p>
 </div>
 <div class="paragraph">
 <p>This standard identifies five <a href="#ctc-definition">conformance classes</a>. The conformance classes implemented by an OGC API are advertised through the <code>/conformance</code> path on the landing page. Each conformance class is defined by one <a href="#requirements-class-definition">requirements class</a>. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Collections</em> conformance class must pass all tests specified in Annex A for the <em>Collections</em> requirements class.</p>
@@ -831,17 +843,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="#rc-subsetting-section">Subsetting</a></p>
 </li>
 <li>
-<p><a href="#rc_encoding-section">Encodings</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#rc_html-section">HTML</a></p>
+<p><a href="#rc_html-section">HTML Encoding</a></p>
 </li>
 <li>
-<p><a href="#rc_json-section">JSON</a></p>
-</li>
-</ul>
-</div>
+<p><a href="#rc_json-section">JSON Encoding</a></p>
 </li>
 </ul>
 </div>
@@ -871,34 +876,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a id="rfc2818"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
-</li>
-<li>
 <p><a id="rfc3339"></a> Klyne, G., Newman, C.: <strong>IETF RFC 3339, Date and Time on the Internet: Timestamps</strong>, <a href="http://tools.ietf.org/rfc/rfc3339.txt">http://tools.ietf.org/rfc/rfc3339.txt</a></p>
-</li>
-<li>
-<p><a id="rfc3986"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3986, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3986.txt">http://tools.ietf.org/rfc/rfc3986.txt</a></p>
-</li>
-<li>
-<p><a id="rfc6570"></a> Greforio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D.: <strong>IETF RFC 6570, URI Template</strong>, <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a></p>
-</li>
-<li>
-<p><a id="rfc7230"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</strong>, <a href="https://tools.ietf.org/rfc/rfc7230.txt">https://tools.ietf.org/rfc/rfc7230.txt</a></p>
 </li>
 <li>
 <p><a id="rfc7231"></a> Fielding, R., Reschke, JSchaub: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
 </li>
 <li>
-<p><a id="rfc7232"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7232, Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests</strong>, <a href="https://tools.ietf.org/rfc/rfc7232.txt">https://tools.ietf.org/rfc/rfc7232.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7235"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7235, Hypertext Transfer Protocol (HTTP/1.1): Authentication</strong>, <a href="https://tools.ietf.org/rfc/rfc7235.txt">https://tools.ietf.org/rfc/rfc7235.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7538"></a> Reschke, J.: <strong>IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)</strong>, <a href="https://tools.ietf.org/rfc/rfc7538.txt">https://tools.ietf.org/rfc/rfc7538.txt</a></p>
-</li>
-<li>
-<p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a>* <a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
+<p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a></p>
 </li>
 <li>
 <p><a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
@@ -910,9 +894,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="iso19111"></a> ISO 19111:2019, <strong>Geographic information ⎯ Spatial referencing by coordinates</strong></p>
 </li>
 <li>
-<p><a id="iso15836-2"></a> ISO 15836-2:2019, <strong>Information and documentation — The Dublin Core metadata element set — Part 2: DCMI Properties and classes</strong></p>
-</li>
-<li>
 <p><a id="iso19108"></a> ISO 19108:2002/Cor 1:2006, <strong>Geographic information — Temporal schema</strong></p>
 </li>
 <li>
@@ -920,9 +901,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
-</li>
-<li>
-<p><a id="ogc-06-121"></a> Whiteside, A., Greenwood, J.: <strong>OGC Web Services Common Standard</strong>, version 2.0, <a href="http://portal.opengeospatial.org/files/?artifact_id=38867">OGC 06-121r9</a></p>
 </li>
 <li>
 <p><a id="sfsql"></a> Herring, J.: OGC 06-104r4,<strong>OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=25354">http://portal.opengeospatial.org/files/?artifact_id=25354</a></p>
@@ -938,9 +916,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a id="schema_org"></a><strong>Schema.org</strong>: <a href="http://schema.org/docs/schemas.html">http://schema.org/docs/schemas.html</a></p>
-</li>
-<li>
-<p><a id="xmlschema-part2"></a> W3C Recommendation: <strong>XML Schema Part 2: Datatypes Second Edition</strong>, 28 October 2004, <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></p>
 </li>
 </ul>
 </div>
@@ -1032,6 +1007,14 @@ a set of <strong>Features</strong> from a <strong>dataset</strong></p>
 <li>
 <p><strong>Geometry</strong><br>
 An ordered set of <em>n</em>-dimensional points in a given coordinate reference system. (<a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practice</a>)</p>
+</li>
+</ul>
+</div>
+<div id="ogc-webapi-definition" class="ulist">
+<ul>
+<li>
+<p><strong>OGC Web API</strong><br>
+A <a href="#webapi-definition">Web API</a> that implements one or more <a href="#ctc-definition">Conformance Classes</a> from an OGC API Standard.</p>
 </li>
 </ul>
 </div>
@@ -1570,6 +1553,18 @@ API definitions are considered service descriptions.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This Requirements Class is dependent on API-Common Part 1 section 8.1. Content from Part 1 Section 8.2 has been included in Annex F for reference.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <a href="#views-introduction">Views Section</a>)..</p>
 </div>
@@ -2407,6 +2402,18 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This Requirements Class is dependent on API-Common Part 1 Sections 8.1, 8.3, and 8.8.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>This Requirements Class describes query parameters that can be used to discover and select resource collections exposed through an OGC Web API.</p>
 </div>
@@ -2484,8 +2491,11 @@ in: query
 required: false
 schema:
   type: array
-  minItems: 4
-  maxItems: 6
+  oneOf:
+  - minItems: 4
+    maxItems: 4
+  - minItems: 6
+    maxItems: 6
   items:
     type: number
 style: form
@@ -2920,26 +2930,9 @@ explode: false</code></pre>
 </tr>
 </tbody>
 </table>
-<table id="rec_collections_rc-server-limit" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/collections/rc-server-limit</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>Clients SHOULD be prepared to handle a paged response even if they have not specified a <code>limit</code> parameter in their query.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Since many servers will place a limit on the size of their responses, clients should be prepared to handle a paged response even if they have not specified a <code>limit</code> parameter in their query.</p>
+</div>
 <div class="paragraph">
 <p>The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.</p>
 </div>
@@ -2950,7 +2943,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-1</strong></p>
 </div></div></td>
@@ -2970,7 +2963,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-2</strong></p>
 </div></div></td>
@@ -2990,7 +2983,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/collections/rc-next-3</strong></p>
 </div></div></td>
@@ -3158,24 +3151,24 @@ explode: false</code></pre>
 <div class="sect3">
 <h4 id="_paged_response"><a class="anchor" href="#_paged_response"></a>9.2.3. Paged Response</h4>
 <div class="paragraph">
-<p>If the collections response does not contain all of the collection resources available from this server, then the client must be informed of that fact.</p>
+<p>If the collections response does not contain all of the collection resources available from this server, then the client should be informed of that fact.</p>
 </div>
-<table id="req_collections_rc-paged-response" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rec_collections_rc-paged-response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/collections/rc-paged-response</strong></p>
+<p><strong>/rec/collections/rc-paged-response</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>If the number of items in the <code>collections</code> element is less than the number available through the API, then the <code>numberMatched</code> and <code>numberReurned</code> properties SHALL be included in the Collections response.</p>
+<p>If the number of items in the <code>collections</code> element is less than the number available through the API, then the <code>numberMatched</code> and <code>numberReurned</code> properties SHOULD be included in the Collections response.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3190,7 +3183,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberMatched</strong></p>
 </div></div></td>
@@ -3219,7 +3212,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/collections/rc-numberReturned</strong></p>
 </div></div></td>
@@ -3246,10 +3239,198 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>10. Encoding Requirements Classes</h2>
+<h2 id="rc-subset-section"><a class="anchor" href="#rc-subset-section"></a>10. Subset Requirements Class</h2>
+<div class="sectionbody">
+<table id="rc_subset" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/req/subset" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/req/subset</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geodata" class="bare">http://www.opengis.net/spec/ogcapi_common-2/1.0/req/geodata</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This Requirements Class under construction
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This Requirements Class describes query parameters that can be used to discover and select resource collections exposed through an OGC Web API.</p>
+</div>
+<div class="sect2">
+<h3 id="subset-parameter-requirements"><a class="anchor" href="#subset-parameter-requirements"></a>10.1. Parameter subset</h3>
+<div class="paragraph">
+<p>Query parameters are used in URIs to limit the resources which are returned on a GET request. The <a href="#rc-simple-query-section">Simple Query</a> Requirements Class defines two parameters for selecting resources based on simple geospatial and temporal geometries. However, not all spatial-temporal resources are so well behaved. The Subset Requirements Class enables selection of resources based on a domain-specific n-dimensional geometry.</p>
+</div>
+<table id="req_collections_rc-subset-definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-subset-definition</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The <code>subset</code> parameter SHALL have the following characteristics (using an Extended Backus Naur Form (EBNF) fragment):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-EBNF" data-lang="EBNF">  SubsetSpec:        "subset"=axisName(intervalOrPoint)
+  axisName:          {text}
+  intervalOrPoint:   interval | point
+  interval:          low : high
+  low:               point | *
+  high:              point | *
+  point:             {number} | "{text}"
+
+  Where:
+     \" = double quote = ASCII code 0x42,
+     {number} is an integer or floating-point number, and
+     {text} is some general ASCII text (such as a time and date notation in ISO 8601).</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The axis name SHALL correspond to one of the axis of the Coordinate Reference System (CRS) of the target resource or else return a 400 status code.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If the intervalOrPoint values fall entirely outside the range of valid values defined for the identified axis, a 204 status code SHALL be returned</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>For a CRS where an axis can wrap around, such as subsetting across the dateline (anti-meridian) in a geographic CRS, a <code>low</code> value greater than <code>high</code> SHALL
+be supported to indicate an extent crossing that wrapping point.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+When the intervalOrPoint values fall partially outside of the range of valid values defined by the CRS for the identified axis, the service is expected to return the non-empty portion of the resource resulting from the subset.
+For subsetting on the range set, and for coverage media types with no geo-referencing mechanisms (e.g. PNG), NO_DATA values or transparency should be used.
+If a georeferencing mechanism is available within the negotiated media type, the service could decide whether to use NO_DATA values
+or simply return the properly geo-referenced values within the domain set.
+</td>
+</tr>
+</table>
+</div>
+<table id="req_collection_rc-subset-success" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collection/subset-success</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>Only that part of the resource that falls within the bounds of the subset expression SHALL be returned.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an lower limit of the subset expression is populated with an asterix "*" THEN the mainumum extent of the resource along that axis SHALL be selected.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>If an upper limit of the subset expression is populated with an asterix "*" THEN the maximum extent of the resource along that axis SHALL be selected.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="subset-target-resource"><a class="anchor" href="#subset-target-resource"></a>10.2. Target Resource</h3>
+<div class="paragraph">
+<p>The target of the <code>subset</code> parameter is the <a href="#collection-description">Collection</a> resource described in the <a href="#rc-collections-section">Collections</a> Requirements Class. The purpose of this parameter is to select a subset of <a href="#collection-description">Collection</a> resources to be included in the response to a <a href="#collections-metadata">/collections</a> request.</p>
+</div>
+<div class="paragraph">
+<p>The <code>collections</code> property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the <a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json">Resource Collection Schema</a>. This schema is described in detail in the <a href="#collection-description">Resource Collection</a> section of this Standard.</p>
+</div>
+<div class="paragraph">
+<p>The requirements governing the processing of the <code>subset</code> parameter are:</p>
+</div>
+<table id="req_collections_rc-subset-collection-response" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p><strong>/req/collections/rc-subset-collection-response</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The API server SHALL process the <code>subset</code> parameter against the <code>Collection</code> resources (/collections/{collectionId}) accessible through that API.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
+<p>The <code>subset</code> parameter SHALL be evaluated against the geometry defined by the <code>TBD</code> element of the <code>extent</code> property of the <code>Collection</code> resource.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>11. Encoding Requirements Classes</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_overview"><a class="anchor" href="#_overview"></a>10.1. Overview</h3>
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>11.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies two requirements classes for encodings to be used with the <a href="#collections-metadata">Collections</a> and <a href="#collection-description">Collection</a> resources. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
@@ -3268,7 +3449,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>10.2. Requirement Class "HTML"</h3>
+<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>11.2. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>Geographic information that is only accessible in formats like GeoJSON or GML has two issues:</p>
 </div>
@@ -3325,7 +3506,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -3333,7 +3514,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>E`200`-responses of the server SHALL support the <code>text/html</code> media type for the <a href="#collections-metadata">Collections</a> and <a href="#collection-description">Collection</a> resources.</p>
+<p><code>200</code>-responses of the server SHALL support the <code>text/html</code> media type for the <a href="#collections-metadata">Collections</a> and <a href="#collection-description">Collection</a> resources.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -3345,7 +3526,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -3391,7 +3572,7 @@ explode: false</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>10.3. Requirement Class "JSON"</h3>
+<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>11.3. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>JSON is a text syntax that facilitates structured data interchange between programming languages. It commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.</p>
 </div>
@@ -3432,7 +3613,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 30</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -3452,7 +3633,7 @@ explode: false</code></pre>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 31</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -3481,7 +3662,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>12. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JSON media types that would typically be supported by a server that supports JSON are:</p>
@@ -3521,7 +3702,7 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
+<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>13. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="#OAComm">OGC API - Common - Part 1: Core</a>, Clause 11.</p>
@@ -5272,6 +5453,30 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 <p><a id="link-relations"></a> Internet Assigned Numbers Authority (IANA). <strong>Link Relation Types</strong> [online, viewed 2020-03-16], Available at <a href="https://www.iana.org/assignments/link-relations/link-relations.xml">https://www.iana.org/assignments/link-relations/link-relations.xml</a>.</p>
 </li>
 <li>
+<p><a id="rfc2818"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
+</li>
+<li>
+<p><a id="rfc3986"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3986, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3986.txt">http://tools.ietf.org/rfc/rfc3986.txt</a></p>
+</li>
+<li>
+<p><a id="rfc6570"></a> Greforio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D.: <strong>IETF RFC 6570, URI Template</strong>, <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a></p>
+</li>
+<li>
+<p><a id="rfc7230"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</strong>, <a href="https://tools.ietf.org/rfc/rfc7230.txt">https://tools.ietf.org/rfc/rfc7230.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7232"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7232, Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests</strong>, <a href="https://tools.ietf.org/rfc/rfc7232.txt">https://tools.ietf.org/rfc/rfc7232.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7235"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7235, Hypertext Transfer Protocol (HTTP/1.1): Authentication</strong>, <a href="https://tools.ietf.org/rfc/rfc7235.txt">https://tools.ietf.org/rfc/rfc7235.txt</a></p>
+</li>
+<li>
+<p><a id="rfc7538"></a> Reschke, J.: <strong>IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)</strong>, <a href="https://tools.ietf.org/rfc/rfc7538.txt">https://tools.ietf.org/rfc/rfc7538.txt</a></p>
+</li>
+<li>
+<p><a id="iso15836-2"></a> ISO 15836-2:2019, <strong>Information and documentation — The Dublin Core metadata element set — Part 2: DCMI Properties and classes</strong></p>
+</li>
+<li>
 <p><a id="ogc08-131"></a> Open Geospatial Consortium: <strong>The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications</strong>, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
 </li>
 <li>
@@ -5291,6 +5496,9 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </li>
 <li>
 <p><a id="citepp"></a> Open Geospatial Consortium (OGC): <strong>Compliance Testing Program Policies &amp; Procedures</strong> [online, viewed 2020-04-18]. Available at <a href="https://portal.ogc.org/files/?artifact_id=28982&amp;version=7">https://portal.ogc.org/files/?artifact_id=28982</a>.</p>
+</li>
+<li>
+<p><a id="xmlschema-part2"></a> W3C Recommendation: <strong>XML Schema Part 2: Datatypes Second Edition</strong>, 28 October 2004, <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></p>
 </li>
 </ul>
 </div>
@@ -5527,7 +5735,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-09 14:42:51 +0100
+Last updated 2021-08-25 17:33:04 +0100
 </div>
 </div>
 </body>

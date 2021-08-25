@@ -1,0 +1,7 @@
+[[req_collections_rc-subset-collection-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/rc-subset-collection-response*
+^|A|The API server SHALL process the `subset` parameter against the `Collection` resources (/collections/{collectionId}) accessible through that API. 
+^|B|The `subset` parameter SHALL be evaluated against the geometry defined by the `TBD` element of the `extent` property of the `Collection` resource. 
+|===
