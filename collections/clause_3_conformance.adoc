@@ -8,7 +8,7 @@ API-GeoData defines API modules intended for re-use by other OGC Web API standar
 
 API-GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<apicore,API-Core>>) Standard. Each <<requirements-class-definition,Requirements Class>> in the API-GeoData Standard identifies the API-Core <<ctc-definition,Conformance Classes>> upon which it depends. 
 
-Proof of conformance with a Requirements Class includes demonstration of conformance with all dependencies of that Requirements Class. Unless otherwise specified, conformance only has to be demonstrated for those operations, parameters, and resources which are defined in that Requirements Class.  
+Proof of conformance with a Requirements Class includes demonstration of conformance with all dependencies of that Requirements Class. Unless otherwise specified, conformance only has to be demonstrated for those operations, parameters, and resources which are defined in that Requirements Class.
 
 This standard identifies five <<ctc-definition,conformance classes>>. The conformance classes implemented by an OGC API are advertised through the `/conformance` path on the landing page. Each conformance class is defined by one <<requirements-class-definition,requirements class>>. The tests in Annex A are organized by Requirements Class. So an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
 
