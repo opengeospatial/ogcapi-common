@@ -12,7 +12,7 @@ The requirements classes for API-GeoData are:
 
 * <<rc_collections-section,Collections>>
 * <<rc-simple-query-section,Simple Query>>
-* <<rc-subsetting-section,Subsetting>>
+* <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>
 * <<rc_encoding-section,Encodings>>
 ** <<rc_html-section,HTML>>
 ** <<rc_json-section,JSON>>
@@ -21,7 +21,7 @@ The <<rc_collections-section,Collections Requirements Class>> defines a common m
 
 The <<rc-simple-query-section,Simple Query Requirements Class>> defines basic query parameters for the selection of individual <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
 
-The <<rc-subsetting-section,Subsetting Requirements Class>> extends the <<rc-simple-query-section,Simple Query Requirements Class>> to support selection of individual <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>> in an arbitrary n-dimensional space.
+The <<rc-umd-collection-section,Uniform Multi-Dimension Collection Requirements Class>> extends the <<rc-simple-query-section,Simple Query Requirements Class>> to support selection of individual <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>> in an arbitrary uniform multi-dimension space.
 
 The <<rc_collections-section,Collections Requirements Class>> does not mandate a specific encoding or format for representing resources. The <<rc_html-section,_HTML_>> and <<rc_json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 

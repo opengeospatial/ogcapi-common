@@ -72,7 +72,7 @@
                     }
                 }
             },
-        "uniform": {
+        "uniform-md": {
             "description": " extends the Extent object to support domain-specific geometries defined by axis names and the occupied interval alone each access.",
             "type": "object",
             "properties": {

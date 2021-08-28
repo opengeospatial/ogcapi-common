@@ -12,15 +12,7 @@ The `subset` parameter is defined as follows:
 
 include::requirements/REQ_subset-definition.adoc[]
 
-The following permission is granted to facilitate slicing data sparsely populated across a dimension, such as Earth Observation imagery:
-
-include::recommendations/PER_subset-slice-sparse-dimensions.adoc[]
-
 While the processing of the `subset` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::requirements/REQ_subset-success.adoc[]
-
-=== Subsetting Examples
-
-include::examples/examples_subsetting.adoc[]
+include::requirements/REQ_subset-response.adoc[]
 

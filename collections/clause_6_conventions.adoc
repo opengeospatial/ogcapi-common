@@ -57,10 +57,22 @@ The geospatial geometry used in the OGC API - Common Standards is documented in 
 [[temporal-geometry-section]]
 ==== Temporal Geometry
 
-Standardized concepts are also needed for temporal characteristics. The temporal geometry used in the API-Common Standards is defined in <<iso19108,ISO 19108>>. Only a subset of this geometry is used. Specifically:
+Standardized concepts for temporal characteristics are also needed in order to share date and time information between applications. OGC API Common adopts the Gregorian calendar and a 24 hour time keeping system for its temporal geometry. All representations of that geometry which are discussed in this document conform to <<rfc3339,RFC 3339>>.
 
-* TM_Instant - a point representing position in time
-* TM_Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM_Instant)
+An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in <<date-time-bnf-annex,Annex F>>.
+
+[[umd-geometry-section]]
+==== Uniform Multi-Dimensional Geometry
+
+In addition to Geospatial and Temporal geometries.
+Environmental, Buildings, Infrastructure 
+Properties are:
+
+. Cartesian
+. No limit to the number of axis
+. Each axis is continuous (is a real number)
+
+NOTE: TBD
 
 === Coordinate Reference Systems
 
@@ -74,10 +86,6 @@ This OGC API - Common Geospatial Data standard does not mandate the use of a spe
 Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Geospatial Data Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
 
 <<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
-
-=== Timezones
-
-A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Greenwich Mean Time, also referred to as "Z" for Zulu Time), should be used for all temporal data passed or returned to/from OGC Web APIs. ISO 8601 accounts for local time by specifying an offset to UTC. When time zone offsets are used in a temporal element of a client request, the server processing the request should interpret temporal information with respect to the client’s requested time zone. When there is no time zone offset expressed in a temporal element, the server should assume a UTC zone. The local time zone of client or server should not be assumed; it shall either be explicitly stated as an offset or assumed to be UTC.
 
 === API definition
 

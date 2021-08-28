@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-08</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-27</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -583,16 +583,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#spatial-geometry-section">6.3.1. Geospatial Geometry</a></li>
 <li><a href="#temporal-geometry-section">6.3.2. Temporal Geometry</a></li>
+<li><a href="#umd-geometry-section">6.3.3. Uniform Multi-Dimensional Geometry</a></li>
 </ul>
 </li>
 <li><a href="#_coordinate_reference_systems">6.4. Coordinate Reference Systems</a></li>
-<li><a href="#_timezones">6.5. Timezones</a></li>
-<li><a href="#_api_definition">6.6. API definition</a>
+<li><a href="#_api_definition">6.5. API definition</a>
 <ul class="sectlevel3">
-<li><a href="#_general_remarks">6.6.1. General remarks</a></li>
-<li><a href="#_role_of_openapi">6.6.2. Role of OpenAPI</a></li>
-<li><a href="#_references_to_openapi_components_in_normative_statements">6.6.3. References to OpenAPI components in normative statements</a></li>
-<li><a href="#_reusable_openapi_components">6.6.4. Reusable OpenAPI components</a></li>
+<li><a href="#_general_remarks">6.5.1. General remarks</a></li>
+<li><a href="#_role_of_openapi">6.5.2. Role of OpenAPI</a></li>
+<li><a href="#_references_to_openapi_components_in_normative_statements">6.5.3. References to OpenAPI components in normative statements</a></li>
+<li><a href="#_reusable_openapi_components">6.5.4. Reusable OpenAPI components</a></li>
 </ul>
 </li>
 </ul>
@@ -640,10 +640,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#rc-multi-dimension-collection-section">10. Multi-Dimension Collection Requirements Class</a>
+<li><a href="#rc-umd-collection-section">10. Requirements Class "Uniform Multi-Dimension Collection"</a>
 <ul class="sectlevel2">
-<li><a href="#multi-dimension-collection-definition">10.1. Multi-Dimension Collection Definition</a></li>
-<li><a href="#_subsetting_examples">10.2. Subsetting Examples</a></li>
+<li><a href="#umd-collection-definition">10.1. Uniform Multi-Dimension Collection Definition</a></li>
+<li><a href="#umd-selection-parameter">10.2. Multi-Dimension Collection Selection</a></li>
 </ul>
 </li>
 <li><a href="#rc_encoding-section">11. Encoding Requirements Classes</a>
@@ -834,7 +834,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a href="#rc-simple-query-section">Simple Query</a></p>
 </li>
 <li>
-<p><a href="#rc-subsetting-section">Subsetting</a></p>
+<p><a href="#rc-umd-collection-section">Uniform Multi-Dimension Collection</a></p>
 </li>
 <li>
 <p><a href="#rc_encoding-section">Encodings</a></p>
@@ -858,7 +858,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The <a href="#rc-simple-query-section">Simple Query Requirements Class</a> defines basic query parameters for the selection of individual <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="#rc-subsetting-section">Subsetting Requirements Class</a> extends the <a href="#rc-simple-query-section">Simple Query Requirements Class</a> to support selection of individual <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a> in an arbitrary n-dimensional space.</p>
+<p>The <a href="#rc-umd-collection-section">Uniform Multi-Dimension Collection Requirements Class</a> extends the <a href="#rc-simple-query-section">Simple Query Requirements Class</a> to support selection of individual <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a> in an arbitrary uniform multi-dimension space.</p>
 </div>
 <div class="paragraph">
 <p>The <a href="#rc_collections-section">Collections Requirements Class</a> does not mandate a specific encoding or format for representing resources. The <a href="#rc_html-section"><em>HTML</em></a> and <a href="#rc_json-section"><em>JSON</em></a> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
@@ -877,31 +877,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a id="rfc2818"></a> Rescorla, E.: <strong>IETF RFC 2818, HTTP Over TLS</strong>, <a href="http://tools.ietf.org/rfc/rfc2818.txt">http://tools.ietf.org/rfc/rfc2818.txt</a></p>
-</li>
-<li>
 <p><a id="rfc3339"></a> Klyne, G., Newman, C.: <strong>IETF RFC 3339, Date and Time on the Internet: Timestamps</strong>, <a href="http://tools.ietf.org/rfc/rfc3339.txt">http://tools.ietf.org/rfc/rfc3339.txt</a></p>
 </li>
 <li>
-<p><a id="rfc3986"></a> Berners-Lee, T., Fielding, R., Masinter, L: <strong>IETF RFC 3986, Uniform Resource Identifier (URI): Generic Syntax</strong>, <a href="http://tools.ietf.org/rfc/rfc3986.txt">http://tools.ietf.org/rfc/rfc3986.txt</a></p>
-</li>
-<li>
-<p><a id="rfc6570"></a> Greforio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D.: <strong>IETF RFC 6570, URI Template</strong>, <a href="https://tools.ietf.org/html/rfc6570">https://tools.ietf.org/html/rfc6570</a></p>
-</li>
-<li>
-<p><a id="rfc7230"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</strong>, <a href="https://tools.ietf.org/rfc/rfc7230.txt">https://tools.ietf.org/rfc/rfc7230.txt</a></p>
-</li>
-<li>
 <p><a id="rfc7231"></a> Fielding, R., Reschke, JSchaub: <strong>IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</strong>, <a href="https://tools.ietf.org/rfc/rfc7231.txt">https://tools.ietf.org/rfc/rfc7231.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7232"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7232, Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests</strong>, <a href="https://tools.ietf.org/rfc/rfc7232.txt">https://tools.ietf.org/rfc/rfc7232.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7235"></a> Fielding, R., Reschke, J.: <strong>IETF RFC 7235, Hypertext Transfer Protocol (HTTP/1.1): Authentication</strong>, <a href="https://tools.ietf.org/rfc/rfc7235.txt">https://tools.ietf.org/rfc/rfc7235.txt</a></p>
-</li>
-<li>
-<p><a id="rfc7538"></a> Reschke, J.: <strong>IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)</strong>, <a href="https://tools.ietf.org/rfc/rfc7538.txt">https://tools.ietf.org/rfc/rfc7538.txt</a></p>
 </li>
 <li>
 <p><a id="rfc8259"></a> Bray, T.: <strong>IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format</strong>, <a href="http://tools.ietf.org/rfc/rfc8259.txt">http://tools.ietf.org/rfc/rfc8259.txt</a>* <a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
@@ -916,19 +895,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="iso19111"></a> ISO 19111:2019, <strong>Geographic information ⎯ Spatial referencing by coordinates</strong></p>
 </li>
 <li>
-<p><a id="iso15836-2"></a> ISO 15836-2:2019, <strong>Information and documentation — The Dublin Core metadata element set — Part 2: DCMI Properties and classes</strong></p>
-</li>
-<li>
-<p><a id="iso19108"></a> ISO 19108:2002/Cor 1:2006, <strong>Geographic information — Temporal schema</strong></p>
-</li>
-<li>
 <p><a id="jschema"></a> json-schema-org: <strong>JSON Schema,</strong> September 2019, <a href="https://json-schema.org/specification.html" class="bare">https://json-schema.org/specification.html</a></p>
 </li>
 <li>
 <p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
-</li>
-<li>
-<p><a id="ogc-06-121"></a> Whiteside, A., Greenwood, J.: <strong>OGC Web Services Common Standard</strong>, version 2.0, <a href="http://portal.opengeospatial.org/files/?artifact_id=38867">OGC 06-121r9</a></p>
 </li>
 <li>
 <p><a id="sfsql"></a> Herring, J.: OGC 06-104r4,<strong>OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=25354">http://portal.opengeospatial.org/files/?artifact_id=25354</a></p>
@@ -944,9 +914,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a id="schema_org"></a><strong>Schema.org</strong>: <a href="http://schema.org/docs/schemas.html">http://schema.org/docs/schemas.html</a></p>
-</li>
-<li>
-<p><a id="xmlschema-part2"></a> W3C Recommendation: <strong>XML Schema Part 2: Datatypes Second Edition</strong>, 28 October 2004, <a href="https://www.w3.org/TR/xmlschema-2/">https://www.w3.org/TR/xmlschema-2/</a></p>
 </li>
 </ul>
 </div>
@@ -1318,17 +1285,43 @@ API definitions are considered service descriptions.</p></td>
 <div class="sect3">
 <h4 id="temporal-geometry-section"><a class="anchor" href="#temporal-geometry-section"></a>6.3.2. Temporal Geometry</h4>
 <div class="paragraph">
-<p>Standardized concepts are also needed for temporal characteristics. The temporal geometry used in the API-Common Standards is defined in <a href="#iso19108">ISO 19108</a>. Only a subset of this geometry is used. Specifically:</p>
+<p>Standardized concepts for temporal characteristics are also needed in order to share date and time information between applications. OGC API Common adopts the Gregorian calendar and a 24 hour time keeping system for its temporal geometry. All representations of that geometry which are discussed in this document conform to <a href="#rfc3339">RFC 3339</a>.</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="paragraph">
+<p>An <a href="#rfc5234">ABNF</a> representation of the RFC 3339 format is provided in <a href="#date-time-bnf-annex">Annex F</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="umd-geometry-section"><a class="anchor" href="#umd-geometry-section"></a>6.3.3. Uniform Multi-Dimensional Geometry</h4>
+<div class="paragraph">
+<p>In addition to Geospatial and Temporal geometries.
+Environmental, Buildings, Infrastructure
+Properties are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>TM_Instant - a point representing position in time</p>
+<p>Cartesian</p>
 </li>
 <li>
-<p>TM_Period - a one dimensional geometric primitive representing an extent in time and bounded by two different temporal positions (TM_Instant)</p>
+<p>No limit to the number of axis</p>
 </li>
-</ul>
+<li>
+<p>Each axis is continuous (is a real number)</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+TBD
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1358,15 +1351,9 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_timezones"><a class="anchor" href="#_timezones"></a>6.5. Timezones</h3>
-<div class="paragraph">
-<p>A default time zone of UTC as defined by ISO 8601:2004 and ISO 8601:2000 (or Greenwich Mean Time, also referred to as "Z" for Zulu Time), should be used for all temporal data passed or returned to/from OGC Web APIs. ISO 8601 accounts for local time by specifying an offset to UTC. When time zone offsets are used in a temporal element of a client request, the server processing the request should interpret temporal information with respect to the client’s requested time zone. When there is no time zone offset expressed in a temporal element, the server should assume a UTC zone. The local time zone of client or server should not be assumed; it shall either be explicitly stated as an offset or assumed to be UTC.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.6. API definition</h3>
+<h3 id="_api_definition"><a class="anchor" href="#_api_definition"></a>6.5. API definition</h3>
 <div class="sect3">
-<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.6.1. General remarks</h4>
+<h4 id="_general_remarks"><a class="anchor" href="#_general_remarks"></a>6.5.1. General remarks</h4>
 <div class="paragraph">
 <p>This OGC standard specifies requirements and recommendations for the development of APIs that share spatial resources using a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.</p>
 </div>
@@ -1375,7 +1362,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.6.2. Role of OpenAPI</h4>
+<h4 id="_role_of_openapi"><a class="anchor" href="#_role_of_openapi"></a>6.5.2. Role of OpenAPI</h4>
 <div class="paragraph">
 <p>This OGC API Standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the <code>/conformance</code> path.</p>
 </div>
@@ -1384,7 +1371,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.6.3. References to OpenAPI components in normative statements</h4>
+<h4 id="_references_to_openapi_components_in_normative_statements"><a class="anchor" href="#_references_to_openapi_components_in_normative_statements"></a>6.5.3. References to OpenAPI components in normative statements</h4>
 <div class="paragraph">
 <p>Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.</p>
 </div>
@@ -1412,7 +1399,7 @@ API definitions are considered service descriptions.</p></td>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.6.4. Reusable OpenAPI components</h4>
+<h4 id="_reusable_openapi_components"><a class="anchor" href="#_reusable_openapi_components"></a>6.5.4. Reusable OpenAPI components</h4>
 <div class="paragraph">
 <p>Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at <a href="http://schemas.opengis.net/ogcapi/common/part1/1.0">http://schemas.opengis.net/ogcapi/common/part1/1.0</a> and <a href="http://schemas.opengis.net/ogcapi/common/part2/1.0">http://schemas.opengis.net/ogcapi/common/part2/1.0</a></p>
 </div>
@@ -2397,10 +2384,6 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19108">ISO 19108</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19111">ISO 19111</a></p></td>
 </tr>
 <tr>
@@ -3252,9 +3235,9 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc-multi-dimension-collection-section"><a class="anchor" href="#rc-multi-dimension-collection-section"></a>10. Multi-Dimension Collection Requirements Class</h2>
+<h2 id="rc-umd-collection-section"><a class="anchor" href="#rc-umd-collection-section"></a>10. Requirements Class "Uniform Multi-Dimension Collection"</h2>
 <div class="sectionbody">
-<table id="rc_collection-md" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="rc_umd-collection" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3264,7 +3247,7 @@ explode: false</code></pre>
 <td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections-md" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections-md</a></p></td>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/req/umd-collection" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/req/umd-collection</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
@@ -3272,48 +3255,20 @@ explode: false</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core" class="bare">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19107">ISO 19107</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#gmlsf">GML Simple Features Profile</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sfsql">Simple Features for SQL</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19108">ISO 19108</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19111">ISO 19111</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19108">ISO 19108</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso8601_1">ISO 8601</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_simple_query">Simple Query Requirements Class</a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <a href="#rc-collections">http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections</a> defines a <a href="#collection-resource-definition-section">Collection</a> resource which supports both <a href="#spatial-geometry-section">geospatial</a> and <a href="#temporal-geometry-section">temporal</a> geometries. These geometries are not sufficient to fully characterize some resouce types. This <a href="#rc-multi-dimension-collection-section">Multi-Dimension Collection</a> Conformance Class extends the <a href="#collection-resource-definition-section">Collection</a> resource to support domain-specific geometries with an unlimited number of domain-specific axis. This Conformance Class also defines how that geometry can be evaluated throught HTTP query parameters.</p>
+<p>The <a href="#rc-collections">Collections</a> Requirements Class defines a <a href="#collection-resource-definition-section">Collection</a> resource which supports both <a href="#spatial-geometry-section">geospatial</a> and <a href="#temporal-geometry-section">temporal</a> geometries. However, some resources cannot be fully described with just these two geometries. The <a href="#rc-umd-collection-section">Uniform Multi-Dimension Collection</a> Requirements Class extends the <a href="#collection-resource-definition-section">Collection</a> resource to support geometries with an unlimited number of uniform, domain-specific axis. This Requirements Class also defines how that geometry can be evaluated through HTTP query parameters.</p>
 </div>
 <div class="sect2">
-<h3 id="multi-dimension-collection-definition"><a class="anchor" href="#multi-dimension-collection-definition"></a>10.1. Multi-Dimension Collection Definition</h3>
+<h3 id="umd-collection-definition"><a class="anchor" href="#umd-collection-definition"></a>10.1. Uniform Multi-Dimension Collection Definition</h3>
 <div class="paragraph">
-<p>The Multi-Dimension Collection is an extension of the <code>Collection</code> resouce. So all of the requirements defined in  <a href="#collection-resource-definition-section">Requirements Module Collection</a> are required.</p>
+<p>The Uniform Multi-Dimension Collection is an extension of the <a href="#collection-resource-definition-section">Collection</a> resource. So all of the requirements defined in  <a href="#rc-collections-section">Collections</a> Requirements Class are required.</p>
 </div>
 <div class="paragraph">
-<p>Support for domain-specific Collections is supplied by the <code>Extent with Uniform Additional Dimensions</code> requirements modlue.</p>
+<p>Support for domain-specific Collections is supplied by the <code>Extent with Uniform Additional Dimensions</code> requirements module.</p>
 </div>
 <table id="rm_extent-uniform-additional-dimensions" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3338,12 +3293,12 @@ explode: false</code></pre>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The <code>Extent with Uniform Additional Dimensions</code> (Extent-uad) resource extends the <a href="#collection-extent-section">Extent</a> object defined in the <a href="#rc-collections-sectionhttp">//www.opengis.net/spec/ogcapi-common-2/1.0/req/collections</a> Requirements Class to support domain-specific geometries.</p>
+<p>The <code>Extent with Uniform Additional Dimensions</code> (Extent-uad) element extends the <a href="#collection-extent-section">Extent</a> element defined in the <a href="#rc-collections-section">http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections</a> Requirements Class to support domain-specific geometries.</p>
 </div>
 <div class="paragraph">
-<p>The <code>extent-uad</code> parameter is defined as follows:</p>
+<p>The <code>Extent-uad</code> parameter is defined as follows:</p>
 </div>
-<table id="req_collections_extent-uad-definition" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_extent-uad-definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -3352,55 +3307,58 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/collections/extent-uad-definition</strong></p>
+<p><strong>/req/common/extent-uad-definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of an <code>Extent with Uniform Additional Dimensions</code> (Extent-uad) resource SHALL be based upon the JSON schema <a href="https://github.com/opengeospatial/ogcapi-common/tree/master/api_modules/extent-uad/extent-uad.json">extent-uad.json</a>.</p>
+<p>The content of an <code>Extent with Uniform Additional Dimensions</code> (Extent-uad) resource SHALL be based upon the OpenAPI segment  <a href="https://github.com/opengeospatial/ogcapi-common/tree/master/api_modules/extent-uad/extent-uad.json">extent-uad.oas</a>.</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>And is described below using a JSON Schema fragment:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-JSON" data-lang="JSON">"uniform": {
-    "description": " extends the Extent object to support domain-specific geometries defined by axis names and the occupied interval alone each access.",
-    "type": "object",
-    "properties": {
-        "orderedAxes": {
-            "description": "axis labels of all dimensions listed in CRS order. Spatial dimensions should be listed separately here.",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "type": "string"
-                }
-            },
-        "intervals": {
-            "description": "One interval for each axis. An interval describes the extent of the dataset along that axis.",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "description": "Lower and upper bound values of the interval.",
-                "type": "array",
-                "minItems": 2,
-                "maxItems": 2,
-                "items": {
-                    "type": "string",
-                    "nullable": "true"
-                    }
-                }
-            }
-        }
-    }</code></pre>
-</div>
+<p><code>Extent-uad</code> extends the <code>Extent</code> element with a new <a href="#uniform-uad-schema"><code>uniform-md</code></a> property.</p>
 </div>
 <div class="paragraph">
-<p>Multi-Dimension Collections can be selected using the <code>Subset</code> requirements module.</p>
+<p>Since the <code>Extent-uad</code> element extends the <code>Extent</code> element, all operations applied against the <code>Extent</code> element will have identical behavior when applied against <code>Extend-uad</code>.</p>
+</div>
+<div id="uniform-uad-schema" class="listingblock">
+<div class="title">Uniform-uad Property</div>
+<div class="content">
+<pre class="highlight"><code class="language-YAML" data-lang="YAML">  uniform-md:
+    description: "extends the Extent object to support domain-specific geometries defined by axis names and the occupied interval alone each access."
+    type: object
+    properties:
+      orderedAxes:
+        description: axis labels of all dimensions listed in CRS order. Spatial dimensions should be listed separately here.
+        type: array
+        minItems: 1
+        items:
+          type: string
+      intervals:
+        description: One interval for each axis. An interval describes the extent of the dataset along that axis.
+        type: array
+        minItems: 1
+        items:
+          description: Lower and upper bound values of the interval.
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            type: string
+            nullable: 'true'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="umd-selection-parameter"><a class="anchor" href="#umd-selection-parameter"></a>10.2. Multi-Dimension Collection Selection</h3>
+<div class="paragraph">
+<p>Selection and access of a Uniform Multi-Dimension Collection is similar to that of a <a href="#collection-resource-definition-section">Collection</a> resource. All of the requirements defined in the <a href="#rc-simple-query-section">Simple Query</a> Requirements Class also apply to this Requirements Class.  So all of the requirements defined in  <a href="#rc-collections-section">Collections</a> Requirements Class are required.</p>
+</div>
+<div class="paragraph">
+<p>However, the parameters defined in <a href="#rc-simple-query-section">Simple Query</a> only operate against the <code>spatial</code> and <code>temporal</code> properties of the Extent. An additional parameter is needed to operate against the <code>uniform-md</code> property. The <code>Subset</code> parameter fills that role. This parameter is defined in the <code>Subset</code> requirements module.</p>
 </div>
 <table id="rm_subset" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -3441,17 +3399,17 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The <code>subset</code> parameter SHALL have the following characteristics (using an Extended Backus Naur Form (EBNF) fragment):</p>
+<p>The <code>subset</code> parameter SHALL have the following characteristics (using an Augmented Backus Naur Form (ABNF) fragment):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-EBNF" data-lang="EBNF">  SubsetSpec:        "subset"=axisName(intervalOrPoint)
-  axisName:          {text}
-  intervalOrPoint:   interval | point
-  interval:          low : high
-  low:               point | *
-  high:              point | *
-  point:             {number} | "{text}"
+<pre class="highlight"><code class="language-ABNF" data-lang="ABNF">  SubsetSpec:       "subset"=axisName(intervalOrPoint)
+  axisName:         {text}
+  intervalOrPoint:  interval | point
+  interval:         low : high
+  low:              point | *
+  high:             point | *
+  point:            {number} | "{text}"
 
   Where:
      \" = double quote = ASCII code 0x42,
@@ -3489,58 +3447,14 @@ be supported to indicate an extent crossing that wrapping point.</p>
 </td>
 <td class="content">
 When the intervalOrPoint values fall partially outside of the range of valid values defined by the CRS for the identified axis, the service is expected to return the non-empty portion of the resource resulting from the subset.
-For subsetting on the range set, and for coverage media types with no geo-referencing mechanisms (e.g. PNG), NO_DATA values or transparency should be used.
-If a georeferencing mechanism is available within the negotiated media type, the service could decide whether to use NO_DATA values
-or simply return the properly geo-referenced values within the domain set.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following permission is granted to facilitate slicing data sparsely populated across a dimension, such as Earth Observation imagery:</p>
-</div>
-<table id="per_slice_sparse_dimension" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Permission 5</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/per/coverage-subset/slice-sparse-dimension</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The empty portions in a coverage resulting from a slice operation on an axis (e.g. time), combined with a trimming operations on other axes (e.g. latitude and longitude)
- which would either be empty or not cover the full extent of the trim operation MAY be filled with data values from the same trim operation
- combined with a slicing operation on a different value of the slicing axis which would return non-empty values.
- For example, the closest or last previous time for which data is available for a certain geospatial extent may be returned.
- An Earth Observation use case for this permission is to allow retrieving a slice of the last available imagery on or before a certain date,
- taking into account that a certain geographic area may only be observed every few days.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">B</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>This permission applies to both explicit slice operations using subset, as well as to implicit slicing from requesting an output format only supporting
- a lower dimensionality than the data (e.g. requesting a 2D image from a 3D coverage as PNG or GeoTIFF).</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>A query parameter defined by a custom or standardized extension MAY be made available to enable, disable or alter that behavior.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
 <p>While the processing of the <code>subset</code> parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.</p>
 </div>
-<table id="req_collection_rc-subset-success" class="tableblock frame-all grid-all" style="width: 90%;">
+<table id="req_collection_rc-subset-response" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -3549,7 +3463,7 @@ or simply return the properly geo-referenced values within the domain set.
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/collection/subset-success</strong></p>
+<p><strong>/req/collection/subset-response</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3572,36 +3486,6 @@ or simply return the properly geo-referenced values within the domain set.
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_subsetting_examples"><a class="anchor" href="#_subsetting_examples"></a>10.2. Subsetting Examples</h3>
-<div class="paragraph">
-<p>These examples return a subset of a coverage in the negotiated format, including domain set, range type (and metadata if applicable) to the extent than they can be described in that format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>{datasetAPI}/collections/{coverageid}/coverage?subset=Lat(40:50),Lon(10:20)&#8201;&#8212;&#8201;returns a cutout (trim) from the coverage for the extent between corner coordinates (Lat: 40, Lon: 10) and (Lat: 50, Lon: 20)</p>
-</li>
-<li>
-<p>{datasetAPI}/collections/{coverageid}/coverage?subset=time("2019-03-27")&#8201;&#8212;&#8201;returns a coverage slice at the timestamp (if the coverage is has 2D spatial dimensions plus time, the result will be a 2D image with its full spatial extent)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A <code>rangeset</code> resource, also supporting subsetting, may be available in some implementations, for some formats/media types.
-The following examples using this resource return only the sample values for a subset of a coverage in the negotiated format, without domain set, range type or metadata:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>{datasetAPI}/collections/{coverageid}/coverage/rangeset?subset=Lat(40:50),Lon(10:20) &#8201;&#8212;&#8201;returns a coverage cutout/trim between (Lat: 40, Lon: 10) and (Lat: 50, Lon: 20)</p>
-</li>
-<li>
-<p>{datasetAPI}/collections/{coverageid}/coverage/rangeset?subset=time("2019-03-27")&#8201;&#8212;&#8201;returns a coverage slice at the timestamp given, with all data available in the other dimensions (if the coverage is has 2D spatial dimensions plus time, the result will be a 2D image with its full spatial extent)</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -5632,6 +5516,9 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 <p><a id="link-relations"></a> Internet Assigned Numbers Authority (IANA). <strong>Link Relation Types</strong> [online, viewed 2020-03-16], Available at <a href="https://www.iana.org/assignments/link-relations/link-relations.xml">https://www.iana.org/assignments/link-relations/link-relations.xml</a>.</p>
 </li>
 <li>
+<p><a id="rfc5234"></a> Crocker, D., Overell, P.: <strong>IETF RFC 5234, Augmented BNF for Syntax Specifications: ABNF</strong>, <a href="https://tools.ietf.org/html/rfc5234">https://tools.ietf.org/html/rfc5234</a></p>
+</li>
+<li>
 <p><a id="ogc08-131"></a> Open Geospatial Consortium: <strong>The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications</strong>, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
 </li>
 <li>
@@ -5887,7 +5774,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-08 17:06:49 +0100
+Last updated 2021-08-28 00:14:21 +0100
 </div>
 </div>
 </body>
