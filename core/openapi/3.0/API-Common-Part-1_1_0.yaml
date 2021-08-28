@@ -1,0 +1,212 @@
+openapi: 3.0.2
+info:
+  title: "Building Blocks specified in OGC API - Common - Part 1: Core"
+  description: |-
+    Common components used in the
+    [OGC standard "OGC API - Common - Part 1: Core"](http://docs.opengeospatial.org/is/19-072/19-072.html).
+
+    OGC API - Common - Part 1: Core 1.0 is an OGC Standard.
+    Copyright (c) 2021 Open Geospatial Consortium.
+    To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ .
+
+    This document is also available on
+    [OGC](http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/ogcapi-common-1.yaml).
+  version: '1.0.0'
+  contact:
+    name: Charles Heazel
+    email: cheazel@heazeltech.com
+  license:
+    name: OGC License
+    url: 'http://www.opengeospatial.org/legal/'
+paths:
+  /:
+    get:
+      description: >-
+        The landing page provides links to the API definition and the
+        conformance statements for this API.
+      parameters:
+        - $ref: '#/components/parameters/f'
+      operationId: getLandingPage
+      responses:
+        '200':
+          $ref: '#/components/responses/LandingPage'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+      summary: Landing page
+      tags:
+        - server
+  /api:
+    get:
+      description: This document
+      parameters:
+        - $ref: '#/components/parameters/f'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        default:
+          $ref: '#/components/responses/500'
+      summary: This document
+      tags:
+        - server
+  /conformance:
+    get:
+      description: >-
+        A list of all conformance classes specified in a standard that the
+        server conforms to.
+      parameters:
+        - $ref: '#/components/parameters/f'
+      operationId: getConformanceDeclaration
+      responses:
+        '200':
+          $ref: '#/components/responses/ConformanceDeclaration'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+      summary: API conformance definition
+      tags:
+        - server
+components:
+  parameters:
+    f:
+      description: >-
+        The optional f parameter indicates the output format that the server
+        shall provide as part of the response document.  The default format is
+        JSON.
+      explode: false
+      in: query
+      name: f
+      required: false
+      schema:
+        default: json
+        enum:
+          - json
+          - html
+        type: string
+      style: form
+  schemas:
+    confClasses:
+      type: object
+      required:
+        - conformsTo
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
+    exception:
+     description: JSON schema for exceptions based on RFC 7807
+     type: object
+     required:
+      - type
+     properties:
+      type: 
+        type: string
+      title: 
+        type: string
+      status:
+        type: integer
+      detail: 
+        type: string
+      instance: 
+        type: string    
+    landingPage:
+      type: object
+      required:
+        - links
+      properties:
+        title:
+          type: string
+          example: Buildings in Bonn
+        description:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: "#/components/schemas/link"
+    link:
+      type: object
+      required:
+        - href
+        - rel
+      properties:
+        href:
+          type: string
+          example: http://data.example.com/buildings/123
+        rel:
+          type: string
+          example: alternate
+        type:
+          type: string
+          example: application/json
+        hreflang:
+          type: string
+          example: en
+        title:
+          type: string
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
+  responses:
+    LandingPage:
+      description: |-
+        The landing page provides links to the API definition
+        (link relations `service-desc` and `service-doc`),
+        and the Conformance declaration (path `/conformance`,
+        link relation `conformance`).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/landingPage'
+        text/html:
+          schema:
+            type: string
+    ConformanceDeclaration:
+      description: |-
+        The URIs of all conformance classes supported by the server.
+
+        To support "generic" clients that want to access multiple
+        OGC API Features implementations - and not "just" a specific
+        API / server, the server declares the conformance
+        classes it implements and conforms to.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/confClasses'
+          example:
+            conformsTo:
+              - 'http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core'
+              - 'http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landingPage'
+              - 'http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30'
+              - 'http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html'
+              - 'http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json'
+        text/html:
+          schema:
+            type: string
+    200:
+      description: |-
+        General Success response.
+    400:
+      description: |-
+        General HTTP error response.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string    
+    500:
+      description: |-
+        A server error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/exception'
+        text/html:
+          schema:
+            type: string

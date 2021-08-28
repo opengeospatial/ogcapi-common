@@ -22,6 +22,10 @@ Any page whose primary purpose is to contain a description of something else. (h
 |*NOTE 2:*| A landing page for a Web API serves as the root node of the API Resource tree and provides the information needed to navigate all the resources exposed through the API.
 |===
 
+[[ogc-webapi-definition]]
+* *OGC Web API* +
+A <<webapi-definition,Web API>> that implements one or more <<ctc-definition,Conformance Classes>> from an OGC API Standard.
+
 [[representation-definition]]
 * *Representation* +
 the current or intended state of a <<resource-definition,resource>> encoded for exchange between components. (based on <<fielding2000,Fielding 2000>>)

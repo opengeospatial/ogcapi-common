@@ -2,17 +2,9 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-list-empty* 
-^|Test Purpose |Validate for every query parameter where the value may be a list: +
-{nbsp}{nbsp}**In the case of a client**: that an empty list value is represented by an empty string. +
-{nbsp}{nbsp}**In the case of a server**: that the server interprets an empty string as an empty list.
+^|Test Purpose |For every query parameter where the value may be a list, validate that the server interprets an empty string as an empty list.
 ^|Requirement |<<req_core_query-param-list-empty,/req/core/query-param-list-empty>>
-^|Test Method (Client) |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
-{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
-{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and an empty list +
-{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the empty list is represented by an empty string +
-{nbsp}{nbsp}DONE +
-DONE
-^|Test Method (Server) |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
+^|Test Method |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
 {nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
 {nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and an empty string for the parameter value. +
 {nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value as an empty list +

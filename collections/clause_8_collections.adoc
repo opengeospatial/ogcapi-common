@@ -4,6 +4,8 @@
 
 include::requirements/requirements_class_collections.adoc[]
 
+NOTE: This Requirements Class is dependent on API-Common Part 1 section 8.1. Content from Part 1 Section 8.2 has been included in Annex F for reference.
+
 This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>)..
 
 The two resources defined in this Requirements Class are summarized in <<collection-resources>>. 

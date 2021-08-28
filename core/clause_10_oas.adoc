@@ -62,15 +62,6 @@ The OpenAPI specification currently supports the following link:https://github.c
 
 include::requirements/oas30/REQ_security.adoc[]
 
-[[rc_oas30-service-metadata]]
-=== Service Metadata
-
-OGC Web Services provide a set of metadata that identifies the service and provides information about the service provider. It would be useful if OGC Web APIs provide the same information. A `service-meta` link is provided on the Landing Page for this purpose. 
-
-include::recommendations/oas30/REC_service-metadata.adoc[]
-
-An example of a populated OpenAPI `Info` object is provided in the <<service-metadata-examples>> section.
-
 [[rc_oas30-query-parameter]]
 === Query Parameter Definition
 

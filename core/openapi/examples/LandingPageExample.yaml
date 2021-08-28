@@ -1,0 +1,52 @@
+title: Example API Landing Page
+description: This is an example of an API landing page in JSON format
+attribution: "<a href='www.ign.es' rel=' '>IGN</a> <a href='www.govdata.de/dl-de/by-2-0'>(c)</a>"
+links:
+- rel: service-desc
+  type: application/json
+  title: API definition for this endpoint as JSON
+  href: http://www.example.com/oapi-c/api?f=application/json
+- rel: service-desc
+  type: text/html
+  title: API definition for this endpoint as HTML
+  href: http://www.example.com/oapi-c/api?f=text/html
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data-meta
+  type: application/xml
+  title: ISO 19115 Metadata as XML
+  href: http://www.example.com/oapi-c/data-meta?f=application/xml
+- rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+  type: application/json
+  title: Conformance Declaration as JSON
+  href: http://www.example.com/oapi-c/conformance?f=application/json
+- rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+  type: application/xml
+  title: Conformance Declaration as XML
+  href: http://www.example.com/oapi-c/conformance?f=application/xml
+- rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
+  type: text/html
+  title: Conformance Declaration as HTML
+  href: http://www.example.com/oapi-c/conformance?f=text/html
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data
+  type: application/json
+  title: Collections Metadata as JSON
+  href: http://www.example.com/oapi-c/collections?f=application/json
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data
+  type: application/xml
+  title: Collections Metadata as XML
+  href: http://www.example.com/oapi-c/collections?f=application/xml
+- rel: http://www.opengis.net/def/rel/ogc/1.0/data
+  type: text/html
+  title: Collections Metadata as HTML
+  href: http://www.example.com/oapi-c/collections?f=text/html
+- rel: self
+  type: application/json
+  title: This Document
+  href: http://www.example.com/oapi-c?f=application/json
+- rel: alternate
+  type: application/xml
+  title: This Document as XML
+  href: http://www.example.com/oapi-c?f=application/xml
+- rel: alternate
+  type: text/html
+  title: This Document as HTML
+  href: http://www.example.com/oapi-c?f=text/html

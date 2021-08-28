@@ -95,10 +95,12 @@ Additional information on this topic is provided in the link:http://docs.opengeo
 
 OGC Web API Standards use <<rfc8288,RFC 8288 (Web Linking)>>  to express relationships between resources. Resource representations defined in these standards commonly include an "links" element. A "links" element is an array of individual hyperlink elements. These "links" elements provide a convention for associating related resources.
 
-The individual hyperlink elements that make up a "links" element are defined using the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.json[Hyperlink Schema].
+The individual hyperlink elements that make up a "links" element are defined using the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.yaml[Hyperlink Schema].
 
 [source, JSON]
-include::openapi/schemas/link.json[]
+include::openapi/schemas/link.yaml[]
+
+NOTE: The `href` value is not restricted to absolute links. Relative links are also allowed.
 
 In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource. 
 
@@ -111,7 +113,7 @@ Additional information on this topic is provided in the link:http://docs.opengeo
 
 Link relation types identify the semantics of a link. For example, a link with the relation type "service-meta" indicates that the current link context has service metadata at the link target.
 
-Link relation types are expressed using the "rel" property from the link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.json[Hyperlink Schema]. 
+Link relation types are expressed using the "rel" property from the link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.yaml[Hyperlink Schema]. 
 
 The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
 

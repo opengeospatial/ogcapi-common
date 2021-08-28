@@ -2,7 +2,7 @@
 
 [big]*i.     Abstract*
 
-The OGC has extended their suite of standards to include Resource Oriented Architectures and Web APIs. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.
+The OGC has extended their suite of standards to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.
 
 Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.
 
