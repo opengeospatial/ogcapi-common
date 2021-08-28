@@ -1,0 +1,26 @@
+[[rc-umd-collection-section]]
+== Requirements Class "Uniform Multi-Dimension Collection" 
+:sectnums:
+
+include::requirements/requirements_class_umd-collection.adoc[]
+
+The <<rc-collections,Collections>> Requirements Class defines a <<collection-resource-definition-section,Collection>> resource which supports both <<spatial-geometry-section,geospatial>> and <<temporal-geometry-section,temporal>> geometries. However, some resources cannot be fully described with just these two geometries. The <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> Requirements Class extends the <<collection-resource-definition-section,Collection>> resource to support geometries with an unlimited number of uniform, domain-specific axis. This Requirements Class also defines how that geometry can be evaluated through HTTP query parameters.
+
+[[umd-collection-definition]]
+=== Uniform Multi-Dimension Collection Definition
+
+The Uniform Multi-Dimension Collection is an extension of the <<collection-resource-definition-section,Collection>> resource. So all of the requirements defined in  <<rc-collections-section,Collections>> Requirements Class are required.
+
+Support for domain-specific Collections is supplied by the `Extent with Uniform Additional Dimensions` requirements module.
+
+include::../api_modules/extent-uad/requirements_module_extent-uad.adoc[]
+
+[[umd-selection-parameter]]
+=== Multi-Dimension Collection Selection
+
+Selection and access of a Uniform Multi-Dimension Collection is similar to that of a <<collection-resource-definition-section,Collection>> resource. All of the requirements defined in the <<rc-simple-query-section,Simple Query>> Requirements Class also apply to this Requirements Class.  So all of the requirements defined in  <<rc-collections-section,Collections>> Requirements Class are required. 
+
+However, the parameters defined in <<rc-simple-query-section,Simple Query>> only operate against the `spatial` and `temporal` properties of the Extent. An additional parameter is needed to operate against the `uniform-md` property. The `Subset` parameter fills that role. This parameter is defined in the `Subset` requirements module.
+
+include::../api_modules/subset/requirements_module_subset.adoc[]
+
