@@ -86,14 +86,14 @@ OGC                {root}            path            parameters
 
 This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rfc7231,HTTP>> and <<rfc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
 
-NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (ex. image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementers should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
+NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (for example: image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementers should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
 
 Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#identifiers-section[OGC API - Common Users Guide]. 
 
 [[link-conventions]]
 === Links
 
-OGC Web API Standards use <<rfc8288,RFC 8288 (Web Linking)>>  to express relationships between resources. Resource representations defined in these standards commonly include an "links" element. A "links" element is an array of individual hyperlink elements. These "links" elements provide a convention for associating related resources.
+OGC Web API Standards use <<rfc8288,RFC 8288 (Web Linking)>>  to express relationships between resources. Resource representations defined in these standards commonly include a "links" element. A "links" element is an array of individual hyperlink elements. These "links" elements provide a convention for associating related resources.
 
 The individual hyperlink elements that make up a "links" element are defined using the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.yaml[Hyperlink Schema].
 
