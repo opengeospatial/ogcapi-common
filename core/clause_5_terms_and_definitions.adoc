@@ -10,7 +10,7 @@ For the purposes of this document, the following additional terms and definition
 
 [[kebab-case-definition]]
 * *Kebab case* +
-A case style where punctuation is removed and spaces are replaced by single hyphens. All letters are in lower case when used in OGC documentation. (https://en.wikipedia.org/wiki/Letter_case[Wikipedia]) 
+A case style where punctuation is removed and spaces are replaced by single hyphens. All letters are in lower case when used in OGC documentation. (https://en.wikipedia.org/wiki/Letter_case[Wikipedia]) Example: `kebab-case-style`
 
 [[landing-page-definition]]
 * *Landing Page* +
@@ -80,6 +80,8 @@ OGC::
     Open Geospatial Consortium
 URI::
     Uniform Resource Identifier
+URL::
+    Uniform Resource Locator
 YAML::
     YAML Ain’t Markup Language
 
