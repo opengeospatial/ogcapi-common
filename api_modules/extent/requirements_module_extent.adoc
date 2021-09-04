@@ -1,0 +1,20 @@
+[[rm_extent]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Module*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/extent
+|Target type |Web Resource
+|===
+
+The extent property defines a spatial-temporal surface which encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
+
+* Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
+* Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like bbox, additional periods can be added if the collection does not form a single temporal cluster.
+
+include::requirements/REQ_rc-md-extent.adoc[]
+
+include::recommendations/REC_rc-md-extent.adoc[]
+
+include::recommendations/REC_rc-md-extent-single.adoc[]
+
+include::recommendations/PER_rc-md-extent-extensions.adoc[]

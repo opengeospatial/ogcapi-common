@@ -1,0 +1,43 @@
+[[rm_collection]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Module*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/collection
+|Target type |Web Resource
+|===
+
+include::requirements/REQ_collection-definition.adoc[]
+
+.Collection Resource Schema
+[source, JSON]
+include::./schemas/collectionDesc.json[]
+
+Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.
+
+[[collection-attribution-section]]
+===== Attribution
+
+The attribution element is a special type of string property. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
+
+[[collection-item-type-section]]
+===== Item Type
+
+In some Geospatial collections, the members (`items`) that make up that collection can be individually accessed by a client. In this case, the `itemType` property in the Collection resource identifies the type of the `items` accessible from that collection.  
+
+include::recommendations/REC_rc-md-item-type.adoc[]
+
+[collection-links-section]]
+===== Links
+
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
+
+include::requirements/REQ_rc-md-items-links.adoc[]
+
+Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
+
+include::recommendations/REC_rc-md-items-descriptions.adoc[]
+
+[[collection-extent-section]]
+===== Extent
+
+include::../extent/requirements_module_extent.adoc[]

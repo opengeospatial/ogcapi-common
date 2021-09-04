@@ -10,11 +10,11 @@ The `datetime` parameter selects resources based on their temporal extent. The d
 
 The `datetime` parameter is defined as follows:
 
-include::./REQ_rc-datetime-definition.adoc[]
+include::./requirements/REQ_rc-datetime-definition.adoc[]
 
 While the processing of the `datetime` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::./REQ_rc-datetime-response.adoc[]
+include::./requirements/REQ_rc-datetime-response.adoc[]
 
 "Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal geometry of the resource (again, a time instant or period). For time periods this includes the start and end time.
 
