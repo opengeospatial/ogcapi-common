@@ -5,5 +5,4 @@
 ^|A|If the ``bbox`` parameter is provided by the client and supported by the server, then only resources that have a spatial geometry that intersects the bounding box SHALL be part of the result set.
 ^|B|If a resource has multiple spatial geometry properties, it is the decision of the server whether only a single spatial geometry property is used to determine the extent or all relevant geometries.
 ^|C|The `bbox` parameter SHALL also match all resources in the collection that are not associated with a spatial geometry.
-^|D|The coordinate values provided with the `bbox` parameter SHALL be within the extent specified for the coordinate reference system.
 |===

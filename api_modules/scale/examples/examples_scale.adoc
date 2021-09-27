@@ -1,6 +1,0 @@
-
-
-* {datasetAPI}/collections/{coverageid}/coverage?scale-size=Lat(300),Lon(400) -- returns the entire coverage re-scaled to 300 pixels along its latitude axis, and 400 samples along its longitude axis in the negotiated format
-* {datasetAPI}/collections/{coverageid}/coverage/rangeset?subset=Lat(40:50),Lon(10:20)&scale-size=Lat(300),Lon(400) -- returns a coverage cutout (sample values only) between (Lat: 40, Lon: 10) and (Lat: 50, Lon: 20), re-scaled to 300 pixels along its latitude axis, and 400 samples along its longitude axis in the negotiated format
-* {datasetAPI}/collections/{coverageid}/coverage?scale-factor=1.5 -- returns a coverage re-scaled so as to contain 1.5 times less sample values along all of its axes
-* {datasetAPI}/collections/{coverageid}/coverage?scale-axes=Lat(2) -- returns a coverage re-scaled so as to contain 2 times less sample values along its latitude axis, and all original values along all its other dimensions

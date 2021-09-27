@@ -10,11 +10,11 @@ The `bbox` parameter is used to select resources based on the geospatial footpri
 
 The `bbox` parameter is defined as follows:
 
-include::./REQ_rc-bbox-definition.adoc[]
+include::./requirements/REQ_rc-bbox-definition.adoc[]
 
 While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::./REQ_rc-bbox-response.adoc[]
+include::./requirements/REQ_rc-bbox-response.adoc[]
 
 "Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 

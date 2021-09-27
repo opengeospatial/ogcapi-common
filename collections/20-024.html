@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-08-27</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-09-03</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -2027,31 +2027,10 @@ This requirement does not preclude server imposed limits on the size of a respon
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Description</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The Collection resource provides clients with a basic understanding of a single collection. It also serves as a starting point for further navigation through the collection.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirements</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#req_collections_collection-definition">/req/collections/collection-definition</a><br>
-<a href="#req_collections_rc-md-items-links">/req/collections/rc-md-items-links</a><br>
-<a href="#req_collections_rc-md-extent">/req/collections/rc-md-extent</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Recommendations and Permissions</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rec_collections_rc-md-item-type">/rec/collections/rc-md-item-type</a><br>
-<a href="#rec_collections_rc-md-items-desciptions">/rec/collections/rc-md-items-descriptions</a><br>
-<a href="#rec_collections_rc-md-extent">/rec/collections/rc-md-extent</a><br>
-<a href="#rec_collections_rc-md-extent-single">/rec/collections/rc-md-extent-single</a><br>
-<a href="#per_collections_rc-md-extent-extensions">/per/collections/rc-md-extent-extensions</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web Resource</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Examples of Collection resources are provided in <a href="#collection-description-examples">Collection Object Examples</a>.</p>
-</div>
 <table id="req_collections_collection-definition" class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
 <col style="width: 25%;">
@@ -2237,6 +2216,24 @@ This requirement does not preclude server imposed limits on the size of a respon
 </div>
 <div class="sect4">
 <h5 id="collection-extent-section"><a class="anchor" href="#collection-extent-section"></a>Extent</h5>
+<table id="rm_extent" class="tableblock frame-all grid-all" style="width: 90%;">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Module</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/extent" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/extent</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web Resource</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>The extent property defines a spatial-temporal surface which encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined.</p>
 </div>
@@ -2595,12 +2592,6 @@ explode: false</code></pre>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">C</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p>The <code>bbox</code> parameter SHALL also match all resources in the collection that are not associated with a spatial geometry.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">D</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The coordinate values provided with the <code>bbox</code> parameter SHALL be within the extent specified for the coordinate reference system.</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -5982,7 +5973,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-28 01:50:14 +0100
+Last updated 2021-09-03 23:02:05 +0100
 </div>
 </div>
 </body>
