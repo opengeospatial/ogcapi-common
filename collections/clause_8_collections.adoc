@@ -4,6 +4,12 @@
 
 include::requirements/requirements_class_collections.adoc[]
 
+include::requirements/collections/REQ_dependency-HTTP.adoc[]
+
+include::recommendations/collections/REC_dependency-core.adoc[]
+
+include::recommendations/collections/REC_dependency-landing-page.adoc[]
+
 This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>)..
 
 The two resources and their operations are defined in this Requirements Class. They are summarized in <<collection-resources>>. 
