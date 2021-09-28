@@ -4,11 +4,9 @@
 
 include::requirements/requirements_class_collections.adoc[]
 
-NOTE: This Requirements Class is dependent on API-Common Part 1 section 8.1. Content from Part 1 Section 8.2 has been included in Annex F for reference.
-
 This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>)..
 
-The two resources defined in this Requirements Class are summarized in <<collection-resources>>. 
+The two resources and their operations are defined in this Requirements Class. They are summarized in <<collection-resources>>. 
 
 [#collection-resources,reftext='{table-caption} {counter:table-num}']
 .Collection Resources
@@ -32,11 +30,11 @@ include::requirements/collections/REQ_rc-md-op.adoc[]
 
 include::requirements/collections/REQ_rc-md-success.adoc[]
 
-The collections response returned by this operation is based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
+The collections response returned by this operation is based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.yaml[collections.yaml] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
 
-.collections.json
-[source, JSON]
-include::openapi/schemas/collections.json[]
+.collections.yaml
+[source, YAML]
+include::openapi/schemas/collections.yaml[]
 
 This schema is further constrained by the following requirements and recommendations.
 
@@ -52,21 +50,13 @@ The `timeStamp` property of the Collections response indicates when the response
 
 include::requirements/collections/REQ_rc-timeStamp.adoc[]
 
-The `collections` property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[Resource Collection Schema]. This schema is described in detail in the <<collection-description,Resource Collection>> section of this Standard. 
+The `collections` property of the Collections response provides a description of each individual collection hosted by the API. 
 
 include::requirements/collections/REQ_rc-md-items.adoc[]
 
-A client may wish to select a subset of the hosted collections using HTTP query parameters. The <<rc-simple-query-section,Simple Query>> Conformance Class defines the <<bbox-parameter-requirements,`bbox`>> and the <<datetime-parameter-requirements,`datetime`>> parameter for that purpose.  It also defines how a server should process those parameters. These parameters are evaluated against the `extent` element of each Collection item in the Collections response.
+The array items included in the `collection` property are described in the <<collection-description,Collection Resource>> section of this Requirements Class.
 
-The requirements governing the processing of these parameters are provided by the <<rc-simple-query-section,Simple Query>> Requirements Class.
-
-include::requirements/collections/REQ_rc-bbox-unsupported.adoc[]
-
-include::requirements/collections/REQ_rc-datetime-unsupported.adoc[]
-
-The <<rc-simple-query-section,Simple Query>> Conformance Class also defines a parameter to limit the number of collections returned in a response. This <<limit-parameter-requirements,`limit`>> parameter indicates the maximum number of collections which should be included in a single response.
-
-include::requirements/collections/REQ_rc-limit-unsupported.adoc[]
+This Requirements Class does not define any parameters for use against a `collections` resource. Implementors who wish to support filtering of the collections to be included in a result set should implement the   <<rc-simple-query-section,Simple Query>> Conformance Class for that purpose.
 
 ==== Error situations
 
@@ -75,15 +65,15 @@ See <<http-status-codes>> for general guidance.
 [[collection-description]]
 === Resource Collection
 
-Each resource collection is described by a set of metadata. That metadata is accessed directly using the `/collections/{collectionId}` path or as an entry in the `collections` property of the Collections resource.
+Each resource collection is described by a set of metadata. That metadata can be accessed directly using the `/collections/{collectionId}` path and as an entry in the `collections` property of the `/Collections` resource.
 
 ==== Operation
 
-include::requirements/collections/REQ_src-md-op.adoc[]
+include::./requirements/collections/REQ_src-md-op.adoc[]
 
 ==== Response
 
-include::requirements/collections/REQ_src-md-success.adoc[]
+include::./requirements/collections/REQ_src-md-success.adoc[]
 
 ==== Error Situations
 

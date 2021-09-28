@@ -4,9 +4,11 @@
 
 include::requirements/requirements_class_simple_query.adoc[]
 
-NOTE: This Requirements Class is dependent on API-Common Part 1 Sections 8.1, 8.3, and 8.8.
+This Requirements Class describes query parameters that can be used to discover and select resource collections exposed through an OGC Web API.
 
-This Requirements Class describes query parameters that can be used to discover and select resource collections exposed through an OGC Web API. 
+Implementors of this Requirements Class must also implement the `/Collections` Requirements Class.
+
+include::requirements/simple_query/REQ_dependency-collections.adoc[]
 
 [[parameter-requirements]]
 === Parameter Requirements

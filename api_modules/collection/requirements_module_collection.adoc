@@ -9,8 +9,8 @@
 include::requirements/REQ_collection-definition.adoc[]
 
 .Collection Resource Schema
-[source, JSON]
-include::./schemas/collectionDesc.json[]
+[source, YAML]
+include::./schemas/collectionDesc.yaml[]
 
 Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.
 

@@ -3,5 +3,5 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/collections/rc-md-success* 
 ^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
-^|B |The content of that response SHALL be based upon the JSON schema http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json].
+^|B |The content of that response SHALL be based upon the JSON schema http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.yaml[collections.yaml].
 |===

@@ -2,5 +2,5 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Requirement {counter:req-id}* |*/req/collections/collection-definition* 
-^|A |The content of a `Collection` resource SHALL be based upon the JSON schema link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[collectionDesc.json].
+^|A |The content of a `Collection` resource SHALL be based upon the JSON schema link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.yaml[collectionDesc.yaml].
 |===
