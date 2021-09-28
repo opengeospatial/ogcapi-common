@@ -45,7 +45,7 @@ The target of the parameters defined in this conformance class is the <<collecti
 
 Three parameters are defined for use with the <<collections-metadata,Collections>> resource. These parameters subset the set of <<collection-description,Collection>> entries returned based on spatial, temporal, and volumetric filters. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. 
 
-The `collections` property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json[Resource Collection Schema]. This schema is described in detail in the <<collection-description,Resource Collection>> section of this Standard. 
+The `collections` property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.yaml[Resource Collection Schema]. This schema is described in detail in the <<collection-resource-definition-section,Resource Collection Description>> section of this Standard. 
 
 ==== Spatial and Temporal Filtering
 

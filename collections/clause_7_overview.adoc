@@ -22,7 +22,7 @@ Merriam Websters Dictionary provides a few relevant definitions :
 
 Based on these definitions, the term `collection` will be used in this standard to indicate an aggregation of resources. **For purposes of this standard**, a collection is defined as follows:
 
-* <<collection-definition,Collection>>: A body of resources that belong or are used together. An aggregate, set, or group of related resources.
+* <<collection-definition,Collection>>: A geospatial resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.
 
 OGC Web API standards should extend this definition to address the specific properties of the resources they describe.
 

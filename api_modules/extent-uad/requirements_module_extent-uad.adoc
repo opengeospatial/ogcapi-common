@@ -4,44 +4,73 @@
 2+|*Requirements Module*
 2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/extent-uad
 |Target type |Web API Resource
-|Dependencies |<<rc_collections-section,Collections>> Requirements Class
+|Dependencies |<<rm_extent,Extent>> Requirements Module
 |===
 
-The `Extent with Uniform Additional Dimensions` (Extent-uad) element extends the <<collection-extent-section,Extent>> element defined in the <<rc-collections-section,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections>> Requirements Class to support domain-specific geometries. 
+The `Extent with Uniform Additional Dimensions` (Extent-uad) resource extends the <<rm_extent,Extent>> element to support domain-specific geometries. 
 
-The `Extent-uad` parameter is defined as follows:
+The `Extent-uad` resource is defined as follows:
 
 include::requirements/REQ_extent-uad-definition.adoc[]
 
-`Extent-uad` extends the `Extent` element with a new <<uniform-uad-schema,`uniform-md`>> property. 
+`Extent-uad` allows definition of additional axis through the use of the Coordinate Reference System (`crs`, `trs` or `vrs`) property and one of more Intervals properties.
 
-Since the `Extent-uad` element extends the `Extent` element, all operations applied against the `Extent` element will have identical behavior when applied against `Extend-uad`.
+The Coordinate Reference System (`crs`, `trs` or `vrs`) property defines the number and range of the additional axis. This property can be populated with either an identifier or a http://docs.opengeospatial.org/is/18-010r7/18-010r7.html[Well Known Text] definition of the reference system.
+
+Identifers SHALL follow a the convention of http://www.opengis.net/def/crs/{authority}/{version}/{code} where:
+
+* the token {authority} is a placeholder for a code the designates to authority responsible for the definion of this CRS. Typical values include “EPSG” and “OGC”.
+* The token{version} is a placeholder for the specific version of the coordinate reference system definion or 0 for the latest version or if the version is unknown.
+* The token {code} is a placeholder for the authority’s code for the CRS.
+
+[[vrs_example]]
+.Vertical CRS (vrs) Example
+[source, TEXT]
+----
+ VERTCS["WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PARAMETER["Vertical_Shift",0.0],PARAMETER["Direction",1.0],UNIT["Meter",1.0]],AXIS["Up",UP]
+----
+
+The Intervals properties describe where the resource intersects the additional axis.
+
+Since the `Extent-uad` resource extends the `Extent` element, all operations applied against the `Extent` resource will have identical behavior when applied against `Extend-uad`.
 
 [[uniform-uad-schema]]
 .Uniform-uad Property
 [source, YAML]
 ----
-  uniform-md:
-    description: "extends the Extent object to support domain-specific geometries defined by axis names and the occupied interval alone each access."
-    type: object
-    properties:
-      orderedAxes:
-        description: axis labels of all dimensions listed in CRS order. Spatial dimensions should be listed separately here.
-        type: array
-        minItems: 1
-        items:
-          type: string
-      intervals:
-        description: One interval for each axis. An interval describes the extent of the dataset along that axis.
-        type: array
-        minItems: 1
-        items:
-          description: Lower and upper bound values of the interval.
-          type: array
-          minItems: 2
-          maxItems: 2
-          items:
-            type: string
-            nullable: 'true'
+title: Extent with Uniform Additional Dimensions Schema
+allOf:
+  - $ref: 'http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/extent.yaml'
+  - type: object
+    additionalProperties:
+       type: object
+       properties:
+         allOf:
+            - interval:
+              description: |-
+              type: array
+              minItems: 1
+              items:
+                type: array
+                minItems: 2
+                maxItems: 2
+                items:
+                  - type: string
+                  - type: number
+                  - type: null
+                example:
+                  - '2011-11-11T12:22:11Z'
+                  - 32.5
+                  - null
+            - oneOf:
+              - crs:
+                  type: string
+                  description: generic coordinate reference system suitable for any type of dimensions
+              - trs:
+                  type: string
+                  description: temporal coordinate reference system (e.g. as defined by Features for 'temporal')
+              - vrs:
+                  type: string
+                  description: vertical coordinate reference system (e.g. as defined in EDR for 'vertical')
 ----
 

@@ -1,0 +1,70 @@
+{
+   "title": "Extent with Uniform Additional Dimensions Schema",
+   "description": "The extent module only addresses spatial and temporal extents. This module extends extent by specifying how \nintervals and crs properties can be used to specify additional geometries.",
+   "allOf": [
+      {
+         "$ref": "http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/extent.yaml"
+      },
+      {
+         "type": "object",
+         "additionalProperties": {
+            "description": "The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.",
+            "type": "object",
+            "properties": {
+               "allOf": [
+                  {
+                     "interval": null,
+                     "description": "One or more intervals that describe the extent for this dimension of the dataset.\nThe value `null` is supported and indicates an unbounded or half-bounded interval.\nThe first interval describes the overall extent of the data for this dimension.\nAll subsequent intervals describe more precise intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item (a pair of lower and upper bound values).",
+                     "type": "array",
+                     "minItems": 1,
+                     "items": {
+                        "description": "Lower and upper bound values of the interval. The values\nare in the coordinate reference system specified in `crs`, `trs` or `vrs`.",
+                        "type": "array",
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": [
+                           {
+                              "type": "string"
+                           },
+                           {
+                              "type": "number"
+                           },
+                           {
+                              "type": null
+                           }
+                        ],
+                        "example": [
+                           "2011-11-11T12:22:11Z",
+                           32.5,
+                           null
+                        ]
+                     }
+                  },
+                  {
+                     "oneOf": [
+                        {
+                           "crs": {
+                              "type": "string",
+                              "description": "generic coordinate reference system suitable for any type of dimensions"
+                           }
+                        },
+                        {
+                           "trs": {
+                              "type": "string",
+                              "description": "temporal coordinate reference system (e.g. as defined by Features for 'temporal')"
+                           }
+                        },
+                        {
+                           "vrs": {
+                              "type": "string",
+                              "description": "vertical coordinate reference system (e.g. as defined in EDR for 'vertical')"
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   ]
+}
