@@ -6,7 +6,7 @@
 ^|Requirement |<<req_collections_rc-md-extent,/req/collections/rc-md-extent>>
 ^|Test Method |IF the `extent` property is present, THEN:
 
-. Verify that the `extent` provides bounding boxes that include all spatial geometries in this collection.
-. Verify that the `extent` provides time intervals that include all temporal geometries in this collection. 
+. Verify that the `extent` provides bounding boxes that include all spatial geometries in this resource.
+. Verify that the `extent` provides time intervals that include all temporal geometries in this resource. 
 ^|Note: |A temporal extent of `null` indicates an open time interval.
 |===

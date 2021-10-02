@@ -33,12 +33,8 @@ include::collections/ATS_src-md-op.adoc[]
 
 include::collections/ATS_src-md-success.adoc[]
 
-include::collections/ATS_rc-md-collection-content.adoc[]
+include::../../api_modules/collection/ATS/ATS_rc-md-collection-content.adoc[]
 
-include::collections/ATS_rc-md-items-links.adoc[]
+include::../../api_modules/collection/ATS/ATS_rc-md-items-links.adoc[]
 
-include::collections/ATS_rc-md-extent.adoc[]
-
-==== Simple Query Tests
-
-include::collections/ATS_rc-md-simple-query-unsupported.adoc[]
+include::../../api_modules/extent/ATS/ATS_rc-md-extent.adoc[]

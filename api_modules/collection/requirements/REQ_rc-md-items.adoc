@@ -1,7 +1,0 @@
-[[req_collections_rc-md-items]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-md-items* 
-^|A |For each spatial resource collection accessible through this API, metadata describing that collection SHALL be provided in the `collections` property of the Collections response.
-^|B |The content of that response SHALL comply with the requirements in the  <<rm_collection,http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/collection>> Requirements Class desecribed in section <<collection-resource-definition-section,Collection Resource Definition>> of this Standard.
-|===
