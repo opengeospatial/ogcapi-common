@@ -1,18 +1,18 @@
 [[ats_collections_rc-op-bbox]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-op-bbox*
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-op-bbox*
 ^|Test Purpose |Validate that resources can be identified and extracted from an API server using the bbox query parameter.
 ^|Requirement |<<req_collections_rc-bbox-definition,/req/collections/rc-bbox-definition>> +
 <<req_collections_rc-bbox-response,/req/collections/rc-bbox-response>>
 ^|Test Method |. Select a valid bbox value which intersects a subset of the resource collections available through the API implementation.
 . Construct a bbox query parameter using the selected value.
-. Validate the bbox query parameter using <<ats_collections_rc-bbox-definition,/ats/collections/rc-bbox-definition>>
+. Validate the bbox query parameter using <<ats_collections_rc-bbox-definition,/conf/collections/rc-bbox-definition>>
 . Issue an HTTP GET request to the URL `{root}/collections`. Include the validated bbox query parameter.
 . Validate that a document was returned with a status code 200
 . Validate the contents of the returned document using:
-.. <<ats_collections_rc-md-success,/ats/collections_rc-md-success>> and
-.. <<ats_collections_rc-bbox-response,/ats/collections/rc-bbox-response>> and
-.. <<ats_collections_rc-paged-response,/ats/collections/rc-paged-response>>.
+.. <<ats_collections_rc-md-success,/conf/collections_rc-md-success>> and
+.. <<ats_collections_rc-bbox-response,/conf/collections/rc-bbox-response>> and
+.. <<ats_collections_rc-paged-response,/conf/collections/rc-paged-response>>.
 
 |===

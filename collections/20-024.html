@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-09-28</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-10-04</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
@@ -640,21 +640,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#rc-umd-collection-section">10. Requirements Class "Uniform Multi-Dimension Collection"</a>
+<li><a href="#rc_encoding-section">10. Encoding Requirements Classes</a>
 <ul class="sectlevel2">
-<li><a href="#umd-collection-definition">10.1. Uniform Multi-Dimension Collection Definition</a></li>
-<li><a href="#umd-selection-parameter">10.2. Multi-Dimension Collection Selection</a></li>
+<li><a href="#_overview">10.1. Overview</a></li>
+<li><a href="#rc_html-section">10.2. Requirement Class "HTML"</a></li>
+<li><a href="#rc_json-section">10.3. Requirement Class "JSON"</a></li>
 </ul>
 </li>
-<li><a href="#rc_encoding-section">11. Encoding Requirements Classes</a>
-<ul class="sectlevel2">
-<li><a href="#_overview">11.1. Overview</a></li>
-<li><a href="#rc_html-section">11.2. Requirement Class "HTML"</a></li>
-<li><a href="#rc_json-section">11.3. Requirement Class "JSON"</a></li>
-</ul>
-</li>
-<li><a href="#mediatypes">12. Media Types</a></li>
-<li><a href="#_security_considerations">13. Security Considerations</a></li>
+<li><a href="#mediatypes">11. Media Types</a></li>
+<li><a href="#_security_considerations">12. Security Considerations</a></li>
 <li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
@@ -2342,27 +2336,7 @@ properties:
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19107">ISO 19107</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#gmlsf">GML Simple Features Profile</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#sfsql">Simple Features for SQL</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19111">ISO 19111</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso19108">ISO 19108</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#iso8601_1">ISO 8601</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rfc3339">RFC 3339 (Date and Time on the Internet: Timestamps)</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -2648,8 +2622,8 @@ explode: false</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">interval-closed     = date-time "/" date-time
-interval-open-start = "../" date-time
-interval-open-end   = date-time "/.."
+interval-open-start = [".."] "/" date-time
+interval-open-end   = date-time "/" [".."]
 interval            = interval-closed / interval-open-start / interval-open-end
 datetime            = date-time / interval</code></pre>
 </div>
@@ -3208,216 +3182,10 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="rc-umd-collection-section"><a class="anchor" href="#rc-umd-collection-section"></a>10. Requirements Class "Uniform Multi-Dimension Collection"</h2>
-<div class="sectionbody">
-<table id="rc_umd-collection" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Class</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/req/umd-collection" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/req/umd-collection</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependency</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rc_collections">Collections Requirements Class</a></p></td>
-</tr>
-</tbody>
-</table>
-<table id="req_umd-dependency-collections" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/umd-collection/rc-dependency-collections</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>An implementation of the <code>Uniform Multi-Dimension Collection</code> Requirements Class SHALL demonstrate conformance with the <code>/collections</code> Conformance Class.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<table id="rec_umd-dependency-collections" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/rec/umd-collection/rec-dependency-collections</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>An implementation of the <code>Uniform Multi-Dimension Collection</code> Requirements Class SHOULD demonstrate conformance with the <code>Simple Query</code> Conformance Class.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The <a href="#rc-collections">Collections</a> Requirements Class defines a <a href="#collection-resource-definition-section">Collection</a> resource which supports both <a href="#spatial-geometry-section">geospatial</a> and <a href="#temporal-geometry-section">temporal</a> geometries. However, some resources cannot be fully described with just these two geometries. The <a href="#rc-umd-collection-section">Uniform Multi-Dimension Collection</a> Requirements Class extends the <a href="#collection-resource-definition-section">Collection</a> resource to support geometries with an unlimited number of uniform, domain-specific axis.</p>
-</div>
-<div class="sect2">
-<h3 id="umd-collection-definition"><a class="anchor" href="#umd-collection-definition"></a>10.1. Uniform Multi-Dimension Collection Definition</h3>
-<div class="paragraph">
-<p>The Uniform Multi-Dimension Collection is an extension of the <a href="#collection-resource-definition-section">Collection</a> resource. So all of the requirements defined in  <a href="#rc-collections-section">Collections</a> Requirements Class are required.</p>
-</div>
-<div class="paragraph">
-<p>Support for domain-specific Collections is supplied by the <code>Extent with Uniform Additional Dimensions</code> requirements module.</p>
-</div>
-<table id="rm_extent-uniform-additional-dimensions" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 80%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirements Module</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" colspan="2" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/extent-uad" class="bare">http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/extent-uad</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Target type</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Web API Resource</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Dependencies</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#rm_extent">Extent</a> Requirements Module</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>The <code>Extent with Uniform Additional Dimensions</code> (Extent-uad) resource extends the <a href="#rm_extent">Extent</a> element to support domain-specific geometries.</p>
-</div>
-<div class="paragraph">
-<p>The <code>Extent-uad</code> resource is defined as follows:</p>
-</div>
-<table id="req_extent-uad-definition" class="tableblock frame-all grid-all" style="width: 90%;">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/req/common/extent-uad-definition</strong></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">A</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p>The content of an <code>Extent with Uniform Additional Dimensions</code> (Extent-uad) resource SHALL be based upon the OpenAPI segment  <a href="https://github.com/opengeospatial/ogcapi-common/tree/master/api_modules/extent-uad/schemas/extent-uad.json">extent-uad.oas</a>.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p><code>Extent-uad</code> allows definition of additional axis through the use of the Coordinate Reference System (<code>crs</code>, <code>trs</code> or <code>vrs</code>) property and one of more Intervals properties.</p>
-</div>
-<div class="paragraph">
-<p>The Coordinate Reference System (<code>crs</code>, <code>trs</code> or <code>vrs</code>) property defines the number and range of the additional axis. This property can be populated with either an identifier or a <a href="http://docs.opengeospatial.org/is/18-010r7/18-010r7.html">Well Known Text</a> definition of the reference system.</p>
-</div>
-<div class="paragraph">
-<p>Identifers SHALL follow a the convention of <a href="http://www.opengis.net/def/crs/{authority}/{version}/{code}" class="bare">http://www.opengis.net/def/crs/{authority}/{version}/{code}</a> where:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the token {authority} is a placeholder for a code the designates to authority responsible for the definion of this CRS. Typical values include “EPSG” and “OGC”.</p>
-</li>
-<li>
-<p>The token{version} is a placeholder for the specific version of the coordinate reference system definion or 0 for the latest version or if the version is unknown.</p>
-</li>
-<li>
-<p>The token {code} is a placeholder for the authority’s code for the CRS.</p>
-</li>
-</ul>
-</div>
-<div id="vrs_example" class="listingblock">
-<div class="title">Vertical CRS (vrs) Example</div>
-<div class="content">
-<pre class="highlight"><code class="language-TEXT" data-lang="TEXT"> VERTCS["WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PARAMETER["Vertical_Shift",0.0],PARAMETER["Direction",1.0],UNIT["Meter",1.0]],AXIS["Up",UP]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The Intervals properties describe where the resource intersects the additional axis.</p>
-</div>
-<div class="paragraph">
-<p>Since the <code>Extent-uad</code> resource extends the <code>Extent</code> element, all operations applied against the <code>Extent</code> resource will have identical behavior when applied against <code>Extend-uad</code>.</p>
-</div>
-<div id="uniform-uad-schema" class="listingblock">
-<div class="title">Uniform-uad Property</div>
-<div class="content">
-<pre class="highlight"><code class="language-YAML" data-lang="YAML">title: Extent with Uniform Additional Dimensions Schema
-allOf:
-  - $ref: 'http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/extent.yaml'
-  - type: object
-    additionalProperties:
-       type: object
-       properties:
-         allOf:
-            - interval:
-              description: |-
-              type: array
-              minItems: 1
-              items:
-                type: array
-                minItems: 2
-                maxItems: 2
-                items:
-                  - type: string
-                  - type: number
-                  - type: null
-                example:
-                  - '2011-11-11T12:22:11Z'
-                  - 32.5
-                  - null
-            - oneOf:
-              - crs:
-                  type: string
-                  description: generic coordinate reference system suitable for any type of dimensions
-              - trs:
-                  type: string
-                  description: temporal coordinate reference system (e.g. as defined by Features for 'temporal')
-              - vrs:
-                  type: string
-                  description: vertical coordinate reference system (e.g. as defined in EDR for 'vertical')</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="umd-selection-parameter"><a class="anchor" href="#umd-selection-parameter"></a>10.2. Multi-Dimension Collection Selection</h3>
-<div class="paragraph">
-<p>Selection and access of a Uniform Multi-Dimension Collection is similar to that of a <a href="#collection-resource-definition-section">Collection</a> resource. All of the requirements defined in the <a href="#rc-simple-query-section">Simple Query</a> Requirements Class also apply to this Requirements Class.  So all of the requirements defined in  <a href="#rc-collections-section">Collections</a> Requirements Class are required.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>11. Encoding Requirements Classes</h2>
+<h2 id="rc_encoding-section"><a class="anchor" href="#rc_encoding-section"></a>10. Encoding Requirements Classes</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_overview"><a class="anchor" href="#_overview"></a>11.1. Overview</h3>
+<h3 id="_overview"><a class="anchor" href="#_overview"></a>10.1. Overview</h3>
 <div class="paragraph">
 <p>This clause specifies two requirements classes for encodings to be used with the <a href="#collections-metadata">Collections</a> and <a href="#collection-description">Collection</a> resources. These encodings are commonly used encodings for spatial data on the web:</p>
 </div>
@@ -3436,7 +3204,7 @@ allOf:
 </div>
 </div>
 <div class="sect2">
-<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>11.2. Requirement Class "HTML"</h3>
+<h3 id="rc_html-section"><a class="anchor" href="#rc_html-section"></a>10.2. Requirement Class "HTML"</h3>
 <div class="paragraph">
 <p>Geographic information that is only accessible in formats like GeoJSON or GML has two issues:</p>
 </div>
@@ -3489,7 +3257,7 @@ allOf:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/definition</strong></p>
 </div></div></td>
@@ -3509,7 +3277,7 @@ allOf:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 25</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/html/content</strong></p>
 </div></div></td>
@@ -3540,7 +3308,7 @@ allOf:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 13</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Recommendation 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/rec/html/schema-org</strong></p>
 </div></div></td>
@@ -3555,7 +3323,7 @@ allOf:
 </table>
 </div>
 <div class="sect2">
-<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>11.3. Requirement Class "JSON"</h3>
+<h3 id="rc_json-section"><a class="anchor" href="#rc_json-section"></a>10.3. Requirement Class "JSON"</h3>
 <div class="paragraph">
 <p>JSON is a text syntax that facilitates structured data interchange between programming languages. It commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.</p>
 </div>
@@ -3592,7 +3360,7 @@ allOf:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 28</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 26</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/definition</strong></p>
 </div></div></td>
@@ -3612,7 +3380,7 @@ allOf:
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 29</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Requirement 27</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><strong>/req/json/content</strong></p>
 </div></div></td>
@@ -3641,7 +3409,7 @@ allOf:
 </div>
 </div>
 <div class="sect1">
-<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>12. Media Types</h2>
+<h2 id="mediatypes"><a class="anchor" href="#mediatypes"></a>11. Media Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>JSON media types that would typically be supported by a server that supports JSON are:</p>
@@ -3681,7 +3449,7 @@ allOf:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>13. Security Considerations</h2>
+<h2 id="_security_considerations"><a class="anchor" href="#_security_considerations"></a>12. Security Considerations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="#OAComm">OGC API - Common - Part 1: Core</a>, Clause 11.</p>
@@ -3734,15 +3502,12 @@ allOf:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="#ats_collections_rc-md-op">/ats/collections/rc-md-op</a></p>
+<p><a href="#ats_collections_rc-md-op">/conf/collections/rc-md-op</a></p>
 </li>
 <li>
-<p><a href="#ats_collections_src-md-op">/ats/collections/src-md-op</a></p>
+<p><a href="#ats_collections_src-md-op">/conf/collections/src-md-op</a></p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>IF the <a href="#rc-simple-query-section">Simple Query</a> Conformance Class has not been implemented, then also execute test <a href="#ats_collections_rc-md-simple-query-unsupported">ats/collections/rc-md-simple-query-unsupported</a></p>
 </div>
 <div class="sect3">
 <h4 id="_collections_rootcollections_tests"><a class="anchor" href="#_collections_rootcollections_tests"></a>A.2.1. Collections {root}/collections Tests</h4>
@@ -3755,7 +3520,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 1</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-md-op</strong></p>
+<p><strong>/conf/collections/rc-md-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3782,7 +3547,7 @@ allOf:
 <p>Validate that a document was returned with a status code 200</p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_collections_rc-md-success">/ats/collections/rc-md-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_collections_rc-md-success">/conf/collections/rc-md-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -3798,7 +3563,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 2</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections_rc-md-success</strong></p>
+<p><strong>/conf/collections_rc-md-success</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3821,13 +3586,13 @@ allOf:
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Validate that the response document complies with <a href="#ats_collections_rc-md-links">/ats/collections/rc-md-links</a></p>
+<p>Validate that the response document complies with <a href="#ats_collections_rc-md-links">/conf/collections/rc-md-links</a></p>
 </li>
 <li>
-<p>Validate that the response document complies with <a href="#ats_collections_rc-timestamp">/ats/collections/rc-timestamp</a></p>
+<p>Validate that the response document complies with <a href="#ats_collections_rc-timestamp">/conf/collections/rc-timestamp</a></p>
 </li>
 <li>
-<p>Validate that the response document complies with <a href="#ats_collections_rc-md-items">/ats/collections/rc-md-items</a></p>
+<p>Validate that the response document complies with <a href="#ats_collections_rc-md-items">/conf/collections/rc-md-items</a></p>
 </li>
 <li>
 <p>Validate the Collections resource for all supported media types using the resources and tests identified in <a href="#collections-metadata-schema">Table 3</a></p>
@@ -3858,12 +3623,12 @@ allOf:
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json">collections.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/ats/html/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/conf/html/content</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json">collections.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/ats/json/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/conf/json/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -3876,7 +3641,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 3</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-md-links</strong></p>
+<p><strong>/conf/collections/rc-md-links</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3921,7 +3686,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 4</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-timestamp</strong></p>
+<p><strong>/conf/collections/rc-timestamp</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3969,7 +3734,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 5</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-md-items</strong></p>
+<p><strong>/conf/collections/rc-md-items</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -3998,7 +3763,7 @@ allOf:
 <p>Verify that there is an entry in the <code>collections</code> property for each resource collection accessible through the API.</p>
 </li>
 <li>
-<p>Verify that each entry in the <code>collections</code> array is valid according to <a href="#ats_collections_rc-md-collection-content">/ats/collections/rc-md-collection-content</a>.</p>
+<p>Verify that each entry in the <code>collections</code> array is valid according to <a href="#ats_collections_rc-md-collection-content">/conf/collections/rc-md-collection-content</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4017,7 +3782,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 6</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/src-md-op</strong></p>
+<p><strong>/conf/collections/src-md-op</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4030,7 +3795,7 @@ allOf:
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Requirement</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
 <p><a href="#req_collections_src-md-op">/req/collections/src-md-op</a><br>
-<a href="#req_collections_src-md-success">/ats/collections/req-md-success</a></p>
+<a href="#req_collections_src-md-success">/conf/collections/req-md-success</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4044,7 +3809,7 @@ allOf:
 <p>Validate that a Collection was returned with a status code 200</p>
 </li>
 <li>
-<p>Validate the contents of the returned document using test <a href="#ats_collections_src-md-success">/ats/collections/src-md-success</a>.</p>
+<p>Validate the contents of the returned document using test <a href="#ats_collections_src-md-success">/conf/collections/src-md-success</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4060,7 +3825,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 7</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/src-md-success</strong></p>
+<p><strong>/conf/collections/src-md-success</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4080,7 +3845,7 @@ allOf:
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Validate the structure and content of the response document using <a href="#ats_collections_rc-md-collection-content">/ats/collections/rc-md-items-collection-content</a></p>
+<p>Validate the structure and content of the response document using <a href="#ats_collections_rc-md-collection-content">/conf/collections/rc-md-items-collection-content</a></p>
 </li>
 <li>
 <p>Verify that the content of the response is consistent with the content for this Resource Collection in the <code>/collections</code> response. That is, the values for <code>id</code>, <code>title</code>, <code>description</code> and <code>extent</code> are identical.</p>
@@ -4099,7 +3864,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 8</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-md-collection-content</strong></p>
+<p><strong>/conf/collections/rc-md-collection-content</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4127,10 +3892,10 @@ allOf:
 <p>That the Collection document includes an <code>id</code> property.</p>
 </li>
 <li>
-<p>That the Collection document complies with <a href="#ats_collections_rc-md-items-links">/ats/collections/rc-md-items-links</a></p>
+<p>That the Collection document complies with <a href="#ats_collections_rc-md-items-links">/conf/collections/rc-md-items-links</a></p>
 </li>
 <li>
-<p>That any extent properties included in the Collection document comply with <a href="#ats_collections_rc-md-extent">/collections/rc-md-extent</a></p>
+<p>That any extent properties included in the Collection document comply with <a href="#ats_collections_rc-md-extent">/conf/collections/rc-md-extent</a></p>
 </li>
 <li>
 <p>Validate the content of the Collection document for all supported media types using the resources and tests identified in <a href="#collection-metadata-schema">Table 4</a></p>
@@ -4161,12 +3926,12 @@ allOf:
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">HTML</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json">collectionDesc.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/ats/html/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_html_content">/conf/html/content</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">JSON</p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.json">collectionDesc.json</a></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/ats/json/content</a></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#ats_json_content">/conf/json/content</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -4179,7 +3944,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 9</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-md-items-links</strong></p>
+<p><strong>/conf/collections/rc-md-items-links</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4224,7 +3989,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 10</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-md-extent</strong></p>
+<p><strong>/conf/collections/rc-md-extent</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4299,13 +4064,13 @@ allOf:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a href="#ats_collections_rc-op-bbox">/ats/collections/rc-op-bbox</a></p>
+<p><a href="#ats_collections_rc-op-bbox">/conf/collections/rc-op-bbox</a></p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-op-datetime">/ats/collections/rc-op-datetime</a></p>
+<p><a href="#ats_collections_rc-op-datetime">/conf/collections/rc-op-datetime</a></p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-op-limit">/ats/collections/rc-op-limit</a></p>
+<p><a href="#ats_collections_rc-op-limit">/conf/collections/rc-op-limit</a></p>
 </li>
 </ol>
 </div>
@@ -4320,7 +4085,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 11</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-op-bbox</strong></p>
+<p><strong>/conf/collections/rc-op-bbox</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4347,7 +4112,7 @@ allOf:
 <p>Construct a bbox query parameter using the selected value.</p>
 </li>
 <li>
-<p>Validate the bbox query parameter using <a href="#ats_collections_rc-bbox-definition">/ats/collections/rc-bbox-definition</a></p>
+<p>Validate the bbox query parameter using <a href="#ats_collections_rc-bbox-definition">/conf/collections/rc-bbox-definition</a></p>
 </li>
 <li>
 <p>Issue an HTTP GET request to the URL <code>{root}/collections</code>. Include the validated bbox query parameter.</p>
@@ -4360,13 +4125,13 @@ allOf:
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><a href="#ats_collections_rc-md-success">/ats/collections_rc-md-success</a> and</p>
+<p><a href="#ats_collections_rc-md-success">/conf/collections_rc-md-success</a> and</p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-bbox-response">/ats/collections/rc-bbox-response</a> and</p>
+<p><a href="#ats_collections_rc-bbox-response">/conf/collections/rc-bbox-response</a> and</p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-paged-response">/ats/collections/rc-paged-response</a>.</p>
+<p><a href="#ats_collections_rc-paged-response">/conf/collections/rc-paged-response</a>.</p>
 </li>
 </ol>
 </div>
@@ -4385,7 +4150,7 @@ allOf:
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 12</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-bbox-definition</strong></p>
+<p><strong>/conf/collections/rc-bbox-definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4476,7 +4241,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 13</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-bbox-response</strong></p>
+<p><strong>/conf/collections/rc-bbox-response</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4525,7 +4290,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 14</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-op-datetime</strong></p>
+<p><strong>/conf/collections/rc-op-datetime</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4552,7 +4317,7 @@ explode: false</code></pre>
 <p>Construct a datetime query parameter using the selected value.</p>
 </li>
 <li>
-<p>Validate the datetime query parameter using <a href="#ats_collections_rc-datetime-definition">/ats/collections/rc-datetime-definition</a></p>
+<p>Validate the datetime query parameter using <a href="#ats_collections_rc-datetime-definition">/conf/collections/rc-datetime-definition</a></p>
 </li>
 <li>
 <p>Issue an HTTP GET request to the URL <code>{root}/collections</code>. Include the validated datetime query parameter.</p>
@@ -4565,13 +4330,13 @@ explode: false</code></pre>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><a href="#ats_collections_rc-md-success">/ats/collections_rc-md-success</a> and</p>
+<p><a href="#ats_collections_rc-md-success">/conf/collections_rc-md-success</a> and</p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-datetime-response">/ats/collections/rc-datetime-response</a> and</p>
+<p><a href="#ats_collections_rc-datetime-response">/conf/collections/rc-datetime-response</a> and</p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-paged-response">/ats/collections/rc-paged-response</a>.</p>
+<p><a href="#ats_collections_rc-paged-response">/conf/collections/rc-paged-response</a>.</p>
 </li>
 </ol>
 </div>
@@ -4590,7 +4355,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 15</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-datetime-definition</strong></p>
+<p><strong>/conf/collections/rc-datetime-definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4633,7 +4398,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 16</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-datetime-response</strong></p>
+<p><strong>/conf/collections/rc-datetime-response</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4683,7 +4448,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 17</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-op-limit</strong></p>
+<p><strong>/conf/collections/rc-op-limit</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4710,7 +4475,7 @@ explode: false</code></pre>
 <p>Construct a limit query parameter using the selected value.</p>
 </li>
 <li>
-<p>Validate the limit query parameter using <a href="#ats_collections_rc-limit-definition">/ats/collections/rc-limit-definition</a></p>
+<p>Validate the limit query parameter using <a href="#ats_collections_rc-limit-definition">/conf/collections/rc-limit-definition</a></p>
 </li>
 <li>
 <p>Issue an HTTP GET request to the URL <code>{root}/collections</code>. Include the validated limit query parameter.</p>
@@ -4723,13 +4488,13 @@ explode: false</code></pre>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><a href="#ats_collections_rc-md-success">/ats/collections_rc-md-success</a> and</p>
+<p><a href="#ats_collections_rc-md-success">/conf/collections_rc-md-success</a> and</p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-limit-response">/ats/collections/rc-limit-response</a> and</p>
+<p><a href="#ats_collections_rc-limit-response">/conf/collections/rc-limit-response</a> and</p>
 </li>
 <li>
-<p><a href="#ats_collections_rc-paged-response">/ats/collections/rc-paged-response</a>.</p>
+<p><a href="#ats_collections_rc-paged-response">/conf/collections/rc-paged-response</a>.</p>
 </li>
 </ol>
 </div>
@@ -4748,7 +4513,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 18</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-limit-definition</strong></p>
+<p><strong>/conf/collections/rc-limit-definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4791,7 +4556,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 19</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-limit-response</strong></p>
+<p><strong>/conf/collections/rc-limit-response</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4834,7 +4599,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 20</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/collections/rc-paged-response</strong></p>
+<p><strong>/conf/collections/rc-paged-response</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4906,7 +4671,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 21</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/json/definition</strong></p>
+<p><strong>/conf/json/definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -4948,7 +4713,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 22</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/json/content</strong></p>
+<p><strong>/conf/json/content</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -5019,7 +4784,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 23</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/html/definition</strong></p>
+<p><strong>/conf/html/definition</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -5054,7 +4819,7 @@ explode: false</code></pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Abstract Test 24</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><div class="content"><div class="paragraph">
-<p><strong>/ats/html/content</strong></p>
+<p><strong>/conf/html/content</strong></p>
 </div></div></td>
 </tr>
 <tr>
@@ -5693,7 +5458,7 @@ date-time      = full-date "T" full-time</pre>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Don’t reinvent</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Great care was taken in the development of this standard to only address capabilities that were not already standardized and to define how the needed capabilites integrate into a single API.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This standard doesn&#8217;t define any new concepts. It generalizes concepts defined in other standards so that they can serve as re-usable modules for almost any API standard.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">2</p></td>
@@ -5720,8 +5485,7 @@ OGC Web API Common defines stylistic conventions for query parameters, query val
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">6</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Put selection criteria behind the ‘?’</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#identifier-conventions">Section 6.1</a> of this Standard defines the conventions to be used when creating URIs for OGC Web API standards. This includes the use of the "?" to deliminate query parameters from the rest of the URI.<br>
-Note that this does not preclude the use of resource identifiers (ex. collection identifiers) as part of the path. However those can be considered identifying criteria rather than selection criteria.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The conventions described in OGC API - Common Part 1 are also applicable to OGC API - Common Part 2. This includes the use of the "?" to deliminate query parameters from the rest of the URI.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">7</p></td>
@@ -5731,7 +5495,7 @@ Note that this does not preclude the use of resource identifiers (ex. collection
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">8</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Use explicit list of HTTP status codes</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-status-codes">HTTP Status Codes</a> provides a list of the HTTP status codes that implementers of this standard should be prepared to generate and accept. This list is not exhaustive (see guideline #1).</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><a href="#http-status-codes">Annex G: HTTP Status Codes</a> provides a list of the HTTP status codes that implementers of this standard should be prepared to generate and accept. This list is not exhaustive (see guideline #1).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">9</p></td>
@@ -5749,8 +5513,7 @@ Since the HTTP headers are not always accessible, content negotiation may be per
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">11</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Pagination</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Of the resources defined in API-Common Core only the conformance resource is "listable". We do not anticipate the conformance resource to grow to any size, so support for pagenation would add complexity will little to no value (violating #2)<br>
-If an OpenAPI document is used as the API definition, then pagination could become an issue for this resource. The question of how to handle large OpenAPI documents is still an open issue being worked across the Standards Working Groups.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Of the resources defined in API-Common Part 2, only the <code>/collections</code> resource has "listable" content. Paging of this content can be requested by the client if the Simple Query Requirements Class is implemented. Server implementations have the option to implement paging based on internal parameters.<br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">12</p></td>
@@ -5760,19 +5523,19 @@ If an OpenAPI document is used as the API definition, then pagination could beco
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">13</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Support metadata</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support for metadata is provided through metadata resource links. Examples include links with the relation type <code>service-desc</code>,<code>service-doc</code>, <code>service-meta</code>, or <code>data-meta</code>.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Support for metadata is provided through metadata resource links. Specifically the <code>data-meta</code> relationship.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">14</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Consider your security needs</strong></p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">While not mandated, use of HTTPS vs. HTTP is encouraged throughout this standard.<br>
-Authenitcation is not precluded by this standard, but in keeping with guideline #1, this standard does not presume to dictate what authentication methods can be used.<br>
-API-Common - Core only defines GET requests. The security issues associated with CRUD are not applicable to this standard.</p></td>
+Authentication is not precluded by this standard, but in keeping with guideline #1, this standard does not presume to dictate what authentication methods can be used.<br>
+API-Common - Part 2 only defines GET requests. The security issues associated with CRUD are not applicable to this standard.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">15</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>API description</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The API definition is avaliable using the <code>service-desc</code> (machine readable) and <code>service-doc</code> (human readable) associations from the landing page.<br>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">The API definition is provided by API-Common Part 1. It is out of scope for this standard.<br>
 OpenAPI is the only API definition type currently supported.</p></td>
 </tr>
 <tr>
@@ -5789,7 +5552,7 @@ OGC identifiers are only used after they have been reviewed and approved by the 
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">18</p></td>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Support W3C cross-origin resource sharing</strong></p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This guideline is addressed in <a href="#cross-origin-section">[cross-origin-section]</a>.</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">This guideline is addressed in OGC API - Common Part 1.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">19</p></td>
@@ -5825,7 +5588,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-09-28 15:57:04 +0100
+Last updated 2021-10-04 13:29:43 +0100
 </div>
 </div>
 </body>

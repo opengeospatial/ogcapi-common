@@ -1,7 +1,7 @@
 [[ats_collections_rc-md-items-links]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-md-items-links* 
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-md-items-links* 
 ^|Test Purpose |Validate that a Collection document includes all required links.
 ^|Requirement |<<req_collections_rc-md-items-links,/req/collections/rc-md-items-links>>
 ^|Test Method |. Verify that the Collection document includes a `links` property. 

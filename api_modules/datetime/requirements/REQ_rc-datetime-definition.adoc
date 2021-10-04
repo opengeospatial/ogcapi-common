@@ -20,8 +20,8 @@ explode: false
 [source,java]
 ----
 interval-closed     = date-time "/" date-time
-interval-open-start = "../" date-time
-interval-open-end   = date-time "/.."
+interval-open-start = [".."] "/" date-time
+interval-open-end   = date-time "/" [".."]
 interval            = interval-closed / interval-open-start / interval-open-end
 datetime            = date-time / interval
 ----

@@ -1,7 +1,7 @@
 [[ats_collections_rc-paged-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-paged-response*
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-paged-response*
 ^|Test Purpose |Validate that the `numberMatched` and `numberReturned` parameters, if present, are populated correctly..
 ^|Requirement |<<req_collections_rc-numberMatched,/req/collections/rc-numberMatched>> +
 <<req_collections_rc-numberReturned,/req/collections/rc-numberReturned>>

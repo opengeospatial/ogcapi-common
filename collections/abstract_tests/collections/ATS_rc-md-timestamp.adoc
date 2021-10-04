@@ -1,7 +1,7 @@
 [[ats_collections_rc-timestamp]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-timestamp*
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-timestamp*
 ^|Test Purpose |If a `timeStamp` property is included in the Collections document, then validate that the value of that property equates to the time that the response was generated.
 ^|Requirement |<<req_collections_rc-timeStamp,/req/collections/rc-timestamp>>
 ^|Test Method |IF the Collections document contains a `timeStamp` property, THEN

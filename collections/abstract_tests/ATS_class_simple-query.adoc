@@ -10,9 +10,9 @@
 
 Conformance with the <<rc-simple-query,Simple Query>> Conformance Class is demonstrated by execution of the following tests:
 
-. <<ats_collections_rc-op-bbox,/ats/collections/rc-op-bbox>>
-. <<ats_collections_rc-op-datetime,/ats/collections/rc-op-datetime>>
-. <<ats_collections_rc-op-limit,/ats/collections/rc-op-limit>>
+. <<ats_collections_rc-op-bbox,/conf/collections/rc-op-bbox>>
+. <<ats_collections_rc-op-datetime,/conf/collections/rc-op-datetime>>
+. <<ats_collections_rc-op-limit,/conf/collections/rc-op-limit>>
 
 ==== Bounding Box Tests
 

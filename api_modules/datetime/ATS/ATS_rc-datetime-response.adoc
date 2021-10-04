@@ -1,7 +1,7 @@
 [[ats_collections_rc-datetime-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-datetime-response*
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-datetime-response*
 ^|Test Purpose |Validate that the `datetime` query parameter is processed correctly.
 ^|Requirement |<<req_collections_rc-datetime-definition,/req/collections/rc-datetime-definition>> +
 <<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>> +

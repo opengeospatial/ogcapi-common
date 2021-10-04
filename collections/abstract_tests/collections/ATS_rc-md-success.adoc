@@ -1,15 +1,15 @@
 [[ats_collections_rc-md-success]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/collections_rc-md-success*
+^|*Abstract Test {counter:ats-id}* |*/conf/collections_rc-md-success*
 ^|Test Purpose |Validate that the Collections content complies with the required structure and contents.
 ^|Requirement |<<req_collections_rc-md-success,/req/collections/rc-md-success>> + 
 <<req_collections_rc-md-links,/req/collections/rc-md-links>> +
 <<req_collections_rc-timestamp,/req/collections/rc-timestamp>> +
 <<req_collections_rc-md-items,/req/collections/rc-md-items>>
-^|Test Method |. Validate that the response document complies with <<ats_collections_rc-md-links,/ats/collections/rc-md-links>>
-. Validate that the response document complies with <<ats_collections_rc-timestamp,/ats/collections/rc-timestamp>>
-. Validate that the response document complies with <<ats_collections_rc-md-items,/ats/collections/rc-md-items>>
+^|Test Method |. Validate that the response document complies with <<ats_collections_rc-md-links,/conf/collections/rc-md-links>>
+. Validate that the response document complies with <<ats_collections_rc-timestamp,/conf/collections/rc-timestamp>>
+. Validate that the response document complies with <<ats_collections_rc-md-items,/conf/collections/rc-md-items>>
 . Validate the Collections resource for all supported media types using the resources and tests identified in <<collections-metadata-schema>>
 |===
 
@@ -20,6 +20,6 @@ The Collections content may be retrieved in a number of different formats. The f
 [width="90%",cols="3",options="header"]
 |===
 |Format |Schema Document |Test ID
-|HTML |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json]|<<ats_html_content,/ats/html/content>>
-|JSON |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json] |<<ats_json_content,/ats/json/content>>
+|HTML |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json]|<<ats_html_content,/conf/html/content>>
+|JSON |link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.json[collections.json] |<<ats_json_content,/conf/json/content>>
 |===

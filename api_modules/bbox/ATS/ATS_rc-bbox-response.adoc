@@ -1,7 +1,7 @@
 [[ats_collections_rc-bbox-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/collections/rc-bbox-response*
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-bbox-response*
 ^|Test Purpose |Validate that the `bbox` query parameter is processed correctly.
 ^|Requirement |<<req_collections_rc-bbox-response,/req/collections/rc-bbox-response>> +
 <<req_collections_rc-bbox-collection-response,/req/collections/rc-bbox-collection-response>>

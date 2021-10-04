@@ -5,7 +5,7 @@
     "type": "object",
     "properties": {
         "propertyName": {
-            "description": "The number of resources in a collection. A server may omit this information in a response, if the information about the number of resources is not known or difficult to compute.",
+            "description": "The number of items in the response. A server may omit this information, if the information about the number of items is not known or difficult to compute. If the value is provided, the value shall be identical to the number of items in the response.",
             "type": "integer",
             "min": "0"
         }
