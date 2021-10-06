@@ -5,8 +5,12 @@
 2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
 |Target type |Web API
 |Requirements Class |<<rc_collections,http://www.opengis.net/spec/ogcapi_common-2/1.0/req/collections>>
-|Dependency |http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+|Dependency |<<rfc7231,IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
 |===
+
+The <<rc-collections,Collections>> Conformance Class has a dependency on the HTTP and optionally HTTPS protocols.
+
+include::collections/ATS_http.adoc[]
 
 Conformance with the <<rc-collections,Collections>> Conformance Class is demonstrated by execution, in order, of the following tests:
 

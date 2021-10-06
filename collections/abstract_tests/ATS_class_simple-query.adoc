@@ -8,6 +8,10 @@
 |Dependency |<<ats_collections,Collections Conformance Class>>
 |===
 
+The Simple Query Conformance Class has a dependency on the Collections Conformance Class.
+
+include::./simple-query/ATS_dependency-collections.adoc[]
+
 Conformance with the <<rc-simple-query,Simple Query>> Conformance Class is demonstrated by execution of the following tests:
 
 . <<ats_collections_rc-op-bbox,/conf/collections/rc-op-bbox>>

@@ -5,7 +5,7 @@
 ^|Test Purpose |Validate that the Collections content complies with the required structure and contents.
 ^|Requirement |<<req_collections_rc-md-success,/req/collections/rc-md-success>> + 
 <<req_collections_rc-md-links,/req/collections/rc-md-links>> +
-<<req_collections_rc-timestamp,/req/collections/rc-timestamp>> +
+<<req_collections_rc-timeStamp,/req/collections/rc-timestamp>> +
 <<req_collections_rc-md-items,/req/collections/rc-md-items>>
 ^|Test Method |. Validate that the response document complies with <<ats_collections_rc-md-links,/conf/collections/rc-md-links>>
 . Validate that the response document complies with <<ats_collections_rc-timestamp,/conf/collections/rc-timestamp>>
