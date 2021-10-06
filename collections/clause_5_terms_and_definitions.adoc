@@ -8,7 +8,7 @@ For the purposes of this document, the following additional terms and definition
 
 [[collection-definition]]
 * *Collection* +
-A body of resources that belong or are used together. An aggregate, set, or group of related resources. (OGC 20-024)
+A geospatial resource that may be available as one or more <<resource-definition,sub-resource>> <<distribution-definition,distributions>> that conform to one or more OGC API standards. (OGC 20-024)
 
 [[coverage-definition]]
 * *Coverage* +

@@ -6,9 +6,9 @@ The OGC has extended their suite of standards to include https://en.wikipedia.or
 
 Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.
 
-The purpose of the OGC API - Common - Part 2: Geospatial Data Standard (API-GeoData) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted geospatial resources, common parameters for selecting subsets of those resources, and URI templates for identifying the above.
+The purpose of the OGC API - Common - Part 2: Geospatial Data (API-GeoData) Standard is to provide a means of organizing these collections and to define operations for the discovery and selection of individual collections. 
 
-This common connection is sufficient to start the client down the path to resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.
+API-GeoData does not specify the nature of the geospatial data that make up a collection. Rather, it provides a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.
 
 [big]*ii.    Keywords*
 

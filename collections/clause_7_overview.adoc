@@ -1,26 +1,16 @@
 [[overview]]
 == Overview
 
-NOTE: Out of date. Update.
-
-This API-Common Geospatial Data Standard provides a common connection between the API landing page and resource-specific specifications or standards.
+This API - Common - Part 2: Geospatial Data Standard provides a starting point for the discovery and access of geospatial resources hosted on a Web API. While typically hosted on a landing page (see API - Common - Part 1), this is not required. The Requirements Classes defined in this standard are designed to be re-usable modules. To be deployed in accordance with the requirements of the API developer.
 
 [[collections-introduction]]
 === Collections
 
 Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its holdings as aggregates of spatial/temporal resources.
 
-The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.
+The purpose of the API-GeoData Standard is to provide a common connection between the API and the set of Geospatial data collections that are accessible through that API. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.
 
-A contentous issue is the term used to describe an aggregation of resources. The term should be consistent with its coloquial use, should indicate that the members of the aggregation are somehow associated, and it should be independent of any resource type.
-
-Merriam Websters Dictionary provides a few relevant definitions :
-
-* Collection: "An accumulation of objects gathered for study, comparison, or exhibition or as a hobby."
-* Aggregate: (a synonym to collection) "A mass or body of units or parts somewhat loosely associated with one another."
-* Set: "A number of things of the same kind that belong or are used together."
-
-Based on these definitions, the term `collection` will be used in this standard to indicate an aggregation of resources. **For purposes of this standard**, a collection is defined as follows:
+While `collection` is a common term, its specific meaning is often based on the context in which it is used. Since we are addressing geospatial data, we need a definition that reflects the unique characteristics of geospatial data collections. Therefore, **for purposes of this standard**, a collection is defined as follows:
 
 * <<collection-definition,Collection>>: A geospatial resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.
 
@@ -33,7 +23,7 @@ A collection of geospatial data may be represented in more than one way.  For ex
 
 `Views` should not be confused with encodings. HTTP content negotiation allows a client to negotiate the encoding (XML, JSON, etc.) to be used for the returned data. Regardless of the encoding, the underlying data model is the same. A `view`, on the other hand, is both a data model and a set of access mechanisms. It is an addressible resource in its own right and must be treated as such.
 
-The API-Common Geodata Standard does not define any `views`. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend the API-Common Geodata Standard.
+The API-GeoData Standard does not define any `views`. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend the API-Geodata Standard.
 
 The URI for a view of a collection folows the URI template:
 
@@ -41,16 +31,16 @@ The URI for a view of a collection folows the URI template:
  
 Where:
 
-. collectionId = an identifier for the collection
-. viewId = an identifier for the type of view.
+* collectionId = an identifier for the collection
+* viewId = an identifier for the type of view.
 
 So the URIs for the point cloud described above could be:
 
-For Features: `/collections/mycollection/items`
+* For Features: `/collections/mycollection/items`
  
-For coverages: `/collections/mycollection/coverage`
+* For coverages: `/collections/mycollection/coverage`
 
-For Maps: `/collections/mycollection/maps`
+* For Maps: `/collections/mycollection/maps`
 
 The view identifiers are maintained as a controlled vocabulary by the OGC.
 

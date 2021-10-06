@@ -8,7 +8,7 @@ This clause specifies two requirements classes for encodings to be used with the
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
-None of these encodings are mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or none of them. 
+Neither of these encodings are mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or neither of them. 
 
 [[rc_html-section]]
 === Requirement Class "HTML"

@@ -1,10 +1,18 @@
 [appendix]
+[[ats-section]]
 :appendix-caption: Annex
 == Abstract Test Suite (Normative)
 
 === Introduction
 
 OGC Web APIs are not a Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web Application Programing Interface (Web API). Therefore, an API may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API, identify and validate test points, and ignore resource paths which are not to be tested.
+
+The Conformance Classes addressed by this Abstract Test Suite are the:
+
+* <<ats_collections,Collections Conformance Class>>
+* <<ats_simple-query,Simple Query Conformance Class>>
+* <<ats_html,HTML Conformance Class>>
+* <<ats_json,JSON Conformance Class>>
 
 === Conformance Class Collections
 

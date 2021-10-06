@@ -462,10 +462,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-10-04</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2021-10-06</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/IS/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/IS/ogcapi-common-2/1.0</a></p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/is/ogcapi-common-2/1.0" class="bare">http://www.opengis.net/doc/is/ogcapi-common-2/1.0</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Internal reference number of this OGC&#174; document:    20-024</p></td>
@@ -567,7 +567,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_introduction">1. Introduction</a></li>
 <li><a href="#_scope">2. Scope</a></li>
-<li><a href="#_conformance">3. Conformance</a></li>
+<li><a href="#conformance-section">3. Conformance</a></li>
 <li><a href="#_references">4. References</a></li>
 <li><a href="#terms_and_definitions">5. Terms, Definitions and Abbreviated Terms</a>
 <ul class="sectlevel2">
@@ -583,7 +583,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#spatial-geometry-section">6.3.1. Geospatial Geometry</a></li>
 <li><a href="#temporal-geometry-section">6.3.2. Temporal Geometry</a></li>
-<li><a href="#umd-geometry-section">6.3.3. Uniform Multi-Dimensional Geometry</a></li>
 </ul>
 </li>
 <li><a href="#_coordinate_reference_systems">6.4. Coordinate Reference Systems</a></li>
@@ -649,7 +648,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#mediatypes">11. Media Types</a></li>
 <li><a href="#_security_considerations">12. Security Considerations</a></li>
-<li><a href="#_abstract_test_suite_normative">Annex A: Abstract Test Suite (Normative)</a>
+<li><a href="#ats-section">Annex A: Abstract Test Suite (Normative)</a>
 <ul class="sectlevel2">
 <li><a href="#_introduction_2">A.1. Introduction</a></li>
 <li><a href="#_conformance_class_collections">A.2. Conformance Class Collections</a>
@@ -718,10 +717,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the OGC API - Common - Part 2: Geospatial Data Standard (API-GeoData) is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted geospatial resources, common parameters for selecting subsets of those resources, and URI templates for identifying the above.</p>
+<p>The purpose of the OGC API - Common - Part 2: Geospatial Data (API-GeoData) Standard is to provide a means of organizing these collections and to define operations for the discovery and selection of individual collections.</p>
 </div>
 <div class="paragraph">
-<p>This common connection is sufficient to start the client down the path to resource discovery. Developers of OGC Web API standards extend these first steps with details specific to the resources they intend to expose.</p>
+<p>API-GeoData does not specify the nature of the geospatial data that make up a collection. Rather, it provides a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">ii.    Keywords</strong></p>
@@ -799,7 +798,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The OGC API - Common Standard is a multi-part standard which defines a standard set of modules which can be used to build resource and mission-specific Web API standards. The OGC API - Common - Part 2: Geospatial Data Standard (API-GeoData) is one of those modules.</p>
 </div>
 <div class="paragraph">
-<p>Geospatial resources are typically packaged into sets or collections of related resources. A single API may host a large number of collections. This API-Geodata standard provides a means of organizing these collections and defines operations for discovering and selecting individual collections.</p>
+<p>Geospatial resources are typically packaged into sets or collections of related resources. A single API may host a large number of collections. This API-GeoData standard provides a means of organizing these collections and defines operations for the discovery and selection of individual collections.</p>
 </div>
 <div class="paragraph">
 <p>API-GeoData does not specify the nature of the geospatial data that make up a collection. Rather, it provides a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.</p>
@@ -807,20 +806,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_conformance"><a class="anchor" href="#_conformance"></a>3. Conformance</h2>
+<h2 id="conformance-section"><a class="anchor" href="#conformance-section"></a>3. Conformance</h2>
 <div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Some of this is no longer true. - Update
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the <a href="#citepp">OGC Compliance Testing Policies and Procedures</a> and the <a href="https://www.ogc.org/compliance/">OGC Compliance Testing</a> web site.</p>
 </div>
@@ -828,16 +815,10 @@ Some of this is no longer true. - Update
 <p>The one Standardization Target for this standard is Web APIs.</p>
 </div>
 <div class="paragraph">
-<p>API-GeoData defines API modules intended for re-use by other OGC Web API standards. It is anticipated that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A shall be included or referenced in the Abstract Test Suite for each separate standard that normatively references this standard.</p>
+<p>API-GeoData defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <a href="#ctc-definition">Conformance Classes</a>. It is anticipated that this standard will only be implemented through reference to these Conformance Classes by other standards.</p>
 </div>
 <div class="paragraph">
-<p>API-GeoData builds on API modules defined in the <code>OGC API - Common - Part 1: Core</code> (<a href="#apicore">API-Core</a>) Standard. Each <a href="#requirements-class-definition">Requirements Class</a> in the API-GeoData Standard identifies the API-Core <a href="#ctc-definition">Conformance Classes</a> upon which it depends.</p>
-</div>
-<div class="paragraph">
-<p>Proof of conformance with a Requirements Class includes demonstration of conformance with all dependencies of that Requirements Class. Unless otherwise specified, conformance only has to be demonstrated for those operations, parameters, and resources which are defined in that Requirements Class.</p>
-</div>
-<div class="paragraph">
-<p>This standard identifies five <a href="#ctc-definition">conformance classes</a>. The conformance classes implemented by an OGC API are advertised through the <code>/conformance</code> path on the landing page. Each conformance class is defined by one <a href="#requirements-class-definition">requirements class</a>. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Collections</em> conformance class must pass all tests specified in Annex A for the <em>Collections</em> requirements class.</p>
+<p>This standard identifies four <a href="#ctc-definition">conformance classes</a>. Each conformance class is defined by one <a href="#requirements-class-definition">requirements class</a>. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Collections</em> conformance class must pass all tests specified in Annex A for the <em>Collections</em> requirements class.</p>
 </div>
 <div class="paragraph">
 <p>The requirements classes for API-GeoData are:</p>
@@ -849,9 +830,6 @@ Some of this is no longer true. - Update
 </li>
 <li>
 <p><a href="#rc-simple-query-section">Simple Query</a></p>
-</li>
-<li>
-<p><a href="#rc-umd-collection-section">Uniform Multi-Dimension Collection</a></p>
 </li>
 <li>
 <p><a href="#rc_html-section">HTML</a></p>
@@ -868,13 +846,24 @@ Some of this is no longer true. - Update
 <p>The <a href="#rc-simple-query-section">Simple Query Requirements Class</a> defines basic query parameters for the selection of individual <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a>.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="#rc-umd-collection-section">Uniform Multi-Dimension Collection Requirements Class</a> extends the <a href="#rc-simple-query-section">Simple Query Requirements Class</a> to support selection of individual <a href="#collection-definition">collections</a> of <a href="#spatial-resource-definition">spatial resources</a> in an arbitrary uniform multi-dimension space.</p>
-</div>
-<div class="paragraph">
 <p>The <a href="#rc_collections-section">Collections Requirements Class</a> does not mandate a specific encoding or format for representing resources. The <a href="#rc_html-section"><em>HTML</em></a> and <a href="#rc_json-section"><em>JSON</em></a> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.</p>
 </div>
 <div class="paragraph">
+<p>API-GeoData builds on API modules defined in the <code>OGC API - Common - Part 1: Core</code> (<a href="#apicore">API-Core</a>) Standard. Each <a href="#requirements-class-definition">requirements class</a> in the API-GeoData Standard identifies any API-Core <a href="#ctc-definition">Conformance Classes</a> upon which it depends.</p>
+</div>
+<div class="paragraph">
+<p>Proof of conformance with a <a href="#ctc-definition">Conformance Class</a> includes demonstration of conformance with all dependencies of that <a href="#ctc-definition">Conformance Class</a>. The abstract tests in <a href="#ats_section">Annex A</a> have been organized to facilitate validation of these dependencies. These tests have been organized by <a href="#requirements-class-definition">requirements class</a>. A referencing standard only has to require conformance with a <a href="#ctc-definition">Conformance Class</a> and all of the requirements and relevant tests are identified.</p>
+</div>
+<div class="paragraph">
+<p>In addition, each <a href="#requirements-class-definition">requirements class</a> is organized as one or more trees. Starting at a root test, a test script can traverse the tree to address all of the required tests, each in the appropriate context.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">NOTE</dt>
+<dd>
 <p>The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. This Standard specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -899,19 +888,7 @@ Some of this is no longer true. - Update
 <p><a id="rfc8288"></a> Nottingham, M.: <strong>IETF RFC 8288, Web Linking</strong>, <a href="http://tools.ietf.org/rfc/rfc8288.txt">http://tools.ietf.org/rfc/rfc8288.txt</a></p>
 </li>
 <li>
-<p><a id="iso8601_1"></a> ISO 8601-1:2019, <strong>Date and time - Representations for information interchange - Part 1: Basic rules</strong></p>
-</li>
-<li>
-<p><a id="iso19111"></a> ISO 19111:2019, <strong>Geographic information ⎯ Spatial referencing by coordinates</strong></p>
-</li>
-<li>
 <p><a id="jschema"></a> json-schema-org: <strong>JSON Schema,</strong> September 2019, <a href="https://json-schema.org/specification.html" class="bare">https://json-schema.org/specification.html</a></p>
-</li>
-<li>
-<p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
-</li>
-<li>
-<p><a id="sfsql"></a> Herring, J.: OGC 06-104r4,<strong>OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=25354">http://portal.opengeospatial.org/files/?artifact_id=25354</a></p>
 </li>
 <li>
 <p><a id="gmlsf"></a> van den Brink, L., Portele, C., Vretanos, P.: OGC 10-100r3, <strong>Geography Markup Language (GML) Simple Features Profile</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=42729">http://portal.opengeospatial.org/files/?artifact_id=42729</a></p>
@@ -944,7 +921,7 @@ Some of this is no longer true. - Update
 <ul>
 <li>
 <p><strong>Collection</strong><br>
-A body of resources that belong or are used together. An aggregate, set, or group of related resources. (OGC 20-024)</p>
+A geospatial resource that may be available as one or more <a href="#resource-definition">sub-resource</a> <a href="#distribution-definition">distributions</a> that conform to one or more OGC API standards. (OGC 20-024)</p>
 </li>
 </ul>
 </div>
@@ -1212,7 +1189,7 @@ a <a href="#resource-definition">resource</a> that is identified by an URI.</p>
 <p><a href="#rfc8288">RFC 8288 (Web Linking)</a> is used by this standard to express relationships between resources. Link relation types from the <a href="#link-relations">IANA Link Relations Registry</a> are used wherever possible. Additional link relation types are registered with the <a href="#OGCLINKS">OGC Naming Authority</a>.</p>
 </div>
 <div class="paragraph">
-<p>The link relationships used in API-Common GeoData are described in <a href="#link-relations-table">Table 1</a>. Additional relation types may be used if the implementation warrants it.</p>
+<p>The link relationships used in API-GeoData are described in <a href="#link-relations-table">Table 1</a>. Additional relation types may be used if the implementation warrants it.</p>
 </div>
 <table id="link-relations-table" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 1. Link Relations</caption>
@@ -1309,39 +1286,6 @@ API definitions are considered service descriptions.</p></td>
 <p>An <a href="#rfc5234">ABNF</a> representation of the RFC 3339 format is provided in <a href="#date-time-bnf-annex">Annex F</a>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="umd-geometry-section"><a class="anchor" href="#umd-geometry-section"></a>6.3.3. Uniform Multi-Dimensional Geometry</h4>
-<div class="paragraph">
-<p>In addition to Geospatial and Temporal geometries.
-Environmental, Buildings, Infrastructure
-Properties are:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Cartesian</p>
-</li>
-<li>
-<p>No limit to the number of axis</p>
-</li>
-<li>
-<p>Each axis is continuous (is a real number)</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-TBD
-</td>
-</tr>
-</table>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_coordinate_reference_systems"><a class="anchor" href="#_coordinate_reference_systems"></a>6.4. Coordinate Reference Systems</h3>
@@ -1349,7 +1293,7 @@ TBD
 <p>As discussed in Chapter 9 of the <a href="#SDWBP">W3C/OGC Spatial Data on the Web Best Practices document</a>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.</p>
 </div>
 <div class="paragraph">
-<p>This OGC API - Common Geospatial Data standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.</p>
+<p>This API-GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1362,7 +1306,7 @@ TBD
 </ul>
 </div>
 <div class="paragraph">
-<p>Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Geospatial Data Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <a href="#rfc3339">RFC 3339</a>. In data, other temporal coordinate reference systems may be used where appropriate.</p>
+<p>Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This API-GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <a href="#rfc3339">RFC 3339</a>. In data, other temporal coordinate reference systems may be used where appropriate.</p>
 </div>
 <div class="paragraph">
 <p><a href="#iso19111">ISO 19111</a> provides the conceptual model for Coordinate Reference Systems.</p>
@@ -1431,20 +1375,8 @@ TBD
 <div class="sect1">
 <h2 id="overview"><a class="anchor" href="#overview"></a>7. Overview</h2>
 <div class="sectionbody">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Out of date. Update.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
-<p>This API-Common Geospatial Data Standard provides a common connection between the API landing page and resource-specific specifications or standards.</p>
+<p>This API - Common - Part 2: Geospatial Data Standard provides a starting point for the discovery and access of geospatial resources hosted on a Web API. While typically hosted on a landing page (see API - Common - Part 1), this is not required. The Requirements Classes defined in this standard are designed to be re-usable modules. To be deployed in accordance with the requirements of the API developer.</p>
 </div>
 <div class="sect2">
 <h3 id="collections-introduction"><a class="anchor" href="#collections-introduction"></a>7.1. Collections</h3>
@@ -1452,29 +1384,10 @@ Out of date. Update.
 <p>Spatial data is rarely considered as a single entity. <a href="#feature-collection-definition">Feature Collections</a>, <a href="#coverage-definition">Coverages</a>, <a href="#dataset-definition">Data Sets</a>, they are all aggregations of <a href="#spatial-thing-definition">Spatial</a> or <a href="#temporal-thing-definition">Temporal</a> Things. It stands to reason that an OGC Web API would also expose its holdings as aggregates of spatial/temporal resources.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to provide a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.</p>
+<p>The purpose of the API-GeoData Standard is to provide a common connection between the API and the set of Geospatial data collections that are accessible through that API. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.</p>
 </div>
 <div class="paragraph">
-<p>A contentous issue is the term used to describe an aggregation of resources. The term should be consistent with its coloquial use, should indicate that the members of the aggregation are somehow associated, and it should be independent of any resource type.</p>
-</div>
-<div class="paragraph">
-<p>Merriam Websters Dictionary provides a few relevant definitions :</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Collection: "An accumulation of objects gathered for study, comparison, or exhibition or as a hobby."</p>
-</li>
-<li>
-<p>Aggregate: (a synonym to collection) "A mass or body of units or parts somewhat loosely associated with one another."</p>
-</li>
-<li>
-<p>Set: "A number of things of the same kind that belong or are used together."</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Based on these definitions, the term <code>collection</code> will be used in this standard to indicate an aggregation of resources. <strong>For purposes of this standard</strong>, a collection is defined as follows:</p>
+<p>While <code>collection</code> is a common term, its specific meaning is often based on the context in which it is used. Since we are addressing geospatial data, we need a definition that reflects the unique characteristics of geospatial data collections. Therefore, <strong>for purposes of this standard</strong>, a collection is defined as follows:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1496,7 +1409,7 @@ Out of date. Update.
 <p><code>Views</code> should not be confused with encodings. HTTP content negotiation allows a client to negotiate the encoding (XML, JSON, etc.) to be used for the returned data. Regardless of the encoding, the underlying data model is the same. A <code>view</code>, on the other hand, is both a data model and a set of access mechanisms. It is an addressible resource in its own right and must be treated as such.</p>
 </div>
 <div class="paragraph">
-<p>The API-Common Geodata Standard does not define any <code>views</code>. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend the API-Common Geodata Standard.</p>
+<p>The API-GeoData Standard does not define any <code>views</code>. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend the API-Geodata Standard.</p>
 </div>
 <div class="paragraph">
 <p>The URI for a view of a collection folows the URI template:</p>
@@ -1509,27 +1422,31 @@ Out of date. Update.
 <div class="paragraph">
 <p>Where:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>collectionId = an identifier for the collection</p>
 </li>
 <li>
 <p>viewId = an identifier for the type of view.</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
 <p>So the URIs for the point cloud described above could be:</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p>For Features: <code>/collections/mycollection/items</code></p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>For coverages: <code>/collections/mycollection/coverage</code></p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>For Maps: <code>/collections/mycollection/maps</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>The view identifiers are maintained as a controlled vocabulary by the OGC.</p>
@@ -1632,7 +1549,7 @@ Out of date. Update.
 </tbody>
 </table>
 <div class="paragraph">
-<p>This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <a href="#views-introduction">Views Section</a>)..</p>
+<p>This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <a href="#views-introduction">Views Section</a>).</p>
 </div>
 <div class="paragraph">
 <p>The two resources and their operations are defined in this Requirements Class. They are summarized in <a href="#collection-resources">Table 2</a>.</p>
@@ -2051,7 +1968,7 @@ properties:
 </div>
 </div>
 <div class="paragraph">
-<p>Many of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.</p>
+<p>Most of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.</p>
 </div>
 <div class="sect4">
 <h5 id="collection-attribution-section"><a class="anchor" href="#collection-attribution-section"></a>Attribution</h5>
@@ -3200,7 +3117,7 @@ explode: false</code></pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>None of these encodings are mandatory. An implementation of the <a href="#rc-collections-section">Collections</a> requirements class may implement either, both, or none of them.</p>
+<p>Neither of these encodings are mandatory. An implementation of the <a href="#rc-collections-section">Collections</a> requirements class may implement either, both, or neither of them.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3460,12 +3377,31 @@ explode: false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_abstract_test_suite_normative"><a class="anchor" href="#_abstract_test_suite_normative"></a>Annex A: Abstract Test Suite (Normative)</h2>
+<h2 id="ats-section"><a class="anchor" href="#ats-section"></a>Annex A: Abstract Test Suite (Normative)</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_introduction_2"><a class="anchor" href="#_introduction_2"></a>A.1. Introduction</h3>
 <div class="paragraph">
 <p>OGC Web APIs are not a Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web Application Programing Interface (Web API). Therefore, an API may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API, identify and validate test points, and ignore resource paths which are not to be tested.</p>
+</div>
+<div class="paragraph">
+<p>The Conformance Classes addressed by this Abstract Test Suite are the:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#ats_collections">Collections Conformance Class</a></p>
+</li>
+<li>
+<p><a href="#ats_simple-query">Simple Query Conformance Class</a></p>
+</li>
+<li>
+<p><a href="#ats_html">HTML Conformance Class</a></p>
+</li>
+<li>
+<p><a href="#ats_json">JSON Conformance Class</a></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -5150,6 +5086,15 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 <p><a id="rfc5234"></a> Crocker, D., Overell, P.: <strong>IETF RFC 5234, Augmented BNF for Syntax Specifications: ABNF</strong>, <a href="https://tools.ietf.org/html/rfc5234">https://tools.ietf.org/html/rfc5234</a></p>
 </li>
 <li>
+<p><a id="iso19107"></a> ISO 19107:2019, <strong>Geographic information ⎯ Spatial schema</strong>, Available at <a href="https://www.iso.org/standard/66175.html">https://www.iso.org/standard/66175.html</a></p>
+</li>
+<li>
+<p><a id="iso19111"></a> ISO 19111:2019, <strong>Geographic information ⎯ Spatial referencing by coordinates</strong>, Available at <a href="https://www.iso.org/standard/74039.html">https://www.iso.org/standard/74039.html</a></p>
+</li>
+<li>
+<p><a id="openapi"></a> Open API Initiative: <strong>OpenAPI Specification 3.0.3</strong>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md">https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md</a></p>
+</li>
+<li>
 <p><a id="ogc08-131"></a> Open Geospatial Consortium: <strong>The Specification Model&#8201;&#8212;&#8201;A Standard for Modular specifications</strong>, <a href="https://portal.opengeospatial.org/files/?artifact_id=34762">OGC 08-131</a></p>
 </li>
 <li>
@@ -5169,6 +5114,9 @@ entity to which some requirements of a standard apply (<a href="#ogc08-131r3">OG
 </li>
 <li>
 <p><a id="citepp"></a> Open Geospatial Consortium (OGC): <strong>Compliance Testing Program Policies &amp; Procedures</strong> [online, viewed 2020-04-18]. Available at <a href="https://portal.ogc.org/files/?artifact_id=28982&amp;version=7">https://portal.ogc.org/files/?artifact_id=28982</a>.</p>
+</li>
+<li>
+<p><a id="sfsql"></a> Herring, J.: OGC 06-104r4,<strong>OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option</strong>, <a href="http://portal.opengeospatial.org/files/?artifact_id=25354">http://portal.opengeospatial.org/files/?artifact_id=25354</a></p>
 </li>
 </ul>
 </div>
@@ -5588,7 +5536,7 @@ The ATS is defined to sufficient level of detail to validate that it is implemen
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-04 13:29:43 +0100
+Last updated 2021-10-06 21:23:20 +0100
 </div>
 </div>
 </body>

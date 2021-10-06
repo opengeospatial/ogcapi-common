@@ -17,7 +17,7 @@ Additional information about the use of Identifiers in API-Common is provided in
 
 <<rfc8288,RFC 8288 (Web Linking)>> is used by this standard to express relationships between resources. Link relation types from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
 
-The link relationships used in API-GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
+The link relationships used in API-Common GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
@@ -61,16 +61,29 @@ Standardized concepts for temporal characteristics are also needed in order to s
 
 An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in <<date-time-bnf-annex,Annex F>>.
 
+[[umd-geometry-section]]
+==== Uniform Multi-Dimensional Geometry
+
+In addition to Geospatial and Temporal geometries.
+Environmental, Buildings, Infrastructure 
+Properties are:
+
+. Cartesian
+. No limit to the number of axis
+. Each axis is continuous (is a real number)
+
+NOTE: TBD
+
 === Coordinate Reference Systems
 
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-This API-GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
+This OGC API - Common Geospatial Data standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
 
 * CRS84 - WGS 84 longitude and latitude without height
 * CRS84h - WGS 84 longitude and latitude with ellipsoidal height
 
-Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This API-GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
+Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This OGC API - Common - Part 2: Geospatial Data Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
 
 <<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
 
