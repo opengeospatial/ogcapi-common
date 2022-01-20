@@ -27,7 +27,7 @@ include::./requirements/REQ_rc-datetime-response.adoc[]
 =================
 February 12, 2018, 23:20:52 GMT:
 
-`time=2018-02-12T23%3A20%3A52Z`
+`datetime=2018-02-12T23%3A20%3A52Z`
 =================
 
 For resources with a temporal property that is a timestamp (like `lastUpdate`), a date-time value would match all resources where the temporal property is identical.
