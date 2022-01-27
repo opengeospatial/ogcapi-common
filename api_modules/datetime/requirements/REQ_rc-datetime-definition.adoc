@@ -17,7 +17,7 @@ explode: false
 
 ^|B |Temporal geometries are either a date-time value or a time interval. The parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc5234[ABNF]):
 
-[source,java]
+[source]
 ----
 interval-closed     = date-time "/" date-time
 interval-open-start = [".."] "/" date-time
