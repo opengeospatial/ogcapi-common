@@ -1,16 +1,16 @@
 [[overview]]
 == Overview
 
-This API - Common - Part 2: Geospatial Data Standard provides a starting point for the discovery and access of geospatial resources hosted on a Web API. While typically hosted on a landing page (see API - Common - Part 1), this is not required. The Requirements Classes defined in this standard are designed to be re-usable modules. To be deployed in accordance with the requirements of the API developer.
+This API - Common - Part 2: Geospatial Data Standard provides a starting point for the discovery and access of geospatial resources available via a Web API. While typically accessible through a landing page (see API - Common - Part 1), this is not required. The Requirements Classes defined in this Standard are designed to be re-usable modules. To be deployed in accordance with the requirements of the API developer.
 
 [[collections-introduction]]
 === Collections
 
-Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>, they are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its holdings as aggregates of spatial/temporal resources.
+Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>> - these are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Things. It stands to reason that an OGC Web API would also expose its holdings as aggregates of spatial/temporal resources.
 
-The purpose of the API-GeoData Standard is to provide a common connection between the API and the set of Geospatial data collections that are accessible through that API. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifing the above.
+The purpose of the API-GeoData Standard is to provide a common connection between the API and the set of Geospatial data collections that are accessible through that API. That connection includes metadata which describes the hosted resources, common parameters for selecting subsets of the hosted resources, and URI templates for identifying the above.
 
-While `collection` is a common term, its specific meaning is often based on the context in which it is used. Since we are addressing geospatial data, we need a definition that reflects the unique characteristics of geospatial data collections. Therefore, **for purposes of this standard**, a collection is defined as follows:
+While `collection` is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics of geospatial data collections is needed. Therefore, **for purposes of this standard**, a collection is defined as follows:
 
 * <<collection-definition,Collection>>: A geospatial resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.
 
@@ -19,13 +19,13 @@ OGC Web API standards should extend this definition to address the specific prop
 [[views-introduction]]
 === Views
 
-A collection of geospatial data may be represented in more than one way.  For example, a point cloud may be represented as a collection of Features, or as a Coverage, or as a color-coded map. Each is a representation of the same data. But the access methods and returned data structures are very different. OGC Web API standards refer to these representations as `views`.
+A collection of geospatial data may be represented in more than one way.  For example, a point cloud may be represented as a collection of Features, as a coverage, or as a color-coded map. Each is a different representation of the same data. However, the access methods and returned data structures are very different. OGC Web API standards refer to these representations as `views`.
 
-`Views` should not be confused with encodings. HTTP content negotiation allows a client to negotiate the encoding (XML, JSON, etc.) to be used for the returned data. Regardless of the encoding, the underlying data model is the same. A `view`, on the other hand, is both a data model and a set of access mechanisms. It is an addressible resource in its own right and must be treated as such.
+`Views` should not be confused with encodings. HTTP content negotiation allows a client to negotiate the encoding (XML, JSON, etc.) to be used for the returned data. Regardless of the encoding, the underlying data model is the same. A `view`, on the other hand, is both a data model and a set of access mechanisms. A view is an addressable resource in its own right and must be treated as such.
 
-The API-GeoData Standard does not define any `views`. These are defined in separate OGC Web API standards. What is important to understand is how these view-specific standards extend the API-Geodata Standard.
+The API-GeoData Standard does not define any `views`. These are defined in separate OGC Web API Standards. What is important to understand is how these view-specific standards extend the API-Geodata Standard.
 
-The URI for a view of a collection folows the URI template:
+The URI for a view of a collection follows the URI template:
 
  /collections/{collectionId}/{viewId}
  
@@ -38,7 +38,7 @@ So the URIs for the point cloud described above could be:
 
 * For Features: `/collections/mycollection/items`
  
-* For coverages: `/collections/mycollection/coverage`
+* For Coverages: `/collections/mycollection/coverage`
 
 * For Maps: `/collections/mycollection/maps`
 

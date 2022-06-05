@@ -8,16 +8,17 @@
 
 include::requirements/REQ_collection-definition.adoc[]
 
+
 .Collection Resource Schema
 [source, YAML]
 include::./schemas/collectionDesc.yaml[]
 
-Most of the properties of the Collection resource are self-explanitory. However, a few call for additional explanation.
+Most of the properties of the Collection resource are self-explanatory. However, a few properties require additional explanation.
 
 [[collection-attribution-section]]
 ===== Attribution
 
-The attribution element is a special type of string property. Specifically, it can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
+The attribution element is a special type of string property. Specifically, the attribution element can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
 
 [[collection-item-type-section]]
 ===== Item Type

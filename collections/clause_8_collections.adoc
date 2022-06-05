@@ -10,7 +10,7 @@ include::recommendations/collections/REC_dependency-core.adoc[]
 
 include::recommendations/collections/REC_dependency-landing-page.adoc[]
 
-This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. It does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>).
+This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. This class does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>).
 
 The two resources and their operations are defined in this Requirements Class. They are summarized in <<collection-resources>>. 
 
@@ -42,7 +42,7 @@ The collections response returned by this operation is based on the link:http://
 [source, YAML]
 include::openapi/schemas/collections.yaml[]
 
-This schema is further constrained by the following requirements and recommendations.
+This Collections schema is further constrained by the following requirements and recommendations.
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
@@ -62,7 +62,7 @@ include::requirements/collections/REQ_rc-md-items.adoc[]
 
 The array items included in the `collection` property are described in the <<collection-description,Collection Resource>> section of this Requirements Class.
 
-This Requirements Class does not define any parameters for use against a `collections` resource. Implementors who wish to support filtering of the collections to be included in a result set should implement the   <<rc-simple-query-section,Simple Query>> Conformance Class for that purpose.
+This Requirements Class does not define any parameters for use against a `collections` resource. Implementers who wish to support filtering of the collections to be included in a result set should implement the   <<rc-simple-query-section,Simple Query>> Conformance Class for that purpose.
 
 ==== Error situations
 

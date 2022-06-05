@@ -26,7 +26,7 @@ EXAMPLE: a downloadable file, an RSS feed or an API.
 
 [[extent-definition]]
 * *Extent* +
-The area covered by something. Within this document, we always imply spatial extent; e.g. size or shape that may be expresses using coordinates. (<<SDWBP,W3C/OGC Spatial Data on the Web Best Practice>>)
+The area covered by something. Within this document, "extent" refers to spatial extent. The size or shape that may be expresses using coordinates. (<<SDWBP,W3C/OGC Spatial Data on the Web Best Practice>>)
 
 [[feature-definition]]
 * *Feature* +
@@ -93,7 +93,7 @@ the <<resource-definition,resources>> which we usually think of as time and date
 
 [[temporal-thing-definition]]
 * *Temporal Thing* +
-Anything with temporal extent, i.e. duration. e.g. the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (<<W3C-BASIC-GEO,W3C Basic Geo>>)
+Anything with temporal extent, i.e. duration. Examples are: the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (<<W3C-BASIC-GEO,W3C Basic Geo>>)
 
 [[webapi-definition]]
 * *Web API* +

@@ -5,11 +5,11 @@ Conformance with this standard shall be checked using the tests specified in Ann
 
 The one Standardization Target for this standard is Web APIs.
 
-API-GeoData defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>. It is anticipated that this standard will only be implemented through reference to these Conformance Classes by other standards. 
+API-GeoData defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>. Typically this standard will only be implemented through reference to these Conformance Classes by other standards. 
 
-This standard identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>. The tests in Annex A are organized by Requirements Class. So an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
+This standard identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>. The tests in Annex A are organized by Requirements Class. Therefore, an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
 
-The requirements classes for API-GeoData are:
+The API-Geodata requirements classes are:
 
 * <<rc_collections-section,Collections>>
 * <<rc-simple-query-section,Simple Query>>

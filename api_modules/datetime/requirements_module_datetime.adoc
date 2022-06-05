@@ -30,7 +30,7 @@ February 12, 2018, 23:20:52 GMT:
 `datetime=2018-02-12T23%3A20%3A52Z`
 =================
 
-For resources with a temporal property that is a timestamp (like `lastUpdate`), a date-time value would match all resources where the temporal property is identical.
+For resources with a temporal property that is a timestamp (such as `lastUpdate`), a date-time value would match all resources where the temporal property is identical.
 
 For resources with a temporal property that is a date or a time interval, a date-time value would match all resources where the timestamp is on that day or within the time interval.
 

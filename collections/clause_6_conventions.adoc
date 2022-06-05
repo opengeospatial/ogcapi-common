@@ -50,7 +50,7 @@ Additional information on the use of link relationships is provided in the link:
 [[spatial-geometry-section]]
 ==== Geospatial Geometry
 
-Standardized concepts for geospatial characteristics are needed in order to share geographic information between applications. Concepts for shape (geometry) are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
+Standardized concepts for geospatial characteristics are needed in order to share geographic information between applications. Concepts for geometry are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
 
 The geospatial geometry used in the OGC API - Common Standards is documented in the <<gmlsf,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
 
@@ -65,20 +65,20 @@ An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in <<date-
 
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-This API-GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the following default coordinate reference systems apply for spatial geometries.
+This API-GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
 
 * CRS84 - WGS 84 longitude and latitude without height
 * CRS84h - WGS 84 longitude and latitude with ellipsoidal height
 
-Temporal geometry is measured relative to an underlying temporal coordinate reference system (TRS). This API-GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal coordinate reference systems may be used where appropriate.
+Temporal geometry is measured relative to an underlying temporal reference system (TRS). This API-GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal reference systems may be used where appropriate.
 
-<<iso19111,ISO 19111>> provides the conceptual model for Coordinate Reference Systems.
+OGC Topic Volume 2 – Referencing by Coordinates  (<<iso19111,ISO 19111>>) provides the conceptual model for Coordinate Reference Systems.
 
 === API definition
 
 ==== General remarks
 
-This OGC standard specifies requirements and recommendations for the development of APIs that share spatial resources using a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
+This OGC Standard specifies requirements and recommendations for the development of APIs that share spatial resources using a standard way of doing so. In general, deployed APIs will go beyond the requirements and recommendations stated in this Standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
 
 So that developers can more easily learn how to use the API, good documentation is essential. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. OpenAPI is one way to provide that machine readable documentation.
 

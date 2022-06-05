@@ -8,19 +8,19 @@ This clause specifies two requirements classes for encodings to be used with the
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
-Neither of these encodings are mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or neither of them. 
+Neither of these encodings is mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or neither of them. 
 
 [[rc_html-section]]
 === Requirement Class "HTML"
 
 Geographic information that is only accessible in formats like GeoJSON or GML has two issues:
 
-* The data is not discoverable using the most common mechanism for discovering information, that is the search engines of the Web,
-* The data can not be viewed directly in a browser - additional tools are required to view the data.
+* The data is not discoverable using the most common mechanism for discovering information: Web search engines,
+* The data can not be viewed directly in a browser. Additional tools are required to view the data.
 
-Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, it should be done in a way that enables users and search engines to access all data.
+Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, this should be done in a way that enables users and search engines to access all of the data they are authorized to access.
 
-This is discussed in detail in <<SDWBP,W3C Best Practice>>. This standard therefore <<rec_html,recommends>> supporting HTML as an encoding.
+This is discussed in detail in the <<SDWBP,W3C Best Practice>>. This standard therefore <<rec_html,recommends>> supporting HTML as an encoding.
 
 include::requirements/requirements_class_html.adoc[]
 
@@ -33,7 +33,7 @@ include::recommendations/html/REC_schema-org.adoc[]
 [[rc_json-section]]
 === Requirement Class "JSON"
 
-JSON is a text syntax that facilitates structured data interchange between programming languages. It commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.
+JSON is a text syntax that facilitates structured data interchange between programming languages. JSON is commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.
 
 include::requirements/requirements_class_json.adoc[]
 
