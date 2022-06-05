@@ -5,3 +5,5 @@
 ^|A|The API server SHALL process the `datetime` parameter against the `Collection` resources (/collections/{collectionId}) accessible through that API. 
 ^|B|The `datetime` parameter SHALL be evaluated against the temporal geometry defined by the `interval` element of the `extent` property of the `Collection` resource. 
 |===
+
+NOTE: The interval notation is taken from <<iso8601-2,ISO 8601-2:2019>>. ISO 8601-2 distinguishes open start/end timestamps (double-dot) and unknown start/end timestamps (empty string). For queries, an unknown start/end has the same effect as an unbounded start/end.

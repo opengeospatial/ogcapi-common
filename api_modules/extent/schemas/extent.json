@@ -41,7 +41,7 @@
                     }
                 },
         "temporal": {
-            "description": "Begin and end times of the temporal extent.",
+            "description": "Begin and end times of the temporal extent. A temporal boundary of `null` at start or end indicates a half-bounded interval.",
             "type": "object",
             "properties": {
                 "interval": {
