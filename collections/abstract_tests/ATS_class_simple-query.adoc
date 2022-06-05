@@ -5,7 +5,7 @@
 2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query
 |Target type |Web API
 |Requirements Class |<<rc_simple-query,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query>>
-|Dependency |<<ats_collections,Collections Conformance Class>>
+|Dependency |<<ats_collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections>>
 |===
 
 The Simple Query Conformance Class has a dependency on the Collections Conformance Class.
