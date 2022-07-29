@@ -1,4 +1,6 @@
 [[ats_landing-page_conformance-op]]
+
+////
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/landing-page/conformance-op*
@@ -17,3 +19,28 @@ DONE
 . Validate that a document was returned with a status code `200`
 . Validate the contents of the returned document using test <<ats_landing-page_conformance-success,/conf/landing-page/conformance-success>>.
 |===
+////
+
+[abstract_test]
+====
+[%metadata]
+label:: /conf/landing-page/conformance-op
+subject:: <<req_landing-page_conformance-op,/req/landing-page/conformance-op>> +
+<<req_landing-page_conformance-success,/req/landing-page/conformance-success>>
+test-purpose:: Validate that a Conformance Declaration can be retrieved from the expected locations.
+test-method::
++
+--
+DO FOR EACH `http://www.opengis.net/def/rel/ogc/1.0/conformance` link on the landing page:
+
+. Issue an HTTP GET request for the link
+. Validate that a document was returned with a status code `200`
+. Validate the contents of the returned document using test <<ats_landing-page_conformance-success,/conf/landing-page/conformance-success>>.
+
+DONE
+
+. Issue an HTTP GET request for the `{root}/conformance` path
+. Validate that a document was returned with a status code `200`
+. Validate the contents of the returned document using test <<ats_landing-page_conformance-success,/conf/landing-page/conformance-success>>.
+--
+====

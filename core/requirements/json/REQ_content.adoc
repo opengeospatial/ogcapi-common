@@ -1,12 +1,29 @@
 [[req_json_content]]
+////
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/json/content* 
+^|*Requirement {counter:req-id}* |*/req/json/content*
 ^|A|Every request to a <<landing-page,Landing Page>> or <<conformance-classes,Conformance>> resource which:
 
-. Receives a `200`-response 
+. Receives a `200`-response
 . with the `Content-Type` header set to `application/json`
 
 SHALL include, or link to, a payload encoded according to the  link:https://tools.ietf.org/html/rfc8259[JSON Interchange Format]
-^|B|The payload for these responses SHALL conform with the JSON Schema specified for the resource in the <<rc_landing-page,Landing Page>> Requirements Class. 
+^|B|The payload for these responses SHALL conform with the JSON Schema specified for the resource in the <<rc_landing-page,Landing Page>> Requirements Class.
 |===
+////
+
+[requirement]
+====
+[%metadata]
+label:: /req/json/content
+part::
+Every request to a <<landing-page,Landing Page>> or <<conformance-classes,Conformance>> resource which:
+
+. Receives a `200`-response
+. with the `Content-Type` header set to `application/json`
++
+SHALL include, or link to, a payload encoded according to the  link:https://tools.ietf.org/html/rfc8259[JSON Interchange Format]
+
+part:: The payload for these responses SHALL conform with the JSON Schema specified for the resource in the <<rc_landing-page,Landing Page>> Requirements Class.
+====

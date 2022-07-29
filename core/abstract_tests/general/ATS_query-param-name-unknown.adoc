@@ -1,7 +1,8 @@
+////
 [[ats_core_query-param-name-unknown]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-name-unknown* 
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-name-unknown*
 ^|Test Purpose |Validate that an error is returned when a query parameter is used that has not been specified in the API definition.
 ^|Requirement |<<req_core_query-param-name-unknown,/req/core/query-param-name-unknown>>
 ^|Test Method |DO FOR ALL operations advertised in the API definition +
@@ -9,6 +10,24 @@
 {nbsp}{nbsp}2. Validate that the operation returns a reponse with the status code `400`. +
 DONE
 |===
+////
+
+[[ats_core_query-param-name-unknown]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/query-param-name-unknown
+subject:: <<req_core_query-param-name-unknown,/req/core/query-param-name-unknown>>
+test-purpose:: Validate that an error is returned when a query parameter is used that has not been specified in the API definition.
+test-method::
++
+--
+DO FOR ALL operations advertised in the API definition +
+{nbsp}{nbsp}1. Execute that operation using a query parameter that is not specified in the API definition. +
+{nbsp}{nbsp}2. Validate that the operation returns a response with the status code `400`. +
+DONE
+--
+====
+
 
 NOTE: The parameter name chosen should not fall within the range allowed by  <<per_core-query-param-name-specified,/per/core/query-param-name-specified>> or <<per_core-query-param-name-tolerance,/per/core/query-param-name-tolerance>>.
-

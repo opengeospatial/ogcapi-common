@@ -1,0 +1,75 @@
+= OGC API - Common - Part 1: Core
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:draft: 3.0
+:external-id: http://www.opengis.net/doc/is/ogcapi-common-1/1.0
+:docnumber: 19-072
+:received-date: 2021-08-23
+:issued-date: 2029-03-30
+:published-date: 2029-03-30
+:fullname: Charles Heazel
+:docsubtype: Interface
+:keywords: ogcdoc, OGC document, geographic information, spatial data, API, json, html, OpenAPI, REST, Common
+:submitting-organizations: Ecere Corporation; Heazeltech LLC; Hexagon; Interactive Instruments GmbH; U.K. Met Office; Universitat Autònoma de Barcelona (CREAF); U.S. Army Geospatial Center; U.S. Geological Survey; U.S. National Aeronautics and Space Administration (NASA); U.S. National Geospatial-Intelligence Agency (NGA)
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:pdf-uri: ./document.pdf
+:xml-uri: ./document.xml
+:doc-uri: ./document.doc
+:edition: 1.0.0
+
+////
+Make sure to complete each included document
+////
+include::clause_1_front_material.adoc[]
+
+include::clause_2_scope.adoc[]
+
+include::clause_3_conformance.adoc[]
+
+include::clause_4_references.adoc[]
+
+include::clause_5_terms_and_definitions.adoc[]
+
+include::clause_6_conventions.adoc[]
+
+include::clause_7_overview.adoc[]
+
+include::general/clause_8_general.adoc[]
+
+include::clause_8_landing-page.adoc[]
+
+include::clause_9_encodings.adoc[]
+
+include::clause_10_oas.adoc[]
+
+include::clause_11_media_types.adoc[]
+
+include::clause_12_security_considerations.adoc[]
+
+////
+add or remove annexes after "A" as necessary
+////
+
+include::annex_ats.adoc[]
+
+include::annex_examples.adoc[]
+
+include::annex_glossary.adoc[]
+
+include::annex_bnf.adoc[]
+
+include::annex_api_guidelines.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::annex_history.adoc[]
+
+include::annex_bibliography.adoc[]

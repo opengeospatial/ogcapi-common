@@ -1,6 +1,15 @@
 [[req_json_definition]]
+////
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/json/definition* 
+^|*Requirement {counter:req-id}* |*/req/json/definition*
 ^|A|`200`-responses of the server SHALL support the `application/json` media type for the <<landing-page,Landing Page>> and <<conformance-classes,Conformance>> resources.
 |===
+////
+
+[requirement]
+====
+[%metadata]
+label:: /req/json/definition
+part:: `200`-responses of the server SHALL support the `application/json` media type for the <<landing-page,Landing Page>> and <<conformance-classes,Conformance>> resources.
+====

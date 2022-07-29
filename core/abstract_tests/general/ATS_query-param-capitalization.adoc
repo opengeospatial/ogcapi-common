@@ -1,7 +1,8 @@
+////
 [[ats_core_query-param-capitalization]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-capitalization* 
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-capitalization*
 ^|Test Purpose |Validate that a parameter name is correctly capitalized
 ^|Requirement |<<req_core_query-param-capitalization,/req/core/query-param-capitalization>>
 ^|Test Method |DO FOR ALL query parameters advertised in the API definition +
@@ -16,3 +17,29 @@
 {nbsp}{nbsp}DONE +
 DONE
 |===
+////
+
+
+[[ats_core_query-param-capitalization]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/query-param-capitalization
+subject:: <<req_core_query-param-capitalization,/req/core/query-param-capitalization>>
+test-purpose:: Validate that a parameter name is correctly capitalized
+test-method::
++
+--
+DO FOR ALL query parameters advertised in the API definition +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Execute that operation using that query parameter +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}capitalized as specified in the API definition +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the operation returns a response with the status code `200`. +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Execute that operation using that query parameter with captialization +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}inverse of that specified in the API definition +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}(Example: "Range" vs. "rANGE") +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the operation returns a response with the status code `400`. +
+{nbsp}{nbsp}DONE +
+DONE
+--
+====

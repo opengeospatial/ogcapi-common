@@ -1,11 +1,24 @@
 [[rc_html]]
+////
 [cols="1,4",width="90%"]
 |===
 2+|*Requirements Class*
 2+|http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html
-|Target type 
+|Target type
 |Web API
 |Dependency |<<rc_landing-page,Landing Page Requirements Class>>
 |Dependency |<<html5,HTML5>>
 |Dependency |<<schema_org,Schema.org>>
 |===
+////
+
+
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/html
+subject:: Web API
+inherit:: <<rc_landing-page,Landing Page Requirements Class>>
+inherit:: <<html5,HTML5>>
+inherit:: <<schema_org,Schema.org>>
+====

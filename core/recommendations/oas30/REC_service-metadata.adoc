@@ -1,9 +1,19 @@
 [[rec_oas30_service-metadata]]
 [width="90%",cols="2,6a"]
 |===
-^|*Recommendation {counter:rec-id}* |*/rec/oas30/service-metadata* 
+^|*Recommendation {counter:rec-id}* |*/rec/oas30/service-metadata*
 2+|An OGC Web API SHOULD expose service metadata.
 ^|A |That Service Metadata SHOULD provide identifying metadata about both the service and the provider of that service.
 ^|B |Service Metadata SHOULD be encoded in the OpenAPI `Info` object.
 ^|C |To simplify access, the Service Metadata SHOULD be available as a separate resource from the Service Definition.
 |===
+
+[recommendation]
+====
+[%metadata]
+label:: /rec/oas30/service-metadata
+description:: An OGC Web API SHOULD expose service metadata.
+part:: That Service Metadata SHOULD provide identifying metadata about both the service and the provider of that service.
+part:: Service Metadata SHOULD be encoded in the OpenAPI `Info` object.
+part:: To simplify access, the Service Metadata SHOULD be available as a separate resource from the Service Definition.
+====

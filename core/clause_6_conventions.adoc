@@ -20,9 +20,9 @@ The following concepts are critical to understanding OGC Web API standards.
 [[identifier-conventions]]
 === Identifiers
 
-The <<WEBARCH,Architecture of the World Wide Web>> establishes the URI as the single global identification system for the Web. Therefore, URIs or <<rfc6570,URI Templates>> are used in OGC Web API standards to identify key entities in those standards.  
+The <<WEBARCH,Architecture of the World Wide Web>> establishes the URI as the single global identification system for the Web. Therefore, URIs or <<rfc6570,URI Templates>> are used in OGC Web API standards to identify key entities in those standards.
 
-In accordance with OGC policy, only the <<url-definition,Uniform Resource Locator (URL)>> form of URIs is used. 
+In accordance with OGC policy, only the <<url-definition,Uniform Resource Locator (URL)>> form of URIs is used.
 
 The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`. All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
 
@@ -30,7 +30,7 @@ The normative provisions in this draft standard are denoted by the URI `http://w
 
 The partial URIs used to identify <<resource-definition,Resources>> in this document are referred to as the resource `path`. The purpose of a resource `path` is to identify the referenced resource [underline]##within the context of this standard##. Implementers are encouraged to use these partial URIs in their implementations, thereby providing a common look and feel to OGC APIs.
 
-The OGC API - Common - Part 1 Standard defines <<resource-definition,Resources>>, which may appear in more than one place in the API. These <<resource-type-definition,Resource Types>> are identified by name rather than by URI. 
+The OGC API - Common - Part 1 Standard defines <<resource-definition,Resources>>, which may appear in more than one place in the API. These <<resource-type-definition,Resource Types>> are identified by name rather than by URI.
 
 *Summary for Developers:*
 
@@ -47,25 +47,25 @@ The OGC API - Common - Part 1 Standard defines <<resource-definition,Resources>>
                          / path-absolute
                          / path-rootless
                          / path-empty
-                  
+
         authority     = [ userinfo "@" ] host [ ":" port ]
-      
+
         path-abempty  = *( "/" segment )
-      
+
         path-absolute = "/" [ segment-nz *( "/" segment ) ]
-      
+
         path-rootless = segment-nz *( "/" segment )
-      
+
         path-empty    = 0<pchar>
 ----
 
 The following rules should be used when interpreting the BNF for use with this standard:
 
-* `scheme` is assumed to be `HTTP` or `HTTPS` 
-* `authority` is provided by the API developer 
-* `{root}` designates the `scheme`, `authority`, and `path` to the root node of the API implementation. 
+* `scheme` is assumed to be `HTTP` or `HTTPS`
+* `authority` is provided by the API developer
+* `{root}` designates the `scheme`, `authority`, and `path` to the root node of the API implementation.
 * Only the `path-absolute` and `path-rootless` patterns are used
-* Parameters passed as part of an operation are encoded in the `query`. 
+* Parameters passed as part of an operation are encoded in the `query`.
 * Parameters passed in HTTP headers or as cookies are out of scope for this Standard.
 
 The following example shows a URI categorized according to RFC 3986 and OGC Web API standards.
@@ -81,41 +81,41 @@ URI     https://example.com:8042/myapi/mydata/?name=roads#centerline
 3986    scheme     authority         path         query      fragment
         \______________________/ \__________/ \____________________/
                       |               |                 |
-OGC                {root}            path            parameters         
+OGC                {root}            path            parameters
 ----
 
 This document does not restrict the lexical space of URIs used in the API beyond the requirements of the <<rfc7231,HTTP>> and <<rfc3986,URI Syntax>> IETF RFCs. If URIs include reserved characters that are delimiters in the URI subcomponent, these have to be percent-encoded. See Clause 2 of <<rfc3986,RFC 3986>> for details.
 
-NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (for example: image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementers should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.   
+NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (for example: image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementers should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.
 
-Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#identifiers-section[OGC API - Common Users Guide]. 
+Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#identifiers-section[OGC API - Common Users Guide].
 
 [[link-conventions]]
 === Links
 
 OGC Web API Standards use <<rfc8288,RFC 8288 (Web Linking)>>  to express relationships between resources. Resource representations defined in these standards commonly include a "links" element. A "links" element is an array of individual hyperlink elements. These "links" elements provide a convention for associating related resources.
 
-The individual hyperlink elements that make up a "links" element are defined using the following link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.yaml[Hyperlink Schema].
+The individual hyperlink elements that make up a "links" element are defined using the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml[Hyperlink Schema].
 
 [source, JSON]
 include::openapi/schemas/link.yaml[]
 
 NOTE: The `href` value is not restricted to absolute links. Relative links are also allowed.
 
-In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource. 
+In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource.
 
 include::../general/recommendations/general/REC_link-header.adoc[]
 
-Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#links-section[OGC API - Common Users Guide]. 
+Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#links-section[OGC API - Common Users Guide].
 
 [[link-relation-conventions]]
 === Link relations
 
 Link relation types identify the semantics of a link. For example, a link with the relation type "service-meta" indicates that the current link context has service metadata at the link target.
 
-Link relation types are expressed using the "rel" property from the link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.yaml[Hyperlink Schema]. 
+Link relation types are expressed using the "rel" property from the link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml[Hyperlink Schema].
 
-The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
+The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the http://www.opengis.net/def/rel[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
 
 The link relationships used in API-Common Core are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
@@ -124,7 +124,7 @@ The link relationships used in API-Common Core are described in <<link-relations
 [width="90%",cols="2,6",options="header"]
 |===
 ^|**Link Relation** ^|**Purpose**
-|`alternate` |Refers to a substitute for this context [IANA]. + 
+|`alternate` |Refers to a substitute for this context [IANA]. +
 Refers to a representation of the current resource that is encoded using another media type (the media type is specified in the `type` link attribute).
 |`http://www.opengis.net/def/rel/ogc/1.0/data-meta` |Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.
 |`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
@@ -148,7 +148,7 @@ For simplicity, this OGC Standard only refers to the HTTP protocol. This is not 
 
 OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities that are not in common use could be an impediment to interoperability.
 
-Additional information on the use of HTTPS to secure API transactions is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#https-section[OGC API - Common Users Guide]. 
+Additional information on the use of HTTPS to secure API transactions is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#https-section[OGC API - Common Users Guide].
 
 [[api-definition-conventions]]
 === API definition
@@ -161,7 +161,7 @@ So that client developers can more easily learn how to use the API, good documen
 
 ==== Role of OpenAPI
 
-This OGC API standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.  
+This OGC API standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
 This standard includes a <<rc_oas30-section,conformance class>> for OGC API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
@@ -182,5 +182,4 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0].
 
-Additional information on the use of OpenAPI as an API definition is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#openapi-section[OGC API - Common Users Guide]. 
-
+Additional information on the use of OpenAPI as an API definition is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#openapi-section[OGC API - Common Users Guide].

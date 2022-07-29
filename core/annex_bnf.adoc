@@ -9,6 +9,10 @@
 
 The following Augmented Backus-Naur Form (ABNF) is from Appendix A of <<rfc3986,IETF RFC 3986>>.
 
+.Backus-Naur Form for URI
+[source]
+----
+
   URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
 
   hier-part     = "//" authority path-abempty
@@ -50,7 +54,7 @@ The following Augmented Backus-Naur Form (ABNF) is from Appendix A of <<rfc3986,
 
   h16           = 1*4HEXDIG
   ls32          = ( h16 ":" h16 ) / IPv4address
-  IPv4address   = dec-octet "." dec-octet "." dec-octet "." 
+  IPv4address   = dec-octet "." dec-octet "." dec-octet "."
 
   dec-octet     = DIGIT                 ; 0-9
                 / %x31-39 DIGIT         ; 10-99
@@ -90,4 +94,4 @@ The following Augmented Backus-Naur Form (ABNF) is from Appendix A of <<rfc3986,
   gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"
   sub-delims    = "!" / "$" / "&" / "'" / "(" / ")"
                 / "*" / "+" / "," / ";" / "="
-
+----

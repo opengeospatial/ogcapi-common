@@ -1,0 +1,28 @@
+[[per_core-query-param-name-specified]]
+////
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/core/query-param-name-specified*
+^|A |The specification of a query parameter in the API definition MAY encompass a [underline]#range# of parameter names. Any query parameter that falls within the specified range can be considered "specified" in the API definition.
+
+Examples of a parameter range include:
+
+* A regular expression that defines the valid parameter names,
+* A URI Template segment that defines the valid parameter names,
+* An indication that all parameter names are accepted (no parameter validation).
+|===
+////
+
+[recommendation]
+====
+[%metadata]
+label:: /per/core/query-param-name-specified
+part::
+The specification of a query parameter in the API definition MAY encompass a [underline]#range# of parameter names. Any query parameter that falls within the specified range can be considered "specified" in the API definition.
+
+Examples of a parameter range include:
+
+* A regular expression that defines the valid parameter names,
+* A URI Template segment that defines the valid parameter names,
+* An indication that all parameter names are accepted (no parameter validation).
+====

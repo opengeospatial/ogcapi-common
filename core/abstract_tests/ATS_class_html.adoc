@@ -1,3 +1,4 @@
+////
 [[ats_html]]
 [cols="1,4",width="90%"]
 |===
@@ -8,6 +9,18 @@
 |Dependency |<<ats_core,Core Conformance Class>>
 |Dependency |<<ats_landing-page,Landing Page Conformance Class>>
 |===
+////
+
+[[ats_html]]
+[conformance_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html
+subject:: <<rc_html,http://www.opengis.net/spec/ogcapi-common/1.0/req/html>>
+inherit:: <<ats_core,Core Conformance Class>>
+inherit:: <<ats_landing-page,Landing Page Conformance Class>>
+classification:: Target Type:Web API
+====
 
 ==== HTML Definition
 
@@ -16,8 +29,3 @@ include::html/ATS_definition.adoc[]
 ==== HTML Content
 
 include::html/ATS_content.adoc[]
-
-
-
-
-

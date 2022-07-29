@@ -1,0 +1,15 @@
+[[req_core_query-param-list-escape]]
+////
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/query-param-list-escape*
+^|A |Any list item values that include a space or comma SHALL escape the space or comma character using the URI encoding rules from <<rfc3986,IETF RFC 3986>>
+|===
+////
+
+[requirement]
+====
+[%metadata]
+label:: /req/core/query-param-list-escape
+part:: Any list item values that include a space or comma SHALL escape the space or comma character using the URI encoding rules from <<rfc3986,IETF RFC 3986>>
+====

@@ -1,12 +1,20 @@
+[bibliography]
 == References
-The following normative documents contain provisions that, through reference in this text, constitute provisions of this document. For dated references, subsequent amendments to, or revisions of, any of these publications do not apply. For undated references, the latest edition of the normative document referred to applies.
 
-* [[rfc2818]] Rescorla, E.: **IETF RFC 2818, HTTP Over TLS**, http://tools.ietf.org/rfc/rfc2818.txt[http://tools.ietf.org/rfc/rfc2818.txt]
-* [[rfc3986]] Berners-Lee, T., Fielding, R., Masinter, L: **IETF RFC 3986, Uniform Resource Identifier (URI): Generic Syntax**, http://tools.ietf.org/rfc/rfc3986.txt[http://tools.ietf.org/rfc/rfc3986.txt]
-* [[rfc6570]] Gregorio, J., Fielding, R., Hadley, M., Nottingham, M., Orchard, D: **IETF RFC 6570, URI Template**, https://www.rfc-editor.org/rfc/rfc6570.txt[https://www.rfc-editor.org/rfc/rfc6570.txt]
-* [[rfc7231]] Fielding, R., Reschke, J.: **IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content**, https://tools.ietf.org/rfc/rfc7231.txt[https://tools.ietf.org/rfc/rfc7231.txt]
-* [[rfc7232]] Fielding, R., Reschke, J.: **IETF RFC 7232, Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests**, https://tools.ietf.org/rfc/rfc7232.txt[https://tools.ietf.org/rfc/rfc7232.txt]
-* [[rfc7807]] Nottingham, M., Wilde, E.: **IETF RFC 7807, Problem Details for HTTP APIs**, https://tools.ietf.org/rfc/rfc7807.txt[https://tools.ietf.org/rfc/rfc7807.txt]
-* [[rfc8259]] Bray, T.: *IETF RFC 8259, The JavaScript Object Notation (JSON) Data Interchange Format*, http://tools.ietf.org/rfc/rfc8259.txt[http://tools.ietf.org/rfc/rfc8259.txt]
-* [[rfc8288]] Nottingham, M.: **IETF RFC 8288, Web Linking**, http://tools.ietf.org/rfc/rfc8288.txt[http://tools.ietf.org/rfc/rfc8288.txt]
-* [[openapi]] Open API Initiative: **OpenAPI Specification**, Version 3.0. The latest patch version at the time of publication of this standard was 3.0.3, available from http://spec.openapis.org/oas/v3.0.3[http://spec.openapis.org/oas/v3.0.3].
+* [[[rfc2818,IETF RFC 2818]]], IETF RFC 2818. HTTP Over TLS. http://tools.ietf.org/html/rfc2818
+
+* [[[rfc3986,IETF RFC 3986]]], IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax. https://tools.ietf.org/html/rfc3986
+
+* [[[rfc6570,IETF RFC 6570]]], IETF RFC 6570. URI Template
+
+* [[[rfc7231,IETF RFC 7231]]], IETF RFC 7231: Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content. https://tools.ietf.org/html/rfc7231
+
+* [[[rfc7232,IETF RFC 7232]]], IETF RFC 7232. Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests
+
+* [[[rfc7807,IETF RFC 7807]]], IETF RFC 7807. Problem Details for HTTP APIs
+
+* [[[rfc8288,IETF RFC 8288]]], IETF RFC 8288: Web Linking https://tools.ietf.org/html/rfc8288
+
+* [[[rfc8259,IETF RFC 8259]]], IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format. Available from: https://tools.ietf.org/html/rfc8259
+
+* [[[openapi,openapi]]], Open API Initiative: **OpenAPI Specification**, Version 3.0. The latest patch version at the time of publication of this standard was 3.0.3, available from http://spec.openapis.org/oas/v3.0.3[http://spec.openapis.org/oas/v3.0.3].

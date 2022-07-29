@@ -1,7 +1,8 @@
+////
 [[ats_core_query-param-name-known]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-name-known* 
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-name-known*
 ^|Test Purpose |Validate that a query parameter advertised through the API complies with its' advertised behavior.
 ^|Requirement |<<req_core_query-param-name-unknown,/req/core/query-param-name-known>>
 ^|Test Method |DO FOR ALL query parameters advertised in the API definition +
@@ -13,3 +14,25 @@
 {nbsp}{nbsp}DONE +
 DONE
 |===
+////
+
+[[ats_core_query-param-name-known]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/query-param-name-known
+subject:: <<req_core_query-param-name-unknown,/req/core/query-param-name-known>>
+test-purpose:: Validate that a query parameter advertised through the API complies with its' advertised behavior.
+test-method::
++
+--
+DO FOR ALL query parameters advertised in the API definition +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Execute that operation using the query parameter +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}with values that exercise all of the advertised constraints on those values. +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}(Example: minimum and maximum values) +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the operation performed as expected. +
+{nbsp}{nbsp}DONE +
+DONE
+--
+====

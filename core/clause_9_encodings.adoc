@@ -43,7 +43,6 @@ include::requirements/json/REQ_content.adoc[]
 
 include::recommendations/JSON/REC_Problem-Details.adoc[]
 
-An example JSON Schema for the landing page is available at link:beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/landingPage.yaml[landingPage.yaml].
+An example JSON Schema for the landing page is available at link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml].
 
-An example JSON Problem Details report is available at link:beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/examples/ExceptionExample.yaml[ExceptionExample.yaml].
-
+An example JSON Problem Details report is available at link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/examples/ExceptionExample.yaml[ExceptionExample.yaml].

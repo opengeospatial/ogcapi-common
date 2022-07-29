@@ -1,0 +1,24 @@
+[[per_core-query-param-value-specified]]
+////
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/core/query-param-value-specified*
+^|A |The specification of a query parameter in the API definition should include a definition of the valid values for that parameter. Any value that meets that criteria can be considered "specified" in the API definition.
+^|B |The API definition language chosen may not be capable of expressing the desired range of values. In that case the server SHOULD provide:
+
+. A definition of the parameter values that best expresses the intended use of that parameter,
+. Additional human readable text documenting the actual range of validity.
+|===
+////
+
+[recommendation]
+====
+[%metadata]
+label:: /per/core/query-param-value-specified
+part:: The specification of a query parameter in the API definition should include a definition of the valid values for that parameter. Any value that meets that criteria can be considered "specified" in the API definition.
+part::
+The API definition language chosen may not be capable of expressing the desired range of values. In that case the server SHOULD provide:
+
+. A definition of the parameter values that best expresses the intended use of that parameter,
+. Additional human readable text documenting the actual range of validity.
+====

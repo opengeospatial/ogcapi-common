@@ -1,3 +1,4 @@
+////
 [[ats_landing-page]]
 [cols="1,4",width="90%"]
 |===
@@ -7,6 +8,17 @@
 |Requirements Class |<<rc_landing-page,http://www.opengis.net/spec/ogcapi-common/1.0/req/landing-page>>
 |Dependency |<<ats_core,Core Conformance Class>>
 |===
+////
+
+[[ats_landing-page]]
+[conformance_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page
+subject:: <<rc_landing-page,http://www.opengis.net/spec/ogcapi-common/1.0/req/landing-page>>
+inherit:: <<ats_core,Core Conformance Class>>
+classification:: Target Type:Web API
+====
 
 ==== Landing Page
 
@@ -25,4 +37,3 @@ include::core/ATS_api-definition-success.adoc[]
 include::core/ATS_conformance-op.adoc[]
 
 include::core/ATS_conformance-success.adoc[]
-

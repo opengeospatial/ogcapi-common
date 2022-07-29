@@ -1,0 +1,15 @@
+[[rec_core_cross-origin]]
+////
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/core/cross-origin*
+^|A |If the server is intended to be accessed from a browser, cross-origin requests SHOULD be supported. Note that support can also be added in a proxy layer on top of the server.
+|===
+////
+
+[recommendation]
+====
+[%metadata]
+label:: /rec/core/cross-origin
+part:: If the server is intended to be accessed from a browser, cross-origin requests SHOULD be supported. Note that support can also be added in a proxy layer on top of the server.
+====
