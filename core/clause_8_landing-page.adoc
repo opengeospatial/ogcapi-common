@@ -39,7 +39,7 @@ include::requirements/landing-page/REQ_root-success.adoc[]
 
 The Landing Page returned by this operation is based on the following OpenAPI schema.
 
-.landingPage.yaml
+.Landing Page Schema
 [source, YAML]
 include::openapi/schemas/landingPage.yaml[]
 

@@ -1,7 +1,8 @@
 == Conformance
+
 Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the https://cite.opengeospatial.org/teamengine/[OGC Compliance Testing web site].
 
-This standard addresses one Standardization Target: <<webapi-definition,Web APIs>>
+This standard addresses one Standardization Target: <<webapi-definition,Web APIs>>.
 
 OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. The assumption is that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included in or referenced by the Abstract Test Suite (ATS) in each standard that implements conformance classes defined in this standard.
 

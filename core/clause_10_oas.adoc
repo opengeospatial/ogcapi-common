@@ -85,6 +85,7 @@ style: form
 
 Note that the name of the parameter does not matter as the actual query parameters are the names of the object properties. For example, assume that the value of `freeFormParameters` is this object:
 
+.Example "free-form" query parameter
 [source,JSON]
 ----
 {

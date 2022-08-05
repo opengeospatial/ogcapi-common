@@ -97,6 +97,7 @@ OGC Web API Standards use <<rfc8288,RFC 8288 (Web Linking)>>  to express relatio
 
 The individual hyperlink elements that make up a "links" element are defined using the following link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml[Hyperlink Schema].
 
+.Link Relation Schema
 [source, JSON]
 include::openapi/schemas/link.yaml[]
 
@@ -104,7 +105,7 @@ NOTE: The `href` value is not restricted to absolute links. Relative links are a
 
 In addition, links should be passed in the response using HTTP link headers. These links are accessible to the client without a need to process the resource.
 
-include::../general/recommendations/general/REC_link-header.adoc[]
+include::general/recommendations/general/REC_link-header.adoc[]
 
 Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#links-section[OGC API - Common Users Guide].
 
