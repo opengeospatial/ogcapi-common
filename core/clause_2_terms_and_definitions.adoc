@@ -1,13 +1,11 @@
-== Terms, definitions and abbreviated terms
-
-=== Terms and definitions
+== Terms and definitions
 
 [[kebab-case-definition]]
-==== Kebab case
+=== Kebab case
 A case style where punctuation is removed and spaces are replaced by single hyphens. All letters are in lower case when used in OGC documentation. (https://en.wikipedia.org/wiki/Letter_case[Wikipedia]) Example: `kebab-case-style`
 
 [[landing-page-definition]]
-==== Landing Page
+=== Landing Page
 
 Any page whose primary purpose is to contain a description of something else. (https://www.w3.org/TR/urls-in-data/[W3C, URLs in Data Primer])
 
@@ -16,42 +14,42 @@ NOTE: Note 1 - Landing pages often provide summaries or additional information a
 NOTE: Note 2 - A landing page for a Web API serves as the root node of the API Resource tree and provides the information needed to navigate all the resources exposed through the API.
 
 [[ogc-webapi-definition]]
-==== OGC Web API
+=== OGC Web API
 A <<webapi-definition,Web API>> that implements one or more <<ctc-definition,Conformance Classes>> from an OGC API Standard.
 
 [[representation-definition]]
-==== Representation
+=== Representation
 the current or intended state of a <<resource-definition,resource>> encoded for exchange between components. (based on <<fielding2000,Fielding 2000>>)
 
 [[resource-definition]]
-==== Resource
+=== Resource
 entity that might be identified (<<iso15836-2,Dublin Core Metadata Initiative - DCMI Metadata Terms>>)
 
 NOTE: The term "resource", when used in the context of an OGC Web API standard, should be understood to mean a <<web-resource-definition,Web Resource>> unless otherwise indicated.
 
 [[resource-type-definition]]
-==== Resource Type
+=== Resource Type
 a type of <<resource-definition,resource>>.
 
 NOTE: Resource types are re-usable components that are independent of where the resource resides in the API.
 
 [[uri-definition]]
-==== Uniform Resource Identifier (URI)
+=== Uniform Resource Identifier (URI)
 an identifier consisting of a sequence of characters matching the syntax rule named "<URI>". (<<rfc3986,IETF RFC 3986>>)
 
 [[url-definition]]
-==== Uniform Resource Locator (URL)
+=== Uniform Resource Locator (URL)
 the subset of <<uri-definition,URIs>> that, in addition to identifying a resource, provide a means of locating the resource by describing its primary access mechanism (e.g., its network "location"). (<<rfc3986,IETF RFC 3986>>)
 
 [[webapi-definition]]
-==== Web API
+=== Web API
 API using an architectural style that is founded on the technologies of the Web. (<<DWBP,W3C Data on the Web Best Practices>>)
 
 [[web-resource-definition]]
-==== Web Resource
+=== Web Resource
 a <<resource-definition,resource>> that is identified by a URI.
 
-=== Abbreviated terms
+== Abbreviated terms
 
 API:: Application Programming Interface
 CORS:: Cross-Origin Resource Sharing

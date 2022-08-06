@@ -1,4 +1,12 @@
-.Preface
+[abstract]
+== Abstract
+
+The OGC has extended their suite of standards to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.
+
+The purpose of the OGC API - Common - Part 1: Core Standard (API-Core) is to define those fundamental building blocks and requirements which are applicable to all OGC Web API Standards.
+
+[[preface-section]]
+== Preface
 
 ////
 *OGC Declaration*
@@ -8,14 +16,14 @@ Attention is drawn to the possibility that some of the elements of this document
 
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
 
-[abstract]
-== Abstract
+[[security-considerations-section]]
+== Security considerations
 
-The OGC has extended their suite of standards to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.
+The OGC API - Common - Part 1: Core Standard does not specify any specific security controls. However, it was constructed so that security controls can be added without impacting conformance.
 
-The purpose of the OGC API - Common - Part 1: Core Standard (API-Core) is to define those fundamental building blocks and requirements which are applicable to all OGC Web API Standards.
+See <<rc_oas30-security>> for a discussion of OpenAPI support for security controls.
 
-[.Preface]
+[[submitters-section]]
 == Submitters
 
 All questions regarding this submission should be directed to the editors or the submitters:

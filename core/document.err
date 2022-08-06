@@ -1,75 +1,82 @@
 ./document.err errors
 
 
+== Style
+
+(): Prefatory material must be followed by (clause) Scope
+(): Scope must be followed by Conformance
+(): Normative References must be followed by Terms and Definitions
+
+
 == Metanorma XML Style Warning
 
-(XML Line 000084): Hanging paragraph in clause
+(XML Line 000317): Hanging paragraph in clause
 	<clause id="_conformance" type="conformance" obligation="normative">
 	<title>Conformance</title>
 	<p id="_5cb62758-6262-bfc2-b12f-4b0e30dd707f">Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the <link target="https://cite.opengeospatial.org/teamengine/">OGC Compliance Testing web site</link>.</p>
 	
 	<p id="_a45792fa-0546-3501-c4b9-6c055dbf0d1f">This standard addresses one Standardization Target: <xref target="webapi-definition">Web APIs</xref>.</p>
-(XML Line 000608): Hanging paragraph in clause
+(XML Line 000613): Hanging paragraph in clause
 	<clause id="overview" obligation="normative">
 	<title>Overview</title>
-	<p id="_8ba5fdef-c3e6-072c-5ae1-5aec6f55ff3a">The OGC API — Common — Part 1: Core Standard defines common requirements and recommendations which are applicable to all OGC Web API Standards.</p>
+	<p id="_4ddbf756-d912-c1de-c5fa-fe4c81726bdc">The OGC API — Common — Part 1: Core Standard defines common requirements and recommendations which are applicable to all OGC Web API Standards.</p>
 	
 	<clause id="evolution-introduction" obligation="normative">
-(XML Line 000654): Hanging paragraph in clause
+(XML Line 000659): Hanging paragraph in clause
 	<clause id="rc_core-section" obligation="normative">
 	<title>Core Requirements Class</title>
-	<p id="_709cbb16-744e-5e77-edef-0b98b85d901e">The following requirements and recommendations define protocol-level conventions that should be applicable to all OGC Web APIs.</p>
+	<p id="_5335a188-707b-2b4e-d5b3-4b8ff0f72b61">The following requirements and recommendations define protocol-level conventions that should be applicable to all OGC Web APIs.</p>
 	
 	<requirement id="rc_core" type="class">  <label><link target="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core"/></label><subject>Web API</subject><inherit><eref type="inline" bibitemid="rfc7231" citeas="RFC 7231">RFC 7231 (HTTP/1.1)</eref></inherit><inherit><eref type="inline" bibitemid="rfc2818" citeas="RFC 2818">RFC 2818 (HTTP over TLS)</eref></inherit><inherit><eref type="inline" bibitemid="rfc8288" citeas="RFC 8288">RFC 8288 (Web Linking)</eref></inherit>
-(XML Line 000976): Hanging paragraph in clause
+(XML Line 000981): Hanging paragraph in clause
 	<clause id="parameter-encoding-section" obligation="normative">
 	<title>Parameter Encoding</title>
-	<p id="_35d1a200-58c8-d6f0-2b2d-532297a77bde">The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request.</p>
+	<p id="_8b091120-79d0-acbc-b667-a2965c7e043a">The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request.</p>
 	
-	<p id="_17e2f081-fd8c-c9a2-0f6a-cc031502e0fe">OGC Web API requests are issued using a Uniform Resource Identifier (URI). The URI syntax is defined in <eref type="inline" bibitemid="rfc3986" citeas="RFC 3986">IETF RFC 3986</eref>. Rules for building URI Templates can be found in <eref type="inline" bibitemid="rfc6570" citeas="RFC 6570">IETF RFC 6570</eref>.</p>
-(XML Line 001149): Hanging paragraph in clause
+	<p id="_9587c3d4-0926-b826-112e-b55e79068bbe">OGC Web API requests are issued using a Uniform Resource Identifier (URI). The URI syntax is defined in <eref type="inline" bibitemid="rfc3986" citeas="RFC 3986">IETF RFC 3986</eref>. Rules for building URI Templates can be found in <eref type="inline" bibitemid="rfc6570" citeas="RFC 6570">IETF RFC 6570</eref>.</p>
+(XML Line 001154): Hanging paragraph in clause
 	<clause id="rc_landing-page-section" obligation="normative">
 	<title>Landing Page Requirements Class</title>
 	<requirement id="rc_landing-page" type="class">  <label><link target="http://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page"/></label><subject>Web API</subject>
 	</requirement>
 	
-(XML Line 001182): Hanging paragraph in clause
+(XML Line 001187): Hanging paragraph in clause
 	<clause id="landing-page" obligation="normative">
 	<title>API landing page</title>
-	<p id="_71e2a433-3c3a-55c7-dfd3-38b97af5f1ff">An OGC Web API has a single landing page on the <tt>{root}</tt> node.</p>
+	<p id="_2813b5aa-7ab8-4931-9417-ffd0491e3a2a">An OGC Web API has a single landing page on the <tt>{root}</tt> node.</p>
 	
-	<p id="_c5c3dcdb-9683-8f6f-3df7-b485579016ec">The purpose of the landing page is to provide clients with a starting point for using the API. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.</p>
-(XML Line 001267): Hanging paragraph in clause
+	<p id="_45196c0e-e8a8-ca96-5696-a0060d498698">The purpose of the landing page is to provide clients with a starting point for using the API. Any resource exposed through an API can be accessed by following paths or links starting from the landing page.</p>
+(XML Line 001272): Hanging paragraph in clause
 	<clause id="api-definition" obligation="normative">
 	<title>API Definition</title>
-	<p id="_c079fcaf-23a6-5bc6-534a-a342c504c6be">Every API implementation should provide an API Definition resource that describes the capabilities provided by that API. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.</p>
+	<p id="_624010e7-fcbf-62b9-919a-35bce2b0b3f3">Every API implementation should provide an API Definition resource that describes the capabilities provided by that API. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.</p>
 	
 	<clause id="_operation_2" obligation="normative">
-(XML Line 001340): Hanging paragraph in clause
+(XML Line 001345): Hanging paragraph in clause
 	<clause id="conformance-classes" obligation="normative">
 	<title>Declaration of Conformance Classes</title>
-	<p id="_9de4dd3b-e20b-7b22-9f14-468047cd59cf">The OGC Web API Standards define a collection of modules that can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is “what are you?” In other words, what modules were used to create you? Since implementers have a choice on the modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, a declaration of the Conformance Classes.</p>
+	<p id="_b612f45a-ba7a-c346-7dbf-4bd319c0144d">The OGC Web API Standards define a collection of modules that can be assembled into a Web API. The first question a client will ask when accessing one of these APIs is “what are you?” In other words, what modules were used to create you? Since implementers have a choice on the modules to use, there is no simple answer. The best that can be done is to provide a list of the modules implemented, a declaration of the Conformance Classes.</p>
 	
-	<p id="_49403d50-6482-25d0-08c4-058bf86e4695">The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URI is all that should be required. Therefore, the path to the Conformance Declaration is fixed.</p>
-(XML Line 001758): Hanging paragraph in clause
+	<p id="_d8ee6b22-1508-01d2-7284-66d21effa700">The list of Conformance Classes is key to understanding and using an OGC Web API. So it is important that they are easy to access. A simple GET using an easily constructed URI is all that should be required. Therefore, the path to the Conformance Declaration is fixed.</p>
+(XML Line 001756): Hanging paragraph in clause
 	<clause id="_conformance_class_core" obligation="informative">
 	<title>Conformance Class Core</title>
 	<requirement id="ats_core" type="conformanceclass"> <label><link target="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core"/></label><subject><xref target="rc_core">http://www.opengis.net/spec/ogcapi-common/1.0/req/core</xref></subject><classification><tag>Target Type</tag><value>Web API</value></classification>
 	</requirement>
 	
-(XML Line 002045): Hanging paragraph in clause
+(XML Line 002043): Hanging paragraph in clause
 	<clause id="_conformance_class_landing_page" obligation="informative">
 	<title>Conformance Class Landing Page</title>
 	<requirement id="ats_landing-page" type="conformanceclass"> <label><link target="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page"/></label><subject><xref target="rc_landing-page">http://www.opengis.net/spec/ogcapi-common/1.0/req/landing-page</xref></subject><inherit><xref target="ats_core">Core Conformance Class</xref></inherit><classification><tag>Target Type</tag><value>Web API</value></classification>
 	</requirement>
 	
-(XML Line 002228): Hanging paragraph in clause
+(XML Line 002226): Hanging paragraph in clause
 	<clause id="_conformance_class_json" obligation="informative">
 	<title>Conformance Class JSON</title>
 	<requirement id="ats_json" type="conformanceclass"> <label><link target="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json"/></label><subject><xref target="rc_json">http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json</xref></subject><inherit><xref target="ats_core">Core Conformance Class</xref></inherit><inherit><xref target="ats_landing-page">Landing Page Conformance Class</xref></inherit><classification><tag>Target Type</tag><value>Web API</value></classification>
 	</requirement>
 	
-(XML Line 002300): Hanging paragraph in clause
+(XML Line 002298): Hanging paragraph in clause
 	<clause id="_conformance_class_html" obligation="informative">
 	<title>Conformance Class HTML</title>
 	<requirement id="ats_html" type="conformanceclass"> <label><link target="http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html"/></label><subject><xref target="rc_html">http://www.opengis.net/spec/ogcapi-common/1.0/req/html</xref></subject><inherit><xref target="ats_core">Core Conformance Class</xref></inherit><inherit><xref target="ats_landing-page">Landing Page Conformance Class</xref></inherit><classification><tag>Target Type</tag><value>Web API</value></classification>
@@ -79,8 +86,8 @@
 
 == Metanorma XML Syntax
 
-(XML Line 000162:91): element "clause" not allowed here; expected the element end-tag or element "submitters"
-(XML Line 000221:62): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
-(XML Line 000228:70): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
-(XML Line 000235:68): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
-(XML Line 000250:69): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000162:98): element "clause" not allowed here; expected the element end-tag or element "submitters"
+(XML Line 000335:62): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000342:70): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000349:68): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000364:69): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"

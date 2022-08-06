@@ -7,7 +7,7 @@
 :draft: 3.0
 :external-id: http://www.opengis.net/doc/is/ogcapi-common-1/1.0
 :docnumber: 19-072
-:received-date: 2021-08-23
+:received-date: 2022-08-05
 :issued-date: 2029-03-30
 :published-date: 2029-03-30
 :fullname: Charles Heazel
@@ -21,20 +21,20 @@
 :pdf-uri: ./document.pdf
 :xml-uri: ./document.xml
 :doc-uri: ./document.doc
-:edition: 1.0.0
+:edition: 1.0.1
 
 ////
 Make sure to complete each included document
 ////
 include::clause_1_front_material.adoc[]
 
-include::clause_2_scope.adoc[]
+include::clause_2_terms_and_definitions.adoc[]
 
-include::clause_3_conformance.adoc[]
+include::clause_3_references.adoc[]
 
-include::clause_4_references.adoc[]
+include::clause_4_scope.adoc[]
 
-include::clause_5_terms_and_definitions.adoc[]
+include::clause_5_conformance.adoc[]
 
 include::clause_6_conventions.adoc[]
 
@@ -49,8 +49,6 @@ include::clause_9_encodings.adoc[]
 include::clause_10_oas.adoc[]
 
 include::clause_11_media_types.adoc[]
-
-include::clause_12_security_considerations.adoc[]
 
 ////
 add or remove annexes after "A" as necessary
