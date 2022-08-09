@@ -1,16 +1,9 @@
 ./document.err errors
 
 
-== Style
-
-(): Prefatory material must be followed by (clause) Scope
-(): Scope must be followed by Conformance
-(): Normative References must be followed by Terms and Definitions
-
-
 == Metanorma XML Style Warning
 
-(XML Line 000317): Hanging paragraph in clause
+(XML Line 000092): Hanging paragraph in clause
 	<clause id="_conformance" type="conformance" obligation="normative">
 	<title>Conformance</title>
 	<p id="_5cb62758-6262-bfc2-b12f-4b0e30dd707f">Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the <link target="https://cite.opengeospatial.org/teamengine/">OGC Compliance Testing web site</link>.</p>
@@ -87,7 +80,7 @@
 == Metanorma XML Syntax
 
 (XML Line 000162:98): element "clause" not allowed here; expected the element end-tag or element "submitters"
-(XML Line 000335:62): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
-(XML Line 000342:70): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
-(XML Line 000349:68): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
-(XML Line 000364:69): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000224:62): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000231:70): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000238:68): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"
+(XML Line 000253:69): element "clause" not allowed here; expected the element end-tag or element "admonition", "bookmark", "dl", "example", "figure", "form", "formula", "hr", "imagemap", "note", "ol", "p", "pagebreak", "passthrough", "permission", "pre", "quote", "recommendation", "requirement", "review", "sourcecode", "svgmap", "table", "toc" or "ul"

@@ -2,7 +2,7 @@
 <ogc-standard xmlns="https://www.metanorma.org/ns/ogc" type="presentation" version="2.0.6">
 <bibdata type="standard">
 <title language="en" format="text/plain">OGC API - Common - Part 1: Core</title>
-<uri type="xml">./document.xml</uri><uri type="pdf">./document.pdf</uri><uri type="doc">./document.doc</uri><docidentifier type="ogc-external">http://www.opengis.net/doc/is/ogcapi-common-1/1.0</docidentifier><docidentifier type="ogc-internal">19-072</docidentifier><docnumber>19-072</docnumber><date type="published"><on>2029-03-30</on></date><date type="issued"><on>2029-03-30</on></date><date type="received"><on>2022-08-05</on></date><contributor><role type="author"/><organization>
+<uri type="xml">./document.xml</uri><uri type="pdf">./document.pdf</uri><uri type="doc">./document.doc</uri><docidentifier type="ogc-external">http://www.opengis.net/doc/is/ogcapi-common-1/1.0</docidentifier><docidentifier type="ogc-internal">19-072</docidentifier><docnumber>19-072</docnumber><date type="published"><on>2029-03-30</on></date><date type="issued"><on>2029-03-30</on></date><date type="received"><on>2022-08-08</on></date><contributor><role type="author"/><organization>
 <name>Ecere Corporation</name>
 </organization></contributor><contributor><role type="author"/><organization>
 <name>Heazeltech LLC</name>
@@ -164,7 +164,7 @@
 <preface><abstract id="_abstract" displayorder="1"><title depth="1">I.<tab/>Abstract</title><p id="_5086a340-1d12-4446-7733-e3aa3b07d815">The OGC has extended their suite of standards to include <link target="https://en.wikipedia.org/wiki/Resource-oriented_architecture">Resource Oriented Architectures</link> and <link target="https://portal.ogc.org/files/?artifact_id=71776&amp;version=1">Web APIs</link>. In the course of developing these standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API — Common Multi-Part Standard. OGC API — Common standards serve as reusable building-blocks. Standards developers will use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by an system designer for the unique requirements of their system.</p>
 
 <p id="_1d584693-c450-070d-64a5-859dbeb670ed">The purpose of the OGC API — Common — Part 1: Core Standard (API-Core) is to define those fundamental building blocks and requirements which are applicable to all OGC Web API Standards.</p>
-</abstract><clause id="_0ce284c4-6e8a-4d46-8818-154f3c72fdef" type="keywords" displayorder="2">
+</abstract><clause id="_585c641f-7cd0-4a08-9e9d-5d3ff2eebd34" type="keywords" displayorder="2">
 <title depth="1">II.<tab/>Keywords</title>
 <p>The following are keywords to be used by search engines and
     document catalogues.</p>
@@ -179,7 +179,7 @@
 <p id="_6fceaf1b-ef82-3d7c-b807-68f8aab9fe76">The OGC API — Common — Part 1: Core Standard does not specify any specific security controls. However, it was constructed so that security controls can be added without impacting conformance.</p>
 
 <p id="_1725807d-e926-205c-cdf0-07b671017d8f">See <xref target="rc_oas30-security">Clause 11.4</xref> for a discussion of OpenAPI support for security controls.</p>
-</clause><clause id="_8524be88-3f05-437d-9230-ea513578c8dc" type="submitting_orgs" displayorder="5">
+</clause><clause id="_44a46f61-886a-4801-8b3b-3fd152c43204" type="submitting_orgs" displayorder="5">
 <title depth="1">V.<tab/>Submitting Organizations</title>
 <p>The following organizations submitted this Document to the
    Open Geospatial Consortium (OGC):</p>
@@ -229,6 +229,64 @@
 </table>
 </submitters></preface><sections>
 
+
+
+
+<clause id="_scope" type="scope" obligation="normative" displayorder="7">
+<title depth="1">1.<tab/>Scope</title>
+<p id="_92832b18-b98e-dd72-ca4d-5d93b2f1ad49">The OGC API-Common Part 1 Standard provides the fundamental rules for implementing an OGC Web API. It seeks to establish a solid foundation which can be extended by other resource-specific Web API Standards.</p>
+
+<p id="_d26ef936-9106-2c30-0c31-82f018422984">First, this Standard establishes rules for the use of HTTP protocols and URIs. These requirements seek to provide both API servers and clients a predictable environment for the exchange of HTTP requests and responses. These rules ARE applicable reqardless of the resources being accessed.</p>
+
+<p id="_85f78096-307b-20cc-cc0d-96a6fa136c4a">Then this Standard enables discovery operations directed against a Web API implementation. It identifies the hosted resources, defines conformance classes, and provides both human and machine readable documentation of the API design. The requirements specified in this standard SHOULD be applicable to any Web API implementation.</p>
+</clause>
+
+<clause id="_conformance" type="conformance" obligation="normative">
+<title depth="1">2.<tab/>Conformance</title>
+<p id="_5cb62758-6262-bfc2-b12f-4b0e30dd707f">Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the <link target="https://cite.opengeospatial.org/teamengine/">OGC Compliance Testing web site</link>.</p>
+
+<p id="_a45792fa-0546-3501-c4b9-6c055dbf0d1f">This standard addresses one Standardization Target: <xref target="webapi-definition">Web APIs</xref>.</p>
+
+<p id="_5a5eede3-a4a6-985c-06c9-56f79bc970cc">OGC API — Common — Part 1: Core provides a common foundation for OGC Web API standards. The assumption is that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included in or referenced by the Abstract Test Suite (ATS) in each standard that implements conformance classes defined in this standard.</p>
+
+<p id="_3771afa3-3e58-1237-64b7-fc6748593c6a">This standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the <tt>/conformance</tt> resource on the implementation instance of the API’s landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
+
+<clause id="_core_requirements_class" obligation="normative">
+<title depth="2">2.1.<tab/>Core Requirements Class</title>
+<p id="_25a4225b-3e33-192f-5856-06aa56f0dbe5">The requirements specified in the <em>Core Requirements Class</em> are applicable to all OGC API standards. They assure consistent use of the HTTP protocols, provide rules for the construction of URIs, and define requirements governing the use and processing of URI query parameters. Through these requirements, OGC API-Common seeks to assure that implementations of OGC API standards will provide a predictable interface for their peers.</p>
+
+<p id="_dc74bebd-3828-dd35-0992-93e25820ce2d">The Core requirements class is specified in <xref target="rc_core-section">Clause 8</xref> <strong>Core Requirements Class</strong>.</p>
+</clause>
+
+<clause id="_landing_page_requirements_class" obligation="normative">
+<title depth="2">2.2.<tab/>Landing Page Requirements Class</title>
+<p id="_a3a10997-1d05-1e1b-e98c-9df7e9da6145">The requirements specified in the <em>Landing Page Requirements Class</em> provide a minimal useful service interface for an OGC Web API. These resources convey a basic understanding of the API and provide a starting point for further discovery. The requirements specified in this requirements class are recommended for all OGC Web APIs.</p>
+
+<p id="_1483b33a-4a86-7c06-b7ce-ef4657c999a7">The Landing Page requirements class is specified in <xref target="rc_landing-page-section">Clause 9</xref> <strong>Landing Page Requirements Class</strong>.</p>
+</clause>
+
+<clause id="_encoding_requirements_classes" obligation="normative">
+<title depth="2">2.3.<tab/>Encoding Requirements Classes</title>
+<p id="_942b5ef9-3262-eb5e-a760-f8d3d8574bd1">The OGC API — Common Standard does not mandate a specific encoding or format for representations of resources. However, both <em>HTML</em> and <em>JSON</em> are commonly used encodings for spatial data on the web. The <em>HTML</em> and <em>JSON</em> requirements classes specify the encoding of resource representations using:</p>
+
+<ul id="_f7233cb4-1b00-b16b-d9a1-e74cc8fb4bc1"><li><p id="_13ad5f24-ce72-f693-9716-f7b1b26e9213"><xref target="rc_html-section">HTML</xref></p>
+</li>
+<li><p id="_5d65c306-20ad-4def-d254-399dd30f4710"><xref target="rc_json-section">JSON</xref></p>
+</li>
+</ul>
+
+<p id="_207525ce-c72b-a83a-8f4c-f1612e6d52ab">Neither of these encodings is mandatory. An implementer of the <em>API-Common</em> standard may decide to implement other encodings instead of, or in addition to, these two.</p>
+
+<p id="_f12dbd19-7bd5-5e8a-a1b6-d9bea39f7179">The Encoding Requirements Classes are specified in <xref target="rc_encoding-section">Clause 10</xref> <strong>Encoding Requirements Classes</strong>.</p>
+</clause>
+
+<clause id="_openapi_3_0_requirements_class" obligation="normative">
+<title depth="2">2.4.<tab/>OpenAPI 3.0 Requirements Class</title>
+<p id="_6a930094-dbf9-b132-327f-86cea035a992">The OGC API — Common Standard does not mandate any encoding or format for the formal definition of the API. The preferred option is the OpenAPI 3.0 specification. The <em>OpenAPI 3.0</em> requirements class has been specified for APIs implementing OpenAPI 3.0.</p>
+
+<p id="_e6694855-9a39-64b9-44a1-9000be8aeb90">The OpenAPI 3.0 Requirements Class is specified in <xref target="rc_oas30-section">Clause 11</xref> <strong>OpenAPI 3.0 Requirements Class</strong>.</p>
+</clause>
+</clause>
 
 
 
@@ -311,64 +369,6 @@
 <dt id="symbol-yaml">YAML</dt><dd><p id="_a5545da5-5e09-8345-8172-285fccd4998e">YAML Ain’t Markup Language</p>
 </dd></dl>
 </definitions>
-
-
-<clause id="_scope" type="scope" obligation="normative" displayorder="7">
-<title depth="1">1.<tab/>Scope</title>
-<p id="_92832b18-b98e-dd72-ca4d-5d93b2f1ad49">The OGC API-Common Part 1 Standard provides the fundamental rules for implementing an OGC Web API. It seeks to establish a solid foundation which can be extended by other resource-specific Web API Standards.</p>
-
-<p id="_d26ef936-9106-2c30-0c31-82f018422984">First, this Standard establishes rules for the use of HTTP protocols and URIs. These requirements seek to provide both API servers and clients a predictable environment for the exchange of HTTP requests and responses. These rules ARE applicable reqardless of the resources being accessed.</p>
-
-<p id="_85f78096-307b-20cc-cc0d-96a6fa136c4a">Then this Standard enables discovery operations directed against a Web API implementation. It identifies the hosted resources, defines conformance classes, and provides both human and machine readable documentation of the API design. The requirements specified in this standard SHOULD be applicable to any Web API implementation.</p>
-</clause>
-
-<clause id="_conformance" type="conformance" obligation="normative">
-<title depth="1">2.<tab/>Conformance</title>
-<p id="_5cb62758-6262-bfc2-b12f-4b0e30dd707f">Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the <link target="https://cite.opengeospatial.org/teamengine/">OGC Compliance Testing web site</link>.</p>
-
-<p id="_a45792fa-0546-3501-c4b9-6c055dbf0d1f">This standard addresses one Standardization Target: <xref target="webapi-definition">Web APIs</xref>.</p>
-
-<p id="_5a5eede3-a4a6-985c-06c9-56f79bc970cc">OGC API — Common — Part 1: Core provides a common foundation for OGC Web API standards. The assumption is that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included in or referenced by the Abstract Test Suite (ATS) in each standard that implements conformance classes defined in this standard.</p>
-
-<p id="_3771afa3-3e58-1237-64b7-fc6748593c6a">This standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the <tt>/conformance</tt> resource on the implementation instance of the API’s landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So an implementation of the <em>Core</em> conformance class must pass all tests specified in Annex A for the <em>Core</em> requirements class.</p>
-
-<clause id="_core_requirements_class" obligation="normative">
-<title depth="2">2.1.<tab/>Core Requirements Class</title>
-<p id="_25a4225b-3e33-192f-5856-06aa56f0dbe5">The requirements specified in the <em>Core Requirements Class</em> are applicable to all OGC API standards. They assure consistent use of the HTTP protocols, provide rules for the construction of URIs, and define requirements governing the use and processing of URI query parameters. Through these requirements, OGC API-Common seeks to assure that implementations of OGC API standards will provide a predictable interface for their peers.</p>
-
-<p id="_dc74bebd-3828-dd35-0992-93e25820ce2d">The Core requirements class is specified in <xref target="rc_core-section">Clause 8</xref> <strong>Core Requirements Class</strong>.</p>
-</clause>
-
-<clause id="_landing_page_requirements_class" obligation="normative">
-<title depth="2">2.2.<tab/>Landing Page Requirements Class</title>
-<p id="_a3a10997-1d05-1e1b-e98c-9df7e9da6145">The requirements specified in the <em>Landing Page Requirements Class</em> provide a minimal useful service interface for an OGC Web API. These resources convey a basic understanding of the API and provide a starting point for further discovery. The requirements specified in this requirements class are recommended for all OGC Web APIs.</p>
-
-<p id="_1483b33a-4a86-7c06-b7ce-ef4657c999a7">The Landing Page requirements class is specified in <xref target="rc_landing-page-section">Clause 9</xref> <strong>Landing Page Requirements Class</strong>.</p>
-</clause>
-
-<clause id="_encoding_requirements_classes" obligation="normative">
-<title depth="2">2.3.<tab/>Encoding Requirements Classes</title>
-<p id="_942b5ef9-3262-eb5e-a760-f8d3d8574bd1">The OGC API — Common Standard does not mandate a specific encoding or format for representations of resources. However, both <em>HTML</em> and <em>JSON</em> are commonly used encodings for spatial data on the web. The <em>HTML</em> and <em>JSON</em> requirements classes specify the encoding of resource representations using:</p>
-
-<ul id="_f7233cb4-1b00-b16b-d9a1-e74cc8fb4bc1"><li><p id="_13ad5f24-ce72-f693-9716-f7b1b26e9213"><xref target="rc_html-section">HTML</xref></p>
-</li>
-<li><p id="_5d65c306-20ad-4def-d254-399dd30f4710"><xref target="rc_json-section">JSON</xref></p>
-</li>
-</ul>
-
-<p id="_207525ce-c72b-a83a-8f4c-f1612e6d52ab">Neither of these encodings is mandatory. An implementer of the <em>API-Common</em> standard may decide to implement other encodings instead of, or in addition to, these two.</p>
-
-<p id="_f12dbd19-7bd5-5e8a-a1b6-d9bea39f7179">The Encoding Requirements Classes are specified in <xref target="rc_encoding-section">Clause 10</xref> <strong>Encoding Requirements Classes</strong>.</p>
-</clause>
-
-<clause id="_openapi_3_0_requirements_class" obligation="normative">
-<title depth="2">2.4.<tab/>OpenAPI 3.0 Requirements Class</title>
-<p id="_6a930094-dbf9-b132-327f-86cea035a992">The OGC API — Common Standard does not mandate any encoding or format for the formal definition of the API. The preferred option is the OpenAPI 3.0 specification. The <em>OpenAPI 3.0</em> requirements class has been specified for APIs implementing OpenAPI 3.0.</p>
-
-<p id="_e6694855-9a39-64b9-44a1-9000be8aeb90">The OpenAPI 3.0 Requirements Class is specified in <xref target="rc_oas30-section">Clause 11</xref> <strong>OpenAPI 3.0 Requirements Class</strong>.</p>
-</clause>
-</clause>
-
 <clause id="_conventions" obligation="normative" displayorder="11">
 <title depth="1">6.<tab/>Conventions</title>
 <clause id="fundamental-concepts" obligation="normative">
