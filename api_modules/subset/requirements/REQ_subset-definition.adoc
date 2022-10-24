@@ -19,7 +19,7 @@
      {number} is an integer or floating-point number, and
      {text} is some general ASCII text (such as a time and date notation in ISO 8601).
 ----
-^|B |The axis name SHALL correspond to one of the axis of the Coordinate Reference System (CRS) of the target resource or else return a 400 status code.
+^|B |The axis name SHALL correspond to one of the axes of the Coordinate Reference System (CRS) of the target resource or else return a 400 status code.
 ^|C |If the intervalOrPoint values fall entirely outside the range of valid values defined for the identified axis, a 204 status code SHALL be returned
 ^|D |For a CRS where an axis can wrap around, such as subsetting across the dateline (anti-meridian) in a geographic CRS, a `low` value greater than `high` SHALL
 be supported to indicate an extent crossing that wrapping point.
