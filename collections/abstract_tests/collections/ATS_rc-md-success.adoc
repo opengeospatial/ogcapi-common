@@ -1,9 +1,9 @@
 [[ats_collections_rc-md-success]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/collections_rc-md-success*
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-md-success*
 ^|Test Purpose |Validate that the Collections content complies with the required structure and contents.
-^|Requirement |<<req_collections_rc-md-success,/req/collections/rc-md-success>> + 
+^|Requirement |<<req_collections_rc-md-success,/req/collections/rc-md-success>> +
 <<req_collections_rc-md-links,/req/collections/rc-md-links>> +
 <<req_collections_rc-timeStamp,/req/collections/rc-timestamp>> +
 <<req_collections_rc-md-items,/req/collections/rc-md-items>>
