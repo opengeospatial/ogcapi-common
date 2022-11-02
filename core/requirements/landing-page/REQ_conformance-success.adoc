@@ -1,7 +1,17 @@
 [[req_landing-page_conformance-success]]
+////
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/landing-page/conformance-success* 
+^|*Requirement {counter:req-id}* |*/req/landing-page/conformance-success*
 ^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
-^|B |The content of that response SHALL be based upon the schema link:http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/confClasses.yaml[confClasses.yaml] and list all OGC API conformance classes that the API conforms to.
+^|B |The content of that response SHALL be based upon the schema link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[confClasses.yaml] and list all OGC API conformance classes that the API conforms to.
 |===
+////
+
+[requirement]
+====
+[%metadata]
+label:: /req/landing-page/conformance-success
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+part:: The content of that response SHALL be based upon the schema link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[confClasses.yaml] and list all OGC API conformance classes that the API conforms to.
+====

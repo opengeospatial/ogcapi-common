@@ -1,6 +1,16 @@
 [[req_html_definition]]
+////
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/html/definition* 
+^|*Requirement {counter:req-id}* |*/req/html/definition*
 ^|A|`200`-responses of the server SHALL support the `text/html` media type for the <<landing-page,Landing Page>> and <<conformance-classes,Conformance>> resources.
 |===
+////
+
+
+[requirement]
+====
+[%metadata]
+label:: /req/html/definition
+part:: `200`-responses of the server SHALL support the `text/html` media type for the <<landing-page,Landing Page>> and <<conformance-classes,Conformance>> resources.
+====

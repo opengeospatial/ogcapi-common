@@ -1,6 +1,15 @@
 [[rec_json_problem-details]]
+////
 [width="90%",cols="2,6a"]
 |===
-^|*Recommendation {counter:rec-id}* |*/rec/json/problem-details* 
+^|*Recommendation {counter:rec-id}* |*/rec/json/problem-details*
 2+|Any OGC Web API implementation instance returning an RFC 7807 "Problem Details" report in JSON should set the `Content-Type` header to "application/problem+json" and structure the report using the JSON Schema https://github.com/opengeospatial/ogcapi-common/blob/master/core/openapi/schemas/exception.json[here].
 |===
+////
+
+[recommendation]
+====
+[%metadata]
+label:: /rec/json/problem-details
+part:: Any OGC Web API implementation instance returning an RFC 7807 "Problem Details" report in JSON should set the `Content-Type` header to "application/problem+json" and structure the report using the JSON Schema https://github.com/opengeospatial/ogcapi-common/blob/master/core/openapi/schemas/exception.json[here].
+====

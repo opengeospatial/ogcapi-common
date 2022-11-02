@@ -1,4 +1,5 @@
 [[ats_landing-page_api_definition-op]]
+////
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/landing-page/api-definition-op*
@@ -14,3 +15,24 @@
 
 DONE
 |===
+////
+
+[abstract_test]
+====
+[%metadata]
+label:: /conf/landing-page/api-definition-op
+subject:: <<req_landing-page_api-definition-op,/req/landing-page/api-definition-op>> +
+<<req_landing-page_api-definition-success,/req/landing-page/api-definition-success>>
+test-purpose:: Validate that the API Definition document can be retrieved from the expected location.
+test-method::
++
+--
+DO FOR EACH `service-desc` and `service-doc` link on the landing page:
+
+. Issue an HTTP GET request for the link
+. Validate that a document was returned with a status code `200`
+. Validate the contents of the returned document using test <<ats_landing-page_api-definition-success,/conf/landing-page/api-definition-success>>.
+
+DONE
+--
+====

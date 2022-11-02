@@ -1,7 +1,8 @@
+////
 [[ats_core_query-param-value-double]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-value-double* 
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-value-double*
 ^|Test Purpose |For every query parameter where the value is an double, validate that the server correctly interprets properly encoded double values.
 ^|Requirement |<<req_core_query-param-value-double,/req/core/query-param-value-double>>
 ^|Test Method |DO FOR ALL query parameters advertised in the API definition where the parameter value is a double value +
@@ -22,3 +23,35 @@
 {nbsp}{nbsp}DONE +
 DONE
 |===
+////
+
+
+[[ats_core_query-param-value-double]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/query-param-value-double
+subject:: <<req_core_query-param-value-double,/req/core/query-param-value-double>>
+test-purpose:: For every query parameter where the value is a double, validate that the server correctly interprets properly encoded double values.
+test-method::
++
+--
+DO FOR ALL query parameters advertised in the API definition where the parameter value is a double value +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a parameter value that is: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) greater than 4,294,967,296 ("e" and exponent required) and +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a parameter value that is: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) less than -4,294,967,296 (without "e" and exponent) and +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) contains at least two factional digits followed by one or more zeros +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the server properly interprets that parameter value +
+{nbsp}{nbsp}{nbsp}{nbsp}5. Generate a request using that parameter and a parameter value that is: +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}a) Less than 4,294,967,296 +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}b) Greater than -4,294,967,295 +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}c) Represented as a single decimal number +
+{nbsp}{nbsp}{nbsp}{nbsp}6. Validate that the server properly interprets that parameter value +
+{nbsp}{nbsp}DONE +
+DONE
+--
+====

@@ -1,23 +1,27 @@
-[appendix]
+[bibliography]
 :appendix-caption: Annex
 [[Bibliography]]
-= Bibliography
+== Bibliography
 
-* [[fielding2000]] Fielding, Roy Thomas: *Architectural Styles and the Design of Network-based Software Architectures*. Doctoral dissertation, University of California, Irvine, 2000, https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf[https://www.ics.uci.edu/fielding/pubs/dissertation/fielding_dissertation.pdf]
-* [[k-and-r-1978]] Kernighan, B., Richie, D.: *The C Programming Language*, Bell Laboratories, 1978 
-* [[link-relations]] IANA: **Link Relation Types**, https://www.iana.org/assignments/link-relations/link-relations.xml
-* [[rfc7230]] Fielding, R., Reschke, J.: **IETF RFC 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing**, https://tools.ietf.org/rfc/rfc7230.txt[https://tools.ietf.org/rfc/rfc7230.txt]
-* [[rfc7235]] Fielding, R., Reschke, J.: **IETF RFC 7235, Hypertext Transfer Protocol (HTTP/1.1): Authentication**, https://tools.ietf.org/rfc/rfc7235.txt[https://tools.ietf.org/rfc/rfc7235.txt]
-* [[rfc7538]] Reschke, J.: **IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)**, https://tools.ietf.org/rfc/rfc7538.txt[https://tools.ietf.org/rfc/rfc7538.txt]
-* [[iso15836-2]] ISO 15836-2:2019, *Information and documentation — The Dublin Core metadata element set — Part 2: DCMI Properties and classes*
-* [[jschema]] json-schema-org: *JSON Schema,* September 2019, https://json-schema.org/specification.html
-* [[bnf-citation]] ISO/IEC 14977:1996(E) *Information technology – Syntactic metalanguage – Extended BNF*, available from https://standards.iso.org/ittf/PubliclyAvailableStandards/s026153_ISO_IEC_14977_1996(E).zip[ISO].
-* [[ogc-06-121]] Whiteside, A., Greenwood, J.: **OGC Web Services Common Standard**, version 2.0, http://portal.opengeospatial.org/files/?artifact_id=38867[OGC 06-121r9]
-* [[ogc08-131]] Open Geospatial Consortium: **The Specification Model -- A Standard for Modular specifications**, https://portal.opengeospatial.org/files/?artifact_id=34762[OGC 08-131]
-* [[schema_org]]**Schema.org**: http://schema.org/docs/schemas.html[http://schema.org/docs/schemas.html]
-* [[WEBARCH]] W3C: **Architecture of the World Wide Web, Volume One**, W3C Recommendation, 15 December 2004, https://www.w3.org/TR/webarch/
-* [[DCAT]] W3C: **Data Catalog Vocabulary (DCAT) - Version 2**, W3C Recommendation, 04 February 2020, https://www.w3.org/TR/vocab-dcat-2/
-* [[DWBP]] W3C: **Data on the Web Best Practices**, W3C Recommendation, 31 January 2017, https://www.w3.org/TR/dwbp/
-* [[SDWBP]] W3C/OGC: **Spatial Data on the Web Best Practices**, W3C Working Group Note, 28 September 2017, https://www.w3.org/TR/sdw-bp/
-* [[html5]] W3C: **HTML5, W3C Recommendation**, http://www.w3.org/TR/html5/[http://www.w3.org/TR/html5/]
-* [[xmlschema-part2]] W3C Recommendation: **XML Schema Part 2: Datatypes Second Edition**, 28 October 2004, https://www.w3.org/TR/xmlschema-2/[https://www.w3.org/TR/xmlschema-2/]
+////
+* [[[[OGC2015,OGCTB12]]], _OGC: OGC Testbed 12 Annex B: Architecture_ (2015).
+////
+
+* [[[fielding2000,1]]], Fielding, Roy Thomas: *Architectural Styles and the Design of Network-based Software Architectures*. Doctoral dissertation, University of California, Irvine, 2000, https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf[https://www.ics.uci.edu/fielding/pubs/dissertation/fielding_dissertation.pdf]
+* [[[k-and-r-1978,2]]], Kernighan, B., Richie, D.: *The C Programming Language*, Bell Laboratories, 1978
+* [[[link-relations,3]]], IANA: **Link Relation Types**, https://www.iana.org/assignments/link-relations/link-relations.xml
+* [[[rfc7230,4]]], Fielding, R., Reschke, J.: **IETF RFC 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing**, https://tools.ietf.org/rfc/rfc7230.txt[https://tools.ietf.org/rfc/rfc7230.txt]
+* [[[rfc7235,5]]], Fielding, R., Reschke, J.: **IETF RFC 7235, Hypertext Transfer Protocol (HTTP/1.1): Authentication**, https://tools.ietf.org/rfc/rfc7235.txt[https://tools.ietf.org/rfc/rfc7235.txt]
+* [[[rfc7538,6]]], Reschke, J.: **IETF RFC 7538, The Hypertext Transfer Protocol Status Code 308 (Permanent Redirect)**, https://tools.ietf.org/rfc/rfc7538.txt[https://tools.ietf.org/rfc/rfc7538.txt]
+* [[[iso15836-2,7]]], ISO 15836-2:2019, *Information and documentation — The Dublin Core metadata element set — Part 2: DCMI Properties and classes*
+* [[[jschema,8]]], json-schema-org: *JSON Schema,* September 2019, https://json-schema.org/specification.html
+* [[[bnf-citation,9]]], ISO/IEC 14977:1996(E) *Information technology – Syntactic metalanguage – Extended BNF*, available from https://standards.iso.org/ittf/PubliclyAvailableStandards/s026153_ISO_IEC_14977_1996(E).zip[ISO].
+* [[[ogc-06-121,10]]], Whiteside, A., Greenwood, J.: **OGC Web Services Common Standard**, version 2.0, http://portal.opengeospatial.org/files/?artifact_id=38867[OGC 06-121r9]
+* [[[ogc08-131,11]]], Open Geospatial Consortium: **The Specification Model -- A Standard for Modular specifications**, https://portal.opengeospatial.org/files/?artifact_id=34762[OGC 08-131]
+* [[[schema_org,12]]], Schema.org: http://schema.org/docs/schemas.html[http://schema.org/docs/schemas.html]
+* [[[WEBARCH,13]]], W3C: **Architecture of the World Wide Web, Volume One**, W3C Recommendation, 15 December 2004, https://www.w3.org/TR/webarch/
+* [[[DCAT,14]]], W3C: **Data Catalog Vocabulary (DCAT) - Version 2**, W3C Recommendation, 04 February 2020, https://www.w3.org/TR/vocab-dcat-2/
+* [[[DWBP,15]]], W3C: **Data on the Web Best Practices**, W3C Recommendation, 31 January 2017, https://www.w3.org/TR/dwbp/
+* [[[SDWBP,16]]], W3C/OGC: **Spatial Data on the Web Best Practices**, W3C Working Group Note, 28 September 2017, https://www.w3.org/TR/sdw-bp/
+* [[[html5,17]]], W3C: **HTML5, W3C Recommendation**, http://www.w3.org/TR/html5/[http://www.w3.org/TR/html5/]
+* [[[xmlschema-part2,18]]], W3C Recommendation: **XML Schema Part 2: Datatypes Second Edition**, 28 October 2004, https://www.w3.org/TR/xmlschema-2/[https://www.w3.org/TR/xmlschema-2/]

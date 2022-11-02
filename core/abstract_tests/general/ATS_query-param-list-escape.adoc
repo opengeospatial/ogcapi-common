@@ -1,7 +1,8 @@
+////
 [[ats_core_query-param-list-escape]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-list-escape* 
+^|*Abstract Test {counter:ats-id}* |*/conf/core/query-param-list-escape*
 ^|Test Purpose |For every query parameter where the value may be a list, validate that all escaped space and comma characters that appear in the values are properly processed.
 ^|Requirement |<<req_core_query-param-list-escape,/req/core/query-param-list-escape>>
 ^|Test Method |DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
@@ -15,3 +16,27 @@
 {nbsp}{nbsp}DONE +
 DONE
 |===
+////
+
+[[ats_core_query-param-list-escape]]
+[abstract_test]
+====
+[%metadata]
+label:: /conf/core/query-param-list-escape
+subject:: <<req_core_query-param-list-escape,/req/core/query-param-list-escape>>
+test-purpose:: For every query parameter where the value may be a list, validate that all escaped space and comma characters that appear in the values are properly processed.
+test-method::
++
+--
+DO FOR ALL query parameters advertised in the API definition where the parameter value can be a list +
+{nbsp}{nbsp}DO FOR ALL operations for which that parameter is valid +
+{nbsp}{nbsp}{nbsp}{nbsp}1. Generate a request using that parameter and a value that +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}includes an escaped space or comma +
+{nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value +
+{nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a value that +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}includes an non-escaped space or comma +
+{nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the server returns a status code `400` +
+{nbsp}{nbsp}DONE +
+DONE
+--
+====

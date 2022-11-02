@@ -1,0 +1,24 @@
+[[rc_core]]
+////
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+|Target type
+|Web API
+|Dependency |<<rfc7231,RFC 7231 (HTTP/1.1)>>
+|Dependency |<<rfc2818,RFC 2818 (HTTP over TLS)>>
+|Dependency |<<rfc8288,RFC 8288 (Web Linking)>>
+|===
+////
+
+
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+subject:: Web API
+inherit:: <<rfc7231,RFC 7231 (HTTP/1.1)>>
+inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
+inherit:: <<rfc8288,RFC 8288 (Web Linking)>>
+====

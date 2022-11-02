@@ -4,7 +4,9 @@
 
 The following table discusses how this standard addresses the design principles documented in the https://github.com/opengeospatial/OGC-Web-API-Guidelines[OGC Web API Guidelines].
 
-[cols = "^1,^2,8",frame = "all",grid = "all"]
+[#web-api-guidelines,reftext='{table-caption} {counter:table-num}']
+.OGC Web API Guidelines
+[cols = "^1,^2,8",frame = "all",grid = "all",options="header"]
 |===
 |*#* |*Principle* ^|*Discussion*
 |1 |*Don’t reinvent* |Great care was taken in the development of this standard to only address capabilities that were not already standardized and to define how the needed capabilites integrate into a single API.

@@ -1,4 +1,5 @@
 [[ats_landing-page_api-definition-success]]
+////
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/landing-page/api-definition-success*
@@ -6,3 +7,17 @@
 ^|Requirement |<<req_landing-page_api-definition-success,/req/landing-page/api-definition-success>>
 ^|Test Method |Validate the API Definition document against an appropriate schema document.
 |===
+////
+
+[abstract_test]
+====
+[%metadata]
+label:: /conf/landing-page/api-definition-success
+subject:: <<req_landing-page_api-definition-success,/req/landing-page/api-definition-success>>
+test-purpose:: Validate that the API Definition complies with the required structure and contents.
+test-method::
++
+--
+Validate the API Definition document against an appropriate schema document.
+--
+====
