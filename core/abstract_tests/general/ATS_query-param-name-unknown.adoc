@@ -16,7 +16,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/query-param-name-unknown
+identifier:: /conf/core/query-param-name-unknown
 subject:: <<req_core_query-param-name-unknown,/req/core/query-param-name-unknown>>
 test-purpose:: Validate that an error is returned when a query parameter is used that has not been specified in the API definition.
 test-method::

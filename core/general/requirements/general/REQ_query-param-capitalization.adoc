@@ -13,7 +13,7 @@ the upper case hexadecimal digits ("A" through "F") of that percent encoded char
 [requirement]
 ====
 [%metadata]
-label:: /req/core/query-param-capitalization
+identifier:: /req/core/query-param-capitalization
 part:: Parameter names and values SHALL be case sensitive.
 part::
 IF a parameter name or value includes a percent encoded (escaped) character, +

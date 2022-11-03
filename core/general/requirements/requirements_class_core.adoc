@@ -16,7 +16,7 @@
 [requirements_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+identifier:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
 subject:: Web API
 inherit:: <<rfc7231,RFC 7231 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>

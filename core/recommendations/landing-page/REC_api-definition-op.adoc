@@ -14,7 +14,7 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/landing-page/api-definition-op
+identifier:: /rec/landing-page/api-definition-op
 part:: The server SHOULD support the HTTP GET operation on the URI
 `{root}/api`.
 part:: The response to the HTTP GET request issued in `A` SHOULD satisfy requirement <<req_landing-page_api-definition-success,/req/landing-page/api-definition-success>>.

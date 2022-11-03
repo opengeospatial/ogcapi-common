@@ -20,7 +20,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/query-param-name-known
+identifier:: /conf/core/query-param-name-known
 subject:: <<req_core_query-param-name-unknown,/req/core/query-param-name-known>>
 test-purpose:: Validate that a query parameter advertised through the API complies with its' advertised behavior.
 test-method::

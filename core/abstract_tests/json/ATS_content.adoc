@@ -14,7 +14,7 @@
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/json/content
+identifier:: /conf/json/content
 subject:: <<req_json_content,/req/json/content>>
 test-purpose:: Verify the content of a JSON document given an input document and schema.
 test-method::

@@ -28,7 +28,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/query-param-value-decimal
+identifier:: /conf/core/query-param-value-decimal
 subject:: <<req_core_query-param-value-decimal,/req/core/query-param-value-decimal>>
 test-purpose:: For every query parameter where the value is an decimal, validate that the server correctly interprets properly encoded decimal values.
 test-method::

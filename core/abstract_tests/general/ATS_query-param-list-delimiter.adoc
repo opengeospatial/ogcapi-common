@@ -25,7 +25,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/query-param-list-delimiter
+identifier:: /conf/core/query-param-list-delimiter
 subject:: <<req_core_query-param-list-delimiter,/req/core/query-param-list-delimiter>>
 test-purpose:: For every query parameter where the value may be a list, validate that the server uses the designated delimiter to parse the items from the list.
 test-method::

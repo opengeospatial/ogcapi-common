@@ -16,7 +16,7 @@ SHALL include, or link to, a payload encoded according to the  link:https://tool
 [requirement]
 ====
 [%metadata]
-label:: /req/json/content
+identifier:: /req/json/content
 part::
 Every request to a <<landing-page,Landing Page>> or <<conformance-classes,Conformance>> resource which:
 

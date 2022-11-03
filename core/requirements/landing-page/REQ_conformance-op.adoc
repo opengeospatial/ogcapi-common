@@ -12,7 +12,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/landing-page/conformance-op
+identifier:: /req/landing-page/conformance-op
 part:: The server SHALL support the HTTP GET operation on the URI `{root}/conformance`.
 part:: The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `http://www.opengis.net/def/rel/ogc/1.0/conformance`.
 part:: The responses to all HTTP GET requests issued in `A` and `B` SHALL satisfy requirement <<req_landing-page_conformance-success,/req/landing-page/conformance-success>>.

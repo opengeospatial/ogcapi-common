@@ -12,7 +12,7 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/core/query-param-capitalization
+identifier:: /rec/core/query-param-capitalization
 part:: Query parameter names SHOULD be in <<kebab-case-definition,kebab case>>.
 part:: Query parameter values are usually reflective of the internal structure of the target resource. Unless otherwise specified, these values SHOULD be in <<kebab-case-definition,kebab case>>.
 ====

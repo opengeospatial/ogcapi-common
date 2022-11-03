@@ -24,7 +24,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/landing-page/conformance-op
+identifier:: /conf/landing-page/conformance-op
 subject:: <<req_landing-page_conformance-op,/req/landing-page/conformance-op>> +
 <<req_landing-page_conformance-success,/req/landing-page/conformance-success>>
 test-purpose:: Validate that a Conformance Declaration can be retrieved from the expected locations.

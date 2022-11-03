@@ -16,7 +16,7 @@ Examples of a parameter range include:
 [recommendation]
 ====
 [%metadata]
-label:: /per/core/query-param-name-specified
+identifier:: /per/core/query-param-name-specified
 part::
 The specification of a query parameter in the API definition MAY encompass a [underline]#range# of parameter names. Any query parameter that falls within the specified range can be considered "specified" in the API definition.
 

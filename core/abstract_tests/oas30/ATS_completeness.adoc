@@ -13,7 +13,7 @@
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/oas30/completeness
+identifier:: /conf/oas30/completeness
 subject:: <<req_oas30_completeness,/req/oas30/completeness>>
 test-purpose:: Verify the completeness of an OpenAPI document.
 test-method::

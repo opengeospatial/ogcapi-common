@@ -15,7 +15,7 @@
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/landing-page/root-op
+identifier:: /conf/landing-page/root-op
 subject:: <<req_landing-page_root-op,/req/landing-page/root-op>> +
 <<req_landing-page_root-success,/req/landing-page/root-success>>
 test-purpose:: Validate that a landing page can be retrieved from the expected location.

@@ -15,7 +15,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/landing-page/root-success
+identifier:: /req/landing-page/root-success
 part:: A successful execution of the operation SHALL be reported as a response with an HTTP status code `200`.
 part::
 The content of that response SHALL be based upon the schema link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml] and include links to the following resources:

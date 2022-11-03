@@ -11,7 +11,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/query-param-list-delimiter
+identifier:: /req/core/query-param-list-delimiter
 part:: Parameters values containing lists SHOULD specify the delimiter to be used in the API definition.
 part:: The default list item delimiter SHALL be the comma (",").
 ====

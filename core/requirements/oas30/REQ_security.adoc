@@ -10,6 +10,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/oas30/security
+identifier:: /req/oas30/security
 part:: If the operations of the API are access-controlled, the security scheme(s) and requirements SHALL be documented in the OpenAPI definition.
 ====

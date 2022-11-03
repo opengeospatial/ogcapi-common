@@ -10,6 +10,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/query-param-value-integer
+identifier:: /req/core/query-param-value-integer
 part:: Integer values SHALL be represented by a finite-length sequence of decimal digits with an optional leading negative "-" sign. Positive values are assumed if the leading sign is omitted.
 ====

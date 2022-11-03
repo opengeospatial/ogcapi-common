@@ -12,9 +12,8 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/landing-page/api-definition-op
+identifier:: /req/landing-page/api-definition-op
 part:: The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `service-desc`.
 part:: The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `service-doc`.
 part:: The responses to all HTTP GET requests issued in `A` and `B` SHALL satisfy requirement <<req_landing-page_api-definition-success,/req/landing-page/api-definition-success>>.
 ====
-

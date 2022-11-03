@@ -19,7 +19,7 @@ For formats that require manual inspection, perform the following:
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/landing-page/root-success
+identifier:: /conf/landing-page/root-success
 subject:: <<req_landing-page_root-success,/req/landing-page/root-success>>
 test-purpose:: Validate that the landing page complies with the required structure and contents.
 test-method::

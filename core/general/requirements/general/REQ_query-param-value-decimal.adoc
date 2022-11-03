@@ -16,7 +16,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/query-param-value-decimal
+identifier:: /req/core/query-param-value-decimal
 part::
 Decimal values SHALL be represented by a finite-length sequence of decimal digits separated by a period as a decimal indicator.
 

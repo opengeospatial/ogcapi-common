@@ -11,7 +11,7 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/landing-page/service-metadata
+identifier:: /rec/landing-page/service-metadata
 description:: A Web API SHOULD provide service metadata.
 part:: A Web API service SHOULD provide one or more service metadata resources accessible by an HTTP GET operation.
 part:: The landing page for a Web API service SHOULD provide links to the service metadata resources using the relation type ``service-meta``.

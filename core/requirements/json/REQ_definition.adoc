@@ -10,6 +10,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/json/definition
+identifier:: /req/json/definition
 part:: `200`-responses of the server SHALL support the `application/json` media type for the <<landing-page,Landing Page>> and <<conformance-classes,Conformance>> resources.
 ====

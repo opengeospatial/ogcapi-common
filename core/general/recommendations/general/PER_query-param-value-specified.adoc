@@ -14,7 +14,7 @@
 [recommendation]
 ====
 [%metadata]
-label:: /per/core/query-param-value-specified
+identifier:: /per/core/query-param-value-specified
 part:: The specification of a query parameter in the API definition should include a definition of the valid values for that parameter. Any value that meets that criteria can be considered "specified" in the API definition.
 part::
 The API definition language chosen may not be capable of expressing the desired range of values. In that case the server SHOULD provide:

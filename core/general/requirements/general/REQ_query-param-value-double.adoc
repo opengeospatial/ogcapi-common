@@ -15,7 +15,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/query-param-value-double
+identifier:: /req/core/query-param-value-double
 part:: Double values SHALL be represented by a mantissa followed, optionally, by the character "e", followed by an exponent.
 part:: The exponent SHALL be an integer.
 part:: The mantissa SHALL be a decimal number.

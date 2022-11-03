@@ -20,7 +20,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/query-param-name-invalid
+identifier:: /conf/core/query-param-name-invalid
 subject:: <<req_core_query-param-name-invalid,/req/core/query-param-name-invalid>>
 test-purpose:: Validate that an error is returned when a query parameter contains a value that is not valid for that parameter.
 test-method::

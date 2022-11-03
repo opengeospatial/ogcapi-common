@@ -18,7 +18,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/query-param-list-empty
+identifier:: /conf/core/query-param-list-empty
 subject:: <<req_core_query-param-list-empty,/req/core/query-param-list-empty>>
 test-purpose:: For every query parameter where the value may be a list, validate that the server interprets an empty string as an empty list.
 test-method::

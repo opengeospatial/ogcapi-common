@@ -11,6 +11,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/html/definition
+identifier:: /req/html/definition
 part:: `200`-responses of the server SHALL support the `text/html` media type for the <<landing-page,Landing Page>> and <<conformance-classes,Conformance>> resources.
 ====

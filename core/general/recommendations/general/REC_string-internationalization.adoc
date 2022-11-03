@@ -10,6 +10,6 @@
 [recommendation]
 ====
 [%metadata]
-label:: /rec/core/string-i18n
+identifier:: /rec/core/string-i18n
 part:: For encodings that support string internationalization, the server SHOULD include information about the language for each string value that includes linguistic text.
 ====

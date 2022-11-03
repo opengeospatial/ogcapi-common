@@ -16,7 +16,7 @@
 [requirements_class]
 ====
 [%metadata]
-label:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json
+identifier:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/json
 subject:: Web API
 inherit:: <<rc_landing-page,Landing Page Requirements Class>>
 inherit:: <<rfc8259,IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format>>

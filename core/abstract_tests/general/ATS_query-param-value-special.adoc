@@ -38,7 +38,7 @@ DONE
 [abstract_test]
 ====
 [%metadata]
-label:: /conf/core/query-param-value-special
+identifier:: /conf/core/query-param-value-special
 subject:: <<req_core_query-param-value-special,/req/core/query-param-value-special>>
 test-purpose:: Validate for every query parameter where the value is a numeric: +
 {nbsp}{nbsp}**In the case of a client**: that the values for special case numerics are represented as follows: +

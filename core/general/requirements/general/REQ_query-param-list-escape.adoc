@@ -10,6 +10,6 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/query-param-list-escape
+identifier:: /req/core/query-param-list-escape
 part:: Any list item values that include a space or comma SHALL escape the space or comma character using the URI encoding rules from <<rfc3986,IETF RFC 3986>>
 ====

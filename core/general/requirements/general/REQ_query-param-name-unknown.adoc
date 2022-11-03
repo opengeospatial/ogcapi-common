@@ -14,7 +14,7 @@
 [requirement]
 ====
 [%metadata]
-label:: /req/core/query-param-name-unknown
+identifier:: /req/core/query-param-name-unknown
 part::
 The server SHALL return a response with the status code `400` IF
 
