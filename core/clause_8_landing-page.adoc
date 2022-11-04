@@ -4,7 +4,7 @@
 
 include::requirements/requirements_class_landing-page.adoc[]
 
-The Landing Page Requirements Class of the API-Common Core Standard describes how the `Landing Page` and its associated resources are accessed through an OGC conformant Web API.
+The Landing Page Requirements Class of the OGC API - Common - Part 1: Core Standard describes how the `Landing Page` and its associated resources are accessed through an OGC conformant Web API.
 
 The Landing Page resources are introduced in <<lp-resources-table>>. The requirements and recommendations applicable to these resources are provided in the sections below.
 
@@ -45,7 +45,7 @@ include::openapi/schemas/landingPage.yaml[]
 
 In addition to the required resources, links to additional resources may be included in the Landing Page.
 
-Examples of OGC landing pages are provided in <<landing-page-examples>>.
+Examples of OGC API landing pages are provided in <<landing-page-examples>>.
 
 A JSON schema for the Landing Page resource can be found on the link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[OGC Schema Repository].
 
@@ -99,7 +99,7 @@ The Conformance Declaration returned by this operation is based on the following
 [source, YAML]
 include::openapi/schemas/confClasses.yaml[]
 
-A JSON schema for the Landing Page resource can be found on the link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[OGC Schema Repository]. 
+A JSON schema for the Landing Page resource can be found on the link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[OGC Schema Repository].
 
 Examples of OGC Conformance Declarations are provided in <<conformance-response-examples>>.
 

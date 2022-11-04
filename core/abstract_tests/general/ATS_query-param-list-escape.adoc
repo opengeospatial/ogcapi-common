@@ -34,7 +34,7 @@ DO FOR ALL query parameters advertised in the API definition where the parameter
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}includes an escaped space or comma +
 {nbsp}{nbsp}{nbsp}{nbsp}2. Validate that the server properly interprets that parameter value +
 {nbsp}{nbsp}{nbsp}{nbsp}3. Generate a request using that parameter and a value that +
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}includes an non-escaped space or comma +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}includes a non-escaped space or comma +
 {nbsp}{nbsp}{nbsp}{nbsp}4. Validate that the server returns a status code `400` +
 {nbsp}{nbsp}DONE +
 DONE

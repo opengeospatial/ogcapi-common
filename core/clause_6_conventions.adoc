@@ -24,7 +24,7 @@ The <<WEBARCH,Architecture of the World Wide Web>> establishes the URI as the si
 
 In accordance with OGC policy, only the <<url-definition,Uniform Resource Locator (URL)>> form of URIs is used.
 
-The normative provisions in this draft standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`. All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
+The normative provisions in this standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-1/1.0`. All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
 
 <<resource-definition,Resources>> described in this document are denoted by partial URIs that are relative to the `root` node of the API. This node serves as the head of the resource tree exposed through an API. In OpenAPI, the root node is identified by the `url` field of the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#server-object[Server Object]. In this document the tag `{root}` designates the root node of a URI.
 
@@ -88,7 +88,7 @@ This document does not restrict the lexical space of URIs used in the API beyond
 
 NOTE: OGC Web API standards may include a community-defined identifier as part of a URI (for example: image id or feature id). Definition of the format of those identifiers is out of scope for these standards. Implementers should take care that these identifiers are properly encoded (see <<rfc3986,RFC 3986>>) in the URIs for all hosted resources.
 
-Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#identifiers-section[OGC API - Common Users Guide].
+Additional information on this topic is provided in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#identifiers-section[OGC API - Common - Users Guide].
 
 [[link-conventions]]
 === Links
@@ -107,7 +107,7 @@ In addition, links should be passed in the response using HTTP link headers. The
 
 include::general/recommendations/general/REC_link-header.adoc[]
 
-Additional information on this topic is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#links-section[OGC API - Common Users Guide].
+Additional information on this topic is provided in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#links-section[OGC API - Common - Users Guide].
 
 [[link-relation-conventions]]
 === Link relations
@@ -118,7 +118,7 @@ Link relation types are expressed using the "rel" property from the link:http://
 
 The "rel" property is populated using values from the https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA Link Relations Registry] wherever possible. Additional values are registered with the http://www.opengis.net/def/rel[OGC Link Relation Registry]. Additional relation type values can be used if neither of these registers suffice.
 
-The link relationships used in API-Common Core are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
+The link relationships used in the OGC API - Common - Part 1: Core standard are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
@@ -140,7 +140,7 @@ API definitions are considered service descriptions.
 |`service-meta`|Identifies general metadata for the context that is primarily intended for consumption by machines. [IANA]
 |===
 
-Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#link-relations-section[OGC API - Common Users Guide].
+Additional information on the use of link relationships is provided in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#link-relations-section[OGC API - Common - Users Guide].
 
 [[https-conventions]]
 === Use of HTTPS
@@ -149,16 +149,16 @@ For simplicity, this OGC Standard only refers to the HTTP protocol. This is not 
 
 OGC Web API standards do not prohibit the use of any valid HTTP option. However, implementers should be aware that optional capabilities that are not in common use could be an impediment to interoperability.
 
-Additional information on the use of HTTPS to secure API transactions is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#https-section[OGC API - Common Users Guide].
+Additional information on the use of HTTPS to secure API transactions is provided in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#https-section[OGC API - Common - Users Guide].
 
 [[api-definition-conventions]]
 === API definition
 
 ==== General remarks
 
-This OGC standard specifies requirements and recommendations for the development of APIs that share spatial resources while using a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
+This OGC standard specifies requirements and recommendations for the development of APIs that share spatial resources while using a standard way of doing so. In general, APIs will go beyond the requirements and recommendations stated in this standard. They will support additional operations, parameters, and so on, that are specific to the API or the software tool used to implement the API.
 
-So that client developers can more easily learn how to use the API, good documentation is essential. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. The used of OpenAPI is one way to provide that machine readable documentation.
+So that client developers can more easily learn how to use the API, good documentation is essential. In the best case, documentation would be available both in HTML for human consumption and in a machine-readable format that can be processed by software for run-time binding. The use of OpenAPI is one way to provide that machine-readable documentation.
 
 ==== Role of OpenAPI
 
@@ -183,4 +183,4 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0].
 
-Additional information on the use of OpenAPI as an API definition is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#openapi-section[OGC API - Common Users Guide].
+Additional information on the use of OpenAPI as an API definition is provided in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#openapi-section[OGC API - Common - Users Guide]

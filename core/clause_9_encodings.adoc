@@ -16,7 +16,7 @@ Neither of these encodings are mandatory. An implementation of the OGC API - Com
 Geographic information that is only accessible in formats such as GeoJSON or GML have two issues when web application principles are considered:
 
 * The data are not discoverable using Web crawlers and search engines,
-* The data can not be viewed directly in a browser - additional tools are required to view the data.
+* The data cannot be viewed directly in a browser - additional tools are required to view the data.
 
 Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, this publication should be done in a way that enables users and search engines to discover and access all of the data.
 
@@ -33,7 +33,7 @@ include::recommendations/html/REC_schema-org.adoc[]
 [[rc_json-section]]
 === Requirement Class "JSON"
 
-JSON is a lightweight data-interchange format desiged to facilitate structured data interchange between applications. JSON is commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format. Therefore support for JSON is recommended for machine-to-machine interactions.
+JSON is a lightweight data-interchange format designed to facilitate structured data interchange between applications. JSON is commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format. Therefore, support for JSON is recommended for machine-to-machine interactions.
 
 include::requirements/requirements_class_json.adoc[]
 
