@@ -10,7 +10,7 @@ OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP arch
 
 The OGC API - Common Standard specifies common modules for defining OGC Web API standards that follow the current Web architecture. In particular, the recommendations as defined in the <<SDWBP,W3C/OGC best practices for sharing Spatial Data on the Web>> as well as the <<DWBP,W3C best practices for sharing Data on the Web>>.
 
-A detailed discussion of OGC Web Services and Web APIs can be found in the http://docs.opengeospatial.org/DRAFTS/20-071.html#ug-evolution-from-web-services[OGC API Common Users Guide].
+A detailed discussion of OGC Web Services and Web APIs can be found in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#ug-evolution-from-web-services[OGC API - Common - Users Guide].
 
 [[modular-API-introduction]]
 === Modular APIs
@@ -25,7 +25,7 @@ The modular Web API approach adopted by OGC API Standards has several facets:
 * Technologies that change more frequently are decoupled and specified in separate modules ("conformance classes" in OGC terminology). This enables, for example, the use/re-use of new encodings for spatial data or API descriptions.
 * Modularization is not just about a single "service". OGC APIs provide building blocks that can be reused in APIs in general. In other words, a server that implements the OGC API – Features Standard should not be seen as a standalone service. Rather, this server should be viewed as a collection of API building blocks that together implement the capabilities that are specified in OGC API - Features. A corollary of this is that it should be possible to implement an API that simultaneously conforms to conformance classes from multiple current or future OGC API Standards.
 
-A more detailed discussion of modular APIs can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#modular-api[OGC API - Common Users Guide].
+A more detailed discussion of modular APIs can be found in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#modular-api[OGC API - Common - Users Guide].
 
 [[using-api-introduction]]
 === Using APIs
@@ -36,4 +36,4 @@ In the first approach, clients are implemented with knowledge about the standard
 
 The other approach targets developers that are not familiar with OGC API Standards but want to interact with spatial data provided by an API that happens to implement OGC API Standards. In this case the developer will study and use the API definition - typically an OpenAPI document - to understand the API and implement the code to interact with that API. This assumes familiarity with the API definition language and the related tooling, but it should not be necessary to study the OGC API standards.
 
-A more detailed discussion of navigating Web APIs can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#api-navigation[OGC API - Common Users Guide].
+A more detailed discussion of navigating Web APIs can be found in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#api-navigation[OGC API - Common - Users Guide].
