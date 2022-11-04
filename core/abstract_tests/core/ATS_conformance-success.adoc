@@ -21,6 +21,6 @@ test-method::
 +
 --
 . Validate the response document against the schema link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[confClasses.yaml]
-. Validate that the document list all OGC API conformance classes that the API implements.
+. Validate that the document lists all OGC API conformance classes that the API implements.
 --
 ====

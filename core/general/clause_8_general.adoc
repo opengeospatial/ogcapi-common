@@ -66,7 +66,7 @@ include::requirements/general/REQ_query-param-value-invalid.adoc[]
 
 The criteria for a parameter value to be considered "invalid" varies with the expressiveness of the API definition language used and the ability of the API server to tolerate errors.
 
-A service implementer should endeavour to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement to list every possible value that each query parameter might accept. Rather, the API implementation should include a reasonable degree of error recovery.
+A service implementer should endeavor to provide as much detail in the server's API definition as the API definition language allows. However, there is no requirement to list every possible value that each query parameter might accept. Rather, the API implementation should include a reasonable degree of error recovery.
 
 include::recommendations/general/PER_query-param-value-specified.adoc[]
 
@@ -123,9 +123,9 @@ Requirement <<req_core_http,``/req/core/http``>> implies that the encoding of a 
 
 The section <<mediatypes-section,Media Types>> includes guidance on media types for <<rc_encoding-section,encodings>> that are specified in this document.
 
-Note that any server that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, such as, to alternate representations of the same resource. This Standard does not mandate any particular approach how this is supported by the server.
+Note that any server that supports multiple encodings will have to support a mechanism to mint encoding-specific URIs for resources in order to express links, such as, to alternate representations of the same resource. This Standard does not mandate any particular approach for how this is supported by the server.
 
-As clients simply need to dereference the URI of the link, the implementation details and the mechanism how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, such as manipulating ("hacking") URIs in the browser address bar, can study the API Definition document for that server.
+As clients simply need to dereference the URI of the link, the implementation details and the mechanism of how the encoding is included in the URI of the link are not important. Developers interested in the approach of a particular implementation, such as manipulating ("hacking") URIs in the browser address bar, can study the API Definition document for that server.
 
 Two common approaches are to use:
 
@@ -137,7 +137,7 @@ Two common approaches are to use:
 
 The following sections provide the requirements and guidelines for encoding parameters for use in an OGC Web API request.
 
-OGC Web API requests are issued using a Uniform Resource Identifier (URI). The URI syntax is defined in <<rfc3986,IETF RFC 3986>>. Rules for building URI Templates can be found in <<rfc6570,IETF RFC 6570>>.
+OGC Web API requests are issued using a URI. The URI syntax is defined in <<rfc3986,IETF RFC 3986>>. Rules for building URI Templates can be found in <<rfc6570,IETF RFC 6570>>.
 
 The Backus-Naur Form (BNF) definition of a URI is provided in Annex <<uri-bnf-annex>>.
 
@@ -168,7 +168,7 @@ include::requirements/general/REQ_query-param-list-escape.adoc[]
 
 include::requirements/general/REQ_query-param-list-empty.adoc[]
 
-Thus, two successive commas indicates an empty item, as does a leading comma or a trailing comma. An empty list can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.
+Thus, two successive commas indicate an empty item, as does a leading comma or a trailing comma. An empty list can either be interpreted as a list containing no items or as a list containing a single empty item, depending on the context.
 
 ==== Numeric and Boolean Values
 

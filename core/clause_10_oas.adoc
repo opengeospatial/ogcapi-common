@@ -1,9 +1,9 @@
 [[rc_oas30-section]]
-== OpenAPI 3.0 Requirements Class 
+== OpenAPI 3.0 Requirements Class
 
 === Basic requirements
 
-APIs conforming to this requirements class are self documenting using an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasDocument[OpenAPI Document].
+APIs conforming to this requirements class are self-documenting using an link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasDocument[OpenAPI Document].
 
 include::requirements/requirements_class_oas30.adoc[]
 
@@ -48,10 +48,10 @@ content:
 
 OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.
 
-Security Requirements can be defined on following levels:
+Security Requirements can be defined at the following levels:
 
 * Root - applicable to the whole API except when overridden by Security Requirements defined at a lower level of the API.
-* Operation - only applicable to this operation. Overrides any requirements defined at the Root level. 
+* Operation - only applicable to this operation. Overrides any requirements defined at the Root level.
 
 The OpenAPI specification currently supports the following link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#security-scheme-object[security schemes]:
 
@@ -65,11 +65,11 @@ include::requirements/oas30/REQ_security.adoc[]
 [[rc_oas30-query-parameter]]
 === Query Parameter Definition
 
-OpenAPI defines query parameters using the `Parameter` object with the `in` property set to "query". The parameter name is a literal value provided by the `name` property. Since the parameter names are literals, each parameter must be described separately. 
+The OpenAPI specification defines query parameters using the `Parameter` object with the `in` property set to "query". The parameter name is a literal value provided by the `name` property. Since the parameter names are literals, each parameter must be described separately.
 
-API-Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition. a requirement that few implementers would accept. 
+OGC API - Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition, a requirement that few implementers would accept.
 
-OpenAPI provides a capability that allows additional parameters to be specified without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will still be considered "specified" for purposes of validation (see <<per_core-query-param-name-specified,/per/core/query-param-name-specified>> and <<per_core-query-param-name-tolerance,/per/core/query-param-name-tolerance>>.
+The OpenAPI specification provides a capability that allows additional parameters to be specified without explicitly declaring them. That is, parameters that have not been explicitly specified in the API definition for the operation will still be considered "specified" for purposes of validation (see <<per_core-query-param-name-specified,/per/core/query-param-name-specified>> and <<per_core-query-param-name-tolerance,/per/core/query-param-name-tolerance>>.
 
 [[schema_free-form]]
 .OpenAPI schema for additional "free-form" query parameters
@@ -98,6 +98,4 @@ In the request URI this would be expressed as `&my_first_parameter=some%20value&
 
 === Further Information
 
-Additional guidance on using OpenAPI in OGC Web API implementations can be found in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#oas30-usage-section[OGC API - Common Users Guide].
-
-
+Additional guidance on using OpenAPI in OGC Web API implementations can be found in the link:http://www.opengis.net/doc/UG/ogcapi-common/1.0#oas30-usage-section[OGC API - Common - Users Guide].
