@@ -1,32 +1,32 @@
 [[oas30-usage-section]]
-=== Using OpenAPI (Informative)
+== Using OpenAPI (Informative)
 
 The following section describes the main components of an OpenAPI document and how they should be used to construct API requests. The authoritative source is the OpenAPI 3.0 standard available https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#oasObject[here].
 
-==== OpenAPI Document (root)
+=== OpenAPI Document (root)
 
 The OpenAPI document (Root) contains descriptive information about the API and serves as the root for the other parts of the document.
 
-==== Paths
+=== Paths
 
 All API resources are accessed through a path. The Paths field of the OpenAPI document defines all of the paths available through this API. The Paths field is a collection of Paths Objects. Each Paths Object includes the URL or URL template for this path, any Server Objects specific to this Path, Parameters which are applicable to this Path, and an Operation Object for each of the HTTP Verbs applicable to this Path.
 
-==== Operations
+=== Operations
 
 Operation Objects provide the details needed to create an HTTP request and response. Specifically, they provide definitions of the request message (including parameters) and all possible responses. In addition, they define any operation specific Server Objects or Security Requirements.
 
-==== Parameters
+=== Parameters
 
-Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its' structure (if needed).  
+Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its structure (if needed).
 
 Parameter Objects can be defined at the following levels:
 
-* Path - applicable to all operations on this path. 
-* Operation - only applicable to this operation. Overrides any parameters defined at the Path level which have the same name. 
+* Path - applicable to all operations on this path.
+* Operation - only applicable to this operation. Overrides any parameters defined at the Path level which have the same name.
 
-==== Servers
+=== Servers
 
-An API is not restricted to a single server. Furthermore, the set of valid servers may be different for different sections of the API. An OpenAPI Server Object describes a single server. Most important, it provides the URL to that server. Server Objects are grouped into arrays. These arrays provide a list of the servers which can be used to access a section of the API.
+An API is not restricted to a single server. Furthermore, the set of valid servers may be different for different sections of the API. An OpenAPI Server Object describes a single server. Most importantly, it provides the URL to that server. Server Objects are grouped into arrays. These arrays provide a list of the servers which can be used to access a section of the API.
 
 .Example Array of Server Objects
 
@@ -39,13 +39,13 @@ servers:
     description: Production server
 ----
 
-Server Objects can be defined on following levels:
+Server Objects can be defined at the following levels:
 
-* Root - applicable to the whole API unless overriden
-* Path - applicable to all operations on this path. Servers defined at the Rool level are still valid.
-* Operation - only applicable to this operation. Overrides any servers defined at the Path or Root level. 
+* Root - applicable to the whole API unless overridden
+* Path - applicable to all operations on this path. Servers defined at the Root level are still valid.
+* Operation - only applicable to this operation. Overrides any servers defined at the Path or Root level.
 
-===== Building URLs
+==== Building URLs
 
 An OpenAPI document can describe a large number of URLs. Extracting all of the URLs is a non-trivial task. The OpenAPI objects used to construct URLs are:
 
@@ -55,11 +55,11 @@ An OpenAPI document can describe a large number of URLs. Extracting all of the U
 
 They are organized as follows:
 
-{Server Object}/{Path Object}/?{Parameters}
+`{Server Object}/{Path Object}/?{Query Parameters}`
 
 Server Objects may be found at the OpenAPI document, Path Object, and Operation Object level. Given this potentially large number of servers, how do you create the valid paths?
 
-We can assume that the authors of a OAS document are not doing it for their personal enjoyment. Therefore, if a Server Object is included, there must be a reason for its' presence. So the Server Objects with the most restrictive scope are the ones we should use.  Clients should look for Server Objects in the following order:
+We can assume that if a Server Object is included, there must be a reason for its presence. So, the Server Objects with the most restrictive scope are the ones we should use.  Clients should look for Server Objects in the following order:
 
 . The Operation Object,
 . Then Path Item,
@@ -93,4 +93,3 @@ The first scope where a Server Object is found dictates the behavior completely.
          DONE
      DONE
  DONE
-

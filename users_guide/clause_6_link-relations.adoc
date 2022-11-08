@@ -1,7 +1,7 @@
 [[link-relations-section]]
-=== Link Relations
+== Link Relations
 
-provides a discussion of link relations, the governing policies and standards, as well as how they should be used.
+This section provides a discussion of link relations, the governing policies and standards, as well as how they should be used.
 
 Links between elements of an OGC API are encoded using the link relation schema provided in <<link-schema>>.
 
@@ -9,14 +9,47 @@ Links between elements of an OGC API are encoded using the link relation schema 
 .Link Schema
 [source,yaml]
 ----
-include::../core/openapi/schemas/link.yaml[]
+type: object
+required:
+  - href
+  - rel
+properties:
+  href:
+    type: string
+    description: Supplies the URI to a remote resource (or resource fragment).
+    example: http://data.example.com/buildings/123
+  rel:
+    type: string
+    description: The type or semantics of the relation.
+    example: alternate
+  type:
+    type: string
+    description: A hint indicating what the media type of the result of dereferencing the link should be.
+    example: application/geo+json
+  hreflang:
+    type: string
+    description: A hint indicating what the language of the result of dereferencing the link should be.
+    example: en
+  title:
+    type: string
+    description: Used to label the destination of a link such that it can be used as a human-readable identifier.
+    example: Trierer Strasse 70, 53115 Bonn
+  length:
+    type: integer
 ----
+
+[[relation-attributes-section]]
+=== Attributes of Link Relations
+
+The attributes supported by link relations are presented in this subsection.
 
 ==== Href Attribute
 
 The `href` attribute is mandatory.
 
-"The Locator Attribute (href) supplies the data that allows an application to find a remote resource or resource fragment. The value of this attribute is an IRI which servers as the Uniform Resource Identifier for the remote resource." (W3C XLink Version 1.1)
+"The Locator Attribute (href) supplies the data that allows an application to find a remote resource or resource fragment. The value of this attribute is an Internationalized Resource Identifier (IRI) which serves as the Uniform Resource Identifier for the remote resource." (W3C XLink Version 1.1)
+
+NOTE: An IRI is a sequence of characters from the Universal Character Set (Unicode/ISO 10646).  A mapping from IRIs to URIs is defined, which means that IRIs can be used instead of URIs, where appropriate, to identify resources. (RFC 3987)
 
 ==== Rel Attribute
 
@@ -30,13 +63,11 @@ Relation types are not to be confused with media types [RFC2046]; they do not id
 
 Relation types SHOULD NOT infer any additional semantics based upon the presence or absence of another link relation type, or its own cardinality of occurrence.  An exception to this is the combination of the "alternate" and "stylesheet" registered relation types, which has special meaning in HTML for historical reasons.
 
-There are two kinds of relation types: registered and extension." (RFC8288)
-
-Relation types are discussed in more detail in <<relation-type-section,Relation Types>>.
+There are two kinds of relation types: registered and extension." (RFC 8288)
 
 ==== Type Attribute
 
-The `type` attribute is optional
+The `type` attribute is optional.
 
 "The "type" attribute, when present, is a hint indicating what the media type of the result of dereferencing the link should be.  Note that this is only a hint; for example, it does not override the
 Content-Type header field of a HTTP response obtained by actually following the link.  The type attribute MUST NOT appear more than once in a given link-value; occurrences after the first MUST be ignored by parsers." (RFC8288)
@@ -51,7 +82,7 @@ The `hreflang` attribute is optional.
 
 The `title` attribute is optional.
 
-"The "title" attribute, when present, is used to label the destination of a link such that it can be used as a human-readable identifier (e.g., a menu entry) in the language indicated by the Content-Language header field (if present).  The title attribute MUST NOT appear more than once in a given link; occurrences after the first MUST be ignored by parsers." (RFC8288)
+"The "title" attribute, when present, is used to label the destination of a link such that it can be used as a human-readable identifier (e.g., a menu entry) in the language indicated by the Content-Language header field (if present).  The title attribute MUST NOT appear more than once in a given link; occurrences after the first MUST be ignored by parsers." (RFC 8288)
 
 ==== Length Attribute
 
@@ -60,7 +91,7 @@ The `length` attribute does not appear to be defined in the normative standards.
 [[relation-type-section]]
 === Relation Types
 
-There are two kinds of relation types; registered and extension. 
+There are two kinds of relation types; registered and extension.
 
 Registered relation types are registered in the IANA register at https://www.iana.org/assignments/link-relations/link-relations.xhtml[https://www.iana.org/assignments/link-relations/link-relations.xhtml]. Registered relation types are used in OGC API standards whenever appropriate.
 
@@ -72,4 +103,4 @@ When extension relation types are compared, they MUST be compared as strings (af
 
 Note that while extension relation types are required to be URIs, a serialisation of links can specify that they are expressed in another form, as long as they can be converted to URIs." (RFC8288)
 
-Extension relation types used in OGC API Standards are registered at https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv[https://github.com/opengeospatial/NamingAuthority/blob/master/registers/linkrelations.csv] 
+Extension relation types used in OGC API Standards are registered at http://www.opengis.net/def/rel[http://www.opengis.net/def/rel]

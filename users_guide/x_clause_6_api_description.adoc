@@ -1,8 +1,6 @@
 [[api-description]]
 == API Description
 
-_Using and Abusing ApenAPI_
-
 OpenAPI is a useful tool for documenting the design of an API. In addition, numerous tool vendors have produced products to assist in the use of OpenAPI documents. These go so far as to generate stub-code for the use of API and client developers.
 
 However like so many other good tools, OpenAPI was not designed for the size and complexity that we are seeing in Geospatial APIs. This section discusses various features of the OpenAPI specification that can be abused to provide a scalable API Description.
@@ -17,9 +15,9 @@ The central feature that distinquished Web APIs is their emphasis on a uniform i
 
 In order to achieve a usable uniform interface, Web APIs are subject to four constraints:
 
-. identification of resources, 
-. manipulation of resources through representations, 
-. self-descriptive messages; and, 
+. identification of resources,
+. manipulation of resources through representations,
+. self-descriptive messages; and,
 . hypermedia as the engine of application state.
 
 ==== Resources
@@ -64,9 +62,9 @@ The term `collection` means different things to different people. For the purpos
 
 * <<collection-definition,Collection>>: A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.
 
-/collections = a set of metadata about a collection of geospatial* data  
+/collections = a set of metadata about a collection of geospatial* data
 
-/collections/{collectionId} = metadata about a specific collection of geospatial* data with links to distribution  
+/collections/{collectionId} = metadata about a specific collection of geospatial* data with links to distribution
 
 /collections/{collectionId}/{__} = a specific distribution of geospatial__ data
 
@@ -75,41 +73,10 @@ OGC Web API standards can extend this definition to address the specific propert
 [[uri-overview]]
 === URIs and Relationships
 
-Resources exposed through an OGC API may be accessed through a Universal Resource Identifier <<rfc3986,(URI).>> URIs are composed of three sections:
+Resources exposed through an OGC API may be accessed through a Uniform Resource Identifier <<rfc3986,(URI).>> URIs are composed of three sections:
 
 * Service Offering: The service endpoint (subsequently referred to as Base URI or {root})
 * Access Paths: Unique paths to Resources
 * Query: Parameters to adjust the representation of a Resource or Resources like encoding format or subsetting
 
 Some resources are also accessible through links on previously accessed resources. Unique relation types are used for each resource.
-
-<<coverage-paths>> summarizes the access paths and relation types defined in this standard.
-
-[#coverage-paths,reftext='{table-caption} {counter:table-num}']
-.Coverage API Paths
-[width="90%",cols="2,^1,4",options="header"]
-|===
-^|**Path Template** ^|**Relation** ^|**Resource**
-3+^|**Common**
-|<<landing-page,{root}/>> |none |Landing page
-|<<api-definition,{root}/api>> |`service-desc` +
-or +
-`service-doc` |API Description (optional)
-|<<conformance-classes,{root}/conformance>> |`conformance` |Conformance Classes
-|<<collections,{root}/collections>> |`data` |Metadata describing the spatial collections (coverages) available from this API.
-|<<collectionInfo,{root}/collections/{coverageid}>> | |Metadata describing the coverge which has the unique identifier `{coverageid}`
-3+^|**Coverages**
-|<<coverage-clause,{root}/collections/{coverageid}/coverage>> |`items` |A general description of the coverage identified by {coverageid} including the coverage's envelope.
-|<<coverage-description-clause,{root}/collections/{coverageid}/coverage/description>> |none |returns the whole coverage description consisting of domainset, rangetype, and metadata (but not the rangeset)
-|<<coverage-domainset-clause,{root}/collections/{coverageid}/coverage/domainset>> |none |returns the coverage's domain set definition
-|<<coverage-rangetype-clause,{root}/collections/{coverageid}/coverage/rangetype>> |none |returns the coverage's range type information (i.e., a description of the data semantics)
-|<<coverage-metadata-clause,{root}/collections/{coverageid}/coverage/metadata>> |none |returns the coverage's metadata (may be empty)
-|<<coverage-rangeset-clause,{root}/collections/{coverageid}/coverage/rangeset>> |none |returns the coverage's range set, i.e., the actual values in the coverage's Native Format (see format encoding for ways to retrieve in specific formats)
-|<<coverage-all-clause,{root}/collections/{coverageid}/coverage/all>> |none |returns all of the above namely the coverage's domainset, rangetype, metadata, and rangeset comparable to a GetCoverage response
-|===
-
-Where:
-
-* {root} = Base URI for the API server
-* {coverageid} = an identifier for a specific coverage (collection)
-

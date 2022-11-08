@@ -1,0 +1,29 @@
+== Terms and definitions
+
+[[uri-definition]]
+=== Uniform Resource Identifier (URI)
+an identifier consisting of a sequence of characters matching the syntax rule named "<URI>". (<<rfc3986,IETF RFC 3986>>)
+
+[[url-definition]]
+=== Uniform Resource Locator (URL)
+the subset of <<uri-definition,URIs>> that, in addition to identifying a resource, provide a means of locating the resource by describing its primary access mechanism (e.g., its network "location"). (<<rfc3986,IETF RFC 3986>>)
+
+[[webapi-definition]]
+=== Web API
+API using an architectural style that is founded on the technologies of the Web. (<<DWBP,W3C Data on the Web Best Practices>>)
+
+[[web-resource-definition]]
+=== Web Resource
+a <<resource-definition,resource>> that is identified by a URI.
+
+== Abbreviated terms
+
+API:: Application Programming Interface
+CORS:: Cross-Origin Resource Sharing
+HTTP:: Hypertext Transfer Protocol
+HTTPS:: Hypertext Transfer Protocol Secure
+IANA:: Internet Assigned Numbers Authority
+OGC:: Open Geospatial Consortium
+URI:: Uniform Resource Identifier
+URL:: Uniform Resource Locator
+YAML:: YAML Ain’t Markup Language

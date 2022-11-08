@@ -15,8 +15,6 @@ This folder contains the text for the Best Practice
 
 ## Building
 
-To produce the HTML of the Best Practice run `asciidoctor --safe -a data-uri -o
-<Best Practice name>.html bp.adoc`
+Compile from this folder using the following command.
 
-To produce the PDF of the Best Practice run `asciidoctor-pdf --safe -o
-<Best Practice name>.pdf bp.adoc`
+`docker run -v "$(pwd)":/metanorma -v ${HOME}/.fontist/fonts/:/config/fonts metanorma/metanorma metanorma compile --agree-to-terms -t ogc -x xml,html,doc document.adoc`

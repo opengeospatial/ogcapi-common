@@ -20,9 +20,9 @@
 :comment: ### Author one
 :fullname: Charles Heazel
 :comment: ### Comma delimited keywords; mandatory
-:keywords: keyword_1, keyword_2, keyword_3, etc.
+:keywords: OGC document, geographic information, spatial data, API, json, html, OpenAPI, REST, Common
 :comment: ### Semicolon-delimited list of the submitting organizations; mandatory
-:submitting-organizations: organization_1; organization_2; organization_3; etc.
+:submitting-organizations: Ecere Corporation; Heazeltech LLC; Universitat Autònoma de Barcelona (CREAF)
 :comment: ### Metanorma flavor; mandatory
 :mn-document-class: ogc
 :comment: ### Desired output formats; mandatory
@@ -35,20 +35,24 @@
 
 // Clauses
 
-include::sections/clause_0_front_material.adoc[]
+include::clause_0_front_material.adoc[]
 
-include::sections/clause_1_scope.adoc[]
+include::clause_1_scope.adoc[]
 
-include::sections/clause_2_conformance.adoc[]
+include::clause_2_terms_and_definitions.adoc[]
 
-include::sections/clause_3_references.adoc[]
+include::clause_6_evolution_from_web_services.adoc[]
 
-include::sections/clause_4_terms_and_definitions.adoc[]
+include::clause_6_architecture.adoc[]
 
-include::sections/clause_5_conventions.adoc[]
+include::clause_6_identifiers.adoc[]
 
-include::sections/clause_6_users-guide.adoc[]
+include::clause_6_link-relations.adoc[]
 
-include::sections/annex-history.adoc[]
+include::clause_6_collections.adoc[]
 
-include::sections/annex-bibliography.adoc[]
+include::clause_6_using-openapi.adoc[]
+
+include::annex-history.adoc[]
+
+include::annex-bibliography.adoc[]
