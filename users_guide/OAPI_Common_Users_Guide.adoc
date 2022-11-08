@@ -1,96 +1,54 @@
-:Title: OGC API-Common Users Guide
-:titletext: {Title}
-:doctype: book
-:encoding: utf-8
-:lang: en
-:toc:
-:toc-placement!:
-:toclevels: 3
-:numbered:
-:sectanchors:
+= OGC API - Common - Users Guide
+:comment: ### Document type; mandatory. Visit: https://www.metanorma.org/author/ogc/authoring/ for permitted types
+:doctype: user-guide
+:comment: ### Document status/stage; mandatory. Visit: https://www.metanorma.org/author/ogc/authoring/ for permitted types
+:status: draft
+:comment: ### Relevant committee; mandatory. The permitted types are: technical, planning, and strategic-member-advisory
+:committee: technical
+:comment: ### Internal reference number; mandatory
+:docnumber: 20-071
+:comment: ### Date on which the standard was updated; mandatory
+:received-date: 2017-06-29
+:comment: ### Date on which the standard was approved by the issuing authority; mandatory
+:issued-date: 2027-06-29
+:comment: ### Date on which the standard was published; mandatory
+:published-date: 2029-01-23
+:comment: ###  Year when the copyright for the document was issued; optional
+:copyright-year: 2017
+:comment: ### External link referencing the document; optional. If not provided, a default value is created following this structure: "http://www.opengis.net/doc/{abbrevation of doctype}/{abbrev}/{version}"
+:external-id: http://www.opengis.net/doc/UG/ogcapi-common/1.0
+:comment: ### Author one
+:fullname: Charles Heazel
+:comment: ### Comma delimited keywords; mandatory
+:keywords: keyword_1, keyword_2, keyword_3, etc.
+:comment: ### Semicolon-delimited list of the submitting organizations; mandatory
+:submitting-organizations: organization_1; organization_2; organization_3; etc.
+:comment: ### Metanorma flavor; mandatory
+:mn-document-class: ogc
+:comment: ### Desired output formats; mandatory
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:comment: ### Directory name used as prefix for the location of image files; optional
+:imagesdir: images
+:comment: ### Enable local relaton cache for quick inclusion of prefetched references; optional. For further information, visit: https://www.metanorma.org/author/ref/document-attributes/#caches, https://www.metanorma.org/author/topics/building/reference-lookup/#lookup-result-caching
+:local-cache-only:
 
-<<<
-[cols = ">",frame = "none",grid = "none"]
-|===
-|{set:cellbgcolor:#FFFFFF}
-|[big]*Open Geospatial Consortium*
-|Submission Date: <yyyy-mm-dd>
-|Approval Date:   <yyyy-mm-dd>
-|Publication Date:   <2021-06-01>
-|External identifier of this OGC(R) document: http://www.opengis.net/doc/EG/ogcapi-common/1.0
-|Internal reference number of this OGC(R) document:    20-071
-|Version: n.n
-|Category: OGC(R) Engineering Guidance
-|Editor:   Charles Heazel
-|===
 
-[cols = "^", frame = "none"]
-|===
-|[big]*{titletext}*
-|===
+// Clauses
 
-[cols = "^", frame = "none", grid = "none"]
-|===
-|*Copyright notice*
-|Copyright (C) 2019 Open Geospatial Consortium
-|To obtain additional rights of use, visit http://www.opengeospatial.org/legal/
-|===
+include::sections/clause_0_front_material.adoc[]
 
-[cols = "^", frame = "none"]
-|===
-|*Warning*
-|===
+include::sections/clause_1_scope.adoc[]
 
-This document defines an the OGC Best Practices on the implementation and use of the OGC API-Common standard. This document is not an OGC Standard and may not be referred to as an OGC Standard. It is subject to change without notice. However, this document is an official position of the OGC membership on this particular technology topic.
+include::sections/clause_2_conformance.adoc[]
 
-Recipients of this document are invited to submit, with their comments, notification of any relevant patent rights of which they are aware and to provide supporting documentation.
+include::sections/clause_3_references.adoc[]
 
-[width = "50%", grid = "none"]
-|===
-|Document type:   OGC(R) Engineering Guidance
-|Document subtype:
-|Document stage:   	Draft
-|Document language: 	English
-|===
+include::sections/clause_4_terms_and_definitions.adoc[]
 
-<<<
-License Agreement
+include::sections/clause_5_conventions.adoc[]
 
-[small]#Permission is hereby granted by the Open Geospatial Consortium, ("Licensor"), free of charge and subject to the terms set forth below, to any person obtaining a copy of this Intellectual Property and any associated documentation, to deal in the Intellectual Property without restriction (except as set forth below), including without limitation the rights to implement, use, copy, modify, merge, publish, distribute, and/or sublicense copies of the Intellectual Property, and to permit persons to whom the Intellectual Property is furnished to do so, provided that all copyright notices on the intellectual property are retained intact and that each person to whom the Intellectual Property is furnished agrees to the terms of this Agreement.#
+include::sections/clause_6_users-guide.adoc[]
 
-[small]#If you modify the Intellectual Property, all copies of the modified Intellectual Property must include, in addition to the above copyright notice, a notice that the Intellectual Property includes modifications that have not been approved or adopted by LICENSOR.#
+include::sections/annex-history.adoc[]
 
-[small]#THIS LICENSE IS A COPYRIGHT LICENSE ONLY, AND DOES NOT CONVEY ANY RIGHTS UNDER ANY PATENTS THAT MAY BE IN FORCE ANYWHERE IN THE WORLD.#
-
-[small]#THE INTELLECTUAL PROPERTY IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE DO NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE INTELLECTUAL PROPERTY WILL MEET YOUR REQUIREMENTS OR THAT THE OPERATION OF THE INTELLECTUAL PROPERTY WILL BE UNINTERRUPTED OR ERROR FREE. ANY USE OF THE INTELLECTUAL PROPERTY SHALL BE MADE ENTIRELY AT THE USER’S OWN RISK. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR ANY CONTRIBUTOR OF INTELLECTUAL PROPERTY RIGHTS TO THE INTELLECTUAL PROPERTY BE LIABLE FOR ANY CLAIM, OR ANY DIRECT, SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM ANY ALLEGED INFRINGEMENT OR ANY LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR UNDER ANY OTHER LEGAL THEORY, ARISING OUT OF OR IN CONNECTION WITH THE IMPLEMENTATION, USE, COMMERCIALIZATION OR PERFORMANCE OF THIS INTELLECTUAL PROPERTY.#
-
-[small]#This license is effective until terminated. You may terminate it at any time by destroying the Intellectual Property together with all copies in any form. The license will also terminate if you fail to comply with any term or condition of this Agreement. Except as provided in the following sentence, no such termination of this license shall require the termination of any third party end-user sublicense to the Intellectual Property which is in force as of the date of notice of such termination. In addition, should the Intellectual Property, or the operation of the Intellectual Property, infringe, or in LICENSOR's sole opinion be likely to infringe, any patent, copyright, trademark or other right of a third party, you agree that LICENSOR, in its sole discretion, may terminate this license without any compensation or liability to you, your licensees or any other party. You agree upon termination of any kind to destroy or cause to be destroyed the Intellectual Property together with all copies in any form, whether held by you or by any third party.#
-
-[small]#Except as contained in this notice, the name of LICENSOR or of any other holder of a copyright in all or part of the Intellectual Property shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Intellectual Property without prior written authorization of LICENSOR or such copyright holder. LICENSOR is and shall at all times be the sole entity that may authorize you or any third party to use certification marks, trademarks or other special designations to indicate compliance with any LICENSOR standards or specifications. This Agreement is governed by the laws of the Commonwealth of Massachusetts. The application to this Agreement of the United Nations Convention on Contracts for the International Sale of Goods is hereby expressly excluded. In the event any provision of this Agreement shall be deemed unenforceable, void or invalid, such provision shall be modified so as to make it valid and enforceable, and as so modified the entire Agreement shall remain in full force and effect. No decision, action or inaction by LICENSOR shall be construed to be a waiver of any rights or remedies available to it.#
-
-<<<
-toc::[]
-
-<<<
-
-////
-Make sure to complete each included document
-////
-include::clause_0_front_material.adoc[]
-
-include::clause_1_scope.adoc[]
-
-include::clause_2_conformance.adoc[]
-
-include::clause_3_references.adoc[]
-
-include::clause_4_terms_and_definitions.adoc[]
-
-include::clause_5_conventions.adoc[]
-
-include::clause_6_users-guide.adoc[]
-
-include::annex-history.adoc[]
-
-<<<
-include::annex-bibliography.adoc[]
+include::sections/annex-bibliography.adoc[]
