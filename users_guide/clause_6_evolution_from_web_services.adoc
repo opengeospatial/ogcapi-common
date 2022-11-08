@@ -1,5 +1,6 @@
 [[ug-evolution-from-web-services]]
-=== Evolution from OGC Web Services
+== Evolution from OGC Web Services
 
-*Under Construction*
+OGC Web Service (OWS) standards implement a Remote-Procedure-Call-over-HTTP architectural style using XML for payloads <<ogc-06-121>>. This was the state-of-the-art when OWS standards were originally designed in the late 1990s and early 2000s. However, technology has evolved. New Resource-Oriented APIs provide an alternative to the Service-Oriented Approach. New OGC Web API standards are under development to provide API alternatives to the OWS standards.
 
+The OGC API - Common Standard specifies common modules for defining OGC Web API standards that follow the current Web architecture. In particular, the recommendations as defined in the <<SDWBP,W3C/OGC best practices for sharing Spatial Data on the Web>> as well as the <<DWBP,W3C best practices for sharing Data on the Web>> <<SDWBP>> <<DWBP>>.

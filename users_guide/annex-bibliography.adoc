@@ -1,25 +1,17 @@
-[appendix]
+[bibliography]
 :appendix-caption: Annex
 [[Bibliography]]
-= Bibliography
+== Bibliography
 
-[NOTE]
-.Example Bibliography (Delete this note).
-===============================================
-The TC has approved Springer LNCS as the official document citation type.
-
-Springer LNCS is widely used in technical and computer science journals and other publications
-
-* For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
-
-– Actual References:
-
-[n] Journal: Author Surname, A.: Title. Publication Title. Volume number, Issue number, Pages Used (Year Published)
-
-[n] Web: Author Surname, A.: Title, http://Website-Url
-
-===============================================
-
-((( Example )))
-[[OGC2015]]
-[1] OGC: OGC Testbed 12 Annex B: Architecture. (2015).
+* [[[fielding2000,1]]], Fielding, Roy Thomas: *Architectural Styles and the Design of Network-based Software Architectures*. Doctoral dissertation, University of California, Irvine, 2000, https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf[https://www.ics.uci.edu/fielding/pubs/dissertation/fielding_dissertation.pdf]
+* [[[link-relations,2]]], IANA: **Link Relation Types**, https://www.iana.org/assignments/link-relations/link-relations.xml
+* [[[bnf-citation,3]]], ISO/IEC 14977:1996(E): *Information technology – Syntactic metalanguage – Extended BNF*, available from https://standards.iso.org/ittf/PubliclyAvailableStandards/s026153_ISO_IEC_14977_1996(E).zip[ISO].
+* [[[ogc-06-121,4]]], Whiteside, A., Greenwood, J.: **OGC Web Services Common Standard**, version 2.0, http://portal.opengeospatial.org/files/?artifact_id=38867[OGC 06-121r9]
+* [[[WEBARCH,5]]], W3C: **Architecture of the World Wide Web, Volume One**, W3C Recommendation, 15 December 2004, https://www.w3.org/TR/webarch/
+* [[[DCAT,6]]], W3C: **Data Catalog Vocabulary (DCAT) - Version 2**, W3C Recommendation, 04 February 2020, https://www.w3.org/TR/vocab-dcat-2/
+* [[[DWBP,7]]], W3C: **Data on the Web Best Practices**, W3C Recommendation, 31 January 2017, https://www.w3.org/TR/dwbp/
+* [[[SDWBP,8]]], W3C/OGC: **Spatial Data on the Web Best Practices**, W3C Working Group Note, 28 September 2017, https://www.w3.org/TR/sdw-bp/
+* [[[rfc3986,9]]], IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax. https://tools.ietf.org/html/rfc3986
+* [[[rfc8288,10]]], IETF RFC 8288: Web Linking, https://tools.ietf.org/html/rfc8288
+* [[[rfc3987,11]]], IETF RFC 3987: Internationalized Resource Identifiers (IRIs), https://tools.ietf.org/html/rfc3987
+* [[[rfc2046,12]]], IETF RFC 2046: Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types, https://tools.ietf.org/html/rfc2046
