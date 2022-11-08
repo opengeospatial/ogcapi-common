@@ -1,7 +1,7 @@
 [[identifiers]]
 == Identifiers
 
-The https://docs.ogc.org/is/19-072/19-072.html#WEBARCH[Architecture of the World Wide Web] establishes the URI as the single global identification system for the Web. Therefore, URIs or https://docs.ogc.org/is/19-072/19-072.html#rfc6570[URI Templates] are used in OGC Web API standards to identify key entities in those standards. In accordance with OGC policy, only the https://docs.ogc.org/is/19-072/19-072.html#url-definition[Uniform Resource Locator (URL)] form of URIs is used.
+The https://docs.ogc.org/is/19-072/19-072.html#WEBARCH[Architecture of the World Wide Web] establishes the URI as the single global identification system for the Web <<WEBARCH>>. Therefore, URIs or https://docs.ogc.org/is/19-072/19-072.html#rfc6570[URI Templates] are used in OGC Web API standards to identify key entities in those standards. In accordance with OGC policy, only the https://docs.ogc.org/is/19-072/19-072.html#url-definition[Uniform Resource Locator (URL)] form of URIs is used.
 
 The normative provisions in the OGC API – Common – Part 1: Core standard are denoted by the URI ``http://www.opengis.net/spec/ogcapi-common-1/1.0[http://www.opengis.net/spec/ogcapi-common-1/1.0]``. All https://docs.ogc.org/is/19-072/19-072.html#requirement-definition[Requirements], https://docs.ogc.org/is/19-072/19-072.html#ctm-definition[Conformance Modules], and https://docs.ogc.org/is/19-072/19-072.html#ctc-definition[Conformance Classes] that appear in the standard are denoted by partial URIs that are relative to this base.
 
@@ -40,7 +40,7 @@ https://docs.ogc.org/is/19-072/19-072.html#rfc3986[RFC 3986] defines a URI in Ba
         path-empty    = 0<pchar>
 ----
 
-The following rules should be used when interpreting the BNF for use with this standard:
+The following rules should be used when interpreting the BNF <<bnf-citation>> for use with this standard:
 
 *   ``scheme`` is assumed to be ``HTTP`` or ``HTTPS``
 
@@ -54,7 +54,7 @@ The following rules should be used when interpreting the BNF for use with this s
 
 *   parameters passed in HTTP headers or as cookies are out of scope for this Standard.
 
-The following example shows a URI categorized according to RFC 3986 and OGC Web API standards.
+The following example shows a URI categorized according to <<rfc3986,RFC 3986>> and OGC Web API standards.
 
 
 .Example URI and Components

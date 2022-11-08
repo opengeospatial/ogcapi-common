@@ -67,7 +67,9 @@ We can assume that if a Server Object is included, there must be a reason for it
 
 The first scope where a Server Object is found dictates the behavior completely.
 
-
+.Algorithm for building a URL
+[source,console]
+----
  IF Server Objects are supplied
      THEN save them for latter
      ELSE create a Server Object for the host of the OpenAPI document
@@ -93,3 +95,4 @@ The first scope where a Server Object is found dictates the behavior completely.
          DONE
      DONE
  DONE
+----
