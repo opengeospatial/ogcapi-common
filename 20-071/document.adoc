@@ -2,19 +2,19 @@
 :comment: ### Document type; mandatory. Visit: https://www.metanorma.org/author/ogc/authoring/ for permitted types
 :doctype: user-guide
 :comment: ### Document status/stage; mandatory. Visit: https://www.metanorma.org/author/ogc/authoring/ for permitted types
-:status: draft
+:status: approved
 :comment: ### Relevant committee; mandatory. The permitted types are: technical, planning, and strategic-member-advisory
 :committee: technical
 :comment: ### Internal reference number; mandatory
 :docnumber: 20-071
 :comment: ### Date on which the standard was updated; mandatory
-:received-date: 2017-06-29
+:received-date: 2022-11-09
 :comment: ### Date on which the standard was approved by the issuing authority; mandatory
-:issued-date: 2027-06-29
+:issued-date: 2022-12-05
 :comment: ### Date on which the standard was published; mandatory
-:published-date: 2029-01-23
+:published-date: 2022-12-05
 :comment: ###  Year when the copyright for the document was issued; optional
-:copyright-year: 2017
+:copyright-year: 2022
 :comment: ### External link referencing the document; optional. If not provided, a default value is created following this structure: "http://www.opengis.net/doc/{abbrevation of doctype}/{abbrev}/{version}"
 :external-id: http://www.opengis.net/doc/UG/ogcapi-common/1.0
 :comment: ### Author one
@@ -31,7 +31,7 @@
 :imagesdir: images
 :comment: ### Enable local relaton cache for quick inclusion of prefetched references; optional. For further information, visit: https://www.metanorma.org/author/ref/document-attributes/#caches, https://www.metanorma.org/author/topics/building/reference-lookup/#lookup-result-caching
 :local-cache-only:
-
+:edition: 1.0.0
 
 // Clauses
 

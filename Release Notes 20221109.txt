@@ -1,0 +1,32 @@
+The following changes were made to the OGC API - Common Part 1 baseline on November 9, 2022
+
+General:
+
+Added a build.sh script at the root level
+
+Common Part 1 Standard
+
+Changed directory for "core" to 19-072
+Corrected dates in standard:
+    Submitted 8/23/21
+    Approved 02/02/21
+    Published 11/9/22
+Changed status to approved
+Link to Users Guide in section 6.3 of the standard is broken. Re-directed to a valid anchor.
+Link to Users Guide in section 6.5 of the standard is broken. Removed link.
+Link to Users Guide in section 6.6.4 of the standard is broken. Re-directed to a valid anchor.
+Link to Users Guide in section 7.2 of the standard is broken. Removed link.
+Link to Users Guide in section 7.3 of the standard is broken. Removed link.
+Link to Users Guide in section 9.1.2 of the standard is broken. Removed link.
+
+Common Users Guide
+
+Changed directory for Uses_Guide to 20-071
+Changed status to approved
+Corrected dates in standard:
+    Submitted 11/09/22
+    Approved 12/05/22
+    Published 12/05/22
+Copyright year changed to 2022
+Added edition to metadata (:edition: 1.0.0)
+
