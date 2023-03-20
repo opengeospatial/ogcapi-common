@@ -1,14 +1,14 @@
 == Conformance
 
-Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the https://cite.opengeospatial.org/teamengine/[OGC Compliance Testing web site]. This standard addresses one Standardization Target: <<webapi-definition,Web APIs>>.
+Conformance with this Standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the https://cite.opengeospatial.org/teamengine/[OGC Compliance Testing web site]. This Standard addresses one Standardization Target: <<webapi-definition,Web APIs>>.
 
-OGC API - Common - Part 1: Core provides a common foundation for OGC Web API standards. The assumption is that this standard will only be implemented through inclusion in other standards. Therefore, all the relevant abstract tests in Annex A should be included in or referenced by the Abstract Test Suite (ATS) in each standard that implements conformance classes defined in this standard.
+OGC API - Common - Part 1: Core provides a common foundation for OGC Web API Standards. The assumption is that this Standard will only be implemented through inclusion in other Standards. Therefore, all the relevant abstract tests in Annex A should be included in or referenced by the Abstract Test Suite (ATS) in each Standard that implements conformance classes defined in this Standard.
 
-This standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the implementation instance of the API's landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So, an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
+This Standard identifies five conformance classes. The conformance classes implemented by an OGC API are advertised through the `/conformance` resource on the implementation instance of the API's landing page. Each conformance class is defined by one requirements class. The tests in Annex A are organized by Requirements Class. So, an implementation of the _Core_ conformance class must pass all tests specified in Annex A for the _Core_ requirements class.
 
 === Core Requirements Class
 
-The requirements specified in the _Core Requirements Class_ are applicable to all OGC API standards. They assure consistent use of the HTTP protocols, provide rules for the construction of URIs, and define requirements governing the use and processing of URI query parameters. Through these requirements, OGC API - Common seeks to assure that implementations of OGC API standards will provide a predictable interface for their peers.
+The requirements specified in the _Core Requirements Class_ are applicable to all OGC API Standards. They assure consistent use of the HTTP protocols, provide rules for the construction of URIs, and define requirements governing the use and processing of URI query parameters. Through these requirements, OGC API - Common seeks to assure that implementations of OGC API Standards will provide a predictable interface for their peers.
 
 The Core requirements class is specified in <<rc_core-section>> *Core Requirements Class*.
 
@@ -25,7 +25,7 @@ The OGC API - Common Standard does not mandate a specific encoding or format for
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
-Neither of these encodings is mandatory. An implementer of the _API-Common_ standard may decide to implement other encodings instead of, or in addition to, these two.
+Neither of these encodings is mandatory. An implementer of the _API-Common_ Standard may decide to implement other encodings instead of, or in addition to, these two.
 
 The Encoding Requirements Classes are specified in <<rc_encoding-section>> *Encoding Requirements Classes*.
 

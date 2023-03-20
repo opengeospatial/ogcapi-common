@@ -48,16 +48,16 @@ content:
 
 OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.
 
-Security Requirements can be defined at the following levels:
+Security Requirements can be defined at the following levels.
 
 * Root - applicable to the whole API except when overridden by Security Requirements defined at a lower level of the API.
 * Operation - only applicable to this operation. Overrides any requirements defined at the Root level.
 
 The OpenAPI specification currently supports the following link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#security-scheme-object[security schemes]:
 
-* HTTP authentication,
-* An API key (either as a header or as a query parameter),
-* OAuth2's common flows (implicit, password, application and access code) as defined in RFC6749, and
+* HTTP authentication;
+* An API key (either as a header or as a query parameter);
+* OAuth2's common flows (implicit, password, application and access code) as defined in RFC6749; and
 * OpenID Connect Discovery.
 
 include::requirements/oas30/REQ_security.adoc[]
@@ -65,7 +65,7 @@ include::requirements/oas30/REQ_security.adoc[]
 [[rc_oas30-query-parameter]]
 === Query Parameter Definition
 
-The OpenAPI specification defines query parameters using the `Parameter` object with the `in` property set to "query". The parameter name is a literal value provided by the `name` property. Since the parameter names are literals, each parameter must be described separately.
+The OpenAPI specification defines query parameters using the `Parameter` object with the `in` property set to "query." The parameter name is a literal value provided by the `name` property. Since the parameter names are literals, each parameter must be described separately.
 
 OGC API - Common requires that all query parameters are specified in the API definition. In the case of a Feature server, this could mean that every property of every feature type must be described in the API definition, a requirement that few implementers would accept.
 

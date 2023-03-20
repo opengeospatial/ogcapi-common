@@ -20,7 +20,7 @@ Geographic information that is only accessible in formats such as GeoJSON or GML
 
 Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, this publication should be done in a way that enables users and search engines to discover and access all of the data.
 
-This is discussed in detail in the  <<SDWBP,W3C/OGC SDW Best Practice>>. Therefore, the OGC API - Common Standard <<rec_html,recommends>> supporting HTML as an encoding.
+This is discussed in detail in the <<SDWBP,W3C/OGC SDW Best Practice>>. Therefore, the OGC API - Common Standard <<rec_html,recommends>> supporting HTML as an encoding.
 
 include::requirements/requirements_class_html.adoc[]
 
