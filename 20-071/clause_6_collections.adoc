@@ -7,7 +7,7 @@ This section presents a definition for an OGC API Collection, as well as a ratio
 *<OGC API> Collection* +
 A geospatial data resource that may be available as one or more sub-resource distributions that conform to one or more OGC API Standards.
 
-An OGC API Collection is a restriction on the general concept of a <<collection-definition,collection>>:
+An OGC API Collection is a restriction on the general concept of a <<collection-definition,collection>>.
 
 . An OGC API Collection may only contain data. It does not encompass non-data <<definition-resource, resources>> (but the Collection resource may still have related auxiliary resources, such as schemas, or processes, as sub-resources).
 . Geospatial datasets include <<spatial-thing-definition,Spatial Things>> and/or <<temporal-thing-definition,Temporal Things>> as data items (but not all data items in the dataset have to have a spatial or temporal extent).
@@ -24,9 +24,9 @@ NOTE: Published or curated by a single agent, and available for access or downlo
 
 NOTE: This definition was adopted as the OGC definition of "dataset" by the OGC Architecture Board (OAB). See https://portal.ogc.org/?m=projects&a=view&project_id=228&tab=5&act=details&issue_id=1434[OAB issue 1434].
 
-A dataset is a restriction on the general concept of a <<collection-definition,collection>>
+A dataset is a restriction on the general concept of a <<collection-definition,collection>>.
 
-. A dataset is a collection of data
+. A dataset is a collection of data.
 . A dataset is published or curated by a single agent.
 . A dataset is available in one or more serializations or formats (<<distribution-definition,distributions>>).
 . A <<distribution-definition,distribution>> is synonymous to the REST concept of a <<representation-definition,representation>>.

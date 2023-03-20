@@ -19,7 +19,7 @@ Operation Objects provide the details needed to create an HTTP request and respo
 
 Parameter Objects describe parameters which can be used in an API. These objects provide the parameter name, where it is passed (query, header, path, or cookie), and a detailed description of its structure (if needed).
 
-Parameter Objects can be defined at the following levels:
+Parameter Objects can be defined at the following levels.
 
 * Path - applicable to all operations on this path.
 * Operation - only applicable to this operation. Overrides any parameters defined at the Path level which have the same name.
@@ -39,9 +39,9 @@ servers:
     description: Production server
 ----
 
-Server Objects can be defined at the following levels:
+Server Objects can be defined at the following levels.
 
-* Root - applicable to the whole API unless overridden
+* Root - applicable to the whole API unless overridden.
 * Path - applicable to all operations on this path. Servers defined at the Root level are still valid.
 * Operation - only applicable to this operation. Overrides any servers defined at the Path or Root level.
 
@@ -49,9 +49,9 @@ Server Objects can be defined at the following levels:
 
 An OpenAPI document can describe a large number of URLs. Extracting all of the URLs is a non-trivial task. The OpenAPI objects used to construct URLs are:
 
-* Server Objects (URL template for the root and variables to populate it)
-* Paths Objects (URL template for the path and parameters)
-* Operation Objects (including parameters)
+* Server Objects (URL template for the root and variables to populate it);
+* Paths Objects (URL template for the path and parameters); and
+* Operation Objects (including parameters).
 
 They are organized as follows:
 

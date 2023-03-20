@@ -1,7 +1,7 @@
 [[link-relations-section]]
 == Link Relations
 
-This section provides a discussion of link relations, the governing policies and standards, as well as how they should be used.
+This section provides a discussion of link relations, the governing policies and Standards, as well as how they should be used.
 
 Links between elements of an OGC API are encoded using the link relation schema provided in <<link-schema>>.
 
@@ -57,7 +57,7 @@ The `rel` attribute is mandatory.
 
 "In the simplest case, a link relation type identifies the semantics of a link.  For example, a link with the relation type "copyright" indicates that the current link context has a copyright resource at the link target.
 
-Link relation types can also be used to indicate that the target resource has particular attributes, or exhibits particular behaviours; for example, a "service" link implies that the link target can be used as part of a defined protocol (in this case, a service description).
+Link relation types can also be used to indicate that the target resource has particular attributes, or exhibits particular behaviors; for example, a "service" link implies that the link target can be used as part of a defined protocol (in this case, a service description).
 
 Relation types are not to be confused with media types [<<rfc2046,RFC 2046>>]; they do not identify the format of the representation that results when the link is dereferenced.  Rather, they only describe how the current context is related to another resource.
 
@@ -86,21 +86,21 @@ The `title` attribute is optional.
 
 ==== Length Attribute
 
-The `length` attribute does not appear to be defined in the normative standards.
+The `length` attribute does not appear to be defined in the normative Standards.
 
 [[relation-type-section]]
 === Relation Types
 
 There are two kinds of relation types; registered and extension.
 
-Registered relation types are registered in the IANA register at https://www.iana.org/assignments/link-relations/link-relations.xhtml[https://www.iana.org/assignments/link-relations/link-relations.xhtml] <<link-relations>>. Registered relation types are used in OGC API standards whenever appropriate.
+Registered relation types are registered in the IANA register at https://www.iana.org/assignments/link-relations/link-relations.xhtml[https://www.iana.org/assignments/link-relations/link-relations.xhtml] <<link-relations>>. Registered relation types are used in OGC API Standards whenever appropriate.
 
 Extension relation types are those which are not registered with IANA. These extension types are in the form of "--- a URI [<<rfc3986,RFC 3986>>] that uniquely identifies the relation type.  Although the URI can point to a resource that contains a definition of the semantics of the relation type, clients SHOULD NOT automatically access that resource to avoid overburdening its server.
 
 The URI used for an extension relation type SHOULD be under the control of the person or party defining it or be delegated to them.
 
-When extension relation types are compared, they MUST be compared as strings (after converting to URIs if serialised in a different format) in a case-insensitive fashion, character by character. Because of this, all-lowercase URIs SHOULD be used for extension relations.
+When extension relation types are compared, they MUST be compared as strings (after converting to URIs if serialized in a different format) in a case-insensitive fashion, character by character. Because of this, all-lowercase URIs SHOULD be used for extension relations.
 
-Note that while extension relation types are required to be URIs, a serialisation of links can specify that they are expressed in another form, as long as they can be converted to URIs." (<<rfc8288,RFC 8288>>)
+Note that while extension relation types are required to be URIs, a serialization of links can specify that they are expressed in another form, as long as they can be converted to URIs." (<<rfc8288,RFC 8288>>)
 
 Extension relation types used in OGC API Standards are registered at http://www.opengis.net/def/rel[http://www.opengis.net/def/rel]

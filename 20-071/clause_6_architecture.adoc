@@ -4,27 +4,27 @@ The following "architecture" captures the core concepts which inform all OGC API
 
 === Datasets
 
-Web APIs implement a Resource Oriented approach to Web-based distributed computing. A coherent set of APIs must be based on a common understanding of the resources to be shared. For OGC API Standards, those resources would be identified using an abstract concept of a geospatial dataset. Such a dataset would have the following characteristics:
+Web APIs implement a Resource Oriented approach to Web-based distributed computing. A coherent set of APIs must be based on a common understanding of the resources to be shared. For OGC API Standards, those resources would be identified using an abstract concept of a geospatial dataset. Such a dataset would have the following characteristics.
 
-*   A dataset can be a vector feature collection, a coverage/imagery, or a collection of datasets (therefore potentially a mix of any of these things)
+*   A dataset can be a vector feature collection, a coverage/imagery, or a collection of datasets (therefore potentially a mix of any of these things).
 *   A dataset has associated metadata, including some essential information:
-**   Information about what type of dataset it is (vector features (and what type of vector features if limited to one type, e.g. polygons,lines, or points), coverages (values) / imagery (pixels), or sub-datasets-- more than one of those things)
-**   A textual identifier (e.g. which figures in the resource path)
-**   A title (short name / description)
-**   Access point for the dataset (could be hosted locally or remote)
-**   Geospatial & temporal extent
-**   Resolution/scale
-**   Units/Range/Bit-Depth/Channels/Dimensions etc. for imagery/coverages
-**   A description of queryables, if applicable
-*   Keywords/Tags, and longer descriptions are also a commonly useful piece of metadata information
+**   Information about what type of dataset it is (vector features (and what type of vector features if limited to one type, e.g., polygons,lines, or points), coverages (values) / imagery (pixels), or sub-datasets-- more than one of those things);
+**   A textual identifier (e.g., which figures in the resource path);
+**   A title (short name / description);
+**   Access point for the dataset (could be hosted locally or remote);
+**   Geospatial & temporal extent;
+**   Resolution/scale;
+**   Units/Range/Bit-Depth/Channels/Dimensions etc. for imagery/coverages; and
+**   A description of queryables, if applicable.
+*   Keywords/Tags, and longer descriptions are also a commonly useful piece of metadata information.
 *   Any other ISO 19115 metadata fields can also be associated with the dataset, but are nowhere near as essential to discovering and using geospatial data as those mentioned above. Metadata containing, at a minimum, those essential elements can always be retrieved in ISO 19115-based encodings and potentially other formats.
 
 === Processes
 Processes take one or more datasets as input, add parameters, and produce one or more datasets as output. The following are examples of types of processes that can all run on a server and be invoked by a remote client application:
 
-.	A complex process built as a container or executable, as typical of implementations of the Web Processing Service (WPS) standard
-.	Process description languages such as the Web Coverage Processing Service (WCPS)
-.	Pre-defined named processes such as 'vectorization', 'buffering', 'rasterization' or 'rendering of a styled map'
+.	A complex process built as a container or executable, as typical of implementations of the Web Processing Service (WPS) Standard;
+.	Process description languages such as the Web Coverage Processing Service (WCPS); and
+.	Pre-defined named processes such as 'vectorization', 'buffering', 'rasterization' or 'rendering of a styled map'.
 
 All of these kinds of processes could share aspects such as taking in an OGC API dataset as input and their output being usable as an OGC API dataset, for direct access and/or asynchronous delivery, and support multiple data partitioning/access mechanisms, estimates/billing elements, and so on.
 
