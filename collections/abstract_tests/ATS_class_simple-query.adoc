@@ -20,28 +20,26 @@ Conformance with the <<rc-simple-query,Simple Query>> Conformance Class is demon
 
 ==== Bounding Box Tests
 
-include::../../api_modules/bbox/ATS/ATS_rc-op-bbox.adoc[]
+include::bbox/ATS_rc-op-bbox.adoc[]
 
-include::../../api_modules/bbox/ATS/ATS_rc-bbox-definition.adoc[]
+include::bbox/ATS_rc-bbox-definition.adoc[]
 
-include::../../api_modules/bbox/ATS/ATS_rc-bbox-response.adoc[]
+include::bbox/ATS_rc-bbox-response.adoc[]
 
 ==== Date-Time Tests
 
-include::../../api_modules/datetime/ATS/ATS_rc-op-datetime.adoc[]
+include::datetime/ATS_rc-op-datetime.adoc[]
 
-include::../../api_modules/datetime/ATS/ATS_rc-datetime-definition.adoc[]
+include::datetime/ATS_rc-datetime-definition.adoc[]
 
-include::../../api_modules/datetime/ATS/ATS_rc-datetime-response.adoc[]
+include::datetime/ATS_rc-datetime-response.adoc[]
 
 ==== Limit Tests
 
-include::../../api_modules/limit/ATS/ATS_rc-op-limit.adoc[]
+include::limit/ATS_rc-op-limit.adoc[]
 
-include::../../api_modules/limit/ATS/ATS_rc-limit-definition.adoc[]
+include::limit/ATS_rc-limit-definition.adoc[]
 
-include::../../api_modules/limit/ATS/ATS_rc-limit-response.adoc[]
+include::limit/ATS_rc-limit-response.adoc[]
 
-include::../../api_modules/limit/ATS/ATS_rc-paged-response.adoc[]
-
-
+include::limit/ATS_rc-paged-response.adoc[]

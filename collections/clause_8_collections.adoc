@@ -12,14 +12,14 @@ include::recommendations/collections/REC_dependency-landing-page.adoc[]
 
 This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. This class does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>).
 
-The two resources and their operations are defined in this Requirements Class. They are summarized in <<collection-resources>>. 
+The two resources and their operations are defined in this Requirements Class. They are summarized in <<collection-resources>>.
 
 [#collection-resources,reftext='{table-caption} {counter:table-num}']
 .Collection Resources
 [width="90%",cols="10,10,5,20",options="header"]
 |===
 ^|Resource ^|URI ^|HTTP Method ^|Description
-|<<collections-metadata,Collections>> |/collections ^|GET |Information which describes the set of available Collections 
+|<<collections-metadata,Collections>> |/collections ^|GET |Information which describes the set of available Collections
 |<<collection-description,Collection>> |/collections/{collectionId} ^|GET |Information about a specific collection of geospatial data with links to distribution
 |===
 
@@ -36,11 +36,13 @@ include::requirements/collections/REQ_rc-md-op.adoc[]
 
 include::requirements/collections/REQ_rc-md-success.adoc[]
 
-The collections response returned by this operation is based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.yaml[collections.yaml] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
+The collections response returned by this operation is based on the link:https://github.com/opengeospatial/ogcapi-common/tree/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
+
+#TODO: Update to schemas.opengis.net for publication#
 
 .collections.yaml
 [source, YAML]
-include::openapi/schemas/collections.yaml[]
+include::openapi/schemas/common-geodata/collections.yaml[]
 
 This Collections schema is further constrained by the following requirements and recommendations.
 
@@ -56,7 +58,7 @@ The `timeStamp` property of the Collections response indicates when the response
 
 include::requirements/collections/REQ_rc-timeStamp.adoc[]
 
-The `collections` property of the Collections response provides a description of each individual collection hosted by the API. 
+The `collections` property of the Collections response provides a description of each individual collection hosted by the API.
 
 include::requirements/collections/REQ_rc-md-items.adoc[]
 
@@ -90,5 +92,50 @@ If the parameter `collectionId` does not exist on the server, the status code of
 [[collection-resource-definition-section]]
 ==== Collection Resource Definition
 
-include::../api_modules/collection/requirements_module_collection.adoc[]
+include::requirements/collections/REQ_collection-definition.adoc[]
 
+
+.Collection Resource Schema
+[source, YAML]
+include::openapi/schemas/common-geodata/collectionDesc.yaml[]
+
+Most of the properties of the Collection resource are self-explanatory. However, a few properties require additional explanation.
+
+[[collection-attribution-section]]
+===== Attribution
+
+The attribution element is a special type of string property. Specifically, the attribution element can contain markup text. Markup allows a text string to import images and format text. The capabilities are only limited by the markup language used. See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
+
+[[collection-item-type-section]]
+===== Item Type
+
+In some Geospatial collections, the members (`items`) that make up that collection can be individually accessed by a client. In this case, the `itemType` property in the Collection resource identifies the type of the `items` accessible from that collection.
+
+include::recommendations/collections/REC_rc-md-item-type.adoc[]
+
+[collection-links-section]]
+===== Links
+
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
+
+include::requirements/collections/REQ_rc-md-items-links.adoc[]
+
+Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
+
+include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
+
+[[collection-extent-section]]
+===== Extent
+
+The extent property defines a spatial-temporal envelope that encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
+
+* Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
+* Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like Bbox, additional periods can be added if the collection does not form a single temporal cluster.
+
+include::requirements/extent/REQ_rc-md-extent.adoc[]
+
+include::recommendations/extent/REC_rc-md-extent.adoc[]
+
+include::recommendations/extent/REC_rc-md-extent-single.adoc[]
+
+include::recommendations/extent/PER_rc-md-extent-extensions.adoc[]

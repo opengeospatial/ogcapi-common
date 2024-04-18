@@ -1,0 +1,11 @@
+*Web API Query Parameter*
+
+The `subset` parameter is used to select a subset of a geospatial resource.
+
+The `subset` parameter is defined as follows:
+
+include::requirements/REQ_subset-definition.adoc[]
+
+While the processing of the `subset` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::requirements/REQ_subset-response.adoc[]

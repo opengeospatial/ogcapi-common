@@ -1,5 +1,5 @@
 [[rc-simple-query-section]]
-== Requirements Class "Simple Query"
+== Requirements Class "Searchable Collections"
 :sectnums:
 
 include::requirements/requirements_class_simple_query.adoc[]
@@ -26,26 +26,125 @@ Use of these query parameters with any specific operation is optional. Developer
 [[bbox-parameter-requirements]]
 ==== Parameter bbox
 
-include::../api_modules/bbox/requirements_module_bbox.adoc[]
+The `bbox` parameter is used to select resources based on the geospatial footprint or extent.
+
+The `bbox` parameter is defined as follows:
+
+include::./requirements/bbox/REQ_rc-bbox-definition.adoc[]
+
+While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::./requirements/bbox/REQ_rc-bbox-response.adoc[]
+
+"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
+
+In case of a degenerate bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
+
+This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this standard.
+
+The bounding box for WGS 84 longitude/latitude is, in most cases, the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the anti-meridian (180th meridian) the first value (west-most box edge) is larger than the third value (east-most box edge).
+
+.The bounding box of the New Zealand Exclusive Economic Zone
+=================
+The bounding box of the New Zealand Exclusive Economic Zone in WGS84 (from 160.6°E to 170°W and from 55.95°S to 25.89°S) would be represented in JSON as `[ 160.6, -55.95, -170, -25.89 ]` and in a query as `bbox=160.6,-55.95,-170,-25.89`.
+=================
+
+Note that the server will return an error if a latitude value of ``160.0`` is used.
+
+If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
+
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/bbox.yaml[bbox.yaml].
 
 [[datetime-parameter-requirements]]
 ==== Parameter datetime
 
-include::../api_modules/datetime/requirements_module_datetime.adoc[]
+The `datetime` parameter selects resources based on their temporal extent. The definition of temporal extent is specific to the resource type being filtered.
+
+The `datetime` parameter is defined as follows:
+
+include::./requirements/datetime/REQ_rc-datetime-definition.adoc[]
+
+While the processing of the `datetime` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::./requirements/datetime/REQ_rc-datetime-response.adoc[]
+
+"Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal geometry of the resource (again, a time instant or period). For time periods this includes the start and end time.
+
+[width="90%",cols="2,6a"]
+|====
+| Note | ISO 8601-2 distinguishes open start/end timestamps (double-dot) and unknown start/end timestamps (empty string). For queries, an unknown start/end has the same effect as an open start/end.
+|====
+
+.A date-time
+=================
+February 12, 2018, 23:20:52 GMT:
+
+`datetime=2018-02-12T23%3A20%3A52Z`
+=================
+
+For resources with a temporal property that is a timestamp (such as `lastUpdate`), a date-time value would match all resources where the temporal property is identical.
+
+For resources with a temporal property that is a date or a time interval, a date-time value would match all resources where the timestamp is on that day or within the time interval.
+
+.Intervals
+=================
+February 12, 2018, 00:00:00 GMT to March 18, 2018, 12:31:12 GMT:
+
+`datetime=2018-02-12T00%3A00%3A00Z%2F2018-03-18T12%3A31%3A12Z`
+
+February 12, 2018, 00:00:00 UTC or later:
+
+`datetime=2018-02-12T00%3A00%3A00Z%2F..`
+
+March 18, 2018, 12:31:12 UTC or earlier:
+
+`datetime=..%2F2018-03-18T12%3A31%3A12Z`
+=================
+
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/datetime.yaml[datetime.yaml].
+
 
 [[limit-parameter-requirements]]
 ==== Parameter limit
 
-include::../api_modules/limit/requirements_module_limit.adoc[]
+The `limit` parameter limits the number of resources that can be returned in a single response.
+
+include::./requirements/limit/REQ_rc-limit-definition.adoc[]
+
+While the processing of the `limit` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::./requirements/limit/REQ_rc-limit-response.adoc[]
+
+The number of resources returned depends on the server and the value of the `limit` parameter.
+
+*   The client can request a limit to the number of resources returned.
+*   The server may have a default value for the limit, and a maximum limit.
+*   If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
+
+include::./recommendations/limit/PER_rc-server-limit.adoc[]
+
+Since many servers will place a limit on the size of their responses, clients should be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
+
+The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
+
+include::./recommendations/limit/REC_rc-next-1.adoc[]
+
+include::./recommendations/limit/REC_rc-next-2.adoc[]
+
+include::./recommendations/limit/REC_rc-next-3.adoc[]
+
+Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
+
+include::./recommendations/limit/PER_rc-prev.adoc[]
 
 [[target-resource-requirements]]
 === Target Resource Requirements
 
 The target of the parameters defined in this conformance class is the <<collection-description,Collection>> resource described in the <<rc-collections-section,Collections>> Requirements Class. The purpose of these parameters is to select a subset of <<collection-description,Collection>> resources to be included in the response to a <<collections-metadata,/collections>> request.
 
-Three parameters are defined for use with the <<collections-metadata,Collections>> resource. These parameters subset the set of <<collection-description,Collection>> entries returned based on spatial, temporal, and volumetric filters. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section. 
+Three parameters are defined for use with the <<collections-metadata,Collections>> resource. These parameters subset the set of <<collection-description,Collection>> entries returned based on spatial, temporal, and volumetric filters. These parameters are documented in the <<parameter-requirements,Parameter Requirements>> section.
 
-The `collections` property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.yaml[Resource Collection Schema]. This schema is described in detail in the <<collection-resource-definition-section,Resource Collection Description>> section of this Standard. 
+The `collections` property of the Collections response provides a description of each individual collection hosted by the API. These descriptions are based on the link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collectionDesc.yaml[Resource Collection Schema]. This schema is described in detail in the <<collection-resource-definition-section,Resource Collection Description>> section of this Standard.
 
 ==== Spatial and Temporal Filtering
 
@@ -63,7 +162,7 @@ The client may limit the number of collections returned in a response by using t
 
 include::requirements/simple_query/REQ_rc-limit-collection-response.adoc[]
 
-The server also has the option of limiting the size of the Collections response.  
+The server also has the option of limiting the size of the Collections response.
 
 include::recommendations/simple_query/PER_rc-md-items.adoc[]
 
@@ -77,7 +176,7 @@ The `numberMatched` property of the Collections response indicates the number of
 
 include::requirements/simple_query/REQ_rc-numberMatched.adoc[]
 
-The number of collection items included in a Collections response may be a subset of the number matched. In that case, the `numberReturned` property of the Collections response indicates the number of collection items returned in this "page" of the Collections response. 
+The number of collection items included in a Collections response may be a subset of the number matched. In that case, the `numberReturned` property of the Collections response indicates the number of collection items returned in this "page" of the Collections response.
 
 include::requirements/simple_query/REQ_rc-numberReturned.adoc[]
 

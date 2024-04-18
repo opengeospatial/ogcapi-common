@@ -1,0 +1,6 @@
+[[req_extent-uad-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/common/extent-uad-definition*
+^|A |The content of an `Extent with Uniform Additional Dimensions` (Extent-uad) resource SHALL be based upon the OpenAPI segment  link:https://github.com/opengeospatial/ogcapi-common/tree/master/api_modules/extent-uad/schemas/extent-uad.json[extent-uad.oas].
+|===
