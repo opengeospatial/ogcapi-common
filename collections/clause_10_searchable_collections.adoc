@@ -1,14 +1,14 @@
-[[rc-simple-query-section]]
+[[rc-searchable-collections]]
 == Requirements Class "Searchable Collections"
 :sectnums:
 
-include::requirements/requirements_class_simple_query.adoc[]
+include::requirements/requirements_class_searchable_collections.adoc[]
 
 This Requirements Class describes query parameters that can be used to discover and select resource collections exposed through an OGC Web API.
 
 Implementers of this Requirements Class must also implement the `/Collections` Requirements Class.
 
-include::requirements/simple_query/REQ_dependency-collections.adoc[]
+include::requirements/searchable-collections/REQ_dependency-collections.adoc[]
 
 [[parameter-requirements]]
 === Parameter Requirements
@@ -30,11 +30,11 @@ The `bbox` parameter is used to select resources based on the geospatial footpri
 
 The `bbox` parameter is defined as follows:
 
-include::./requirements/bbox/REQ_rc-bbox-definition.adoc[]
+include::./requirements/searchable-collections/REQ_rc-bbox-definition.adoc[]
 
 While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::./requirements/bbox/REQ_rc-bbox-response.adoc[]
+include::./requirements/searchable-collections/REQ_rc-bbox-response.adoc[]
 
 "Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 
@@ -62,11 +62,11 @@ The `datetime` parameter selects resources based on their temporal extent. The d
 
 The `datetime` parameter is defined as follows:
 
-include::./requirements/datetime/REQ_rc-datetime-definition.adoc[]
+include::./requirements/searchable-collections/REQ_rc-datetime-definition.adoc[]
 
 While the processing of the `datetime` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::./requirements/datetime/REQ_rc-datetime-response.adoc[]
+include::./requirements/searchable-collections/REQ_rc-datetime-response.adoc[]
 
 "Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal geometry of the resource (again, a time instant or period). For time periods this includes the start and end time.
 
@@ -109,11 +109,11 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 
 The `limit` parameter limits the number of resources that can be returned in a single response.
 
-include::./requirements/limit/REQ_rc-limit-definition.adoc[]
+include::./requirements/searchable-collections/REQ_rc-limit-definition.adoc[]
 
 While the processing of the `limit` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::./requirements/limit/REQ_rc-limit-response.adoc[]
+include::./requirements/searchable-collections/REQ_rc-limit-response.adoc[]
 
 The number of resources returned depends on the server and the value of the `limit` parameter.
 
@@ -121,21 +121,21 @@ The number of resources returned depends on the server and the value of the `lim
 *   The server may have a default value for the limit, and a maximum limit.
 *   If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
 
-include::./recommendations/limit/PER_rc-server-limit.adoc[]
+include::./recommendations/searchable-collections/PER_rc-server-limit.adoc[]
 
 Since many servers will place a limit on the size of their responses, clients should be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
 
 The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 
-include::./recommendations/limit/REC_rc-next-1.adoc[]
+include::./recommendations/searchable-collections/REC_rc-next-1.adoc[]
 
-include::./recommendations/limit/REC_rc-next-2.adoc[]
+include::./recommendations/searchable-collections/REC_rc-next-2.adoc[]
 
-include::./recommendations/limit/REC_rc-next-3.adoc[]
+include::./recommendations/searchable-collections/REC_rc-next-3.adoc[]
 
 Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
-include::./recommendations/limit/PER_rc-prev.adoc[]
+include::./recommendations/searchable-collections/PER_rc-prev.adoc[]
 
 [[target-resource-requirements]]
 === Target Resource Requirements
@@ -152,33 +152,33 @@ A client may select a subset of the hosted collections using the <<bbox-paramete
 
 The requirements governing the processing of these parameters are:
 
-include::requirements/simple_query/REQ_rc-bbox-collection-response.adoc[]
+include::requirements/searchable-collections/REQ_rc-bbox-collection-response.adoc[]
 
-include::requirements/simple_query/REQ_rc-datetime-collection-response.adoc[]
+include::requirements/searchable-collections/REQ_rc-datetime-collection-response.adoc[]
 
 ==== Volumetric Filtering
 
 The client may limit the number of collections returned in a response by using the `limit` parameter. When applied against the `/collections` resource, the <<limit-parameter-requirements,`limit`>> parameter indicates the maximum number of collections which should be included in a single response.
 
-include::requirements/simple_query/REQ_rc-limit-collection-response.adoc[]
+include::requirements/searchable-collections/REQ_rc-limit-collection-response.adoc[]
 
 The server also has the option of limiting the size of the Collections response.
 
-include::recommendations/simple_query/PER_rc-md-items.adoc[]
+include::recommendations/searchable-collections/PER_rc-md-items.adoc[]
 
 ==== Paged Response
 
 If the collections response does not contain all of the collection resources available from this server, then the client should be informed of that fact.
 
-include::recommendations/simple_query/REC_rc-paged-response.adoc[]
+include::recommendations/searchable-collections/REC_rc-paged-response.adoc[]
 
 The `numberMatched` property of the Collections response indicates the number of Collection items included in the Collections response. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controlled through the <<bbox-parameter-requirements,`bbox`>>, <<datetime-parameter-requirements,`datetime`>> and other selection parameters provided by the client.
 
-include::requirements/simple_query/REQ_rc-numberMatched.adoc[]
+include::requirements/searchable-collections/REQ_rc-numberMatched.adoc[]
 
 The number of collection items included in a Collections response may be a subset of the number matched. In that case, the `numberReturned` property of the Collections response indicates the number of collection items returned in this "page" of the Collections response.
 
-include::requirements/simple_query/REQ_rc-numberReturned.adoc[]
+include::requirements/searchable-collections/REQ_rc-numberReturned.adoc[]
 
 If the Collections response contains a subset of the selected collection items (numberReturned is less than numberMatched) then the Collections response should contain links for navigating to the rest of the collection items as described in the <<limit-parameter-requirements,limit parameter>> section.
 

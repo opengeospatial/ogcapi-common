@@ -4,9 +4,9 @@
 
 include::requirements/requirements_class_umd-collection.adoc[]
 
-include::requirements/umd_collection/REQ_dependency-collections.adoc[]
+include::requirements/umd-collection/REQ_dependency-collections.adoc[]
 
-include::recommendations/umd_collection/REC_dependency-collections.adoc[]
+include::recommendations/umd-collection/REC_dependency-collections.adoc[]
 
 The <<rc-collections,Collections>> Requirements Class defines a <<collection-resource-definition-section,Collection>> resource which supports both <<spatial-geometry-section,geospatial>> and <<temporal-geometry-section,temporal>> geometries. However, some resources cannot be fully described with just these two geometries. The <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> Requirements Class extends the <<collection-resource-definition-section,Collection>> resource to support geometries with an unlimited number of uniform, domain-specific axis.
 
@@ -22,7 +22,7 @@ The `Extent with Uniform Additional Dimensions` (Extent-uad) resource extends th
 
 The `Extent-uad` resource is defined as follows:
 
-include::requirements/extent-uad/REQ_extent-uad-definition.adoc[]
+include::requirements/umd-collection/REQ_extent-uad-definition.adoc[]
 
 `Extent-uad` allows definition of additional axis through the use of the Coordinate Reference System (`crs`, `trs` or `vrs`) property and one of more Intervals properties.
 

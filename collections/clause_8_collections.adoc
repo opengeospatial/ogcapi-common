@@ -132,10 +132,10 @@ The extent property defines a spatial-temporal envelope that encompasses the geo
 * Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
 * Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like Bbox, additional periods can be added if the collection does not form a single temporal cluster.
 
-include::requirements/extent/REQ_rc-md-extent.adoc[]
+include::requirements/collections/REQ_rc-md-extent.adoc[]
 
-include::recommendations/extent/REC_rc-md-extent.adoc[]
+include::recommendations/collections/REC_rc-md-extent.adoc[]
 
-include::recommendations/extent/REC_rc-md-extent-single.adoc[]
+include::recommendations/collections/REC_rc-md-extent-single.adoc[]
 
-include::recommendations/extent/PER_rc-md-extent-extensions.adoc[]
+include::recommendations/collections/PER_rc-md-extent-extensions.adoc[]

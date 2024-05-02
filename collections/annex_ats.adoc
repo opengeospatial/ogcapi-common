@@ -18,9 +18,29 @@ The Conformance Classes addressed by this Abstract Test Suite are the:
 
 include::abstract_tests/ATS_class_collections.adoc[]
 
-=== Conformance Class Simple query
+=== Conformance Class Uniform Multi-Dimension Collection
 
-include::abstract_tests/ATS_class_simple-query.adoc[]
+// TODO: include::abstract_tests/ATS_class_umd-collection.adoc[]
+
+=== Conformance Class Searchable Collections
+
+include::abstract_tests/ATS_class_searchable-collections.adoc[]
+
+=== Conformance Class Sortable Collections
+
+// TODO: include::abstract_tests/ATS_class_sortable-collections.adoc[]
+
+=== Conformance Class Filtering Collections with CQL2
+
+// TODO: include::abstract_tests/ATS_class_filterable-collections.adoc[]
+
+=== Conformance Class Hierarchical Collections
+
+// TODO: include::abstract_tests/ATS_class_hierarchical-collections.adoc[]
+
+=== Conformance Class Schemas
+
+// TODO: include::abstract_tests/ATS_class_schemas.adoc[]
 
 === Conformance Class JSON
 

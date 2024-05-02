@@ -91,15 +91,23 @@ include::clause_7_overview.adoc[]
 
 include::clause_8_collections.adoc[]
 
-include::clause_X_umd-collection.adoc[]
+include::clause_9_umd-collection.adoc[]
 
-include::clause_9_simple_query.adoc[]
+include::clause_10_searchable_collections.adoc[]
 
-include::clause_10_encodings.adoc[]
+include::clause_11_sortable_collections.adoc[]
 
-include::clause_11_media_types.adoc[]
+include::clause_12_filterable_collections.adoc[]
 
-include::clause_12_security_considerations.adoc[]
+include::clause_13_hierarchical_collections.adoc[]
+
+include::clause_14_schemas.adoc[]
+
+include::clause_15_encodings.adoc[]
+
+include::clause_16_media_types.adoc[]
+
+include::clause_17_security_considerations.adoc[]
 
 include::annex_ats.adoc[]
 
