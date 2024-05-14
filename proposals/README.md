@@ -30,4 +30,19 @@ Draft Features are matured and validated through community efforts. This require
 
 A proposed extension to OpenAPI to support alternative schema has been included both as an example and for consideration by the OGC community.
 
+## OAB Approval Prior to Drafting
+
+Prior to the drafting of each requirements class, the SWG shall submit the proposal to the OAB for consideration.
+
+The file 
+`oab-predrafting-approvals.adoc` in this folder shall be updated with the following information.
+
+* Date of proposal submission
+* URI of proposed requirements class
+* Brief description of the requirements class (200 words max.)
+* Date of OAB meeting to discuss proposal
+* OAB decision (approve/reject/revise)
+* Comments from OAB
+
+
 
