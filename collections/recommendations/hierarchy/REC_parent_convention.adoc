@@ -1,0 +1,7 @@
+[[rec_hierarchy_parent-convention]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/rec/hierarchy/parent-convention*
+^|A |The identifiers for children collections SHOULD follow the pattern `{parentCollectionId}{separator}{distinctivePart}`. For example, the collection with identifier `can:qc:mtl` whose parent collection has the identifier `can:qc` follows this pattern.
+^|B |The same single separator character (for example, a colon `:`) SHOULD be used for all collections throughout a Web API deployment.
+|===

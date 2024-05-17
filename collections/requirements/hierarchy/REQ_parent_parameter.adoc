@@ -1,0 +1,8 @@
+[[req_hierarchy_parent-parameter]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/hierarchy/parent-parameter*
+^|A |The implementation SHALL support a `parent` query parameter for listing collections at the resource `/collections` whose string value represents a specified parent collection identifier.
+^|B |The response for listing collections when this parameter is used SHALL only include collections whose immediate parent corresponds to the specified collection identifier.
+^|C |When the special value of `none` is used for the `parent` parameter, only top-level collections without a parent SHALL be returned.
+|===

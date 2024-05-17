@@ -1,0 +1,7 @@
+[[req_hierarchy_ancestor-parameter]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/hierarchy/ancestor-parameter*
+^|A |The implementation SHALL support an `ancestor` parameter for listing collections at the resource `/collections` whose string value represents a specified ancestor collection identifier.
+^|B |The response for listing collections when this parameter is used SHALL only include collections whose immediate parent, or any ancestor from that parent up to the root of the hierarchy, corresponds to the specified collection identifier.
+|===

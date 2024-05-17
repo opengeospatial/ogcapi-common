@@ -1,0 +1,6 @@
+[[per_hierarchy_parent_default_html]]
+[width="90%",cols="2,6a"]
+|===
+^|*Permission {counter:per-id}* |*/per/hierarchy/parent_default_html*
+^|A |For representations not intended primarily for consumption by machines, such as an HTML representation, an implementation MAY assume a default value of `none` for the `parent` query parameter, so as to present the collections in a hierarchical manner and avoid an unnecessarily large response when a large number of collections are available.
+|===
