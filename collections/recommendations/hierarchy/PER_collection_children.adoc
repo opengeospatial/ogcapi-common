@@ -1,6 +1,6 @@
 [[per_hierarchy_collection_children]]
 [width="90%",cols="2,6a"]
 |===
-^|*Permission {counter:per-id}* |*/per/hierarchy/parent_default_html*
+^|*Permission {counter:per-id}* |*/per/hierarchy/collection-children*
 ^|A |For representations not intended primarily for consumption by machines, such as an HTML representation, an implementation MAY include clickable links to the immediate children collections to facilitate browsing through the hierarchy.
 |===
