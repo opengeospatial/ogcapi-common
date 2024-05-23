@@ -22,6 +22,9 @@ All collections of the hierarchy, whether leaf colections, top-level collections
 defined in one or more OGC API data access standards, such as _OGC API - Tiles_, _OGC API - Maps_, _OGC API - Features_ or _OGC API - Coverages_ (or others).
 Those access mechanisms will be included as usual in `links` of the collections.
 
+Conceptually, all data elements of the children collections are also considered to be data elements of their parent collections.
+The practical meaning and implementation of this concept depends heavily on the access mechanisms available at each level of the collection hierarchy.
+
 In the case where a parent collection offers a direct data access mechanism while also having children collections, the `collections=` query parameter might be applicable to some of these access mechanisms,
 in a similar way to how `collections=` is applicable to data access mechanisms tied to the root of the API (see for example the "Collection Selection" requirement classes of _OGC API - Maps_ and _OGC API - Tiles_).
 
