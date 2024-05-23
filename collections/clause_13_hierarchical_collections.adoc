@@ -56,13 +56,13 @@ Example of a collection description response for `/collections/{collectionId}`:
 
 ```json
 {
-   "id": "can:qc:mtl",
-   "parent": "can:qc",
+   "id": "Montreal",
+   "parent": "Quebec",
    "links": [
-      { "rel": "self", "/collections/can:qc:mtl" },
-      { "rel": "items", "href": "/collections/can:qc:mtl/items" },
-      { "rel": "[ogc-rel:map]", "href": "/collections/can:qc:mtl/map" },
-      { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc:mtl/tiles" }
+      { "rel": "self", "/collections/Montreal" },
+      { "rel": "items", "href": "/collections/Montreal/items" },
+      { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
+      { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
    ],
    ...
 }
@@ -74,121 +74,121 @@ Example of a hierarchical collection listing response for `/collections`:
 {
    "collections": [
       {
-         "id": "can",
+         "id": "Canada",
          "links": [
             { "rel": "self", "href": "/collections/can" },
             { "rel": "[ogc-rel:map]", "href": "/collections/can/map" }
          ]
       },
       {
-         "id": "usa",
+         "id": "USA",
          "links": [
             { "rel": "self", "href": "/collections/usa" },
             { "rel": "[ogc-rel:map]", "href": "/collections/usa/map" }
          ]
       },
       {
-         "id": "can:qc", "parent": "can",
+         "id": "Quebec", "parent": "Canada",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc/tiles" }
+            { "rel": "self", "href": "/collections/Quebec" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Quebec/tiles" }
          ]
       },
       {
-         "id": "can:on", "parent": "can",
+         "id": "Ontario", "parent": "Canada",
          "links": [
-            { "rel": "self", "href": "/collections/can:on" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:on/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:on/tiles" }
+            { "rel": "self", "href": "/collections/Ontario" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Ontario/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ontario/tiles" }
          ]
       },
       {
-         "id": "usa:ny", "parent": "usa",
+         "id": "NewYork", "parent": "USA",
          "links": [
-            { "rel": "self", "href": "/collections/usa:ny" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa:ny/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/usa:ny/tiles" }
+            { "rel": "self", "href": "/collections/NewYork" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/NewYork/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/NewYork/tiles" }
          ]
       },
       {
-         "id": "usa:ca", "parent": "usa",
+         "id": "California", "parent": "USA",
          "links": [
-            { "rel": "self", "href": "/collections/usa:ca" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa:ca/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/usa:ca/tiles" }
+            { "rel": "self", "href": "/collections/California" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/California/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/California/tiles" }
          ]
       },
       {
-         "id": "can:qc:qc", "parent": "can:qc",
+         "id": "QuebecCity", "parent": "Quebec",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc:qc" },
-            { "rel": "items", "href": "/collections/can:qc:qc/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc:qc/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc:qc/tiles" }
+            { "rel": "self", "href": "/collections/QuebecCity" },
+            { "rel": "items", "href": "/collections/QuebecCity/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/QuebecCity/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/QuebecCity/tiles" }
          ]
       },
       {
-         "id": "can:qc:mtl", "parent": "can:qc",
+         "id": "Montreal", "parent": "Quebec",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc:mtl" },
-            { "rel": "items", "href": "/collections/can:qc:mtl/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc:mtl/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc:mtl/tiles" }
+            { "rel": "self", "href": "/collections/Montreal" },
+            { "rel": "items", "href": "/collections/Montreal/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
          ]
       },
       {
-         "id": "can:on:tor", "parent": "can:on",
+         "id": "Toronto", "parent": "Ontario",
          "links": [
-            { "rel": "self", "href": "/collections/can:on:tor" },
-            { "rel": "items", "href": "/collections/can:on:tor/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:on:tor/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:on:tor/tiles" }
+            { "rel": "self", "href": "/collections/Toronto" },
+            { "rel": "items", "href": "/collections/Toronto/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Toronto/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Toronto/tiles" }
          ]
       },
       {
-         "id": "can:on:ott", "parent": "can:on",
+         "id": "Ottawa", "parent": "Ontario",
          "links": [
-            { "rel": "self", "href": "/collections/can:on:ott" },
-            { "rel": "items", "href": "/collections/can:on:ott/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:on:ott/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:on:ott/tiles" }
+            { "rel": "self", "href": "/collections/Ottawa" },
+            { "rel": "items", "href": "/collections/Ottawa/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Ottawa/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ottawa/tiles" }
          ]
       },
       {
-         "id": "usa:ny:ny", "parent": "usa:ny",
+         "id": "NewYorkCity", "parent": "NewYork",
          "links": [
-            { "rel": "self", "href": "/collections/usa:ny:ny" },
-            { "rel": "items", "href": "/collections/usa:ny:ny/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa:ny:ny/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/usa:ny:ny/tiles" }
+            { "rel": "self", "href": "/collections/NewYorkCity" },
+            { "rel": "items", "href": "/collections/NewYorkCity/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/NewYorkCity/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/NewYorkCity/tiles" }
          ]
       },
       {
-         "id": "usa:ny:su", "parent": "usa:ny",
+         "id": "Summerhill", "parent": "NewYork",
          "links": [
-            { "rel": "self", "href": "/collections/usa:ny:su" },
-            { "rel": "items", "href": "/collections/usa:ny:su/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa:ny:su/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/usa:ny:su/tiles" }
+            { "rel": "self", "href": "/collections/Summerhill" },
+            { "rel": "items", "href": "/collections/Summerhill/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Summerhill/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Summerhill/tiles" }
          ]
       },
       {
-         "id": "usa:ca:sf", "parent": "usa:ca",
+         "id": "SanFrancisco", "parent": "California",
          "links": [
-            { "rel": "self", "href": "/collections/usa:ca:sf" },
-            { "rel": "items", "href": "/collections/usa:ca:sf/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa:ca:sf/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/usa:ca:sf/tiles" }
+            { "rel": "self", "href": "/collections/SanFrancisco" },
+            { "rel": "items", "href": "/collections/SanFrancisco/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/SanFrancisco/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/SanFrancisco/tiles" }
          ]
       },
       {
-         "id": "usa:ca:sd", "parent": "usa:ca",
+         "id": "SanDiego", "parent": "California",
          "links": [
-            { "rel": "self", "href": "/collections/usa:ca:sd" },
-            { "rel": "items", "href": "/collections/usa:ca:sd/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa:ca:sd/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/usa:ca:sd/tiles" }
+            { "rel": "self", "href": "/collections/SanDiego" },
+            { "rel": "items", "href": "/collections/SanDiego/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/SanDiego/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/SanDiego/tiles" }
          ]
       }
    ]
@@ -216,14 +216,14 @@ Example response, based on the hierarchical collections listed earlier, for `/co
 {
    "collections": [
       {
-         "id": "can",
+         "id": "Canada",
          "links": [
             { "rel": "self", "href": "/collections/can" },
             { "rel": "[ogc-rel:map]", "href": "/collections/can/map" }
          ]
       },
       {
-         "id": "usa",
+         "id": "USA",
          "links": [
             { "rel": "self", "href": "/collections/usa" },
             { "rel": "[ogc-rel:map]", "href": "/collections/usa/map" }
@@ -240,19 +240,19 @@ Example response, based on the hierarchical collections listed earlier, for `/co
 {
    "collections": [
       {
-         "id": "can:qc", "parent": "can",
+         "id": "Quebec", "parent": "Canada",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc/tiles" }
+            { "rel": "self", "href": "/collections/Quebec" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Quebec/tiles" }
          ]
       },
       {
-         "id": "can:on", "parent": "can",
+         "id": "Ontario", "parent": "Canada",
          "links": [
-            { "rel": "self", "href": "/collections/can:on" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:on/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:on/tiles" }
+            { "rel": "self", "href": "/collections/Ontario" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Ontario/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ontario/tiles" }
          ]
       }
    ]
@@ -260,27 +260,27 @@ Example response, based on the hierarchical collections listed earlier, for `/co
 }
 ```
 
-Example response, based on the hierarchical collections listed earlier, for `/collections?parent=can:qc`:
+Example response, based on the hierarchical collections listed earlier, for `/collections?parent=Quebec`:
 
 ```json
 {
    "collections": [
       {
-         "id": "can:qc:qc", "parent": "can:qc",
+         "id": "QuebecCity", "parent": "Quebec",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc:qc" },
-            { "rel": "items", "href": "/collections/can:qc:qc/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc:qc/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc:qc/tiles" }
+            { "rel": "self", "href": "/collections/QuebecCity" },
+            { "rel": "items", "href": "/collections/QuebecCity/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/QuebecCity/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/QuebecCity/tiles" }
          ]
       },
       {
-         "id": "can:qc:mtl", "parent": "can:qc",
+         "id": "Montreal", "parent": "Quebec",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc:mtl" },
-            { "rel": "items", "href": "/collections/can:qc:mtl/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc:mtl/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc:mtl/tiles" }
+            { "rel": "self", "href": "/collections/Montreal" },
+            { "rel": "items", "href": "/collections/Montreal/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
          ]
       },
    ]
@@ -300,55 +300,55 @@ Example response, based on the hierarchical collections listed earlier, for `/co
 {
    "collections": [
       {
-         "id": "can:qc", "parent": "can",
+         "id": "Quebec", "parent": "Canada",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc/tiles" }
+            { "rel": "self", "href": "/collections/Quebec" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Quebec/tiles" }
          ]
       },
       {
-         "id": "can:on", "parent": "can",
+         "id": "Ontario", "parent": "Canada",
          "links": [
-            { "rel": "self", "href": "/collections/can:on" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:on/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:on/tiles" }
+            { "rel": "self", "href": "/collections/Ontario" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Ontario/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ontario/tiles" }
          ]
       },
       {
-         "id": "can:qc:qc", "parent": "can:qc",
+         "id": "QuebecCity", "parent": "Quebec",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc:qc" },
-            { "rel": "items", "href": "/collections/can:qc:qc/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc:qc/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc:qc/tiles" }
+            { "rel": "self", "href": "/collections/QuebecCity" },
+            { "rel": "items", "href": "/collections/QuebecCity/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/QuebecCity/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/QuebecCity/tiles" }
          ]
       },
       {
-         "id": "can:qc:mtl", "parent": "can:qc",
+         "id": "Montreal", "parent": "Quebec",
          "links": [
-            { "rel": "self", "href": "/collections/can:qc:mtl" },
-            { "rel": "items", "href": "/collections/can:qc:mtl/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:qc:mtl/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:qc:mtl/tiles" }
+            { "rel": "self", "href": "/collections/Montreal" },
+            { "rel": "items", "href": "/collections/Montreal/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
          ]
       },
       {
-         "id": "can:on:tor", "parent": "can:on",
+         "id": "Toronto", "parent": "Ontario",
          "links": [
-            { "rel": "self", "href": "/collections/can:on:tor" },
-            { "rel": "items", "href": "/collections/can:on:tor/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:on:tor/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:on:tor/tiles" }
+            { "rel": "self", "href": "/collections/Toronto" },
+            { "rel": "items", "href": "/collections/Toronto/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Toronto/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Toronto/tiles" }
          ]
       },
       {
-         "id": "can:on:ott", "parent": "can:on",
+         "id": "Ottawa", "parent": "Ontario",
          "links": [
-            { "rel": "self", "href": "/collections/can:on:ott" },
-            { "rel": "items", "href": "/collections/can:on:ott/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can:on:ott/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/can:on:ott/tiles" }
+            { "rel": "self", "href": "/collections/Ottawa" },
+            { "rel": "items", "href": "/collections/Ottawa/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Ottawa/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ottawa/tiles" }
          ]
       }
    ]
@@ -360,5 +360,5 @@ The following example query demonstrates combining filtering by ancestor with ca
 in a hierarchy within the descendants of a collection with the identifier `canada`:
 
 ```
-GET /collections?ancestor=canada&q=precipitations
+GET /collections?ancestor=Canada&q=precipitations
 ```
