@@ -24,7 +24,7 @@
 ^|B |The schema SHALL have the following characteristics:
 
 * "$schema" is "\https://json-schema.org/draft/2020-12/schema";
-* "$id" is a HTTP(S) URI without query parameters that returns the schema, if requested with the header "Accept: application/schema+json"; and 
+* "$id" is a HTTP(S) URI without query parameters that returns the schema, if requested with the header "Accept: application/schema+json"; and
 * "type" is "object".
 |===
 
@@ -57,10 +57,11 @@ The following recommendations are intended to simplify parsing a schema and to h
 ^|E |Properties that represent a UUID SHOULD be represented as a string with format "uuid".
 ^|F |For string properties that are, "minLength", "maxLength", "enum" and/or "pattern" SHOULD be provided, where applicable.
 ^|G |For numeric properties, "multipleOf", "minimum", "exclusiveMinimum", "maximum", "exclusiveMaximum" SHOULD be provided, where applicable.
-^|H |For integer properties that represent enumerated values, "enum" SHOULD be provided.
-^|I |For array properties, the property SHOULD consist of items that are strings or numbers.
-^|J |Required properties SHOULD be included in "required".
-^|K |The JSON Schema keywords SHOULD be constrained to the those mentioned in this recommendation and requirement `/req/{req-class}/properties`.
+^|H |For integer properties that represent enumerated values without providing a description for each, "enum" SHOULD be provided.
+^|I |For integer properties that represent enumerated values while providing a description for each, "anyOf" with a combination of "const" and "title" for each entry SHOULD be provided.
+^|J |For array properties, the property SHOULD consist of items that are strings or numbers.
+^|K |Required properties SHOULD be included in "required".
+^|L |The JSON Schema keywords SHOULD be constrained to those mentioned in this recommendation, requirement `/req/{req-class}/properties` and requirements in the _additional keywords_ section below.
 |===
 
 [#additional-keywords]
@@ -119,8 +120,8 @@ In geospatial data, numeric property values often represent a measurement and ha
 ^|A |The keyword "x-ogc-unit" SHALL be used to declare the unit of measure of the property.
 ^|B |The value of the keyword "x-ogc-unit" SHALL be a string representing the unit of measure.
 ^|C |The value of the keyword "x-ogc-unit" SHALL be the case sensitive UCUM representation ("c/s") unless a different language / register for units is identified in keyword "x-ogc-unitLang".
-^|D |The value for UCUM, if explicitly declared as the language for units in keyword "x-ogc-unitLang", SHALL be "UCUM". 
-^|E |The value for the QUDT Units Vocabulary, if declared as the language for units in keyword "x-ogc-unitLang", SHALL be "QUDT". 
+^|D |The value for UCUM, if explicitly declared as the language for units in keyword "x-ogc-unitLang", SHALL be "UCUM".
+^|E |The value for the QUDT Units Vocabulary, if declared as the language for units in keyword "x-ogc-unitLang", SHALL be "QUDT".
 ^|F |The value of the keyword "x-ogc-unit" SHALL be the URI of the unit for values from the QUDT Units Vocabulary.
 |===
 
@@ -137,4 +138,13 @@ NOTE: For example, the value for hectopascal is `hPa` in UCUM and `\https://qudt
 ^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
 ^|A |The keyword "x-ogc-definition" SHALL be used to identify the semantic definition for the property.
 ^|B |The value of the keyword "x-ogc-definition" SHALL be a URI.
+|===
+
+:req: nilvalues
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |The keyword "x-ogc-nilValues" SHALL be used to identify the values considered nil.
+^|B |The value of the keyword "x-ogc-nilValues" SHALL be an array of objects, each including a mandatory "const" value and an optional "title" explanation of the meaning of that particular nil value.
 |===
