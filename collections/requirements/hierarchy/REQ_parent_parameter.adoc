@@ -3,6 +3,8 @@
 |===
 ^|*Requirement {counter:req-id}* |*/req/hierarchy/parent-parameter*
 ^|A |The implementation SHALL support a `parent` query parameter for listing collections at the resource `/collections` whose string value represents a specified parent collection identifier.
-^|B |The response for listing collections when this parameter is used SHALL only include collections whose immediate parent corresponds to the specified collection identifier.
-^|C |When the special value of `none` is used for the `parent` parameter, only top-level collections without a parent SHALL be returned.
+^|B |When this parameter is used, the response for listing collections SHALL only include collections under the hierarchy of the specified parent collection, starting with its immediate children (excluding the parent itself).
+^|C |When the `parent` parameter is omitted, all collections SHALL be returned.
 |===
+
+NOTE: The list of collections can be further filtered by the `descendants` parameter defined in this requirement class, or separate requirement classes such as Searchable Collection.

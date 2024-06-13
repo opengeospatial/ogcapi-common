@@ -11,7 +11,7 @@ This capability addresses two primary use cases:
   The hierarchical organization also allows to present the list of collections in a hierarchical manner, for example using a tree view control, and makes it easier to discover or browse to a
   particular collection of interest using such an interface, with the ability to expand and collapse branches of the hierarchy.
   For example, data collections may be organized as a hierarchy of countries, states, and cities.
-- The `ancestor` parameter defined herein allows to load a limited subset of interest from  the available collections.
+- Loading a limited subset of interest from the available collections.
   In conjunction with the "Searchable Collections" and/or "Filtering collections using CQL2" requirement classes, this parameter also allows to narrow down a search to a particular branch of the hierarchy.
 
 NOTE: This requirement class does not address the use cases of defining simultaneous multiple hierarchies -- a collection can have a single `parent` collection.
@@ -39,16 +39,14 @@ The property is omitted or set to a _null_ value for top-level collections.
 
 include::requirements/hierarchy/REQ_parent_property.adoc[]
 
-Although not required, it is recommended that the identifier of children collections start by their parent collection identifier,
-followed by a specific separator (such as the colon `:`), followed by their distinctive part.
-Programmatic clients should not establish the hierarchical relationships based on the presence of that separator nor of the parent collecton identifier
-within a collection identifier, but it is a useful hint for users, including to allow editing the URLs of a collection in a browser's address bar to directly access the parent collection.
+Although not required, implementations could opt for using a specific character (such as the colon `:`) to separate the hierarchical parts of collection identifiers.
+This notably facilitates directly accessing a parent collection in a browser environment by editing URLs in the browser address bar.
 
-include::recommendations/hierarchy/REC_parent_convention.adoc[]
+CAUTION: Clients cannot rely on the use of any particular separator character to establish the hierarchical relationships between collections. Instead, they need to use the `parent` property specifying the identifier of the parent collection when applicable.
 
 In the HTML representation of a collection description resource (`/collections/{collectionId}`), it can be useful to directly show the
 list of children collections, allowing a user to directly click and explore the hierarchy this way.
-For programmatic clients, a separate `/collections?parent={parentId}` request is performed instead to retrieve the list of children collections (see below).
+For programmatic clients wishing not to retrieve an entire hierarchy of collections, separate `/collections?parent={parentId}&descendants=immediate` requests are performed to retrieve the list of immediate children collections (see below).
 
 include::recommendations/hierarchy/PER_collection_children.adoc[]
 
@@ -76,15 +74,15 @@ Example of a hierarchical collection listing response for `/collections`:
       {
          "id": "Canada",
          "links": [
-            { "rel": "self", "href": "/collections/can" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can/map" }
+            { "rel": "self", "href": "/collections/Canada" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Canada/map" }
          ]
       },
       {
          "id": "USA",
          "links": [
-            { "rel": "self", "href": "/collections/usa" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa/map" }
+            { "rel": "self", "href": "/collections/USA" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/USA/map" }
          ]
       },
       {
@@ -165,12 +163,12 @@ Example of a hierarchical collection listing response for `/collections`:
          ]
       },
       {
-         "id": "Summerhill", "parent": "NewYork",
+         "id": "Syracuse", "parent": "NewYork",
          "links": [
-            { "rel": "self", "href": "/collections/Summerhill" },
-            { "rel": "items", "href": "/collections/Summerhill/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/Summerhill/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Summerhill/tiles" }
+            { "rel": "self", "href": "/collections/Syracuse" },
+            { "rel": "items", "href": "/collections/Syracuse/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Syracuse/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Syracuse/tiles" }
          ]
       },
       {
@@ -198,103 +196,14 @@ Example of a hierarchical collection listing response for `/collections`:
 
 === `parent` query parameter for `/collections`
 
-A `parent` query parameter is defined to filter the list of collections returned to only those whose immediate parent is identified by the specified parent id.
+A `parent` query parameter is defined to filter the list of collections returned to only those within the hierarchy of a specified parent collection.
 
-A special value of `none` (which must be avoided as a collection id) takes the special meaning of returning only the top-level collections without a parent.
+Depending on the value of the `descendants` parameter, either the entire hierarchy underneath (`descendants=all`), or only the immediate children (`descendants=immediate`) of that parent are returned.
+By default, all descendants of the specified parent, or all collections of the dataset if no parent is specified, are returned.
 
 include::requirements/hierarchy/REQ_parent_parameter.adoc[]
 
-In order to allow implementations and deployments to present a list of collections in a hierarchical manner by default in a browser,
-a permission specific to an HTML representation is introduced.
-Since such an HTML representation is not primarily intended for consumption by programmatic clients, this should not impact compatibility with clients not implementing this extension.
-
-include::recommendations/hierarchy/PER_parent_default_html.adoc[]
-
-Example response, based on the hierarchical collections listed earlier, for `/collections?parent=none`:
-
-```json
-{
-   "collections": [
-      {
-         "id": "Canada",
-         "links": [
-            { "rel": "self", "href": "/collections/can" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/can/map" }
-         ]
-      },
-      {
-         "id": "USA",
-         "links": [
-            { "rel": "self", "href": "/collections/usa" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/usa/map" }
-         ]
-      }
-   ]
-   ...
-}
-```
-
-Example response, based on the hierarchical collections listed earlier, for `/collections?parent=can`:
-
-```json
-{
-   "collections": [
-      {
-         "id": "Quebec", "parent": "Canada",
-         "links": [
-            { "rel": "self", "href": "/collections/Quebec" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Quebec/tiles" }
-         ]
-      },
-      {
-         "id": "Ontario", "parent": "Canada",
-         "links": [
-            { "rel": "self", "href": "/collections/Ontario" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/Ontario/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ontario/tiles" }
-         ]
-      }
-   ]
-   ...
-}
-```
-
-Example response, based on the hierarchical collections listed earlier, for `/collections?parent=Quebec`:
-
-```json
-{
-   "collections": [
-      {
-         "id": "QuebecCity", "parent": "Quebec",
-         "links": [
-            { "rel": "self", "href": "/collections/QuebecCity" },
-            { "rel": "items", "href": "/collections/QuebecCity/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/QuebecCity/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/QuebecCity/tiles" }
-         ]
-      },
-      {
-         "id": "Montreal", "parent": "Quebec",
-         "links": [
-            { "rel": "self", "href": "/collections/Montreal" },
-            { "rel": "items", "href": "/collections/Montreal/items" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
-         ]
-      },
-   ]
-   ...
-}
-```
-
-=== `ancestor` query parameter for `/collections`
-
-An `ancestor` query parameter is also defined to filter the list of collections returned to only those having parent identified by the specified parent id as an ancestor.
-
-include::requirements/hierarchy/REQ_ancestor_parameter.adoc[]
-
-Example response, based on the hierarchical collections listed earlier, for `/collections?ancestor=can`:
+Example response, based on the hierarchical collections listed earlier, for `/collections?parent=Canada`:
 
 ```json
 {
@@ -356,9 +265,102 @@ Example response, based on the hierarchical collections listed earlier, for `/co
 }
 ```
 
-The following example query demonstrates combining filtering by ancestor with capabilities defined in "Searchable Collections" to look for collections related to precipitations
-in a hierarchy within the descendants of a collection with the identifier `canada`:
+
+=== `descendants` query parameter for `/collections`
+
+A `descendants` query parameter is also defined to retrieve only the immediate children of a specified parent, or only the top-level collections, when using the value `immediate`.
+The default value `all` returns all collections as usual, or the whole hierarchy under a parent if `parent` is specified.
+
+include::requirements/hierarchy/REQ_descendants_parameter.adoc[]
+
+Example response, based on the hierarchical collections listed earlier, retrieving only the top-level collections with `/collections?descendants=immediate`:
+
+```json
+{
+   "collections": [
+      {
+         "id": "Canada",
+         "links": [
+            { "rel": "self", "href": "/collections/Canada" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Canada/map" }
+         ]
+      },
+      {
+         "id": "USA",
+         "links": [
+            { "rel": "self", "href": "/collections/USA" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/USA/map" }
+         ]
+      }
+   ]
+   ...
+}
+```
+
+Example response, based on the hierarchical collections listed earlier, for retrieving only the immediate children of the `Canada` collection `/collections?parent=Canada&descendants=immediate`:
+
+```json
+{
+   "collections": [
+      {
+         "id": "Quebec", "parent": "Canada",
+         "links": [
+            { "rel": "self", "href": "/collections/Quebec" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Quebec/tiles" }
+         ]
+      },
+      {
+         "id": "Ontario", "parent": "Canada",
+         "links": [
+            { "rel": "self", "href": "/collections/Ontario" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Ontario/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ontario/tiles" }
+         ]
+      }
+   ]
+   ...
+}
+```
+
+Example response, based on the hierarchical collections listed earlier, for retrieving only the immediate children of the `Quebec` collection `/collections?parent=Quebec&descendants=immediate`:
+
+```json
+{
+   "collections": [
+      {
+         "id": "QuebecCity", "parent": "Quebec",
+         "links": [
+            { "rel": "self", "href": "/collections/QuebecCity" },
+            { "rel": "items", "href": "/collections/QuebecCity/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/QuebecCity/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/QuebecCity/tiles" }
+         ]
+      },
+      {
+         "id": "Montreal", "parent": "Quebec",
+         "links": [
+            { "rel": "self", "href": "/collections/Montreal" },
+            { "rel": "items", "href": "/collections/Montreal/items" },
+            { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
+         ]
+      },
+   ]
+   ...
+}
+```
+
+In order to allow implementations and deployments to present a list of collections in a hierarchical manner by default in a browser,
+a permission specific to an HTML representation is introduced.
+Since such an HTML representation is not primarily intended for consumption by programmatic clients, this should not impact compatibility with clients not implementing this extension.
+
+include::recommendations/hierarchy/PER_descendants_default_html.adoc[]
+
+
+The following example query demonstrates combining filtering with a parent hierarchy (with default `descendants=all`) with capabilities defined in "Searchable Collections" to look for collections related to precipitations
+in a hierarchy within the descendants of a collection with the identifier `Canada`:
 
 ```
-GET /collections?ancestor=Canada&q=precipitations
+GET /collections?parent=Canada&q=precipitations
 ```
