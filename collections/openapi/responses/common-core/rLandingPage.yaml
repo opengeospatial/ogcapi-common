@@ -1,0 +1,34 @@
+description: |-
+  The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),
+  to the Conformance declaration (path `/conformance`, link relation `conformance`), and to the Collections of geospatial data (path `/collections`, link relation `data`).
+content:
+  application/json:
+    schema:
+      $ref: '../../schemas/common-core/landingPage.yaml'
+    example:
+      title: Buildings in Bonn
+      description: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Tiles specification.
+      links:
+        - href: http://data.example.org/
+          rel: self
+          type: application/json
+          title: this document
+        - href: http://data.example.org/api
+          rel: service-desc
+          type: application/vnd.oai.openapi+json;version=3.0
+          title: the API definition
+        - href: http://data.example.org/api.html
+          rel: service-doc
+          type: text/html
+          title: the API documentation
+        - href: http://data.example.org/conformance
+          rel: conformance
+          type: application/json
+          title: OGC API conformance classes implemented by this service
+        - href: http://data.example.org/collections
+          rel: data
+          type: application/json
+          title: Information about the collections
+  text/html:
+    schema:
+      type: string

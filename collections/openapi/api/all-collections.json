@@ -1,0 +1,12 @@
+{
+   "type" : "string",
+   "enum" : [
+      "blueMarble",
+      "NaturalEarth:raster:HYP_HR_SR_OB_DR",
+      "NaturalEarth:cultural:ne_10m_admin_0_countries",
+      "NaturalEarth:physical:bathymetry",
+      "SRTM_ViewFinderPanorama",
+      "HRDEM-Ottawa",
+      "HRDEM-RedRiver"
+   ]
+}
