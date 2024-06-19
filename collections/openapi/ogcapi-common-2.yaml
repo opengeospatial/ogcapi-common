@@ -1,0 +1,122 @@
+openapi: 3.0.0
+info:
+   version: '1.0'
+   title: OGC API - Common
+   description: |-
+      Example API Definition for OGC API - Common - Part 2: Geospatial Data
+   contact:
+      name: Open Geospatial Consortium
+      email: info@ogc.org
+   license:
+      name: OGC License
+      url: http://www.opengeospatial.org/legal/
+servers:
+  - description: Example OGC API - Common server
+    url: https://maps.gnosis.earth/ogcapi
+paths:
+   # OGC API - Common - Part 1: Core
+   /:
+      $ref: 'paths/common-core/pLandingPage.yaml'
+   /conformance:
+      $ref: 'paths/common-core/pConformance.yaml'
+   /api:
+      $ref: 'paths/common-core/pAPI.yaml'
+
+   # Dynamic enumeration of resources specific to this implementation
+   #/api/all-collections:
+   #   $ref: 'paths/dynamic/pAllCollections.yaml'
+
+   # OGC API - Common - Part 2: Geospatial data
+   /collections:
+      $ref: 'paths/common-geodata/pCollectionsList.yaml'
+   /collections/{collectionId}:
+      $ref: 'paths/common-geodata/pCollection.yaml'
+
+components:
+   schemas:
+      # $ref: './schemas/index.yaml' # Not supported?
+      # https://davidgarcia.dev/posts/how-to-split-open-api-spec-into-multiple-files/ vs.
+      # https://stackoverflow.com/questions/64940379/ref-ing-multiple-files-at-the-components-schemas-top-level-in-openapi-3
+
+      # Common - Core
+      confClasses:
+         $ref: 'schemas/common-core/confClasses.yaml'
+      link:
+         $ref: 'schemas/common-core/link.yaml'
+      landingPage:
+         $ref: 'schemas/common-core/landingPage.yaml'
+      exception:
+         $ref: 'schemas/common-core/exception.yaml'
+
+      # Common - Geospatial Data
+      collections:
+         $ref: 'schemas/common-geodata/collections.yaml'
+      collectionDesc:
+         $ref: 'schemas/common-geodata/collectionDesc.yaml'
+      extent:
+         $ref: 'schemas/common-geodata/extent.yaml'
+      extent-uad:
+         $ref: 'schemas/common-geodata/extent-uad.yaml'
+      #crs:
+      #   $ref: 'schemas/common-geodatas/crs.yaml'
+      dataType:
+         $ref: 'schemas/common-geodata/dataType.yaml'
+      timeStamp:
+         $ref: 'schemas/common-geodata/timeStamp.yaml'
+      # projJSON:
+      #   $ref: 'schemas/common-geodata/projJSON.yaml'
+      numberReturned:
+         $ref: 'schemas/common-geodata/numberReturned.yaml'
+      numberMatched:
+         $ref: 'schemas/common-geodata/numberMatched.yaml'
+
+      # Dynamic (or implementation-specific)
+      enumeration:
+         $ref: 'schemas/dynamic/enumeration.yaml'
+
+      all-collections:
+         $ref: 'schemas/dynamic/all-collections.yaml'
+
+   parameters:
+      # Common - Core
+      f-metadata:
+         $ref: 'parameters/unspecified/f-metadata.yaml'
+
+      # Common - Geospatial data
+      collectionId-all:
+         $ref: 'parameters/common-geodata/collectionId-all.yaml'
+      bbox:
+         $ref: 'parameters/common-geodata/bbox.yaml'
+      datetime:
+         $ref: 'parameters/common-geodata/datetime.yaml'
+
+   responses:
+      # Generic Errors
+      NotFound:
+         $ref: 'responses/common-core/rNotFound.yaml'
+      NotAcceptable:
+         $ref: 'responses/common-core/rNotAcceptable.yaml'
+      ServerError:
+         $ref: 'responses/common-core/rServerError.yaml'
+      InvalidParameter:
+         $ref: 'responses/common-core/rInvalidParameter.yaml'
+      Exception:
+         $ref: 'responses/common-core/rException.yaml'
+
+      # Common - Core
+      LandingPage:
+         $ref: 'responses/common-core/rLandingPage.yaml'
+      Conformance:
+         $ref: 'responses/common-core/rConformance.yaml'
+      API:
+         $ref: 'responses/common-core/rAPI.yaml'
+
+      # Dynamic enumeration of resources specific to this implementation
+      Enumeration:
+         $ref: 'responses/dynamic/rEnumeration.yaml'
+
+      # Common - Geospatial Data
+      CollectionsList:
+         $ref: 'responses/common-geodata/rCollectionsList.yaml'
+      Collection:
+         $ref: 'responses/common-geodata/rCollection.yaml'
