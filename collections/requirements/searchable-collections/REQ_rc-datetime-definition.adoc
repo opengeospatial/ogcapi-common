@@ -1,7 +1,7 @@
 [[req_collections_rc-datetime-definition]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-datetime-definition* 
+^|*Requirement {counter:req-id}* |*/req/collections/rc-datetime-definition*
 ^|A |The `datetime` parameter SHALL have the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
@@ -25,6 +25,6 @@ interval-half-bounded-end   = date-time "/" [".."]
 interval                    = interval-bounded / interval-half-bounded-start / interval-half-bounded-end
 datetime                    = date-time / interval
 ----
-^|C |The syntax of `date-time` is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
-^|D |Open ranges in time intervals at the start or end are supported using a double-dot (`..`) or an empty string for the start/end..
+^|C |Server implementations SHALL interpret the `date-time` as specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6] supporting at least UTC time with the notation ending with a Z (with support for local time offsets optional).
+^|D |When a double-dot (`..`) or an empty string is specified in a time interval, the implementation SHALL interpret it as a half-bounded or an unbounded interval (open range).
 |===
