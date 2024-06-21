@@ -176,7 +176,8 @@ properties:
           description: |-
             Begin and end times of the time interval. The timestamps are in the
             temporal coordinate reference system specified in `trs`. By default
-            this is the Gregorian calendar.
+            this is the Gregorian calendar, expressed using RFC 3339 section 5.6.
+            Note that these times may be specified using time zone offsets to UTC time other than zero.
 
             The value `null` for start or end time is supported and indicates a half-bounded time interval.
           type: array
@@ -188,6 +189,7 @@ properties:
             nullable: true
           example:
             - '2011-11-11T12:22:11Z'
+            - '2011-11-11T08:22:11-04:00'
             - null
       trs:
         description: |-
