@@ -7,7 +7,7 @@ content:
       $ref: '../../schemas/common-core/landingPage.yaml'
     example:
       title: Buildings in Bonn
-      description: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Tiles specification.
+      description: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API - Common specification.
       links:
         - href: http://data.example.org/
           rel: self
@@ -22,11 +22,11 @@ content:
           type: text/html
           title: the API documentation
         - href: http://data.example.org/conformance
-          rel: conformance
+          rel: http://www.opengis.net/def/rel/ogc/1.0/conformance
           type: application/json
           title: OGC API conformance classes implemented by this service
         - href: http://data.example.org/collections
-          rel: data
+          rel: http://www.opengis.net/def/rel/ogc/1.0/data
           type: application/json
           title: Information about the collections
   text/html:

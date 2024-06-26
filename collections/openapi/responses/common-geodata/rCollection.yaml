@@ -9,6 +9,7 @@ content:
   application/json:
     schema:
       $ref: '../../schemas/common-geodata/collectionDesc.yaml'
+      # $ref: '../../schemas/common-geodata/collectionDesc-notUAD.yaml'
     example:
       id: buildings
       title: Buildings
