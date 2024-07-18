@@ -4,88 +4,48 @@
 
 include::requirements/requirements_class_umd-collection.adoc[]
 
-include::requirements/umd-collection/REQ_dependency-collections.adoc[]
-
-include::recommendations/umd-collection/REC_dependency-collections.adoc[]
-
-The <<rc-collections,Collections>> Requirements Class defines a <<collection-resource-definition-section,Collection>> resource which supports both <<spatial-geometry-section,geospatial>> and <<temporal-geometry-section,temporal>> geometries. However, some resources cannot be fully described with just these two geometries. The <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> Requirements Class extends the <<collection-resource-definition-section,Collection>> resource to support geometries with an unlimited number of uniform, domain-specific axis.
+The <<rc-collections,Collections>> Requirements Class defines a <<collection-resource-definition-section,Collection>> resource which supports both geospatial and temporal dimensions.
+However, the domain of some datasets cannot be fully described with only spatiotemporal dimensions.
+The <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> Requirements Class extends the <<collection-resource-definition-section,Collection>> resource to support an an unlimited number of
+dimensions defined in a uniform manner, so that clients supporting this requirements class can interpret these dimensions in a generic manner.
 
 [[umd-collection-definition]]
 === Uniform Multi-Dimension Collection Definition
 
-The Uniform Multi-Dimension Collection is an extension of the <<collection-resource-definition-section,Collection>> resource. So all of the requirements defined in  <<rc-collections-section,Collections>> Requirements Class are required.
-
-Support for domain-specific Collections is supplied by the `Extent with Uniform Additional Dimensions` requirements module.
-
-
-The `Extent with Uniform Additional Dimensions` (Extent-uad) resource extends the <<rm_extent,Extent>> element to support domain-specific geometries.
-
-The `Extent-uad` resource is defined as follows:
+The Uniform Multi-Dimension Collection is an extension of the <<collection-resource-definition-section,Collection>> resource.
 
 include::requirements/umd-collection/REQ_extent-uad-definition.adoc[]
 
-`Extent-uad` allows definition of additional axis through the use of the Coordinate Reference System (`crs`, `trs` or `vrs`) property and one of more Intervals properties.
-
-The Coordinate Reference System (`crs`, `trs` or `vrs`) property defines the number and range of the additional axis. This property can be populated with either an identifier or a http://docs.opengeospatial.org/is/18-010r7/18-010r7.html[Well Known Text] definition of the reference system.
-
-Identifers SHALL follow a the convention of http://www.opengis.net/def/crs/{authority}/{version}/{code} where:
-
-* the token {authority} is a placeholder for a code the designates to authority responsible for the definion of this CRS. Typical values include “EPSG” and “OGC”.
-* The token{version} is a placeholder for the specific version of the coordinate reference system definion or 0 for the latest version or if the version is unknown.
-* The token {code} is a placeholder for the authority’s code for the CRS.
-
-[[vrs_example]]
-.Vertical CRS (vrs) Example
-[source, TEXT]
+.Diagram explaining relationship between cellsCount, interval and resolution in regular grids
+[source]
 ----
- VERTCS["WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PARAMETER["Vertical_Shift",0.0],PARAMETER["Direction",1.0],UNIT["Meter",1.0]],AXIS["Up",UP]
+ interval: [0, 1]
+
+  0.0     0.5     1.0   Coordinate values (resolution 0.5)
+   |       |       |
+
+   *       *       *    cellsCount = 3    PixelIsPoint (1 - 0) / 0.5 + 1   = 3
+
+  [========|=======]    cellsCount = 2    PixelIsArea  (1 - 0) / 0.5       = 2
 ----
 
-The Intervals properties describe where the resource intersects the additional axis.
+include::recommendations/umd-collection/PER_categorical_dimension_interval.adoc[]
 
-Since the `Extent-uad` resource extends the `Extent` element, all operations applied against the `Extent` resource will have identical behavior when applied against `Extend-uad`.
+This requirement class allows the definition of additional dimensions by specifiying a temporal reference system (`trs`), a vertical reference system (`vrs`) or a semantic `definition` property,
+an interval providing the lower and upper bound for the coordinates along that dimension, as well as a `unit` of measure where applicable.
+
+The `trs` or `vrs` property can be populated with either a URI or CURIE, a http://docs.opengeospatial.org/is/18-010r7/18-010r7.html[Well Known Text] definition of the reference system, or a JSON encoding of the CRS
+(using the PROJ JSON schema or a potential "CRS JSON" successor once defined by the OGC).
+
+NOTE: If a 3D CRS including the vertical dimension, that CRS should be used inside the "spatial" object of the extent, instead of defining a separate vertical dimension using `vrs`.
+For vertical CRSes corresponding to the concept of a variable, such as a pressure level, the semantic definition for that variable should be used instead of `vrs`.
+
+A YAML JSON Schema for the uniform additional dimensions is available here:
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent-uad.yaml[extent-uad.yaml] and reproduced below.
 
 [[uniform-uad-schema]]
-.Uniform-uad Property
-[source, YAML]
+.Schema for collection description extent with Uniform Additional Dimensions
+[source,yaml,options="unnumbered"]
 ----
-title: Extent with Uniform Additional Dimensions Schema
-allOf:
-  - $ref: 'http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/extent.yaml'
-  - type: object
-    additionalProperties:
-       type: object
-       properties:
-         allOf:
-            - interval:
-              description: |-
-              type: array
-              minItems: 1
-              items:
-                type: array
-                minItems: 2
-                maxItems: 2
-                items:
-                  - type: string
-                  - type: number
-                  - type: null
-                example:
-                  - '2011-11-11T12:22:11Z'
-                  - 32.5
-                  - null
-            - oneOf:
-              - crs:
-                  type: string
-                  description: generic coordinate reference system suitable for any type of dimensions
-              - trs:
-                  type: string
-                  description: temporal coordinate reference system (e.g. as defined by Features for 'temporal')
-              - vrs:
-                  type: string
-                  description: vertical coordinate reference system (e.g. as defined in EDR for 'vertical')
+include::./openapi/schemas/common-geodata/extent-uad.yaml[]
 ----
-
-[[umd-selection-parameter]]
-=== Multi-Dimension Collection Selection
-
-Selection and access of a Uniform Multi-Dimension Collection is similar to that of a <<collection-resource-definition-section,Collection>> resource. All of the requirements defined in the <<rc-simple-query-section,Simple Query>> Requirements Class also apply to this Requirements Class.  So all of the requirements defined in  <<rc-collections-section,Collections>> Requirements Class are required.
