@@ -1,6 +1,6 @@
 [[rec_collections_rc-paged-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-paged-response* 
-^|A|If the number of items in the `collections` element is less than the number available through the API, then the `numberMatched` and `numberReurned` properties SHOULD be included in the Collections response.
+^|*Recommendation {counter:rec-id}* |*/rec/collections/rc-paged-response*
+^|A|If the number of items in the `collections` element is less than the number available through the API, then the `numberMatched` and `numberReturned` properties SHOULD be included in the Collections response.
 |===

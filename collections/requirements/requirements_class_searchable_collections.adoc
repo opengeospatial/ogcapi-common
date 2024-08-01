@@ -2,7 +2,7 @@
 [cols="1,4",width="90%"]
 |===
 2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/req/searchable
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/req/searching
 |Target type |Web API
 |Dependency |<<rc_collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections>>
 |Dependency |<<rfc3339,RFC 3339 (Date and Time on the Internet: Timestamps)>>

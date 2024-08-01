@@ -4,9 +4,7 @@
 
 include::requirements/requirements_class_searchable_collections.adoc[]
 
-This Requirements Class describes query parameters that can be used to discover and select resource collections exposed through an OGC Web API.
-
-Implementers of this Requirements Class must also implement the `/Collections` Requirements Class.
+This Requirements Class describes query parameters that can be used to discover and select collections exposed through an OGC Web API.
 
 [[searchable-overview]]
 === Overview
@@ -14,12 +12,36 @@ Implementers of this Requirements Class must also implement the `/Collections` R
 This "Searchable Collections" defines four query parameters which can be used with the `/collections` endpoint (described in the <<rc-collections-section,Collections>> Requirements Class)
 to select which collections to return on a GET request:
 
-* <<bbox-parameter-requirements,bbox>>: Bounding Box
-* <<parameter-datetime-requirements,datetime>>: Date and Time
-* <<q-parameter-requirements,q>>: Free text search
-* <<limit-parameter-requirements,limit>>: Response resource count limit
+* <<searchable-bbox-parameter,bbox>>: Bounding Box
+* <<searchable-datetime-parameter,datetime>>: Date and Time
+* <<searchable-q-parameter,q>>: Search for specific terms (at least in title, description and keywords)
+* <<searchable-limit-parameter,limit>>: Response resource count limit
 
-If implementing Part 1, these supported query parameters need to be described in the API definition as describe in <<apicore,API-Core>>.
+If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 1: Core] "Landing Page", these supported query parameters need to be described in the API definition as described in that part.
+
+[[searchable-api-records]]
+=== OGC API - Records compliance
+
+When implementing this "Searchable Collections" requirement class, the `/collections` end-point is considered a _Local Resource Catalog_, where the local resources are the collections being cataloged.
+
+This requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_query-parameters[OGC API - Records - Part 1: Core "Local Resources Catalog - Query Parameters" (Deployment)].
+An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
+In this case, the implementation should verify and declare conformance with these seven conformance classes defined in Records corresponding to the following URIs:
+
+[cols="2,7",options="header"]
+|===
+| OGC API - Records Requirements Class | URI
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-core[Record Core]                                                   | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-core
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-collection[Record Collection]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-collection
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-crawlable-catalog[Crawlable Catalog]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/crawlable-catalog
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog[Local Resources Catalog]                           | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-autodiscovery[Autodiscovery]                                               | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/autodiscovery
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-core-query-parameters[Query Parameters]                             | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-query-parameters
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_query-parameters[Local Resources Query Parameters] | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog-query-parameters
+|===
+
+The additional requirements include linking to the `/collections` end-point with an `http://www.opengis.net/def/rel/ogc/1.0/ogc-catalog` link relation from the landing page, as well as support for the additional
+parameters `type`, `ids` and `externalIds`.
 
 [[searchable-bbox-parameter]]
 === Parameter `bbox`
@@ -107,7 +129,10 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 [[searchable-q-parameter]]
 === Parameter `q`
 
+The `q` parameter allows selecting collections with a comma-separated list of terms at minimum in the `title`, `description` and `keywords` properties of the collection descriptions.
 
+Collections matching any of the terms separated by a comma are selected.
+Terms separated by a space must all be present to be considered a match.
 
 [[searchable-limit-parameter]]
 === Parameter `limit`
@@ -124,7 +149,7 @@ The number of collections returned depends on the server and the value of the `l
 *   The server may have a default value for the limit, and a maximum limit.
 *   If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
 
-The server also has the option of limiting the size of the Collections response.
+The server also has the option of limiting the size of the collections response.
 
 include::./recommendations/searchable-collections/PER_rc-server-limit.adoc[]
 
@@ -144,12 +169,12 @@ If the collections response does not contain all of the collection resources ava
 
 include::recommendations/searchable-collections/REC_rc-paged-response.adoc[]
 
-The `numberMatched` property of the Collections response indicates the number of Collection items included in the Collections response. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controlled through the <<bbox-parameter-requirements,`bbox`>>, <<datetime-parameter-requirements,`datetime`>> and other selection parameters provided by the client.
+The `numberMatched` property of the collections response indicates the number of Collection items included in the collections response. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controlled through the <<bbox-parameter-requirements,`bbox`>>, <<datetime-parameter-requirements,`datetime`>> and other selection parameters provided by the client.
 
 include::requirements/searchable-collections/REQ_rc-numberMatched.adoc[]
 
-The number of collection items included in a Collections response may be a subset of the number matched. In that case, the `numberReturned` property of the Collections response indicates the number of collection items returned in this "page" of the Collections response.
+The number of collection items included in a collections response may be a subset of the number matched. In that case, the `numberReturned` property of the collections response indicates the number of collection items returned in this "page" of the collections response.
 
 include::requirements/searchable-collections/REQ_rc-numberReturned.adoc[]
 
-If the Collections response contains a subset of the selected collection items (numberReturned is less than numberMatched) then the Collections response should contain links for navigating to the rest of the collection items as described in the <<limit-parameter-requirements,limit parameter>> section.
+If the collections response contains a subset of the selected collection items (`numberReturned` is less than `numberMatched`) then the collections response should contain links for navigating to the rest of the collection items as described above.

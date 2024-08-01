@@ -1,34 +1,59 @@
 [[conformance-section]]
 == Conformance
 
-Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the <<citepp,OGC Compliance Testing Policies and Procedures>> and the https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
+Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document.
+
+The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the <<citepp,OGC Compliance Testing Policies and Procedures>> and the
+https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
 
 The one Standardization Target for this standard is Web APIs.
 
-API-GeoData defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>. Typically this standard will only be implemented through reference to these Conformance Classes by other standards. 
+API-GeoData defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>.
 
-This standard identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>. The tests in Annex A are organized by Requirements Class. Therefore, an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
+Typically this standard will only be implemented through reference to these Conformance Classes by other standards.
 
-The API-Geodata requirements classes are:
+This standard identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>.
+
+The tests in Annex A are organized by Requirements Class. Therefore, an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
+
+The requirements classes defined in Part 2: Geospatial Data are:
 
 * <<rc_collections-section,Collections>>
-* <<rc-simple-query-section,Simple Query>>
+* <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>
+* <<rc-searchable-collections,Searchable Collections>>
+* <<rc-sortable-collections,Sortable Collections>>
+* <<rc-filterable-collections,Filtering Collections with CQL2>>
+* <<rc-hierarchical-collections,Hierarchical Collections>>
+* <<rc-schemas,Schemas>>
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
 The <<rc_collections-section,Collections Requirements Class>> defines a common means to describe and access <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
 
-The <<rc-simple-query-section,Simple Query Requirements Class>> defines basic query parameters for the selection of individual <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
+The <<rc-searchable-collections,Searchable Collections Requirements Class>> defines basic query parameters for the selection of individual <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
 
-The <<rc_collections-section,Collections Requirements Class>> does not mandate a specific encoding or format for representing resources. The <<rc_html-section,_HTML_>> and <<rc_json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
+The <<rc_collections-section,Collections Requirements Class>> does not mandate a specific encoding or format for representing resources.
 
-API-GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<apicore,API-Core>>) Standard. Each <<requirements-class-definition,requirements class>> in the API-GeoData Standard identifies any API-Core <<ctc-definition,Conformance Classes>> upon which it depends. 
+The <<rc_html-section,_HTML_>> and <<rc_json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
-Proof of conformance with a <<ctc-definition,Conformance Class>> includes demonstration of conformance with all dependencies of that <<ctc-definition,Conformance Class>>. The abstract tests in <<ats_section,Annex A>> have been organized to facilitate validation of these dependencies. These tests have been organized by <<requirements-class-definition,requirements class>>. A referencing standard only has to require conformance with a <<ctc-definition,Conformance Class>> and all of the requirements and relevant tests are identified.
+API-GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<apicore,API-Core>>) Standard.
 
-In addition, each <<requirements-class-definition,requirements class>> is organized as one or more trees. Starting at a root test, a test script can traverse the tree to address all of the required tests, each in the appropriate context.
+Each <<requirements-class-definition,requirements class>> in the API-GeoData Standard identifies any API-Core <<ctc-definition,Conformance Classes>> upon which it depends.
 
-NOTE:: The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns. This is information which cannot be specified in a common manner. This Standard specifies the requirements necessary to discover and understand a generic collection and its' contents. Requirements governing a specific type of resource are specified in resource-specific OGC API standards.
+Proof of conformance with a <<ctc-definition,Conformance Class>> includes demonstration of conformance with all dependencies of that <<ctc-definition,Conformance Class>>.
 
+The abstract tests in <<ats_section,Annex A>> have been organized to facilitate validation of these dependencies.
 
+These tests have been organized by <<requirements-class-definition,requirements class>>.
 
+A referencing standard only has to require conformance with a <<ctc-definition,Conformance Class>> and all of the requirements and relevant tests are identified.
+
+In addition, each <<requirements-class-definition,requirements class>> is organized as one or more trees.
+
+Starting at a root test, a test script can traverse the tree to address all of the required tests, each in the appropriate context.
+
+NOTE:: The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns.
+
+This is information which cannot be specified in a common manner. This Standard specifies the requirements necessary to discover and understand a generic collection and its' contents.
+
+Requirements governing a specific type of resource are specified in resource-specific OGC API standards.
