@@ -1,7 +1,0 @@
-[[req_collections_rc-bbox-collection-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-bbox-collection-response*
-^|A|The API server SHALL process the `bbox` parameter against the `Collection` resources (/collections/{collectionId}) accessible through that API. 
-^|B|The `bbox` parameter SHALL be evaluated against the geometry defined by the `bbox` element of the `extent` property of the `Collection` resource. 
-|===

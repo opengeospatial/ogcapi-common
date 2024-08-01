@@ -1,7 +1,7 @@
-[[req_collections_rc-datetime-response]]
+[[req_searchable_rc-datetime-response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-datetime-response* 
-^|A |If the `datetime` parameter is provided by the client and supported by the server, then only resources that have a temporal geometry that intersects the temporal information in the `datetime` parameter SHALL be part of the result set. If a resource has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.
-^|B |The ``datetime`` parameter SHALL match all resources in the collection that are not associated with a temporal geometry.
+^|*Requirement {counter:req-id}* |*/req/searchable/rc-datetime-response*
+^|A |If the `datetime` parameter is provided by the client and supported by the server, then only collections whose temporal extent intersects the interval or instant of the `datetime` parameter and collections that
+do not describe a temporal extent SHALL be part of the result set.
 |===
