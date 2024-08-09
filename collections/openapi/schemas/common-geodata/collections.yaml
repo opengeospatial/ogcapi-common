@@ -11,13 +11,9 @@ properties:
     type: string
     format: date-time
   numberMatched:
-    type: integer
-    minimum: 0
-    example: 1
+    $ref: 'numberMatched.yaml'
   numberReturned:
-    type: integer
-    minimum: 0
-    example: 1
+    $ref: 'numberReturned.yaml'
   collections:
     type: array
     items:

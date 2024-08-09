@@ -1,9 +1,9 @@
 description: |-
-  The number of items in the response.
-  A server may omit this information, if the information about the 
-  number of items is not known or difficult to compute.
+  The number of elements in the response.
+  A server may omit this information, if the information about the
+  number of elements is not known or difficult to compute.
   If the value is provided, the value shall be identical to the number
-  of items in the response.
+  of elements in the response.
 type: integer
 minimum: 0
 example: 10
