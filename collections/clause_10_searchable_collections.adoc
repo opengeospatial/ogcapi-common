@@ -132,7 +132,29 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 The `q` parameter allows selecting collections with a comma-separated list of terms at minimum in the `title`, `description` and `keywords` properties of the collection descriptions.
 
 Collections matching any of the terms separated by a comma are selected.
-Terms separated by a space must all be present to be considered a match.
+
+Terms separated by a space must appear in the order specified, with nothing but white space in between, to be considered a match.
+
+include::./requirements/searchable-collections/REQ_rc-q.adoc[]
+
+[[searchable-query-parameter]]
+=== Parameter `query`
+
+The `query` parameter is similar to the `q` parameter, but additionally specifies the use of the `+++` character between words to indicate that all terms separated by the `+` must be present,
+regardless of other terms appearing in between, and regardless of the order in which they appear.
+
+Additionally, the use of the `-` character prevents a match if the term appears in the collection description.
+
+For example, `query=canada+weather -extreme` would return all collections where both the term canada and weather appear somewhere in the the collection description, but extreme does not appear.
+
+`query=canada+weather -extreme,united states+weather -extreme` would return similar results, but also for the United States.
+
+For more complex queries, the Filtering Collections with CQL2 requirements class can be used, with more powerful support for logical expressions,
+as well as occurrence in specified properties of the collection description.
+
+NOTE: This `query` parameter is not specified in OGC API - Records, and is distinct from `q` to avoid misinterpretation.
+
+include::./requirements/searchable-collections/REQ_rc-query.adoc[]
 
 [[searchable-limit-parameter]]
 === Parameter `limit`
@@ -178,3 +200,14 @@ The number of collection items included in a collections response may be a subse
 include::requirements/searchable-collections/REQ_rc-numberReturned.adoc[]
 
 If the collections response contains a subset of the selected collection items (`numberReturned` is less than `numberMatched`) then the collections response should contain links for navigating to the rest of the collection items as described above.
+
+[[searchable-belowScaleDenominator-parameter]]
+=== Parameter `belowScaleDenominator`
+
+The `belowScaleDenominator` parameter allows searching for collections with a native scale denominator that is more detailed than the specified value,
+allowing to filter out low-resolution dataset not suitable for the intended purpose.
+This corresponding property in the collection description is `minScaleDenomiantor`, which may also be related to a `minCellSize` property for gridded coverages.
+
+For example, `belowScaleDenominator=200000` would only match collections with data intended for a scale of 1:200,000 or larger (i.e., collections intended for 1:2,000,000 would be excluded).
+
+include::./requirements/searchable-collections/REQ_rc-below-sd.adoc[]

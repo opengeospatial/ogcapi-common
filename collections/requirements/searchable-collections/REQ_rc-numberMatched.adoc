@@ -1,7 +1,7 @@
-[[req_collections_rc-numberMatched]]
+[[reqsearchable_rc-numberMatched]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-numberMatched* 
+^|*Requirement {counter:req-id}* |*/req/searchable/rc-numberMatched*
 ^|A |If a property `numberMatched` is included in the response, the value SHALL be identical to the number of hosted collections that meet the selection parameters provided by the client.
 ^|B |A server MAY omit this information in a response, if the information about the number of matching resources is not known or difficult to compute.
 |===

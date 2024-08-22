@@ -1,7 +1,7 @@
-[[req_collections_rc-limit-definition]]
+[[req_searchable_rc-limit-definition]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-limit-definition*
+^|*Requirement {counter:req-id}* |*/req/searchable/rc-limit-definition*
 ^|A |The `limit` parameter SHALL possess the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
