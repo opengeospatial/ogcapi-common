@@ -142,12 +142,12 @@ The next example is the schema of a land cover collection.
 {
    "$schema" : "https://json-schema.org/draft/2020-12/schema",
    "$id" : "https://example.com/ogcapi/collections/landcover/schema",
-   "title" : "sentinel2-l2a",
+   "title" : "Land Cover",
    "type" : "object",
    "properties" : { "LC" : {
       "title" : "Land Cover",
       "type" : "integer",
-      "x-ogc-property-seq" : 1,
+      "x-ogc-propertySeq" : 1,
       "anyOf": [
          { "const": 0 },
          { "const": 1, "title": "vegetation" },
