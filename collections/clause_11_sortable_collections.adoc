@@ -3,3 +3,40 @@
 :sectnums:
 
 include::requirements/requirements_class_sorting.adoc[]
+
+This Requirements Class describes query parameters that can be used to retrieve a list of collections exposed through an OGC Web API sorted in a specific order.
+
+[[sorting-overview]]
+=== Overview
+
+This "Sortable Collections" defines the `sortby` query parameter which can be used with the `/collections` endpoint (described in the <<rc-collections-section,Collections>> Requirements Class)
+to retrieve a list of collections returned by a GET request in a specific order.
+
+If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 1: Core] "Landing Page", these supported query parameters need to be described in the API definition as described in that part.
+
+[[sorting-api-records]]
+=== OGC API - Records compliance
+
+When implementing this "Sortable Collections" requirement class, the `/collections` end-point can be considered a _Local Resource Catalog_, where the local resources are the collections being cataloged.
+
+This requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_filtering[OGC API - Records - Part 1: Core "Local Resources Catalog - Filtering" (Deployment)].
+An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
+In this case, the implementation should verify and declare conformance with these seven conformance classes defined in Records corresponding to the following URIs:
+
+[cols="2,7",options="header"]
+|===
+| OGC API - Records Requirements Class | URI
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-core[Record Core]                                                   | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-core
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-collection[Record Collection]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-collection
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-crawlable-catalog[Crawlable Catalog]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/crawlable-catalog
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog[Local Resources Catalog]                           | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-autodiscovery[Autodiscovery]                                               | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/autodiscovery
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-sorting                                                                    | http://www.opengis.net/spec/ogcapi-records-1/1.0/req/sorting
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_sorting[Local Resources Catalog - Sorting]         | http://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/sorting
+|===
+
+The additional requirements include linking to the `/collections` end-point with an `http://www.opengis.net/def/rel/ogc/1.0/ogc-catalog` link relation from the landing page.
+
+[[sorting-sortby-parameter]]
+=== Parameter `sortby`
+
