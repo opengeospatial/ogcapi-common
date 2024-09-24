@@ -291,136 +291,145 @@
         }
       },
       "collectionDesc": {
-        "type": "object",
-        "required": [
-          "id",
-          "links"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "identifier of the collection used, for example, in URIs",
-            "example": "dem"
-          },
-          "title": {
-            "type": "string",
-            "description": "human readable title of the collection",
-            "example": "Digital Elevation Model"
-          },
-          "description": {
-            "type": "string",
-            "description": "a description of the data in the collection",
-            "example": "A Digital Elevation Model."
-          },
-          "attribution": {
-            "type": "string",
-            "title": "attribution for the collection"
-          },
-          "links": {
-            "type": "array",
-            "example": [
-              {
-                "href": "http://data.example.org/collections/dem?f=json",
-                "rel": "self",
-                "type": "application/json",
-                "title": "Digital Elevation Model"
-              },
-              {
-                "href": "http://data.example.org/collections/dem?f=html",
-                "rel": "alternate",
-                "type": "application/json",
-                "title": "Digital Elevation Model"
-              },
-              {
-                "href": "http://data.example.org/collections/dem/coverage",
-                "rel": "coverage",
-                "type": "image/tiff; application=geotiff",
-                "title": "Digital Elevation Model"
-              },
-              {
-                "href": "http://data.example.org/collections/dem/coverage/domainset",
-                "rel": "domainset",
-                "type": "application/json",
-                "title": "Digital Elevation Model"
-              },
-              {
-                "href": "http://data.example.org/collections/dem/coverage/rangetype",
-                "rel": "rangetype",
-                "type": "application/json",
-                "title": "Digital Elevation Model"
-              },
-              {
-                "href": "http://data.example.org/collections/dem/coverage/metadata",
-                "rel": "metadata",
-                "type": "application/json",
-                "title": "Digital Elevation Model"
-              }
+        "allOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "links"
             ],
-            "items": {
-              "$ref": "#/components/schemas/link"
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "identifier of the collection used, for example, in URIs",
+                "example": "dem"
+              },
+              "title": {
+                "type": "string",
+                "description": "human readable title of the collection",
+                "example": "Digital Elevation Model"
+              },
+              "description": {
+                "type": "string",
+                "description": "a description of the data in the collection",
+                "example": "A Digital Elevation Model."
+              },
+              "attribution": {
+                "type": "string",
+                "title": "attribution for the collection"
+              },
+              "links": {
+                "type": "array",
+                "example": [
+                  {
+                    "href": "http://data.example.org/collections/dem?f=json",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem?f=html",
+                    "rel": "alternate",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage",
+                    "rel": "coverage",
+                    "type": "image/tiff; application=geotiff",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage/domainset",
+                    "rel": "domainset",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage/rangetype",
+                    "rel": "rangetype",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage/metadata",
+                    "rel": "metadata",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  }
+                ],
+                "items": {
+                  "$ref": "#/components/schemas/link"
+                }
+              },
+              "itemType": {
+                "description": "indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint",
+                "type": "string",
+                "default": "unknown"
+              },
+              "crs": {
+                "description": "the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "default": [
+                  "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+                ],
+                "example": [
+                  "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                  "http://www.opengis.net/def/crs/EPSG/0/4326"
+                ]
+              },
+              "storageCrs": {
+                "description": "the native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages",
+                "type": "string",
+                "default": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                "example": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+              },
+              "dataType": {
+                "allOf": [
+                  {
+                    "description": "Type of data represented in the collection"
+                  },
+                  {
+                    "$ref": "#/components/schemas/dataType"
+                  }
+                ]
+              },
+              "geometryDimension": {
+                "description": "The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "minScaleDenominator": {
+                "description": "Minimum scale denominator for usage of the collection",
+                "type": "number"
+              },
+              "maxScaleDenominator": {
+                "description": "Maximum scale denominator for usage of the collection",
+                "type": "number"
+              },
+              "minCellSize": {
+                "description": "Minimum cell size for usage of the collection",
+                "type": "number"
+              },
+              "maxCellSize": {
+                "description": "Maximum cell size for usage of the collection",
+                "type": "number"
+              }
             }
           },
-          "extent": {
-            "$ref": "#/components/schemas/extent-uad"
-          },
-          "itemType": {
-            "description": "indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint",
-            "type": "string",
-            "default": "unknown"
-          },
-          "crs": {
-            "description": "the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "default": [
-              "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
-            ],
-            "example": [
-              "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
-              "http://www.opengis.net/def/crs/EPSG/0/4326"
-            ]
-          },
-          "storageCrs": {
-            "description": "the native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages",
-            "type": "string",
-            "default": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
-            "example": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
-          },
-          "dataType": {
-            "allOf": [
-              {
-                "description": "Type of data represented in the collection"
-              },
-              {
-                "$ref": "#/components/schemas/dataType"
+          {
+            "type": "object",
+            "properties": {
+              "extent": {
+                "$ref": "#/components/schemas/extent-uad"
               }
-            ]
-          },
-          "geometryDimension": {
-            "description": "The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown",
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 3
-          },
-          "minScaleDenominator": {
-            "description": "Minimum scale denominator for usage of the collection",
-            "type": "number"
-          },
-          "maxScaleDenominator": {
-            "description": "Maximum scale denominator for usage of the collection",
-            "type": "number"
-          },
-          "minCellSize": {
-            "description": "Minimum cell size for usage of the collection",
-            "type": "number"
-          },
-          "maxCellSize": {
-            "description": "Maximum cell size for usage of the collection",
-            "type": "number"
+            }
           }
-        }
+        ]
       },
       "extent": {
         "description": "The extent of the data in the collection. In the Core only spatial and temporal\nextents are specified. Extensions may add additional members to represent other\nextents, for example, thermal or pressure ranges.\n\nThe first item in the array describes the overall extent of\nthe data. All subsequent items describe more precise extents,\ne.g., to identify clusters of data.\nClients only interested in the overall extent will only need to\naccess the first item in each array.",
