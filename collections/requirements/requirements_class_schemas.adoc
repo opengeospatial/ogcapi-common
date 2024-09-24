@@ -148,3 +148,165 @@ NOTE: For example, the value for hectopascal is `hPa` in UCUM and `\https://qudt
 ^|A |The keyword "x-ogc-nilValues" SHALL be used to identify the values considered nil.
 ^|B |The value of the keyword "x-ogc-nilValues" SHALL be an array of objects, each including a mandatory "const" value and an optional "title" explanation of the meaning of that particular nil value.
 |===
+
+=== Property roles
+
+The following requirements specifies property roles.
+To understand how data is encoded in a specific format, property roles need to be identified in the logical schema. These roles depend on the format.
+
+For example, the role "primary-geometry" is needed in feature types with multiple spatial properties to decide:
+
+* Which geometry is encoded as the geometry of a feature in formats such as FlatGeobuf, Shapefile or Mapbox Vector Tiles, which only support a single geometry; or,
+* Which geometry is encoded in the "geometry" member in GeoJSON.
+
+The other roles specified in this requirements class support formats that support representing primary temporal information or the type of the feature, such as JSON-FG.
+
+==== Primary geometry
+
+If the features have multiple spatial properties, the role "primary-geometry" can be used to identify the primary geometry of the features.
+
+:req: role-primary-geometry
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |A property with "x-ogc-role" set to "primary-geometry" SHALL be a spatial property.
+^|B |At most one property in a schema SHALL have "x-ogc-role" with a value "primary-geometry".
+^|C |If the schema has only one spatial property, the property SHALL be the primary geometry even if the property is not explicitly tagged with the role "primary-geometry".
+|===
+
+NOTE: Since only a single property can be tagged in the schema as the primary geometry, varying primary geometries at different zoom levels are currently not supported. This would require the capability to assign the role depending on the zoom level.
+
+==== Primary temporal information
+
+If the features have multiple temporal properties, the roles "primary-instant", "primary-interval-start" and "primary-interval-end" can be used to identify the primary temporal information of the features.
+
+:req: role-primary-instant
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |A property with "x-ogc-role" set to "primary-instant" SHALL be a temporal property.
+^|B |At most one property in a schema SHALL have "x-ogc-role" with a value "primary-instant".
+^|C |If the schema has only one temporal property, the property SHALL be the primary temporal information even if the property is not explicitly tagged with the role "primary-instant".
+|===
+
+:req: role-primary-interval-start
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |A property with "x-ogc-role" set to "primary-interval-start" SHALL be a temporal property.
+^|B |At most one property in a schema SHALL have "x-ogc-role" with a value "primary-interval-start".
+|===
+
+:req: role-primary-interval-end
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |A property with "x-ogc-role" set to "primary-interval-end" SHALL be a temporal property.
+^|B |At most one property in a schema SHALL have "x-ogc-role" with a value "primary-interval-end".
+|===
+
+:req: primary-temporal-constraints
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |If a schema has a property with role "primary-instant", the schema SHALL NOT have properties with role "primary-interval-start" or "primary-interval-end".
+^|B |If a schema has properties with both roles "primary-interval-start" and "primary-interval-end", both properties SHALL have the same temporal granularity ("date" or "date-time").
+|===
+
+==== Data type
+
+If the data has a property that represents the data type (for example, the _feature type_ for features), the role "type" can be used for this property.
+
+:req: role-type
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |A property with "x-ogc-role" set to "type" SHALL be a string property.
+^|B |At most one property in a schema SHALL have "x-ogc-role" with a value "type".
+|===
+
+=== Returnables and Receivables
+
+The following requirement describes how to link to a web resource representing the schema with the <<returnable-def,returnable>> and <<receivable-def,receivable>> properties of a collection in OGC Web APIs.
+
+This requirement enables clients to discover the list of resource properties with their types and constraints that is returned when fetching a representation of the resource or when creating a new resource or updating an existing resource.
+
+:req: returnables
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |If a Returnables and Receivables resource is available for a Collection resource, the Returnables and Receivables resource SHALL be referenced from the Collection resource with a link using the relation type `\http://www.opengis.net/def/rel/ogc/1.0/schema` (or, alternatively, `[ogc-rel:schema]`).
+^|B |A Returnables and Receivables resource SHALL support the HTTP GET operation and the media type `application/schema+json`.
+^|C |A successful retrieval operation of the the Returnable and Receivables resources SHALL be reported as a response with a HTTP status code `200`.
+^|D |For Returnables and Receivables resource responses that use `application/schema+json` as the `Content-Type` of the response, the response SHALL conform to <<rc_schemas>>.
+|===
+
+=== Queryables
+
+The following requirement describes how to link to a schema representing the web resource for the <<queryable-def,queryable>> properties of a collection in OGC Web APIs.
+
+This requirement enables clients to discover the list of resource properties with their types and constraints that may be used to construct filter expressions on a collection of data, for example, a set of features, or a gridded coverage.
+
+Some OGC API Standards do not assume that the content schema of a resource being queried is available for inspection, whereas others depend on the capability defined in this requirement class to provide this information.
+Therefore, a means needs to exist to interrogate an <<endpoint-def,endpoint>> to determine the names and types of the properties that may be used to construct a filter expression ("queryables").
+
+In addition, a <<publisher-def,publisher>> may want to support <<queryable-def,queryables>> that are not directly represented as resource properties in the content schema of the resource.
+Or the <<publisher-def,publisher>> may want to restrict filtering on certain properties. For example, because the backend datastore has not been configured to allow high-performance queries on those properties.
+
+:req: queryables
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |If a Queryables resource is available for a Collection resource, the Queryables resource SHALL be referenced from the Collection resource with a link using the relation type `\http://www.opengis.net/def/rel/ogc/1.0/queryables` (or, alternatively, `[ogc-rel:queryables]`).
+^|B |A Queryables resource SHALL support the HTTP GET operation and the media type `application/schema+json`.
+^|C |A successful retrieval operation of the Queryables resource SHALL be reported as a response with a HTTP status code `200`.
+^|D |For Sortables resource responses that use `application/schema+json` as the `Content-Type` of the response, the response SHALL conform to <<rc_schemas>>.
+^|E |If `additionalProperties` is not included or has the default value `true`, any property name is valid in a filter expression on the collection that is evalutated by the Web API and the property reference SHALL evaluate to `null`, if the property does not exist in the data.
+
+If `additionalProperties` is set to false, property references that are not explicitly declared in the queryables schema SHALL result in a 400 response.
+|===
+
+NOTE: Depending on the filter language, some properties cannot be supported in filter expressions.
+For example, if the filter language does not support predicates on object-valued properties, using such properties in a filter expression will result in an error.
+
+=== Sortables
+
+The following requirement describes how to link to a web resource representing the schema with the <<sortable-def,sortable>> properties of a collection returned by Web API endpoint(s) implementing OGC API Standards.
+
+[cols="2,7",width="90%"]
+|===
+^|*Requirements Class* |http://www.opengis.net/spec/{standard}/{m_n}/req/{req-class}
+|Target type |Web API
+|Dependency |<<rc_schemas>>
+|===
+
+This requirements enables clients to discover the list of properties with their types and constraints that may be used to sort the data in a collection.
+
+Some OGC API Standards do not assume that the content schema of a resource being queried is available for inspection, whereas others depend on the capability defined in this requirement class to provide this information.
+Therefore, a means needs to exist to interrogate an <<endpoint-def,endpoint>> to determine the names and types of the properties that may be used to sort data ("sortables").
+
+In addition, a <<publisher-def,publisher>> may want to support <<sortable-def,sortable>> that are not directly represented as resource properties in the content schema of the resource. Or the <<publisher-def,publisher>> may want to restrict sorting on certain properties. For example, because the backend datastore has not been configured to allow high-performance queries on those properties.
+
+:req: sortables
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |If a Sortables resources is available for a Collection resource, the Sortables resource SHALL be referenced from the Collection resource with a link using the relation type `\http://www.opengis.net/def/rel/ogc/1.0/sortables` (or, alternatively, `[ogc-rel:sortables]`).
+^|B |A Sortables resource SHALL support the HTTP GET operation and the media type `application/schema+json`.
+^|C |A successful retrieval operation of the Sortables resource SHALL be reported as a response with a HTTP status code `200`.
+^|D |For Sortables resource responses that use `application/schema+json` as the `Content-Type` of the response, the response SHALL conform to <<rc_schemas>>.
+^|E |No property of the Sortables SHALL be of type "object" or "array".
+^|F |No property of the Sortables SHALL be a spatial property.
+^|G |If `additionalProperties` is not included or has the default value `true`, any property name is valid in a sorting expression on the collection that is evaluated by the server and the property reference SHALL evaluate to `null`, if the property does not exist in the data.
+
+If `additionalProperties` is set to false, property references that are not explicitly declared in the sortables schema SHALL result in a 400 response.
+|===

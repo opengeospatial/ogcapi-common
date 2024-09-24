@@ -7,11 +7,12 @@ The schema represents a logical model, independent of the format in which the da
 
 include::requirements/requirements_class_schemas.adoc[]
 
-=== Examples
+=== Examples (returnables)
 
 The following example is the schema of a feature type representing cultural entities. The schema includes additional keywords that apply to feature data (specified in the next Clause).
+This example makes use of the roles "id", "primary-geometry", "primary-instant" and "type".
 
-[[example_7_1]]
+[[example_14_1]]
 .Schema of a "Cultural (Points)" feature type
 ====
 [source,JSON]
@@ -88,8 +89,9 @@ The following example is the schema of a feature type representing cultural enti
 ====
 
 The next example is the schema of a feature type representing observations of atmospheric pressure.
+This example makes use of the roles "id", "primary-geometry" and "primary-instant".
 
-[[example_7_2]]
+[[example_14_2]]
 .Schema of an "Atmospheric Pressure Observation" feature type
 ====
 [source,JSON]
@@ -134,7 +136,7 @@ The next example is the schema of a feature type representing observations of at
 
 The next example is the schema of a land cover collection.
 
-[[example_7_3]]
+[[example_14_3]]
 .Schema of a land cover collection
 ====
 [source,JSON]
@@ -161,4 +163,143 @@ The next example is the schema of a land cover collection.
    }
 }
 ----
+====
+
+The following example is the schema of a feature type with the roles "id", "primary-geometry", "primary-interval-start" and "primary-interval-end".
+
+[[example_14_4]]
+.Schema example of a feature type
+====
+[source,JSON]
+----
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "https://demo.ldproxy.net/cshapes/collections/boundary/schema",
+  "title" : "Historical Country Boundaries",
+  "description" : "Core territories of the given country, excluding colonies and other dependent territories, between the start and end date.",
+  "type" : "object",
+  "properties" : {
+    "fid" : {
+      "title" : "Unique identifier",
+      "readOnly" : true,
+      "x-ogc-role" : "id",
+      "type" : "integer"
+    },
+    "name" : {
+      "title" : "Country name",
+      "type" : "string"
+    },
+    "area_km2" : {
+      "title" : "Area (km²)",
+      "description" : "The polygon area in square kilometers, computed using an Eckert VI projection.",
+      "type" : "number",
+      "x-ogc-unit": "km2"
+
+    },
+    "capname" : {
+      "title" : "Country capital",
+      "description" : "The name of the country capital.",
+      "type" : "string"
+    },
+    "caplong" : {
+      "title" : "Longitude of the capital",
+      "description" : "Longitude of the capital, in decimal degrees",
+      "type" : "number"
+    },
+    "caplat" : {
+      "title" : "Latitude of the capital",
+      "description" : "Latitude of the capital, in decimal degrees",
+      "type" : "number"
+    },
+    "gwsdate" : {
+      "title" : "Start date",
+      "description" : "Start date of the entry.",
+      "x-ogc-role" : "primary-interval-start",
+      "format" : "date",
+      "type" : "string"
+    },
+    "gwedate" : {
+      "title" : "End date",
+      "description" : "End date of the entry.",
+      "x-ogc-role" : "primary-interval-end",
+      "format" : "date",
+      "type" : "string"
+    },
+    "gwcode" : {
+      "title" : "Source identifier",
+      "description" : "Numeric identifier code in the source data.",
+      "type" : "integer"
+    },
+    "geometry" : {
+      "x-ogc-role" : "primary-geometry",
+      "format" : "geometry-multipolygon"
+    }
+  }
+}
+----
+====
+
+
+=== Examples (queryables)
+
+[[example_14_5]]
+.Filtering on complex data structures
+====
+Queryables also support simplified filtering on complex data structures. This example illustrates one potential approach to define a queryable on specific https://stacspec.org[SpatioTemporal Asset Catalog (STAC)] assets. The following is a STAC snippet:
+
+[source,JSON]
+----
+"features": [
+  {
+    "type": "Feature",
+    "assets": {
+      "B5": {
+        "eo:bands": [
+          {
+            "common_name": "nir",
+            "name": "B5"
+          }
+        ],
+        "href": "https://landsat-pds.s3.us-west-2.amazonaws.com/c1/L8/060/247/LC08_L1TP_060247_20180905_20180912_01_T1/LC08_L1TP_060247_20180905_20180912_01_T1_B5.TIF",
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+      }
+    }
+  }
+]
+----
+
+A common type of filter is to fetch only resources that have in their `assets` object a value that has an `eo:bands` value that contains a `common_name` value of "nir".
+
+This could be implemented using a queryable `common_band_names` defined as an array of strings:
+
+[source,JSON]
+----
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://example.net/stac/collections/landsat/queryables",
+  "type": "object",
+  "title": "A STAC item",
+  "properties": {
+    "common_band_names": {
+      "title": "Common band names",
+      "description": "an array of common band names included in the assets",
+      "type" : "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
+----
+
+Internally this could be mapped to the following JSON Path for a STAC item (`item`):
+
+`item['assets'][\*]['eo:bands'][\*]['common_name']`
+
+Note that the JSON Path is just included here to clarify the mapping. An implementation would use a mapping that fits its backend datastore, but these details are hidden from the user.
+
+A client can now use, e.g., the CQL2 array predicates to filter with the queryable. Examples using the CQL2 text encoding:
+
+* `A_CONTAINS(common_band_names, ["nir"])` - includes at least a 'nir' band
+* `A_EQUALS(common_band_names, ["nir","blue"])` - 'nir' and 'blue' exist for the feature, but no other band
 ====
