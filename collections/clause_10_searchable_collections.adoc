@@ -152,7 +152,7 @@ For example, `query=canada+weather -extreme` would return all collections where 
 For more complex queries, the Filtering Collections with CQL2 requirements class can be used, with more powerful support for logical expressions,
 as well as occurrence in specified properties of the collection description.
 
-NOTE: This `query` parameter is not specified in OGC API - Records, and is distinct from `q` to avoid misinterpretation.
+NOTE: This `query` parameter is not specified in OGC API - Records, and is distinct from `q` to avoid misinterpretation and make it possible to conform to both this requirements class as well as Records.
 
 include::./requirements/searchable-collections/REQ_rc-query.adoc[]
 
