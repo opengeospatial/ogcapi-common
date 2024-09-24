@@ -77,6 +77,18 @@ components:
       all-collections:
          $ref: 'schemas/dynamic/all-collections.yaml'
 
+      # Records - Core
+      contact:
+         $ref: 'schemas/records-core/contact.yaml'
+      contact-roles:
+         $ref: 'schemas/records-core/roles.yaml'
+      format:
+         $ref: 'schemas/records-core/format.yaml'
+      language:
+         $ref: 'schemas/records-core/language.yaml'
+      theme:
+         $ref: 'schemas/records-core/theme.yaml'
+
    parameters:
       # Common - Core
       f-metadata:
