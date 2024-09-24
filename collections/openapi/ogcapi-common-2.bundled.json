@@ -462,36 +462,7 @@
                       "description": "Graphic identifying a contact. The link relation should be `icon` and the media type should be an image media type.",
                       "allOf": [
                         {
-                          "type": "object",
-                          "required": [
-                            "href",
-                            "rel"
-                          ],
-                          "properties": {
-                            "href": {
-                              "type": "string",
-                              "example": "http://data.example.com/buildings/123"
-                            },
-                            "rel": {
-                              "type": "string",
-                              "example": "alternate"
-                            },
-                            "type": {
-                              "type": "string",
-                              "example": "application/geo+json"
-                            },
-                            "hreflang": {
-                              "type": "string",
-                              "example": "en"
-                            },
-                            "title": {
-                              "type": "string",
-                              "example": "Trierer Strasse 70, 53115 Bonn"
-                            },
-                            "length": {
-                              "type": "integer"
-                            }
-                          }
+                          "$ref": "#/components/schemas/link"
                         },
                         {
                           "type": "object",
@@ -594,7 +565,7 @@
                       "items": {
                         "allOf": [
                           {
-                            "$ref": "#/paths/~1collections/get/responses/200/content/application~1json/schema/properties/collections/items/allOf/0/properties/contacts/items/properties/logo/allOf/0"
+                            "$ref": "#/components/schemas/link"
                           },
                           {
                             "type": "object",
