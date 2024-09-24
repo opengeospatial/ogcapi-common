@@ -55,7 +55,7 @@ The following recommendations are intended to simplify parsing a schema and to h
 ^|C |Properties that represent a URI SHOULD be represented as a string with format "uri" or "uri-reference".
 ^|D |Properties that represent a URI template SHOULD be represented as a string with format "uri-template".
 ^|E |Properties that represent a UUID SHOULD be represented as a string with format "uuid".
-^|F |For string properties that are, "minLength", "maxLength", "enum" and/or "pattern" SHOULD be provided, where applicable.
+^|F |For string properties, "minLength", "maxLength", "enum" and/or "pattern" SHOULD be provided, where applicable.
 ^|G |For numeric properties, "multipleOf", "minimum", "exclusiveMinimum", "maximum", "exclusiveMaximum" SHOULD be provided, where applicable.
 ^|H |For integer properties that represent enumerated values without providing a description for each, "enum" SHOULD be provided.
 ^|I |For integer properties that represent enumerated values while providing a description for each, "anyOf" with a combination of "const" and "title" for each entry SHOULD be provided.
@@ -77,7 +77,7 @@ In order to be able to map the logical schema to a format-specific schema, exten
 ^|A |Additional keywords SHALL start with "x-ogc-".
 |===
 
-CAUTION: The next version of JSON Schema will likely restrict the use of additional keywords. As a result, this Standard may need to change the prefix or change the way as to how the vocabulary is extended.
+CAUTION: The next version of JSON Schema will likely restrict the use of additional keywords. As a result, this Standard may need to change the prefix or change how the vocabulary is extended.
 
 :req: role
 [#{req-class}_{req}]
@@ -121,8 +121,8 @@ In geospatial data, numeric property values often represent a measurement and ha
 ^|B |The value of the keyword "x-ogc-unit" SHALL be a string representing the unit of measure.
 ^|C |The value of the keyword "x-ogc-unit" SHALL be the case sensitive UCUM representation ("c/s") unless a different language / register for units is identified in keyword "x-ogc-unitLang".
 ^|D |The value for UCUM, if explicitly declared as the language for units in keyword "x-ogc-unitLang", SHALL be "UCUM".
-^|E |The value for the QUDT Units Vocabulary, if declared as the language for units in keyword "x-ogc-unitLang", SHALL be "QUDT".
-^|F |The value of the keyword "x-ogc-unit" SHALL be the URI of the unit for values from the QUDT Units Vocabulary.
+^|E |For specifying a unit from QUDT Units Vocabulary, "x-ogc-unitLang", SHALL be "QUDT".
+^|F |For specifying a unit from QUDT Units Vocabulary, the value of the keyword "x-ogc-unit" SHALL be the URI of the unit.
 |===
 
 Communities or other OGC Standards can specify additional values for other unit languages, e.g., https://www.opengis.net/def/uom[units registered in the OGC Rainbow]. For each language it must be specified how units have to be represented in the "x-ogc-unit" value.
