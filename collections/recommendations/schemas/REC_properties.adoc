@@ -10,7 +10,7 @@
 ^|F |For string properties, "minLength", "maxLength", "enum" and/or "pattern" SHOULD be provided, where applicable.
 ^|G |For numeric properties, "multipleOf", "minimum", "exclusiveMinimum", "maximum", "exclusiveMaximum" SHOULD be provided, where applicable.
 ^|H |For integer properties that represent enumerated values without providing a description for each, "enum" SHOULD be provided.
-^|I |For integer properties that represent enumerated values while providing a description for each, "anyOf" with a combination of "const" and "title" for each entry SHOULD be provided.
+^|I |For integer properties that represent enumerated values while providing a description for each, "oneOf" with a combination of "const" and "title" for each entry SHOULD be provided.
 ^|J |For array properties, the property SHOULD consist of items that are strings or numbers.
 ^|K |Required properties SHOULD be included in "required".
 ^|L |The JSON Schema keywords SHOULD be constrained to those mentioned in this recommendation, requirement `/req/{req-class}/properties` and requirements in the _additional keywords_ section below.

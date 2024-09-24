@@ -240,12 +240,12 @@ The next example is the schema of a land cover collection.
       "title" : "Land Cover",
       "type" : "integer",
       "x-ogc-propertySeq" : 1,
-      "anyOf": [
+      "oneOf": [
          { "const": 0 },
          { "const": 1, "title": "vegetation" },
          { "const": 2, "title": "bare soils" },
          { "const": 3, "title": "water" },
-         { "const": 4, "title": "clouds" },
+         { "const": 4, "title": "clouds" }
       ],
       "x-ogc-nilValues": [
          { "const": 0, "title": "no data" }
