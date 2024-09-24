@@ -1,0 +1,9 @@
+:req: role-id
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |A property with "x-ogc-role" set to "id" SHALL be the identifier of the item in the collection that contains the item.
+^|B |A property with role "id" SHALL either be a string or integer.
+^|C |Only one property in a schema SHALL have "x-ogc-role" with a value "id".
+|===

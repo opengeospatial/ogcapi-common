@@ -1,0 +1,7 @@
+:req: additional-keywords
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |Additional keywords SHALL start with "x-ogc-".
+|===

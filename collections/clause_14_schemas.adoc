@@ -7,6 +7,96 @@ The schema represents a logical model, independent of the format in which the da
 
 include::requirements/requirements_class_schemas.adoc[]
 
+[#schema-representation]
+=== Schema representation
+
+include::requirements/schemas/REQ_json-schema.adoc[]
+
+In addition to the JSON Schema data types, geospatial data typically also uses spatial and temporal data types.
+
+include::requirements/schemas/REQ_properties.adoc[]
+
+The following recommendations are intended to simplify parsing a schema and to help understanding the meaning of the properties:
+
+include::recommendations/schemas/REC_properties.adoc[]
+
+[#additional-keywords]
+=== Additional keywords
+
+In order to be able to map the logical schema to a format-specific schema, extensions to the JSON Schema vocabulary are needed.
+
+include::requirements/schemas/REQ_additional-keywords.adoc[]
+
+CAUTION: The next version of JSON Schema will likely restrict the use of additional keywords. As a result, this Standard may need to change the prefix or change how the vocabulary is extended.
+
+include::requirements/schemas/REQ_role.adoc[]
+
+include::requirements/schemas/REQ_role-id.adoc[]
+
+For cases, where the properties of the data have to be ordered in some representations of the data, the sequence of the properties can be expressed using a keyword "x-ogc-propertySeq".
+
+include::requirements/schemas/REQ_property-seq.adoc[]
+
+In geospatial data, numeric property values often represent a measurement and have a unit of measure. For fixed units, this can be expressed in the schema using the keyword "x-ogc-unit".
+
+include::requirements/schemas/REQ_unit.adoc[]
+
+Communities or other OGC Standards can specify additional values for other unit languages, e.g., https://www.opengis.net/def/uom[units registered in the OGC Rainbow]. For each language it must be specified how units have to be represented in the "x-ogc-unit" value.
+
+NOTE: UCUM provides a language to define units while QUDT provides a units vocabulary. The term "language" is used as it is the broader term.
+
+NOTE: For example, the value for hectopascal is `hPa` in UCUM and `\https://qudt.org/vocab/unit/HectoPA` in QUDT.
+
+include::requirements/schemas/REQ_definition.adoc[]
+
+include::requirements/schemas/REQ_nilvalues.adoc[]
+
+=== Property roles
+
+The following requirements specifies property roles.
+To understand how data is encoded in a specific format, property roles need to be identified in the logical schema. These roles depend on the format.
+
+For example, the role "primary-geometry" is needed in feature types with multiple spatial properties to decide:
+
+* Which geometry is encoded as the geometry of a feature in formats such as FlatGeobuf, Shapefile or Mapbox Vector Tiles, which only support a single geometry; or,
+* Which geometry is encoded in the "geometry" member in GeoJSON.
+
+The other roles specified in this requirements class support formats that support representing primary temporal information or the type of the feature, such as JSON-FG.
+
+==== Primary geometry
+
+If the features have multiple spatial properties, the role "primary-geometry" can be used to identify the primary geometry of the features.
+
+include::requirements/schemas/REQ_role-primary-geometry.adoc[]
+
+NOTE: Since only a single property can be tagged in the schema as the primary geometry, varying primary geometries at different zoom levels are currently not supported. This would require the capability to assign the role depending on the zoom level.
+
+==== Primary temporal information
+
+If the features have multiple temporal properties, the roles "primary-instant", "primary-interval-start" and "primary-interval-end" can be used to identify the primary temporal information of the features.
+
+include::requirements/schemas/REQ_role-primary-instant.adoc[]
+
+include::requirements/schemas/REQ_role-primary-interval-start.adoc[]
+
+include::requirements/schemas/REQ_role-primary-interval-end.adoc[]
+
+include::requirements/schemas/REQ_primary-temporal-constraints.adoc[]
+
+==== Data type
+
+If the data has a property that represents the data type (for example, the _feature type_ for features), the role "type" can be used for this property.
+
+include::requirements/schemas/REQ_role-type.adoc[]
+
+=== Returnables and Receivables
+
+The following requirement describes how to link to a web resource representing the schema with the <<returnable-def,returnable>> and <<receivable-def,receivable>> properties of a collection in OGC Web APIs.
+
+This requirement enables clients to discover the list of resource properties with their types and constraints that is returned when fetching a representation of the resource or when creating a new resource or updating an existing resource.
+
+include::requirements/schemas/REQ_returnables.adoc[]
+
 === Examples (returnables)
 
 The following example is the schema of a feature type representing cultural entities. The schema includes additional keywords that apply to feature data (specified in the next Clause).
@@ -239,6 +329,22 @@ The following example is the schema of a feature type with the roles "id", "prim
 ----
 ====
 
+=== Queryables
+
+The following requirement describes how to link to a schema representing the web resource for the <<queryable-def,queryable>> properties of a collection in OGC Web APIs.
+
+This requirement enables clients to discover the list of resource properties with their types and constraints that may be used to construct filter expressions on a collection of data, for example, a set of features, or a gridded coverage.
+
+Some OGC API Standards do not assume that the content schema of a resource being queried is available for inspection, whereas others depend on the capability defined in this requirement class to provide this information.
+Therefore, a means needs to exist to interrogate an <<endpoint-def,endpoint>> to determine the names and types of the properties that may be used to construct a filter expression ("queryables").
+
+In addition, a <<publisher-def,publisher>> may want to support <<queryable-def,queryables>> that are not directly represented as resource properties in the content schema of the resource.
+Or the <<publisher-def,publisher>> may want to restrict filtering on certain properties. For example, because the backend datastore has not been configured to allow high-performance queries on those properties.
+
+include::requirements/schemas/REQ_queryables.adoc[]
+
+NOTE: Depending on the filter language, some properties cannot be supported in filter expressions.
+For example, if the filter language does not support predicates on object-valued properties, using such properties in a filter expression will result in an error.
 
 === Examples (queryables)
 
@@ -303,3 +409,16 @@ A client can now use, e.g., the CQL2 array predicates to filter with the queryab
 * `A_CONTAINS(common_band_names, ["nir"])` - includes at least a 'nir' band
 * `A_EQUALS(common_band_names, ["nir","blue"])` - 'nir' and 'blue' exist for the feature, but no other band
 ====
+
+=== Sortables
+
+The following requirement describes how to link to a web resource representing the schema with the <<sortable-def,sortable>> properties of a collection returned by Web API endpoint(s) implementing OGC API Standards.
+
+This requirements enables clients to discover the list of properties with their types and constraints that may be used to sort the data in a collection.
+
+Some OGC API Standards do not assume that the content schema of a resource being queried is available for inspection, whereas others depend on the capability defined in this requirement class to provide this information.
+Therefore, a means needs to exist to interrogate an <<endpoint-def,endpoint>> to determine the names and types of the properties that may be used to sort data ("sortables").
+
+In addition, a <<publisher-def,publisher>> may want to support <<sortable-def,sortable>> that are not directly represented as resource properties in the content schema of the resource. Or the <<publisher-def,publisher>> may want to restrict sorting on certain properties. For example, because the backend datastore has not been configured to allow high-performance queries on those properties.
+
+include::requirements/schemas/REQ_sortables.adoc[]
