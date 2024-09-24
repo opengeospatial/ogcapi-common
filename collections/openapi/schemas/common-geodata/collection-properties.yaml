@@ -18,6 +18,59 @@ properties:
   attribution:
     type: string
     title: attribution for the collection
+  accessConstraints:
+    description: |-
+       Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data:
+
+       * unclassified: Available for general disclosure
+       * restricted: Not for general disclosure
+       * confidential: Available for someone who can be entrusted with information
+       * secret: Kept or meant to be kept private, unknown, or hidden from all but a select group of people
+       * topSecret: Of the highest secrecy
+    enum:
+    - unclassified
+    - restricted
+    - confidential
+    - secret
+    - topSecret
+  publisher:
+    type: string
+    description: Organization or individual responsible for making the data available
+  license:
+    type: string
+    description: The legal provisions under which the data ofthis collection is made available.
+  rights:
+    type: string
+    description: A statement that concerns all rights not addressed by the license such as a copyright statement.
+  formats:
+    description: A list of formats in which the data of this collection is distributed
+    type: array
+    items:
+      $ref: '../records-core/format.yaml'
+  keywords:
+    type: array
+    description: The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes.
+    items:
+      type: string
+  themes:
+    type: array
+    description:
+      A knowledge organization system used to classify the resource.
+    minItems: 1
+    items:
+      $ref: '../records-core/theme.yaml'
+  contacts:
+    type: array
+    description:
+      A list of contacts qualified by their role(s) in association to the collection.
+    minItems: 1
+    items:
+      $ref: '../records-core/contact.yaml'
+  resourceLanguages:
+    type: array
+    description: The list of languages in which the data of this collection is available.
+    items:
+      $ref: '../records-core/language.yaml'
   links:
     type: array
     example:
@@ -66,10 +119,20 @@ properties:
     type: string
     default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
     example: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+  epoch:
+    description: Epoch of the native (storage) Coordinate Reference System (CRS)
+    type: number
+    example: 2021.33
   dataType:
     allOf:
       - description: Type of data represented in the collection
       - $ref: '../../schemas/common-geodata/dataType.yaml'
+  geoDataClasses:
+     description: URIs identifying a class of data contained in the geospatial data (useful for example to determine compatibility with styles or processes)
+     type: array
+     items:
+       type: string
+       format: uri
   geometryDimension:
     description: 'The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown'
     type: integer
@@ -87,3 +150,11 @@ properties:
   maxCellSize:
     description: Maximum cell size for usage of the collection
     type: number
+  created:
+    description: Timestamp indicating when the collection was first produced
+    type: string
+    format: date-time
+  updated:
+    description: Timestamp of the last change/revision to the collection
+    type: string
+    format: date-time
