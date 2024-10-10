@@ -48,7 +48,7 @@ include::requirements/collections/REQ_collections-collections-list-links.adoc[]
 
 Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
 
-include::recommendations/collections/REC_collections-describedby.adoc[]
+include::recommendations/collections/REC_collections-collections-list-describedby.adoc[]
 
 The `collections` property of the Collections response provides a description of each individual collection hosted by the API.
 
