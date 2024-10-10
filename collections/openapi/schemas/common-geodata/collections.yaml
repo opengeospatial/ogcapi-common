@@ -7,9 +7,6 @@ properties:
     type: array
     items:
       $ref: '../common-core/link.yaml'
-  timeStamp:
-    type: string
-    format: date-time
   numberMatched:
     $ref: 'numberMatched.yaml'
   numberReturned:

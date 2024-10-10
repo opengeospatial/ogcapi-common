@@ -4,11 +4,7 @@
 
 include::requirements/requirements_class_collections.adoc[]
 
-include::requirements/collections/REQ_dependency-HTTP.adoc[]
-
-include::recommendations/collections/REC_dependency-core.adoc[]
-
-include::recommendations/collections/REC_dependency-landing-page.adoc[]
+include::recommendations/collections/REC_collections-part1-landing-page.adoc[]
 
 This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. This class does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>).
 
@@ -30,11 +26,11 @@ OGC APIs typically organize their Spatial Resources into collections. Informatio
 
 ==== Operation
 
-include::requirements/collections/REQ_rc-md-op.adoc[]
+include::requirements/collections/REQ_collections-collections-list-op.adoc[]
 
 ==== Response
 
-include::requirements/collections/REQ_rc-md-success.adoc[]
+include::requirements/collections/REQ_collections-collections-list-success.adoc[]
 
 The collections response returned by this operation is based on the link:https://github.com/opengeospatial/ogcapi-common/tree/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
 
@@ -48,19 +44,15 @@ This Collections schema is further constrained by the following requirements and
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
-include::requirements/collections/REQ_rc-md-links.adoc[]
+include::requirements/collections/REQ_collections-collections-list-links.adoc[]
 
 Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
 
-include::recommendations/collections/REC_rc-md-descriptions.adoc[]
-
-The `timeStamp` property of the Collections response indicates when the response was generated.
-
-include::requirements/collections/REQ_rc-timeStamp.adoc[]
+include::recommendations/collections/REC_collections-describedby.adoc[]
 
 The `collections` property of the Collections response provides a description of each individual collection hosted by the API.
 
-include::requirements/collections/REQ_rc-md-items.adoc[]
+include::requirements/collections/REQ_collections-collections-list-collections.adoc[]
 
 The array items included in the `collection` property are described in the <<collection-description,Collection Resource>> section of this Requirements Class.
 
@@ -77,23 +69,12 @@ Each resource collection is described by a set of metadata. That metadata can be
 
 ==== Operation
 
-include::./requirements/collections/REQ_src-md-op.adoc[]
-
-==== Response
-
-include::./requirements/collections/REQ_src-md-success.adoc[]
-
-==== Error Situations
-
-See <<http-status-codes>> for general guidance.
-
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).
+include::requirements/collections/REQ_collections-description-op.adoc[]
 
 [[collection-resource-definition-section]]
-==== Collection Resource Definition
+==== Response
 
-include::requirements/collections/REQ_collection-definition.adoc[]
-
+include::requirements/collections/REQ_collections-description-success.adoc[]
 
 .Collection Resource Schema
 [source, YAML]
@@ -111,18 +92,18 @@ The attribution element is a special type of string property. Specifically, the 
 
 In some Geospatial collections, the members (`items`) that make up that collection can be individually accessed by a client. In this case, the `itemType` property in the Collection resource identifies the type of the `items` accessible from that collection.
 
-include::recommendations/collections/REC_rc-md-item-type.adoc[]
+include::recommendations/collections/REC_collections-description-item-type.adoc[]
 
 [collection-links-section]]
 ===== Links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
-include::requirements/collections/REQ_rc-md-items-links.adoc[]
+include::requirements/collections/REQ_collections-description-links.adoc[]
 
 Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
 
-include::recommendations/collections/REC_rc-md-items-descriptions.adoc[]
+include::recommendations/collections/REC_collections-collection-describedby.adoc[]
 
 [[collection-extent-section]]
 ===== Extent
@@ -132,10 +113,16 @@ The extent property defines a spatial-temporal envelope that encompasses the geo
 * Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
 * Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like Bbox, additional periods can be added if the collection does not form a single temporal cluster.
 
-include::requirements/collections/REQ_rc-md-extent.adoc[]
+include::requirements/collections/REQ_collections-description-extent.adoc[]
 
-include::recommendations/collections/REC_rc-md-extent.adoc[]
+include::recommendations/collections/REC_collections-description-extent.adoc[]
 
-include::recommendations/collections/REC_rc-md-extent-single.adoc[]
+include::recommendations/collections/REC_collections-description-extent-single.adoc[]
 
-include::recommendations/collections/PER_rc-md-extent-extensions.adoc[]
+include::recommendations/collections/PER_collections-description-extent-extensions.adoc[]
+
+==== Error Situations
+
+See <<http-status-codes>> for general guidance.
+
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).

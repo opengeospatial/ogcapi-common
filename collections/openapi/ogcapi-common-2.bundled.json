@@ -272,10 +272,6 @@
               "$ref": "#/components/schemas/link"
             }
           },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
-          },
           "numberMatched": {
             "$ref": "#/components/schemas/numberMatched"
           },

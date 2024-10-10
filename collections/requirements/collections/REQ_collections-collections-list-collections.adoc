@@ -1,6 +1,6 @@
-[[req_collections_rc-md-items]]
+[[req_collections_collections-list-collections]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-md-items*
+^|*Requirement {counter:req-id}* |*/req/collections/collections-list-collections*
 ^|A |For each spatial resource collection accessible through this API, metadata describing that collection SHALL be provided in the `collections` property of the Collections response.
 |===

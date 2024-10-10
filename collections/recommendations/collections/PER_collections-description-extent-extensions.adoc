@@ -1,11 +1,11 @@
-[[per_collections_rc-md-extent-extensions]]
+[[per_collections_description-extent-extensions]]
 [width="90%",cols="2,6a"]
 |===
-^|*Permission {counter:per-id}* |*/per/collections/rc-md-extent-extensions*
+^|*Permission {counter:per-id}* |*/per/collections/description-extent-extensions*
 ^|A |API-Common only specifies requirements for spatial and temporal extents. However, the `extent` object MAY be extended with additional members to represent other extents, such as thermal or pressure ranges.
-^|B |API-Common only supports 
+^|B |API-Common only supports
 
-* Spatial extents in CRS84 or CRS84h and 
+* Spatial extents in CRS84 or CRS84h and
 * Temporal extents in the Gregorian calendar
 
 These are the only _enum_ values in link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/extent.json[extent.json]).

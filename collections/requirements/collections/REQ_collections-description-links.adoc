@@ -1,7 +1,7 @@
-[[req_collections_rc-md-items-links]]
+[[req_collections_description-links]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/collections/rc-md-items-links* 
+^|*Requirement {counter:req-id}* |*/req/collections/description-links*
 ^|A |`200`-response SHALL include the following links in the `links` property of the response:
 
 * A link to this response document (relation: `self`),

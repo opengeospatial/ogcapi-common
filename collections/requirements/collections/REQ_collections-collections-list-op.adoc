@@ -1,0 +1,8 @@
+[[req_collections_collections-list-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/collections/collections-list-op*
+^|A |The API SHALL support the HTTP GET operation at the path `/collections`.
+^|B |The link relation type http://www.opengis.net/def/rel/ogc/1.0/data[http://www.opengis.net/def/rel/ogc/1.0/data] SHALL be used to link to this resource listing OGC API - Common - Part 2 collectons.
+For example, to link to `/collections` from an OGC API - Common - Part 1: landing page.
+|===
