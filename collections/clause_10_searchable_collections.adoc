@@ -50,11 +50,11 @@ The `bbox` parameter is used to select collections based on the geospatial footp
 
 The `bbox` parameter is defined as follows:
 
-include::./requirements/searchable-collections/REQ_rc-bbox-definition.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-bbox-definition.adoc[]
 
 While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::./requirements/searchable-collections/REQ_rc-bbox-response.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-bbox-response.adoc[]
 
 "Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 
@@ -84,9 +84,9 @@ The `datetime` parameter selects collections based on their temporal extent.
 
 The `datetime` parameter is defined as follows:
 
-include::./requirements/searchable-collections/REQ_rc-datetime-definition.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-datetime-definition.adoc[]
 
-include::./requirements/searchable-collections/REQ_rc-datetime-response.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-datetime-response.adoc[]
 
 "Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal extent of the collection (again, a time instant or period).
 For time periods this includes the start and end time.
@@ -135,7 +135,7 @@ Collections matching any of the terms separated by a comma are selected.
 
 Terms separated by a space must appear in the order specified, with nothing but white space in between, to be considered a match.
 
-include::./requirements/searchable-collections/REQ_rc-q.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-q.adoc[]
 
 [[searchable-query-parameter]]
 === Parameter `query`
@@ -154,60 +154,62 @@ as well as occurrence in specified properties of the collection description.
 
 NOTE: This `query` parameter is not specified in OGC API - Records, and is distinct from `q` to avoid misinterpretation and make it possible to conform to both this requirements class as well as Records.
 
-include::./requirements/searchable-collections/REQ_rc-query.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-query.adoc[]
 
 [[searchable-limit-parameter]]
 === Parameter `limit`
 
 The `limit` parameter limits the number of collections that can be returned in a response.
 
-include::./requirements/searchable-collections/REQ_rc-limit-definition.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-limit-definition.adoc[]
 
-include::./requirements/searchable-collections/REQ_rc-limit-response.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-limit-response.adoc[]
 
 The number of collections returned depends on the server and the value of the `limit` parameter.
 
-*   The client can request a limit to the number of collections returned.
-*   The server may have a default value for the limit, and a maximum limit.
-*   If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
+* The client can request a limit to the number of collections returned.
+* The server may have a default value for the limit, and a maximum limit.
+* If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
 
 The server also has the option of limiting the size of the collections response.
 
-include::./recommendations/searchable-collections/PER_rc-server-limit.adoc[]
+include::./recommendations/searchable-collections/REC_searchable-limit-default-maximum.adoc[]
+
+include::./recommendations/searchable-collections/PER_searchable-server-limit.adoc[]
 
 Since many servers will place a limit on the size of their responses, clients should be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
 
 The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 
-include::./requirements/searchable-collections/REQ_rc-next.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-next.adoc[]
 
 Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
-include::./recommendations/searchable-collections/PER_rc-prev.adoc[]
+include::./recommendations/searchable-collections/PER_searchable-prev.adoc[]
 
 ==== Paged Response
 
 If the collections response does not contain all of the collection resources available from this server, then the client should be informed of that fact.
 
-include::recommendations/searchable-collections/REC_rc-paged-response.adoc[]
+include::recommendations/searchable-collections/REC_searchable-paged-response.adoc[]
 
 The `numberMatched` property of the collections response indicates the number of Collection items included in the collections response. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controlled through the <<bbox-parameter-requirements,`bbox`>>, <<datetime-parameter-requirements,`datetime`>> and other selection parameters provided by the client.
 
-include::requirements/searchable-collections/REQ_rc-numberMatched.adoc[]
+include::requirements/searchable-collections/REQ_searchable-numberMatched.adoc[]
 
 The number of collection items included in a collections response may be a subset of the number matched. In that case, the `numberReturned` property of the collections response indicates the number of collection items returned in this "page" of the collections response.
 
-include::requirements/searchable-collections/REQ_rc-numberReturned.adoc[]
+include::requirements/searchable-collections/REQ_searchable-numberReturned.adoc[]
 
 If the collections response contains a subset of the selected collection items (`numberReturned` is less than `numberMatched`) then the collections response should contain links for navigating to the rest of the collection items as described above.
 
-[[searchable-belowScaleDenominator-parameter]]
-=== Parameter `belowScaleDenominator`
+[[searchable-below-sd-parameter]]
+=== Parameter `below-sd`
 
-The `belowScaleDenominator` parameter allows searching for collections with a native scale denominator that is more detailed than the specified value,
-allowing to filter out low-resolution dataset not suitable for the intended purpose.
-This corresponding property in the collection description is `minScaleDenomiantor`, which may also be related to a `minCellSize` property for gridded coverages.
+The `below-sd` parameter allows searching for collections usable at the scale denominator specified,
+allowing to filter out low-resolution datasets not suitable for the intended purpose.
+The related property indicating the minimum suitable scale denominator in the collection description is `minScaleDenominator`, which may also be related to a `minCellSize` property for gridded coverages.
 
-For example, `belowScaleDenominator=200000` would only match collections with data intended for a scale of 1:200,000 or larger (i.e., collections intended for 1:2,000,000 would be excluded).
+For example, `below-sd=200000` would only match collections with data intended for a scale of 1:200,000 or larger (i.e., collections intended for 1:2,000,000 would be excluded).
 
-include::./requirements/searchable-collections/REQ_rc-below-sd.adoc[]
+include::./requirements/searchable-collections/REQ_searchable-below-sd.adoc[]

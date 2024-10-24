@@ -1,7 +1,7 @@
-[[req_searchable_rc-query]]
+[[req_searchable_query]]
 [width="90%",cols="2,6a"]
 |===
-^|*Requirement {counter:req-id}* |*/req/searchable/rc-query*
+^|*Requirement {counter:req-id}* |*/req/searchable/query*
 ^|A|The implementation SHALL support a `query` parameter with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
 [source,YAML]
