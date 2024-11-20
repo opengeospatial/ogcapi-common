@@ -1,7 +1,5 @@
-[[conventions-section]]
 == Conventions
-
-All conventions described in the <<apicore,OGC API - Common Part 1: Core Standard>> are also applicable to this API-Common Part 2: Geospatial Data Standard except where modified in the following section.
+This section provides details of conventions used in this document.
 
 [[identifiers-section]]
 === Identifiers
@@ -21,7 +19,7 @@ The link relationships used in API-GeoData are described in <<link-relations-tab
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
-[width="90%",cols="2,6",options="header"]
+[width="90%",cols=",",options="header"]
 |===
 ^|**Link Relation** ^|**Purpose**
 |`alternate` |Refers to a substitute for this context [IANA]. + 

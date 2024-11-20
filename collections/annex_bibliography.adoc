@@ -1,20 +1,20 @@
-[appendix]
-:appendix-caption: Annex
+[bibliography]
 [[Bibliography]]
-= Bibliography
+== Bibliography
 
-* [[fielding-2000]] Fielding, Roy Thomas. *Architectural Styles and the Design of Network-based Software Architectures*. Doctoral dissertation, University of California, Irvine, 2000.
-* [[YAML]] **YAML Ain't Markup Language** [online, viewed 2020-03-16]. Edited by O. Ben-Kiki, C. Evans, Ingy döt Net. Available at https://yaml.org[https://yaml.org].
-* [[link-relations]] Internet Assigned Numbers Authority (IANA). **Link Relation Types** [online, viewed 2020-03-16], Available at https://www.iana.org/assignments/link-relations/link-relations.xml[https://www.iana.org/assignments/link-relations/link-relations.xml].
-* [[rfc5234]] Crocker, D., Overell, P.: *IETF RFC 5234, Augmented BNF for Syntax Specifications: ABNF*, https://tools.ietf.org/html/rfc5234[https://tools.ietf.org/html/rfc5234]
-* [[iso19107]] ISO 19107:2019, *Geographic information ⎯ Spatial schema*, Available at https://www.iso.org/standard/66175.html[https://www.iso.org/standard/66175.html]
-* [[iso19111]] ISO 19111:2019, *Geographic information ⎯ Spatial referencing by coordinates*, Available at https://www.iso.org/standard/74039.html[https://www.iso.org/standard/74039.html]
-* [[openapi]] Open API Initiative: **OpenAPI Specification 3.0.3**, https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md[https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md]
-* [[ogc08-131]] Open Geospatial Consortium: **The Specification Model -- A Standard for Modular specifications**, https://portal.opengeospatial.org/files/?artifact_id=34762[OGC 08-131]
-* [[SDWBP]] Open Geospatial Consortium (OGC) / World Wide Web Consortium (W3C): **Spatial Data on the Web Best Practices** [online]. Edited by J. Tandy, L. van den Brink, P. Barnaghi. 2017 [viewed 2020-03-16]. Available at https://www.w3.org/TR/sdw-bp/[https://www.w3.org/TR/sdw-bp/].
-* [[DWBP]] World Wide Web Consortium (W3C): **Data on the Web Best Practices** [online]. Edited by B.F. Lóscio, C. Burle, N. Calegari. 2017 [viewed 2020-03-16]. Available at https://www.w3.org/TR/dwbp/[https://www.w3.org/TR/dwbp/].
-* [[DCAT]] World Wide Web Consortium (W3C): **Data Catalog Vocabulary (DCAT) - Version 3** [online]. Edited by R. Albertoni, D. Browning, S. Cox, A.G. Beltran, A. Perego, P. Winstanley. W3C Editors Draft 15 June 2021. Available at https://w3c.github.io/dxwg/dcat/[https://w3c.github.io/dxwg/dcat/].
-* [[OGCAPI]] Open Geospatial Consortium (OGC): *Welcome To The OGC APIs* [online, viewed 2020-03-16]. Available at http://www.ogcapi.org/[http://www.ogcapi.org/].
-* [[OGCLINKS]] Open Geospatial Consortium (OGC): *OGC Link Relations Registry*, [online, viewed 2020-04-17]. Available at  https://github.com/opengeospatial/NamingAuthority/blob/master/incubation/linkRelationTypes/linkrelations.csv[https://github.com/opengeospatial/NamingAuthority/blob/master/incubation/linkRelationTypes/linkrelations.csv].
-* [[citepp]] Open Geospatial Consortium (OGC): *Compliance Testing Program Policies & Procedures* [online, viewed 2020-04-18]. Available at https://portal.ogc.org/files/?artifact_id=28982&version=7[https://portal.ogc.org/files/?artifact_id=28982].
-* [[sfsql]] Herring, J.: OGC 06-104r4,*OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option*, http://portal.opengeospatial.org/files/?artifact_id=25354[http://portal.opengeospatial.org/files/?artifact_id=25354]
+
+* [[[fielding2000]]], Fielding, Roy Thomas: *Architectural Styles and the Design of Network-based Software Architectures*. Doctoral dissertation, University of California, Irvine, 2000, https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf[https://www.ics.uci.edu/fielding/pubs/dissertation/fielding_dissertation.pdf]
+* [[[link-relations]]], IANA: **Link Relation Types**, https://www.iana.org/assignments/link-relations/link-relations.xml
+* [[[rfc5234,RFC 5234]]],
+* [[[iso19107,ISO 19107:2019]]],
+* [[[iso19111,ISO 19111:2019]]],
+* [[[DCAT]]], W3C: **Data Catalog Vocabulary (DCAT) - Version 2**, W3C Recommendation, 04 February 2020, https://www.w3.org/TR/vocab-dcat-2/
+* [[[DWBP]]], W3C: **Data on the Web Best Practices**, W3C Recommendation, 31 January 2017, https://www.w3.org/TR/dwbp/
+* [[[SDWBP]]], W3C/OGC: **Spatial Data on the Web Best Practices**, W3C Working Group Note, 28 September 2017, https://www.w3.org/TR/sdw-bp/
+* [[[ogc08-131,OGC 08-131]]],
+* [[[ogc06-104r4,OGC 06-104r4]]],
+* [[[OGCLINKS]]], Open Geospatial Consortium: *OGC Link Relations Registry*, [online, viewed 2024-11-20]. Available at http://www.opengis.net/def/rel
+* [[[YAML]]], **YAML Ain't Markup Language** [online, viewed 2020-03-16]. Edited by O. Ben-Kiki, C. Evans, Ingy döt Net. Available at https://yaml.org[https://yaml.org].
+* [[[openapi]]], Open API Initiative: **OpenAPI Specification 3.0.3**, https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md[https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md]
+* [[[OGCAPI]]], Open Geospatial Consortium: *Welcome To The OGC APIs* [online, viewed 2020-03-16]. Available at http://www.ogcapi.org/[http://www.ogcapi.org/].
+* [[[citepp]]], Open Geospatial Consortium: *Compliance Testing Program Policies & Procedures* [online, viewed 2020-04-18]. Available at https://portal.ogc.org/files/?artifact_id=28982&version=7[https://portal.ogc.org/files/?artifact_id=28982].

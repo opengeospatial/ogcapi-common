@@ -1,6 +1,7 @@
 [[rec_part1-landing-page]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/collections/rec-part1-landing-page*
-^|A |An implementation of the `/Collections` Requirements Class SHOULD also implement the http://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page[_Landing Page_ Conformance Class] defined in OGC API - Common Part 1: Core.
-|===
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/collections/rec-part1-landing-page
+part:: An implementation of the `/Collections` Requirements Class SHOULD also implement the http://www.opengis.net/spec/ogcapi-common-1/1.0/req/landing-page[_Landing Page_ Conformance Class] defined in OGC API - Common Part 1: Core.
+====

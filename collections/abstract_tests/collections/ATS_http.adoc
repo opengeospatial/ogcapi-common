@@ -1,9 +1,14 @@
 [[ats_collections_http]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/collections/http* 
-^|Test Purpose |Validate that all resources accessible through the `/Collections` Requirements Class can be accessed using the HTTP 1.1 protocol and, where approprate, TLS.
-^|Requirement |<<req_dependency-http,/req/collections/rc-dependency-http>>
-^|Test Method |. All compliance tests shall be configured to use the HTTP 1.1 protocol exclusively.
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collections/http
+target:: /req/collections/rc-dependency-http
+test-purpose:: Validate that all resources accessible through the `/Collections` Requirements Class can be accessed using the HTTP 1.1 protocol and, where approprate, TLS.
+test-method:: 
++
+--
+. All compliance tests shall be configured to use the HTTP 1.1 protocol exclusively.
 . For APIs which support HTTPS, all compliance tests shall be configured to use <<rfc2818,HTTP over TLS>> (RFC 2818) with their HTTP 1.1 protocol.
-|===
+--
+====

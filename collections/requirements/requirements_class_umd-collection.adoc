@@ -1,8 +1,10 @@
 [[rc_umd-collection]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/req/umd-collection
-|Target type |Web API
-|Dependency |<<rc_collections,Collections Requirements Class>>
-|===
+[requirements_class]
+.Requirements Class 'Uniform Multi-Dimension Collection'
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/umd-collection
+subject:: Web API
+inherit:: <<rc_collections,Collections Requirements Class>>
+requirement:: /req/umd-collection/extent-uad-definition
+====

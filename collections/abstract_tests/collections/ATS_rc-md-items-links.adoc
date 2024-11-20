@@ -1,11 +1,16 @@
 [[ats_collections_rc-md-items-links]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-md-items-links* 
-^|Test Purpose |Validate that a Collection document includes all required links.
-^|Requirement |<<req_collections_rc-md-items-links,/req/collections/rc-md-items-links>>
-^|Test Method |. Verify that the Collection document includes a `links` property. 
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collections/rc-md-items-links
+target:: /req/collections/rc-md-items-links
+test-purpose:: Validate that a Collection document includes all required links.
+test-method:: 
++
+--
+. Verify that the Collection document includes a `links` property. 
 . Verify that the `links` property includes an item which referes back to the Collection document (relation: `self`).
 . Verify that the `links` property includes an item for each supported encoding of this Collection document and that each of these items includes an `href` to an appropriate resource (relation: `alternate`).
 . Verify that all links include the `rel` and `type` link parameters.
-|===
+--
+====

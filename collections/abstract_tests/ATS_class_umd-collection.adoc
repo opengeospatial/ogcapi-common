@@ -1,0 +1,13 @@
+[[conf_umd-collection,/conf/umd-collection]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/umd-collection
+target:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/umd-collection
+classification:: Target Type:Web API
+abstract-test:: /conf/umd-collection/extent-uad-definition
+====
+
+==== Abstract Test for Uniform Multi-Dimension Collection Definition
+
+include::umd-collection/ATS_extent-uad-definition.adoc[]

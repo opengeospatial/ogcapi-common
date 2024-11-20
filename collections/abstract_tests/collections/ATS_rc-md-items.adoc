@@ -1,11 +1,17 @@
 [[ats_collections_rc-md-items]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-md-items*
-^|Test Purpose |Validate that each collection accessible through the API is described in the Collections document.
-^|Requirement |<<req_collections_rc-md-items,/req/collections/rc-md-items>>
-^|Test Method |. Verify that the Collections document includes a `collections` property.
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collections/rc-md-items
+target:: /req/collections/rc-md-items
+test-purpose:: Validate that each collection accessible through the API is described in the Collections document.
+test-method:: 
++
+--
+. Verify that the Collections document includes a `collections` property.
 . Verify that the `collections` property is an array.
 . Verify that there is an entry in the `collections` property for each resource collection accessible through the API.
 . Verify that each entry in the `collections` array is valid according to <<ats_collections_rc-md-collection-content,/conf/collections/rc-md-collection-content>>.
-|===
+--
+====
+

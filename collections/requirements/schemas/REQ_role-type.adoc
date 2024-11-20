@@ -1,8 +1,0 @@
-:req: role-type
-[#{req-class}_{req}]
-[width="90%",cols="2,7a"]
-|===
-^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
-^|A |A property with "x-ogc-role" set to "type" SHALL be a string property.
-^|B |At most one property in a schema SHALL have "x-ogc-role" with a value "type".
-|===

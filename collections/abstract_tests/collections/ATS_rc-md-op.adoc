@@ -1,11 +1,16 @@
 [[ats_collections_rc-md-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-md-op*
-^|Test Purpose |Validate that information about the Collections can be retrieved from the expected location.
-^|Requirement |<<req_collections_rc-md-op,/req/collections/rc-md-op>> +
-<<req_collections_rc-md-success,/req/collections/rc-md-success>>
-^|Test Method |. Issue an HTTP GET request without query parameters to the URL {root}/collections
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collections/rc-md-op
+target:: /req/collections/rc-md-op
+target:: /req/collections/rc-md-success
+test-purpose:: Validate that information about the Collections can be retrieved from the expected location.
+test-method:: 
++
+--
+. Issue an HTTP GET request without query parameters to the URL {root}/collections
 . Validate that a document was returned with a status code 200
 . Validate the contents of the returned document using test <<ats_collections_rc-md-success,/conf/collections/rc-md-success>>.
-|===
+--
+====

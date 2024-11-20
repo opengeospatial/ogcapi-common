@@ -1,12 +1,11 @@
 [[ats_collections]]
-[cols="1,4",width="90%"]
-|===
-2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
-|Target type |Web API
-|Requirements Class |<<rc_collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections>>
-|Dependency |<<rfc7231,IETF RFC 7231, Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content>>
-|===
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+target:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
+classification:: Target Type:Web API
+====
 
 The <<rc-collections,Collections>> Conformance Class has a dependency on the HTTP and optionally HTTPS protocols.
 

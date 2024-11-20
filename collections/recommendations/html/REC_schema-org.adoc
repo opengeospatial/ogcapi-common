@@ -1,6 +1,7 @@
 [[rec_html_schema-org]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/html/schema-org*
-^|A |A `200`-response for the `/collections`, `/collections/{collectionId}` and `/collections/{collectionId}/schema` resources with the media type `text/html`, SHOULD include <<schema_org,Schema.org>> annotations.
-|===
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/html/schema-org
+part:: A `200`-response for the `/collections`, `/collections/{collectionId}` and `/collections/{collectionId}/schema` resources with the media type `text/html`, SHOULD include <<schema_org,Schema.org>> annotations.
+====

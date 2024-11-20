@@ -1,12 +1,14 @@
-[[ats_html]]
-[cols="1,4",width="90%"]
-|===
-2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/html
-|Target type |Web API
-|Requirements Class |<<rc_html,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/html>>
-|Dependency |<<ats_collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections>>
-|===
+[[ats_html,/conf/html]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/html
+target:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/html
+classification:: Target Type:Web API
+abstract-test:: /conf/html/definition
+abstract-test:: /conf/html/content
+====
+
 
 ==== HTML Definition
 
