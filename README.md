@@ -1,25 +1,25 @@
 # OGC API (OAPI) Common Specifications
 
-The [OGC API](https://ogcapi.ogc.org) family of standards is organized by resource type. The standards are developed by the [Open Geospatial Consortium](http://ogc.org). Each resource has an associated API standard. These resource-specific API standards are built using shared API modules. The OGC API-Common suite of standards provides the standards which define these modules. This GitHub repository supports the development and maintenance of the API-Common suite of standards.
+The [OGC API](https://ogcapi.ogc.org) family of Standards is organized by resource type. The Standards are developed by the [Open Geospatial Consortium](http://ogc.org). Each resource has an associated API standard. These resource-specific API standards are built using shared API modules. The OGC API-Common suite of standards provides the standards which define these modules. This GitHub repository supports the development and maintenance of the API-Common suite of standards.
 
-[OGC API standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs in a consistent way. [OpenAPI](http://openapis.org) is used to define the reusable API building blocks.
+[OGC API Standards](https://ogcapi.ogc.org) define modular API building blocks to spatially enable Web APIs in a consistent way. The Standards use the [OpenAPI](http://openapis.org) specification to define the reusable API building blocks.
 
 ## OGC API - Common Users Guide
 It is the goal of the OGC to produce standards which are concise, complete, and testable. However, such documents do not fully capture the body of knowledge needed to successfully implement the standard. API-Common provides this non-normative information through the associated API-Common Best Practices document. The standard tells you what you must do. The Best Practices tell you how and why.
 
-The Best Practices are available in [HTML](http://docs.opengeospatial.org/DRAFTS/20-071.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/20-071.pdf) formats.
+The Best Practices are available in [HTML](https://docs.ogc.org/guides/20-071.html) and [PDF](https://docs.ogc.org/guides/20-071.pdf) formats.
 
 ## OGC API - Common - Part 1: Core
 
 The OGC API - Common - Part 1: Core Standard defines the resources and operations which SHALL be common to all OGC API standards. This Standard defines the minimal requirements for an API to be discovered and used by any client.
 
-The *draft* version of this standard is available in [HTML](https://opengeospatial.github.io/ogcna-auto-review/19-072.html) and [PDF](https://opengeospatial.github.io/ogcna-auto-review/19-072.pdf) formats.
+Version 1.0.0 of this standard is available in [HTML](https://docs.ogc.org/is/19-072/19-072.html) and [PDF](https://docs.ogc.org/is/19-072/19-072.pdf) formats.
 
 ## OGC API - Common - Part 2: Geospatial Data
 
-The OGC API - Common - Part 2: Geospatial Data Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.
+The OGC API - Common - Part 2: Geospatial Data *candidate* Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.
 
-This standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/20-024.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/20-024.pdf) formats.
+This *candidate* standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/20-024.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/20-024.pdf) formats.
 
 ## OGC API - Common - Part 3: CRS
 
