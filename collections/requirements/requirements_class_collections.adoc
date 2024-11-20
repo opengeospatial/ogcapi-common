@@ -1,8 +1,17 @@
 [[rc_collections]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
-|Target type |Web API
-|Dependency |http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
-|===
+[requirements_class]
+.Requirements Class 'Collections'
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
+subject:: Web API
+inherit:: http://www.opengis.net/spec/ogcapi-common-1/1.0/req/core
+requirement:: /req/collections/collections-list-op
+requirement:: /req/collections/collections-list-success
+requirement:: /req/collections/collections-list-links
+requirement:: /req/collections/collections-list-collections
+requirement:: /req/collections/description-op
+requirement:: /req/collections/description-success
+requirement:: /req/collections/description-links
+requirement:: /req/collections/description-extent
+====

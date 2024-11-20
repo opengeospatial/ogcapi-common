@@ -1,5 +1,5 @@
 [[rc_encoding-section]]
-== Encoding Requirements Classes
+== Requirements Classes for Encodings
 
 === Overview
 
@@ -11,7 +11,7 @@ This clause specifies two requirements classes for encodings to be used with the
 Neither of these encodings is mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or neither of them. 
 
 [[rc_html-section]]
-=== Requirement Class "HTML"
+=== Requirements Class "HTML"
 
 Geographic information that is only accessible in formats like GeoJSON or GML has two issues:
 
@@ -31,7 +31,7 @@ include::requirements/html/REQ_content.adoc[]
 include::recommendations/html/REC_schema-org.adoc[]
 
 [[rc_json-section]]
-=== Requirement Class "JSON"
+=== Requirements Class "JSON"
 
 JSON is a text syntax that facilitates structured data interchange between programming languages. JSON is commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.
 

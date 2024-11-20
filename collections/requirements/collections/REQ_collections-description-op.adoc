@@ -1,7 +1,8 @@
 [[req_collections_description-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/collections/description-op*
-^|A|The API SHALL support the HTTP GET operation at the path `/collections/{collectionId}`.
-^|B|The parameter `collectionId` is each `id` property in the `collections` response (JSONPath: `$.collections[*].id`).
-|===
+[requirement]
+====
+[%metadata]
+identifier:: /req/collections/description-op
+part:: The API SHALL support the HTTP GET operation at the path `/collections/{collectionId}`.
+part:: The parameter `collectionId` is each `id` property in the `collections` response (JSONPath: `$.collections[*].id`).
+====

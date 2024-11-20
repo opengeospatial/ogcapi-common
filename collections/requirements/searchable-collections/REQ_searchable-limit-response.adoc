@@ -1,8 +1,0 @@
-[[req_searchable-limit-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/searchable/limit-response*
-^|A |If the `limit` parameter is provided by the client and supported by the server, then the response SHALL NOT contain more collections than specified by the `limit` parameter.
-^|B |If the API definition specifies a maximum value for the `limit` parameter, the response SHALL NOT contain more collections than this maximum value.
-^|C |If the value of the `limit` parameter is larger than the maximum value, this SHALL NOT result in an error (instead the server's maximum value for the parameter SHALL be used).
-|===

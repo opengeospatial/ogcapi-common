@@ -1,6 +1,5 @@
-== Introduction
-
-[big]*i.     Abstract*
+[abstract]
+== Abstract
 
 The OGC standards baseline has been extended to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing OGC Web API standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers can use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.
 
@@ -10,36 +9,45 @@ The purpose of the OGC API - Common - Part 2: Geospatial Data (API-GeoData) Stan
 
 OGC API-GeoData does not specify the nature of the geospatial data that make up a collection. Rather, the standard specifies a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.
 
-[big]*ii.    Keywords*
 
-The following are keywords to be used by search engines and document catalogues.
+////
+== Keywords
 
-ogcdoc, OGC document, geographic information, spatial data, spatial things, dataset, distribution, API, json, html, OpenAPI, REST, Common
+Keywords inserted here automatically by Metanorma
+////
 
-[big]*iii.   Preface*
 
+.Preface
+
+This document defines the _OGC API - Common - Part 2: Geospatial Data_ Standard. Suggested additions, changes and comments on this standard are welcome and encouraged. Such suggestions may be submitted as an issue on the https://github.com/opengeospatial/ogcapi-common/issues[_OGC API - Common_ GitHub repository].
+
+////
 *OGC Declaration*
+////
 
-Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium Inc. shall not be held responsible for identifying any or all such patent rights.
+////
+[THIS TEXT IS ALREADY ADDED AUTOMATICALLY IN THE FRONTISPIECE OF ALL OGC DOUCMENTS]
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
 
 Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+////
 
-[big]*iv.    Submitting organizations*
 
-The following organizations submitted this Document to the Open Geospatial Consortium (OGC):
 
-* Heazeltech LLC
-* CubeWerx Inc.
-
-[big]*v.     Submitters*
+[.preface]
+== Submitters
 
 All questions regarding this submission should be directed to the editors or the submitters:
 
 |===
 |*Name* |*Affiliation*
 |Chuck Heazel _(editor)_ |Heazeltech
+|Jerome St-Louis _(editor)_ |Ecere Corporation
+|Joan Masó | Universitat Autònoma de Barcelona (CREAF)
 |Chris Little |UK Met Office
 |Carl Reed |Self
-|Jerome St-Louis |Ecere Corporation
 |Panagiotis (Peter) A. Vretanos |CubeWerx Inc.
 |===
+
+

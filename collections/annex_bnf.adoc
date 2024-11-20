@@ -1,6 +1,5 @@
-[appendix]
+[appendix,obligation=normative]
 :appendix-caption: Annex
-
 [[bnf-annex]]
 == Backus-Naur Forms
 
@@ -9,6 +8,8 @@
 
 The following Augmented Backus-Naur Form (<<rfc3339,ABNF>>) is from Appendix A of <<rfc3986,IETF RFC 3986>>.
 
+[source,bnf]
+----
   URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
 
   hier-part     = "//" authority path-abempty
@@ -90,12 +91,15 @@ The following Augmented Backus-Naur Form (<<rfc3339,ABNF>>) is from Appendix A o
   gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"
   sub-delims    = "!" / "$" / "&" / "'" / "(" / ")"
                 / "*" / "+" / "," / ";" / "="
+----
 
 [[date-time-bnf-annex]]
 === BNF for Date-Time
 
 The following Augmented Backus-Naur Form (ABNF) is from <<rfc3339,IETF RFC 3339>>.
 
+[source,bnf]
+----
   date-fullyear  = 4DIGIT
   date-month     = 2DIGIT  ; 01-12
   date-mday      = 2DIGIT  ; 01-28, 01-29, 01-30, 01-31 based on month/year
@@ -109,6 +113,7 @@ The following Augmented Backus-Naur Form (ABNF) is from <<rfc3339,IETF RFC 3339>
   full-date      = date-fullyear "-" date-month "-" date-mday
   full-time      = partial-time time-offset
   date-time      = full-date "T" full-time
+----
 
 Note that unlike ISO 8601, the local time zone offset is required by RFC 3339.
 

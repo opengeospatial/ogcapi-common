@@ -1,9 +1,0 @@
-[[req_searchable-below-sd]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/searchable/below-sd*
-^|A|The Implementation SHALL support a `below-sd` parameter specified as numeric value for the `/collections` resource.
-^|B|The Implementation SHALL NOT include in the response collections for which the `minScaleDenominator` property (or the equivalent conversion for `minCellSize` assuming 0.28mm/cell)
-of the collection description is greater than the scale denominator specified in the `below-sd` parameter value.
-^|C|Collections with an unknown `minScaleDenominator` (or equivalent `minCellSize`) SHALL be included in the response.
-|===

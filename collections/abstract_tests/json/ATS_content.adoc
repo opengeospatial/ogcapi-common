@@ -1,9 +1,14 @@
-[[ats_json_content]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/json/content*
-^|Test Purpose |Verify the content of a JSON document given an input document and schema.
-^|Requirement |<<req_json_content,/req/json/content>>
-^|Test Method |. Validate that the document is a JSON document.
+[[ats_json_content,/conf/json/content]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/content
+target:: /req/json/content
+test-purpose:: Verify the content of a JSON document given an input document and schema.
+test-method:: 
++
+--
+. Validate that the document is a JSON document.
 . Validate the document against the schema using a JSON Schema validator.
-|===
+--
+====

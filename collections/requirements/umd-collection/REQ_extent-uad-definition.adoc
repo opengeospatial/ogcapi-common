@@ -1,19 +1,29 @@
 [[req_extent-uad-definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/umd-collection/extent-uad-definition*
-^|A |Any additional dimension property added to the `extent` of a collection description SHALL contain an `interval` property consisting of an array of one or more interval, where the first element describes the overall interval where data is available for the collection, whereas any additional elements describe intervals encompassing clusters of data availability within the overall interval.
-^|B |Each interval element SHALL be described as an array of two values, with the first being the lower bound and the second the upper bound.
-^|C |An unbounded or half-bounded interval SHALL be described using a null value for its lower and/or upper bound.
-^|D |Any additional dimension SHALL contain a `definition` property to indicate the semantic concept for the variable associated with the dimension, a `trs` to indicate a temporal reference system or a `vrs` property to indicate the vertical reference system.
-^|E |For additional dimension defined using `definition`, where a particular unit is used, that dimension SHALL contain a `unit` property expressing the unit of measure, where the language for defining the unit is UCUM, unless specified otherwise in a `unitLang` property (using values such as `"UCUM"` or `"QUDT"`).
-^|F |If data is organized along a regular or irregular grid for the temporal and any additional dimension, that dimension SHALL contain a `grid` object property describing the grid of that dimension.
-^|G |If data is organized along a regular or irregular grid for the spatial dimensions, the `spatial` object SHALL contain a `grid` array property, where each element is an object describing the grid of that dimension.
-^|H |If data is organized along a regular or irregular grid for a dimension, the grid object(s) for that dimension SHALL indicate the number of coordinates along the dimension in a `cellsCount` property. +
-For values representing the whole area of contiguous cells spanning _resolution_ units along the dimension, the _cellsCount_ will be (_upperBound_ - _lowerBound_) / _resolution_. +
-For values representing infinitely small point cells spaced by _resolution_ units along the dimension, the _cellsCount_ will be (_upperBound_ - _lowerBound_) / _resolution_ + 1.
-^|I |For regularly gridded dimensions, the grid object SHALL contain a `resolution` property indicating the resolution of the grid in the unit of the `unit` property or the unit associated with the `trs`, `vrs`, or `storageCrs` in the case of the spatial dimensions (defaulting to CRS84 if none is provided). +
+[requirement]
+====
+[%metadata]
+identifier:: /req/umd-collection/extent-uad-definition
+part:: Any additional dimension property added to the `extent` of a collection description SHALL contain an `interval` property consisting of an array of one or more interval, where the first element describes the overall interval where data is available for the collection, whereas any additional elements describe intervals encompassing clusters of data availability within the overall interval.
+part:: Each interval element SHALL be described as an array of two values, with the first being the lower bound and the second the upper bound.
+part:: An unbounded or half-bounded interval SHALL be described using a null value for its lower and/or upper bound.
+part:: Any additional dimension SHALL contain a `definition` property to indicate the semantic concept for the variable associated with the dimension, a `trs` to indicate a temporal reference system or a `vrs` property to indicate the vertical reference system.
+part:: For additional dimension defined using `definition`, where a particular unit is used, that dimension SHALL contain a `unit` property expressing the unit of measure, where the language for defining the unit is UCUM, unless specified otherwise in a `unitLang` property (using values such as `"UCUM"` or `"QUDT"`).
+part:: If data is organized along a regular or irregular grid for the temporal and any additional dimension, that dimension SHALL contain a `grid` object property describing the grid of that dimension.
+part:: If data is organized along a regular or irregular grid for the spatial dimensions, the `spatial` object SHALL contain a `grid` array property, where each element is an object describing the grid of that dimension.
+part:: 
++
+--
+If data is organized along a regular or irregular grid for a dimension, the grid object(s) for that dimension SHALL indicate the number of coordinates along the dimension in a `cellsCount` property. +
+
+* For values representing the whole area of contiguous cells spanning _resolution_ units along the dimension, the _cellsCount_ will be (_upperBound_ - _lowerBound_) / _resolution_. +
+* For values representing infinitely small point cells spaced by _resolution_ units along the dimension, the _cellsCount_ will be (_upperBound_ - _lowerBound_) / _resolution_ + 1.
+--
+part:: 
++
+--
+* For regularly gridded dimensions, the grid object SHALL contain a `resolution` property indicating the resolution of the grid in the unit of the `unit` property or the unit associated with the `trs`, `vrs`, or `storageCrs` in the case of the spatial dimensions (defaulting to CRS84 if none is provided). +
 The regular grid can be generated by incrementally adding the resolution starting from the lower bound of the overall interval. +
-For the spatial dimension, the `storageCrsBbox` in the `spatial` property describes that interval rather than an `interval` property. If no `storageCrs` and `storageCrsBbox` are present, the `bbox` of the `spatial` property describes that interval in the default CRS84.
-^|J |For irregularly gridded (or categorical) dimensions, the grid object SHALL contain a `coordinates` property indicating the list of valid coordinates where data is available along that dimension.
-|===
+* For the spatial dimension, the `storageCrsBbox` in the `spatial` property describes that interval rather than an `interval` property. If no `storageCrs` and `storageCrsBbox` are present, the `bbox` of the `spatial` property describes that interval in the default CRS84.
+--
+part:: For irregularly gridded (or categorical) dimensions, the grid object SHALL contain a `coordinates` property indicating the list of valid coordinates where data is available along that dimension.
+====

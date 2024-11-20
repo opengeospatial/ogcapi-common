@@ -1,7 +1,7 @@
-[appendix]
-[[ats-section]]
+[appendix,obligation=normative]
 :appendix-caption: Annex
-== Abstract Test Suite (Normative)
+[[annex-ats]]
+== Conformance Class Abstract Test Suite
 
 === Introduction
 
@@ -20,27 +20,7 @@ include::abstract_tests/ATS_class_collections.adoc[]
 
 === Conformance Class Uniform Multi-Dimension Collection
 
-// TODO: include::abstract_tests/ATS_class_umd-collection.adoc[]
-
-=== Conformance Class Searchable Collections
-
-include::abstract_tests/ATS_class_searchable-collections.adoc[]
-
-=== Conformance Class Sortable Collections
-
-// TODO: include::abstract_tests/ATS_class_sortable-collections.adoc[]
-
-=== Conformance Class Filtering Collections with CQL2
-
-// TODO: include::abstract_tests/ATS_class_filterable-collections.adoc[]
-
-=== Conformance Class Hierarchical Collections
-
-// TODO: include::abstract_tests/ATS_class_hierarchical-collections.adoc[]
-
-=== Conformance Class Schemas
-
-// TODO: include::abstract_tests/ATS_class_schemas.adoc[]
+include::abstract_tests/ATS_class_umd-collection.adoc[]
 
 === Conformance Class JSON
 

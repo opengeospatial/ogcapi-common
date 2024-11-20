@@ -27,7 +27,7 @@ The API-GeoData Standard does not define any `views`. These are defined in separ
 
 The URI for a view of a collection follows the URI template:
 
- /collections/{collectionId}/{viewId}
+`/collections/{collectionId}/{viewId}`
  
 Where:
 
