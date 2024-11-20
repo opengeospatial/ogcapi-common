@@ -1,4 +1,4 @@
-# OGC API - Common Specifications
+# OGC API - Common
 
 The [OGC API](https://ogcapi.ogc.org) family of Standards is organized by resource type. The Standards are developed by the [Open Geospatial Consortium](http://ogc.org). Each resource has an associated API standard. These resource-specific API standards are built using shared API modules. The OGC API-Common suite of standards provides the standards which define these modules. This GitHub repository supports the development and maintenance of the API-Common suite of standards.
 
