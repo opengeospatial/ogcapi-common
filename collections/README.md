@@ -16,6 +16,7 @@ First, ensure that you have docker installed.
 
 Then, from the folder containing `20-024.adoc`, run the following command in a terminal.
 
+
 ```
 docker run -v "$(pwd)":/metanorma -v ${HOME}/.fontist/fonts/:/config/fonts  metanorma/metanorma  metanorma compile --agree-to-terms -t ogc -x html 20-024.adoc
 ```
