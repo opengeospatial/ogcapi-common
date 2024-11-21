@@ -1,0 +1,9 @@
+:req: property-seq
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |The keyword "x-ogc-propertySeq" SHALL be used to declare a specific relative position of the property.
+^|B |The value of the keyword "x-ogc-propertySeq" SHALL be an integer representing the relative position in ascending order.
+^|C |Each value of the keyword SHALL be unique for all members of a "properties" object in the JSON Schema.
+|===

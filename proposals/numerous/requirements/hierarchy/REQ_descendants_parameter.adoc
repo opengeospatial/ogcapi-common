@@ -1,0 +1,8 @@
+[[req_hierarchy_descendants-parameter]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/hierarchy/descendants-parameter*
+^|A |The implementation SHALL support a `descendants` query parameter for listing collections at the resource `/collections` whose value can be either `immediate` or `all` (the default).
+^|B |When the value of the `descendants` parameter is `immediate`, the list of collections returned SHALL only include immediate children of the collection specified in the `parent` query parameter if applicable, or otherwise only the top-level collections with no parent if no `parent` parameter is specified.
+^|C |When the value of the `descendants` parameter is `all` or not provided, all collections of the hierarchy SHALL be returned, subject to any other filtering based on any other parameters such as `parent`.
+|===

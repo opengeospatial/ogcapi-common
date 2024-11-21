@@ -1,0 +1,15 @@
+[[ats_collections_rc-datetime-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-datetime-response*
+^|Test Purpose |Validate that the `datetime` query parameter is processed correctly.
+^|Requirement |<<req_collections_rc-datetime-definition,/req/collections/rc-datetime-definition>> +
+<<req_collections_rc-datetime-response,/req/collections/rc-datetime-response>> +
+<<req_collections_rc-datetime-collection-response,/req/collections/rc-datetime-collection-response>>
+^|Test Method |DO FOR each `Collection` in the `collections` element of the response:
+
+. Extract the temporal geometry from the `interval` element of the `extent` property of the `Collection` resource.
+. IF there is a temporal geometry, verify that the temporal geometry intersects the temporal period defined by the `datetime` parameter.
+. IF there is a temporal geometry, validate that the processing of the datetime parameter complies with the syntax described in /req/collections/rc-datetime-definition (B, C, and D).
+|===
+

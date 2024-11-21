@@ -1,0 +1,8 @@
+:req: nilvalues
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |The keyword "x-ogc-nilValues" SHALL be used to identify the values considered nil.
+^|B |The value of the keyword "x-ogc-nilValues" SHALL be an array of objects, each including a mandatory "const" value and an optional "title" explanation of the meaning of that particular nil value.
+|===

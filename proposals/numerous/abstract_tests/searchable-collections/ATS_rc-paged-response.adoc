@@ -1,0 +1,10 @@
+[[ats_collections_rc-paged-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-paged-response*
+^|Test Purpose |Validate that the `numberMatched` and `numberReturned` parameters, if present, are populated correctly..
+^|Requirement |<<req_collections_rc-numberMatched,/req/collections/rc-numberMatched>> +
+<<req_collections_rc-numberReturned,/req/collections/rc-numberReturned>>
+^|Test Method |. IF the `numerMatched` property is included in the response, THEN verify that the value of the `numberMatched` parameter is identical to the number of hosted resources that meet the selection parameters provided by the client.
+. IF the `numberReturned` property is included in the response, THEN verify that the value of the `numberReturned` parameter is identical to the number of resources returned in the response.
+|===

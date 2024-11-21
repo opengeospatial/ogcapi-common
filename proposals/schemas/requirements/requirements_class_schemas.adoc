@@ -1,0 +1,13 @@
+:req-class: schemas
+[#rc_{req-class}]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/req/schemas
+|Target type |Web API
+|Dependency |<<jschema,JSON Schema: A Media Type for Describing JSON Documents>>
+|Indirect Dependency |<<json-schema-validation,JSON Schema Validation: A Vocabulary for Structural Validation of JSON>>
+|Indirect Dependency |<<ogc06_103r4,Simple feature access - Part 1: Common architecture>>
+|Indirect Dependency |<<ucum,The Unified Code for Units of Measure>>
+|Indirect Dependency |<<qudt,QUDT Ontologies, derived models and vocabularies>>
+|===

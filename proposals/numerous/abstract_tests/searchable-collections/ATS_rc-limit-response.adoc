@@ -1,0 +1,11 @@
+[[ats_collections_rc-limit-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-limit-response*
+^|Test Purpose |Validate that the limit query parameters are processed correctly.
+^|Requirement |<<req_collections_rc-limit-response,/req/collections/rc-limit-response>> +
+<<req_collections_rc-limit-collection-response,/req/collections/rc-limit-collection-response>>
+^|Test Method |. Count the items in the `collections` element of the response:
+. Verify that this count is not greater than the value specified for the `limit` parameter.
+. If the API definition specifies a maximum value for limit parameter, verify that the count does not exceed this maximum value.
+|===

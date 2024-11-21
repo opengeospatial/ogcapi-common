@@ -1,0 +1,13 @@
+:req: queryables
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |If a Queryables resource is available for a Collection resource, the Queryables resource SHALL be referenced from the Collection resource with a link using the relation type `\http://www.opengis.net/def/rel/ogc/1.0/queryables` (or, alternatively, `[ogc-rel:queryables]`).
+^|B |A Queryables resource SHALL support the HTTP GET operation and the media type `application/schema+json`.
+^|C |A successful retrieval operation of the Queryables resource SHALL be reported as a response with a HTTP status code `200`.
+^|D |For Sortables resource responses that use `application/schema+json` as the `Content-Type` of the response, the response SHALL conform to the <<schema-representation, JSON schema representation>> requirements.
+^|E |If `additionalProperties` is not included or has the default value `true`, any property name is valid in a filter expression on the collection that is evalutated by the Web API and the property reference SHALL evaluate to `null`, if the property does not exist in the data.
+
+If `additionalProperties` is set to false, property references that are not explicitly declared in the queryables schema SHALL result in a 400 response.
+|===

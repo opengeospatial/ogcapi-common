@@ -1,0 +1,7 @@
+[[req_hierarchy_parent-property]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/hierarchy/parent-property*
+^|A |For collections organized into a hierarchy which are not top-level collections, the collection object response for both listing collections (`/collections`) and for individual collection description (`/collections/{collectionId}`) SHALL include a `parent` property set to the collection identifier of the parent collection.
+^|B |The `parent` property in collection objects for top-level collections SHALL be omitted or set to a null value.
+|===

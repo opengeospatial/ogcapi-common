@@ -1,0 +1,424 @@
+[[rc-schemas]]
+== Requirements Class "Schemas"
+:sectnums:
+
+The Requirements Class "Schemas" specifies basic provisions for schemas of a collection of geospatial data, and the representation of a schema in JSON Schema.
+The schema represents a logical model, independent of the format in which the data is encoded.
+
+include::requirements/requirements_class_schemas.adoc[]
+
+[#schema-representation]
+=== Schema representation
+
+include::requirements/schemas/REQ_json-schema.adoc[]
+
+In addition to the JSON Schema data types, geospatial data typically also uses spatial and temporal data types.
+
+include::requirements/schemas/REQ_properties.adoc[]
+
+The following recommendations are intended to simplify parsing a schema and to help understanding the meaning of the properties:
+
+include::recommendations/schemas/REC_properties.adoc[]
+
+[#additional-keywords]
+=== Additional keywords
+
+In order to be able to map the logical schema to a format-specific schema, extensions to the JSON Schema vocabulary are needed.
+
+include::requirements/schemas/REQ_additional-keywords.adoc[]
+
+CAUTION: The next version of JSON Schema will likely restrict the use of additional keywords. As a result, this Standard may need to change the prefix or change how the vocabulary is extended.
+
+include::requirements/schemas/REQ_role.adoc[]
+
+include::requirements/schemas/REQ_role-id.adoc[]
+
+For cases, where the properties of the data have to be ordered in some representations of the data, the sequence of the properties can be expressed using a keyword "x-ogc-propertySeq".
+
+include::requirements/schemas/REQ_property-seq.adoc[]
+
+In geospatial data, numeric property values often represent a measurement and have a unit of measure. For fixed units, this can be expressed in the schema using the keyword "x-ogc-unit".
+
+include::requirements/schemas/REQ_unit.adoc[]
+
+Communities or other OGC Standards can specify additional values for other unit languages, e.g., https://www.opengis.net/def/uom[units registered in the OGC Rainbow]. For each language it must be specified how units have to be represented in the "x-ogc-unit" value.
+
+NOTE: UCUM provides a language to define units while QUDT provides a units vocabulary. The term "language" is used as it is the broader term.
+
+NOTE: For example, the value for hectopascal is `hPa` in UCUM and `\https://qudt.org/vocab/unit/HectoPA` in QUDT.
+
+include::requirements/schemas/REQ_definition.adoc[]
+
+include::requirements/schemas/REQ_nilvalues.adoc[]
+
+=== Property roles
+
+The following requirements specifies property roles.
+To understand how data is encoded in a specific format, property roles need to be identified in the logical schema. These roles depend on the format.
+
+For example, the role "primary-geometry" is needed in feature types with multiple spatial properties to decide:
+
+* Which geometry is encoded as the geometry of a feature in formats such as FlatGeobuf, Shapefile or Mapbox Vector Tiles, which only support a single geometry; or,
+* Which geometry is encoded in the "geometry" member in GeoJSON.
+
+The other roles specified in this requirements class support formats that support representing primary temporal information or the type of the feature, such as JSON-FG.
+
+==== Primary geometry
+
+If the features have multiple spatial properties, the role "primary-geometry" can be used to identify the primary geometry of the features.
+
+include::requirements/schemas/REQ_role-primary-geometry.adoc[]
+
+NOTE: Since only a single property can be tagged in the schema as the primary geometry, varying primary geometries at different zoom levels are currently not supported. This would require the capability to assign the role depending on the zoom level.
+
+==== Primary temporal information
+
+If the features have multiple temporal properties, the roles "primary-instant", "primary-interval-start" and "primary-interval-end" can be used to identify the primary temporal information of the features.
+
+include::requirements/schemas/REQ_role-primary-instant.adoc[]
+
+include::requirements/schemas/REQ_role-primary-interval-start.adoc[]
+
+include::requirements/schemas/REQ_role-primary-interval-end.adoc[]
+
+include::requirements/schemas/REQ_primary-temporal-constraints.adoc[]
+
+==== Data type
+
+If the data has a property that represents the data type (for example, the _feature type_ for features), the role "type" can be used for this property.
+
+include::requirements/schemas/REQ_role-type.adoc[]
+
+=== Returnables and Receivables
+
+The following requirement describes how to link to a web resource representing the schema with the <<returnable-def,returnable>> and <<receivable-def,receivable>> properties of a collection in OGC Web APIs.
+
+This requirement enables clients to discover the list of resource properties with their types and constraints that is returned when fetching a representation of the resource or when creating a new resource or updating an existing resource.
+
+include::requirements/schemas/REQ_returnables.adoc[]
+
+=== Examples (returnables)
+
+The following example is the schema of a feature type representing cultural entities. The schema includes additional keywords that apply to feature data (specified in the next Clause).
+This example makes use of the roles "id", "primary-geometry", "primary-instant" and "type".
+
+[[example_14_1]]
+.Schema of a "Cultural (Points)" feature type
+====
+[source,JSON]
+----
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "https://demo.ldproxy.net/daraa/collections/CulturePnt/schema",
+  "type" : "object",
+  "title" : "Cultural (Points)",
+  "description" : "Information about features on the landscape that have been constructed by man.",
+  "properties" : {
+    "FID" : {
+      "readOnly" : true,
+      "x-ogc-role" : "id",
+      "type" : "integer",
+      "x-ogc-propertySeq": 1
+    },
+    "F_CODE" : {
+      "title" : "Feature Type Code",
+      "x-ogc-role" : "type",
+      "enum" : [ "AK121", "AL012", "AL030", "AL130", "BH075" ],
+      "type" : "string",
+      "x-ogc-propertySeq": 2
+    },
+    "geometry" : {
+      "x-ogc-role" : "primary-geometry",
+      "format" : "geometry-point",
+      "x-ogc-propertySeq": 3
+    },
+    "ZI001_SDV" : {
+      "title" : "Last Change",
+      "x-ogc-role" : "primary-instant",
+      "format" : "date-time",
+      "type" : "string",
+      "x-ogc-propertySeq": 4
+    },
+    "UFI" : {
+      "title" : "Unique Entity Identifier",
+      "type" : "string",
+      "x-ogc-propertySeq": 5
+    },
+    "ZI005_FNA" : {
+      "title" : "Name",
+      "type" : "string",
+      "x-ogc-propertySeq": 6
+    },
+    "FCSUBTYPE" : {
+      "title" : "Feature Subtype Code",
+      "type" : "integer",
+      "x-ogc-propertySeq": 7
+    },
+    "ZI037_REL" : {
+      "title" : "Religious Designation",
+      "enum" : [ -999999, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ],
+      "x-ogc-nilValues": [
+         { "const": -999999, "title": "unknown" }
+      ],
+      "type" : "integer",
+      "x-ogc-propertySeq": 8
+    },
+    "ZI006_MEM" : {
+      "title" : "Memorandum",
+      "type" : "string",
+      "x-ogc-propertySeq": 9
+    },
+    "ZI001_SDP" : {
+      "title" : "Source Description",
+      "type" : "string",
+      "x-ogc-propertySeq": 10
+    }
+  }
+}
+----
+====
+
+The next example is the schema of a feature type representing observations of atmospheric pressure.
+This example makes use of the roles "id", "primary-geometry" and "primary-instant".
+
+[[example_14_2]]
+.Schema of an "Atmospheric Pressure Observation" feature type
+====
+[source,JSON]
+----
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "https://api.example.org/foo/bar/collections/atmospheric-pressure-obs/schema",
+  "type" : "object",
+  "title" : "Atmospheric Pressure Observation",
+  "properties" : {
+    "id" : {
+      "readOnly" : true,
+      "x-ogc-role" : "id",
+      "type" : "integer",
+      "x-ogc-propertySeq": 1
+    },
+    "location" : {
+      "x-ogc-role" : "primary-geometry",
+      "format" : "geometry-point",
+      "x-ogc-propertySeq": 2
+    },
+    "phenomenonTime" : {
+      "title" : "Phenomenon Time",
+      "x-ogc-role" : "primary-instant",
+      "type" : "string",
+      "format" : "date-time",
+      "x-ogc-propertySeq": 3
+    },
+    "result" : {
+      "title" : "Atmospheric Pressure [hPa]",
+      "description": "The pressure exerted by the weight of the air above it at any point on the earth's surface. At sea level the atmosphere will support a column of mercury about 760 mm high. This decreases with increasing altitude. The standard value for the atmospheric pressure at sea level is 1.01325 hectopascal.",
+      "type" : "number",
+      "x-ogc-definition": "https://qudt.org/vocab/quantitykind/AtmosphericPressure",
+      "x-ogc-unit": "https://qudt.org/vocab/unit/HectoPA",
+      "x-ogc-unitLang": "QUDT",
+      "x-ogc-propertySeq": 4
+    },
+  }
+}
+----
+====
+
+The next example is the schema of a land cover collection.
+
+[[example_14_3]]
+.Schema of a land cover collection
+====
+[source,JSON]
+----
+{
+   "$schema" : "https://json-schema.org/draft/2020-12/schema",
+   "$id" : "https://example.com/ogcapi/collections/landcover/schema",
+   "title" : "Land Cover",
+   "type" : "object",
+   "properties" : { "LC" : {
+      "title" : "Land Cover",
+      "type" : "integer",
+      "x-ogc-propertySeq" : 1,
+      "oneOf": [
+         { "const": 0 },
+         { "const": 1, "title": "vegetation" },
+         { "const": 2, "title": "bare soils" },
+         { "const": 3, "title": "water" },
+         { "const": 4, "title": "clouds" }
+      ],
+      "x-ogc-nilValues": [
+         { "const": 0, "title": "no data" }
+      ]
+   }
+}
+----
+====
+
+The following example is the schema of a feature type with the roles "id", "primary-geometry", "primary-interval-start" and "primary-interval-end".
+
+[[example_14_4]]
+.Schema example of a feature type
+====
+[source,JSON]
+----
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "https://demo.ldproxy.net/cshapes/collections/boundary/schema",
+  "title" : "Historical Country Boundaries",
+  "description" : "Core territories of the given country, excluding colonies and other dependent territories, between the start and end date.",
+  "type" : "object",
+  "properties" : {
+    "fid" : {
+      "title" : "Unique identifier",
+      "readOnly" : true,
+      "x-ogc-role" : "id",
+      "type" : "integer"
+    },
+    "name" : {
+      "title" : "Country name",
+      "type" : "string"
+    },
+    "area_km2" : {
+      "title" : "Area (km²)",
+      "description" : "The polygon area in square kilometers, computed using an Eckert VI projection.",
+      "type" : "number",
+      "x-ogc-unit": "km2"
+
+    },
+    "capname" : {
+      "title" : "Country capital",
+      "description" : "The name of the country capital.",
+      "type" : "string"
+    },
+    "caplong" : {
+      "title" : "Longitude of the capital",
+      "description" : "Longitude of the capital, in decimal degrees",
+      "type" : "number"
+    },
+    "caplat" : {
+      "title" : "Latitude of the capital",
+      "description" : "Latitude of the capital, in decimal degrees",
+      "type" : "number"
+    },
+    "gwsdate" : {
+      "title" : "Start date",
+      "description" : "Start date of the entry.",
+      "x-ogc-role" : "primary-interval-start",
+      "format" : "date",
+      "type" : "string"
+    },
+    "gwedate" : {
+      "title" : "End date",
+      "description" : "End date of the entry.",
+      "x-ogc-role" : "primary-interval-end",
+      "format" : "date",
+      "type" : "string"
+    },
+    "gwcode" : {
+      "title" : "Source identifier",
+      "description" : "Numeric identifier code in the source data.",
+      "type" : "integer"
+    },
+    "geometry" : {
+      "x-ogc-role" : "primary-geometry",
+      "format" : "geometry-multipolygon"
+    }
+  }
+}
+----
+====
+
+=== Queryables
+
+The following requirement describes how to link to a schema representing the web resource for the <<queryable-def,queryable>> properties of a collection in OGC Web APIs.
+
+This requirement enables clients to discover the list of resource properties with their types and constraints that may be used to construct filter expressions on a collection of data, for example, a set of features, or a gridded coverage.
+
+Some OGC API Standards do not assume that the content schema of a resource being queried is available for inspection, whereas others depend on the capability defined in this requirement class to provide this information.
+Therefore, a means needs to exist to interrogate an <<endpoint-def,endpoint>> to determine the names and types of the properties that may be used to construct a filter expression ("queryables").
+
+In addition, a <<publisher-def,publisher>> may want to support <<queryable-def,queryables>> that are not directly represented as resource properties in the content schema of the resource.
+Or the <<publisher-def,publisher>> may want to restrict filtering on certain properties. For example, because the backend datastore has not been configured to allow high-performance queries on those properties.
+
+include::requirements/schemas/REQ_queryables.adoc[]
+
+NOTE: Depending on the filter language, some properties cannot be supported in filter expressions.
+For example, if the filter language does not support predicates on object-valued properties, using such properties in a filter expression will result in an error.
+
+=== Examples (queryables)
+
+[[example_14_5]]
+.Filtering on complex data structures
+====
+Queryables also support simplified filtering on complex data structures. This example illustrates one potential approach to define a queryable on specific https://stacspec.org[SpatioTemporal Asset Catalog (STAC)] assets. The following is a STAC snippet:
+
+[source,JSON]
+----
+"features": [
+  {
+    "type": "Feature",
+    "assets": {
+      "B5": {
+        "eo:bands": [
+          {
+            "common_name": "nir",
+            "name": "B5"
+          }
+        ],
+        "href": "https://landsat-pds.s3.us-west-2.amazonaws.com/c1/L8/060/247/LC08_L1TP_060247_20180905_20180912_01_T1/LC08_L1TP_060247_20180905_20180912_01_T1_B5.TIF",
+        "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+      }
+    }
+  }
+]
+----
+
+A common type of filter is to fetch only resources that have in their `assets` object a value that has an `eo:bands` value that contains a `common_name` value of "nir".
+
+This could be implemented using a queryable `common_band_names` defined as an array of strings:
+
+[source,JSON]
+----
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://example.net/stac/collections/landsat/queryables",
+  "type": "object",
+  "title": "A STAC item",
+  "properties": {
+    "common_band_names": {
+      "title": "Common band names",
+      "description": "an array of common band names included in the assets",
+      "type" : "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
+----
+
+Internally this could be mapped to the following JSON Path for a STAC item (`item`):
+
+`item['assets'][\*]['eo:bands'][\*]['common_name']`
+
+Note that the JSON Path is just included here to clarify the mapping. An implementation would use a mapping that fits its backend datastore, but these details are hidden from the user.
+
+A client can now use, e.g., the CQL2 array predicates to filter with the queryable. Examples using the CQL2 text encoding:
+
+* `A_CONTAINS(common_band_names, ["nir"])` - includes at least a 'nir' band
+* `A_EQUALS(common_band_names, ["nir","blue"])` - 'nir' and 'blue' exist for the feature, but no other band
+====
+
+=== Sortables
+
+The following requirement describes how to link to a web resource representing the schema with the <<sortable-def,sortable>> properties of a collection returned by Web API endpoint(s) implementing OGC API Standards.
+
+This requirements enables clients to discover the list of properties with their types and constraints that may be used to sort the data in a collection.
+
+Some OGC API Standards do not assume that the content schema of a resource being queried is available for inspection, whereas others depend on the capability defined in this requirement class to provide this information.
+Therefore, a means needs to exist to interrogate an <<endpoint-def,endpoint>> to determine the names and types of the properties that may be used to sort data ("sortables").
+
+In addition, a <<publisher-def,publisher>> may want to support <<sortable-def,sortable>> that are not directly represented as resource properties in the content schema of the resource. Or the <<publisher-def,publisher>> may want to restrict sorting on certain properties. For example, because the backend datastore has not been configured to allow high-performance queries on those properties.
+
+include::requirements/schemas/REQ_sortables.adoc[]

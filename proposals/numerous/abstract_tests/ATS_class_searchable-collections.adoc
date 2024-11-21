@@ -1,0 +1,45 @@
+[[ats_searchable-collections]]
+[cols="1,4",width="90%"]
+|===
+2+|*Conformance Class*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/searching
+|Target type |Web API
+|Requirements Class |<<rc_searchable-collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/searching>>
+|Dependency |<<ats_collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections>>
+|===
+
+The Simple Query Conformance Class has a dependency on the Collections Conformance Class.
+
+include::./searchable-collections/ATS_dependency-collections.adoc[]
+
+Conformance with the <<rc-searchable-collections,Searchable Collections>> Conformance Class is demonstrated by execution of the following tests:
+
+. <<ats_collections_rc-op-bbox,/conf/collections/rc-op-bbox>>
+. <<ats_collections_rc-op-datetime,/conf/collections/rc-op-datetime>>
+. <<ats_collections_rc-op-limit,/conf/collections/rc-op-limit>>
+
+==== Bounding Box Tests
+
+include::searchable-collections/ATS_rc-op-bbox.adoc[]
+
+include::searchable-collections/ATS_rc-bbox-definition.adoc[]
+
+include::searchable-collections/ATS_rc-bbox-response.adoc[]
+
+==== Date-Time Tests
+
+include::searchable-collections/ATS_rc-op-datetime.adoc[]
+
+include::searchable-collections/ATS_rc-datetime-definition.adoc[]
+
+include::searchable-collections/ATS_rc-datetime-response.adoc[]
+
+==== Limit Tests
+
+include::searchable-collections/ATS_rc-op-limit.adoc[]
+
+include::searchable-collections/ATS_rc-limit-definition.adoc[]
+
+include::searchable-collections/ATS_rc-limit-response.adoc[]
+
+include::searchable-collections/ATS_rc-paged-response.adoc[]

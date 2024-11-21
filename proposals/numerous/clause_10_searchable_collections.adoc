@@ -1,0 +1,207 @@
+[[rc-searchable-collections]]
+== Requirements Class "Searchable Collections"
+:sectnums:
+
+include::requirements/requirements_class_searchable_collections.adoc[]
+
+This Requirements Class describes query parameters that can be used to discover and select collections exposed through an OGC Web API.
+
+[[searchable-overview]]
+=== Overview
+
+This "Searchable Collections" defines four query parameters which can be used with the `/collections` endpoint (described in the <<rc-collections-section,Collections>> Requirements Class)
+to select which collections to return on a GET request:
+
+* <<searchable-bbox-parameter,bbox>>: Bounding Box
+* <<searchable-datetime-parameter,datetime>>: Date and Time
+* <<searchable-q-parameter,q>>: Search for specific terms (at least in title, description and keywords)
+* <<searchable-limit-parameter,limit>>: Response resource count limit
+
+If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 1: Core] "Landing Page", these supported query parameters need to be described in the API definition as described in that part.
+
+[[searchable-api-records]]
+=== OGC API - Records compliance
+
+This "Searchable Collections" requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_query-parameters[OGC API - Records - Part 1: Core "Local Resources Catalog - Query Parameters" (Deployment)].
+An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
+In this case, in addition to the five OGC API - Records requirement classes mentioned in the <<collections-api-records,Collections requirements class>>, the implementation should verify and declare conformance with these additional two conformance classes defined in Records corresponding to the following URIs:
+
+[cols="2,7",options="header"]
+|===
+| OGC API - Records Requirements Class | URI
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-core-query-parameters[Query Parameters]                             | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-query-parameters
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_query-parameters[Local Resources Catalog - Query Parameters] | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog-query-parameters
+|===
+
+The additional requirements include also supporting the query parameters `type`, `ids` and `externalIds`.
+
+[[searchable-bbox-parameter]]
+=== Parameter `bbox`
+
+The `bbox` parameter is used to select collections based on the geospatial footprint or extent.
+
+The `bbox` parameter is defined as follows:
+
+include::./requirements/searchable-collections/REQ_searchable-bbox-definition.adoc[]
+
+While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
+
+include::./requirements/searchable-collections/REQ_searchable-bbox-response.adoc[]
+
+"Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
+
+In case of a degenerate bounding box, the resulting geometry is used. For example, if the lower left corner is the same as the upper right corner, all resources match where the geometry intersects with this point.
+
+This standard does not specify requirements for the parameter `bbox-crs`. Those requirements will be specified in a later version of this standard.
+
+The bounding box for WGS 84 longitude/latitude is, in most cases, the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude.
+
+However, in cases where the box spans the anti-meridian (180th meridian) the first value (west-most box edge) is larger than the third value (east-most box edge).
+
+.The bounding box of the New Zealand Exclusive Economic Zone
+=================
+The bounding box of the New Zealand Exclusive Economic Zone in WGS84 (from 160.6°E to 170°W and from 55.95°S to 25.89°S) would be represented in JSON as `[ 160.6, -55.95, -170, -25.89 ]` and in a query as `bbox=160.6,-55.95,-170,-25.89`.
+=================
+
+Note that the server will return an error if a latitude value of `160.0` is used.
+
+If the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.
+
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/bbox.yaml[bbox.yaml].
+
+[[searchable-datetime-parameter]]
+=== Parameter `datetime`
+
+The `datetime` parameter selects collections based on their temporal extent.
+
+The `datetime` parameter is defined as follows:
+
+include::./requirements/searchable-collections/REQ_searchable-datetime-definition.adoc[]
+
+include::./requirements/searchable-collections/REQ_searchable-datetime-response.adoc[]
+
+"Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal extent of the collection (again, a time instant or period).
+For time periods this includes the start and end time.
+
+NOTE: If the temporal extent of a collection is described with both an overall interval, and additional intervals describing sparse content,
+it is the decision of the server whether to only consider the overall interval or to ignore the overall interval and only consider the more detailed temporal extent described by the individual intervals
+(second and later elements).
+
+NOTE: The interval notation is taken from <<iso8601-2,ISO 8601-2:2019>>.
+ISO 8601-2 distinguishes unbounded start/end timestamps (double-dot) and unknown start/end timestamps (empty string). For queries, an unknown start/end has the same effect as an unbounded start/end.
+
+.A date-time
+=================
+February 12, 2018, 23:20:52 GMT:
+
+`datetime=2018-02-12T23%3A20%3A52Z`
+=================
+
+For resources with a temporal property that is a timestamp (such as `lastUpdate`), a date-time value would match all resources where the temporal property is identical.
+
+For resources with a temporal property that is a date or a time interval, a date-time value would match all resources where the timestamp is on that day or within the time interval.
+
+.Intervals
+=================
+February 12, 2018, 00:00:00 GMT to March 18, 2018, 12:31:12 GMT:
+
+`datetime=2018-02-12T00%3A00%3A00Z%2F2018-03-18T12%3A31%3A12Z`
+
+February 12, 2018, 00:00:00 UTC or later:
+
+`datetime=2018-02-12T00%3A00%3A00Z%2F..`
+
+March 18, 2018, 12:31:12 UTC or earlier:
+
+`datetime=..%2F2018-03-18T12%3A31%3A12Z`
+=================
+
+A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/datetime.yaml[datetime.yaml].
+
+[[searchable-q-parameter]]
+=== Parameter `q`
+
+The `q` parameter allows selecting collections with a comma-separated list of terms at minimum in the `title`, `description` and `keywords` properties of the collection descriptions.
+
+Collections matching any of the terms separated by a comma are selected.
+
+Terms separated by a space must appear in the order specified, with nothing but white space in between, to be considered a match.
+
+include::./requirements/searchable-collections/REQ_searchable-q.adoc[]
+
+[[searchable-query-parameter]]
+=== Parameter `query`
+
+The `query` parameter is similar to the `q` parameter, but additionally specifies the use of the `+++` character between words to indicate that all terms separated by the `+` must be present,
+regardless of other terms appearing in between, and regardless of the order in which they appear.
+
+Additionally, the use of the `-` character prevents a match if the term appears in the collection description.
+
+For example, `query=canada+weather -extreme` would return all collections where both the term canada and weather appear somewhere in the the collection description, but extreme does not appear.
+
+`query=canada+weather -extreme,united states+weather -extreme` would return similar results, but also for the United States.
+
+For more complex queries, the Filtering Collections with CQL2 requirements class can be used, with more powerful support for logical expressions,
+as well as occurrence in specified properties of the collection description.
+
+NOTE: This `query` parameter is not specified in OGC API - Records, and is distinct from `q` to avoid misinterpretation and make it possible to conform to both this requirements class as well as Records.
+
+include::./requirements/searchable-collections/REQ_searchable-query.adoc[]
+
+[[searchable-limit-parameter]]
+=== Parameter `limit`
+
+The `limit` parameter limits the number of collections that can be returned in a response.
+
+include::./requirements/searchable-collections/REQ_searchable-limit-definition.adoc[]
+
+include::./requirements/searchable-collections/REQ_searchable-limit-response.adoc[]
+
+The number of collections returned depends on the server and the value of the `limit` parameter.
+
+* The client can request a limit to the number of collections returned.
+* The server may have a default value for the limit, and a maximum limit.
+* If the server has any more results available than it returns (the number it returns is less than or equal to the requested/default/maximum limit) then the server will include a link to the next set of results.
+
+The server also has the option of limiting the size of the collections response.
+
+include::./recommendations/searchable-collections/REC_searchable-limit-default-maximum.adoc[]
+
+include::./recommendations/searchable-collections/PER_searchable-server-limit.adoc[]
+
+Since many servers will place a limit on the size of their responses, clients should be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
+
+The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
+
+include::./requirements/searchable-collections/REQ_searchable-next.adoc[]
+
+Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
+
+include::./recommendations/searchable-collections/PER_searchable-prev.adoc[]
+
+==== Paged Response
+
+If the collections response does not contain all of the collection resources available from this server, then the client should be informed of that fact.
+
+include::recommendations/searchable-collections/REC_searchable-paged-response.adoc[]
+
+The `numberMatched` property of the collections response indicates the number of Collection items included in the collections response. This may be a subset of the total set of collections hosted by the API. Selection of which collections to include in a subset is controlled through the <<bbox-parameter-requirements,`bbox`>>, <<datetime-parameter-requirements,`datetime`>> and other selection parameters provided by the client.
+
+include::requirements/searchable-collections/REQ_searchable-numberMatched.adoc[]
+
+The number of collection items included in a collections response may be a subset of the number matched. In that case, the `numberReturned` property of the collections response indicates the number of collection items returned in this "page" of the collections response.
+
+include::requirements/searchable-collections/REQ_searchable-numberReturned.adoc[]
+
+If the collections response contains a subset of the selected collection items (`numberReturned` is less than `numberMatched`) then the collections response should contain links for navigating to the rest of the collection items as described above.
+
+[[searchable-below-sd-parameter]]
+=== Parameter `below-sd`
+
+The `below-sd` parameter allows searching for collections usable at the scale denominator specified,
+allowing to filter out low-resolution datasets not suitable for the intended purpose.
+The related property indicating the minimum suitable scale denominator in the collection description is `minScaleDenominator`, which may also be related to a `minCellSize` property for gridded coverages.
+
+For example, `below-sd=200000` would only match collections with data intended for a scale of 1:200,000 or larger (i.e., collections intended for 1:2,000,000 would be excluded).
+
+include::./requirements/searchable-collections/REQ_searchable-below-sd.adoc[]

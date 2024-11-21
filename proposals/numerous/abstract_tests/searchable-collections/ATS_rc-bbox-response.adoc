@@ -1,0 +1,13 @@
+[[ats_collections_rc-bbox-response]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-bbox-response*
+^|Test Purpose |Validate that the `bbox` query parameter is processed correctly.
+^|Requirement |<<req_collections_rc-bbox-response,/req/collections/rc-bbox-response>> +
+<<req_collections_rc-bbox-collection-response,/req/collections/rc-bbox-collection-response>>
+^|Test Method |DO FOR each `Collection` in the `collections` element of the response:
+
+. Extract the spatial geometry from the `bbox` element of the `extent` property of the `Collection` resource.
+. IF there is a spatial geometry, verify that the coordinate reference system of the spatial geometry is WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84 or http://www.opengis.net/def/crs/OGC/0/CRS84h.
+. IF there is a spatial geometry, verify that the spatial geometry intersects the bounding box defined by the `bbox` parameter.
+|===

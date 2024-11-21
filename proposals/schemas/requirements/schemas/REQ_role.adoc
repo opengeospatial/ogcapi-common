@@ -1,0 +1,8 @@
+:req: role
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |The keyword "x-ogc-role" SHALL be used to declare a specific role of the property.
+^|B |The value of the keyword "x-ogc-role" SHALL be a string.
+|===

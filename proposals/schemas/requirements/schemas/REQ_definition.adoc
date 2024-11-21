@@ -1,0 +1,8 @@
+:req: definition
+[#{req-class}_{req}]
+[width="90%",cols="2,7a"]
+|===
+^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
+^|A |The keyword "x-ogc-definition" SHALL be used to identify the semantic definition for the property.
+^|B |The value of the keyword "x-ogc-definition" SHALL be a URI.
+|===

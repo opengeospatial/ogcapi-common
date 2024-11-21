@@ -1,0 +1,17 @@
+:rec: properties
+[width="90%",cols="2,7a"]
+|===
+^|*Recommendation {counter:rec-num}* |/rec/{req-class}/{rec}
+^|A |Each property SHOULD have a human readable title ("title") and, where necessary for the understanding of the property, a description ("description").
+^|B |The "type" SHOULD be one of the following values: "string" (string or temporal properties), "number"/"integer" (numeric properties), "boolean" (boolean properties), "object" (object properties) or "array" (array properties).
+^|C |Properties that represent a URI SHOULD be represented as a string with format "uri" or "uri-reference".
+^|D |Properties that represent a URI template SHOULD be represented as a string with format "uri-template".
+^|E |Properties that represent a UUID SHOULD be represented as a string with format "uuid".
+^|F |For string properties, "minLength", "maxLength", "enum" and/or "pattern" SHOULD be provided, where applicable.
+^|G |For numeric properties, "multipleOf", "minimum", "exclusiveMinimum", "maximum", "exclusiveMaximum" SHOULD be provided, where applicable.
+^|H |For integer properties that represent enumerated values without providing a description for each, "enum" SHOULD be provided.
+^|I |For integer properties that represent enumerated values while providing a description for each, "oneOf" with a combination of "const" and "title" for each entry SHOULD be provided.
+^|J |For array properties, the property SHOULD consist of items that are strings or numbers.
+^|K |Required properties SHOULD be included in "required".
+^|L |The JSON Schema keywords SHOULD be constrained to those mentioned in this recommendation, requirement `/req/{req-class}/properties` and requirements in the _additional keywords_ section below.
+|===
