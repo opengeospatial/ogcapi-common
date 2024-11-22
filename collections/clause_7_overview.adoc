@@ -51,3 +51,14 @@ The definition of view resources are defined in OGC API Standards.
 NOTE: Editors of OGC API standards should carefully avoid redefining different resources with the same name in different OGC API standards.
 
 // Additional information on Views is provided in the https://docs.ogc.org/guides/20-071.html#views-section[OGC API - Common Users Guide].
+
+=== UML Class Model
+
+[[conceptual-model]]
+[lutaml_uml_datamodel_description,./xmi-full/xmi-v2-4-2-default.xmi,lutaml_data_dictionary.yml]
+----
+[.diagram_include_block,base_path="./xmi-images",format="png"]
+....
+....
+
+----
