@@ -6,7 +6,8 @@ A geospatial resource that may be available as one or more <<resource-definition
 
 [[coverage-definition]]
 === *Coverage*
-feature that acts as a function to return values from its range for any direct position within its spatiotemporal domain, as defined in OGC Abstract Topic 6 http://docs.opengeospatial.org/is/09-146r6/09-146r6.html[(OGC 09-146r6)]
+
+include::./glossaries/iso_tc211/2573_coverage.adoc[]
 
 [[dataset-definition]]
 === *Dataset*
@@ -24,11 +25,13 @@ The area covered by something. Within this document, "extent" refers to spatial 
 
 [[feature-definition]]
 === *Feature*
-abstraction of real world phenomena (<<iso19101,ISO 19101-1:2014>>) +
+
+include::./glossaries/iso_tc211/168_feature.adoc[]
 
 [[feature-collection-definition]]
 === *Feature Collection*
-a set of *Features* from a *dataset*
+
+include::./glossaries/iso_tc211/2500_feature_collection.adoc[]
 
 [[geometry-definition]]
 === *Geometry*
@@ -68,7 +71,7 @@ the name of a property of a resource that can be used to sort resources of the s
 
 [[spatial-resource-definition]]
 === *Spatial Resource*
-the <<resource-definition,resources>> which we usually think of as Geospatial Data. A <<spatial-thing-definition,Spatial Thing>>. (<<apicore,OGC 19-072>>)
+the <<resource-definition,resources>> which we usually think of as Geospatial Data. A <<spatial-thing-definition,Spatial Thing>>. (<<OGC19-072,OGC 19-072>>)
 
 [[spatial-thing-definition]]
 === *Spatial Thing*
@@ -76,19 +79,23 @@ anything with spatial extent, (i.e. size, shape, or position) and is a combinati
 
 [[temporal-cs-definition]]
 === *Temporal Coordinate System*
-temporal reference system based on an interval scale on which distance is measured as a multiple of a single unit of time. (<<iso19108,ISO 19108>>)
+
+include::./glossaries/iso_tc211/446_temporal_coordinate_system.adoc[]
 
 [[temporal-position-definition]]
 === *Temporal Position*
-location relative to a temporal reference system (<<iso19108,ISO 19108>>)
+
+include::./glossaries/iso_tc211/449_temporal_position.adoc[]
+
 
 [[trs-definition]]
 === *Temporal Reference System*
-reference system against which time is measured (<<iso19108,ISO 19108>>)
+
+include::./glossaries/iso_tc211/450_temporal_reference_system.adoc[]
 
 [[temporal-resource-definition]]
 === *Temporal Resource*
-the <<resource-definition,resources>> which we usually think of as time and date focused data. A <<temporal-thing-definition,Temporal Thing>>. (<<apicore,OGC 19-072>>)
+the <<resource-definition,resources>> which we usually think of as time and date focused data. A <<temporal-thing-definition,Temporal Thing>>. (<<OGC19-072,OGC 19-072>>)
 
 [[temporal-thing-definition]]
 === *Temporal Thing*

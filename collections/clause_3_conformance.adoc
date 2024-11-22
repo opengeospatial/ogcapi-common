@@ -36,7 +36,7 @@ The <<rc_collections-section,Collections Requirements Class>> does not mandate a
 
 The <<rc_html-section,_HTML_>> and <<rc_json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
-API-GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<apicore,API-Core>>) Standard.
+API-GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<OGC19-072,API-Core>>) Standard.
 
 Each <<requirements-class-definition,requirements class>> in the API-GeoData Standard identifies any API-Core <<ctc-definition,Conformance Classes>> upon which it depends.
 

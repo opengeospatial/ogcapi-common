@@ -1,0 +1,3 @@
+The files in this folder have been copied from [here](https://github.com/opengeospatial/NamingAuthority/tree/master/incubation/geolexica-tc211/data/adoc) after being harvested from the ISO/TC 211 terminology register hosted by [Geolexica](https://www.geolexica.org/).
+
+If you require additional ISO/TC 211 terms, please copy the asciidoc files from [here](https://github.com/opengeospatial/NamingAuthority/tree/master/incubation/geolexica-tc211/data/adoc).
