@@ -126,3 +126,24 @@ include::recommendations/collections/PER_collections-description-extent-extensio
 See <<http-status-codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).
+
+[[collections-api-records]]
+=== OGC API - Records compliance
+
+When implementing this "Collections" requirement class, the `/collections` end-point can be considered a _Local Resource Catalog_, where the local resources are the collections being cataloged.
+
+This requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog[OGC API - Records - Part 1: Core "Local Resources Catalog" (Deployment)].
+An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
+In this case, the implementation should verify and declare conformance with these five conformance classes defined in Records corresponding to the following URIs:
+
+[cols="2,7",options="header"]
+|===
+| OGC API - Records Requirements Class | URI
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-core[Record Core]                                                   | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-core
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-collection[Record Collection]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-collection
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-crawlable-catalog[Crawlable Catalog]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/crawlable-catalog
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog[Local Resources Catalog]                           | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog
+| https://docs.ogc.org/DRAFTS/20-004.html#clause-autodiscovery[Autodiscovery]                                               | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/autodiscovery
+|===
+
+The additional requirements include linking to the `/collections` end-point with an `http://www.opengis.net/def/rel/ogc/1.0/ogc-catalog` link relation from the landing page.
