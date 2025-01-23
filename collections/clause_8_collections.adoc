@@ -1,12 +1,10 @@
 [[rc-collections-section]]
 == Requirements Class "Collections"
-:sectnums:
-
 include::requirements/requirements_class_collections.adoc[]
 
-include::recommendations/collections/REC_collections-part1-landing-page.adoc[]
+This Requirements Class describes the resources and operations used to list and describe geospatial collection resources exposed through a Web API consistently across OGC API Standards. This class does neither specify how to organize your data into collections nor how to provide access to the data described in the collections. That level of detail is reserved for OGC Web API standards defining access mechanisms through specific resources (see <<access-mechanisms,Access mechanisms Section>>).
 
-This Requirements Class describes the resources and operations used to describe and access resource collections exposed through an OGC Web API. This class does not include any requirements about how resources are aggregated into collections nor about the aggregated resources themselves. That detail is reserved for resource-specific OGC Web API standards (see <<views-introduction,Views Section>>).
+include::recommendations/collections/REC_collections-part1-landing-page.adoc[]
 
 The two resources and their operations are defined in this Requirements Class. They are summarized in <<collection-resources>>.
 
@@ -15,14 +13,14 @@ The two resources and their operations are defined in this Requirements Class. T
 [width="90%",cols="10,10,5,20",options="header"]
 |===
 ^|Resource ^|URI ^|HTTP Method ^|Description
-|<<collections-metadata,Collections>> |/collections ^|GET |Information which describes the set of available Collections
-|<<collection-description,Collection>> |/collections/{collectionId} ^|GET |Information about a specific collection of geospatial data with links to distribution
+|<<collections-metadata,Collections>> |/collections ^|GET |List of available Collections including some descriptions of each one 
+|<<collection-description,Collection description>> |/collections/{collectionId} ^|GET |Description about a specific collection of geospatial data with links to distribution
 |===
 
 [[collections-metadata]]
 === Collections
 
-OGC APIs typically organize their Spatial Resources into collections. Information about those collections is accessed through the `/collections` path and the http://www.opengis.net/def/rel/ogc/1.0/data link relation.
+OGC API implementations typically organize their geospatial resources into collections. Information about those collections is accessed through the `/collections` path and the http://www.opengis.net/def/rel/ogc/1.0/data link relation.
 
 ==== Operation
 
@@ -32,13 +30,25 @@ include::requirements/collections/REQ_collections-collections-list-op.adoc[]
 
 include::requirements/collections/REQ_collections-collections-list-success.adoc[]
 
-The collections response returned by this operation is based on the link:https://github.com/opengeospatial/ogcapi-common/tree/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] JSON schema. Examples of collections responses are provided in <<collections-metadata-examples>>.
+Examples of collections responses are provided in <<collections-metadata-examples>>.
 
 #TODO: Update to schemas.opengis.net for publication#
 
 .collections.yaml
 [source, YAML]
+----
 include::openapi/schemas/common-geodata/collections.yaml[]
+----
+
+.collection-properties.yaml
+[source, YAML]
+----
+include::openapi/schemas/common-geodata/collection-properties.yaml[]
+----
+
+.collection-d.yaml
+[source, YAML]
+include::openapi/schemas/common-geodata/collectionDesc.yaml[]
 
 This Collections schema is further constrained by the following requirements and recommendations.
 
