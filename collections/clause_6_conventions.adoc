@@ -13,7 +13,7 @@ Additional information about the use of Identifiers in API-Common is provided in
 [[link-relations-section]]
 === Link relations
 
-<<rfc8288,RFC 8288 (Web Linking)>> is used by this standard to express relationships between resources. Link relation types from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
+<<rfc8288,RFC 8288 (Web Linking)>> is used by this standard to express relationships between resources. https://www.iana.org/assignments/link-relations/link-relations.xhtml[Link relation types] from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
 
 The link relationships used in API-GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 

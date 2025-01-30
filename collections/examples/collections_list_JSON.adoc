@@ -1,0 +1,40 @@
+[collection-list-example-1]
+
+This example response listing available collections in JSON is for a dataset with a single "buildings" feature collection.
+
+There is a link to the resource listing collections itself (link relation type: `self`).
+
+Representations of this resource in other formats are referenced (link relation type: `alternate`).
+
+An additional link is to the logical schema of the collection (link relation type: `[ogc-rel:schema]`).
+
+.Example `/collections` response listing collections
+[source,json]
+----
+{
+  "links": [
+    { "href": "https://data.example.org/collections.json",
+      "rel": "self", "type": "application/json", "title": "This document" },
+    { "href": "https://data.example.org/collections.html",
+      "rel": "alternate", "type": "text/html", "title": "This document as HTML" }
+  ],
+  "collections": [
+    {
+      "id": "buildings",
+      "title": "Buildings",
+      "description": "Buildings in the city of Bonn.",
+      "extent": {
+        "spatial": [ 7.01, 50.63, 7.22, 50.78 ],
+        "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
+      },
+      "links": [
+        { "href": "https://data.example.org/collections/buildings",
+          "rel": "self", "type": "application/json" },
+        { "href": "https://data.example.org/collections/buildings/schema",
+          "rel": "[ogc-rel:schema]", "type": "application/schema+json",
+          "title": "Logical schema for buildings" }
+      ]
+    }
+  ]
+}
+----

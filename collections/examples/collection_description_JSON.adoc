@@ -5,38 +5,37 @@ This Collection Description example response in JSON is for a single "buildings"
 The basic descriptive information includes:
 
 * "id": an identifier for this collection
-* "title": the title of this collection
-* "description": self evident
+* "title": human-readable title for this collection
+* "description": longer text describing this collection
 * "attribution": markup providing attribution (owner, producer, logo, etc.) of this collection
 
 The response includes links to:
 
-* There is a link to the response itself (link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type]: "self"). 
-* Representations of this response in other formats are referenced using link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "alternate".
-* An additional link is to a GML application schema for the collection - using:https://www.iana.org/assignments/link-relations/link-relations.xhtml[link relation type] "describedby".
+* the response itself (link relation type: `self`),
+* representations of this response in other formats are referenced using (link relation type: `alternate`),
+* an additional link is to a logical schema for the collection (link relation type: `[ogc-rel:schema]`).
 
-Finally, this response includes both spatial and temporal extents. 
+Finally, this response includes both spatial and temporal extents.
 
 Reference system information is not provided as the service provides geometries only in the default system (spatial: WGS 84 longitude/latitude; temporal: Gregorian calendar).
 
+.Example `/collections/{collectionId}` response describing a collections
+[source,json]
 ----
 {
-  "id": "1234567890",
-  "title": "Example Collection Description Response",
-  "description": "This is an example of a Collection Description in JSON format",
-  "attribution": "<a href='www.ign.es' rel=' '>IGN</a> <a href='www.govdata.de/dl-de/by-2-0'>(c)</a>",
-  "links": [
-    { "href": "http://data.example.org/collections.json",
-      "rel": "self", "type": "application/json", "title": "this document" },
-    { "href": "http://data.example.org/collections.html",
-      "rel": "alternate", "type": "text/html", "title": "this document as HTML" },
-    { "href": "http://schemas.example.org/1.0/foobar.xsd",
-      "rel": "describedby", "type": "application/xml", "title": "XML schema for Acme Corporation data" }
-  ],
+  "id": "buildings",
+  "title": "Buildings",
+  "description": "Buildings in the city of Bonn.",
   "extent": {
     "spatial": [ 7.01, 50.63, 7.22, 50.78 ],
     "temporal": [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ]
-    }
+  },
+  "links": [
+    { "href": "https://data.example.org/collections/buildings",
+      "rel": "self", "type": "application/json" },
+    { "href": "https://data.example.org/collections/buildings/schema",
+      "rel": "[ogc-rel:schema]", "type": "application/schema+json",
+      "title": "Logical schema for buildings" }
+  ]
 }
 ----
-

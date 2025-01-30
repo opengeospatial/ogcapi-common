@@ -18,7 +18,7 @@ The two resources and their operations are defined in this Requirements Class. T
 |===
 
 [[collections-metadata]]
-=== Collections
+=== Collections Resource
 
 OGC API implementations typically organize their geospatial resources into collections. Information about those collections is accessed through the `/collections` path and the http://www.opengis.net/def/rel/ogc/1.0/data link relation.
 
@@ -30,25 +30,14 @@ include::requirements/collections/REQ_collections-collections-list-op.adoc[]
 
 include::requirements/collections/REQ_collections-collections-list-success.adoc[]
 
-Examples of collections responses are provided in <<collections-metadata-examples>>.
+The collections response returned by this operation is based on the link:https://github.com/opengeospatial/ogcapi-common/tree/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] JSON schema.
+Examples of a response listing collections are provided in <<collections-list-examples>>.
 
 #TODO: Update to schemas.opengis.net for publication#
 
-.collections.yaml
-[source, YAML]
-----
-include::openapi/schemas/common-geodata/collections.yaml[]
-----
-
-.collection-properties.yaml
-[source, YAML]
-----
-include::openapi/schemas/common-geodata/collection-properties.yaml[]
-----
-
-.collection-d.yaml
-[source, YAML]
-include::openapi/schemas/common-geodata/collectionDesc.yaml[]
+// .collections.yaml
+// [source, YAML]
+// include::openapi/schemas/common-geodata/collections.yaml[]
 
 This Collections schema is further constrained by the following requirements and recommendations.
 
@@ -68,12 +57,17 @@ The array items included in the `collection` property are described in the <<col
 
 This Requirements Class does not define any parameters for use against a `collections` resource. Implementers who wish to support filtering of the collections to be included in a result set should implement the   <<rc-simple-query-section,Simple Query>> Conformance Class for that purpose.
 
+[[collections-list-examples]]
+===== Collections Response Example
+
+include::examples/collections_list_JSON.adoc[]
+
 ==== Error situations
 
 See <<http-status-codes>> for general guidance.
 
 [[collection-description]]
-=== Resource Collection
+=== Collection Description Resource
 
 Each resource collection is described by a set of metadata. That metadata can be accessed directly using the `/collections/{collectionId}` path and as an entry in the `collections` property of the `/Collections` resource.
 
@@ -86,9 +80,15 @@ include::requirements/collections/REQ_collections-description-op.adoc[]
 
 include::requirements/collections/REQ_collections-description-success.adoc[]
 
-.Collection Resource Schema
-[source, YAML]
-include::openapi/schemas/common-geodata/collectionDesc.yaml[]
+#TODO: Update to schemas.opengis.net for publication#
+
+The collection description response returned by this operation is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] JSON schema.
+
+Examples of a response describing a collection are provided in <<collection-description-examples>>.
+
+// .Collection Resource Schema
+// [source, YAML]
+// include::openapi/schemas/common-geodata/collectionDesc.yaml[]
 
 Most of the properties of the Collection resource are self-explanatory. However, a few properties require additional explanation.
 
@@ -130,6 +130,11 @@ include::recommendations/collections/REC_collections-description-extent.adoc[]
 include::recommendations/collections/REC_collections-description-extent-single.adoc[]
 
 include::recommendations/collections/PER_collections-description-extent-extensions.adoc[]
+
+[[collection-description-examples]]
+===== Collection Object Examples
+
+include::examples/collection_description_JSON.adoc[]
 
 ==== Error Situations
 
