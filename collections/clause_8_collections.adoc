@@ -13,7 +13,7 @@ The two resources and their operations are defined in this Requirements Class. T
 [width="90%",cols="10,10,5,20",options="header"]
 |===
 ^|Resource ^|URI ^|HTTP Method ^|Description
-|<<collections-metadata,Collections>> |/collections ^|GET |List of available Collections including some descriptions of each one 
+|<<collections-metadata,Collections>> |/collections ^|GET |List of available Collections including some descriptions of each one
 |<<collection-description,Collection description>> |/collections/{collectionId} ^|GET |Description about a specific collection of geospatial data with links to distribution
 |===
 
@@ -60,7 +60,22 @@ This Requirements Class does not define any parameters for use against a `collec
 [[collections-list-examples]]
 ===== Collections Response Example
 
-include::examples/collections_list_JSON.adoc[]
+This example response listing available collections in JSON is for a dataset with a single "buildings" feature collection.
+
+There is a link to the resource listing collections itself (link relation type: `self`).
+
+Representations of this resource in other formats are referenced (link relation type: `alternate`).
+
+An additional link is to the logical schema of the collection (link relation type: `[ogc-rel:schema]`).
+
+The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to OGC:CRS84 (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
+and should always be specified this way for data referenced to Earth (independently of the native / storage reference systme of the data itself).
+
+.Example `/collections` response listing collections
+[source,json]
+----
+include::examples/collections_list.json[]
+----
 
 ==== Error situations
 
@@ -118,9 +133,9 @@ include::recommendations/collections/REC_collections-collection-describedby.adoc
 [[collection-extent-section]]
 ===== Extent
 
-The extent property defines a spatial-temporal envelope that encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined. 
+The extent property defines a spatial-temporal envelope that encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined.
 
-* Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations. 
+* Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations.
 * Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like Bbox, additional periods can be added if the collection does not form a single temporal cluster.
 
 include::requirements/collections/REQ_collections-description-extent.adoc[]
@@ -134,7 +149,31 @@ include::recommendations/collections/PER_collections-description-extent-extensio
 [[collection-description-examples]]
 ===== Collection Object Examples
 
-include::examples/collection_description_JSON.adoc[]
+This Collection Description example response in JSON is for a single "buildings" collection.
+
+The basic descriptive information includes:
+
+* "id": an identifier for this collection
+* "title": human-readable title for this collection
+* "description": longer text describing this collection
+* "attribution": markup providing attribution (owner, producer, logo, etc.) of this collection
+
+The response includes links to:
+
+* the response itself (link relation type: `self`),
+* representations of this response in other formats are referenced using (link relation type: `alternate`),
+* an additional link is to a logical schema for the collection (link relation type: `[ogc-rel:schema]`).
+
+Finally, this response includes both spatial and temporal extents.
+
+The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to OGC:CRS84 (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
+and should always be specified this way for data referenced to Earth (independently of the native / storage reference systme of the data itself).
+
+.Example `/collections/{collectionId}` response describing a collections
+[source,json]
+----
+include::examples/collection_description.json[]
+----
 
 ==== Error Situations
 
