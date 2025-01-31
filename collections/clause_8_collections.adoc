@@ -69,7 +69,7 @@ Representations of this resource in other formats are referenced (link relation 
 An additional link is to the logical schema of the collection (link relation type: `[ogc-rel:schema]`).
 
 The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to OGC:CRS84 (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
-and should always be specified this way for data referenced to Earth (independently of the native / storage reference systme of the data itself).
+and should always be specified this way for data referenced to Earth (independently of the native / storage reference system of the data itself).
 
 .Example `/collections` response listing collections
 [source,json]
@@ -167,7 +167,7 @@ The response includes links to:
 Finally, this response includes both spatial and temporal extents.
 
 The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to OGC:CRS84 (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
-and should always be specified this way for data referenced to Earth (independently of the native / storage reference systme of the data itself).
+and should always be specified this way for data referenced to Earth (independently of the native / storage reference system of the data itself).
 
 .Example `/collections/{collectionId}` response describing a collections
 [source,json]
