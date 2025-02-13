@@ -683,9 +683,10 @@
                                 "example": -180
                               },
                               "relativeBounds": {
-                                "description": "Distance in units from coordinate to the bounds of each cell for regular grids, describing the geometry of the cells",
+                                "description": "Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells",
                                 "type": "array",
-                                "minItems": 1,
+                                "minItems": 2,
+                                "maxItems": 2,
                                 "items": {
                                   "oneOf": [
                                     {
@@ -747,6 +748,7 @@
                                 "items": {
                                   "type": "array",
                                   "minItems": 2,
+                                  "maxItems": 2,
                                   "items": {
                                     "oneOf": [
                                       {

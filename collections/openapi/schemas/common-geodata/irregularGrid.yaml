@@ -24,6 +24,7 @@ properties:
     items:
        type: array
        minItems: 2
+       maxItems: 2
        items:
          oneOf:
            - type: string
