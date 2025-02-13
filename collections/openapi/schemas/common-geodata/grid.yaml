@@ -1,6 +1,6 @@
 type: object
 description: |-
-  Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the temporal dimension.
+  Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.
 allOf:
   - type: object
     required: [ cellsCount ]
