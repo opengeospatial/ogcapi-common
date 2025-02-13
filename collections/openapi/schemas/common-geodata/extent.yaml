@@ -239,6 +239,7 @@ allOf:
                     - type: number
                   example: "PT1H"
    - anyOf:
+     # To validate against the UAD requirements class, comment the following line
      - type: object
      - type: object
        additionalProperties:
