@@ -25,29 +25,27 @@
 
 
 
-include::clause_1_front_material.adoc[]
+include::clause_0_front_material.adoc[]
 
-include::clause_2_scope.adoc[]
+include::clause_1_scope.adoc[]
 
-include::clause_3_conformance.adoc[]
+include::clause_2_conformance.adoc[]
 
-include::clause_4_references.adoc[]
+include::clause_3_references.adoc[]
 
-include::clause_5_terms_and_definitions.adoc[]
+include::clause_4_terms_and_definitions.adoc[]
 
-include::clause_6_conventions.adoc[]
+include::clause_5_conventions.adoc[]
 
-include::clause_7_overview.adoc[]
+include::clause_6_overview.adoc[]
 
-include::clause_8_collections.adoc[]
+include::clause_7_collections.adoc[]
 
-include::clause_9_umd-collection.adoc[]
+include::clause_8_umd-collection.adoc[]
 
-include::clause_15_encodings.adoc[]
+include::clause_9_encodings.adoc[]
 
-include::clause_16_media_types.adoc[]
-
-include::clause_17_security_considerations.adoc[]
+include::clause_10_media_types.adoc[]
 
 include::annex_ats.adoc[]
 
@@ -66,5 +64,4 @@ include::annex_api_guidelines.adoc[]
 include::annex_history.adoc[]
 
 include::annex_bibliography.adoc[]
-
 

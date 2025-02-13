@@ -84,7 +84,7 @@ See <<http-status-codes>> for general guidance.
 [[collection-description]]
 === Collection Description Resource
 
-Each resource collection is described by a set of metadata. That metadata can be accessed directly using the `/collections/{collectionId}` path and as an entry in the `collections` property of the `/Collections` resource.
+Each resource collection is described by a set of metadata. That metadata can be accessed directly using the `/collections/{collectionId}` path and as an entry in the `collections` property of the `/collections` resource.
 
 ==== Operation
 
