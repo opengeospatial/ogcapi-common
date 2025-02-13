@@ -1,0 +1,33 @@
+type: object
+description: Regular grid with samples spaced at equal intervals
+required: [ resolution, firstCoordinate ]
+properties:
+  resolution:
+    description: |-
+      Resolution of regularly gridded data along the dimension in the collection
+    oneOf:
+      - type: string
+        nullable: true
+      - type: number
+    example:
+      - 0.0006866455078
+      - "PT1H"
+  firstCoordinate:
+    description: |-
+      First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step
+    oneOf:
+      - type: string
+        nullable: true
+      - type: number
+    example: -180
+  relativeBounds:
+    description: |-
+      Distance in units from coordinate to the bounds of each cell for regular grids, describing the geometry of the cells
+    type: array
+    minItems: 1
+    items:
+      oneOf:
+        - type: string
+          nullable: true
+        - type: number
+    example: [ -0.5, 0.5 ]

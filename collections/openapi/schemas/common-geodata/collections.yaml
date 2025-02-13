@@ -15,4 +15,3 @@ properties:
     type: array
     items:
       $ref: 'collectionDesc.yaml'
-      # $ref: 'collectionDesc-notUAD.yaml'
