@@ -863,6 +863,17 @@
                       "type": "string",
                       "default": "UCUM",
                       "description": "The language (or vocabulary) in which the unit is expressed (defaults to \"UCUM\" if not specified)."
+                    },
+                    "variableType": {
+                      "description": "The type of variable which may inform correct interpretation and interpolation methods",
+                      "type": "string",
+                      "enum": [
+                        "continuous",
+                        "numericalOrdinal",
+                        "numericalNominal",
+                        "categoricalOrdinal",
+                        "categoricalNominal"
+                      ]
                     }
                   }
                 }
