@@ -31,7 +31,7 @@ include::requirements/collections/REQ_collections-collections-list-op.adoc[]
 include::requirements/collections/REQ_collections-collections-list-success.adoc[]
 
 The collections response returned by this operation is based on the link:https://github.com/opengeospatial/ogcapi-common/tree/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] JSON schema.
-Examples of a response listing collections are provided in <<collections-list-examples>>.
+An example of a response listing collections are provided in <<collections-list-examples>>.
 
 #TODO: Update to schemas.opengis.net for publication#
 
@@ -99,7 +99,7 @@ include::requirements/collections/REQ_collections-description-success.adoc[]
 
 The collection description response returned by this operation is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] JSON schema.
 
-Examples of a response describing a collection are provided in <<collection-description-examples>>.
+An example of a response describing a collection are provided in <<collection-description-examples>>.
 
 // .Collection Resource Schema
 // [source, YAML]
@@ -145,6 +145,34 @@ include::recommendations/collections/REC_collections-description-extent.adoc[]
 include::recommendations/collections/REC_collections-description-extent-single.adoc[]
 
 include::recommendations/collections/PER_collections-description-extent-extensions.adoc[]
+
+.Diagram illustrating a _Value-is-Point_ regular grid
+[source]
+----
+ 0.0     0.5     1.0
+  |       |       |
+  *       *       *
+
+ cellsCount: 3, firstCoordinate: 0, resolution: 0.5,
+ relativeBounds: [ 0, 0 ], interval: [ 0, 1 ]
+----
+
+.Diagram illustrating two equivalent ways to define the same _Value-is-Area_ regular grid
+[source]
+----
+ 0.0     0.5     1.0
+  |       |       |
+ [========|=======]
+
+ cellsCount: 2, firstCoordinate: 0, resolution: 0.5,
+ relativeBounds: [ 0, 0.5 ], interval: [ 0, 1 ]
+
+or
+
+ cellsCount: 2, firstCoordinate: 0.25, resolution: 0.5,
+ relativeBounds: [ -0.25, 0.25 ], interval: [ 0, 1 ]
+----
+
 
 [[collection-description-examples]]
 ===== Collection Object Examples
