@@ -1,6 +1,0 @@
-allOf:
-  - $ref: 'collection-properties.yaml'
-  - type: object
-    properties:
-      extent:
-         $ref: 'extent.yaml'

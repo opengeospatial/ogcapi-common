@@ -55,8 +55,6 @@ components:
          $ref: 'schemas/common-geodata/collectionDesc.yaml'
       extent:
          $ref: 'schemas/common-geodata/extent.yaml'
-      extent-uad:
-         $ref: 'schemas/common-geodata/extent-uad.yaml'
       #crs:
       #   $ref: 'schemas/common-geodatas/crs.yaml'
       dataType:
