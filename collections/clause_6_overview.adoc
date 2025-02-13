@@ -8,7 +8,7 @@ This OGC API - Common - Part 2: Geospatial Data Standard provides a starting poi
 
 Spatial data is rarely considered as a single entity, but as aggregations of <<spatial-thing-definition,Spatio>>-<<temporal-thing-definition,Temporal>> things. An OGC Web API provides access to spatio-temporal data.
 
-The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to list and describe the available geospatial data collections. 
+The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to list and describe the available geospatial data collections.
 
 While `collection` is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics of geospatial data collections is needed. Therefore, **for purposes of this standard**, a collection is defined as follows:
 
@@ -23,9 +23,10 @@ A collection of geospatial data may be represented in more than one way.  For ex
 All these data structures are retrieved with different access mechanisms from the same underlying data.
 
 _Access mechanisms_ should not be confused with _representations_. The _access mechanisms_ is defined by the resource path that is specified in the different OGC API standards. HTTP content negotiation allows a client to negotiate the _representations_ (XML, JSON, etc.) to be used for the returned data.
-Regardless of the representation, the underlying data is the same. 
+Regardless of the representation, the underlying data is the same.
 
-The OGC API - Common - Part 2: Geospatial Data Standard does not define any _access mechanisms_ to the data -- only provides data descriptions. These are defined in separate OGC Web API Standards. What is important to understand is how these view-specific standards extend the OGC API - Common - Part 2: Geospatial Data Standard.
+The OGC API - Common - Part 2: Geospatial Data Standard describes data collections, but does not define any _access mechanisms_ to the data.
+Access mechanisms are defined in separate OGC Web API Standards extending this OGC API - Common - Part 2: Geospatial Data Standard.
 
 The resources associated with a particular _access mechanisms_ for a specific collection will be under the collection resource:
 
@@ -43,8 +44,6 @@ So the point cloud described above could be accessed using multiple _access mech
 * For OGC API - Coverages: `/collections/mycollection/coverage`
 
 * For OGC API - Maps: `/collections/mycollection/map`
-
-The definition of _access mechanisms_ are in OGC API Standards.
 
 IMPORTANT: Editors of OGC API standards should carefully avoid redefining different resources with the same path in different OGC API standards.
 
