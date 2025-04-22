@@ -1,39 +1,9 @@
 {
         "0":  {
-                "OGC_doc_number": "19-072",
-                "urn":"http://www.opengis.net/doc/IS/ogcapi-common-1/1.0",
-                "title":"OGC API - Common Part 1: Core",
-                "path":"core/OAPI_Common-Core.adoc",
-                "options": ["--trace"],
-                "a":[
-                        "data-uri",
-                        "stylesdir=./resources/stylesheets",
-                        "dot=/usr/bin/dot"
-                ],
-                "r":[
-                        "asciidoctor-diagram"
-                ]
-        },
-        "1":  {
                 "OGC_doc_number": "20-024",
                 "urn":"http://www.opengis.net/doc/IS/ogcapi-common-2/1.0",
                 "title":"OGC API - Common Part 2: Geospatial Data",
                 "path":"collections/20-024.adoc",
-                "options": ["--trace"],
-                "a":[
-                        "data-uri",
-                        "stylesdir=./resources/stylesheets",
-                        "dot=/usr/bin/dot"
-                ],
-                "r":[
-                        "asciidoctor-diagram"
-                ]
-        },
-        "2":  {
-                "OGC_doc_number": "20-071",
-                "urn":"http://www.opengis.net/doc/EG/ogcapi-common/1.0",
-                "title":"OGC API - Common Users Guide",
-                "path":"users_guide/OAPI_Common_Users_Guide.adoc",
                 "options": ["--trace"],
                 "a":[
                         "data-uri",
