@@ -28,6 +28,10 @@ The `trs` or `vrs` property can be populated with either a URI or CURIE, a http:
 NOTE: If a 3D CRS exists including the vertical dimension, that CRS should be used inside the "spatial" object of the extent, instead of defining a separate vertical dimension using `vrs`.
 For vertical CRSes corresponding to the concept of a variable, such as a pressure level, the semantic definition for that variable should be used instead of `vrs`.
 
+For additional dimensions beyond spatial and temporal, the reference system is defined as combination of the `definition` and `unit`, or alternatively the `trs` or `vrs`.
+In addition to specifying the reference system of the `interval`, this also specifies the reference system of that dimension for the data itself.
+Unlike the spatial CRS, the collection description in this standard only supports defining a single reference system the temporal dimension and each additional dimensions.
+
 To validate against this UMD Requirements Class, the `- type: object` line within the `anyOf:` in the
 https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent.yaml[extent.yaml] YAML JSON Schema of the collection description's extent should be commented out.
 
