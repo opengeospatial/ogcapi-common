@@ -142,9 +142,9 @@ The temporal reference system (`trs`) specified in the `temporal` property of th
 but also the reference system for the primary temporal dimension of the data.
 
 For the spatial extent, the `crs` specified in the `spatial` property of the `extent` defines only the reference system of the `bbox`.
-For data reference to Earth, this `crs` will always be CRS84 or CRS84h.
+For data referenced to Earth, this `crs` will always be CRS84 or CRS84h.
 The native CRS of the data, which for some access mechanisms corresponds to the default output CRS, is specified separately in the `storageCrs` of the collection description.
-These access mechanisms may additionally support other output CRS which are specified in the `crs` property of collection description.
+These access mechanisms may additionally support other output CRS which are specified in the `crs` property of the collection description.
 
 include::requirements/collections/REQ_collections-description-extent.adoc[]
 
