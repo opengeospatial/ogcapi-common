@@ -37,8 +37,6 @@ https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/
 
 include::requirements/umd-collection/REQ_extent-uad-definition.adoc[]
 
-include::recommendations/umd-collection/PER_categorical_dimension_interval.adoc[]
-
 ==== Describing gridded dimensions
 
 For data which is gridded, whether using a regular or irregular grid, this conformance class defines a `grid` property which is used to describe this grid.
@@ -71,3 +69,5 @@ or
 ----
 
 include::requirements/umd-collection/REQ_grid-description.adoc[]
+
+include::recommendations/umd-collection/PER_categorical_dimension_interval.adoc[]
