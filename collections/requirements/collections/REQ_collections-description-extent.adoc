@@ -3,6 +3,9 @@
 ====
 [%metadata]
 identifier:: /req/collections/description-extent
-part:: For each spatial collection resource, the ``extent`` property, if provided, SHALL define boundaries that encompass the spatial and temporal properties of all of the resources in this collection. The temporal extent may use ``null`` values to indicate an open time interval.
-part:: If a spatial resource has multiple properties with spatial or temporal information, it is the decision of the API implementation whether only a single spatial or temporal geometry property is used to determine the extent or all relevant geometries.
+part:: For each spatial collection resource, the ``extent`` property, if provided, SHALL define boundaries that encompass the spatial and temporal extent of the data in this collection.
+The temporal extent may use ``null`` values to indicate a half-bounded or unbounded time interval. +
+If the data contains spatial or temporal information defined in multiple properties, it is up to implementation how this extent is derived from those properties.
+part:: For the spatial dimension, the `storageCrsBbox` in the `spatial` property describes that interval rather than an `interval` property.
+If no `storageCrs` and `storageCrsBbox` are present, the `bbox` of the `spatial` property describes that interval in the default CRS84.
 ====
