@@ -42,11 +42,11 @@ For data which is gridded, whether using a regular or irregular grid, this confo
 While the `interval` specified for the dimension (or `bbox` for spatial dimensions) describes the region occupied by all cells, including the region of validity or bounds of all measurements,
 this grid property describes in more details each individual measurement.
 
-Common types of grids are often called _Measure-is-Area_ or _Measure-is-Point_, but especialy in the case of sensor measurements, other situations in-between are also possible.
+Common types of grids are often called _Measure-is-Area_ or _Measure-is-Point_, but especially in the case of sensor measurements, other situations in-between are also possible.
 
 ==== Regular grids
 
-A regular grid has data measurements separated by a constant distance (the resolution of the grid), while for an irregular grid the distance between data measurements varries.
+A regular grid has data measurements separated by a constant distance (the resolution of the grid), while for an irregular grid the distance between data measurements varies.
 For both cases, the number of cells (`cellsCount`) is specified. A cell is a region within which a particular measurement is valid.
 
 The bounds are specified as `relativeBounds` which are relative to points starting from a `firstCoordinate` separated by an equal distance of `resolution` units.
@@ -77,7 +77,7 @@ based on a preference of how the coordinate points are defined. Consider the fol
 
 One way to describe this grid would be with the `firstCoordinate` at 0 and the relativeBounds as `[0, 0.5]`.
 
-Another equivalent way to describe the same grid would a `firstCoordinate` at 0.25 and the relativeBounds as `[-0.25, 0.25]`.
+Another equivalent way to describe the same grid would be a `firstCoordinate` at 0.25 and the relativeBounds as `[-0.25, 0.25]`.
 
 If the `relativeBounds` property is not provided, the default relative bounds of the cells are assumed to be `[-resolution/2, resolution/2]`.
 In other words, the cell, or the region of validity of the measurement, is centered on each repeating point starting from the `firstCoordinate`.
@@ -91,7 +91,7 @@ Irregular grids are described by explicitly listing a sequence of `coordinates` 
 
 Bounds for each coordinates can also be individually specified in a parallel `boundsCoordinates` array.
 
-If the `boundsCoordinates` property is not included, the default bounds of the cells are assumed to lie in the middle of the two values specified in coordinates, and for the two extremities,
+If the `boundsCoordinates` property is not included, the default bounds of the cells are assumed to lie in the middle of the two values specified in `coordinates`, and for the two extremities,
 the lower (for the first cell) and upper bounds (for the last cell) are assumed to be at the same distance from the specified coordinate as to their immediate neighbor.
 
 ==== Requirements for describing grids
