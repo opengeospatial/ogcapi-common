@@ -68,7 +68,7 @@ Representations of this resource in other formats are referenced (link relation 
 
 An additional link is to the logical schema of the collection (link relation type: `[ogc-rel:schema]`).
 
-The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to OGC:CRS84 (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
+The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] and Gregorian calendar / Coordinated Universal Time (UTC),
 and should always be specified this way for data referenced to Earth (independently of the native / storage reference system of the data itself).
 
 .Example `/collections` response listing collections
@@ -141,10 +141,21 @@ The extent property defines a spatial-temporal envelope that encompasses the geo
 The temporal reference system (`trs`) specified in the `temporal` property of the `extent` defines not only the reference system of the `interval`,
 but also the reference system for the primary temporal dimension of the data.
 
-For the spatial extent, the `crs` specified in the `spatial` property of the `extent` defines only the reference system of the `bbox`.
-For data referenced to Earth, this `crs` will always be CRS84 or CRS84h.
-The native CRS of the data, which for some access mechanisms corresponds to the default output CRS, is specified separately in the `storageCrs` of the collection description.
-These access mechanisms may additionally support other output CRS which are specified in the `crs` property of the collection description.
+For the spatial extent, the `crs` specified in the `spatial` property of the `extent` defines only the coordinate reference system of the `bbox`.
+For data referenced to Earth, this `crs` will always be [OGC:CRS84] or [OGC:CRS84h].
+The native CRS of the data is specified separately in the `storageCrs` property of the collection description.
+For some access mechanisms, this native CRS corresponds to the default output CRS.
+These access mechanisms may additionally support other output CRSs which are specified in the `crs` property of the collection description.
+
+For the `storageCrs` as well as for the `crs` list of supported output CRSs, implementors of web APIs based on OGC API standards are strongly recommended to reference existing CRS definitions in the form of URIs
+(or the equivalent CURIEs) such as the ones provided by the EPSG database. However, there are situations where the required CRS has not been registered with an authority.
+
+For these cases, where a URI does not exist, a http://docs.opengeospatial.org/is/18-010r7/18-010r7.html[Well Known Text] definition of the reference system,
+or a JSON encoding of the CRS (using the PROJ JSON schema or a potential "CRS JSON" successor once defined by the OGC) can be specified.
+
+Such alternate CRS definitions can also be used for the `crs` of the `bbox` for data in an engineering CRS or otherwise not georeferenced to Earth.
+
+// TODO: Create a recommendation to reference existing CRS definitions for `crs` and `storageCrs`
 
 include::requirements/collections/REQ_collections-description-extent.adoc[]
 
@@ -178,7 +189,7 @@ The response includes links to:
 
 Finally, this response includes both spatial and temporal extents.
 
-The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to OGC:CRS84 (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
+The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
 and should always be specified this way for data referenced to Earth (independently of the native / storage reference system of the data itself).
 
 .Example `/collections/{collectionId}` response describing a collections

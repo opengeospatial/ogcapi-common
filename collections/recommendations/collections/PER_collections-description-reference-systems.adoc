@@ -3,6 +3,6 @@
 ====
 [%metadata]
 identifier:: /per/collections/description-reference-systems
-part:: For data not referenced to Earth, the spatial extent's `bbox` property MAY be specified in a CRS other than CRS84 or CRS84h, with the this CRS indicated in the `crs` property of the `spatial` property.
+part:: For data not referenced to Earth, the spatial extent's `bbox` property MAY be specified in a CRS other than [OGC:CRS84] or [OGC:CRS84h], with the this CRS indicated in the `crs` property of the `spatial` property.
 part:: For data for which the Gregorian calendar is not suitable, such as geological time scale, another temporal reference system MAY be specified in the the `trs` property of the temporal property.
 ====

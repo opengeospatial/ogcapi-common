@@ -20,8 +20,7 @@ Each dimension is identified by using a semantic `definition` property.
 An `interval` providing the lower and upper bound for the coordinates along that dimension also needs to be included, as well as a `unit` of measure where applicable.
 
 As an alternative or in addition to the `definition`, a temporal reference system (`trs`) or a vertical reference system (`vrs`) can be specified.
-The `trs` or `vrs` property can be populated with either a URI or CURIE, a http://docs.opengeospatial.org/is/18-010r7/18-010r7.html[Well Known Text] definition of the reference system, or a JSON encoding of the CRS
-(using the PROJ JSON schema or a potential "CRS JSON" successor once defined by the OGC).
+The `trs` or `vrs` property can be populated with either a URI or CURIE.
 
 NOTE: If a 3D CRS exists including the vertical dimension, that CRS should be used inside the "spatial" object of the extent, instead of defining a separate vertical dimension using `vrs`.
 For vertical CRSes corresponding to the concept of a variable, such as a pressure level, the semantic definition for that variable should be used instead of `vrs`.

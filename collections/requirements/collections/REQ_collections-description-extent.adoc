@@ -7,5 +7,5 @@ part:: For each spatial collection resource, the ``extent`` property, if provide
 The temporal extent may use ``null`` values to indicate a half-bounded or unbounded time interval. +
 If the data contains spatial or temporal information defined in multiple properties, it is up to implementation how this extent is derived from those properties.
 part:: For the spatial dimension, the `storageCrsBbox` in the `spatial` property describes that interval rather than an `interval` property.
-If no `storageCrs` and `storageCrsBbox` are present, the `bbox` of the `spatial` property describes that interval in the default CRS84.
+If no `storageCrs` and `storageCrsBbox` are present, the `bbox` of the `spatial` property describes that interval in the default [OGC:CRS84].
 ====

@@ -3,5 +3,5 @@
 ====
 [%metadata]
 identifier:: /rec/collections/description-extent-storage-crs-bbox
-part:: If the native CRS of the data, as specified in the `storageCrs` property, is not CRS84 or CRS84h, the spatial extent of the data in that native CRS SHOULD be specified in the `storageCrsBbox` of the `spatial` property.
+part:: If the native CRS of the data, as specified in the `storageCrs` property, is not [OGC:CRS84] or [OGC:CRS84h], the spatial extent of the data in that native CRS SHOULD be specified in the `storageCrsBbox` of the `spatial` property.
 ====
