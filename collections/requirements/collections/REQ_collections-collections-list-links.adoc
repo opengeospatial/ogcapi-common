@@ -3,7 +3,7 @@
 ====
 [%metadata]
 identifier:: /req/collections/collections-list-links
-part:: 
+part::
 +
 --
 A `200`-response SHALL include the following links in the `links` property of the response:
@@ -11,5 +11,6 @@ A `200`-response SHALL include the following links in the `links` property of th
 * A link to this response document (relation: `self`),
 * A link to the response document in every other media type supported by the API (relation: `alternate`).
 --
-part:: All links SHALL include the `rel` and `type` link parameters.
+part:: All links SHALL include the `rel` property.
+part:: All links where `rel` is `self` or `alternate` SHALL include the `type` link parameter.
 ====
