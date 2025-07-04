@@ -3,10 +3,9 @@
 
 This OGC API - Common - Part 2: Geospatial Data Standard provides a way to discover and describe collections of spatiotemporal data.
 Web APIs specifying mechanisms to access this data are defined in separate OGC API Standards.
-This Standard depends on the Core requirements class of OGC API - Common - Part 1: Core Standard which specifies fundamental HTTP operations.
+This Standard depends on the Core requirements class of OGC API - Common - Part 1: Core which specifies fundamental requirements for OGC Web APIs based on HTTP.
 Implementations may also conform to the Landing Page requirements class of Part 1 which specifies additional requirements for the landing page (root of the API),
 conformance declaration (`/conformance`) and an API definition.
-
 
 [[collections-introduction]]
 === Collections
@@ -15,7 +14,7 @@ Spatial data is rarely considered as a single entity, but as aggregations of <<s
 
 The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to list and describe the available geospatial data collections.
 
-While `collection` is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics
+While _collection_ is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics
 of geospatial data collections is needed. Therefore, **for purposes of this standard**, a collection is defined as follows:
 
 * <<collection-definition,Collection>>: (in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more access mechanisms defined by OGC API standard(s).
@@ -65,6 +64,7 @@ Data access mechanisms may support one or more representation (data formats / en
 A representation is typically negotiated between the server and client using the HTTP content negotiation mechanism (the `Accept:` request header).
 In the land cover example above, the client could request individual features as GeoJSON (`Accept: application/geo+json`),
 and the coverage request could be requested as GeoTIFF (`Accept: image/tiff; application=geotiff`).
+Alternative formats supported by both the server and client could also be negotiated successfully.
 
 === UML Class Model
 The following UML class diagram represents the conceptual model of the resources offered by the common part of an OGC Web API. In particular it describes the resources presented in OGC API Common - part 1: the Landing page (LandingPage class), the conformance page (ConformanceClasses) and the Exception report (Exception). It also describes the two resources specified in this Part 2: the collections page (Collections) and the collection description (CollectionDescription) and its associated classes. While they are precisely described in the requirements to follow, they are presented here as a UML diagram for clarity. The transformation of this UML diagram into a list of tables, one for each class, can be found <<annex-uml-tables>>.
