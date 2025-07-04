@@ -26,9 +26,9 @@ OGC Web API standards could extend this definition to address the specific prope
 === Data access mechanisms
 
 A collection of geospatial data may be accessed in more than one way.
-For example, a feature-centric approach may allow accessing individual features by their identifier.
-Alternatively, some clients may wish to access subset of geospatial information by subsetting for a particular area, time and resolution of interest.
-Other clients may achieve better performance based on pre-determined partitioning of space using tiles or discrete global grids.
+For example, a feature-centric approach may allow accessing individual features by their identifiers.
+Alternatively, some clients may wish to access a subset of geospatial information for a particular area, time and resolution of interest.
+Other clients may achieve better performance based on pre-determined partitioning of space using tiles or discrete global grid zones.
 These are all examples of data access mechanisms.
 
 For example, a collection of data for land cover classification may be available either as individual features where one multi-polygon feature corresponds to low vegetation,
@@ -39,13 +39,13 @@ With OGC API - Features, each of these features may be individually accessible a
 
 The same collection may also support an OGC API - Coverages access mechanism allowing to retrieve a subset of this same classified land cover for a given spatial area using:
 
-`/collections/landcover/coverage?subset=Lat(10:20),Lon(30:40)`
+`/collections/landcover/coverage?subset=Lat(10:20),Lon(30:40)`.
 
 The OGC API - Common - Part 2: Geospatial Data Standard describes data collections, but does not define any _access mechanisms_ to the data.
 Access mechanisms are defined in separate OGC Web API Standards extending this OGC API - Common - Part 2: Geospatial Data Standard.
 
-The _access mechanisms_ is defined by the resource path that is specified in the different OGC API standards.
-The resources associated with a particular _access mechanisms_ for a specific collection will be under the collection resource:
+The _access mechanisms_ are defined by the resource paths which are specified in the different OGC API standards.
+The resources associated with a particular _access mechanism_ for a specific collection will be under the collection resource:
 
 `/collections/{collectionId}/{accessResources}`
 
