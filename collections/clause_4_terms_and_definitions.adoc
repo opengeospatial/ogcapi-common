@@ -2,12 +2,19 @@
 
 [[collection-definition]]
 === *Collection*
-A geospatial resource that may be available as one or more <<resource-definition,sub-resource>> <<distribution-definition,distributions>> that conform to one or more OGC API standards. (OGC 20-024)
+(in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more <<data-access-mechanism-definition,access mechanisms>> defined by OGC API standard(s)
 
 [[coverage-definition]]
 === *Coverage*
 
 include::./glossaries/iso_tc211/2573_coverage.adoc[]
+
+[[data-access-mechanism-definition]]
+=== *Data access mechanism*
+(in the context of OGC APIs) A mechanism defined by an OGC API Standard to access spatiotemporal data from a <<collection-definition,collection>>
+ +
+Such mechanism is based on Web resources which are sub-resources of that collection. The access mechanism could be as simple as the definition of a single sub-resource URL template.
+The access mechanism may allow Web clients to access parts and/or the totality of the data available from the collection.
 
 [[dataset-definition]]
 === *Dataset*

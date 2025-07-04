@@ -1,33 +1,50 @@
 [[overview]]
 == Overview
 
-This OGC API - Common - Part 2: Geospatial Data Standard provides a starting point for the discovery and access of geospatial resources available via a Web API. While typically accessible through a landing page (see API - Common - Part 1), this is not required. The Requirements Classes defined in this Standard are designed to be re-usable modules. To be deployed in accordance with the requirements of the API developer.
+This OGC API - Common - Part 2: Geospatial Data Standard provides a way to discover and describe collections of spatiotemporal data.
+Web APIs specifying mechanisms to access this data are defined in separate OGC API Standards.
+This Standard depends on the Core requirements class of OGC API - Common - Part 1: Core Standard which specifies fundamental HTTP operations.
+Implementations may also conform to the Landing Page requirements class of Part 1 which specifies additional requirements for the landing page (root of the API),
+conformance declaration (`/conformance`) and an API definition.
+
 
 [[collections-introduction]]
 === Collections
 
-Spatial data is rarely considered as a single entity, but as aggregations of <<spatial-thing-definition,Spatio>>-<<temporal-thing-definition,Temporal>> things. An OGC Web API provides access to spatio-temporal data.
+Spatial data is rarely considered as a single entity, but as aggregations of <<spatial-thing-definition,Spatio>>-<<temporal-thing-definition,Temporal>> things.
 
 The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to list and describe the available geospatial data collections.
 
-While `collection` is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics of geospatial data collections is needed. Therefore, **for purposes of this standard**, a collection is defined as follows:
+While `collection` is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics
+of geospatial data collections is needed. Therefore, **for purposes of this standard**, a collection is defined as follows:
 
-* <<collection-definition,Collection>>: A geospatial resource that may be available as one or more sub-resource distributions that conform to one or more OGC API standards.
+* <<collection-definition,Collection>>: (in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more access mechanisms defined by OGC API standard(s).
 
 OGC Web API standards could extend this definition to address the specific properties of the resources they describe.
 
 [[access-mechanisms]]
-=== Access mechanisms
+=== Data access mechanisms
 
-A collection of geospatial data may be represented in more than one way.  For example, a point cloud may be accessed either a collection of multipoints in GeoJSON or LAS format (through OGC API features); or as a regular gridded digital elevation model or as a LAS/LAZ file(through OGC API coverage); or as a JPEG (through OGC API maps).
-All these data structures are retrieved with different access mechanisms from the same underlying data.
+A collection of geospatial data may be accessed in more than one way.
+For example, a feature-centric approach may allow accessing individual features by their identifier.
+Alternatively, some clients may wish to access subset of geospatial information by subsetting for a particular area, time and resolution of interest.
+Other clients may achieve better performance based on pre-determined partitioning of space using tiles or discrete global grids.
+These are all examples of data access mechanisms.
 
-_Access mechanisms_ should not be confused with _representations_. The _access mechanisms_ is defined by the resource path that is specified in the different OGC API standards. HTTP content negotiation allows a client to negotiate the _representations_ (XML, JSON, etc.) to be used for the returned data.
-Regardless of the representation, the underlying data is the same.
+For example, a collection of data for land cover classification may be available either as individual features where one multi-polygon feature corresponds to low vegetation,
+another feature corresponds to trees and yet another feature corresponds to the built-up area.
+With OGC API - Features, each of these features may be individually accessible at:
+
+`/collections/landcover/items/{itemId}`.
+
+The same collection may also support an OGC API - Coverages access mechanism allowing to retrieve a subset of this same classified land cover for a given spatial area using:
+
+`/collections/landcover/coverage?subset=Lat(10:20),Lon(30:40)`
 
 The OGC API - Common - Part 2: Geospatial Data Standard describes data collections, but does not define any _access mechanisms_ to the data.
 Access mechanisms are defined in separate OGC Web API Standards extending this OGC API - Common - Part 2: Geospatial Data Standard.
 
+The _access mechanisms_ is defined by the resource path that is specified in the different OGC API standards.
 The resources associated with a particular _access mechanisms_ for a specific collection will be under the collection resource:
 
 `/collections/{collectionId}/{accessResources}`
@@ -37,15 +54,17 @@ where:
 * `{collectionId}` is an identifier for the collection
 * `{accessResources}` are resources defined for accessing data using a particular mechanisms.
 
-So the point cloud described above could be accessed using multiple _access mechanisms_ such as:
-
-* For OGC API - Features: `/collections/mycollection/items`
-
-* For OGC API - Coverages: `/collections/mycollection/coverage`
-
-* For OGC API - Maps: `/collections/mycollection/map`
-
 IMPORTANT: Editors of OGC API standards should carefully avoid redefining different resources with the same path in different OGC API standards.
+
+_Access mechanisms_ should not be confused with _representations_.
+
+[[representation]]
+=== Representation
+
+Data access mechanisms may support one or more representation (data formats / encodings) for each resource they define.
+A representation is typically negotiated between the server and client using the HTTP content negotiation mechanism (the `Accept:` request header).
+In the land cover example above, the client could request individual features as GeoJSON (`Accept: application/geo+json`),
+and the coverage request could be requested as GeoTIFF (`Accept: image/tiff; application=geotiff`).
 
 === UML Class Model
 The following UML class diagram represents the conceptual model of the resources offered by the common part of an OGC Web API. In particular it describes the resources presented in OGC API Common - part 1: the Landing page (LandingPage class), the conformance page (ConformanceClasses) and the Exception report (Exception). It also describes the two resources specified in this Part 2: the collections page (Collections) and the collection description (CollectionDescription) and its associated classes. While they are precisely described in the requirements to follow, they are presented here as a UML diagram for clarity. The transformation of this UML diagram into a list of tables, one for each class, can be found <<annex-uml-tables>>.
