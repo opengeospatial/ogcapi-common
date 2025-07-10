@@ -2,6 +2,8 @@
   "id": "buildings",
   "title": "Buildings",
   "description": "Buildings in the city of Bonn.",
+  "attribution": "Copyright © 2025 _City of Bonn_ ![logo](https://example.org/cityOfBonn.png)",
+  "attributionMediaType": "text/markdown",
   "extent": {
     "spatial": { "bbox": [ [ 7.01, 50.63, 7.22, 50.78 ] ] },
     "temporal": { "interval": [ [ "2010-02-15T12:34:56Z", "2018-03-18T12:11:00Z" ] ] }

@@ -35,7 +35,10 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 == Security Considerations
 
-See <<OAComm,OGC API - Common - Part 1: Core>>, Clause 11.
+Clients should avoid blindly processing HTML markup code in the attribution property of collection descriptions.
+In particular, care should be taken to avoid running any `<script>` code.
+
+See also <<OAComm,OGC API - Common - Part 1: Core>>, Clause 11.
 
 
 [.preface]
