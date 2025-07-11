@@ -36,7 +36,8 @@ Recipients of this document are requested to submit, with their comments, notifi
 == Security Considerations
 
 Clients should avoid blindly processing HTML markup code in the attribution property of collection descriptions.
-In particular, care should be taken to avoid running any `<script>` code.
+In particular, care should be taken to avoid running any `<script>` code, including inline event handlers (e.g., `onclick`)
+and dangerous href values like `javascript:`. All untrusted input should be sanitized to prevent script execution and mitigate XSS vulnerabilities.
 
 See also <<OAComm,OGC API - Common - Part 1: Core>>, Clause 11.
 
