@@ -4,11 +4,11 @@ This section provides details of conventions used in this document.
 [[identifiers-section]]
 === Identifiers
 
-The normative provisions in this standard are denoted by the URI `http://www.opengis.net/spec/ogcapi-common-2/1.0`.
+The normative provisions in this standard are denoted by the URI `https://www.opengis.net/spec/ogcapi-common-2/1.0`.
 
 All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
 
-Additional information about the use of Identifiers in API-Common is provided in the http://docs.opengeospatial.org/DRAFTS/20-071.html[OGC API - Common Users Guide].
+Additional information about the use of Identifiers in API-Common is provided in the https://docs.ogc.org/guides/20-071.html[OGC API - Common Users Guide].
 
 [[link-relations-section]]
 === Link relations
@@ -22,16 +22,16 @@ The link relationships used in API-GeoData are described in <<link-relations-tab
 [width="90%",cols=",",options="header"]
 |===
 ^|**Link Relation** ^|**Purpose**
-|`alternate` |Refers to a substitute for this context [IANA]. + 
+|`alternate` |Refers to a substitute for this context [IANA]. +
 Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the `type` link attribute).
-|`http://www.opengis.net/def/rel/ogc/1.0/data-meta` |Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.
+|`https://www.opengis.net/def/rel/ogc/1.0/data-meta` |Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.
 |`collection` |The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
-|`http://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
-|`http://www.opengis.net/def/rel/ogc/1.0/data` |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
+|`https://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
+|`https://www.opengis.net/def/rel/ogc/1.0/data` |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
 |`describedby`|Refers to a resource providing information about the link's context.[IANA] +
 Links to external resources which further describe the subject resource
 |`item` |The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
-|`http://www.opengis.net/def/rel/ogc/1.0/items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
+|`https://www.opengis.net/def/rel/ogc/1.0/items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
 |`license`|Refers to a license associated with this context. [IANA]
 |`self`|Conveys an identifier for the link's context. [IANA] +
 A link to another representation of this resource.
@@ -41,7 +41,7 @@ API definitions are considered service descriptions.
 |`service-meta`|Identifies general metadata for the context that is primarily intended for consumption by machines. [IANA]
 |===
 
-Additional information on the use of link relationships is provided in the link:http://docs.opengeospatial.org/DRAFTS/20-071.html#link-relations-section[OGC API - Common Users Guide].
+Additional information on the use of link relationships is provided in the link:https://docs.ogc.org/guides/20-071.html#link-relations-section[OGC API - Common Users Guide].
 
 === Geometry
 
@@ -68,7 +68,7 @@ This API-GeoData Standard does not mandate the use of a specific coordinate refe
 * [OGC:CRS84] - WGS 84 longitude and latitude without height
 * [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height
 
-NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI http://www.opengis.net/def/crs/OGC/1.3/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI http://www.opengis.net/def/crs/OGC/0/CRS84h.
+NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/1.3/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84h.
 
 Temporal geometry is measured relative to an underlying temporal reference system (TRS). This API-GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal reference systems may be used where appropriate.
 
@@ -103,6 +103,6 @@ For OGC API definitions that do not conform to the <<openapi,OpenAPI Specificati
 
 ==== Reusable OpenAPI components
 
-Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at http://schemas.opengis.net/ogcapi/common/part1/1.0[http://schemas.opengis.net/ogcapi/common/part1/1.0] and http://schemas.opengis.net/ogcapi/common/part2/1.0[http://schemas.opengis.net/ogcapi/common/part2/1.0]
+Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at https://schemas.opengis.net/ogcapi/common/part1/1.0[https://schemas.opengis.net/ogcapi/common/part1/1.0] and https://schemas.opengis.net/ogcapi/common/part2/1.0[https://schemas.opengis.net/ogcapi/common/part2/1.0].
 
-Additional information on the use of OpenAPI as an API definition is provided in the http://docs.opengeospatial.org/DRAFTS/20-071.html#openapi-section[OGC API - Common Users Guide].
+Additional information on the use of OpenAPI as an API definition is provided in the https://docs.ogc.org/guides/20-071.html#toc22[OGC API - Common Users Guide].

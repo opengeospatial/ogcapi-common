@@ -20,7 +20,7 @@ The two resources defined by this Requirements Class are summarized in <<collect
 [[collections-metadata]]
 === Collections Resource
 
-OGC API implementations typically organize their geospatial resources into collections. Information about those collections is accessed through the `/collections` path and the http://www.opengis.net/def/rel/ogc/1.0/data link relation.
+OGC API implementations typically organize their geospatial resources into collections. Information about those collections is accessed through the `/collections` path and the https://www.opengis.net/def/rel/ogc/1.0/data link relation.
 
 ==== Operation
 
@@ -154,7 +154,7 @@ These access mechanisms may additionally support other output CRSs which are spe
 For the `storageCrs` as well as for the `crs` list of supported output CRSs, implementors of web APIs based on OGC API standards are strongly recommended to reference existing CRS definitions in the form of URIs
 (or the equivalent CURIEs) such as the ones provided by the EPSG database. However, there are situations where the required CRS has not been registered with an authority.
 
-For these cases, where a URI does not exist, a http://docs.opengeospatial.org/is/18-010r7/18-010r7.html[Well Known Text] definition of the reference system,
+For these cases, where a URI does not exist, a http://www.opengis.net/doc/is/wkt-crs/2.0[Well-Known Text] definition of the coordinate reference system,
 or a JSON encoding of the CRS (using the PROJ JSON schema or a potential "CRS JSON" successor once defined by the OGC) can be specified.
 
 Such alternate CRS definitions can also be used for the `crs` of the `bbox` for data in an engineering CRS or otherwise not georeferenced to Earth.
@@ -220,11 +220,11 @@ In this case, the implementation should verify and declare conformance with thes
 [cols="2,7",options="header"]
 |===
 | OGC API - Records Requirements Class | URI
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-core[Record Core]                                                   | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-core
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-collection[Record Collection]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-collection
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-crawlable-catalog[Crawlable Catalog]                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/crawlable-catalog
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog[Local Resources Catalog]                           | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-autodiscovery[Autodiscovery]                                               | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/autodiscovery
+| https://www.opengis.net/doc/IS/ogcapi-records-1/1.0#clause-record-core[Record Core]                                                   | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-core
+| https://www.opengis.net/doc/IS/ogcapi-records-1/1.0#clause-record-collection[Record Collection]                                       | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-collection
+| https://www.opengis.net/doc/IS/ogcapi-records-1/1.0#clause-crawlable-catalog[Crawlable Catalog]                                       | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/crawlable-catalog
+| https://www.opengis.net/doc/IS/ogcapi-records-1/1.0#clause-local-resources-catalog[Local Resources Catalog]                           | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog
+| https://www.opengis.net/doc/IS/ogcapi-records-1/1.0#clause-autodiscovery[Autodiscovery]                                               | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/autodiscovery
 |===
 
-The additional requirements include linking to the `/collections` end-point with an `http://www.opengis.net/def/rel/ogc/1.0/ogc-catalog` link relation from the landing page.
+The additional requirements include linking to the `/collections` end-point with an `https://www.opengis.net/def/rel/ogc/1.0/ogc-catalog` link relation from the landing page.
