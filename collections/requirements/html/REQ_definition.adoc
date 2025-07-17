@@ -3,5 +3,5 @@
 ====
 [%metadata]
 identifier:: /req/html/definition
-part:: `200`-responses of the server SHALL support the `text/html` media type for the <<collections-metadata,Collections>> and <<collection-description,Collection>> resources. 
+part:: `200`-responses of the server SHALL support the `text/html` media type for the <<collections-list,Collections>> and <<collection-description,Collection>> resources.
 ====

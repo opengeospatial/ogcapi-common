@@ -13,12 +13,12 @@ The two resources defined by this Requirements Class are summarized in <<collect
 [width="90%",cols="10,10,5,20",options="header"]
 |===
 ^|Resource ^|URI ^|HTTP Method ^|Description
-|<<collections-metadata,Collections>> |/collections ^|GET |List of available Collections including some descriptions of each one
+|<<collections-list,List of Collections>> |/collections ^|GET |List of available Collections including some descriptions of each one
 |<<collection-description,Collection description>> |/collections/{collectionId} ^|GET |Description about a specific collection of geospatial data with links to distribution
 |===
 
-[[collections-metadata]]
-=== Collections Resource
+[[collections-list]]
+=== List of Collections Resource (`/collections`)
 
 OGC API implementations typically organize their geospatial resources into collections. Information about those collections is accessed through the `/collections` path and the https://www.opengis.net/def/rel/ogc/1.0/data link relation.
 
@@ -82,7 +82,7 @@ include::examples/collections_list.json[]
 See <<http-status-codes>> for general guidance.
 
 [[collection-description]]
-=== Collection Description Resource
+=== Collection Description Resource (`/collections/{collectionId}`)
 
 Each resource collection is described by a set of metadata. That metadata can be accessed directly using the `/collections/{collectionId}` path and as an entry in the `collections` property of the `/collections` resource.
 
