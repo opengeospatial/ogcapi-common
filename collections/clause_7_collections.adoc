@@ -111,7 +111,7 @@ Most of the properties of the Collection resource are self-explanatory. However,
 ===== Attribution
 
 A collection description can include an `attribution` property allowing clients to display a short attribution for data being visualized, typically shown at the bottom of a map.
-This attribution can contain markup text whose format may be indicated in the `attributionMediaType` property (e.g., `text/html` for HTML or `text/markdown` for https://commonmark.org/[CommonMark]).
+This attribution can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).
 If the 'attributionMediaType' indicates something other than `text/plain`, the `attribution` element string should be interpreted by a markup parser selected based on that media type to be presented to the user
 (e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics).
 See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
