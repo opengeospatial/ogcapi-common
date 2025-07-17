@@ -55,6 +55,9 @@ where:
 
 IMPORTANT: Editors of OGC API standards should carefully avoid redefining different resources with the same path in different OGC API standards.
 
+TIP: The available data access mechanisms supported for a specific collection are typically advertised by including links using specific link relation types defined
+by the various OGC APIs in the `links` array of the collection description.
+
 _Access mechanisms_ should not be confused with _representations_.
 
 [[representation]]
