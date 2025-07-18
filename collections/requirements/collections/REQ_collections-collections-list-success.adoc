@@ -4,5 +4,5 @@
 [%metadata]
 identifier:: /req/collections/collections-list-success
 part:: A successful execution of the operation SHALL be responded with an HTTP status code `200`.
-part:: The content of the response SHALL validate against the JSON schema http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/schemas/collections.yaml[collections.yaml].
+part:: The content of the response SHALL validate against the JSON schema https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml].
 ====
