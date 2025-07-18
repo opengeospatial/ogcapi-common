@@ -3,5 +3,5 @@
 ====
 [%metadata]
 identifier:: /req/collections/collections-list-collections
-part:: For each spatial resource collection accessible through this API, metadata describing that collection SHALL be provided in the `collections` property of the Collections response.
+part:: For each spatial resource collection accessible through this API, metadata describing that collection SHALL be provided in the `collections` property of the list of Collections response.
 ====

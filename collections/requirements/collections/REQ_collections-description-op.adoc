@@ -4,5 +4,5 @@
 [%metadata]
 identifier:: /req/collections/description-op
 part:: The API SHALL support the HTTP GET operation at the path `/collections/{collectionId}`.
-part:: The parameter `collectionId` is each `id` property in the `collections` response (JSONPath: `$.collections[*].id`).
+part:: The parameter `collectionId` is each `id` property in the response to the list of collections (JSONPath: `$.collections[*].id` in `/collections`).
 ====

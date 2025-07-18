@@ -8,11 +8,11 @@ test-purpose:: Validate that the list of Collections content complies with the r
 test-method::
 +
 --
-. Validate the Collections resource for all supported media types using the resources and tests identified in <<collections-metadata-schema>>
+. Validate the list of Collections resource for all supported media types using the resources and tests identified in <<collections-metadata-schema>>
 --
 ====
 
-The Collections content may be retrieved in a number of different formats.
+The list of Collections content may be retrieved in a number of different formats.
 The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.
 
 [#collections-metadata-schema,reftext='{table-caption} {counter:table-num}']

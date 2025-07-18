@@ -4,13 +4,13 @@
 [%metadata]
 identifier:: /conf/collections/description-op
 target:: /req/collections/description-op
-test-purpose:: Validate that the Collection content can be retrieved from the expected location.
+test-purpose:: Validate that the Collection description content can be retrieved from the expected location.
 test-method::
 +
 --
-For every Collection described in the Collections content, issue an HTTP GET request to the URL `/collections/{collectionId}` where `{collectionId}` is the `id` property for the collection.
+For every Collection described in the list of Collections resource at `/collections`, issue an HTTP GET request to the URL `/collections/{collectionId}` where `{collectionId}` is the `id` property for the collection.
 
-. Validate that a Collection was returned with a status code 200
+. Validate that a Collection description was returned with a status code 200
 . Validate the contents of the returned document using test <<ats_collections_description-success,/conf/collections/description-success>>.
 --
 ====
