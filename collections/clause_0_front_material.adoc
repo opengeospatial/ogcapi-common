@@ -3,11 +3,11 @@
 
 The OGC standards baseline has been extended to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing OGC Web API standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers can use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.
 
-Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>. They are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Resources. It stands to reason that an OGC Web API would also expose its' holdings as aggregates of spatial resources.
+Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>. They are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Resources. It stands to reason that an OGC Web API would also expose its holdings as aggregates of spatial resources.
 
-The purpose of the OGC API - Common - Part 2: Geospatial Data (API-GeoData) Standard is to provide a means of organizing these collections and to define operations for the discovery and selection of individual collections. 
+The purpose of the OGC API - Common - Part 2: Geospatial Data (Common API-2: GeoData) Standard is to provide a means of organizing these collections and to define operations for listing and describing available collections.
 
-OGC API-GeoData does not specify the nature of the geospatial data that make up a collection. Rather, the standard specifies a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.
+OGC Common API-2: GeoData does not specify the nature of the geospatial data that make up a collection. Rather, the standard specifies a basic capability which should be applicable to any geospatial resource type or access mechanisms. Additional OGC Web API standards extend this foundation to define specific data access mechanisms.
 
 
 ////
@@ -39,7 +39,7 @@ Clients should avoid blindly processing HTML markup code in the attribution prop
 In particular, care should be taken to avoid running any `<script>` code, including inline event handlers (e.g., `onclick`)
 and dangerous href values like `javascript:`. All untrusted input should be sanitized to prevent script execution and mitigate XSS vulnerabilities.
 
-See also <<OAComm,OGC API - Common - Part 1: Core>>, Clause 11.
+See also the security considerations described in http://www.opengis.net/doc/is/ogcapi-common-1/1.0[OGC API - Common - Part 1: Core].
 
 
 [.preface]

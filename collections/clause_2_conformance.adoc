@@ -8,7 +8,7 @@ https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
 
 The one Standardization Target for this standard is Web APIs.
 
-API-GeoData defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>.
+OGC API - Common - Part 2: Geospatial Data defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>.
 
 Typically this standard will only be implemented through reference to these Conformance Classes by other standards.
 
@@ -18,27 +18,20 @@ The tests in Annex A are organized by Requirements Class. Therefore, an implemen
 
 The requirements classes defined in Part 2: Geospatial Data are:
 
-* <<rc_collections-section,Collections>>
+* <<rc-collections-section,Collections>>
 * <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>
-* <<rc-searchable-collections,Searchable Collections>>
-* <<rc-sortable-collections,Sortable Collections>>
-* <<rc-filterable-collections,Filtering Collections with CQL2>>
-* <<rc-hierarchical-collections,Hierarchical Collections>>
-* <<rc-schemas,Schemas>>
 * <<rc_html-section,HTML>>
 * <<rc_json-section,JSON>>
 
-The <<rc_collections-section,Collections Requirements Class>> defines a common means to describe and access <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
+The <<rc-collections-section,Collections Requirements Class>> defines a common means to describe and access <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
 
-The <<rc-searchable-collections,Searchable Collections Requirements Class>> defines basic query parameters for the selection of individual <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
-
-The <<rc_collections-section,Collections Requirements Class>> does not mandate a specific encoding or format for representing resources.
+The <<rc-collections-section,Collections Requirements Class>> does not mandate a specific encoding or format for representing resources.
 
 The <<rc_html-section,_HTML_>> and <<rc_json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
-API-GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<OGC19-072,API-Core>>) Standard.
+Common API-2: GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<OGC19-072,API-Core>>) Standard.
 
-Each <<requirements-class-definition,requirements class>> in the API-GeoData Standard identifies any API-Core <<ctc-definition,Conformance Classes>> upon which it depends.
+Each <<requirements-class-definition,requirements class>> in the Common API-2: GeoData Standard identifies any API-Core <<ctc-definition,Conformance Classes>> upon which it depends.
 
 Proof of conformance with a <<ctc-definition,Conformance Class>> includes demonstration of conformance with all dependencies of that <<ctc-definition,Conformance Class>>.
 

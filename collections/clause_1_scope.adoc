@@ -1,8 +1,8 @@
 == Scope
 
-The OGC API - Common Standard is a multi-part standard which defines a set of modules which can be used to build resource and mission-specific Web API specifications. The OGC API - Common - Part 2: Geospatial Data Standard (API-GeoData) is one of those modules.
+The OGC API - Common Standard is a multi-part standard which defines a set of modules which can be used to build resource and mission-specific Web API specifications. The OGC API - Common - Part 2: Geospatial Data Standard (Common API-2: GeoData) is one of those modules.
 
-Geospatial resources are typically packaged into sets or collections of related resources. A single API may provide access to a large number of collections. This API-GeoData standard provides a means of organizing these collections and defines operations for the discovery and selection of individual collections.
+Geospatial resources are typically packaged into sets or collections of related resources. A single API may provide access to a large number of collections. This Common API-2: GeoData Standard provides a means of organizing these collections and defines operations for the listing and description of collections.
 
-API-GeoData does not specify the nature of the geospatial data that make up a collection. Rather, it provides a basic capability which should be applicable to any geospatial resource type. Additional OGC Web API standards extend this foundation to define resource-specific capabilities.
+Common API-2: GeoData does not specify the nature of the geospatial data that make up a collection. Rather, it provides a basic capability which should be applicable to any geospatial resource type or access mechanisms. Additional OGC Web API standards extend this foundation to define specific data access mechanisms.
 

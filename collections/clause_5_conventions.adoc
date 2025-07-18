@@ -15,7 +15,7 @@ Additional information about the use of Identifiers in API-Common is provided in
 
 <<rfc8288,RFC 8288 (Web Linking)>> is used by this standard to express relationships between resources. https://www.iana.org/assignments/link-relations/link-relations.xhtml[Link relation types] from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
 
-The link relationships used in API-GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
+The link relationships used in Common API-2: GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
@@ -63,14 +63,14 @@ An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in <<date-
 
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-This API-GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
+This Common API-2: GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
 
 * [OGC:CRS84] - WGS 84 longitude and latitude without height
 * [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height
 
 NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/1.3/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84h.
 
-Temporal geometry is measured relative to an underlying temporal reference system (TRS). This API-GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal reference systems may be used where appropriate.
+Temporal geometry is measured relative to an underlying temporal reference system (TRS). This Common API-2: GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal reference systems may be used where appropriate.
 
 OGC Topic Volume 2 – Referencing by Coordinates  (<<iso19111,ISO 19111>>) provides the conceptual model for Coordinate Reference Systems.
 
