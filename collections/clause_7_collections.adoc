@@ -55,7 +55,11 @@ include::requirements/collections/REQ_collections-collections-list-collections.a
 
 The array items included in the `collection` property are described in the <<collection-description,Collection Resource>> section of this Requirements Class.
 
-This Requirements Class does not define any parameters for use against a `collections` resource. Implementers who wish to support filtering of the collections to be included in a result set should implement the   <<rc-simple-query-section,Simple Query>> Conformance Class for that purpose.
+This Requirements Class does not define any parameters for use against a `collections` resource.
+
+Implementers who plan supporting the offering of large numbers of collections from the same API endpoint may consider extending
+their API with capabilities defined in OGC API - Records (with collections acting as the local resources of a local resource catalog),
+as well as candidate OGC API - Common extensions introducing capabilities for hierarchical collections, searching, filtering, and sorting collections.
 
 [[collections-list-examples]]
 ===== Collections Response Example
