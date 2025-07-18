@@ -1,0 +1,19 @@
+[[ats_umd-collection_grid-description]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/umd-collection/grid-description
+target:: /req/umd-collection/grid-description
+test-purpose:: Validate that the grid of gridded data is described
+test-method::
++
+--
+FOR each dimension of the extents, including `spatial` and `temporal` as well as additional dimensions:
+
+. If the data is known or described as being organized according to a specific regular or irregular grid, validate that the dimension property includes a `grid` property.
+. If the data is known or described as being organized according to a regular grid, validate that the `grid` property validates against https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/regularGrid.yaml[regularGrid.yaml]
+. If the data is known or described as being organized according to an irregular grid, validate that the `grid` property validates against https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/regularGrid.yaml[irregularGrid.yaml]
+--
+
+NOTE: The `grid` property can be included whether an Implementation conforms to Uniform Additional Dimension or not, but grid description is mandatory for gridded data when conforming to this Conformance Class.
+====

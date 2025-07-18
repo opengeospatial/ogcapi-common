@@ -1,11 +1,11 @@
-[[ats_collections_rc-md-links]]
+[[ats_collections_collections-list-links]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/collections/rc-md-links
-target:: /req/collections/rc-md-links
+identifier:: /conf/collections/collections-list-links
+target:: /req/collections/collections-list-links
 test-purpose:: Validate that the required links are included in the Collections document.
-test-method:: 
+test-method::
 +
 --
 Verify that the response document includes:

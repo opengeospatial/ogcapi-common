@@ -1,0 +1,18 @@
+[[ats_collections_description-extent]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collections/description-extent
+target:: /req/collections/description-extent
+test-purpose:: Validate the `extent` property if it is present
+test-method::
++
+--
+IF the `extent` property is present, THEN:
+
+. Verify that the `extent` provides bounding boxes that include all spatial geometries in the collection.
+. Verify that the `extent` provides time intervals that include all temporal geometries in the collection.
+
+NOTE: A temporal extent of `null` indicates a half-bounded or unbounded time interval.
+--
+====

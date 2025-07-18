@@ -1,6 +1,6 @@
 [[rc_collections]]
 [requirements_class]
-.Requirements Class 'Collections'
+.Collections
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
@@ -14,4 +14,5 @@ requirement:: /req/collections/description-op
 requirement:: /req/collections/description-success
 requirement:: /req/collections/description-links
 requirement:: /req/collections/description-extent
+requirement:: /req/collections/description-extent-multi
 ====

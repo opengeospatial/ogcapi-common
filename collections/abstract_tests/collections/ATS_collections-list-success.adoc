@@ -1,0 +1,25 @@
+[[ats_collections_collections-list-success]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/collections/collections-list-success
+target:: /req/collections/collections-list-success
+test-purpose:: Validate that the list of Collections content complies with the required structure and contents.
+test-method::
++
+--
+. Validate the Collections resource for all supported media types using the resources and tests identified in <<collections-metadata-schema>>
+--
+====
+
+The Collections content may be retrieved in a number of different formats.
+The following table identifies the applicable schema document for each format and the test to be used to validate against that schema. All supported formats should be exercised.
+
+[#collections-metadata-schema,reftext='{table-caption} {counter:table-num}']
+.Schema and Tests for Collections content
+[width="90%",cols="3",options="header"]
+|===
+|Format |Schema Document |Test ID
+|HTML |link:https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] |<<ats_html_content,/conf/html/content>>
+|JSON |link:https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] |<<ats_json_content,/conf/json/content>>
+|===

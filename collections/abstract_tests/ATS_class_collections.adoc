@@ -5,35 +5,42 @@
 identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
 target:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
 classification:: Target Type:Web API
+
+abstract-test:: /conf/collections/collections-list-op
+abstract-test:: /conf/collections/collections-list-success
+abstract-test:: /conf/collections/collections-list-links
+abstract-test:: /conf/collections/collections-list-collections
+abstract-test:: /conf/collections/description-op
+abstract-test:: /conf/collections/description-success
+abstract-test:: /conf/collections/description-links
+abstract-test:: /conf/collections/description-extent
+abstract-test:: /conf/collections/description-extent-multi
 ====
 
-The <<rc-collections,Collections>> Conformance Class has a dependency on the HTTP and optionally HTTPS protocols.
+The <<rc_collections,Collections>> Conformance Class has a dependency on OGC API - Common - Part 1: Core's "Core" conformance class, implying a dependency on HTTP and optionally HTTPS protocols:
 
-include::collections/ATS_http.adoc[]
+https://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
 
-Conformance with the <<rc-collections,Collections>> Conformance Class is demonstrated by execution, in order, of the following tests:
+Conformance with the <<rc_collections,Collections>> Conformance Class is demonstrated by execution, in order, of all abstract tests it consists of:
 
-. <<ats_collections_rc-md-op,/conf/collections/rc-md-op>>
-. <<ats_collections_src-md-op,/conf/collections/src-md-op>>
+==== List of Collections (`/collections`) Tests
 
-==== Collections {root}/collections Tests
+include::collections/ATS_collections-list-op.adoc[]
 
-include::collections/ATS_rc-md-op.adoc[]
+include::collections/ATS_collections-list-success.adoc[]
 
-include::collections/ATS_rc-md-success.adoc[]
+include::collections/ATS_collections-list-links.adoc[]
 
-include::collections/ATS_rc-md-links.adoc[]
+include::collections/ATS_collections-list-collections.adoc[]
 
-include::collections/ATS_rc-md-items.adoc[]
+==== Collection Description (`/collections/{collectionId}`) Tests
 
-==== Collection {root}/collections/{collectionId} Tests
+include::collections/ATS_description-op.adoc[]
 
-include::collections/ATS_src-md-op.adoc[]
+include::collections/ATS_description-success.adoc[]
 
-include::collections/ATS_src-md-success.adoc[]
+include::collections/ATS_description-links.adoc[]
 
-include::collections/ATS_rc-md-collection-content.adoc[]
+include::collections/ATS_description-extent.adoc[]
 
-include::collections/ATS_rc-md-items-links.adoc[]
-
-include::collections/ATS_rc-md-extent.adoc[]
+include::collections/ATS_description-extent-multi.adoc[]

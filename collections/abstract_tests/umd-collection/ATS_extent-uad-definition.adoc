@@ -1,14 +1,21 @@
-[[conf_umd-collection_extent-uad-definition,/conf/umd-collection/extent-uad-definition]]
+[[ats_umd-collection_extent-uad-definition]]
 [abstract_test]
 ====
 [%metadata]
 identifier:: /conf/umd-collection/extent-uad-definition
 target:: /req/umd-collection/extent-uad-definition
-test-purpose:: TBA
+test-purpose:: To verify that the collection descriptions follows the uniform schema for describing multi-dimensional data collections
 test-method::
 +
 --
-. TBA
-. TBA
+FOR each additional dimension beyond `spatial` and `temporal`:
+
+. Validate that the dimension property includes an `interval` property,
+. Validate that the dimension property includes includes a `trs`, `vrs` or `definition`,
+. Validate that the dimension property includes a `unit` if the `trs`, `vrs` or `definition` does not imply a specific unit.
 --
+
+NOTE: The first two aspects of this validation can be performed by swapping the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent.yaml[extent.yaml] schema
+included by https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] by a version
+where the `- type: object` within the `anyOf` has been removed, as per the comment saying _To validate against the Uniform Additional Dimensions requirements class, remove or comment out the following line_.
 ====

@@ -1,16 +1,16 @@
-[[ats_collections_src-md-op]]
+[[ats_collections_description-op]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/collections/src-md-op
-target:: /req/collections/src-md-op
+identifier:: /conf/collections/description-op
+target:: /req/collections/description-op
 test-purpose:: Validate that the Collection content can be retrieved from the expected location.
-test-method:: 
+test-method::
 +
 --
 For every Collection described in the Collections content, issue an HTTP GET request to the URL `/collections/{collectionId}` where `{collectionId}` is the `id` property for the collection.
 
 . Validate that a Collection was returned with a status code 200
-. Validate the contents of the returned document using test <<ats_collections_src-md-success,/conf/collections/src-md-success>>.
+. Validate the contents of the returned document using test <<ats_collections_description-success,/conf/collections/description-success>>.
 --
 ====

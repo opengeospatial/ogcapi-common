@@ -1,10 +1,11 @@
 [[rc_html]]
 [requirements_class]
-.Requirements Class 'HTML'
+.HTML
 ====
 [%metadata]
 identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/html
 subject:: Web API
+inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
 inherit:: <<schema_org,Schema.org>>
 inherit:: <<HTML,HTML Living Standard>>
 requirement:: /req/html/definition
