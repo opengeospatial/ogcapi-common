@@ -3,5 +3,5 @@
 ====
 [%metadata]
 identifier:: /req/json/definition
-part:: `200`-responses of the server SHALL support the `application/json` media type for the <<colections-metadata,Collections>> and <<collection-description,Collection>> resources.
+part:: `200`-responses of the server SHALL support the `application/json` media type for the <<collections-list,Collections>> and <<collection-description,Collection>> resources.
 ====

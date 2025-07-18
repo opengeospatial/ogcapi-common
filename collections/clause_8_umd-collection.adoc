@@ -4,7 +4,7 @@
 
 include::requirements/requirements_class_umd-collection.adoc[]
 
-The <<rc-collections,Collections>> Requirements Class defines a <<collection-resource-definition-section,Collection>> resource which supports both geospatial and temporal dimensions.
+The <<rc_collections,Collections>> Requirements Class defines a <<collection-resource-definition-section,Collection>> resource which supports both geospatial and temporal dimensions.
 However, the domain of some datasets cannot be fully described with only spatiotemporal dimensions.
 The <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> Requirements Class extends the <<collection-resource-definition-section,Collection>> resource to support an unlimited number of
 dimensions defined in a uniform manner, so that clients supporting this requirements class can interpret these dimensions in a generic manner.

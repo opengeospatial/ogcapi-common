@@ -50,7 +50,7 @@ Additional information on the use of link relationships is provided in the link:
 
 Standardized concepts for geospatial characteristics are needed in order to share geographic information between applications. Concepts for geometry are key. These concepts are standardized in <<iso19107,_ISO 19107_>>.
 
-The geospatial geometry used in the OGC API - Common Standards is documented in the <<OGC10-100r3,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<sfsql,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
+The geospatial geometry used in the OGC API - Common Standards is documented in the <<OGC10-100r3,GML Simple Features Profile >> Standard. This Profile defines a subset of the ISO 19107 geometry which is aligned with the OGC <<ogc06-104r4,Simple Features for SQL>> Standard. That geometry includes: Point, Curve (LineString), Surface (Polygon), MultiPoint, MultiCurve, and MultiSurface.
 
 [[temporal-geometry-section]]
 ==== Temporal Geometry
@@ -86,7 +86,7 @@ So that developers can more easily learn how to use the API, good documentation 
 
 This OGC API Standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
-This standard includes a <<rc_oas30-section,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
+The OGC API - Common - Part 1 standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 
 ==== References to OpenAPI components in normative statements
 

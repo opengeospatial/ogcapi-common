@@ -1,16 +1,16 @@
-[[rc_encoding-section]]
+[[rc-encoding-section]]
 == Requirements Classes for Encodings
 
 === Overview
 
 This clause specifies two requirements classes for encodings to be used with the <<collections-list,Collections>> and <<collection-description,Collection>> resources. These encodings are commonly used encodings for spatial data on the web:
 
-* <<rc_html-section,HTML>>
-* <<rc_json-section,JSON>>
+* <<rc-html-section,HTML>>
+* <<rc-json-section,JSON>>
 
 Neither of these encodings is mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or neither of them. 
 
-[[rc_html-section]]
+[[rc-html-section]]
 === Requirements Class "HTML"
 
 Geographic information that is only accessible in formats like GeoJSON or GML has two issues:
@@ -20,7 +20,7 @@ Geographic information that is only accessible in formats like GeoJSON or GML ha
 
 Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, this should be done in a way that enables users and search engines to access all of the data they are authorized to access.
 
-This is discussed in detail in the <<SDWBP,W3C Best Practice>>. This standard therefore <<rec_html,recommends>> supporting HTML as an encoding.
+This is discussed in detail in the <<SDWBP,W3C Best Practice>>. This standard therefore recommends supporting HTML as an encoding.
 
 include::requirements/requirements_class_html.adoc[]
 
@@ -30,7 +30,7 @@ include::requirements/html/REQ_content.adoc[]
 
 include::recommendations/html/REC_schema-org.adoc[]
 
-[[rc_json-section]]
+[[rc-json-section]]
 === Requirements Class "JSON"
 
 JSON is a text syntax that facilitates structured data interchange between programming languages. JSON is commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format, so supporting JSON is recommended for machine-to-machine interactions.
