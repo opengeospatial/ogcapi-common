@@ -50,3 +50,16 @@ NOTE: The structure and organization of a collection of spatial resources is ver
 This is information which cannot be specified in a common manner. This Standard specifies the requirements necessary to discover and understand a generic collection and its contents.
 
 Requirements governing a specific type of resource are specified in resource-specific OGC API standards.
+
+=== Summary of conformance URIs
+
+[#table_conformance_urls,reftext='{table-caption} {counter:table-num}']
+.Conformance class URIs
+[cols="30,70",options="header"]
+|===
+| Corresponding requirements class                          | Conformance class URI
+| <<rc-collections,Collections>>                            | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+| <<rc-umd-collection,Uniform Multi-Dimension Collection>>  | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/umd-collection
+| <<rc-html,HTML>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/html
+| <<rc-json,JSON>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json
+|===
