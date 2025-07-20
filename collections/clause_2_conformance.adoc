@@ -58,8 +58,8 @@ Requirements governing a specific type of resource are specified in resource-spe
 [cols="30,70",options="header"]
 |===
 | Corresponding requirements class                          | Conformance class URI
-| <<rc-collections,Collections>>                            | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
-| <<rc-umd-collection,Uniform Multi-Dimension Collection>>  | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/umd-collection
-| <<rc-html,HTML>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/html
-| <<rc-json,JSON>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json
+| <<rc_collections,Collections>>                            | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+| <<rc_umd-collection,Uniform Multi-Dimension Collection>>  | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/umd-collection
+| <<rc_html,HTML>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/html
+| <<rc_json,JSON>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json
 |===
