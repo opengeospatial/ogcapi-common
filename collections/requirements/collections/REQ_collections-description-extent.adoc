@@ -6,6 +6,8 @@ identifier:: /req/collections/description-extent
 part:: For each spatial collection resource, the `extent` property, if provided, SHALL define boundaries that encompass the spatial and temporal extent of the data in this collection.
 The temporal extent may use `null` values to indicate a half-bounded or unbounded time interval. +
 If the data contains spatial or temporal information defined in multiple properties, it is up to implementation how this extent is derived from those properties.
-part:: For the spatial dimension, the `storageCrsBbox` in the `spatial` property describes that interval rather than an `interval` property.
-If no `storageCrs` and `storageCrsBbox` are present, the `bbox` of the `spatial` property describes that interval in the default [OGC:CRS84].
+part:: For a collection whose native CRS (`storageCrs`) differs from the `crs` specified in the `spatial` property (which is always `[OGC:CRS84]` for data referenced to Earth),
+the bounds of the spatial dimensions in that native CRS SHALL be described in the `storageCrsBbox` of the `spatial` property (unlike the other dimensions which use the `interval` property).
+part:: The bounds of the spatial dimension in the CRS defined in the `crs` property of the `spatial` property (which defaults to `[OGC:CRS84]` if not present) SHALL be described in the `bbox` of the
+`spatial` property in that CRS (always `[OGC:CRS84]` for data referenced to Earth).
 ====
