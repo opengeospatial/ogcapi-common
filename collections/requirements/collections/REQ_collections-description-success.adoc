@@ -5,4 +5,7 @@
 identifier:: /req/collections/description-success
 part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
 part:: The content of a _Collection_ description resource SHALL be based upon the JSON schema https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml].
+part:: The content of the _Collection_ description resource response SHALL be consistent with the content for this collection in the `/collections` response, with the exception of `links` which can contain additional links
+in the response for the individual _Collection_ description resource. That is, if a property is included in the response to the list of collections at `/collections`, the value for that property of the same collection
+(the collection whose `id` value corresponds to the `{collectionId}`) SHALL be identical for response for the _Collection_ description resource (`/collections/{collectionId}`).
 ====
