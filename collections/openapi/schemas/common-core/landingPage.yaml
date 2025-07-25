@@ -9,12 +9,16 @@ properties:
     example: Buildings in Bonn
   description:
     type: string
+    title: The description of the API.
+    description: A longer description of the API.
     example: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Common specification.
   attribution:
     type: string
-    title: attribution for the API
-    description: The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup.
+    title: Attribution for the API
+    description: The `attribution` for the API should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup or markdown.
   links:
     type: array
+    title: Links to resource in the API.
+    description: Links to this or other resources provided by the API.
     items:
       $ref: 'link.yaml'
