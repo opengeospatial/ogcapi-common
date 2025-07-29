@@ -16,10 +16,12 @@ allOf:
         access the first item in each array.
      properties:
         spatial:
+          title: Spatial extent.
           description: The spatial extent of the data in the collection.
           type: object
           properties:
             bbox:
+              title: Bounding box in the 'crs' coordinates
               description: |-
                 One or more bounding boxes that describe the spatial extent of the dataset.
 
@@ -76,6 +78,7 @@ allOf:
                   - 180
                   - 90
             storageCrsBbox:
+              title: Bounding box in the storage CRS.
               description: |-
                 One or more bounding boxes that describe the spatial extent of the dataset in the storage (native) CRS (`storageCrs` property).
 
@@ -112,6 +115,7 @@ allOf:
                   - 180
                   - 90
             crs:
+              title: Coordinate reference system.
               description: |-
                 Coordinate reference system of the coordinates of the `bbox` property.
                 The default reference system is WGS 84 longitude/latitude.
@@ -123,6 +127,7 @@ allOf:
                 - 'http://www.opengis.net/def/crs/OGC/0/CRS84h'
               default: 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
             grid:
+              title: Grid description
               description: |-
                  Provides information about the limited availability of data within the collection organized
                  as a grid (regular or irregular) along each spatial dimension.
@@ -132,11 +137,12 @@ allOf:
               items:
                 $ref: 'grid.yaml'
         temporal:
-          description: |-
-            The temporal extent of the features in the collection.
+          title: Temporal extent
+          description: The temporal extent of the data in the collection.
           type: object
           properties:
             interval:
+              title: Temporal intervals 
               description: |-
                 One or more time intervals that describe the temporal extent of the dataset.
                 In the Core only a single time interval is supported.
@@ -169,6 +175,7 @@ allOf:
                   - '2011-11-11T08:22:11-04:00'
                   - null
             trs:
+              title: Temporal Coordinate Reference System
               description: |-
                 Coordinate reference system of the coordinates in the temporal extent
                 (property `interval`). The default reference system is the Gregorian calendar.
@@ -184,8 +191,10 @@ allOf:
    - anyOf:
      # To validate against the Uniform Additional Dimensions requirements class, remove or comment out the following line
      - type: object
+       description: General object extension point
      - type: object
        additionalProperties:
+          title: Additional dimensions
           description: |-
             The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.
           type: object
@@ -195,6 +204,7 @@ allOf:
             - required: [ interval, vrs ]
           properties:
             interval:
+              title: Interval of the extent of this dimension
               description: |-
                 One or more intervals that describe the extent for this dimension of the dataset.
                 The value `null` is supported and indicates an unbounded or half-bounded interval.
@@ -223,25 +233,31 @@ allOf:
                   - null
             trs:
               type: string
-              description: temporal coordinate reference system (e.g. as defined by Features for 'temporal')
+              title: Temporal Coordinate Reference System.
+              description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal')
             vrs:
               type: string
-              description: vertical coordinate reference system (e.g. as defined in EDR for 'vertical')
+              title: Vertical Coordinate Reference System.
+              description: Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical')
             grid:
               $ref: 'grid.yaml'
             definition:
               type: string
               format: uri
+              title: Observed property definition.
               description: A URI to the definition of the measured or observed property corresponding to this dimension.
             unit:
               type: string
+              title: Units of measurement.
               description: The unit of measure in which the interval and/or grid values are expressed.
             unitLang:
               type: string
               default: UCUM
+              title: Units of measurement vocabulary.
               description: The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
             variableType:
-              description: The type of variable which may inform correct interpretation and interpolation methods
+              title: Variable type.
+              description: The type of variable which may inform correct interpretation and interpolation methods.
               type: string
               enum:
                 - continuous
