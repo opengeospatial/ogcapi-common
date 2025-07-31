@@ -5,7 +5,7 @@ required: [ resolution, firstCoordinate ]
 properties:
   resolution:
     title: Resolution.
-    description: Resolution of regularly gridded data along the dimension in the collection
+    description: Resolution of regularly gridded data along the dimension in the collection.
     oneOf:
       - type: string
         nullable: true
@@ -14,17 +14,17 @@ properties:
       - 0.0006866455078
       - "PT1H"
   firstCoordinate:
-    title: First coordinate
-    description: First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step
+    title: First coordinate.
+    description: First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.
     oneOf:
       - type: string
         nullable: true
       - type: number
     example: -180
   relativeBounds:
-    title: Relative bounds
+    title: Relative bounds.
     description: |-
-      Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells
+      Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells.
     type: array
     minItems: 2
     maxItems: 2
