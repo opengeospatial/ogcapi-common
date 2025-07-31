@@ -68,7 +68,7 @@ This Common API-2: GeoData Standard does not mandate the use of a specific coord
 * [OGC:CRS84] - WGS 84 longitude and latitude without height
 * [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height
 
-NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/1.3/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84h.
+NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84h.
 
 Temporal geometry is measured relative to an underlying temporal reference system (TRS). This Common API-2: GeoData Standard does not mandate a specific temporal coordinate reference system. However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal reference systems may be used where appropriate.
 
