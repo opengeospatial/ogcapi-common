@@ -170,7 +170,7 @@ properties:
     example: 2021.33
   geometryDimension:
     title: Geometry Dimension of the items in the collection.
-    description: The geometry dimension of the items in the collection (0 for points, 1 for curves, 2 for surfaces, 3 for solids), unspecified when mixed, unknown or the collection is not offered as items. Geometry dimensions are also defined by the extent element along with and other dimensions beyond geometries.
+    description: Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.
     type: integer
     minimum: 0
     maximum: 3

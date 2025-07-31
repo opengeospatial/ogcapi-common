@@ -1,4 +1,5 @@
 type: object
+title: Grid.
 description: |-
   Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.
 allOf:
@@ -6,6 +7,7 @@ allOf:
     required: [ cellsCount ]
     properties:
       cellsCount:
+        title: Cell count.
         description: Number of samples available along the dimension for data organized as a regular or irregular grid.
         type: integer
         example: 50
