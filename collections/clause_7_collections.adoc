@@ -163,6 +163,9 @@ or a JSON encoding of the CRS (using the PROJ JSON schema or a potential "CRS JS
 
 Such alternate CRS definitions can also be used for the `crs` of the `bbox` for data in an engineering CRS or otherwise not georeferenced to Earth.
 
+WARNING: While some OGC API Standards explicitly support the use of CURIEs for properties of the collection description such as `storageCrs` and the `crs` array of supported output CRSs, other
+OGC API Standards do not. For servers implementing those OGC API Standards that do not allow the use of CURIEs there, full URIs therefore need to be used.
+
 // TODO: Create a recommendation to reference existing CRS definitions for `crs` and `storageCrs`
 
 include::requirements/collections/REQ_collections-description-extent.adoc[]
