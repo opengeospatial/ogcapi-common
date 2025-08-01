@@ -51,7 +51,7 @@ The resources associated with a particular _access mechanism_ for a specific col
 where:
 
 * `{collectionId}` is an identifier for the collection
-* `{accessResources}` are resources defined for accessing data using a particular mechanisms.
+* `{accessResources}` are resources defined for accessing data using a particular mechanism.
 
 IMPORTANT: Editors of OGC API standards should carefully avoid redefining different resources with the same path in different OGC API standards.
 
