@@ -346,26 +346,9 @@
             "example": "A Digital Elevation Model."
           },
           "attribution": {
-            "allOf": [
-              {
-                "type": "string",
-                "title": "attribution for the collection",
-                "description": "This 'attribution' can contain markup text whose format may be indicated in the `attributionMediaType` property (e.g., `text/html` for HTML or `text/markdown` for https://commonmark.org/[CommonMark]).\nIf the 'attributionMediaType' indicates something other than `text/plain`, the `attribution` element string should be interpreted by a markup parser selected based on that media type to be presented to the user\n(e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics)."
-              },
-              {
-                "anyOf": [
-                  {
-                    "contentMediaType": "text/plain"
-                  },
-                  {
-                    "contentMediaType": "text/html"
-                  },
-                  {
-                    "contentMediaType": "text/markdown"
-                  }
-                ]
-              }
-            ]
+            "type": "string",
+            "title": "Attribution for the collection.",
+            "description": "Attribution for the collection that can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).\nIf the 'attributionMediaType' indicates something other than `text/plain`, the `attribution` element string should be interpreted by a markup parser selected based on that media type to be presented to the user\n(e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics)."
           },
           "attributionMediaType": {
             "title": "Media type of the attribution.",
