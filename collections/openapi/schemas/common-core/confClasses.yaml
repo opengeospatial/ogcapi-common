@@ -6,6 +6,6 @@ properties:
     type: array
     items:
       type: string
-      title: A conformance class URI.
-      description: A conformance class URIs from the ones defined in the OGC API standard documents.
+      title: A list of conformance class URIs.
+      description: A list of conformance class URIs from the ones defined in the OGC API standard documents.
       example: http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core

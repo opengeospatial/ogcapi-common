@@ -59,7 +59,7 @@ properties:
           pattern: "^\\+[1-9]{1}[0-9]{3,14}$"
           example: "+14165550142"
         roles:
-          title: Type of phone number. 
+          title: Type of phone number.
           description: The type of phone number (e.g. home, work, fax, etc.).
           $ref: 'roles.yaml'
   emails:
@@ -82,7 +82,7 @@ properties:
           $ref: 'roles.yaml'
   addresses:
     type: array
-    title: Postal addresses. 
+    title: Postal addresses.
     description: Physical locations at which contact can be made.
     items:
       type: object
@@ -115,7 +115,7 @@ properties:
           $ref: 'roles.yaml'
   links:
     type: array
-    type: Links about the contact
+    title: Links about the contact
     description: On-line information about the contact.
     items:
       allOf:

@@ -142,10 +142,13 @@ properties:
     items:
       type: string
       format: uri
-  defaultFields: 
+  defaultFields:
     title: List of property names of the data in the collection
     description: List of property names. In features is the typical list of properties that complement the geometry and in coverages are toe values of the cells.
-    type: string
+    type: array
+    items:
+       type: string
+       minItems: 1
   crs:
     title:  List of coordinate reference systems supported in the collection
     description: The list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
@@ -170,7 +173,7 @@ properties:
     example: 2021.33
   geometryDimension:
     title: Geometry Dimension of the items in the collection.
-    description: Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.
+    description: 'Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.'
     type: integer
     minimum: 0
     maximum: 3
