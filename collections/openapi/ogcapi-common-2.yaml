@@ -59,6 +59,8 @@ components:
       #   $ref: 'schemas/common-geodatas/crs.yaml'
       dataType:
          $ref: 'schemas/common-geodata/dataType.yaml'
+      grid:
+         $ref: 'schemas/common-geodata/grid.yaml'
       timeStamp:
          $ref: 'schemas/common-geodata/timeStamp.yaml'
       # projJSON:

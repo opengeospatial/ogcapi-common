@@ -531,7 +531,7 @@
             "example": 2021.33
           },
           "geometryDimension": {
-            "title": "Geometry Dimension of the items in the collection.",
+            "title": "Number of spatial dimensions of the primary geometry for the data",
             "description": "Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.",
             "type": "integer",
             "minimum": 0,
@@ -662,7 +662,7 @@
                     "minItems": 2,
                     "maxItems": 3,
                     "items": {
-                      "$ref": "#/components/schemas/extent/allOf/0/properties/temporal/properties/grid"
+                      "$ref": "#/components/schemas/grid"
                     }
                   }
                 }
@@ -704,165 +704,7 @@
                     "default": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
                   },
                   "grid": {
-                    "type": "object",
-                    "title": "Grid.",
-                    "description": "Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.",
-                    "allOf": [
-                      {
-                        "type": "object",
-                        "required": [
-                          "cellsCount"
-                        ],
-                        "properties": {
-                          "cellsCount": {
-                            "title": "Cell count.",
-                            "description": "Number of samples available along the dimension for data organized as a regular or irregular grid.",
-                            "type": "integer",
-                            "example": 50
-                          }
-                        }
-                      },
-                      {
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "title": "Regular grid.",
-                            "description": "Regular grid with samples spaced at equal intervals.",
-                            "required": [
-                              "resolution",
-                              "firstCoordinate"
-                            ],
-                            "properties": {
-                              "resolution": {
-                                "title": "Resolution.",
-                                "description": "Resolution of regularly gridded data along the dimension in the collection.",
-                                "oneOf": [
-                                  {
-                                    "type": "string",
-                                    "nullable": true
-                                  },
-                                  {
-                                    "type": "number"
-                                  }
-                                ],
-                                "example": [
-                                  0.0006866455078,
-                                  "PT1H"
-                                ]
-                              },
-                              "firstCoordinate": {
-                                "title": "First coordinate.",
-                                "description": "First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.",
-                                "oneOf": [
-                                  {
-                                    "type": "string",
-                                    "nullable": true
-                                  },
-                                  {
-                                    "type": "number"
-                                  }
-                                ],
-                                "example": -180
-                              },
-                              "relativeBounds": {
-                                "title": "Relative bounds.",
-                                "description": "Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells.",
-                                "type": "array",
-                                "minItems": 2,
-                                "maxItems": 2,
-                                "items": {
-                                  "oneOf": [
-                                    {
-                                      "type": "string",
-                                      "nullable": true
-                                    },
-                                    {
-                                      "type": "number"
-                                    }
-                                  ]
-                                },
-                                "example": [
-                                  -0.5,
-                                  0.5
-                                ]
-                              }
-                            }
-                          },
-                          {
-                            "type": "object",
-                            "title": "Irregular grid.",
-                            "description": "Irregular grid with samples spaced at different intervals.",
-                            "required": [
-                              "coordinates"
-                            ],
-                            "properties": {
-                              "coordinates": {
-                                "title": "Coordinates of the irregular cells.",
-                                "description": "List of coordinates along the dimension for which data organized as an irregular grid in the collection is available.\n(e.g., 2, 10, 80, 100).",
-                                "type": "array",
-                                "minItems": 1,
-                                "items": {
-                                  "oneOf": [
-                                    {
-                                      "type": "string",
-                                      "nullable": true
-                                    },
-                                    {
-                                      "type": "number"
-                                    }
-                                  ]
-                                },
-                                "example": [
-                                  [
-                                    2,
-                                    10,
-                                    80,
-                                    100
-                                  ],
-                                  [
-                                    "2020-11-12T12:15:00Z",
-                                    "2020-11-12T12:30:00Z",
-                                    "2020-11-12T12:45:00Z"
-                                  ]
-                                ]
-                              },
-                              "boundsCoordinates": {
-                                "title": "Bounds coordinates.",
-                                "description": "Coordinates of the lower and upper bounds of each cell in absolute units for irregular grids describing the geometry each cell.",
-                                "type": "array",
-                                "minItems": 1,
-                                "items": {
-                                  "type": "array",
-                                  "minItems": 2,
-                                  "maxItems": 2,
-                                  "items": {
-                                    "oneOf": [
-                                      {
-                                        "type": "string",
-                                        "nullable": true
-                                      },
-                                      {
-                                        "type": "number"
-                                      }
-                                    ]
-                                  }
-                                },
-                                "example": [
-                                  [
-                                    -180,
-                                    -179
-                                  ],
-                                  [
-                                    -179,
-                                    -178
-                                  ]
-                                ]
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    ]
+                    "$ref": "#/components/schemas/grid"
                   }
                 }
               }
@@ -941,7 +783,7 @@
                       "description": "Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical')"
                     },
                     "grid": {
-                      "$ref": "#/components/schemas/extent/allOf/0/properties/temporal/properties/grid"
+                      "$ref": "#/components/schemas/grid"
                     },
                     "definition": {
                       "type": "string",
@@ -990,6 +832,167 @@
               "map",
               "vector",
               "coverage"
+            ]
+          }
+        ]
+      },
+      "grid": {
+        "type": "object",
+        "title": "Grid.",
+        "description": "Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.",
+        "allOf": [
+          {
+            "type": "object",
+            "required": [
+              "cellsCount"
+            ],
+            "properties": {
+              "cellsCount": {
+                "title": "Cell count.",
+                "description": "Number of samples available along the dimension for data organized as a regular or irregular grid.",
+                "type": "integer",
+                "example": 50
+              }
+            }
+          },
+          {
+            "oneOf": [
+              {
+                "type": "object",
+                "title": "Regular grid.",
+                "description": "Regular grid with samples spaced at equal intervals.",
+                "required": [
+                  "resolution",
+                  "firstCoordinate"
+                ],
+                "properties": {
+                  "resolution": {
+                    "title": "Resolution.",
+                    "description": "Resolution of regularly gridded data along the dimension in the collection.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "example": [
+                      0.0006866455078,
+                      "PT1H"
+                    ]
+                  },
+                  "firstCoordinate": {
+                    "title": "First coordinate.",
+                    "description": "First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "example": -180
+                  },
+                  "relativeBounds": {
+                    "title": "Relative bounds.",
+                    "description": "Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells.",
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "example": [
+                      -0.5,
+                      0.5
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "title": "Irregular grid.",
+                "description": "Irregular grid with samples spaced at different intervals.",
+                "required": [
+                  "coordinates"
+                ],
+                "properties": {
+                  "coordinates": {
+                    "title": "Coordinates of the irregular cells.",
+                    "description": "List of coordinates along the dimension for which data organized as an irregular grid in the collection is available.\n(e.g., 2, 10, 80, 100).",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "example": [
+                      [
+                        2,
+                        10,
+                        80,
+                        100
+                      ],
+                      [
+                        "2020-11-12T12:15:00Z",
+                        "2020-11-12T12:30:00Z",
+                        "2020-11-12T12:45:00Z"
+                      ]
+                    ]
+                  },
+                  "boundsCoordinates": {
+                    "title": "Bounds coordinates.",
+                    "description": "Coordinates of the lower and upper bounds of each cell in absolute units for irregular grids describing the geometry each cell.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      }
+                    },
+                    "example": [
+                      [
+                        -180,
+                        -179
+                      ],
+                      [
+                        -179,
+                        -178
+                      ]
+                    ]
+                  }
+                }
+              }
             ]
           }
         ]
