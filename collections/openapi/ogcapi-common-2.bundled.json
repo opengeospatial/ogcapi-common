@@ -494,8 +494,8 @@
             }
           },
           "defaultFields": {
-            "title": "List of property names of the data in the collection",
-            "description": "List of property names. In features is the typical list of properties that complement the geometry and in coverages are toe values of the cells.",
+            "title": "List of fields returned by default",
+            "description": "List of fields which are returned by default when a client does not explicitly select which fields to return. For features, fields are the properties that complement the geometry, and for a gridded coverage, fields are the values associated with cells.",
             "type": "array",
             "items": {
               "type": "string",
