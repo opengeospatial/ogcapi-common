@@ -16,7 +16,7 @@ allOf:
         access the first item in each array.
      properties:
         spatial:
-          title: Spatial extent.
+          title: Spatial extent
           description: The spatial extent of the data in the collection.
           type: object
           properties:
@@ -78,7 +78,7 @@ allOf:
                   - 180
                   - 90
             storageCrsBbox:
-              title: Bounding box in the storage CRS.
+              title: Bounding box in the storage CRS
               description: |-
                 One or more bounding boxes that describe the spatial extent of the dataset in the storage (native) CRS (`storageCrs` property).
 
@@ -115,7 +115,7 @@ allOf:
                   - 180
                   - 90
             crs:
-              title: Coordinate reference system.
+              title: Coordinate reference system
               description: |-
                 Coordinate reference system of the coordinates of the `bbox` property.
                 The default reference system is WGS 84 longitude/latitude.
@@ -233,30 +233,30 @@ allOf:
                   - null
             trs:
               type: string
-              title: Temporal Coordinate Reference System.
+              title: Temporal Coordinate Reference System
               description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal')
             vrs:
               type: string
-              title: Vertical Coordinate Reference System.
+              title: Vertical Coordinate Reference System
               description: Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical')
             grid:
               $ref: 'grid.yaml'
             definition:
               type: string
               format: uri
-              title: Observed property definition.
+              title: Observed property definition
               description: A URI to the definition of the measured or observed property corresponding to this dimension.
             unit:
               type: string
-              title: Units of measurement.
+              title: Units of measurement
               description: The unit of measure in which the interval and/or grid values are expressed.
             unitLang:
               type: string
               default: UCUM
-              title: Units of measurement vocabulary.
+              title: Units of measurement vocabulary
               description: The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
             variableType:
-              title: Variable type.
+              title: Variable type
               description: The type of variable which may inform correct interpretation and interpolation methods.
               type: string
               enum:

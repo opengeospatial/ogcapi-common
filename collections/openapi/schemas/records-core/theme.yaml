@@ -19,20 +19,20 @@ properties:
       properties:
         id:
           type: string
-          title: Identifier for the concept.
+          title: Identifier for the concept
           description: Identifier for the concept in the knowledge system.
         title:
           type: string
-          title: Title of the concept.
+          title: Title of the concept
           description: A human readable title for the concept.
         description:
           type: string
-          title: Description of the concept.
+          title: Description of the concept
           description: A human readable description for the concept.
         url:
           type: string
           format: uri
-          title: URI of the concept.
+          title: URI of the concept
           description: A URI providing further description of the concept. It is called "definition" in STA.
   scheme:
     type: string

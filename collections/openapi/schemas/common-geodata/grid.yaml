@@ -7,7 +7,7 @@ allOf:
     required: [ cellsCount ]
     properties:
       cellsCount:
-        title: Cell count.
+        title: Cell count
         description: Number of samples available along the dimension for data organized as a regular or irregular grid.
         type: integer
         example: 50

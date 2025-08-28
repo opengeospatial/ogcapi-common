@@ -5,22 +5,17 @@ required:
 properties:
   links:
     type: array
-    title: Links to resource in the collections.
+    title: Links to resource in the collections
     description: Links to this or other resources provided by the collections.
     items:
       $ref: '../common-core/link.yaml'
-  timestamp:
-    type: string
-    format: date-time
-    title: Time of the response
-    description: This when the response was generated. The syntax of date-time is specified by RFC 3339, 5.6.
   numberMatched:
     $ref: 'numberMatched.yaml'
   numberReturned:
     $ref: 'numberReturned.yaml'
   collections:
     type: array
-    title: Collections descriptions.
+    title: Collections descriptions
     description: Descriptions of each collection in this API. 
     items:
       $ref: 'collectionDesc.yaml'

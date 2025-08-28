@@ -7,10 +7,10 @@ anyOf:
   - mediaType
 properties:
   name:
-    title: Name of the format.
+    title: Name of the format
     description: Name of the format.
     type: string
   mediaType:
-    title: Media type of the format.
+    title: Media type of the format
     description: Media type of the format.
     type: string
