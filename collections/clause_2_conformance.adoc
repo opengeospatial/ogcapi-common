@@ -23,9 +23,11 @@ The requirements classes defined in Part 2: Geospatial Data are:
 * <<rc-html-section,HTML>>
 * <<rc-json-section,JSON>>
 
-The <<rc-collections-section,Collections Requirements Class>> defines a common means to describe and access <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>.
+The <<rc-collections-section,Collections Requirements Class>> defines a common means to list and describe <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>,
+but does not mandate a specific encoding or format for representing resources.
 
-The <<rc-collections-section,Collections Requirements Class>> does not mandate a specific encoding or format for representing resources.
+The <<rc-umd-collection-section,Uniform Multi-Dimension Collection Requirements Class>> defines a consistent way to describe the domain of multidimensional collections of data,
+including additional dimensions beyond space and time, as well as regular and irregular grids.
 
 The <<rc-html-section,_HTML_>> and <<rc-json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
@@ -41,15 +43,10 @@ These tests have been organized by <<requirements-class-definition,requirements 
 
 A referencing standard only has to require conformance with a <<ctc-definition,Conformance Class>> and all of the requirements and relevant tests are identified.
 
-In addition, each <<requirements-class-definition,requirements class>> is organized as one or more trees.
+In addition, each <<ctc-definition,conformance class>> includes one or more test.
 
-Starting at a root test, a test script can traverse the tree to address all of the required tests, each in the appropriate context.
-
-NOTE: The structure and organization of a collection of spatial resources is very much dependent on the nature of that resource and the expected access patterns.
-
-This is information which cannot be specified in a common manner. This Standard specifies the requirements necessary to discover and understand a generic collection and its contents.
-
-Requirements governing a specific type of resource are specified in resource-specific OGC API standards.
+This Standard specifies the requirements necessary to discover and describe collection of data, but does not specify how to access that data.
+Other OGC API Standards define <<data-access-mechanism-definition, data access mechanisms>> which can be combined with the requirements classes defined in this Standard.
 
 === Summary of conformance URIs
 

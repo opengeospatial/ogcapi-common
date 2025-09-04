@@ -41,6 +41,10 @@ and dangerous href values like `javascript:`. All untrusted input should be sani
 
 See also the security considerations described in http://www.opengis.net/doc/is/ogcapi-common-1/1.0[OGC API - Common - Part 1: Core].
 
+== Acknowledgements
+
+A large portion of this document has been derived from OGC API - Features - Part 1: Core and generalized to any data access mechanism.
+Since the content was actually embedded within this document, OGC API - Features is not cited as a normative reference.
 
 [.preface]
 == Submitters
