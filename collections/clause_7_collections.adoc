@@ -33,7 +33,7 @@ include::requirements/collections/REQ_collections-collections-list-success.adoc[
 The collections response returned by this operation is based on the link:https://github.com/opengeospatial/ogcapi-common/tree/master/collections/openapi/schemas/common-geodata/collections.yaml[collections.yaml] JSON schema.
 An example of a response listing collections are provided in <<collections-list-examples>>.
 
-#TODO: Update to schemas.opengis.net for publication#
+// #TODO: Update to schemas.opengis.net for publication#
 
 // .collections.yaml
 // [source, YAML]
@@ -99,7 +99,7 @@ include::requirements/collections/REQ_collections-description-op.adoc[]
 
 include::requirements/collections/REQ_collections-description-success.adoc[]
 
-#TODO: Update to schemas.opengis.net for publication#
+// #TODO: Update to schemas.opengis.net for publication#
 
 The collection description response returned by this operation is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] JSON schema.
 
