@@ -76,31 +76,39 @@ However, all dates or timestamps discussed in this document are in the Gregorian
 
 ==== General remarks
 
-This OGC Standard specifies requirements and recommendations for the development of APIs that share spatial resources using a standard way of doing so. In general, deployed APIs will go beyond the requirements and recommendations stated in this Standard. They will support additional operations, parameters, and so on that are specific to the API or the software tool used to implement the API.
+This OGC Standard specifies requirements and recommendations for the development of APIs allowing to list and describe spatial resources using a standard way of doing so.
+In general, deployed APIs will go beyond the requirements and recommendations stated in this Standard, in particular by implementing other OGC API Standards specifying data access mechanims.
+A particular Web API implementation will support additional operations, parameters, and so on that are specific to that implementation.
 
-So that developers can more easily learn how to use the API, good documentation is essential. In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for run-time binding. OpenAPI is one way to provide that machine readable documentation.
+So that developers can more easily learn how to use the API, good documentation is essential.
+In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for compile-time or run-time binding.
+OpenAPI is one way to provide that machine readable documentation.
 
 ==== Role of OpenAPI
 
-This OGC API Standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API. Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
+This OGC API Standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API.
+Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
-The OGC API - Common - Part 1 standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>. Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
+The OGC API - Common - Part 1 standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
+Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
+An API definition is required for implementations conforming to the OGC API - Part 1: Core "Landing Page" requirements class.
 
-==== References to OpenAPI components in normative statements
+==== References to JSON Schema components in normative statements
 
-Some normative statements (requirements, recommendations and permissions) use a phrase that a component in the API definition of the server must be "based upon" a schema or parameter component in the OGC schema repository.
+Some normative statements (requirements) use a phrase that a response to a request must validate against a JSON Schema component in the OGC schema repository.
 
-In this case, the following changes to the pre-defined OpenAPI component are permitted:
+In this case, implementations of this API are free to extend those components in the following ways:
 
-* If the server supports an XML encoding, `xml` properties may be added to the relevant OpenAPI schema components.
-* The range of values of a parameter or property may be extended (additional values) or constrained (only a subset of all possible values is allowed). An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an _enum_.
-* Additional properties may be added to the schema definition of a Response Object.
-* Informative text, such as comments or description properties, may be changed or added.
-
-For OGC API definitions that do not conform to the <<openapi,OpenAPI Specification 3.0>>, the normative statement should be interpreted in the context of the API definition language used.
+* Supporting representations in other media types beyond JSON following the conceptual model described by the JSON Schema
+* The range of values of a property may be extended (additional values) or constrained (only a subset of all possible values is allowed).
+An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an _enum_.
+* Additional properties may be added to the schema (unless explicitly disallowed by the JSON Schema).
+* When providing an API definition, informative text, such as comments or description properties, may be changed or added.
 
 ==== Reusable OpenAPI components
 
-Reusable components for OpenAPI definitions for an OGC API are referenced from this document. They are available from the OGC Schemas Registry at https://schemas.opengis.net/ogcapi/common/part1/1.0[https://schemas.opengis.net/ogcapi/common/part1/1.0] and https://schemas.opengis.net/ogcapi/common/part2/1.0[https://schemas.opengis.net/ogcapi/common/part2/1.0].
+Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
+They are available from the OGC Schemas Registry at https://schemas.opengis.net/ogcapi/common/part1/1.0[https://schemas.opengis.net/ogcapi/common/part1/1.0] and
+https://schemas.opengis.net/ogcapi/common/part2/1.0[https://schemas.opengis.net/ogcapi/common/part2/1.0].
 
 Additional information on the use of OpenAPI as an API definition is provided in the https://docs.ogc.org/guides/20-071.html#toc22[OGC API - Common Users Guide].
