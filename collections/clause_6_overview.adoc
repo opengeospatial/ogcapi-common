@@ -10,14 +10,14 @@ conformance declaration (`/conformance`) and an API definition.
 [[collections-introduction]]
 === Collections
 
-Spatial data is rarely considered as a single entity, but as aggregations of <<spatial-thing-definition,Spatio>>-<<temporal-thing-definition,Temporal>> things.
-
-The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to list and describe the available geospatial data collections.
+Spatial data is rarely considered as a single entity, but as aggregations, or _collections_, of <<spatial-thing-definition,Spatio>>-<<temporal-thing-definition,Temporal>> things.
 
 While _collection_ is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics
-of geospatial data collections is needed. Therefore, **for purposes of this standard**, a collection is defined as follows:
+of geospatial data collections is needed.
+Therefore, **for purposes of this standard** and in the context of OGC APIs, the term <<collection-definition,Collection>> refers to a set of spatiotemporal data that may be available through one or more
+access mechanisms defined by OGC API standard(s).
 
-* <<collection-definition,Collection>>: (in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more access mechanisms defined by OGC API standard(s).
+The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to list and describe the available geospatial data collections.
 
 OGC Web API standards could extend this definition to address the specific properties of the resources they describe.
 
@@ -25,18 +25,18 @@ OGC Web API standards could extend this definition to address the specific prope
 === Data access mechanisms
 
 A collection of geospatial data may be accessed in more than one way.
-For example, a feature-centric approach may allow accessing individual features by their identifiers.
-Alternatively, some clients may wish to access a subset of geospatial information for a particular area, time and resolution of interest.
-Other clients may achieve better performance based on pre-determined partitioning of space using tiles or discrete global grid zones.
-These are all examples of data access mechanisms.
+Some examples of data access mechanisms are:
+* a feature-centric approach allowing to access individual features by their identifiers,
+* providing access to a subset of geospatial information for an arbitrary area, time and resolution of interest,
+* provide access to data for pre-determined partitions of space using tiles or discrete global grid zones.
 
-For example, a collection of data for land cover classification may be available either as individual features where one multi-polygon feature corresponds to low vegetation,
+To illustrate a particular use case, a collection of data for land cover classification may be available either as individual features where one multi-polygon feature corresponds to low vegetation,
 another feature corresponds to trees and yet another feature corresponds to the built-up area.
 With OGC API - Features, each of these features may be individually accessible at:
 
 `/collections/landcover/items/{itemId}`.
 
-The same collection may also support an OGC API - Coverages access mechanism allowing to retrieve a subset of this same classified land cover for a given spatial area using:
+The same classified land cover collection may also support an OGC API - Coverages access mechanism allowing to retrieve a subset for a given spatial area using:
 
 `/collections/landcover/coverage?subset=Lat(10:20),Lon(30:40)`.
 
@@ -64,13 +64,18 @@ _Access mechanisms_ should not be confused with _representations_.
 === Representation
 
 Data access mechanisms may support one or more representation (data formats / encodings) for each resource they define.
-A representation is typically negotiated between the server and client using the HTTP content negotiation mechanism (the `Accept:` request header).
+A representation is typically negotiated between the server and client using HTTP content negotiation (the `Accept:` request header).
 In the land cover example above, the client could request individual features as GeoJSON (`Accept: application/geo+json`),
 and the coverage request could be requested as GeoTIFF (`Accept: image/tiff; application=geotiff`).
 Alternative formats supported by both the server and client could also be negotiated successfully.
 
-=== UML Class Model
-The following UML class diagram represents the conceptual model of the resources offered by the common part of an OGC Web API. In particular it describes the resources presented in OGC API Common - part 1: the Landing page (LandingPage class), the conformance page (ConformanceClasses) and the Exception report (Exception). It also describes the two resources specified in this Part 2: the collections page (Collections) and the collection description (CollectionDescription) and its associated classes. While they are precisely described in the requirements to follow, they are presented here as a UML diagram for clarity. The transformation of this UML diagram into a list of tables, one for each class, can be found <<annex-uml-tables>>.
+=== UML Class Diagram
+The following UML class diagram represents the conceptual and logical model of common resources offered by Web APIs implementing one or more of several OGC API Standards.
+In particular it describes the resources presented in OGC API Common - Part 1: the Landing page (_LandingPage_ class), the conformance page (_ConformanceClasses_) and the exception report (_Exception_).
+The diagram also describes the two resources specified in this Part 2: the collections page (_Collections_) and the collection description (_CollectionDescription_) and its associated classes.
+While these common resources are precisely described in the requirements to follow, they are presented here as a UML diagram for convenience.
+The transformation of this UML diagram into a list of tables, one for each class, can be found in <<annex-uml-tables>>.
+In case of discrepancy between this UML diagram, the UML tables, and the text of the requirements, the requirements should be considered correct.
 
 [[conceptual-model]]
 [#img_uml_model='{figure-caption} {counter:figure-num}']
