@@ -26,6 +26,7 @@ OGC Web API standards could extend this definition to address the specific prope
 
 A collection of geospatial data may be accessed in more than one way.
 Some examples of data access mechanisms are:
+
 * a feature-centric approach allowing to access individual features by their identifiers,
 * providing access to a subset of geospatial information for an arbitrary area, time and resolution of interest,
 * provide access to data for pre-determined partitions of space using tiles or discrete global grid zones.
