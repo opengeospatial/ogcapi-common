@@ -493,6 +493,11 @@
             "description": "Type of data use to represent the data in the collection. Can be map, vector or coverage.",
             "$ref": "#/components/schemas/dataType"
           },
+          "parent": {
+            "title": "Identifier of a parent collection (if this collection is part of a hierarchy)",
+            "description": "If this collection is part of a hierarchy, this property allows to identify another collection within the same dataset as its parent (by setting `parent` to the `id` of that collection), enabling clients to construct a hierarchy.",
+            "type": "string"
+          },
           "geoDataClasses": {
             "title": "Class of data in the collection",
             "description": "URIs identifying a class of data contained in the geospatial data (useful for example to determine compatibility with styles or processes).",
