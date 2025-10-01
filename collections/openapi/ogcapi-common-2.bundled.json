@@ -509,7 +509,7 @@
           },
           "defaultFields": {
             "title": "List of fields returned by default",
-            "description": "List of fields which are returned by default when a client does not explicitly select which fields to return. For features, fields are the properties that complement the geometry, and for a gridded coverage, fields are the values associated with cells.",
+            "description": "A sorted list of field names. For a Features data access mechanism, it is the list of returnable properties included by default and complementing the geometry of the features. For a Coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.",
             "type": "array",
             "items": {
               "type": "string",
