@@ -121,6 +121,14 @@ If the 'attributionMediaType' indicates something other than `text/plain`, the `
 (e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics).
 See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
 
+Note that in order to support attribution in different languages, a server may support the `Accept-Language:` request header, for example
+a client would make a request preferring `Accept-Language: fr,en;q=0.8` to prioritize a French representation, but fall back to English if a French representation is not available.
+This language negotiation mechanism is part of the HTTP standard and affects all resources, and the language of all properties inside these.
+For example, in a collection description, this language negotiation will apply to titles, descriptions, keywords, links, etc. (not only the `attribution`).
+
+The following IANA link relations can also be considered to link (using the `links` property -- see <<collection-links-section>>) to resources providing additional information regarding the
+origin, ownership, funding and restrictions associated with the data `about`, `author`, `copyright`, `cite-as`, `sponsored`, `disclosure`, `license`, `terms-of-service`.
+
 [[collection-item-type-section]]
 ===== Item Type
 
@@ -128,7 +136,7 @@ In some Geospatial collections, the members (`items`) that make up that collecti
 
 include::recommendations/collections/REC_collections-description-item-type.adoc[]
 
-[collection-links-section]]
+[[collection-links-section]]
 ===== Links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
@@ -138,6 +146,8 @@ include::requirements/collections/REQ_collections-description-links.adoc[]
 Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
 
 include::recommendations/collections/REC_collections-collection-describedby.adoc[]
+
+The `http://www.opengis.net/def/rel/ogc/1.0/schema` link relation should be used to reference a logical schema (see OGC API - Common - Part 3: Schemas).
 
 [[collection-extent-section]]
 ===== Extent
