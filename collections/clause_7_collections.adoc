@@ -121,13 +121,13 @@ If the 'attributionMediaType' indicates something other than `text/plain`, the `
 (e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics).
 See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
 
-Note that in order to support attribution in different languages, a server may support the `Accept-Language:` request header, for example
-a client would make a request preferring `Accept-Language: fr,en;q=0.8` to prioritize a French representation, but fall back to English if a French representation is not available.
+Note that in order to support attribution in different languages, a server may take into consideration the `Accept-Language:` request header, for example
+a client would make a request specifying `Accept-Language: fr,en;q=0.8` to prioritize a French representation, but fall back to English if a French representation is not available.
 This language negotiation mechanism is part of the HTTP standard and affects all resources, and the language of all properties inside these.
 For example, in a collection description, this language negotiation will apply to titles, descriptions, keywords, links, etc. (not only the `attribution`).
 
 The following IANA link relations can also be considered to link (using the `links` property -- see <<collection-links-section>>) to resources providing additional information regarding the
-origin, ownership, funding and restrictions associated with the data `about`, `author`, `copyright`, `cite-as`, `sponsored`, `disclosure`, `license`, `terms-of-service`.
+origin, ownership, funding and restrictions associated with the data: `about`, `author`, `copyright`, `cite-as`, `sponsored`, `disclosure`, `license`, `terms-of-service`.
 
 [[collection-item-type-section]]
 ===== Item Type
