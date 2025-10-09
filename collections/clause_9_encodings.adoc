@@ -8,19 +8,24 @@ This clause specifies two requirements classes for encodings to be used with the
 * <<rc-html-section,HTML>>
 * <<rc-json-section,JSON>>
 
-Neither of these encodings is mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or neither of them. 
+Neither of these encodings is mandatory. An implementation of the <<rc-collections-section,Collections>> requirements class may implement either, both, or neither of them.
 
 [[rc-html-section]]
 === Requirements Class "HTML"
 
-Geographic information that is only accessible in formats like GeoJSON or GML has two issues:
+Best practices for sharing geospatial data on the Web (<<SDWBP,W3C Best Practice>>) recommend supporting an HTML representation of API resources.
+For consistency with the Web, this should be done in a way that enables users and search engines to access all of the data they are authorized to access.
 
-* The data is not discoverable using the most common mechanism for discovering information: Web search engines,
-* The data can not be viewed directly in a browser. Additional tools are required to view the data.
+Providing an HTML representation for the landing page of a dataset, for listing available collections, and for describing detailed metadata about a particular collection
+allows users, using only their Web browser as a client, to evaluate the usefulness of data available from the API deployment before proceeding to access this data.
 
-Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, this should be done in a way that enables users and search engines to access all of the data they are authorized to access.
+Additionally, an HTML represention of resources facilitate information discovery from Web search engines.
 
-This is discussed in detail in the <<SDWBP,W3C Best Practice>>. This standard therefore recommends supporting HTML as an encoding.
+The HTML encoding should present all of the same information available in other representations such as the machine-readable JSON,
+so that users see this information in their browser in a way that naturally blends in with the rest of the institutional site,
+and ideally following https://www.w3.org/TR/WCAG21/[Web Content Accessibility Guidelines].
+
+Links that correspond to the _Link_ class from the UML class diagram will be included as `<a/>` elements within the HTML `<body/>`, and could also be returned as HTTP response `Link:` headers.
 
 include::requirements/requirements_class_html.adoc[]
 
