@@ -67,9 +67,13 @@ _Access mechanisms_ should not be confused with _representations_.
 
 Data access mechanisms may support one or more representation (data formats / encodings) for each resource they define.
 A representation is typically negotiated between the server and client using HTTP content negotiation (the `Accept:` request header).
-In the land cover example above, the client could request individual features as GeoJSON (`Accept: application/geo+json`),
-and the coverage request could be requested as GeoTIFF (`Accept: image/tiff; application=geotiff`).
+In the land cover example above, the client could request either individual features or a feature collection as GeoJSON (`Accept: application/geo+json`) or as GeoPackage (`Accept: application/geopackage+sqlite3`),
+and the coverage request could be requested as GeoTIFF (`Accept: image/tiff; application=geotiff`) or also as GeoPackage (`application/geopackage+sqlite3`) leveraging the https://docs.ogc.org/is/17-066r2/17-066r2.html[GeoPackage Extension for Tiled Gridded Coverage Data].
 Alternative formats supported by both the server and client could also be negotiated successfully.
+
+Some media types for encodings such as JSON are very generic. When no suitable media type has been registered for a representation using a specific schema, a mechanism to negotiate a particular
+profile may also be used for example using a `profile` query parameter or an `Accept-Profile:` request header as described in the https://www.w3.org/TR/dx-prof-conneg/[W3C Content Negotiation by Profile Working Draft],
+in combination with the regular HTTP content negotiation headers. The concept of profile may also be used to control other aspects of the representation besides the schema.
 
 === UML Class Diagram
 The following UML class diagram represents the conceptual and logical model of common resources offered by Web APIs implementing one or more of several OGC API Standards.
