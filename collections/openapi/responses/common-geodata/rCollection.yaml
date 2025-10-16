@@ -9,6 +9,8 @@ content:
   application/json:
     schema:
       $ref: '../../schemas/common-geodata/collectionDesc.yaml'
+      # For APIs conforming to the Uniform Additional Dimensions requirements class, reference the collectionDesc-UAD.yaml schema instead
+      # $ref: '../../schemas/common-geodata/collectionDesc-UAD.yaml'
     example:
       id: buildings
       title: Buildings

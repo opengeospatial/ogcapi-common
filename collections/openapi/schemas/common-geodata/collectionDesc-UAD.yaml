@@ -3,4 +3,4 @@ allOf:
   - type: object
     properties:
       extent:
-         $ref: 'extent.yaml'
+         $ref: 'extent-UAD.yaml'
