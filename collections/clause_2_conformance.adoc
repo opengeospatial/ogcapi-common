@@ -1,18 +1,18 @@
 [[conformance-section]]
 == Conformance
 
-Conformance with this standard shall be checked using the tests specified in Annex A (normative) of this document.
+Conformance with this Standard shall be checked using the tests specified in Annex A (normative) of this document.
 
 The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the <<citepp,OGC Compliance Testing Policies and Procedures>> and the
 https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
 
-The one Standardization Target for this standard is Web APIs.
+The Standardization Target for this Standard is Web APIs.
 
 OGC API - Common - Part 2: Geospatial Data defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>.
 
-Typically this standard will only be implemented through reference to these Conformance Classes by other standards.
+Typically, the OGC API - Common - Part 2: Geospatial Data will only be implemented through reference to these Conformance Classes by other standards.
 
-This standard identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>.
+OGC API - Common - Part 2: Geospatial Data identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>.
 
 The tests in Annex A are organized by Requirements Class. Therefore, an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
 

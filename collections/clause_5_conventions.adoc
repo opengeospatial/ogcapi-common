@@ -4,7 +4,7 @@ This section provides details of conventions used in this document.
 [[identifiers-section]]
 === Identifiers
 
-The normative provisions in this standard are denoted by the URI `https://www.opengis.net/spec/ogcapi-common-2/1.0`.
+The normative provisions in this Standard are denoted by the URI `https://www.opengis.net/spec/ogcapi-common-2/1.0`.
 
 All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
 
@@ -28,7 +28,7 @@ Refers to a representation of the current resource which is encoded using anothe
 |`collection` |The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
 |`https://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
 |`https://www.opengis.net/def/rel/ogc/1.0/data` |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
-|`describedby`|Refers to a resource providing information about the link's context.[IANA] +
+|`describedby`|Refers to a resource providing information about the link's context. [IANA] +
 Links to external resources which further describe the subject resource
 |`http://www.opengis.net/def/rel/ogc/1.0/schema` |Refers to a resource that lists the properties of geospatial data in the collection represented by the link’s context. (OGC API - Common - Part 3) [OGC]
 |`item` |The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
@@ -57,7 +57,7 @@ Additional information on the use of link relationships is provided in the link:
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of
 publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-This Common API-2: GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
+The Common API-2: GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
 
 * [OGC:CRS84] - WGS 84 longitude and latitude without height
 * [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height
@@ -84,20 +84,20 @@ However, all dates or timestamps discussed in this document are in the Gregorian
 
 ==== General remarks
 
-This OGC Standard specifies requirements and recommendations for the development of APIs allowing to list and describe spatial resources using a standard way of doing so.
+The OGC Common API - 2: GeoData specifies requirements and recommendations for the development of APIs allowing to list and describe spatial resources using a standard way of doing so.
 In general, deployed APIs will go beyond the requirements and recommendations stated in this Standard, in particular by implementing other OGC API Standards specifying data access mechanims.
 A particular Web API implementation will support additional operations, parameters, and so on that are specific to that implementation.
 
-So that developers can more easily learn how to use the API, good documentation is essential.
+So that developers can more easily learn how to use the deployed API, good documentation is essential.
 In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for compile-time or run-time binding.
 OpenAPI is one way to provide that machine readable documentation.
 
 ==== Role of OpenAPI
 
-This OGC API Standard uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API.
+The OGC Common API - 2: GeoData uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API Standard.
 Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
-The OGC API - Common - Part 1 standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
+The OGC API - Common - Part 1 Standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
 Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 An API definition is required for implementations conforming to the OGC API - Part 1: Core "Landing Page" requirements class.
 

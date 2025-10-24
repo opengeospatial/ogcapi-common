@@ -1,11 +1,11 @@
 == Terms and Definitions
 
 [[collection-definition]]
-=== *Collection*
+=== *collection*
 (in the context of OGC APIs) A set of spatiotemporal data that may be available through one or more <<data-access-mechanism-definition,access mechanisms>> defined by OGC API standard(s)
 
 [[coverage-definition]]
-=== *Coverage*
+=== *coverage*
 
 // NOTE: That definition was from the older Topic 6, and the newer definition from Topic 6
 // says "range type" rather than "range" which seems incorrect
@@ -15,39 +15,40 @@ function which returns values from its range for any direct position within its 
 (Source: <<ogc07-011r2,OGC 07-011r2>>)
 
 [[data-access-mechanism-definition]]
-=== *Data access mechanism*
-(in the context of OGC APIs) mechanism defined by an OGC API Standard to access spatiotemporal data from a <<collection-definition,collection>> +
+=== *data access mechanism*
+(in the context of OGC APIs) mechanism defined by an OGC API Standard to access spatiotemporal data from a <<collection-definition,collection>>
+
 Such mechanism is based on Web resources which are sub-resources of that collection. The access mechanism could be as simple as the definition of a single sub-resource URL template.
 The access mechanism may allow Web clients to access parts and/or the totality of the data available from the collection.
 
 [[dataset-definition]]
-=== *Dataset*
+=== *dataset*
 collection of data, published or curated by a single agent, and available for access or download in one or more representations (<<DCAT,DCAT>>)
 
 [[distribution-definition]]
-=== *Distribution*
+=== *distribution*
 specific representation of a <<dataset-definition,dataset>> +
 A <<dataset-definition,dataset>> might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above). (<<DCAT,DCAT>>) +
  +
 EXAMPLE: a downloadable file, an RSS feed or an API.
 
 [[extent-definition]]
-=== *Extent*
+=== *extent*
 area covered by something. Within this document, "extent" refers to spatial extent +
 The size or shape that may be expressed using coordinates. (<<SDWBP,W3C/OGC Spatial Data on the Web Best Practice>>)
 
 [[feature-definition]]
-=== *Feature*
+=== *feature*
 
 include::./glossaries/iso_tc211/168_feature.adoc[]
 
 [[feature-collection-definition]]
-=== *Feature Collection*
+=== *feature collection*
 
 include::./glossaries/iso_tc211/2500_feature_collection.adoc[]
 
 [[geometry-definition]]
-=== *Geometry*
+=== *geometry*
 ordered set of _n_-dimensional points in a given coordinate reference system (<<SDWBP,W3C/OGC Spatial Data on the Web Best Practice>>)
 
 [[ogc-webapi-definition]]
@@ -55,60 +56,62 @@ ordered set of _n_-dimensional points in a given coordinate reference system (<<
 <<webapi-definition,Web API>> that implements one or more <<ctc-definition,Conformance Classes>> from an OGC API Standard
 
 [[resource-definition]]
-=== *Resource*
+=== *resource*
 entity that might be identified (<<iso15836-2,Dublin Core Metadata Initiative - DCMI Metadata Terms>>) +
 
 NOTE: The term "resource", when used in the context of an OGC Web API standard, should be understood to mean a <<web-resource-definition,Web Resource>> unless otherwise indicated.
 
 [[resource-type-definition]]
-=== *Resource Type*
+=== *resource type*
 definition of a type of <<resource-definition,resource>> +
 Resource types are re-usable components which are independent of where the resource resides in the API. +
 
 NOTE: Resource types are re-usable components that are independent of where the resource resides in the API."
 
 [[spatial-resource-definition]]
-=== *Spatial Resource*
+=== *spatial resource*
 <<resource-definition,resource>> which represents or includes spatial data +
 A <<spatial-thing-definition,Spatial Thing>>.
 
 [[spatial-thing-definition]]
-=== *Spatial Thing*
+=== *spatial thing*
 anything with spatial extent, (i.e. size, shape, or position) and is a combination of the real-world phenomenon and its abstraction (<<SDWBP,W3C/OGC Spatial Data on the Web Best Practice>>)
 
 [[temporal-cs-definition]]
-=== *Temporal Coordinate System*
+=== *temporal coordinate system*
 
 include::./glossaries/iso_tc211/446_temporal_coordinate_system.adoc[]
 
 [[temporal-position-definition]]
-=== *Temporal Position*
+=== *temporal position*
 
 include::./glossaries/iso_tc211/449_temporal_position.adoc[]
 
 
 [[trs-definition]]
-=== *Temporal Reference System*
+=== *temporal reference system*
 
 include::./glossaries/iso_tc211/450_temporal_reference_system.adoc[]
 
 [[temporal-resource-definition]]
-=== *Temporal Resource*
+=== *temporal resource*
 <<resource-definition,resource>> which represents or includes time and date +
 A <<temporal-thing-definition,Temporal Thing>>.
 
 [[temporal-thing-definition]]
-=== *Temporal Thing*
+=== *temporal thing*
 anything with temporal extent, i.e. duration +
-Examples are: the taking of a photograph, a scheduled meeting, a GPS time-stamped track-point. (https://www.w3.org/2003/01/geo/[W3C Basic Geo])
+Examples are: The taking of a photograph, a scheduled meeting, or a GPS time-stamped track-point. (https://www.w3.org/2003/01/geo/[W3C Basic Geo])
 
 [[webapi-definition]]
 === *Web API*
 API using an architectural style that is founded on the technologies of the Web (<<DWBP,W3C Data on the Web Best Practices>>)
 
 [[web-resource-definition]]
-=== *Web Resource*
+=== *web resource*
 <<resource-definition,resource>> that is identified by a URI
+
+NOTE: For example, a web resource is any file or asset, such as text, images, HTML, XML, or JavaScript, that can be accessed over the web using a unique URL/URI
 
 === Abbreviated terms
 
