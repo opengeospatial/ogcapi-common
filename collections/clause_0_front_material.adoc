@@ -1,14 +1,16 @@
 [abstract]
 == Abstract
+The OGC API — Common Standard is a multi-part standard which defines a set of documents whose requirements classes can be used to
+build resource and purpose-specific Web API specifications.
+This document, OGC API — Common — Part 2: Geospatial Data Standard (Common API-2: GeoData) is one
+of those parts. This part specifies how to list and describe available collections of geospatial data within a Web API deployment.
 
-The OGC standards baseline has been extended to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures] and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs]. In the course of developing OGC Web API standards, some practices proved to be common across multiple OGC Web API standards. These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable building-blocks. Standards developers can use these building-blocks in the construction of OGC Web API Standards. The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.
-
-Spatial data is rarely considered as a single entity. <<feature-collection-definition,Feature Collections>>, <<coverage-definition,Coverages>>, <<dataset-definition,Data Sets>>. They are all aggregations of <<spatial-thing-definition,Spatial>> or <<temporal-thing-definition,Temporal>> Resources. It stands to reason that an OGC Web API would also expose its holdings as aggregates of spatial resources.
-
-The purpose of the OGC API - Common - Part 2: Geospatial Data (Common API-2: GeoData) Standard is to provide a means of organizing these collections and to define operations for listing and describing available collections.
-
-OGC Common API-2: GeoData does not specify the nature of the geospatial data that make up a collection. Rather, the standard specifies a basic capability which should be applicable to any geospatial resource type or access mechanisms. Additional OGC Web API standards extend this foundation to define specific data access mechanisms.
-
+The OGC Standards baseline has been extended to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures]
+and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs].
+In the course of developing OGC Web API standards, some practices proved to be common across multiple OGC Web API standards.
+These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable
+building-blocks. Standards developers can use these building-blocks in the construction of OGC Web API Standards.
+The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.
 
 ////
 == Keywords
@@ -17,16 +19,19 @@ Keywords inserted here automatically by Metanorma
 ////
 
 
-.Preface
+== Preface
 
-This document defines the _OGC API - Common - Part 2: Geospatial Data_ Standard. Suggested additions, changes and comments on this standard are welcome and encouraged. Such suggestions may be submitted as an issue on the https://github.com/opengeospatial/ogcapi-common/issues[_OGC API - Common_ GitHub repository].
+This document defines the _OGC API - Common - Part 2: Geospatial Data_ Standard.
+Suggested additions, changes and comments on this standard are welcome and encouraged.
+Such suggestions may be submitted as an issue on the
+https://github.com/opengeospatial/ogcapi-common/issues[_OGC API - Common_ GitHub repository].
 
 ////
 *OGC Declaration*
 ////
 
 ////
-[THIS TEXT IS ALREADY ADDED AUTOMATICALLY IN THE FRONTISPIECE OF ALL OGC DOUCMENTS]
+[THIS TEXT IS ALREADY ADDED AUTOMATICALLY IN THE FRONT PIECE OF ALL OGC DOCUMENTS]
 
 Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
 
@@ -35,9 +40,9 @@ Recipients of this document are requested to submit, with their comments, notifi
 
 == Security Considerations
 
-Clients should avoid blindly processing HTML markup code in the attribution property of collection descriptions.
+Clients should avoid blindly processing HTML markup code in the attribution property of collection descriptions specified by this Standard.
 In particular, care should be taken to avoid running any `<script>` code, including inline event handlers (e.g., `onclick`)
-and dangerous href values like `javascript:`. All untrusted input should be sanitized to prevent script execution and mitigate XSS vulnerabilities.
+and dangerous href values like `javascript:`. All untrusted input should be sanitized to prevent script execution and to mitigate XSS vulnerabilities.
 
 See also the security considerations described in http://www.opengis.net/doc/is/ogcapi-common-1/1.0[OGC API - Common - Part 1: Core].
 
@@ -57,6 +62,6 @@ All questions regarding this submission should be directed to the editors or the
 |Jerome St-Louis _(editor)_ |Ecere Corporation
 |Joan Masó (editor) | Universitat Autònoma de Barcelona (CREAF)
 |Chris Little |UK Met Office
-|Carl Reed |Self
+|Carl Reed |Carl Reed & Associates
 |Panagiotis (Peter) A. Vretanos |CubeWerx Inc.
 |===
