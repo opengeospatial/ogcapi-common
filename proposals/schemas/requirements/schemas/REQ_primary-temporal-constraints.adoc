@@ -1,8 +1,0 @@
-:req: primary-temporal-constraints
-[#{req-class}_{req}]
-[width="90%",cols="2,7a"]
-|===
-^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
-^|A |If a schema has a property with role "primary-instant", the schema SHALL NOT have properties with role "primary-interval-start" or "primary-interval-end".
-^|B |If a schema has properties with both roles "primary-interval-start" and "primary-interval-end", both properties SHALL have the same temporal granularity ("date" or "date-time").
-|===

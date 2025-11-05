@@ -1,9 +1,0 @@
-:req: role-primary-instant
-[#{req-class}_{req}]
-[width="90%",cols="2,7a"]
-|===
-^|*Requirement {counter:req-num}* |/req/{req-class}/{req}
-^|A |A property with "x-ogc-role" set to "primary-instant" SHALL be a temporal property.
-^|B |At most one property in a schema SHALL have "x-ogc-role" with a value "primary-instant".
-^|C |If the schema has only one temporal property, the property SHALL be the primary temporal information even if the property is not explicitly tagged with the role "primary-instant".
-|===
