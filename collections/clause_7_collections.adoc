@@ -73,7 +73,11 @@ Representations of this resource in other formats are referenced (link relation 
 An additional link is to the logical schema of the collection (link relation type: `[ogc-rel:schema]`).
 
 The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] and Gregorian calendar / Coordinated Universal Time (UTC),
-and should always be specified this way for data referenced to Earth (independently of the native / storage reference system of the data itself).
+and should always be specified (or default) this way for data referenced to Earth and a time scale for which the Gregorian calendar is suitable.
+For the spatial extent, the `crs` specified in the `spatial` property of the extent only describes the CRS of the `bbox` and is independent of the native / storage reference system of the data itself,
+which can be specified separately in the `storageCrs` property.
+For explicitly specifying the Gregorian calendar, the URI https://www.opengis.net/def/crs/OGC/0/GregorianDateTime can be used, or alternatively
+https://www.opengis.net/def/uom/ISO-8601/0/Gregorian for compatibility with OGC API - Features.
 
 .Example `/collections` response listing collections
 [source,json]
@@ -231,7 +235,11 @@ The response includes links to:
 Finally, this response includes both spatial and temporal extents.
 
 The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
-and should always be specified this way for data referenced to Earth (independently of the native / storage reference system of the data itself).
+and should always be specified (or default) this way for data referenced to Earth and a time scale for which the Gregorian calendar is suitable.
+For the spatial extent, the `crs` specified in the `spatial` property of the extent only describes the CRS of the `bbox` and is independent of the native / storage reference system of the data itself,
+which can be specified separately in the `storageCrs` property.
+For explicitly specifying the Gregorian calendar, the URI https://www.opengis.net/def/crs/OGC/0/GregorianDateTime can be used, or alternatively
+https://www.opengis.net/def/uom/ISO-8601/0/Gregorian for compatibility with OGC API - Features.
 
 .Example `/collections/{collectionId}` response describing a collections
 [source,json]
