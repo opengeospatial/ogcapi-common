@@ -1,8 +1,8 @@
 [[overview]]
 == Overview
 
-This OGC API - Common - Part 2: Geospatial Data Standard provides a way to discover and describe collections of spatiotemporal data.
-Web APIs specifying mechanisms to access this data are defined in separate OGC API Standards.
+This OGC API - Common - Part 2: Geospatial Data Standard provides a way to list and describe available collections of spatiotemporal data.
+Web APIs specifying mechanisms to access data are defined in separate OGC API Standards.
 This Standard depends on the Core requirements class of OGC API - Common - Part 1: Core which specifies fundamental requirements for OGC Web APIs based on HTTP.
 Implementations may also conform to the Landing Page requirements class of Part 1 which specifies additional requirements for the landing page (root of the API),
 conformance declaration (`/conformance`) and an API definition.
@@ -10,7 +10,7 @@ conformance declaration (`/conformance`) and an API definition.
 [[collections-introduction]]
 === Collections
 
-Spatial data is rarely considered as a single entity, but as aggregations, or _collections_, of <<spatial-thing-definition,Spatio>>-<<temporal-thing-definition,Temporal>> things.
+Spatiotemporal data is rarely considered as a single entity, but as aggregations, or _collections_, of <<spatial-thing-definition,Spatio>>-<<temporal-thing-definition,Temporal>> things.
 
 While _collection_ is a common term, its specific meaning is often based on the context in which it is used. Given the focus on addressing geospatial data, a definition that reflects the unique characteristics
 of geospatial data collections is needed.
@@ -19,7 +19,7 @@ access mechanisms defined by OGC API standard(s).
 
 The purpose of the OGC API - Common - Part 2: Geospatial Data Standard is to list and describe the available geospatial data collections.
 
-OGC Web API standards could extend this definition to address the specific properties of the resources they describe.
+OGC Web API Standards could extend this definition to address the specific properties of the resources they describe.
 
 [[access-mechanisms]]
 === Data access mechanisms
@@ -33,18 +33,18 @@ Some examples of data access mechanisms are:
 
 To illustrate a particular use case, a collection of data for land cover classification may be available either as individual features where one multi-polygon feature corresponds to low vegetation,
 another feature corresponds to trees and yet another feature corresponds to the built-up area.
-With OGC API - Features, each of these features may be individually accessible at:
+In an implementation of the OGC API - Features Standard, each of these features may be individually accessible at:
 
 `/collections/landcover/items/{itemId}`.
 
-The same classified land cover collection may also support an OGC API - Coverages access mechanism allowing to retrieve a subset for a given spatial area using:
+The API deployment may also include an implementation of the access mechanism defined by the OGC API - Coverages Standard for the same classified land cover collection enabling retrieval of a subset for a given spatial area using:
 
 `/collections/landcover/coverage?subset=Lat(10:20),Lon(30:40)`.
 
 The OGC API - Common - Part 2: Geospatial Data Standard describes data collections, but does not define any _access mechanisms_ to the data.
-Access mechanisms are defined in separate OGC Web API Standards extending this OGC API - Common - Part 2: Geospatial Data Standard.
+Access mechanisms are defined in separate OGC Web API Standards.
 
-The _access mechanisms_ are defined by the resource paths which are specified in the different OGC API standards.
+The _access mechanisms_ are defined by the resource paths which are specified in the different OGC API Standards.
 The resources associated with a particular _access mechanism_ for a specific collection will be under the collection resource:
 
 `/collections/{collectionId}/{accessResources}`
@@ -54,11 +54,11 @@ where:
 * `{collectionId}` is an identifier for the collection
 * `{accessResources}` are resources defined for accessing data using a particular mechanism.
 
-IMPORTANT: Editors of OGC API standards will carefully avoid redefining different resources with the same path in different OGC API standards,
-so that implementers can offer multiple OGC API data access mechanisms for the same collections.
+IMPORTANT: Editors of OGC API Standards and implementers of Web APIs will carefully avoid redefining different resources with the same path in different OGC API Standards and implementations,
+so that API deployments can offer multiple data access mechanisms for the same collections.
 
 TIP: The available data access mechanisms supported for a specific collection are typically advertised by including links using specific link relation types defined
-by the various OGC APIs in the `links` array of the collection description.
+by the various OGC API Standards in the `links` array of the collection description.
 
 _Access mechanisms_ should not be confused with _representations_.
 
@@ -76,9 +76,9 @@ profile may also be used for example using a `profile` query parameter or an `Ac
 in combination with the regular HTTP content negotiation headers. The concept of profile may also be used to control other aspects of the representation besides the schema.
 
 === UML Class Diagram
-The following UML class diagram represents the conceptual and logical model of common resources offered by Web APIs implementing one or more of several OGC API Standards.
-In particular it describes the resources presented in OGC API Common - Part 1: the Landing page (_LandingPage_ class), the conformance page (_ConformanceClasses_) and the exception report (_Exception_).
-The diagram also describes the two resources specified in this Part 2: the collections page (_Collections_) and the collection description (_CollectionDescription_) and its associated classes.
+The following UML class diagram represents the model of common resources offered by Web APIs implementing one or more OGC API Standards.
+In particular, the diagram describes the resources presented in OGC API Common - Part 1: the Landing page (_LandingPage_ class), the conformance page (_ConformanceClasses_) and the exception report (_Exception_).
+The diagram also describes the two resources specified in this Part 2: the collections page (_Collections_) and the collection description (_CollectionDescription_), as well as its associated classes.
 While these common resources are precisely described in the requirements to follow, they are presented here as a UML diagram for convenience.
 The transformation of this UML diagram into a list of tables, one for each class, can be found in <<annex-uml-tables>>.
 In case of discrepancy between this UML diagram, the UML tables, and the text of the requirements, the requirements should be considered correct.

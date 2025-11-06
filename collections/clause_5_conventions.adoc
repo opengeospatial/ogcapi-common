@@ -64,7 +64,9 @@ The Common API-2: GeoData Standard does not mandate the use of a specific coordi
 
 NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84h.
 
-OGC Abstract Specification Topic 2 – Referencing by Coordinates  (<<iso19111,ISO 19111>>) provides the conceptual model for Coordinate Reference Systems.
+NOTE: The order of coordinates for the bounding boxes and spatial intervals used within the collection description will always follow the axis order of the applicable CRS exactly.
+
+OGC Abstract Specification Topic 2 – Referencing by Coordinates  (<<iso19111,ISO 19111>>) provides the conceptual and logical model for Coordinate Reference Systems.
 
 In this Standard, coordinates are primarily used for describing the spatial extent for which data is available within a collection.
 
