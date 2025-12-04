@@ -35,13 +35,17 @@ properties:
          - 32.5
          - null
    trs:
-     type: string
      title: Temporal Coordinate Reference System
-     description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal')
+     description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+     anyOf:
+       - type: string
+       - type: object
    vrs:
-     type: string
      title: Vertical Coordinate Reference System
-     description: Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical')
+     description: Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical'). This should be a URI to a registered VRS if one is available, or a full description of the VRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+     anyOf:
+       - type: string
+       - type: object
    grid:
      $ref: 'grid.yaml'
    definition:

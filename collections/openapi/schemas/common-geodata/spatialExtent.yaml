@@ -103,12 +103,14 @@ properties:
        The default reference system is WGS 84 longitude/latitude.
        WGS 84 longitude/latitude/ellipsoidal height for coordinates with height.
        For data not referenced to Earth, another CRS may be specified.
+       This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
      anyOf:
        - type: string
        - type: string
          enum:
            - 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
            - 'http://www.opengis.net/def/crs/OGC/0/CRS84h'
+       - type: object
      default: 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
    grid:
      title: Grid description

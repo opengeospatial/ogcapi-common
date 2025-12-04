@@ -21,7 +21,7 @@ properties:
   boundsCoordinates:
     title: Bounds coordinates
     description: |-
-      Coordinates of the lower and upper bounds of each cell in absolute units for irregular grids describing the geometry each cell.
+      For irregular grids, an ordered list of the coordinates in absolute units of the lower and upper bounds of the dimension for each cell.
     type: array
     minItems: 1
     items:

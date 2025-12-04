@@ -41,11 +41,13 @@ properties:
        Coordinate reference system of the coordinates in the temporal extent
        (property `interval`). The default reference system is the Gregorian calendar.
        For data for which the Gregorian calendar is not suitable, such as geological time scale, another temporal reference system may be used.
+       This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
      anyOf:
        - type: string
        - type: string
          enum:
            - 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
+       - type: object
      default: 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
    grid:
      $ref: 'grid.yaml'
