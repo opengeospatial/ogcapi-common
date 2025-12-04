@@ -12,14 +12,14 @@ dimensions defined in a uniform manner, so that clients supporting this requirem
 [[umd-collection-definition]]
 === Uniform description of all dimensions
 
-The Uniform Multi-Dimension Collection is an extension of the <<collection-resource-definition-section,Collection>> resource.
+A Uniform Multi-Dimension Collection is an extension of the <<collection-resource-definition-section,Collection>> resource.
 
-This requirement class allows the definition of additional dimensions beyond spatial and temporal in a specific way which is consistent with the spatial and temporal dimensions.
+This requirements class supports the definition of additional dimensions beyond spatial and temporal in a specific way which is consistent with the spatial and temporal dimensions.
 
 Each dimension is identified by using a semantic `definition` property.
 An `interval` providing the lower and upper bound for the coordinates along that dimension also needs to be included, as well as a `unit` of measure where applicable.
 
-As an alternative or in addition to the `definition`, a temporal reference system (`trs`) or a vertical reference system (`vrs`) can be specified.
+As an alternative - or in addition to - the `definition`, a temporal reference system (`trs`) or a vertical reference system (`vrs`) can be specified.
 The `trs` or `vrs` property can be populated with either a URI or CURIE.
 
 NOTE: If a 3D CRS exists including the vertical dimension, that CRS should be used inside the "spatial" object of the extent, instead of defining a separate vertical dimension using `vrs`.
@@ -36,12 +36,12 @@ include::requirements/umd-collection/REQ_extent-uad-definition.adoc[]
 
 === Describing gridded dimensions
 
-For data which is gridded, whether using a regular or irregular grid, this conformance class defines a `grid` property which is used to describe such grids.
+For gridded data, whether using a regular or an irregular grid, this requirements class defines a `grid` property which is used to describe such grids.
 
 While the `interval` specified for the dimension (or `bbox` for spatial dimensions) describes the region occupied by all cells, including the region of validity or bounds of all measurements,
-this grid property describes in more details each individual measurement.
+this grid property describes in more detail each individual measurement.
 
-Common types of grids are often called _Measure-is-Area_ or _Measure-is-Point_, but especially in the case of sensor measurements, other situations in-between are also possible.
+Common types of grids are often called _Value-is-Area_ or _Value-is-Point_, but especially in the case of sensor measurements, other situations in-between are also possible.
 
 ==== Regular grids
 
@@ -55,7 +55,7 @@ the upper value corresponds to the `firstCoordinate` plus `cellsCount` times the
 For example, a regular grid where each measure is associated with infinitely small points would have `relativeBounds` of `[0, 0]`.
 With a `cellsCount` of 3, a `resolution` of 0.5, and a `firstCoordinate` at 0, the corresponding `interval` would be `[0, 1]`.
 
-.Diagram illustrating a _Measure-is-Point_ regular grid
+.Diagram illustrating a _Value-is-Point_ regular grid
 [source]
 ----
  0.0     0.5     1.0
@@ -66,7 +66,7 @@ With a `cellsCount` of 3, a `resolution` of 0.5, and a `firstCoordinate` at 0, t
 When each measure is associated with an area filling entire cells, there could be multiple ways to define the same grid
 based on a preference of how the coordinate points are defined. Consider the following regular grids, with a `cellsCount` of 2, a `resolution` of `0.5`, and an interval of `[0, 1]`.
 
-.Diagram illustrating a _Measure-is-Area_ regular grid
+.Diagram illustrating a _Value-is-Area_ regular grid
 [source]
 ----
  0.0      0.5     1.0
@@ -81,14 +81,14 @@ Another equivalent way to describe the same grid would be a `firstCoordinate` at
 If the `relativeBounds` property is not provided, the default relative bounds of the cells are assumed to be `[-resolution/2, resolution/2]`.
 In other words, the cell, or the region of validity of the measurement, is centered on each repeating point starting from the `firstCoordinate`.
 
-For a _Measure-is-Area_ grid, the `interval` (or `bbox` for the spatial dimensions) will be `resolution/2` larger in each direction compared to the same number of cells and same resolution
-representing _Measure-is-Point_ values.
+For a _Value-is-Area_ grid, the `interval` (or `bbox` for the spatial dimensions) will be `resolution/2` larger in each direction compared to the same number of cells and same resolution
+for a _Value-is-Point_ grid.
 
 ==== Irregular grids
 
 Irregular grids are described by explicitly listing a sequence of `coordinates` (one for each cell).
 
-Bounds for each coordinates can also be individually specified in a parallel `boundsCoordinates` array.
+Bounds for each coordinate can also be individually specified in a parallel `boundsCoordinates` array.
 
 If the `boundsCoordinates` property is not included, the default bounds of the cells are assumed to lie in the middle of the two values specified in `coordinates`, and for the two extremities,
 the lower (for the first cell) and upper bounds (for the last cell) are assumed to be at the same distance from the specified coordinate as to their immediate neighbor.

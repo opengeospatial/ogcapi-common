@@ -3,12 +3,12 @@
 ====
 [%metadata]
 identifier:: /req/umd-collection/grid-description
-part:: If data is organized along a regular or irregular grid for the temporal and any additional dimension, that dimension SHALL contain a `grid` object property describing the grid of that dimension.
-part:: If data is organized along a regular or irregular grid for the spatial dimensions, the `spatial` object SHALL contain a `grid` array property, where each element is an object describing the grid of that dimension.
+part:: If data is organized as a regular or irregular grid for the temporal and any additional dimension, that dimension SHALL contain a `grid` object property describing the grid of that dimension.
+part:: If data is organized as a regular or irregular grid for the spatial dimensions, the `spatial` object SHALL contain a `grid` array property, where each element is an object describing the grid of that dimension.
 part::
 +
 --
-If data is organized along a regular or irregular grid for a dimension, the grid object(s) for that dimension SHALL indicate the number of coordinates along the dimension in a `cellsCount` property. +
+If data is organized as a regular or irregular grid for a dimension, the grid object(s) for that dimension SHALL indicate the number of coordinates along the dimension in a `cellsCount` property. +
 
 * For values representing the whole area of contiguous cells spanning _resolution_ units along the dimension, the _cellsCount_ will be (_upperBound_ - _lowerBound_) / _resolution_. +
 * For values representing infinitely small point cells spaced by _resolution_ units along the dimension, the _cellsCount_ will be (_upperBound_ - _lowerBound_) / _resolution_ + 1.
