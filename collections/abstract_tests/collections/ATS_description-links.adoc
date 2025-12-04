@@ -9,8 +9,8 @@ test-method::
 +
 --
 . Verify that the Collection document includes a `links` property.
-. Verify that the `links` property includes an item which referes back to the Collection document (relation: `self`).
-. Verify that the `links` property includes an item for each supported encoding of this Collection document and that each of these items includes an `href` to an appropriate resource (relation: `alternate`).
+. Verify that the `links` property includes an item which refers back to the Collection document (relation: `self`).
+. Verify that the `links` property includes an item for each supported encoding of this Collection document and that each of these items includes a `href` to an appropriate resource (relation: `alternate`).
 . Verify that all links include the `rel` and `type` link parameters.
 --
 ====

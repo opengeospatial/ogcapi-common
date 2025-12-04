@@ -8,7 +8,7 @@ test-purpose:: Validate that the grid of gridded data is described
 test-method::
 +
 --
-FOR each dimension of the extents, including `spatial` and `temporal` as well as additional dimensions:
+For each dimension of the extents, including `spatial` and `temporal` as well as additional dimensions:
 
 . If the data is known or described as being organized according to a specific regular or irregular grid, validate that the dimension property includes a `grid` property.
 . If the data is known or described as being organized according to a regular grid, validate that the `grid` property validates against https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/regularGrid.yaml[regularGrid.yaml]

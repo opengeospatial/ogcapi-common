@@ -8,7 +8,7 @@ test-purpose:: Validate that a Collection document complies with the required st
 test-method::
 +
 --
-FOR each Collection description (`/collections/{collectionId}`) resource, validate:
+For each Collection description (`/collections/{collectionId}`) resource, validate:
 
 . That the Collection description resource includes an `id` property.
 . Validate the content of the Collection resource for all supported media types using the resources and tests identified in <<collection-metadata-schema>>

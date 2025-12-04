@@ -4,8 +4,8 @@
 [%metadata]
 identifier:: /conf/html/content
 target:: /req/html/content
-test-purpose:: Verify the content of an HTML document given an input document and schema. 
-test-method:: 
+test-purpose:: Verify the content of an HTML document given an input document and schema.
+test-method::
 +
 --
 . Validate that the document is an link:https://www.w3.org/TR/html5/[HTML 5 document]

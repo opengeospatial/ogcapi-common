@@ -4,14 +4,14 @@
 [%metadata]
 identifier:: /conf/umd-collection/extent-uad-definition
 target:: /req/umd-collection/extent-uad-definition
-test-purpose:: To verify that the collection descriptions follows the uniform schema for describing multi-dimensional data collections
+test-purpose:: To verify that the collection descriptions follow the uniform schema for describing multi-dimensional data collections
 test-method::
 +
 --
-FOR each additional dimension beyond `spatial` and `temporal`:
+For each additional dimension beyond `spatial` and `temporal`:
 
 . Validate that the dimension property includes an `interval` property,
-. Validate that the dimension property includes includes a `trs`, `vrs` or `definition`,
+. Validate that the dimension property includes a `trs`, `vrs` or `definition`,
 . Validate that the dimension property includes a `unit` if the `trs`, `vrs` or `definition` does not imply a specific unit.
 --
 

@@ -3,13 +3,13 @@
 ====
 [%metadata]
 identifier:: /req/html/content
-part:: 
+part::
 +
 --
-Every `200`-response of the API with the media type "text/html" SHALL be a link:https://www.w3.org/TR/html5/[HTML 5 document] that includes the following information in the HTML body:
+Every `200`-response of the API Implementation that has the media type "text/html" SHALL be a link:https://www.w3.org/TR/html5/[HTML 5 document] that includes the following information in the HTML body:
 
 * All information identified in the schemas of the
-link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#responseObject[Response Object] in the HTML `<body/>`, and 
+link:https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#responseObject[Response Object] in the HTML `<body/>`, and
 * All links in HTML `<a/>` elements in the HTML `<body/>`.
 --
 ====

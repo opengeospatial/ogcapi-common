@@ -5,7 +5,7 @@
 identifier:: /conf/json/definition
 target:: /req/json/definition
 test-purpose:: Verify support for JSON
-test-method:: 
+test-method::
 +
 --
 . A resource is requested with response media type of `application/json`
