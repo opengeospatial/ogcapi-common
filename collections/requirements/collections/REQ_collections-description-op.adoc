@@ -3,6 +3,6 @@
 ====
 [%metadata]
 identifier:: /req/collections/description-op
-part:: The API SHALL support the HTTP GET operation at the path `/collections/{collectionId}`, where the parameter `collectionId` can be
+part:: The Implementation SHALL support the HTTP GET operation at the path `/collections/{collectionId}`, where the parameter `collectionId` can be
 any values of the `id` property in the response to the list of collections (JSONPath: `$.collections[*].id` in `/collections`).
 ====

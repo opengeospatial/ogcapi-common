@@ -2,7 +2,9 @@
 == Requirements Class "Collections"
 include::requirements/requirements_class_collections.adoc[]
 
-This Requirements Class describes the resources and operations used to list and describe geospatial collection resources exposed through a Web API consistently across OGC API Standards. This class does neither specify how to organize your data into collections nor how to provide access to the data described in the collections. That level of detail is reserved for OGC Web API standards defining access mechanisms through specific resources (see <<access-mechanisms,Access mechanisms Section>>).
+The Collections Requirements Class consistently describes across the OGC API Standards suite the resources and operations used to list and describe geospatial collection resources exposed through a deployed Web API.
+This class neither specifies how to organize your data into collections nor how to provide access to the data described in the collections.
+That level of detail is reserved for OGC Web API Standards that define access mechanisms through specific resources (see <<access-mechanisms,Access mechanisms Section>>).
 
 include::recommendations/collections/REC_collections-part1-landing-page.adoc[]
 
@@ -20,7 +22,8 @@ The two resources defined by this Requirements Class are summarized in <<collect
 [[collections-list]]
 === List of Collections Resource (`/collections`)
 
-OGC API implementations typically organize their geospatial resources into collections. Information about those collections is accessed through the `/collections` path and the https://www.opengis.net/def/rel/ogc/1.0/data link relation.
+Implementations of OGC API Standards typically enable deployers to organize their geospatial data into collections.
+Information about those collections is accessed through the `/collections` path and the https://www.opengis.net/def/rel/ogc/1.0/data link relation.
 
 ==== Operation
 
@@ -49,22 +52,22 @@ Additional information may be available to assist in understanding and using thi
 
 include::recommendations/collections/REC_collections-collections-list-describedby.adoc[]
 
-The `collections` property of the Collections response provides a description of each individual collection hosted by the API.
+The `collections` property of the Collections response provides a description of each individual collection distributed by the Web API deployment.
 
 include::requirements/collections/REQ_collections-collections-list-collections.adoc[]
 
-The array items included in the `collection` property are described in the <<collection-description,Collection Resource>> section of this Requirements Class.
+The array items included in the `collection` property are described in the <<collection-description,Collection Resource>> section of the Collections Requirements Class.
 
-This Requirements Class does not define any parameters for use against a `collections` resource.
+The Collections Requirements Class does not define any parameters for use against a `collections` resource.
 
 Implementers who plan supporting the offering of large numbers of collections from the same API endpoint may consider extending
-their API with capabilities defined in OGC API - Records (with collections acting as the local resources of a local resource catalog),
-as well as candidate OGC API - Common extensions introducing capabilities for hierarchical collections, searching, filtering, and sorting collections.
+their API implementations with capabilities defined in the OGC API - Records Standard (with collections acting as the local resources of a local resource catalog),
+as well as candidate extensions to the OGC API - Common Standard that introduce capabilities for hierarchical collections, searching, filtering, and sorting collections.
 
 [[collections-list-examples]]
 ===== Collections Response Example
 
-This example response listing available collections in JSON is for a dataset with a single "buildings" feature collection.
+The following JSON example response lists available collections for a dataset with a single "buildings" feature collection.
 
 There is a link to the resource listing collections itself (link relation type: `self`).
 
@@ -72,8 +75,8 @@ Representations of this resource in other formats are referenced (link relation 
 
 An additional link is to the logical schema of the collection (link relation type: `[ogc-rel:schema]`).
 
-The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] and Gregorian calendar / Coordinated Universal Time (UTC),
-and should always be specified (or default) this way for data referenced to Earth and a time scale for which the Gregorian calendar is suitable.
+The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] and Gregorian calendar / Coordinated Universal Time (UTC).
+This spatiotemporal extent always needs to be specified (or default) this way for data referenced to Earth and a time scale for which the Gregorian calendar is suitable.
 For the spatial extent, the `crs` specified in the `spatial` property of the extent only describes the CRS of the `bbox` and is independent of the native / storage reference system of the data itself,
 which can be specified separately in the `storageCrs` property.
 For explicitly specifying the Gregorian calendar, the URI https://www.opengis.net/def/crs/OGC/0/GregorianDateTime can be used, or alternatively
@@ -120,7 +123,7 @@ Most of the properties of the Collection resource are self-explanatory. However,
 
 A collection description can include an `attribution` property allowing clients to display a short attribution for data being visualized.
 For example, this is often shown at the bottom of a map in a 2D interface.
-This attribution can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).
+This attribution, providing a way to identify the source of the geographic information, can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).
 If the 'attributionMediaType' indicates something other than `text/plain`, the `attribution` element string should be interpreted by a markup parser selected based on that media type to be presented to the user
 (e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics).
 See the example <<collection-description-examples,collection response>> for an example of the use of markup in the attribution element.
@@ -136,7 +139,7 @@ origin, ownership, funding and restrictions associated with the data: `about`, `
 [[collection-item-type-section]]
 ===== Item Type
 
-In some Geospatial collections, the members (`items`) that make up that collection can be individually accessed by a client. In this case, the `itemType` property in the Collection resource identifies the type of the `items` accessible from that collection.
+In some collections of geospatial data, the members (`items`) that make up that collection can be individually accessed by a client. In this case, the `itemType` property in the Collection resource identifies the type of the `items` accessible from that collection.
 
 include::recommendations/collections/REC_collections-description-item-type.adoc[]
 
@@ -156,10 +159,10 @@ The `http://www.opengis.net/def/rel/ogc/1.0/schema` link relation should be used
 [[collection-extent-section]]
 ===== Extent
 
-The extent property defines a spatial-temporal envelope that encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined.
+The extent property defines a spatiotemporal envelope that encompasses the geospatial data in the collection. Since not all collections are nicely clustered around a single place in space and time, the extent property provides flexibility in how that surface can be defined.
 
-* Spatial Bounding Box (Bbox) provides a set of rectangular bounding boxes which use geographic coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely-separated locations.
-* Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like Bbox, additional periods can be added if the collection does not form a single temporal cluster.
+* The Spatial bounding boxes (`bbox`, and optionally `storageCrsBbox`) provide a set of rectangular bounding boxes which use coordinates to envelope portions of the collection. Typically only the first element would be populated. Additional boxes may be useful, for example, when the collection is clustered in multiple, widely separated locations.
+* Temporal Interval provides a set of temporal periods. Typically only the first temporal period would be populated. However, like `bbox`, additional periods can be added if the collection does not form a single temporal cluster.
 
 The temporal reference system (`trs`) specified in the `temporal` property of the `extent` defines not only the reference system of the `interval`,
 but also the reference system for the primary temporal dimension of the data.
@@ -170,11 +173,11 @@ The native CRS of the data is specified separately in the `storageCrs` property 
 For some access mechanisms, this native CRS corresponds to the default output CRS.
 These access mechanisms may additionally support other output CRSs which are specified in the `crs` property of the collection description.
 
-For the `storageCrs` as well as for the `crs` list of supported output CRSs, implementors of web APIs based on OGC API standards are strongly recommended to reference existing CRS definitions in the form of URIs
-(or the equivalent CURIEs) such as the ones provided by the EPSG database. However, there are situations where the required CRS has not been registered with an authority.
+For the `storageCrs` as well as for the `crs` list of supported output CRSs, implementors of Web APIs based on OGC API standards are strongly recommended to reference existing CRS definitions in the form of URIs
+(or the equivalent CURIEs) such as the ones provided by the https://epsg.org/[EPSG Geodetic Parameter Dataset]. However, there are situations where the required CRS has not been registered with an authority.
 
-For these cases, where a URI does not exist, a http://www.opengis.net/doc/is/wkt-crs/2.0[Well-Known Text] definition of the coordinate reference system,
-or a JSON encoding of the CRS (using the PROJ JSON schema or a potential "CRS JSON" successor once defined by the OGC) can be specified.
+For these cases, where a URI does not exist, a http://www.opengis.net/doc/is/wkt-crs/2.0[Well-Known Text] string describing the coordinate reference system,
+or a JSON object encoding of the CRS (using the https://proj.org/en/stable/specifications/projjson.html[PROJJSON] schema or a potential "CRS JSON" successor if eventually standardized by the OGC) can be specified.
 
 Such alternate CRS definitions can also be used for the `crs` of the `bbox` for data in an engineering CRS or otherwise not georeferenced to Earth.
 
@@ -198,7 +201,7 @@ The CRSs available for output (which the client could potentially select using a
 ----
 
 WARNING: While some OGC API Standards explicitly support the use of CURIEs for properties of the collection description such as `storageCrs` and the `crs` array of supported output CRSs, other
-OGC API Standards do not. For servers implementing those OGC API Standards that do not allow the use of CURIEs there, full URIs therefore need to be used.
+OGC API Standards do not. For servers implementing those OGC API Standards that do not allow the use of CURIEs, full URIs therefore need to be used.
 
 // TODO: Create a recommendation to reference existing CRS definitions for `crs` and `storageCrs`
 
@@ -234,7 +237,7 @@ The response includes links to:
 
 Finally, this response includes both spatial and temporal extents.
 
-The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC),
+The reference systems for describing the spatiotemporal extent do not need to be specified, as they default to [OGC:CRS84] (longitude, latitude) and Gregorian calendar / Coordinated Universal Time (UTC)
 and should always be specified (or default) this way for data referenced to Earth and a time scale for which the Gregorian calendar is suitable.
 For the spatial extent, the `crs` specified in the `spatial` property of the extent only describes the CRS of the `bbox` and is independent of the native / storage reference system of the data itself,
 which can be specified separately in the `storageCrs` property.
@@ -256,7 +259,7 @@ If the parameter `collectionId` does not exist on the server, the status code of
 [[collections-api-records]]
 === OGC API - Records compliance
 
-When implementing this "Collections" requirement class, the `/collections` end-point can be considered a _Local Resource Catalog_, where the local resources are the collections being cataloged.
+When implementing the "Collections" requirement class, the `/collections` end-point can be considered a _Local Resource Catalog_, where the local resources are the collections being cataloged.
 
 This requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog[OGC API - Records - Part 1: Core "Local Resources Catalog" (Deployment)].
 An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.

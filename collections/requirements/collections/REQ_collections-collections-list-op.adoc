@@ -4,5 +4,5 @@
 [%metadata]
 identifier:: /req/collections/collections-list-op
 part:: The API SHALL support the HTTP GET operation at the path `/collections`.
-part:: If the API has a landing page (or an equivalent mechanism to expose root resources), this landing page or equivalent SHALL link to this resource listing collections (`/collections`) using the link relation type https://www.opengis.net/def/rel/ogc/1.0/data[https://www.opengis.net/def/rel/ogc/1.0/data].
+part:: If the deployed API instance has a landing page (or an equivalent mechanism to expose root resources), this landing page or equivalent SHALL link to this resource listing collections (`/collections`) using the link relation type https://www.opengis.net/def/rel/ogc/1.0/data[https://www.opengis.net/def/rel/ogc/1.0/data].
 ====

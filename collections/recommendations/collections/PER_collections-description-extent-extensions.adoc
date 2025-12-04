@@ -3,7 +3,7 @@
 ====
 [%metadata]
 identifier:: /per/collections/description-extent-extensions
-part:: This conformance class only specifies requirements for spatial and temporal extents.
+part:: This requirements class only specifies requirements for spatial and temporal extents.
 However, the `extent` object MAY be extended with additional members to represent other extents, such as thermal or pressure ranges.
 See the `Uniform additional dimension` conformance class for a well-defined way of describing additional dimensions.
 ====
