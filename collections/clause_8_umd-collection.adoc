@@ -86,7 +86,7 @@ for a _Value-is-Point_ grid.
 
 ==== Irregular grids
 
-Irregular grids are described by explicitly listing a sequence of `coordinates` (one for each cell).
+Irregular grids are described by explicitly listing a sequence of `coordinates` (one for each cell) along each irregularly gridded dimension(s).
 
 Bounds for each coordinate can also be individually specified in a parallel `boundsCoordinates` array.
 
