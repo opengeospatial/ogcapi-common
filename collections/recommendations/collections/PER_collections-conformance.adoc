@@ -1,0 +1,10 @@
+[[per_collections_conformance]]
+[permission]
+====
+[%metadata]
+identifier:: /per/collections/conformance
+part:: For an API deployment serving multiple data collections, the list of conformance classes supported by a specific collection MAY be linked to using the link relation
+https://www.opengis.net/def/rel/ogc/1.0/conformance. The content retrieved from that link would follow the same schema
+(https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[confClasses.yaml]) as the API-wide conformance declaration linked to from the landing page.
+When present, this collection-specific conformance declaration needs to explicitly list all conformance classes applicable to that collection.
+====

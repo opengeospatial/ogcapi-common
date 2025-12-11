@@ -250,6 +250,17 @@ https://www.opengis.net/def/uom/ISO-8601/0/Gregorian for compatibility with OGC 
 include::examples/collection_description.json[]
 ----
 
+[[collection-conformance]]
+===== Collection-specific conformance declaration
+
+A client might be able to guess, from the API-wide conformance declaration, which conformance classes are applicable specifically to a particular collection
+based on the data access mechanism(s) present within the links.
+For instance, if the collection links to a coverage endpoint, the client can guess that the Coverages conformance classes are applicable, while the Features classes are not.
+However, this may not be precise enough, for example in the case of scaling or subsetting being supported by one collection, but not by another.
+This permission suggests a way to declare the exact list of conformance classes that are applicable specifically to a particular collection.
+
+include::recommendations/collections/PER_collections-conformance.adoc[]
+
 ==== Error Situations
 
 See <<http-status-codes>> for general guidance.
