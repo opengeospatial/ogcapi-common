@@ -1,0 +1,20 @@
+[[ats_collections_rc-limit-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/collections/rc-limit-definition*
+^|Test Purpose |Validate that the limit query parameter is constructed correctly.
+^|Requirement |<<req_collections_rc-limit-definition,/req/collections/rc-limit-definition>>
+^|Test Method |Verify that the `limit` query parameter complies with the following definition (using an OpenAPI Specification 3.0 fragment):
+
+[source,YAML]
+----
+name: datetime
+in: query
+required: false
+schema:
+  type: string
+style: form
+explode: false
+----
+
+|===

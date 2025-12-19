@@ -1,0 +1,9 @@
+[[rc_sorting]]
+[cols="1,4",width="90%"]
+|===
+2+|*Requirements Class*
+2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/req/sorting
+|Target type |Web API
+|Dependency |<<rc_collections,Collections Requirements Class>>
+|Dependency |https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/sorting
+|===

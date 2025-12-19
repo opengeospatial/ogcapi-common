@@ -1,0 +1,68 @@
+= OGC API - Common - Part 4: Discovery within many collections
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:draft: 3.0
+:external-id: https://www.opengis.net/doc/is/ogcapi-common-4/1.0
+:docnumber: 25-046
+:received-date: 2029-03-30
+:issued-date: 2029-03-30
+:published-date: 2029-03-30
+:fullname: Charles Heazel
+:fullname_2: Joan Masó
+:fullname_3: Jérôme Jacovella-St-Louis
+:docsubtype: implementation
+:keywords: ogcdoc, OGC document, geographic information, spatial data, spatial things, dataset, distribution, API, json, html, OpenAPI, REST, Common
+:submitting-organizations: Heazeltech; Ecere Corporation; Universitat Autònoma de Barcelona (CREAF); UK Met Office; CubeWerx Inc.
+:mn-document-class: ogc
+:mn-output-extensions: html,pdf
+:local-cache-only:
+:data-uri-image:
+:pdf-uri: ./25-046.pdf
+:edition: 0.0.1
+
+
+include::clause_0_front_material.adoc[]
+
+include::clause_1_scope.adoc[]
+
+include::clause_2_conformance.adoc[]
+
+include::clause_3_references.adoc[]
+
+include::clause_4_terms_and_definitions.adoc[]
+
+include::clause_5_conventions.adoc[]
+
+include::clause_6_overview.adoc[]
+
+include::clause_7_searchable_collections.adoc[]
+
+include::clause_8_sortable_collections.adoc[]
+
+include::clause_9_filterable_collections.adoc[]
+
+include::clause_10_hierarchical_collections.adoc[]
+
+include::clause_11_media_types.adoc[]
+
+include::annex_ats.adoc[]
+
+// include::annex_uml_tables.adoc[]
+
+// include::annex_examples.adoc[]
+
+include::annex_glossary.adoc[]
+
+include::annex_bnf.adoc[]
+
+include::annex_http_status.adoc[]
+
+// include::annex_api_guidelines.adoc[]
+
+include::annex_history.adoc[]
+
+include::annex_bibliography.adoc[]
+

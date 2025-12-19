@@ -1,0 +1,12 @@
+[[mediatypes]]
+== Media Types
+
+The media type for lists of collections and collection description as JSON is `application/json`.
+
+The media type for HTML for all API resources would be `text/html`.
+
+See also https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 1: Core] Media Types section for additional media types such as Problem Details and OpenAPI API definitions.
+
+Other media types used in OGC Standards can be found on https://www.opengis.net/def/media-type[OGC Media Type Register].
+
+See also the https://www.iana.org/assignments/media-types/media-types.xhtml[IANA media type register].

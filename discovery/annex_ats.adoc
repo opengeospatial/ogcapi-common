@@ -1,0 +1,32 @@
+[appendix,obligation=normative]
+:appendix-caption: Annex
+[[annex-ats]]
+== Conformance Class Abstract Test Suite
+
+=== Introduction
+
+OGC Web APIs are not Web Services in the traditional sense. Rather, they define the behavior and content of a set of Resources exposed through a Web Application Programming Interface (Web API).
+Therefore, an API may expose resources in addition to those defined by the standard. A test engine must be able to traverse the API, identify and validate test points, and ignore resource paths which are not to be tested.
+
+The Conformance Classes addressed by this Abstract Test Suite are the:
+
+* <<ats_searchable-collections,Searchable Collections Conformance Class>>
+* <<ats_sortable-collections,Sortable Collections Conformance Class>>
+* <<ats_filterable-collections,Filterable Collections Conformance Class>>
+* <<ats_hierarchical-collections,Hierarchical Collections Conformance Class>>
+
+=== Conformance Class Searchable Collections
+
+include::abstract_tests/ATS_class_searchable-collections.adoc[]
+
+=== Conformance Class Sortable Collections
+
+// TODO: include::abstract_tests/ATS_class_sortable-collections.adoc[]
+
+=== Conformance Class Filterable Collections
+
+// TODO: include::abstract_tests/ATS_class_filterable-collections.adoc[]
+
+=== Conformance Class Hierarchical Collections
+
+// TODO: include::abstract_tests/ATS_class_hierarchical-collections.adoc[]

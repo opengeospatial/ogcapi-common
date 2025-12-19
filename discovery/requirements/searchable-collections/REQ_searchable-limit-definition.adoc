@@ -1,0 +1,7 @@
+[[req_searchable_limit-definition]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/searchable/limit-definition*
+^|A |The Implementation SHALL support a `limit` parameter consisting of a positive integer greater or equal to 1.
+The default value for this parameter is up to the server.
+|===

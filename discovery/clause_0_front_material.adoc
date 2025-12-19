@@ -1,0 +1,67 @@
+[abstract]
+== Abstract
+The OGC API — Common Standard is a multi-part standard which defines a set of documents whose requirements classes can be used to
+build resource and purpose-specific Web API specifications.
+This document, OGC API — Common — Part 4: Discovery Within Many Collections Standard (Common API-4: Discovery) is one
+of those parts. This part specifies query parameters to discover collections of interest within a Web API deployment serving several collections.
+
+The OGC Standards baseline has been extended to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures]
+and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs].
+In the course of developing OGC Web API standards, some practices proved to be common across multiple OGC Web API standards.
+These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable
+building-blocks. Standards developers can use these building-blocks in the construction of OGC Web API Standards.
+The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.
+
+////
+== Keywords
+
+Keywords inserted here automatically by Metanorma
+////
+
+
+== Preface
+
+This document defines the _OGC API - Common - Part 4: Discovery Within Many Collections_ Standard.
+Suggested additions, changes and comments on this standard are welcome and encouraged.
+Such suggestions may be submitted as an issue on the
+https://github.com/opengeospatial/ogcapi-common/issues[_OGC API - Common_ GitHub repository].
+
+////
+*OGC Declaration*
+////
+
+////
+[THIS TEXT IS ALREADY ADDED AUTOMATICALLY IN THE FRONT PIECE OF ALL OGC DOCUMENTS]
+
+Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+
+Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+////
+
+== Security Considerations
+
+Clients should avoid blindly processing HTML markup code in the attribution property of collection descriptions specified by this Standard.
+In particular, care should be taken to avoid running any `<script>` code, including inline event handlers (e.g., `onclick`)
+and dangerous href values like `javascript:`. All untrusted input should be sanitized to prevent script execution and to mitigate XSS vulnerabilities.
+
+See also the security considerations described in http://www.opengis.net/doc/is/ogcapi-common-1/1.0[OGC API - Common - Part 1: Core].
+
+== Acknowledgements
+
+A portion of this document has been derived from OGC API - Records - Part 1: Core and generalized to any data access mechanism.
+Since the content was actually embedded within this document, OGC API - Records is not cited as a normative reference.
+
+[.preface]
+== Submitters
+
+All questions regarding this submission should be directed to the editors or the submitters:
+
+|===
+|*Name* |*Affiliation*
+|Chuck Heazel _(editor)_ |Heazeltech
+|Jerome St-Louis _(editor)_ |Ecere Corporation
+|Joan Masó (editor) | Universitat Autònoma de Barcelona (CREAF)
+|Chris Little |UK Met Office
+|Carl Reed |Carl Reed & Associates
+|Panagiotis (Peter) A. Vretanos |CubeWerx Inc.
+|===

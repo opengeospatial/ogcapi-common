@@ -1,0 +1,8 @@
+[[ats_simplequery_dependency_collections]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/conf/simple-query/dependency-collections* 
+^|Test Purpose |Validate that Collections Conformance Class has been implemented
+^|Requirement |<<req_dependency-collections,/req/simple-query/rc-dependency-collections>>
+^|Test Method |Validate that the conformance test for the Collections Conformance Class has been pased.
+|===

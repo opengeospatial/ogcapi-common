@@ -1,0 +1,62 @@
+[[conformance-section]]
+== Conformance
+
+Conformance with this Standard shall be checked using the tests specified in Annex A (normative) of this document.
+
+The framework, concepts, and methodology for testing, and the criteria to claim conformance are specified in the <<citepp,OGC Compliance Testing Policies and Procedures>> and the
+https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
+
+The Standardization Target for this Standard is Web APIs.
+
+OGC API - Common - Part 4: Discovery Within Many Collections defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>.
+
+Typically, the OGC API - Common - Part 4: Discovery Within Many Collections will only be implemented through reference to these Conformance Classes by other standards.
+
+OGC API - Common - Part 4: Discovery Within Many Collections identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>.
+
+The tests in Annex A are organized by Requirements Class. Therefore, an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
+
+The requirements classes defined in Part 4: Discovery Within Many Collections are:
+
+* <<rc-searchable-collections-section,Searchable Collections>>
+* <<rc-sortable-collections-section,Sortable Collections>>
+* <<rc-filterable-collections-section,Filterable Collections>>
+* <<rc-hierarchical-collections-section,Hierarchichal Collections>>
+
+The <<rc-collections-section,Collections Requirements Class>> defines a common means to list and describe <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>,
+but does not mandate a specific encoding or format for representing resources.
+
+The <<rc-umd-collection-section,Uniform Multi-Dimension Collection Requirements Class>> defines a consistent way to describe the domain of multidimensional collections of data,
+including additional dimensions beyond space and time, as well as regular and irregular grids.
+
+The <<rc-html-section,_HTML_>> and <<rc-json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
+
+Common API-4: Discovery Within Many Collections builds on API modules defined in the `OGC API - Common - Part 2: Geospatial Data` (<<OGC20-024,CommonAPI-2: GeoData>>) Standard.
+
+Each <<requirements-class-definition,requirements class>> in the Common API-4: Discovery Standard depends on the Collections <<ctc-definition,Conformance Class>> class of CommonAPI-2: GeoData.
+
+Proof of conformance with a <<ctc-definition,Conformance Class>> includes demonstration of conformance with all dependencies of that <<ctc-definition,Conformance Class>>.
+
+The abstract tests in <<annex-ats,Annex A>> have been organized to facilitate validation of these dependencies.
+
+These tests have been organized by <<requirements-class-definition,requirements class>>.
+
+A referencing standard only has to require conformance with a <<ctc-definition,Conformance Class>> and all of the requirements and relevant tests are identified.
+
+In addition, each <<ctc-definition,conformance class>> includes one or more test.
+
+This Standard specifies the requirements necessary to discover and describe collections of data, but does not specify how to access that data.
+Other OGC API Standards define <<data-access-mechanism-definition, data access mechanisms>> which can be combined with the requirements classes defined in this Standard.
+
+=== Summary of conformance URIs
+
+[#table_conformance_urls,reftext='{table-caption} {counter:table-num}']
+.Conformance class URIs
+[cols="30,70",options="header"]
+|===
+| Corresponding requirements class                          | Conformance class URI
+| <<rc_searchable-collections,Searchable Collections>>      | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/searchable-collections
+| <<rc_sortable-collections,Sortable Collections>>          | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/sortable-collections
+| <<rc_filterable-collections,Filterable Collections>>      | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/filterable-collections
+| <<rc_hierarchical-collections,Hierarchical Collections>>  | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/hierarchical-collections
+|===

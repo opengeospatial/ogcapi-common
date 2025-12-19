@@ -1,0 +1,124 @@
+== Conventions
+This section provides details of conventions used in this document.
+
+[[identifiers-section]]
+=== Identifiers
+
+The normative provisions in this Standard are denoted by the URI `https://www.opengis.net/spec/ogcapi-common-2/1.0`.
+
+All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
+
+Additional information about the use of Identifiers in API-Common is provided in the https://docs.ogc.org/guides/20-071.html[OGC API - Common Users Guide].
+
+[[link-relations-section]]
+=== Link relations
+
+<<rfc8288,RFC 8288 (Web Linking)>> is used by this standard to express relationships between resources. https://www.iana.org/assignments/link-relations/link-relations.xhtml[Link relation types] from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
+
+The link relationships used in Common API-2: GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
+
+[#link-relations-table,reftext='{table-caption} {counter:table-num}']
+.Link Relations
+[width="90%",cols=",",options="header"]
+|===
+^|**Link Relation** ^|**Purpose**
+|`alternate` |Refers to a substitute for this context [IANA]. +
+Refers to a representation of the current resource which is encoded using another media type (the media type is specified in the `type` link attribute).
+|`https://www.opengis.net/def/rel/ogc/1.0/data-meta` |Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.
+|`collection` |The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
+|`https://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
+|`https://www.opengis.net/def/rel/ogc/1.0/data` |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
+|`describedby`|Refers to a resource providing information about the link's context. [IANA] +
+Links to external resources which further describe the subject resource
+|`http://www.opengis.net/def/rel/ogc/1.0/schema` |Refers to a resource that lists the properties of geospatial data in the collection represented by the link’s context. (OGC API - Common - Part 3) [OGC]
+|`item` |The target IRI points to a resource that is a member of the collection represented by the context IRI. [IANA]
+|`https://www.opengis.net/def/rel/ogc/1.0/items` |Refers to a resource that is comprised of members of the collection represented by the link's context. [OGC]
+|`license`             |Refers to a license associated with this context. [IANA]
+|`cite-as`             |Indicates that the link target is preferred over the link context for the purpose of permanent citation. [IANA]
+|`about`               |Refers to a resource that is the subject of the link's context. [IANA]
+|`author`              |Refers to the context's author. [IANA]
+|`disclosure`          |Refers to a list of patent disclosures made with respect to material for which 'disclosure' relation is specified. [IANA]
+|`copyright`           |Refers to a copyright statement that applies to the link's context. [IANA]
+|`sponsored`           |Refers to a resource that is within a context that is sponsored (such as advertising or another compensation agreement). [IANA]
+|`terms-of-service`    |Refers to the terms of service associated with the link's context. [IANA]
+|`self`|Conveys an identifier for the link's context. [IANA] +
+A link to another representation of this resource.
+|`service-desc`|Identifies service description for the context that is primarily intended for consumption by machines. [IANA] +
+API definitions are considered service descriptions.
+|`service-doc`|Identifies service documentation for the context that is primarily intended for human consumption. [IANA]
+|`service-meta`|Identifies general metadata for the context that is primarily intended for consumption by machines. [IANA]
+|===
+
+Additional information on the use of link relationships is provided in the link:https://docs.ogc.org/guides/20-071.html#link-relations-section[OGC API - Common Users Guide].
+
+[[coordinate-reference-systems]]
+=== Coordinate Reference Systems
+
+As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of
+publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
+
+The Common API-2: GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
+
+* [OGC:CRS84] - WGS 84 longitude and latitude without height
+* [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height
+
+NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84h.
+
+NOTE: The order of coordinates for the bounding boxes and spatial intervals used within the collection description will always follow the axis order of the applicable CRS exactly.
+
+OGC Abstract Specification Topic 2 – Referencing by Coordinates  (<<iso19111,ISO 19111>>) provides the conceptual and logical model for Coordinate Reference Systems.
+
+In this Standard, coordinates are primarily used for describing the spatial extent for which data is available within a collection.
+
+[[temporal-instants-interval]]
+=== Temporal instants and intervals
+
+API - Common adopts the Gregorian calendar and a 24 hour time keeping system for describing temporal instants and intervals.
+All representations of these temporal elements which are discussed in this document conform to <<rfc3339,RFC 3339>>.
+
+An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in <<date-time-bnf-annex,Annex F>>.
+
+Temporal instants and intervals are measured relative to an underlying temporal reference system (TRS).
+This Common API-2: GeoData Standard does not mandate a specific temporal coordinate reference system.
+However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal reference systems may be used where appropriate.
+
+=== API definition
+
+==== General remarks
+
+The OGC Common API - 2: GeoData specifies requirements and recommendations for the development of APIs allowing to list and describe spatial resources using a standard way of doing so.
+In general, deployed APIs will go beyond the requirements and recommendations stated in this Standard, in particular by implementing other OGC API Standards specifying data access mechanims.
+A particular Web API implementation will support additional operations, parameters, and so on that are specific to that implementation.
+
+So that developers can more easily learn how to use the deployed API, good documentation is essential.
+In the best case, documentation would be available both in HTML for human consumption and in a machine readable format that can be processed by software for compile-time or run-time binding.
+OpenAPI is one way to provide that machine readable documentation.
+
+==== Role of OpenAPI
+
+The OGC Common API - 2: GeoData uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API Standard.
+Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
+
+The OGC API - Common - Part 1 Standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
+Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
+An API definition is required for implementations conforming to the OGC API - Part 1: Core "Landing Page" requirements class.
+
+==== References to JSON Schema components in normative statements
+
+Some normative statements (requirements) use a phrase that a response to a request must validate against a JSON Schema component in the OGC schema repository.
+
+In this case, implementations of this API are free to extend those components in the following ways:
+
+* Supporting representations in other media types beyond JSON following the conceptual model described by the JSON Schema
+* The range of values of a property may be extended (additional values) or constrained (only a subset of all possible values is allowed).
+An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an _enum_.
+* Additional properties may be added to the schema (unless explicitly disallowed by the JSON Schema).
+* When providing an API definition, informative text, such as comments or description properties, may be changed or added.
+
+==== Reusable OpenAPI components
+
+Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
+They are available from the OGC Schemas Registry at https://schemas.opengis.net/ogcapi/common/part1/1.0[https://schemas.opengis.net/ogcapi/common/part1/1.0] and
+https://schemas.opengis.net/ogcapi/common/part2/1.0[https://schemas.opengis.net/ogcapi/common/part2/1.0].
+
+Additional information on the use of OpenAPI as an API definition is provided in the https://docs.ogc.org/guides/20-071.html#toc22[OGC API - Common Users Guide].

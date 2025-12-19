@@ -1,0 +1,45 @@
+[appendix,obligation=informative]
+:appendix-caption: Annex
+[[Glossary]]
+== Glossary
+
+[[ctm-definition]]
+*Conformance Test Module* +
+set of related tests, all within a single conformance test class (<<ogc08-131r3,OGC 08-131r3>>)
+
+NOTE: When no ambiguity is possible, the word `test` may be omitted. i.e. <<ctm-definition,conformance test module>> is the same as <<ctm-definition,conformance module>>. Conformance modules may be nested in a hierarchical way. +
+This term and those associated to it are included here for consistency with ISO 19105.
+
+[[ctc-definition]]
+*Conformance Test Class; Conformance Test Level* +
+set of <<ctm-definition,conformance test modules>> that must be applied to receive a single *certificate of conformance*. (<<ogc08-131r3,OGC 08-131r3>>)
+
+NOTE: When no ambiguity is possible, the word `test` may be left out, so <<ctc-definition,conformance test class>> may be called a <<ctc-definition,conformance class>>.
+
+[[ets-definition]]
+*Executable Test Suite (ETS)* +
+A set of code (e.g. Java and CTL) that provides runtime tests for the assertions defined by the ATS. Test data required to do the tests are part of the ETS https://portal.opengeospatial.org/files/?artifact_id=55234[(OGC 08-134)]
+
+[[recommendation-definition]]
+*Recommendation* +
+expression in the content of a document conveying that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required, or that (in the negative form) a certain possibility or course of action is deprecated but not prohibited (<<ogc08-131r3,OGC 08-131r3>>) 
+
+NOTE: "Although using normative language, a <<recommendation-definition,recommendation>> is not a <<requirement-definition,requirement>>. The usual form replaces the `shall` (imperative or command) of a <<requirement-definition,requirement>> with a `should` (suggestive or conditional)." (ISO Directives Part 2)
+
+[[requirement-definition]]
+*Requirement* +
+expression in the content of a document conveying criteria to be fulfilled if compliance with the document is to be claimed and from which no deviation is permitted (<<ogc08-131r3,OGC 08-131r3>>)
+
+[[requirements-class-definition]]
+*Requirements Class* +
+aggregate of all requirement modules that must all be satisfied to satisfy a conformance test class (<<ogc08-131r3,OGC 08-131r3>>)
+
+[[requirements-module-definition]]
+*Requirements Module* +
+aggregate of <<requirement-definition,requirements>> and <<recommendation-definition,recommendations>> of a specification against a single <<standardization-target-definition,standardization target>> type (<<ogc08-131r3,OGC 08-131r3>>)
+
+[[standardization-target-definition]]
+*Standardization Target* +
+entity to which some requirements of a standard apply (<<ogc08-131r3,OGC 08-131r3>>)
+
+NOTE: The standardization target is the entity which may receive a certificate of conformance for a requirements class.
