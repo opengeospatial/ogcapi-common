@@ -1028,7 +1028,7 @@
 			</element>
 			<element xmi:idref="EAID_547BEB7F_CDEA_48e0_A323_3172C0215FD6" xmi:type="uml:Class" name="CollectionDescription" scope="public">
 				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="3" ea_localid="30" ea_eleType="element"/>
-				<properties documentation="Description of a collection. It is returned by the Web API at \collections\{collectionId}" isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<properties documentation="Description of a collection. It is returned by the Web API at /collections/{collectionId}" isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
 				<project author="gobehobona" version="1.0" phase="1.0" created="2024-08-09 16:15:23" modified="2025-09-30 17:37:05" complexity="1" status="Proposed"/>
 				<code product_name="Java" gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
@@ -1038,7 +1038,7 @@
 				<attributes>
 					<attribute xmi:idref="EAID_3DE8F3FF_306D_47ae_BF3C_3545F4C5B0EA" name="id" scope="Public">
 						<initial/>
-						<documentation value="Identifier of the collection (sometimes referred as collectionId). It is used in the Web API as path parameter in \collections\{collectionId}&#xA;"/>
+						<documentation value="Identifier of the collection (sometimes referred as collectionId). It is used in the Web API as path parameter in /collections/{collectionId}"/>
 						<model ea_localid="25" ea_guid="{3DE8F3FF-306D-47ae-BF3C-3545F4C5B0EA}"/>
 						<properties type="String" derived="0" precision="0" collection="false" length="0" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0" scale="0"/>
