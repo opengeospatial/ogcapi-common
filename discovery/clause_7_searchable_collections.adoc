@@ -9,12 +9,13 @@ This Requirements Class describes query parameters that can be used to discover 
 [[searchable-overview]]
 === Overview
 
-This "Searchable Collections" defines four query parameters which can be used with the `/collections` endpoint (described in the <<rc-collections-section,Collections>> Requirements Class)
+This "Searchable Collections" defines four query parameters which can be used with the `/collections` endpoint (described in the https://docs.ogc.org/DRAFTS/20-024.html#rc-collections-section[Collections Requirements Class of OGC API - Common - Part 2: Geospatial Data])
 to select which collections to return on a GET request:
 
 * <<searchable-bbox-parameter,bbox>>: Bounding Box
 * <<searchable-datetime-parameter,datetime>>: Date and Time
 * <<searchable-q-parameter,q>>: Search for specific terms (at least in title, description and keywords)
+* <<searchable-query-parameter,query>>: Like `q`, but with the possibility to search for occurences of multiple terms being present together (`+`) or excluding on or more terms (`-`)
 * <<searchable-limit-parameter,limit>>: Response resource count limit
 
 If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 1: Core] "Landing Page", these supported query parameters need to be described in the API definition as described in that part.
@@ -22,21 +23,21 @@ If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Pa
 [[searchable-api-records]]
 === OGC API - Records compliance
 
-This "Searchable Collections" requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_query-parameters[OGC API - Records - Part 1: Core "Local Resources Catalog - Query Parameters" (Deployment)].
+This "Searchable Collections" requirement class is consistent with the requirements of https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog_query-parameters[OGC API - Records - Part 1: Core "Local Resources Catalog - Query Parameters" (Deployment)].
 An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
 In this case, in addition to the five OGC API - Records requirement classes mentioned in the <<collections-api-records,Collections requirements class>>, the implementation should verify and declare conformance with these additional two conformance classes defined in Records corresponding to the following URIs:
 
 [cols="2,7",options="header"]
 |===
 | OGC API - Records Requirements Class | URI
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-record-core-query-parameters[Query Parameters]                             | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-query-parameters
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_query-parameters[Local Resources Catalog - Query Parameters] | http://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog-query-parameters
+| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-record-core-query-parameters[Query Parameters]                                       | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/record-query-parameters
+| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog_query-parameters[Local Resources Catalog - Query Parameters] | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog-query-parameters
 |===
 
 The additional requirements include also supporting the query parameters `type`, `ids` and `externalIds`.
 
 [[searchable-bbox-parameter]]
-=== Parameter `bbox`
+=== Query Parameter `bbox`
 
 The `bbox` parameter is used to select collections based on the geospatial footprint or extent.
 
@@ -70,9 +71,9 @@ If the vertical axis is included, the third and the sixth number are the bottom 
 A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/bbox.yaml[bbox.yaml].
 
 [[searchable-datetime-parameter]]
-=== Parameter `datetime`
+=== Query Parameter `datetime`
 
-The `datetime` parameter selects collections based on their temporal extent.
+The query `datetime` parameter selects collections based on their temporal extent.
 
 The `datetime` parameter is defined as follows:
 
@@ -119,7 +120,7 @@ March 18, 2018, 12:31:12 UTC or earlier:
 A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/datetime.yaml[datetime.yaml].
 
 [[searchable-q-parameter]]
-=== Parameter `q`
+=== Query Parameter `q`
 
 The `q` parameter allows selecting collections with a comma-separated list of terms at minimum in the `title`, `description` and `keywords` properties of the collection descriptions.
 
@@ -130,7 +131,7 @@ Terms separated by a space must appear in the order specified, with nothing but 
 include::./requirements/searchable-collections/REQ_searchable-q.adoc[]
 
 [[searchable-query-parameter]]
-=== Parameter `query`
+=== Query Parameter `query`
 
 The `query` parameter is similar to the `q` parameter, but additionally specifies the use of the `+++` character between words to indicate that all terms separated by the `+` must be present,
 regardless of other terms appearing in between, and regardless of the order in which they appear.
@@ -149,7 +150,7 @@ NOTE: This `query` parameter is not specified in OGC API - Records, and is disti
 include::./requirements/searchable-collections/REQ_searchable-query.adoc[]
 
 [[searchable-limit-parameter]]
-=== Parameter `limit`
+=== Query Parameter `limit`
 
 The `limit` parameter limits the number of collections that can be returned in a response.
 
@@ -196,7 +197,7 @@ include::requirements/searchable-collections/REQ_searchable-numberReturned.adoc[
 If the collections response contains a subset of the selected collection items (`numberReturned` is less than `numberMatched`) then the collections response should contain links for navigating to the rest of the collection items as described above.
 
 [[searchable-below-sd-parameter]]
-=== Parameter `below-sd`
+=== Query Parameter `below-sd`
 
 The `below-sd` parameter allows searching for collections usable at the scale denominator specified,
 allowing to filter out low-resolution datasets not suitable for the intended purpose.

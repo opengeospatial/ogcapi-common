@@ -9,7 +9,7 @@ This Requirements Class describes query parameters that can be used to discover 
 [[filtering-overview]]
 === Overview
 
-This "Filtering Collections with CQL2" defines query parameters which can be used with the `/collections` endpoint (described in the <<rc-collections-section,Collections>> Requirements Class)
+This "Filtering Collections with CQL2" defines query parameters which can be used with the `/collections` endpoint (described in the https://docs.ogc.org/DRAFTS/20-024.html#rc-collections-section[Collections Requirements Class of OGC API - Common - Part 2: Geospatial Data])
 to select which collections to return on a GET request:
 
 * <<filtering-filter-parameter,filter>>: The expression used as a filter
@@ -27,12 +27,12 @@ In this case, in addition to the five OGC API - Records requirement classes ment
 [cols="2,7",options="header"]
 |===
 | OGC API - Records Requirements Class | URI
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-filtering[Filtering]                                                       | http://www.opengis.net/spec/ogcapi-records-1/1.0/req/filtering
-| https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_filtering[Local Resources Catalog - Filtering]     | http://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/filtering
+| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-filtering[Filtering]                                                       | https://www.opengis.net/spec/ogcapi-records-1/1.0/req/filtering
+| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog_filtering[Local Resources Catalog - Filtering]     | https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/filtering
 |===
 
 [[filtering-filter-parameter]]
-=== Parameter `filter`
+=== Query Parameter `filter`
 
 
 [[filtering-filter-lang-parameter]]

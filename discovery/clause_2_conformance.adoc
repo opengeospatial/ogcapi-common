@@ -8,11 +8,12 @@ https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
 
 The Standardization Target for this Standard is Web APIs.
 
-OGC API - Common - Part 4: Discovery Within Many Collections defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>.
+OGC API - Common - Part 4: Discovery Within Many Collections defines API components intended for re-use by other OGC Web API standards.
+For the purpose of conformance, the applicable API components are identified by Conformance Classes.
 
 Typically, the OGC API - Common - Part 4: Discovery Within Many Collections will only be implemented through reference to these Conformance Classes by other standards.
 
-OGC API - Common - Part 4: Discovery Within Many Collections identifies four <<ctc-definition,conformance classes>>. Each conformance class is defined by one <<requirements-class-definition,requirements class>>.
+OGC API - Common - Part 4: Discovery Within Many Collections identifies four conformance classes. Each conformance class is defined by one <<requirements-class-definition,requirements class>>.
 
 The tests in Annex A are organized by Requirements Class. Therefore, an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
 
@@ -23,30 +24,19 @@ The requirements classes defined in Part 4: Discovery Within Many Collections ar
 * <<rc-filterable-collections-section,Filterable Collections>>
 * <<rc-hierarchical-collections-section,Hierarchichal Collections>>
 
-The <<rc-collections-section,Collections Requirements Class>> defines a common means to list and describe <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>,
-but does not mandate a specific encoding or format for representing resources.
+Common API-4: Discovery Within Many Collections builds on API components defined in the https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 2: Geospatial Data] Standard.
 
-The <<rc-umd-collection-section,Uniform Multi-Dimension Collection Requirements Class>> defines a consistent way to describe the domain of multidimensional collections of data,
-including additional dimensions beyond space and time, as well as regular and irregular grids.
+Each <<requirements-class-definition,requirements class>> in the Common API-4: Discovery Standard depends on the https://docs.ogc.org/DRAFTS/20-024.html#rc-collections-section[Collections Requirements Class of CommonAPI-2: GeoData].
 
-The <<rc-html-section,_HTML_>> and <<rc-json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
-
-Common API-4: Discovery Within Many Collections builds on API modules defined in the `OGC API - Common - Part 2: Geospatial Data` (<<OGC20-024,CommonAPI-2: GeoData>>) Standard.
-
-Each <<requirements-class-definition,requirements class>> in the Common API-4: Discovery Standard depends on the Collections <<ctc-definition,Conformance Class>> class of CommonAPI-2: GeoData.
-
-Proof of conformance with a <<ctc-definition,Conformance Class>> includes demonstration of conformance with all dependencies of that <<ctc-definition,Conformance Class>>.
+Proof of conformance with a Conformance Class includes demonstration of conformance with all dependencies of that Conformance Class.
 
 The abstract tests in <<annex-ats,Annex A>> have been organized to facilitate validation of these dependencies.
 
 These tests have been organized by <<requirements-class-definition,requirements class>>.
 
-A referencing standard only has to require conformance with a <<ctc-definition,Conformance Class>> and all of the requirements and relevant tests are identified.
+A referencing standard only has to require conformance with a Conformance Class and all of the requirements and relevant tests are identified.
 
-In addition, each <<ctc-definition,conformance class>> includes one or more test.
-
-This Standard specifies the requirements necessary to discover and describe collections of data, but does not specify how to access that data.
-Other OGC API Standards define <<data-access-mechanism-definition, data access mechanisms>> which can be combined with the requirements classes defined in this Standard.
+In addition, each conformance class includes one or more test.
 
 === Summary of conformance URIs
 

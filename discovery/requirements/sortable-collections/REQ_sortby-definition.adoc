@@ -1,0 +1,10 @@
+[[req_searchable-collections_sortby-param]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/sortable-collections/sortby-param
+part:: The `/collections` resource SHALL support a query parameter `sortby` for the GET operation whose value can be a comma-separated list of sortables expressed as text using the pattern `'[+\|-]?[A-Za-z_].*'`.
+part:: The default sort order for a given sortable when not explicitly specified SHALL be ascending (i.e., `+`).
+// Do we want to require a minimum set of collections sortable? part:: The Implemntation SHALL support at minimum `id` and `title` as sortables.
+====

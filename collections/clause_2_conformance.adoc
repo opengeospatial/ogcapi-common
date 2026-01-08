@@ -8,7 +8,7 @@ https://www.ogc.org/compliance/[OGC Compliance Testing] web site.
 
 The Standardization Target for this Standard is Web APIs.
 
-OGC API - Common - Part 2: Geospatial Data defines API modules intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API modules are identified by <<ctc-definition,Conformance Classes>>.
+OGC API - Common - Part 2: Geospatial Data defines API components intended for re-use by other OGC Web API standards. For the purpose of conformance, the applicable API components are identified by <<ctc-definition,Conformance Classes>>.
 
 Typically, the OGC API - Common - Part 2: Geospatial Data will only be implemented through reference to these Conformance Classes by other standards.
 
@@ -31,7 +31,7 @@ including additional dimensions beyond space and time, as well as regular and ir
 
 The <<rc-html-section,_HTML_>> and <<rc-json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
 
-Common API-2: GeoData builds on API modules defined in the `OGC API - Common - Part 1: Core` (<<OGC19-072,API-Core>>) Standard.
+Common API-2: GeoData builds on API components defined in the `OGC API - Common - Part 1: Core` (<<OGC19-072,API-Core>>) Standard.
 
 Each <<requirements-class-definition,requirements class>> in the Common API-2: GeoData Standard identifies any API-Core <<ctc-definition,Conformance Classes>> upon which it depends.
 
