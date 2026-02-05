@@ -23,7 +23,8 @@ The two resources defined by this Requirements Class are summarized in <<collect
 === List of Collections Resource (`/collections`)
 
 Implementations of OGC API Standards typically enable deployers to organize their geospatial data into collections.
-Information about those collections is accessed through the `/collections` path and the https://www.opengis.net/def/rel/ogc/1.0/data link relation.
+Information about those collections is accessed through the `/collections` path, which is linked to using the https://www.opengis.net/def/rel/ogc/1.0/data link relation
+(or simply `data` for compatibility with OGC API - Features).
 
 ==== Operation
 

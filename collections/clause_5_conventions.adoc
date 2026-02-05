@@ -27,7 +27,7 @@ Refers to a representation of the current resource which is encoded using anothe
 |`https://www.opengis.net/def/rel/ogc/1.0/data-meta` |Identifies general metadata for the context (dataset or collection) that is primarily intended for consumption by machines.
 |`collection` |The target IRI points to a resource which represents the collection resource for the context IRI. [IANA]
 |`https://www.opengis.net/def/rel/ogc/1.0/conformance`|Refers to a resource that identifies the specifications that the link's context conforms to. [OGC]
-|`https://www.opengis.net/def/rel/ogc/1.0/data` |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
+|`https://www.opengis.net/def/rel/ogc/1.0/data` (or `data`) |Indicates that the link's context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API. [OGC]
 |`describedby`|Refers to a resource providing information about the link's context. [IANA] +
 Links to external resources which further describe the subject resource
 |`http://www.opengis.net/def/rel/ogc/1.0/schema` |Refers to a resource that lists the properties of geospatial data in the collection represented by the link’s context. (OGC API - Common - Part 3) [OGC]
