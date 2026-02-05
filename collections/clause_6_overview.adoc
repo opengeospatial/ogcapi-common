@@ -92,132 +92,149 @@ IMPORTANT: While the UML class model attributes use the singular for elements wi
 
 === Collection Description Properties
 
-[cols="1,1,2", options="header"]
+The following table lists all properties defined as part of the collection description.
+Note that only the `id` and `links` are mandatory. The `"rel": "self"` link is the only mandatory link, and usually at least one link tied to a specific data access mechanism
+(e.g., `"rel": "items"` or `"rel": "[ogc-rel:map]"`) should be included.
+This set of properties is neither a minimal subset, nor a comprehensive union of all properties defined by all OGC API Standards,
+but a list of all properties identified as being in use by two or more OGC API Standards, without being tied to any particular data access mechanism.
+
+Several of the properties originate from the https://docs.ogc.org/is/17-083r4/17-083r4.html#table14[2D Tile Matrix Set and TileSet Metadata], which itself was largely derived from the
+https://docs.ogc.org/per/19-082r1.html[Vector Tiles Pilot TileSet Metadata Engineering Report].
+Other properties originate from OGC API - Records (https://docs.ogc.org/is/20-004r1/20-004r1.html#core-properties[core records properties]), as a collection can be thought as a record resource
+as part of a https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog[Local Resource Catalog].
+
+This collection description remains extensible (it does not set `"additionalProperties": false`), and does not preclude the addition of new properties by new OGC API standards.
+However, to ensure consistency across the OGC API Standards, new OGC API Standards should consider reusing these properties when their functionality is relevant, and avoid defining
+new conflicting properties (with same name but different semantics).
+
+[#collection-description-properties,reftext='{table-caption} {counter:table-num}']
+.JSON Collection Description Properties
+[cols="1,1,3", options="header"]
 |===
 | Name (as encoded in JSON) | JSON Type | Definition
-| id [1]
+| **id**
 | String
-| Identifier of the collection (sometimes referred as collectionId). It is used in the Web API as path parameter in `/collections/{collectionId}`
+| **_(required)_** Identifier of the collection (sometimes referred as collectionId). It is used in the Web API as path parameter in `/collections/{collectionId}`
 
-| title [0..1]
+| **title**
 | String
 | A short, human-readable summary of the collection
 
-| description [0..1]
+| **description**
 | String
 | A human-readable explanation about data in the collection
 
-| extent[0..1]
+| **extent**
 | Extent
 | The extent where and when data from this collection is available
 
-| links[1..*]
+| **links**
 | array of Link
-| Links to this or other resources related to this collection
+| **_(required)_** Links to this or other resources related to this collection
 
-| attribution [0..1]
+| **attribution**
 | String
-| For the collection that can contain markup text whose format may be indicated in the attributionMediaType property. That format can be either plain text (text/plain), HTML (text/html) or CommonMark (text/markdown)
+| For the collection that can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or CommonMark (`text/markdown`)
 
-| attributionMediaType [0..1]
+| **attributionMediaType**
 | AttributionMediaTypeCode
-| Media type for the markup language of the attribution: It can be either plain text (text/plain), HTML (text/html) or CommonMark (text/markdown).
+| Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or CommonMark (`text/markdown`).
 
-| accessContraints [0..1]
-| AccessContraintsCode
+| **accessContraints**
+| AccessContraintsCode (`unclassified`, `restricted`, `confidential`, `secret`, `topSecret`)
 | Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data.
 
-| parent [0..1]
+| **parent**
 | String
-| A id of a collection that is the parent of this collection in a hierarchical relation. For example a rivers’ collection can have an topographic collection as parent.
+| An `id` of a collection that is the parent of this collection in a hierarchical relation. For example a rivers’ collection can have an topographic collection as parent.
 
-| publisher [0..1]
+| **publisher**
 | String
 | Organization or individual responsible for making the data available
 
-| contacts [0..*]
+| **contacts**
 | array of Contact
 | A list of contacts qualified by their role(s) in association to the collection
 
-| license [0..1]
+| **license**
 | String
 | The legal provisions under which the data of this collection is made available
 
-| resourceLanguages [0..*]
+| **resourceLanguages**
 | array of ResourceLanguage
 | The list of languages in which the data of this collection is available.
 
-| rights [0..1]
+| **rights**
 | String
 | A statement that concerns all rights not addressed by the license such as a copyright statement
 
-| keywords [0..1]
+| **keywords**
 | String
 | The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes
 
-| themes [0..*]
-| array of Themes
+| **themes**
+| array of Theme
 | A knowledge organization system used to classify the resource
 
-| itemType [0..1]
+| **itemType**
 | String
-| Indicator about the type of the items in the collection if the collection has an accessible `/collections/{collectionId}/items` endpoint
+| Indicator about the type of the items in the collection if the collection has an accessible `/collections/{collectionId}/items` endpoint (e.g., `feature` or `record`)
 
-| dataType [0..1]
+| **dataType**
 | String
-| Type of data use to represent the data in the collection. Can be map, vector or coverage
+| Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
 
-| formats [0..*]
+| **formats**
 | array of Format
 | A list of formats in which the data of this collection is distributed
 
-| geoDataClasses [*]
-| anyURI
-| URIs identifying a class of data contained in the geospatial data (useful for example to determine compatibility with styles or processes)
+| **geoDataClasses**
+| array of URI
+| One or more classes of geospatial data, identified by a URI, which implies compatibility with a particular schema (fields/properties, as defined in OGC API - Common - Part 3: Schemas) for one or more collections, each with particular semantic definitions and data types. This is useful for example to determine compatibility with styles or processes, or to identify a particular collection within a dataset based on semantics.
 
-| defaultFields [*]
-| String
-| A sorted list of field names. For a features data access mechanism , it is the list of returnable properties included by default and complementing the geometry of the features. For a coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g. a query parameter called ‘properties’ or ‘exclude-properties’) to override this default list in customized responses.
+| **defaultFields**
+| array of String
+| A sorted list of field names. For a features data access mechanism , it is the list of returnable properties included by default and complementing the geometry of the features. For a coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.
 
-| crs [*]
-| String
-| The list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
+| **crs**
+| array of String (URI, CURIE or WKT2CRS) or objects (PROJJSON or CRS JSON)
+| The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
-| storageCrs [0..1]
-| String
-| The native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages
+| **storageCrs**
+| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+| The native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages. This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
-| epoch [0..1]
+| **epoch**
 | Real
 | Epoch of the native (storage) Coordinate Reference System (CRS)
 
-| geometryDimension [0..1]
+| **geometryDimension**
 | Integer
-| Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.
+| Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the `extent` element.
 
-| minScaleDenominator [0..1]
+| **minScaleDenominator**
 | Real
 | Minimum scale denominator for usage of the collection
 
-| maxScaleDenominator [0..1]
+| **maxScaleDenominator**
 | Real
 | Maximum scale denominator for usage of the collection
 
-| minCellSize [0..1]
+| **minCellSize**
 | Real
 | Minimum cell size for usage of the collection
 
-| maxCellSize [0..1]
+| **maxCellSize**
 | Real
 | Maximum cell size for usage of the collection
 
-| created [0..1]
-| DateTime
+| **created**
+| String (`date-time` format)
 | Timestamp indicating when the data in the collection was first produced
 
-| updated [0..1]
-| DateTime
+| **updated**
+| String (`date-time` format)
 | Timestamp of the last change/revision to the data in the collection
 |===
 
-NOTE: Refer to Annex B for the full model class tables describing the custom data types of these properties.
+NOTE: Refer to <<annex-uml-tables,Annex B>> for the full model class tables describing the custom data types of these properties.

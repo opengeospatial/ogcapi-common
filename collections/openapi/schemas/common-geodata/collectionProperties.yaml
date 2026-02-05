@@ -129,12 +129,12 @@ properties:
       $ref: '../common-core/link.yaml'
   itemType:
     title: Type of the items in the collection
-    description: Indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint.
+    description: Indicator about the type of the items in the collection if the collection has an accessible `/collections/{collectionId}/items` endpoint (e.g., `feature` or `record`).
     type: string
     default: feature
   dataType:
-    title: Type of data delivered when requesting the collection
-    description: Type of data use to represent the data in the collection. Can be map, vector or coverage.
+    title: Nature of the data in the collection
+    description: Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
     $ref: 'dataType.yaml'
   parent:
     title: Identifier of a parent collection (if this collection is part of a hierarchy)
@@ -142,7 +142,7 @@ properties:
     type: string
   geoDataClasses:
     title: Class of data in the collection
-    description: URIs identifying a class of data contained in the geospatial data (useful for example to determine compatibility with styles or processes).
+    description: 'One or more classes of geospatial data, identified by a URI, which implies compatibility with a particular schema (fields/properties, as defined in OGC API - Common - Part 3: Schemas) for one or more collections, each with particular semantic definitions and data types. This is useful for example to determine compatibility with styles or processes, or to identify a particular collection within a dataset based on semantics.'
     type: array
     items:
       type: string
@@ -155,8 +155,8 @@ properties:
        type: string
        minItems: 1
   crs:
-    title:  List of coordinate reference systems supported in the collection
-    description: The list of coordinate reference systems supported by the API; the first item is the default coordinate reference system. Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+    title: List of coordinate reference systems supported in the collection
+    description: The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
     type: array
     items:
       anyOf:
