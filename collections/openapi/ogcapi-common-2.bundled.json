@@ -342,6 +342,7 @@
                 "type": "string",
                 "title": "Identifier of the resource",
                 "description": "Identifier of the collection, for example, used in URI path parameters.",
+                "minLength": 1,
                 "example": "dem"
               },
               "title": {
@@ -1407,7 +1408,8 @@
                 "id": {
                   "type": "string",
                   "title": "Identifier for the concept",
-                  "description": "Identifier for the concept in the knowledge system."
+                  "description": "Identifier for the concept in the knowledge system.",
+                  "minLength": 1
                 },
                 "title": {
                   "type": "string",

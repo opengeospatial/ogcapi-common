@@ -7,6 +7,7 @@ properties:
     type: string
     title: Identifier of the resource
     description: Identifier of the collection, for example, used in URI path parameters.
+    minLength: 1
     example: dem
   title:
     type: string
