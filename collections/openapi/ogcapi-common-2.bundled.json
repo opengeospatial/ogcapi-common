@@ -954,6 +954,27 @@
                       "PT1H"
                     ]
                   },
+                  "availableResolutions": {
+                    "title": "Available resolutions",
+                    "description": "List of resolutions made available by the API. If not specified, there are no limit other than the limits indicated in `minCellSize` and `maxCellSize` of the collection description (though the API might still allow requesting data beyond these).",
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "example": [
+                      "P1H",
+                      "P1D",
+                      "P1M"
+                    ]
+                  },
                   "firstCoordinate": {
                     "title": "First coordinate",
                     "description": "First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.",
