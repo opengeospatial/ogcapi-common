@@ -21,6 +21,7 @@ properties:
           type: string
           title: Identifier for the concept
           description: Identifier for the concept in the knowledge system.
+          minLength: 1
         title:
           type: string
           title: Title of the concept
@@ -46,5 +47,3 @@ properties:
       CQL2, by exposing a queryable (e.g. named `scheme`) and
       enumerating the list of schemes in the queryable's schema
       definition.
-
-

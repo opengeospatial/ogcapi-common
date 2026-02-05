@@ -87,3 +87,137 @@ In case of discrepancy between this UML diagram, the UML tables, and the text of
 [#img_uml_model='{figure-caption} {counter:figure-num}']
 .UML class diagram describing the common resources
 image::xmi-images/EAID_1D4EEC35_FEDC_4ab6_A5CD_C6E4081F5F3F.png[width=700,align="center"]
+
+IMPORTANT: While the UML class model attributes use the singular for elements with multiplicity, the JSON encoding and schema use the plural versions, as seen in the table in the next section.
+
+=== Collection Description Properties
+
+[cols="1,1,2", options="header"]
+|===
+| Name (as encoded in JSON) | JSON Type | Definition
+| id [1]
+| String
+| Identifier of the collection (sometimes referred as collectionId). It is used in the Web API as path parameter in `/collections/{collectionId}`
+
+| title [0..1]
+| String
+| A short, human-readable summary of the collection
+
+| description [0..1]
+| String
+| A human-readable explanation about data in the collection
+
+| extent[0..1]
+| Extent
+| The extent where and when data from this collection is available
+
+| links[1..*]
+| array of Link
+| Links to this or other resources related to this collection
+
+| attribution [0..1]
+| String
+| For the collection that can contain markup text whose format may be indicated in the attributionMediaType property. That format can be either plain text (text/plain), HTML (text/html) or CommonMark (text/markdown)
+
+| attributionMediaType [0..1]
+| AttributionMediaTypeCode
+| Media type for the markup language of the attribution: It can be either plain text (text/plain), HTML (text/html) or CommonMark (text/markdown).
+
+| accessContraints [0..1]
+| AccessContraintsCode
+| Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data.
+
+| parent [0..1]
+| String
+| A id of a collection that is the parent of this collection in a hierarchical relation. For example a rivers’ collection can have an topographic collection as parent.
+
+| publisher [0..1]
+| String
+| Organization or individual responsible for making the data available
+
+| contacts [0..*]
+| array of Contact
+| A list of contacts qualified by their role(s) in association to the collection
+
+| license [0..1]
+| String
+| The legal provisions under which the data of this collection is made available
+
+| resourceLanguages [0..*]
+| array of ResourceLanguage
+| The list of languages in which the data of this collection is available.
+
+| rights [0..1]
+| String
+| A statement that concerns all rights not addressed by the license such as a copyright statement
+
+| keywords [0..1]
+| String
+| The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes
+
+| themes [0..*]
+| array of Themes
+| A knowledge organization system used to classify the resource
+
+| itemType [0..1]
+| String
+| Indicator about the type of the items in the collection if the collection has an accessible `/collections/{collectionId}/items` endpoint
+
+| dataType [0..1]
+| String
+| Type of data use to represent the data in the collection. Can be map, vector or coverage
+
+| formats [0..*]
+| array of Format
+| A list of formats in which the data of this collection is distributed
+
+| geoDataClasses [*]
+| anyURI
+| URIs identifying a class of data contained in the geospatial data (useful for example to determine compatibility with styles or processes)
+
+| defaultFields [*]
+| String
+| A sorted list of field names. For a features data access mechanism , it is the list of returnable properties included by default and complementing the geometry of the features. For a coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g. a query parameter called ‘properties’ or ‘exclude-properties’) to override this default list in customized responses.
+
+| crs [*]
+| String
+| The list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
+
+| storageCrs [0..1]
+| String
+| The native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages
+
+| epoch [0..1]
+| Real
+| Epoch of the native (storage) Coordinate Reference System (CRS)
+
+| geometryDimension [0..1]
+| Integer
+| Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.
+
+| minScaleDenominator [0..1]
+| Real
+| Minimum scale denominator for usage of the collection
+
+| maxScaleDenominator [0..1]
+| Real
+| Maximum scale denominator for usage of the collection
+
+| minCellSize [0..1]
+| Real
+| Minimum cell size for usage of the collection
+
+| maxCellSize [0..1]
+| Real
+| Maximum cell size for usage of the collection
+
+| created [0..1]
+| DateTime
+| Timestamp indicating when the data in the collection was first produced
+
+| updated [0..1]
+| DateTime
+| Timestamp of the last change/revision to the data in the collection
+|===
+
+NOTE: Refer to Annex B for the full model class tables describing the custom data types of these properties.

@@ -7,6 +7,7 @@ properties:
     type: string
     title: Identifier of the resource
     description: Identifier of the collection, for example, used in URI path parameters.
+    minLength: 1
     example: dem
   title:
     type: string
@@ -97,8 +98,8 @@ properties:
       $ref: '../records-core/language.yaml'
   links:
     type: array
-    title: Links to resource in this collection
-    description: Links to this or other resources provided by this collection.
+    title: Links relevant to this collection
+    description: Links to this or other resources related to this collection.
     example:
       - href: http://data.example.org/collections/dem?f=json
         rel: self
