@@ -91,7 +91,7 @@ include::examples/collections_list.json[]
 
 ==== Error situations
 
-See <<http-status-codes>> for general guidance.
+See https://docs.ogc.org/is/19-072/19-072.html#http-status-codes[OGC API - Common - Part 1: Core Section 8.2 "HTTP Status Codes"] for general guidance.
 
 [[collection-description]]
 === Collection Description Resource (`/collections/{collectionId}`)
@@ -264,9 +264,9 @@ include::recommendations/collections/PER_collections-conformance.adoc[]
 
 ==== Error Situations
 
-See <<http-status-codes>> for general guidance.
+See https://docs.ogc.org/is/19-072/19-072.html#http-status-codes[OGC API - Common - Part 1: Core Section 8.2 "HTTP Status Codes"] for general guidance.
 
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404` (see <<status-codes>>).
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`.
 
 [[collections-api-records]]
 === OGC API - Records compliance
