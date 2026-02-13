@@ -51,6 +51,28 @@ API definitions are considered service descriptions.
 
 Additional information on the use of link relationships is provided in the link:https://docs.ogc.org/guides/20-071.html#link-relations-section[OGC API - Common Users Guide].
 
+[[conventions-curies]]
+=== Compact URIs (CURIEs)
+
+Compact URIs (CURIEs) resolve to full URIs based on deterministic rules.
+Safe CURIEs (enclosed within `[ square brackets `]`) should generally be used to distinguish them from non-CURIE identifiers.
+The general mapping for CURIEs to URIs defined on the OGC definition server is `<authority>[-<URI type>]:<element>` mapping to `<authority URL>/<URI type>/<authority>/0/<element>`,
+with the default `URI type` being `crs` when not specified. For example, `[OGC:CRS84]` maps to `https://www.opengis.net/def/crs/OGC/0/CRS84`, and `[ogc-rel:map]` maps to `https://www.opengis.net/def/rel/ogc/0/map.
+Unfortunately, there are a few challenges originating from how the URIs themselves are defined which need to be considered for establishing equivalence between a CURIE and a URI.
+
+- The `/0/` is intended to refer to the latest version or for URI types where the version is not relevant (as should be the case for link relations).
+The CURIEs should always be interpreted as referring to the latest version, and the version should be ignored when comparing a CURIE against a URI.
+The definition server may or may not support resolving both the `/0/` and a specific version e.g., `/1.0/`.
+- `http` and `https` URIs should be considered as equivalent.
+- While some OGC definition types use lowercase `ogc` (e.g., link relations `/rel/`), others use uppercase `OGC` (e.g., coordinate reference systems `/crs/`).
+
+WARNING: Because multiple OGC API Standards allow the use of safe CURIEs for link relations and CRS references, OGC API - Common also allows them for compatibility reasons.
+However, server implementations conforming to OGC API Standards where CURIEs are not supported need to avoid them and only use full URIs for all resources relevant to those standards.
+Client implementations for OGC API Standards allowing the use of CURIEs need to be prepared to accept both CURIEs and full URIs.
+
+While CURIEs themselves avoid the confusion of http vs. https and version numbers, the challenges associated with mapping them to multiple URIs requires more complicated logic
+than comparing an identifier string to the CURIE itself and a single full URI.
+
 [[coordinate-reference-systems]]
 === Coordinate Reference Systems
 
