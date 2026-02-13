@@ -55,7 +55,7 @@ Additional information on the use of link relationships is provided in the link:
 === Compact URIs (CURIEs)
 
 Compact URIs (CURIEs) resolve to full URIs based on deterministic rules.
-Safe CURIEs (enclosed within `[ square brackets `]`) should generally be used to distinguish them from non-CURIE identifiers.
+Safe CURIEs (enclosed within `[` square brackets `]`) should generally be used to distinguish them from non-CURIE identifiers.
 The general mapping for CURIEs to URIs defined on the OGC definition server is `<authority>[-<URI type>]:<element>` mapping to `<authority URL>/<URI type>/<authority>/0/<element>`,
 with the default `URI type` being `crs` when not specified. For example, `[OGC:CRS84]` maps to `https://www.opengis.net/def/crs/OGC/0/CRS84`, and `[ogc-rel:map]` maps to `https://www.opengis.net/def/rel/ogc/0/map.
 Unfortunately, there are a few challenges originating from how the URIs themselves are defined which need to be considered for establishing equivalence between a CURIE and a URI.
