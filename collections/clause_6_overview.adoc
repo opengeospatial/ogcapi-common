@@ -129,7 +129,7 @@ new conflicting properties (with same name but different semantics).
 | The extent where and when data from this collection is available
 
 | **links**
-| Array of Link
+| Array of https://docs.ogc.org/is/19-072/19-072.html#link-conventions[Link]
 | **_(required)_** Links to this or other resources related to this collection
 
 | **attribution**
@@ -137,8 +137,8 @@ new conflicting properties (with same name but different semantics).
 | For the collection that can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or CommonMark (`text/markdown`)
 
 | **attributionMediaType**
-| AttributionMediaTypeCode
-| Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or CommonMark (`text/markdown`)
+| AttributionMediaTypeCode (`text/plain`, `text/html`, `text/markdown`)
+| Media type for the markup language of the attribution: It can be either plain text, HTML or CommonMark
 
 | **accessContraints**
 | AccessContraintsCode (`unclassified`, `restricted`, `confidential`, `secret`, `topSecret`)
@@ -153,7 +153,7 @@ new conflicting properties (with same name but different semantics).
 | Organization or individual responsible for making the data available
 
 | **contacts**
-| Array of Contact
+| Array of https://docs.ogc.org/is/20-004r1/20-004r1.html#sc_contacts[Contact]
 | A list of contacts qualified by their role(s) in association to the collection
 
 | **license**
@@ -161,7 +161,7 @@ new conflicting properties (with same name but different semantics).
 | The legal provisions under which the data of this collection is made available
 
 | **resourceLanguages**
-| Array of ResourceLanguage
+| Array of https://docs.ogc.org/is/20-004r1/20-004r1.html#sc_record_language_handling[ResourceLanguage]
 | The list of languages in which the data of this collection is available
 
 | **rights**
@@ -173,7 +173,7 @@ new conflicting properties (with same name but different semantics).
 | The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes
 
 | **themes**
-| Array of Theme
+| Array of https://docs.ogc.org/is/20-004r1/20-004r1.html#sc_keywords_and_themes[Theme]
 | A knowledge organization system used to classify the resource
 
 | **itemType**
@@ -185,7 +185,7 @@ new conflicting properties (with same name but different semantics).
 | Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
 
 | **formats**
-| Array of Format
+| Array of https://docs.ogc.org/is/20-004r1/20-004r1.html#sc_formats[Format]
 | A list of formats in which the data of this collection is distributed
 
 | **geoDataClasses**
@@ -197,11 +197,11 @@ new conflicting properties (with same name but different semantics).
 | A sorted list of field names. For a features data access mechanism , it is the list of returnable properties included by default and complementing the geometry of the features. For a coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.
 
 | **crs**
-| Array of String (URI, CURIE or WKT2CRS) or objects (PROJJSON or CRS JSON)
+| Array of String (URI, CURIE or https://www.opengis.net/doc/is/crs-wkt/2.1.11[WKT2CRS]) or Object (https://proj.org/en/stable/specifications/projjson.html[PROJJSON] or https://github.com/opengeospatial/CRS-JSON-Encoding[CRS JSON])
 | The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
 | **storageCrs**
-| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+| String (URI, CURIE or https://www.opengis.net/doc/is/crs-wkt/2.1.11[WKT2CRS]) or Object (https://proj.org/en/stable/specifications/projjson.html[PROJJSON] or https://github.com/opengeospatial/CRS-JSON-Encoding[CRS JSON])
 | The native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages. This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
 | **epoch**

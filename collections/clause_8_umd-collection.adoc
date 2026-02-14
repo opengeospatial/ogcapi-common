@@ -32,27 +32,27 @@ The following table lists all properties defined as part of a uniform additional
 
 | **definition**
 | String (URI)
-| A URI for the definition of the measured or observed property corresponding to this dimension
+| **_(at least one of `definition`, `trs`, `vrs` is required)_** A URI for the definition of the measured or observed property corresponding to this dimension
 
 | **unit**
 | String
 | The unit of measure in which the interval and/or grid values are expressed
 
 | **trs**
-| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
-| Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full
+| String (URI, CURIE or https://www.opengis.net/doc/is/crs-wkt/2.1.11[WKT2CRS]) or object (https://proj.org/en/stable/specifications/projjson.html[PROJJSON] or https://github.com/opengeospatial/CRS-JSON-Encoding[CRS JSON])
+| **_(at least one of `definition`, `trs`, `vrs` is required)_** Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full
 description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
 | **interval**
 | Array of (at least 1) Array of 2 (Real or String)
-| One or more intervals that describe the extent for this dimension of the dataset. The value `null` is supported and indicates an unbounded or half-bounded
+| **_(required)_** One or more intervals that describe the extent for this dimension of the dataset. The value `null` is supported and indicates an unbounded or half-bounded
 interval. The first interval describes the overall extent of the data for this dimension. All subsequent intervals describe more precise intervals,
 e.g., to identify clusters of data. Clients only interested in the overall extent will only need to access the first item (a pair of lower and upper bound
 values).
 
 | **grid**
-| RegularGrid or IrregularGrid
-| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ Grid description providing information about the limited availability of data within the collection organized as a grid (regular or irregular) along the
+| <<regulargrid-properties,RegularGrid>> or <<irregulargrid-properties,IrregularGrid>>
+| Grid description providing information about the limited availability of data within the collection organized as a grid (regular or irregular) along the
 temporal dimension.
 
 | **unitLang**
@@ -64,8 +64,8 @@ temporal dimension.
 | The type of variable which may inform correct interpretation and interpolation methods
 
 | **vrs**
-| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
-a| Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical'). This should be a URI to a registered VRS if one is available, or a full
+| String (URI, CURIE or https://www.opengis.net/doc/is/crs-wkt/2.1.11[WKT2CRS]) or object (https://proj.org/en/stable/specifications/projjson.html[PROJJSON] or https://github.com/opengeospatial/CRS-JSON-Encoding[CRS JSON])
+a| **_(at least one of `definition`, `trs`, `vrs` is required)_** Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical'). This should be a URI to a registered VRS if one is available, or a full
 description of the VRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
 NOTE: This property is included mainly for compatibility with https://docs.ogc.org/is/19-086r6/19-086r6.html[OGC API - Environmental Data Retrieval (EDR)].

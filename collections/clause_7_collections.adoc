@@ -178,7 +178,7 @@ For the `storageCrs` as well as for the `crs` list of supported output CRSs, imp
 (or the equivalent CURIEs) such as the ones provided by the https://epsg.org/[EPSG Geodetic Parameter Dataset]. However, there are situations where the required CRS has not been registered with an authority.
 
 For these cases, where a URI does not exist, a http://www.opengis.net/doc/is/wkt-crs/2.0[Well-Known Text] string describing the coordinate reference system,
-or a JSON object encoding of the CRS (using the https://proj.org/en/stable/specifications/projjson.html[PROJJSON] schema or a potential "CRS JSON" successor if eventually standardized by the OGC) can be specified.
+or a JSON object encoding of the CRS (using the https://proj.org/en/stable/specifications/projjson.html[PROJJSON] schema or a potential https://github.com/opengeospatial/CRS-JSON-Encoding["CRS JSON"] successor if eventually standardized by the OGC) can be specified.
 
 Such alternate CRS definitions can also be used for the `crs` of the `bbox` for data in an engineering CRS or otherwise not georeferenced to Earth.
 
@@ -228,7 +228,7 @@ The first bounding box describes the overall spatial extent of the data. All sub
 e.g., to identify clusters of data. Clients only interested in the overall spatial extent will only need to access the first item in each array.
 
 | **crs**
-| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+| String (URI, CURIE or https://www.opengis.net/doc/is/crs-wkt/2.1.11[WKT2CRS]) or Object (https://proj.org/en/stable/specifications/projjson.html[PROJJSON] or https://github.com/opengeospatial/CRS-JSON-Encoding[CRS JSON])
 | Coordinate reference system **of the coordinates of the `bbox` property**.
 The default reference system is WGS 84 longitude/latitude.
 WGS 84 longitude/latitude/ellipsoidal height for coordinates with height.
@@ -255,7 +255,7 @@ The first time interval describes the overall temporal extent of the data. All s
 to identify clusters of data. Clients only interested in the overall extent will only need to access the first item in each array.
 
 | **trs**
-| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+| String (URI, CURIE or https://www.opengis.net/doc/is/crs-wkt/2.1.11[WKT2CRS]) or Object (https://proj.org/en/stable/specifications/projjson.html[PROJJSON] or https://github.com/opengeospatial/CRS-JSON-Encoding[CRS JSON])
 | Coordinate reference system of the coordinates in the temporal extent (property `interval`).
 The default reference system is the Gregorian calendar. For data for which the Gregorian calendar is not suitable, such as geological time scale,
 another temporal reference system may be used. This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise
