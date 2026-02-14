@@ -7,9 +7,9 @@
 				<annotatedElement xmi:idref="EAID_82D611CD_9E4A_4357_A9D9_6ACE2E39C10D"/>
 				<annotatedElement xmi:idref="EAID_41F16368_31BB_4ec3_B0E8_FF32863D6135"/>
 			</ownedComment>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_1D72BC8F_5D39_4138_9364_B3BD57A3423A" name="OGC API - Common - Part 2"/>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_F457684D_54A7_431f_899C_094AC939D2EA"/>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_84A92D2A_1BC9_4a86_84C3_E7477B173CF8" name="OGC API - Common - Part 1"/>
-			<packagedElement xmi:type="uml:Class" xmi:id="EAID_1D72BC8F_5D39_4138_9364_B3BD57A3423A" name="OGC API - Common - Part 2"/>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_24F3A68E_F881_4623_92D4_14EB69C1BB48" name="OGC API - Records"/>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_46191DF6_AF1B_49d5_84F4_FA8D87C802CC" name="Uniform Additional Dimensions"/>
 			<packagedElement xmi:type="uml:Class" xmi:id="EAID_682B8205_0C6E_408f_B59B_3481CE612AB9" name="Address">
@@ -835,19 +835,15 @@
 				<times created="2024-08-09 15:58:59" modified="2024-08-09 16:25:39" lastloaddate="2019-01-23 13:38:10" lastsavedate="2019-01-23 13:38:10"/>
 				<flags iscontrolled="0" isprotected="0" batchsave="0" batchload="0" usedtd="0" logxml="0"/>
 			</element>
-			<element xmi:idref="EAID_B22911AC_BA7D_48d6_85B9_83F497069CAF" xmi:type="uml:Note" scope="public">
-				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="0" ea_localid="69" ea_eleType="element"/>
-				<properties documentation="'coordinates' and 'firstCoordinate' are direct positions. The 'bbox' and 'interval' includes the bounds of the measurement. If the measurement covers the whole cell, the spatial.bbox, the temporal&lt;b&gt;.&lt;/b&gt;interval and extraDimensions.interval will be resolution/2 larger in each direction than if the measurement is representing the direct position only. In general we talk about measureIsArea or measureIsPoint respectively, but if the grid represents sensor measurements, other situations in between are also possible. For the IrregularGrid, if boundsCoordinates property is not included, the default bounds of the cells are the mid point between two consecutive coordinates, and the bounds at each end can be inferred from bbox (for spatial dimensions) or interval. For RegularGrids if relativeBounds is not provided, the default relative bounds of the cells are assumed to be [-resolution/2, resolution/2] (in other words we assume measureIsArea and measureIsCentered) making it match with the bbox and the interval." isSpecification="false" sType="Note" nType="0" scope="public"/>
-				<project author="miniusu" version="1.0" phase="1.0" created="2025-01-09 18:38:45" modified="2026-02-05 18:52:46" complexity="1" status="Proposed"/>
+			<element xmi:idref="EAID_1D72BC8F_5D39_4138_9364_B3BD57A3423A" xmi:type="uml:Boundary" name="OGC API - Common - Part 2" scope="public">
+				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="0" ea_localid="82" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Boundary" nType="0" scope="public"/>
+				<project author="miniusu" version="1.0" phase="1.0" created="2025-08-28 19:36:15" modified="2025-08-28 19:41:37" complexity="1" status="Proposed"/>
 				<code gentype="&lt;none&gt;"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=3;" styleex="BT=81;Path=793:-8@1074:-8@1074:-1153@11:-1153@11:-603@793:-603;"/>
 				<tags/>
 				<xrefs/>
 				<extendedProperties tagged="0" package_name="OGC API - Common"/>
-				<links>
-					<NoteLink xmi:id="EAID_574ED880_9736_44c3_9723_740E2A8D056E" start="EAID_B22911AC_BA7D_48d6_85B9_83F497069CAF" end="EAID_82D611CD_9E4A_4357_A9D9_6ACE2E39C10D"/>
-					<NoteLink xmi:id="EAID_8E227FB6_C29B_44dc_9FA8_E59597572AED" start="EAID_B22911AC_BA7D_48d6_85B9_83F497069CAF" end="EAID_41F16368_31BB_4ec3_B0E8_FF32863D6135"/>
-				</links>
 			</element>
 			<element xmi:idref="EAID_F457684D_54A7_431f_899C_094AC939D2EA" xmi:type="uml:Boundary" scope="public">
 				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="0" ea_localid="81" ea_eleType="element"/>
@@ -869,16 +865,6 @@
 				<xrefs/>
 				<extendedProperties tagged="0" package_name="OGC API - Common"/>
 			</element>
-			<element xmi:idref="EAID_1D72BC8F_5D39_4138_9364_B3BD57A3423A" xmi:type="uml:Boundary" name="OGC API - Common - Part 2" scope="public">
-				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="0" ea_localid="82" ea_eleType="element"/>
-				<properties isSpecification="false" sType="Boundary" nType="0" scope="public"/>
-				<project author="miniusu" version="1.0" phase="1.0" created="2025-08-28 19:36:15" modified="2025-08-28 19:41:37" complexity="1" status="Proposed"/>
-				<code gentype="&lt;none&gt;"/>
-				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=3;" styleex="BT=81;Path=793:-8@1074:-8@1074:-1153@11:-1153@11:-603@793:-603;"/>
-				<tags/>
-				<xrefs/>
-				<extendedProperties tagged="0" package_name="OGC API - Common"/>
-			</element>
 			<element xmi:idref="EAID_24F3A68E_F881_4623_92D4_14EB69C1BB48" xmi:type="uml:Boundary" name="OGC API - Records" scope="public">
 				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="0" ea_localid="79" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Boundary" nType="0" scope="public"/>
@@ -888,6 +874,20 @@
 				<tags/>
 				<xrefs/>
 				<extendedProperties tagged="0" package_name="OGC API - Common"/>
+			</element>
+			<element xmi:idref="EAID_B22911AC_BA7D_48d6_85B9_83F497069CAF" xmi:type="uml:Note" scope="public">
+				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="0" ea_localid="69" ea_eleType="element"/>
+				<properties documentation="'coordinates' and 'firstCoordinate' are direct positions. The 'bbox' and 'interval' includes the bounds of the measurement. If the measurement covers the whole cell, the spatial.bbox, the temporal&lt;b&gt;.&lt;/b&gt;interval and extraDimensions.interval will be resolution/2 larger in each direction than if the measurement is representing the direct position only. In general we talk about measureIsArea or measureIsPoint respectively, but if the grid represents sensor measurements, other situations in between are also possible. For the IrregularGrid, if boundsCoordinates property is not included, the default bounds of the cells are the mid point between two consecutive coordinates, and the bounds at each end can be inferred from bbox (for spatial dimensions) or interval. For RegularGrids if relativeBounds is not provided, the default relative bounds of the cells are assumed to be [-resolution/2, resolution/2] (in other words we assume measureIsArea and measureIsCentered) making it match with the bbox and the interval." isSpecification="false" sType="Note" nType="0" scope="public"/>
+				<project author="miniusu" version="1.0" phase="1.0" created="2025-01-09 18:38:45" modified="2026-02-05 18:52:46" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="OGC API - Common"/>
+				<links>
+					<NoteLink xmi:id="EAID_574ED880_9736_44c3_9723_740E2A8D056E" start="EAID_B22911AC_BA7D_48d6_85B9_83F497069CAF" end="EAID_82D611CD_9E4A_4357_A9D9_6ACE2E39C10D"/>
+					<NoteLink xmi:id="EAID_8E227FB6_C29B_44dc_9FA8_E59597572AED" start="EAID_B22911AC_BA7D_48d6_85B9_83F497069CAF" end="EAID_41F16368_31BB_4ec3_B0E8_FF32863D6135"/>
+				</links>
 			</element>
 			<element xmi:idref="EAID_46191DF6_AF1B_49d5_84F4_FA8D87C802CC" xmi:type="uml:Boundary" name="Uniform Additional Dimensions" scope="public">
 				<model package="EAPK_3DD366A7_7B35_491c_A006_293403765415" tpos="0" ea_localid="64" ea_eleType="element"/>
