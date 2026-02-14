@@ -218,7 +218,7 @@ e.g., to identify clusters of data. Clients only interested in the overall spati
 For data referenced to Earth, this will be either:
 
 * `[ <West longitude>, <South latitude>, <East longitude>, <North latitude> ]` for a CRS84 bounding box, or
-* `[ <West longitude>, <South latitude>, <lowest ellipsoidal height in meters>, <East longitude>, <North latitude>, <highest height ellipsoidal height in meters> ]`
+* `[ <West longitude>, <South latitude>, <lowest ellipsoidal height in meters>, <East longitude>, <North latitude>, <highest ellipsoidal height in meters> ]`
 for a 3-dimensional CRS84h bounding box.
 
 | **storageCrsBbox**
