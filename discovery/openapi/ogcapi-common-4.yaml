@@ -3,7 +3,7 @@ info:
    version: '1.0'
    title: OGC API - Common
    description: |-
-      Example API Definition for OGC API - Common - Part 2: Geospatial Data
+      Example API Definition for OGC API - Common - Part 4: Discovery within many collections
    contact:
       name: Open Geospatial Consortium
       email: info@ogc.org
@@ -97,6 +97,12 @@ components:
       # Common - Geospatial data
       collectionId-all:
          $ref: 'parameters/common-geodata/collectionId-all.yaml'
+
+      # Common - Discovery within many collections
+      bbox:
+         $ref: 'parameters/common-discovery/bbox.yaml'
+      datetime:
+         $ref: 'parameters/common-discovery/datetime.yaml'
 
    responses:
       # Generic Errors
