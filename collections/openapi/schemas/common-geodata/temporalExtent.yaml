@@ -6,9 +6,7 @@ properties:
      title: Temporal intervals
      description: |-
        One or more time intervals that describe the temporal extent of the dataset.
-       In the Core only a single time interval is supported.
 
-       Extensions may support multiple intervals.
        The first time interval describes the overall
        temporal extent of the data. All subsequent time intervals describe
        more precise time intervals, e.g., to identify clusters of data.

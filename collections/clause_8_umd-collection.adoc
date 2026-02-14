@@ -22,8 +22,57 @@ An `interval` providing the lower and upper bound for the coordinates along that
 As an alternative - or in addition to - the `definition`, a temporal reference system (`trs`) or a vertical reference system (`vrs`) can be specified.
 The `trs` or `vrs` property can be populated with either a URI or CURIE.
 
-NOTE: If a 3D CRS exists including the vertical dimension, that CRS should be used inside the "spatial" object of the extent, instead of defining a separate vertical dimension using `vrs`.
-For vertical CRSs corresponding to the concept of a variable, such as a pressure level, the semantic definition for that variable should be used instead of `vrs`.
+The following table lists all properties defined as part of a uniform additional dimension's extent.
+
+[#otherdimensionextent-properties,reftext='{table-caption} {counter:table-num}']
+.JSON OtherDimensionlExtent Properties
+[cols="1,1,3", options="header"]
+|===
+| Name (as encoded in JSON) | JSON Type | Definition
+
+| **definition**
+| String (URI)
+| A URI for the definition of the measured or observed property corresponding to this dimension
+
+| **unit**
+| String
+| The unit of measure in which the interval and/or grid values are expressed
+
+| **trs**
+| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+| Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full
+description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+
+| **interval**
+| Array of (at least 1) Array of 2 (Real or String)
+| One or more intervals that describe the extent for this dimension of the dataset. The value `null` is supported and indicates an unbounded or half-bounded
+interval. The first interval describes the overall extent of the data for this dimension. All subsequent intervals describe more precise intervals,
+e.g., to identify clusters of data. Clients only interested in the overall extent will only need to access the first item (a pair of lower and upper bound
+values).
+
+| **grid**
+| RegularGrid or IrregularGrid
+| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ Grid description providing information about the limited availability of data within the collection organized as a grid (regular or irregular) along the
+temporal dimension.
+
+| **unitLang**
+| String
+| The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
+
+| **variableType**
+| VariableType (`continuous`, `numericalOrdinal`, `numericalNominal`, `categoricalOrdinal`, `categoricalNominal`)
+| The type of variable which may inform correct interpretation and interpolation methods
+
+| **vrs**
+| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+a| Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical'). This should be a URI to a registered VRS if one is available, or a full
+description of the VRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+
+NOTE: This property is included mainly for compatibility with https://docs.ogc.org/is/19-086r6/19-086r6.html[OGC API - Environmental Data Retrieval (EDR)].
+A true vertical CRS such as height above the ellipsoid would normally be the third dimension of the <<spatialextent-properties,`spatial` extent>>,
+while a dimension representing a parameter such as pressure would more accurately be described as a parametric CRS, and would generally be described using the
+semantic `definition` and `unit` properties.
+|===
 
 For additional dimensions beyond spatial and temporal, the reference system is defined as a combination of the `definition` and `unit`, or alternatively the `trs` or `vrs`.
 In addition to specifying the reference system of the `interval`, this also specifies the reference system of that dimension for the data itself.
@@ -51,6 +100,35 @@ For both cases, the number of cells (`cellsCount`) is specified. A cell is a reg
 The bounds are specified as `relativeBounds` which are relative to points starting from a `firstCoordinate` separated by an equal distance of `resolution` units.
 The lower value for the `interval` for a particular dimension (or `bbox` in the case of spatial dimensions) corresponds to the `firstCoordinate` plus the first value of the `relativeBounds`, while
 the upper value corresponds to the `firstCoordinate` plus `cellsCount` times the `resolution` plus the second value of the `relativeBounds`.
+
+The following table lists all properties defined as part of a regular grid.
+
+[#regulargrid-properties,reftext='{table-caption} {counter:table-num}']
+.JSON RegularGrid Properties
+[cols="1,1,3", options="header"]
+|===
+| Name (as encoded in JSON) | JSON Type | Definition
+
+| **cellsCount**
+| Integer (positive)
+| **_(required)_** Number of samples available along the dimension
+
+| **resolution**
+| Real or String
+| **_(required)_** Resolution of regularly gridded data along the dimension in the collection
+
+| **firstCoordinate**
+| Real or String
+| **_(required)_** First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step
+
+| **relativeBounds**
+| Array of 2 (Real or String)
+| Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells
+
+| **availableResolutions**
+| Array of (Real or String)
+| List of resolutions made available by the API. If not specified, there are no limit other than the limits indicated in `minCellSize` and `maxCellSize` of the collection description (though the API might still allow requesting data beyond these).
+|===
 
 For example, a regular grid where each measure is associated with infinitely small points would have `relativeBounds` of `[0, 0]`.
 With a `cellsCount` of 3, a `resolution` of 0.5, and a `firstCoordinate` at 0, the corresponding `interval` would be `[0, 1]`.
@@ -92,6 +170,27 @@ Bounds for each coordinate can also be individually specified in a parallel `bou
 
 If the `boundsCoordinates` property is not included, the default bounds of the cells are assumed to lie in the middle of the two values specified in `coordinates`, and for the two extremities,
 the lower (for the first cell) and upper bounds (for the last cell) are assumed to be at the same distance from the specified coordinate as to their immediate neighbor.
+
+The following table lists all properties defined as part of a regular grid.
+
+[#irregulargrid-properties,reftext='{table-caption} {counter:table-num}']
+.JSON IrregularGrid Properties
+[cols="1,1,3", options="header"]
+|===
+| Name (as encoded in JSON) | JSON Type | Definition
+
+| **cellsCount**
+| Integer (positive)
+| **_(required)_** Number of samples available along the dimension
+
+| **coordinates**
+| Array of (Real or String)
+| **_(required)_** List of coordinates along the dimension for which data organized as an irregular grid in the collection is available.
+
+| **boundsCoordinates**
+| Array of Array of 2 (Real or String)
+| For irregular grids, an ordered list of the coordinates in absolute units of the lower and upper bounds of the dimension for each cell.
+|===
 
 ==== Requirements for describing grids
 

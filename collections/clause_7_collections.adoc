@@ -182,6 +182,91 @@ or a JSON object encoding of the CRS (using the https://proj.org/en/stable/speci
 
 Such alternate CRS definitions can also be used for the `crs` of the `bbox` for data in an engineering CRS or otherwise not georeferenced to Earth.
 
+The following tables lists all properties defined as part of the collection's extent.
+While additional properties beyond the `spatial` and `temporal` defined here are left open by this "Collections" requirements class,
+the <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> requirements class defines a specific uniform schema for properties representing additional
+dimensions, while also defining the `grid` property which is also applicable to spatiotemporal extents.
+
+[#extent-properties,reftext='{table-caption} {counter:table-num}']
+.JSON Collection's Extent Properties
+[cols="1,1,3", options="header"]
+|===
+| Name (as encoded in JSON) | JSON Type | Definition
+| **spatial**
+| <<spatialextent-properties,SpatialExtent>>
+| The spatial extent of the data in the collection.
+
+| **temporal**
+| <<temporalextent-properties,TemporalExtent>>
+| The temporal extent of the data in the collection.
+
+| **_(any additional property)_**
+| <<otherdimensionextent-properties,OtherDimensionExtent>>
+| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ The extent for any additional dimensions beyond those described in temporal and spatial.
+|===
+
+[#spatialextent-properties,reftext='{table-caption} {counter:table-num}']
+.JSON SpatialExtent Properties
+[cols="1,1,3", options="header"]
+|===
+| Name (as encoded in JSON) | JSON Type | Definition
+| **bbox**
+| Array of (at least one) Array of (4 or 6) Real
+a| One or more bounding boxes that describe the spatial extent of the dataset.
+The first bounding box describes the overall spatial extent of the data. All subsequent bounding boxes describe more precise bounding boxes,
+e.g., to identify clusters of data. Clients only interested in the overall spatial extent will only need to access the first item in each array.
+For data referenced to Earth, this will be either:
+
+* `[ <West longitude>, <South latitude>, <East longitude>, <North latitude> ]` for a CRS84 bounding box, or
+* `[ <West longitude>, <South latitude>, <lowest ellipsoidal height in meters>, <East longitude>, <North latitude>, <highest height ellipsoidal height in meters> ]`
+for a 3-dimensional CRS84h bounding box.
+
+| **storageCrsBbox**
+| Array of (at least one) Array of (4 or 6) Real
+| One or more bounding boxes that describe the spatial extent of the dataset in the storage (native) CRS (`storageCrs` property).
+The first bounding box describes the overall spatial extent of the data. All subsequent bounding boxes describe more precise bounding boxes,
+e.g., to identify clusters of data. Clients only interested in the overall spatial extent will only need to access the first item in each array.
+
+| **crs**
+| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+| Coordinate reference system **of the coordinates of the `bbox` property**.
+The default reference system is WGS 84 longitude/latitude.
+WGS 84 longitude/latitude/ellipsoidal height for coordinates with height.
+For data not referenced to Earth, another CRS may be specified.
+This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON,
+or CRS JSON object.
+
+| **grid**
+| Array of 2 or 3 (<<regulargrid-properties,RegularGrid>> or <<irregulargrid-properties,IrregularGrid>>)
+| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ Grid description providing information about the limited availability of data within the collection
+organized as a grid (regular or irregular) along each spatial dimension.
+|===
+
+[#temporalextent-properties,reftext='{table-caption} {counter:table-num}']
+.JSON TemporalExtent Properties
+[cols="1,1,3", options="header"]
+|===
+| Name (as encoded in JSON) | JSON Type | Definition
+
+| **interval**
+| Array of (at least 1) Array of 2 (Real or String)
+| One or more time intervals that describe the temporal extent of the dataset.
+The first time interval describes the overall temporal extent of the data. All subsequent time intervals describe more precise time intervals, e.g.,
+to identify clusters of data. Clients only interested in the overall extent will only need to access the first item in each array.
+
+| **trs**
+| String (URI, CURIE or WKT2CRS) or object (PROJJSON or CRS JSON)
+| Coordinate reference system of the coordinates in the temporal extent (property `interval`).
+The default reference system is the Gregorian calendar. For data for which the Gregorian calendar is not suitable, such as geological time scale,
+another temporal reference system may be used. This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise
+using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+
+| **grid**
+| <<regulargrid-properties,RegularGrid>> or <<irregulargrid-properties,IrregularGrid>>
+| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ Grid description providing information about the limited availability of data within the collection organized as a grid (regular or irregular) along the
+temporal dimension.
+|===
+
 In the following example, the native CRS of the data is in the Mercator CRS (EPSG:3395).
 The data is referenced to Earth, therefore the bounding box for discovery purpose needs to be specified in OGC:CRS84.
 The CRSs available for output (which the client could potentially select using a `crs` query parameter defined by the access mechanism) include both EPSG:3395 and OGC:CRS84.

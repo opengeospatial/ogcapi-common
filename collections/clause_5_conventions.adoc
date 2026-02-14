@@ -121,7 +121,7 @@ OpenAPI is one way to provide that machine readable documentation.
 The OGC Common API - 2: GeoData uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API Standard.
 Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
-The OGC API - Common - Part 1 Standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
+The OGC API - Common - Part 1 Standard includes a http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30[conformance class] for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
 Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 An API definition is required for implementations conforming to the OGC API - Part 1: Core "Landing Page" requirements class.
 

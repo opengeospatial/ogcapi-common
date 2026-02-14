@@ -52,7 +52,7 @@ properties:
      type: string
      format: uri
      title: Observed property definition
-     description: A URI to the definition of the measured or observed property corresponding to this dimension.
+     description: A URI for the definition of the measured or observed property corresponding to this dimension.
    unit:
      type: string
      title: Units of measurement

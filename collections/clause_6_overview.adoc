@@ -96,7 +96,7 @@ The following table lists all properties defined as part of the collection descr
 Note that only the `id` and `links` are mandatory. The `"rel": "self"` link is the only mandatory link, and usually at least one link tied to a specific data access mechanism
 (e.g., `"rel": "items"` or `"rel": "[ogc-rel:map]"`) should be included.
 This set of properties is neither a minimal subset, nor a comprehensive union of all properties defined by all OGC API Standards,
-but a list of all properties identified as being in use by two or more OGC API Standards, without being tied to any particular data access mechanism.
+but a list of properties identified as being in use by two or more OGC API Standards, without being tied to any particular data access mechanism.
 
 Several of the properties originate from the https://docs.ogc.org/is/17-083r4/17-083r4.html#table14[2D Tile Matrix Set and TileSet Metadata], which itself was largely derived from the
 https://docs.ogc.org/per/19-082r1.html[Vector Tiles Pilot TileSet Metadata Engineering Report].
@@ -125,11 +125,11 @@ new conflicting properties (with same name but different semantics).
 | A human-readable explanation about data in the collection
 
 | **extent**
-| Extent
+| <<extent-properties,Extent>>
 | The extent where and when data from this collection is available
 
 | **links**
-| array of Link
+| Array of Link
 | **_(required)_** Links to this or other resources related to this collection
 
 | **attribution**
@@ -138,22 +138,22 @@ new conflicting properties (with same name but different semantics).
 
 | **attributionMediaType**
 | AttributionMediaTypeCode
-| Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or CommonMark (`text/markdown`).
+| Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or CommonMark (`text/markdown`)
 
 | **accessContraints**
 | AccessContraintsCode (`unclassified`, `restricted`, `confidential`, `secret`, `topSecret`)
-| Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data.
+| Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data
 
 | **parent**
 | String
-| An `id` of a collection that is the parent of this collection in a hierarchical relation. For example a rivers’ collection can have an topographic collection as parent.
+| An `id` of a collection that is the parent of this collection in a hierarchical relation. For example a rivers’ collection can have a topographic collection as parent
 
 | **publisher**
 | String
 | Organization or individual responsible for making the data available
 
 | **contacts**
-| array of Contact
+| Array of Contact
 | A list of contacts qualified by their role(s) in association to the collection
 
 | **license**
@@ -161,8 +161,8 @@ new conflicting properties (with same name but different semantics).
 | The legal provisions under which the data of this collection is made available
 
 | **resourceLanguages**
-| array of ResourceLanguage
-| The list of languages in which the data of this collection is available.
+| Array of ResourceLanguage
+| The list of languages in which the data of this collection is available
 
 | **rights**
 | String
@@ -173,7 +173,7 @@ new conflicting properties (with same name but different semantics).
 | The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes
 
 | **themes**
-| array of Theme
+| Array of Theme
 | A knowledge organization system used to classify the resource
 
 | **itemType**
@@ -185,19 +185,19 @@ new conflicting properties (with same name but different semantics).
 | Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
 
 | **formats**
-| array of Format
+| Array of Format
 | A list of formats in which the data of this collection is distributed
 
 | **geoDataClasses**
-| array of URI
+| Array of URI
 | One or more classes of geospatial data, identified by a URI, which implies compatibility with a particular schema (fields/properties, as defined in OGC API - Common - Part 3: Schemas) for one or more collections, each with particular semantic definitions and data types. This is useful for example to determine compatibility with styles or processes, or to identify a particular collection within a dataset based on semantics.
 
 | **defaultFields**
-| array of String
+| Array of String
 | A sorted list of field names. For a features data access mechanism , it is the list of returnable properties included by default and complementing the geometry of the features. For a coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.
 
 | **crs**
-| array of String (URI, CURIE or WKT2CRS) or objects (PROJJSON or CRS JSON)
+| Array of String (URI, CURIE or WKT2CRS) or objects (PROJJSON or CRS JSON)
 | The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
 | **storageCrs**

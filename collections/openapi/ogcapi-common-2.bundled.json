@@ -721,7 +721,7 @@
                 "properties": {
                   "interval": {
                     "title": "Temporal intervals",
-                    "description": "One or more time intervals that describe the temporal extent of the dataset.\nIn the Core only a single time interval is supported.\n\nExtensions may support multiple intervals.\nThe first time interval describes the overall\ntemporal extent of the data. All subsequent time intervals describe\nmore precise time intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item in each array.",
+                    "description": "One or more time intervals that describe the temporal extent of the dataset.\n\nThe first time interval describes the overall\ntemporal extent of the data. All subsequent time intervals describe\nmore precise time intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item in each array.",
                     "type": "array",
                     "minItems": 1,
                     "items": {
@@ -860,7 +860,7 @@
                       "type": "string",
                       "format": "uri",
                       "title": "Observed property definition",
-                      "description": "A URI to the definition of the measured or observed property corresponding to this dimension."
+                      "description": "A URI for the definition of the measured or observed property corresponding to this dimension."
                     },
                     "unit": {
                       "type": "string",
