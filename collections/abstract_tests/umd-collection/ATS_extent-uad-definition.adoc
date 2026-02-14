@@ -15,7 +15,10 @@ For each additional dimension beyond `spatial` and `temporal`:
 . Validate that the dimension property includes a `unit` if the `trs`, `vrs` or `definition` does not imply a specific unit.
 --
 
-NOTE: The first two aspects of this validation can be performed by swapping the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent.yaml[extent.yaml] schema
-included by https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] by a version
-where the `- type: object` within the `anyOf` has been removed, as per the comment saying _To validate against the Uniform Additional Dimensions requirements class, remove or comment out the following line_.
+NOTE: The first two aspects of this validation can be performed by using the
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc-UAD.yaml[collectionDesc-UAD.yaml]
+collection description YAML JSON Schema including
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent-UAD.yaml[extent-UAD.yaml] schema
+instead of
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml].
 ====

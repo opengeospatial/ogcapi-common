@@ -78,8 +78,12 @@ For additional dimensions beyond spatial and temporal, the reference system is d
 In addition to specifying the reference system of the `interval`, this also specifies the reference system of that dimension for the data itself.
 Unlike the spatial CRS, the collection description in this standard only supports defining a single reference system for the temporal dimension and each additional dimension.
 
-To validate against this UMD Requirements Class, the `- type: object` line within the `anyOf:` in the
-https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent.yaml[extent.yaml] YAML JSON Schema of the collection description's extent should be commented out.
+To validate against this UMD Requirements Class, the
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc-UAD.yaml[collectionDesc-UAD.yaml]
+collection description YAML JSON Schema including
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent-UAD.yaml[extent-UAD.yaml]
+should be used instead of
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml]
 
 include::requirements/umd-collection/REQ_extent-uad-definition.adoc[]
 
