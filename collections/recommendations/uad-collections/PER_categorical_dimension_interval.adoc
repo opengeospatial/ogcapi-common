@@ -1,8 +1,8 @@
-[[per_umd-categorical-dimension-interval]]
+[[per_uad-categorical-dimension-interval]]
 [permission]
 ====
 [%metadata]
-identifier:: /per/umd-collection/rec-categorical-dimension-interval
+identifier:: /per/uad-collections/rec-categorical-dimension-interval
 part:: For a categorical dimension, the first and the last categories listed in `coordinates` MAY be selected as the lower and upper bounds of the mandatory overall interval,
 or `null` MAY be used for both the lower and upper bounds.
 ====

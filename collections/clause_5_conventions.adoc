@@ -150,7 +150,7 @@ The components part includes parameters, responses and schemas that can be reuse
 However, the implementation should select the appropriate collection description schema
 (https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] or
 https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc-UAD.yaml[collectionDesc-UAD.yaml])
-based on whether they implement the <<rc-umd-collection-section,Uniform Multi-Dimension Collection Requirements Class>> or not.
+based on whether they implement the <<rc-uad-collections-section,Uniform Additional Dimensions Collections Requirements Class>> or not.
 
 The `api` directory contains JSON files that are templates with enumerated values for collections.
 A particular implementation of the Common API-2: GeoData should enumerate the actual resources exposed by the API deployment in the same way.

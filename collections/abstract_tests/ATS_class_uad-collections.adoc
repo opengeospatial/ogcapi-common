@@ -1,0 +1,16 @@
+[[ats_uad-collections]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/uad-collections
+target:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/uad-collections
+classification:: Target Type:Web API
+abstract-test:: /conf/uad-collections/extent-uad-definition
+abstract-test:: /conf/uad-collections/grid-description
+====
+
+==== Abstract Test for Uniform Additional Dimensions Collections Definition
+
+include::uad-collections/ATS_extent-uad-definition.adoc[]
+
+include::uad-collections/ATS_grid-description.adoc[]

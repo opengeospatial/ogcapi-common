@@ -19,14 +19,14 @@ The tests in Annex A are organized by Requirements Class. Therefore, an implemen
 The requirements classes defined in Part 2: Geospatial Data are:
 
 * <<rc-collections-section,Collections>>
-* <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>
+* <<rc-uad-collections-section,Uniform Additional Dimensions Collections>>
 * <<rc-html-section,HTML>>
 * <<rc-json-section,JSON>>
 
 The <<rc-collections-section,Collections Requirements Class>> defines a common means to list and describe <<collection-definition,collections>> of <<spatial-resource-definition,spatial resources>>,
 but does not mandate a specific encoding or format for representing resources.
 
-The <<rc-umd-collection-section,Uniform Multi-Dimension Collection Requirements Class>> defines a consistent way to describe the domain of multidimensional collections of data,
+The <<rc-uad-collections-section,Uniform Additional Dimensions Collections Requirements Class>> defines a consistent way to describe the domain of multidimensional collections of data,
 including additional dimensions beyond space and time, as well as regular and irregular grids.
 
 The <<rc-html-section,_HTML_>> and <<rc-json-section,_JSON_>> requirements classes specify representations for these resources in commonly used encodings for spatial data on the web.
@@ -56,7 +56,7 @@ Other OGC API Standards define <<data-access-mechanism-definition, data access m
 |===
 | Corresponding requirements class                          | Conformance class URI
 | <<rc_collections,Collections>>                            | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
-| <<rc_umd-collection,Uniform Multi-Dimension Collection>>  | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/umd-collection
+| <<rc_uad-collections,Uniform Additional Dimensions Collections>>  | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/uad-collections
 | <<rc_html,HTML>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/html
 | <<rc_json,JSON>>                                          | https://www.opengis.net/spec/ogcapi-common-2/1.0/conf/json
 |===

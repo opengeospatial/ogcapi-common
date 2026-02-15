@@ -1,18 +1,18 @@
-[[rc-umd-collection-section]]
-== Requirements Class "Uniform Multi-Dimension Collection"
+[[rc-uad-collections-section]]
+== Requirements Class "Uniform Additional Dimensions Collections"
 :sectnums:
 
-include::requirements/requirements_class_umd-collection.adoc[]
+include::requirements/requirements_class_uad-collections.adoc[]
 
 The <<rc_collections,Collections>> Requirements Class defines a <<collection-resource-definition-section,Collection>> resource which supports both geospatial and temporal dimensions.
 However, the domain of some datasets cannot be fully described with only spatiotemporal dimensions.
-The <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> Requirements Class extends the <<collection-resource-definition-section,Collection>> resource to support an unlimited number of
+The <<rc-uad-collections-section,Uniform Additional Dimensions Collections>> Requirements Class extends the <<collection-resource-definition-section,Collection>> resource to support an unlimited number of
 dimensions defined in a uniform manner, so that clients supporting this requirements class can interpret these dimensions in a generic manner.
 
-[[umd-collection-definition]]
+[[uad-collections-definition]]
 === Uniform description of all dimensions
 
-A Uniform Multi-Dimension Collection is an extension of the <<collection-resource-definition-section,Collection>> resource.
+A Uniform Additional Dimensions Collection is an extension of the <<collection-resource-definition-section,Collection>> resource.
 
 This requirements class supports the definition of additional dimensions beyond spatial and temporal in a specific way which is consistent with the spatial and temporal dimensions.
 
@@ -78,14 +78,14 @@ For additional dimensions beyond spatial and temporal, the reference system is d
 In addition to specifying the reference system of the `interval`, this also specifies the reference system of that dimension for the data itself.
 Unlike the spatial CRS, the collection description in this standard only supports defining a single reference system for the temporal dimension and each additional dimension.
 
-To validate against this UMD Requirements Class, the
+To validate against this Uniform Additional Dimensions Collections Requirements Class, the
 https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc-UAD.yaml[collectionDesc-UAD.yaml]
 collection description YAML JSON Schema including
 https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/extent-UAD.yaml[extent-UAD.yaml]
 should be used instead of
 https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml]
 
-include::requirements/umd-collection/REQ_extent-uad-definition.adoc[]
+include::requirements/uad-collections/REQ_extent-uad-definition.adoc[]
 
 === Describing gridded dimensions
 
@@ -198,6 +198,6 @@ The following table lists all properties defined as part of a regular grid.
 
 ==== Requirements for describing grids
 
-include::requirements/umd-collection/REQ_grid-description.adoc[]
+include::requirements/uad-collections/REQ_grid-description.adoc[]
 
-include::recommendations/umd-collection/PER_categorical_dimension_interval.adoc[]
+include::recommendations/uad-collections/PER_categorical_dimension_interval.adoc[]

@@ -11,7 +11,7 @@ Therefore, an API may expose resources in addition to those defined by the stand
 The Conformance Classes addressed by this Abstract Test Suite are the:
 
 * <<ats_collections,Collections Conformance Class>>
-* <<ats_umd-collection,Uniform Multi-Dimension Collection Conformance Class>>
+* <<ats_uad-collections,Uniform Additional Dimensions Collections Conformance Class>>
 * <<ats_html,HTML Conformance Class>>
 * <<ats_json,JSON Conformance Class>>
 
@@ -19,9 +19,9 @@ The Conformance Classes addressed by this Abstract Test Suite are the:
 
 include::abstract_tests/ATS_class_collections.adoc[]
 
-=== Conformance Class Uniform Multi-Dimension Collection
+=== Conformance Class Uniform Additional Dimensions Collections
 
-include::abstract_tests/ATS_class_umd-collection.adoc[]
+include::abstract_tests/ATS_class_uad-collections.adoc[]
 
 === Conformance Class JSON
 

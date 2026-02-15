@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-identifier:: /req/umd-collection/grid-description
+identifier:: /req/uad-collections/grid-description
 part:: If data is organized as a regular or irregular grid for the temporal and any additional dimension, that dimension SHALL contain a `grid` object property describing the grid of that dimension.
 part:: If data is organized as a regular or irregular grid for the spatial dimensions, the `spatial` object SHALL contain a `grid` array property, where each element is an object describing the grid of that dimension.
 part::

@@ -2,7 +2,7 @@
 [requirement]
 ====
 [%metadata]
-identifier:: /req/umd-collection/extent-uad-definition
+identifier:: /req/uad-collections/extent-uad-definition
 part:: Any additional dimension property added to the `extent` of a collection description SHALL contain an `interval` property consisting of an array of one or more interval(s), where the first element describes the overall interval where data is available for the collection, whereas any additional elements describe intervals encompassing clusters of data availability within the overall interval.
 part:: Each interval element SHALL be described as an array of two values, with the first being the lower bound and the second the upper bound.
 part:: An unbounded or half-bounded interval SHALL be described using a null value for its lower and/or upper bound.

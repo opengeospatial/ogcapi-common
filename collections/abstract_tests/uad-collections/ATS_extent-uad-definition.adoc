@@ -1,10 +1,10 @@
-[[ats_umd-collection_extent-uad-definition]]
+[[ats_uad-collections_extent-uad-definition]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/umd-collection/extent-uad-definition
-target:: /req/umd-collection/extent-uad-definition
-test-purpose:: To verify that the collection descriptions follow the uniform schema for describing multi-dimensional data collections
+identifier:: /conf/uad-collections/extent-uad-definition
+target:: /req/uad-collections/extent-uad-definition
+test-purpose:: To verify that the collection descriptions follow the uniform schema for describing data collections with additional dimensions beyond spatial and temporal
 test-method::
 +
 --

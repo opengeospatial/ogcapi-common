@@ -183,7 +183,7 @@ Such alternate CRS definitions can also be used for the `crs` of the `bbox` for 
 
 The following tables lists all properties defined as part of the collection's extent.
 While additional properties beyond the `spatial` and `temporal` defined here are left open by this "Collections" requirements class,
-the <<rc-umd-collection-section,Uniform Multi-Dimension Collection>> requirements class defines a specific uniform schema for properties representing additional
+the <<rc-uad-collections-section,Uniform Additional Dimensions Collections>> requirements class defines a specific uniform schema for properties representing additional
 dimensions, while also defining the `grid` property which is also applicable to spatiotemporal extents.
 
 [#extent-properties,reftext='{table-caption} {counter:table-num}']
@@ -201,7 +201,7 @@ dimensions, while also defining the `grid` property which is also applicable to 
 
 | **_(any additional property)_**
 | <<otherdimensionextent-properties,OtherDimensionExtent>>
-| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ The extent for any additional dimensions beyond those described in temporal and spatial.
+| _(if implementing <<rc-uad-collections-section,Uniform Additional Dimensions Collections>>)_ The extent for any additional dimensions beyond those described in temporal and spatial.
 |===
 
 [#spatialextent-properties,reftext='{table-caption} {counter:table-num}']
@@ -237,7 +237,7 @@ or CRS JSON object.
 
 | **grid**
 | Array of 2 or 3 (<<regulargrid-properties,RegularGrid>> or <<irregulargrid-properties,IrregularGrid>>)
-| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ Grid description providing information about the limited availability of data within the collection
+| _(if implementing <<rc-uad-collections-section,Uniform Additional Dimensions Collections>>)_ Grid description providing information about the limited availability of data within the collection
 organized as a grid (regular or irregular) along each spatial dimension.
 |===
 
@@ -262,7 +262,7 @@ using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
 
 | **grid**
 | <<regulargrid-properties,RegularGrid>> or <<irregulargrid-properties,IrregularGrid>>
-| _(if implementing <<rc-umd-collection-section,Uniform Multi-Dimension Collection>>)_ Grid description providing information about the limited availability of data within the collection organized as a grid (regular or irregular) along the
+| _(if implementing <<rc-uad-collections-section,Uniform Additional Dimensions Collections>>)_ Grid description providing information about the limited availability of data within the collection organized as a grid (regular or irregular) along the
 temporal dimension.
 |===
 

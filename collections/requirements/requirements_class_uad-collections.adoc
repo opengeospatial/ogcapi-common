@@ -1,0 +1,11 @@
+[[rc_uad-collections]]
+[requirements_class]
+.Uniform Additional Dimensions Collections
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/uad-collections
+subject:: Web API
+inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
+requirement:: /req/uad-collections/extent-uad-definition
+requirement:: /req/uad-collections/grid-description
+====
