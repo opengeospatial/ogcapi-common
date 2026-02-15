@@ -59,8 +59,7 @@ include::requirements/collections/REQ_collections-collections-list-collections.a
 
 The array items included in the `collection` property are described in the <<collection-description,Collection Resource>> section of the Collections Requirements Class.
 
-The Collections Requirements Class does not define any parameters for use against a `collections` resource.
-
+NOTE: The Collections Requirements Class does not define any query parameters for use against the `/collections` resource.
 Implementers who plan supporting the offering of large numbers of collections from the same API endpoint may consider extending
 their API implementations with capabilities defined in the OGC API - Records Standard (with collections acting as the local resources of a local resource catalog),
 as well as candidate extensions to the OGC API - Common Standard that introduce capabilities for hierarchical collections, searching, filtering, and sorting collections.
