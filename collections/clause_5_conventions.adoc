@@ -151,6 +151,11 @@ However, the implementation should select the appropriate collection description
 (https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] or
 https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc-UAD.yaml[collectionDesc-UAD.yaml])
 based on whether they implement the <<rc-uad-collections-section,Uniform Additional Dimensions Collections Requirements Class>> or not.
+For proper validation against the Uniform Additional Dimensions schemas, both the
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[`collections.yaml`] schema
+(describing the list of collections) and the
+https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/responses/common-geodata/rCollection.yaml[`rCollection.yaml`]
+OpenAPI response for the `/collections/{collectionId}` resource need to be modified to include the UAD version of the collection description.
 
 The `api` directory contains JSON files that are templates with enumerated values for collections.
 A particular implementation of the Common API-2: GeoData should enumerate the actual resources exposed by the API deployment in the same way.
