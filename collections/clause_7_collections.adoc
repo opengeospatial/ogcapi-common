@@ -357,7 +357,7 @@ If the parameter `collectionId` does not exist on the server, the status code of
 
 When implementing the "Collections" requirement class, the `/collections` end-point can be considered a _Local Resource Catalog_, where the local resources are the collections being cataloged.
 
-This requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog[OGC API - Records - Part 1: Core "Local Resources Catalog" (Deployment)].
+This requirement class is consistent with the requirements of https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog[OGC API - Records - Part 1: Core "Local Resources Catalog" (Deployment)].
 An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
 In this case, the implementation should verify and declare conformance with these five conformance classes defined in Records corresponding to the following URIs:
 
