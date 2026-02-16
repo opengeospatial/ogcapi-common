@@ -160,7 +160,7 @@ OpenAPI response for the `/collections/{collectionId}` resource need to be modif
 The `api` directory contains JSON files that are templates with enumerated values for collections.
 A particular implementation of the Common API-2: GeoData should enumerate the actual resources exposed by the API deployment in the same way.
 The implementation can select to dynamically implement responses to `/api/all-collections` as a Web resource supported by the server, or instead to hardcode
-the `api/all-collections.json` file with the actual list of resource identifiers in the enumerations.
+the `api/all-collections.json` file with the actual list of resource identifiers in the enumeration.
 
 To improve performance, the whole content of this directory can be bundled into a single document by executing a tool such as `swagger-cli`.
 This document can be served for the OGC API - Common - Part 1 `service-desc` link from the landing page.
