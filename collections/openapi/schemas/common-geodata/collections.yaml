@@ -16,6 +16,8 @@ properties:
   collections:
     type: array
     title: Collections descriptions
-    description: Descriptions of each collection in this API. 
+    description: Descriptions of each collection in this API.
     items:
       $ref: 'collectionDesc.yaml'
+      # For APIs conforming to the Uniform Additional Dimensions requirements class, reference the collectionDesc-UAD.yaml schema instead
+      # $ref: 'collectionDesc-UAD.yaml'
