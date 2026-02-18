@@ -19,16 +19,24 @@ Version 1.0.0 of this standard is available in [HTML](https://docs.ogc.org/is/19
 
 The OGC API - Common - Part 2: Geospatial Data *candidate* Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.
 
-This *candidate* standard is available in [HTML](http://docs.opengeospatial.org/DRAFTS/20-024.html) and [PDF](http://docs.opengeospatial.org/DRAFTS/20-024.pdf) formats.
+This *candidate* standard is available in [HTML](https://docs.ogc.org/DRAFTS/20-024.html) and [PDF](https://docs.ogc.org/DRAFTS/20-024.pdf) formats.
 
-## OGC API - Common - Part 3: CRS
+## OGC API - Common - Part 3: Schemas
 
-This specification is generalized copy of the CRS extension for API-Features. It has been included in this repository for two reasons:
+The OGC API - Common - Part 3: Schemas *candidate* Standard (also dual-titled OGC API - Features - Part 5) allows to describe the logical schema
+associated with a collection of geospatial data. The schemas describe the fields/properties available from the collection, with details such as
+their data type, semantic definitions and units of measure.
 
-1) For consideration as a re-usable API module
-2) To exercise and mature the processes for creating and managing the development of API modules.
+This *candidate* standard is available in [HTML](https://docs.ogc.org/DRAFTS/23-058r1.html) and [PDF](https://docs.ogc.org/DRAFTS/23-058r1.pdf) formats.
 
-This specification is only available from this GitHub repository
+## OGC API - Common - Part 4: Discovery within many collections
+
+The OGC API - Common - Part 4: Discovery within many collections *candidate* Standard extends the `/collections` end-point defined in Part 2
+with query parameters to retrieve only a subset of the collections, useful for API deployments where a large number of collections are available.
+This includes the ability to specify a limit on the number of collections returned, sorting, filtering by bounding box or date/time,
+advanced filtering using the OGC Common Query Language (CQL2) and to filter collection hierarchies.
+
+This *candidate* standard is available in [HTML](https://docs.ogc.org/DRAFTS/25-046.html) and [PDF](https://docs.ogc.org/DRAFTS/25-046.pdf) formats.
 
 ## Draft Specifications
 
