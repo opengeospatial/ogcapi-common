@@ -5,7 +5,4 @@
 [%metadata]
 identifier:: /req/sortable-collections/sortby-response
 part:: If the `sortby` parameter is specified, then the collections in a response SHALL be ordered by the keys and sort directions (i.e., ascending or descending) specified.
-part:: The Implementation SHALL support the set of keys specified in the sortables resource for collection descriptions.
 ====
-
-// REVIEW: How does the client discover the collections sortables and queryables resources?

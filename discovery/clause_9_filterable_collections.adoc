@@ -4,23 +4,23 @@
 
 include::requirements/requirements_class_filtering.adoc[]
 
-This Requirements Class describes query parameters that can be used to discover and select collections exposed through an OGC Web API, by using an OGC Common Query Language filter expression.
+This Requirements Class describes query parameters that can be used to discover and select collections exposed through an OGC Web API, by using an https://docs.ogc.org/is/21-065r2/21-065r2.html[OGC Common Query Language (CQL2)] filter expression.
 
 [[filtering-overview]]
 === Overview
 
-This "Filtering Collections with CQL2" defines query parameters which can be used with the `/collections` endpoint (described in the https://docs.ogc.org/DRAFTS/20-024.html#rc-collections-section[Collections Requirements Class of OGC API - Common - Part 2: Geospatial Data])
+This "Filtering Collections with CQL2" defines query parameters which can be used with the `/collections` endpoint (described in the https://docs.ogc.org/is/20-004r1/20-004r1.html#rc-collections-section[Collections Requirements Class of OGC API - Common - Part 2: Geospatial Data])
 to select which collections to return on a GET request:
 
 * <<filtering-filter-parameter,filter>>: The expression used as a filter
-* <<filtering-filter-lang-parameter,filter-lang>>: The language used to experss the filter (e.g., CQL2-JSON or CQL2-Text)
+* <<filtering-filter-lang-parameter,filter-lang>>: The language used to express the filter (e.g., CQL2-JSON or CQL2-Text)
 
 If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 1: Core] "Landing Page", these supported query parameters need to be described in the API definition as described in that part.
 
 [[filtering-api-records]]
 === OGC API - Records compliance
 
-This "Filtering Collections with CQL2" requirement class is consistent with the requirements of https://docs.ogc.org/DRAFTS/20-004.html#clause-local-resources-catalog_filtering[OGC API - Records - Part 1: Core "Local Resources Catalog - Filtering" (Deployment)].
+This "Filtering Collections with CQL2" requirement class is consistent with the requirements of https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog_filtering[OGC API - Records - Part 1: Core "Local Resources Catalog - Filtering" (Deployment)].
 An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
 In this case, in addition to the five OGC API - Records requirement classes mentioned in the <<collections-api-records,Collections requirements class>>, the implementation should verify and declare conformance with these additional two conformance classes defined in Records corresponding to the following URIs:
 
@@ -34,6 +34,90 @@ In this case, in addition to the five OGC API - Records requirement classes ment
 [[filtering-filter-parameter]]
 === Query Parameter `filter`
 
+include::requirements/filterable-collections/REQ_filtering-filter-parameter.adoc[]
+
+As an example, if the server supports the list of `fields` and the `minScaleDenominator` as queryables, a client could request the list of all collections including a `nir` field
+which are suitable for a 1:100,000 scale with a GET request from `/collections?filter='nir' in fields and minScaleDenominator < 100000`.
+
+If an Implementation supports a `keywords` array queryable as well as the CQL2 Advanced Comparison Operators, a client could search for all collections containing the `forest` keyword with
+`/collections?filter='forest' in keywords`.
+
+An implementation should support as many queryables as possible representing the relevant properties of the collection description data model.
+
+The Implementation also needs to return a queryables schema from some end-point (e.g., `/collectionsQueryables`) linked to using the
+https://www.opengis.net/def/rel/ogc/1.0/queryables link relation from the `/collections` end-point. The client can discover the available queryables from the `properties` of that schema.
+
+While this implies a first request to discover the queryables end-point,
+the client could use `/collections?filter=false` (or `/collections?limit=1` if the Searchable Collections requirement class is also implemented) to limit the size of that initial response.
+The server is also allowed to limit the default or maximum number of collections returned in a single response.
+
+The following is an example response for typical queryables that could be included.
+
+[source,json]
+----
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://example.com/collectionsQueryables",
+  "type": "object",
+  "title": "Collection-level Queryables",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title of the collection"
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "title": "Keywords representing aspects of the collection"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description of the collection"
+    },
+    "fields": {
+      "type": "array",
+      "items": { "type": "string" },
+      "title": "List of fields available from the collection"
+    },
+    "publisher": {
+      "type": "string",
+      "title": "Responsible party publishing the collection"
+    },
+    "license": {
+      "type": "string",
+      "title": "License associated to the collection"
+    },
+    "dataType": {
+      "title": "Nature of the data in the collection",
+      "enum": [ "map", "vector", "coverage" ]
+    },
+    "storageCrs": {
+      "title": "Native coordinate reference system of the collection",
+      "type": "string"
+    },
+    "geometryDimension": {
+      "title": "Number of spatial dimensions of the primary geometry for the data",
+      "type": "integer",
+      "minimum": 0, "maximum": 3
+    },
+    "minScaleDenominator": {
+      "title": "Minimum scale denominator for the collection",
+      "type": "number"
+    },
+    "maxScaleDenominator": {
+      "title": "Maximum scale denominator for the collection",
+      "type": "number"
+    },
+    "geoDataClasses": {
+      "title": "Class of data in the collection",
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    }
+  }
+}
+----
 
 [[filtering-filter-lang-parameter]]
-=== Parameter `filter-lang`
+=== Query Parameter `filter-lang`
+
+include::requirements/filterable-collections/REQ_filtering-filter-lang-parameter.adoc[]

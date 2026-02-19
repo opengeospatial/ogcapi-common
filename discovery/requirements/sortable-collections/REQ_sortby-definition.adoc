@@ -6,5 +6,7 @@
 identifier:: /req/sortable-collections/sortby-param
 part:: The `/collections` resource SHALL support a query parameter `sortby` for the GET operation whose value can be a comma-separated list of sortables expressed as text using the pattern `'[+\|-]?[A-Za-z_].*'`.
 part:: The default sort order for a given sortable when not explicitly specified SHALL be ascending (i.e., `+`).
-// Do we want to require a minimum set of collections sortable? part:: The Implemntation SHALL support at minimum `id` and `title` as sortables.
+part:: The Implementation SHALL support at minimum `id` and `title` as sortables.
+part:: The `/collections` resource SHALL include in its `links` property a link to a schema of the sortables (as defined in OGC API - Common - Part 3: Schemas) that can be used for sorting the list of collections
+using the link relation type https://www.opengis.net/def/rel/ogc/1.0/sortables.
 ====

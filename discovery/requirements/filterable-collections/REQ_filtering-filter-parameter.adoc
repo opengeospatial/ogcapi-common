@@ -1,0 +1,11 @@
+[[req_filtering_filter-parameter]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/filtering/filter-parameter
+part:: The `/collections` resource SHALL support a query parameter `filter` for the GET operation whose value is an OGC Common Query Language (CQL2) expression.
+part:: The `/collections` resource SHALL include in its `links` property a link to a schema of the queryables (as defined in OGC API - Common - Part 3: Schemas) that can be used within a filtering CQL2 expression
+using the link relation type https://www.opengis.net/def/rel/ogc/1.0/queryables.
+part:: The response to the `/collections` request SHALL only contain those collections matching the filter.
+====

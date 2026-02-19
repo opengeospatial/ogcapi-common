@@ -31,6 +31,13 @@ In this case, in addition to the five OGC API - Records requirement classes ment
 [[sorting-sortby-parameter]]
 === Query Parameter `sortby`
 
+The Implementation needs to return a sortables schema from some end-point (e.g., `/collectionsSortables`) linked to using the
+https://www.opengis.net/def/rel/ogc/1.0/sortables link relation from the `/collections` end-point. The client can discover the available sortables from the `properties` of that schema.
+
+While this implies a first request to discover the sortables end-point,
+the client could use `/collections?limit=1` if the Searchable Collections requirement class is also implemented to limit the size of that initial response.
+The server is also allowed to limit the default or maximum number of collections returned in a single response.
+
 include::requirements/sortable-collections/REQ_sortby-definition.adoc[]
 
 include::requirements/sortable-collections/REQ_sortby-response.adoc[]
