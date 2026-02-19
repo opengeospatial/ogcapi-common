@@ -1,10 +1,12 @@
 [[req_searchable_bbox-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/searchable/bbox-response*
-^|A|If the `bbox` parameter is provided by the client and supported by the server, then only collections that have a spatial extent that intersects the bounding box and collections that
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/searchable-collections/bbox-response
+part:: If the `bbox` parameter is provided by the client and supported by the server, then only collections that have a spatial extent that intersects the bounding box and collections that
 do not describe a spatial extent SHALL be part of the result set.
-|===
+====
 
 NOTE: If the spatial extent of a collection is described with both an overall bounding box, and additional bounding boxes describing sparse content,
 it is the decision of the server whether to only consider the overall bounding box or to ignore the overall bounding box and only consider the more detailed spatial extent described by the individual bounding boxes

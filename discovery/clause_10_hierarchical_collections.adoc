@@ -37,7 +37,7 @@ A new `parent` property is defined to include in the collection description reso
 and collection listing resource (`/collections`), indicating the `{collectionId}` of the parent for that collection.
 The property is omitted or set to a _null_ value for top-level collections.
 
-include::requirements/hierarchy/REQ_parent_property.adoc[]
+include::requirements/hierarchical-collections/REQ_parent_property.adoc[]
 
 Although not required, implementations could opt for using a specific character (such as the colon `:`) to separate the hierarchical parts of collection identifiers.
 This notably facilitates directly accessing a parent collection in a browser environment by editing URLs in the browser address bar.
@@ -48,7 +48,7 @@ In the HTML representation of a collection description resource (`/collections/{
 list of children collections, allowing a user to directly click and explore the hierarchy this way.
 For programmatic clients wishing not to retrieve an entire hierarchy of collections, separate `/collections?parent={parentId}&descendants=immediate` requests are performed to retrieve the list of immediate children collections (see below).
 
-include::recommendations/hierarchy/PER_collection_children.adoc[]
+include::recommendations/hierarchical-collections/PER_collection_children.adoc[]
 
 Example of a collection description response for `/collections/{collectionId}`:
 
@@ -201,7 +201,7 @@ A `parent` query parameter is defined to filter the list of collections returned
 Depending on the value of the `descendants` parameter, either the entire hierarchy underneath (`descendants=all`), or only the immediate children (`descendants=immediate`) of that parent are returned.
 By default, all descendants of the specified parent, or all collections of the dataset if no parent is specified, are returned.
 
-include::requirements/hierarchy/REQ_parent_parameter.adoc[]
+include::requirements/hierarchical-collections/REQ_parent_parameter.adoc[]
 
 Example response, based on the hierarchical collections listed earlier, for `/collections?parent=Canada`:
 
@@ -271,7 +271,7 @@ Example response, based on the hierarchical collections listed earlier, for `/co
 A `descendants` query parameter is also defined to retrieve only the immediate children of a specified parent, or only the top-level collections, when using the value `immediate`.
 The default value `all` returns all collections as usual, or the whole hierarchy under a parent if `parent` is specified.
 
-include::requirements/hierarchy/REQ_descendants_parameter.adoc[]
+include::requirements/hierarchical-collections/REQ_descendants_parameter.adoc[]
 
 Example response, based on the hierarchical collections listed earlier, retrieving only the top-level collections with `/collections?descendants=immediate`:
 
@@ -355,7 +355,7 @@ In order to allow implementations and deployments to present a list of collectio
 a permission specific to an HTML representation is introduced.
 Since such an HTML representation is not primarily intended for consumption by programmatic clients, this should not impact compatibility with clients not implementing this extension.
 
-include::recommendations/hierarchy/PER_descendants_default_html.adoc[]
+include::recommendations/hierarchical-collections/PER_descendants_default_html.adoc[]
 
 
 The following example query demonstrates combining filtering with a parent hierarchy (with default `descendants=all`) with capabilities defined in "Searchable Collections" to look for collections related to precipitations

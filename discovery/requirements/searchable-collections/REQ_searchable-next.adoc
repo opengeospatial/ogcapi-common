@@ -1,8 +1,10 @@
 [[rec_searchable_next]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/searchable/next*
-^|A |A `200`-response SHALL include a link to the next "page" (relation: `next`), if more resources have been selected than returned in the response.
-^|B |Dereferencing a `next` link SHALL return additional resources from the set of selected resources that have not yet been returned.
-^|C |The number of resources in a response to a `next` link SHALL follow the same rules as for the response to the original query and again include a `next` link, if there are more resources in the selection that have not yet been returned.
-|===
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/searchable-collections/next
+part:: A `200`-response SHALL include a link to the next "page" (relation: `next`), if more resources have been selected than returned in the response.
+part:: Dereferencing a `next` link SHALL return additional resources from the set of selected resources that have not yet been returned.
+part:: The number of resources in a response to a `next` link SHALL follow the same rules as for the response to the original query and again include a `next` link, if there are more resources in the selection that have not yet been returned.
+====

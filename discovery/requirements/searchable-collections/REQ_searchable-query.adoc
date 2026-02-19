@@ -1,9 +1,11 @@
 [[req_searchable_query]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/searchable/query*
-^|A|The implementation SHALL support a `query` parameter with the following characteristics (using an OpenAPI Specification 3.0 fragment):
 
+[requirement]
+====
+[%metadata]
+identifier:: /req/searchable-collections/query
+part:: The implementation SHALL support a `query` parameter with the following characteristics (using an OpenAPI Specification 3.0 fragment):
++
 [source,YAML]
 ----
 name: query
@@ -17,16 +19,16 @@ schema:
 style: form
 explode: false
 ----
-^|B|The implementation SHALL only return collections whose description matches at least one (logical OR) of the comma-separated items in the `query` array.
-^|C|An item of the `query` array without white space SHALL be considered a match if the whole word appears at least once in the collection description.
-^|D|An item of the `query` array consisting of multiple terms separated by white space SHALL be considered a match if the terms appears in the order specified in a particular property of the collection description,
+part:: The implementation SHALL only return collections whose description matches at least one (logical OR) of the comma-separated items in the `query` array.
+part:: An item of the `query` array without white space SHALL be considered a match if the whole word appears at least once in the collection description.
+part:: An item of the `query` array consisting of multiple terms separated by white space SHALL be considered a match if the terms appears in the order specified in a particular property of the collection description,
 with nothing but white spaces between those terms.
-^|E|The implementation SHALL match items in a case-insensitive manner.
-^|F|The implementation SHALL match the items at minimum with the `title`, `description` and `keywords` properties of the collection descriptions.
-^|G|The implementation SHALL interpret a `+` immediately prefixing a term with the meaning that both the term(s) before it and the term after it SHALL be present in the collection description
+part:: The implementation SHALL match items in a case-insensitive manner.
+part:: The implementation SHALL match the items at minimum with the `title`, `description` and `keywords` properties of the collection descriptions.
+part:: The implementation SHALL interpret a `+` immediately prefixing a term with the meaning that both the term(s) before it and the term after it SHALL be present in the collection description
 (logical AND, irrespective of the order in which they appear, or whether other terms appear in between, or whether they appear in separate keywords or properties) to be considered a matched item.
 This logical AND combination may be part of a comma-separated logical OR, the latter having less precedence.
-^|H|The implementation SHALL interpret a `-` immediately prefixing a term with the meaning that a collection description containing that term SHALL NOT result in this item being considred a match.
-|===
+part:: The implementation SHALL interpret a `-` immediately prefixing a term with the meaning that a collection description containing that term SHALL NOT result in this item being considred a match.
+====
 
 NOTE: The specific set of text keys/fields/properties of a collection description to which the `query` terms are matched applied SHALL be left to the discretion of the implementation.

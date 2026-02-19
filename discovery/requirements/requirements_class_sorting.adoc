@@ -1,10 +1,13 @@
-[[rc_sorting]]
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class*
-2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/req/sorting
-|Target type |Web API
-|Dependency |<<rc_collections,Collections Requirements Class>>
-|Dependency |https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/sorting
-|Dependency |https://www.opengis.net/spec/ogcapi-common-3/1.0/req/sortables
-|===
+[[rc_sortable-collections]]
+
+[requirements_class]
+.Sortable Collections
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/sortable-collections
+subject:: Web API
+inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
+inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/sorting
+inherit:: https://www.opengis.net/spec/ogcapi-common-3/1.0/req/sortables
+// requirement:: /req/sortable-collections/...
+====

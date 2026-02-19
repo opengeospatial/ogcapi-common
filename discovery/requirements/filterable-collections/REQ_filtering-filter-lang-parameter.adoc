@@ -3,7 +3,7 @@
 [requirement]
 ====
 [%metadata]
-identifier:: /req/filtering/filter-lang-parameter
+identifier:: /req/filterable-collections/filter-lang-parameter
 part:: The `/collections` resource SHALL support a query parameter `filter-lang` query parameter for the GET operation whose value can be any of the filtering languages support by the implementation,
 such as `cql-text` and/or `cql-json`.
 part:: When specified, the Implementation SHALL interpret the value of the query parameter `filter` using the filtering language corresponding to the value for this `filter-lang` query parameter.

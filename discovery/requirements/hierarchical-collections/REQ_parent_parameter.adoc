@@ -1,0 +1,12 @@
+[[req_hierarchy_parent-parameter]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/hierarchical-collections/parent-parameter
+part:: The implementation SHALL support a `parent` query parameter for listing collections at the resource `/collections` whose string value represents a specified parent collection identifier.
+part:: When this parameter is used, the response for listing collections SHALL only include collections under the hierarchy of the specified parent collection, starting with its immediate children (excluding the parent itself).
+part:: When the `parent` parameter is omitted, all collections SHALL be returned.
+====
+
+NOTE: The list of collections can be further filtered by the `descendants` parameter defined in this requirement class, or separate requirement classes such as Searchable Collection.

@@ -1,7 +1,9 @@
 [[rec_searchable_limit-default-maximum]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:req-id}* |*/rec/searchable/limit-definition*
-^|A |The Implementation SHOULD advertise the default value for the `limit` parameter.
-^|B |The Implementation SHOULD advertise the maximum value for the `limit` parameter.
-|===
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/searchable-collections/limit-definition
+part:: The Implementation SHOULD advertise the default value for the `limit` parameter.
+part:: The Implementation SHOULD advertise the maximum value for the `limit` parameter.
+====

@@ -1,6 +1,8 @@
 [[rec_searchable_paged-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Recommendation {counter:rec-id}* |*/rec/searchable/paged-response*
-^|A|If the number of items in the `collections` element is less than the number available through the API, then the `numberMatched` and `numberReturned` properties SHOULD be included in the Collections response.
-|===
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/searchable-collections/paged-response
+part:: If the number of items in the `collections` element is less than the number available through the API, then the `numberMatched` and `numberReturned` properties SHOULD be included in the Collections response.
+====

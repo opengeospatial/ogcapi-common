@@ -1,7 +1,9 @@
 [[req_searchable_datetime-response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/searchable/datetime-response*
-^|A |If the `datetime` parameter is provided by the client and supported by the server, then only collections whose temporal extent intersects the interval or instant of the `datetime` parameter and collections that
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/searchable-collections/datetime-response
+part:: If the `datetime` parameter is provided by the client and supported by the server, then only collections whose temporal extent intersects the interval or instant of the `datetime` parameter and collections that
 do not describe a temporal extent SHALL be part of the result set.
-|===
+====
