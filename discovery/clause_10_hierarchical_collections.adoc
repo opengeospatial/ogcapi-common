@@ -52,7 +52,8 @@ include::recommendations/hierarchical-collections/PER_collection_children.adoc[]
 
 Example of a collection description response for `/collections/{collectionId}`:
 
-```json
+[source,json]
+----
 {
    "id": "Montreal",
    "parent": "Quebec",
@@ -64,11 +65,12 @@ Example of a collection description response for `/collections/{collectionId}`:
    ],
    ...
 }
-```
+----
 
 Example of a hierarchical collection listing response for `/collections`:
 
-```json
+[source,json]
+----
 {
    "collections": [
       {
@@ -192,7 +194,7 @@ Example of a hierarchical collection listing response for `/collections`:
    ]
    ...
 }
-```
+----
 
 === `parent` query parameter for `/collections`
 
@@ -205,7 +207,8 @@ include::requirements/hierarchical-collections/REQ_parent_parameter.adoc[]
 
 Example response, based on the hierarchical collections listed earlier, for `/collections?parent=Canada`:
 
-```json
+[source,json]
+----
 {
    "collections": [
       {
@@ -263,8 +266,7 @@ Example response, based on the hierarchical collections listed earlier, for `/co
    ]
    ...
 }
-```
-
+----
 
 === `descendants` query parameter for `/collections`
 
@@ -275,7 +277,8 @@ include::requirements/hierarchical-collections/REQ_descendants_parameter.adoc[]
 
 Example response, based on the hierarchical collections listed earlier, retrieving only the top-level collections with `/collections?descendants=immediate`:
 
-```json
+[source,json]
+----
 {
    "collections": [
       {
@@ -295,11 +298,12 @@ Example response, based on the hierarchical collections listed earlier, retrievi
    ]
    ...
 }
-```
+----
 
 Example response, based on the hierarchical collections listed earlier, for retrieving only the immediate children of the `Canada` collection `/collections?parent=Canada&descendants=immediate`:
 
-```json
+[source,json]
+----
 {
    "collections": [
       {
@@ -321,11 +325,12 @@ Example response, based on the hierarchical collections listed earlier, for retr
    ]
    ...
 }
-```
+----
 
 Example response, based on the hierarchical collections listed earlier, for retrieving only the immediate children of the `Quebec` collection `/collections?parent=Quebec&descendants=immediate`:
 
-```json
+[source,json]
+----
 {
    "collections": [
       {
@@ -349,7 +354,7 @@ Example response, based on the hierarchical collections listed earlier, for retr
    ]
    ...
 }
-```
+----
 
 In order to allow implementations and deployments to present a list of collections in a hierarchical manner by default in a browser,
 a permission specific to an HTML representation is introduced.
@@ -361,6 +366,4 @@ include::recommendations/hierarchical-collections/PER_descendants_default_html.a
 The following example query demonstrates combining filtering with a parent hierarchy (with default `descendants=all`) with capabilities defined in "Searchable Collections" to look for collections related to precipitations
 in a hierarchy within the descendants of a collection with the identifier `Canada`:
 
-```
-GET /collections?parent=Canada&q=precipitations
-```
+`GET /collections?parent=Canada&q=precipitations`
