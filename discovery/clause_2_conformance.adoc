@@ -45,8 +45,8 @@ In addition, each conformance class includes one or more test.
 [cols="30,70",options="header"]
 |===
 | Corresponding requirements class                          | Conformance class URI
-| <<rc_searchable-collections-section,Searchable Collections>>      | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/searchable-collections
-| <<rc_sortable-collections-section,Sortable Collections>>          | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/sortable-collections
-| <<rc_filterable-collections-section,Filterable Collections>>      | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/filterable-collections
-| <<rc_hierarchical-collections-section,Hierarchical Collections>>  | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/hierarchical-collections
+| <<rc-searchable-collections-section,Searchable Collections>>      | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/searchable-collections
+| <<rc-sortable-collections-section,Sortable Collections>>          | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/sortable-collections
+| <<rc-filterable-collections-section,Filterable Collections>>      | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/filterable-collections
+| <<rc-hierarchical-collections-section,Hierarchical Collections>>  | https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/hierarchical-collections
 |===
