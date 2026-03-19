@@ -42,7 +42,7 @@ which are suitable for a 1:100,000 scale with a GET request from `/collections?f
 If an Implementation supports a `keywords` array queryable as well as the CQL2 Advanced Comparison Operators, a client could search for all collections containing the `forest` keyword with
 `/collections?filter='forest' in keywords`.
 
-An implementation should support as many queryables as possible representing the relevant properties of the collection description data model.
+include::./recommendations/filterable-collections/REC_filtering-queryables.adoc[]
 
 The Implementation also needs to return a queryables schema from some end-point (e.g., `/collectionsQueryables`) linked to using the
 https://www.opengis.net/def/rel/ogc/1.0/queryables link relation from the `/collections` end-point. The client can discover the available queryables from the `properties` of that schema.
@@ -121,3 +121,16 @@ The following is an example response for typical queryables that could be includ
 === Query Parameter `filter-lang`
 
 include::requirements/filterable-collections/REQ_filtering-filter-lang-parameter.adoc[]
+
+[[filtering-filter-crs-parameter]]
+=== Query Parameter `filter-crs`
+
+The `filtering-crs` parameter specifies the Coordinate Reference System (CRS) in which the `filter` query parameter is provided, in the form of a URI or safe CURIE.
+
+include::./requirements/filterable-collections/REQ_filtering-filter-crs-parameter.adoc[]
+
+include::./recommendations/filterable-collections/REC_filtering-supported-crs.adoc[]
+
+NOTE: For the use case of filtering collections by a specific CRS rather than only including collections within a particular extent, the server
+could provide a `crs` queryable that could be the list of supported output CRSs, for example, `/collections?filter=A_CONTAINS(crs,'[EPSG:3035]')`
+(assuming that queryable is documented as being an array and using safe CURIEs).

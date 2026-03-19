@@ -1,0 +1,9 @@
+[[rec_searchable-supported-crs]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/searchable-collections/supported-crs
+part:: The Implementation SHOULD additionally support as a CRS the native (`storageCrs`) of each collection, if specified and different from WGS84.
+part:: The Implementation SHOULD additionally support as a CRS all output CRSs of each collection (declared in the `crs` property of the collection description).
+====

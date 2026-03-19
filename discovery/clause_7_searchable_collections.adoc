@@ -70,6 +70,15 @@ If the vertical axis is included, the third and the sixth number are the bottom 
 
 A template for the definition of the parameter in YAML according to OpenAPI 3.0 is available at link:http://beta.schemas.opengis.net/ogcapi/common/part2/0.1/collections/openapi/parameters/bbox.yaml[bbox.yaml].
 
+[[searchable-bbox-crs-parameter]]
+=== Query Parameter `bbox-crs`
+
+The `bbox-crs` parameter specifies the Coordinate Reference System (CRS) in which the `bbox` query parameter is provided, in the form of a URI or safe CURIE.
+
+include::./requirements/searchable-collections/REQ_searchable-bbox-crs.adoc[]
+
+include::./recommendations/searchable-collections/REC_searchable-supported-crs.adoc[]
+
 [[searchable-datetime-parameter]]
 === Query Parameter `datetime`
 

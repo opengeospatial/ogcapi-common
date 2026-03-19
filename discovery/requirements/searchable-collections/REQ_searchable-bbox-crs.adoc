@@ -1,0 +1,11 @@
+[[req_searchable-bbox-crs]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/searchable-collections/bbox-crs
+part:: The Implementation SHALL support a `bbox-crs` query parameter supporting a URI or safe CURIE referencing a supported Coordinate Reference System.
+part:: The Implementation SHALL support `[OGC:CRS84]` as a CRS for collections of data referenced to Earth.
+part:: The Implementation SHALL not include in the results collections for which a CRS is not applicable.
+part:: If the specified output CRS is not supported by any collections, the Implementation SHALL return a 4xx error condition response.
+====

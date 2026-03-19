@@ -1,0 +1,9 @@
+[[req_filtering-queryables]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/filterable-collections/queryables
+part:: The implementation SHOULD support as many queryables as possible representing the relevant properties of the collection description data model,
+using the same name and data types as the properties of the JSON representation.
+====
