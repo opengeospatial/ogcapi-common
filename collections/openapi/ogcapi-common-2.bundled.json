@@ -495,9 +495,9 @@
                 "description": "A sorted list of field names. For a Features data access mechanism, it is the list of returnable properties included by default and complementing the geometry of the features. For a Coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.",
                 "type": "array",
                 "items": {
-                  "type": "string",
-                  "minItems": 1
-                }
+                  "type": "string"
+                },
+                "minItems": 1
               },
               "crs": {
                 "title": "List of coordinate reference systems supported in the collection",
@@ -712,13 +712,9 @@
                       "items": {
                         "type": "string",
                         "format": "date-time",
-                        "nullable": true
-                      },
-                      "example": [
-                        "2011-11-11T12:22:11Z",
-                        "2011-11-11T08:22:11-04:00",
-                        null
-                      ]
+                        "nullable": true,
+                        "example": "2011-11-11T12:22:11Z"
+                      }
                     }
                   },
                   "trs": {
@@ -794,19 +790,15 @@
                           "oneOf": [
                             {
                               "type": "string",
-                              "nullable": true
+                              "nullable": true,
+                              "example": "2011-11-11T12:22:11Z"
                             },
                             {
-                              "type": "number"
+                              "type": "number",
+                              "example": 32.7
                             }
                           ]
-                        },
-                        "example": [
-                          "2011-11-11T12:22:11Z",
-                          "2011-11-11T08:22:11-04:00",
-                          32.5,
-                          null
-                        ]
+                        }
                       }
                     },
                     "trs": {
@@ -923,15 +915,13 @@
                     "oneOf": [
                       {
                         "type": "string",
-                        "nullable": true
+                        "nullable": true,
+                        "example": "PT1H"
                       },
                       {
-                        "type": "number"
+                        "type": "number",
+                        "example": 0.0006866455078
                       }
-                    ],
-                    "example": [
-                      0.0006866455078,
-                      "PT1H"
                     ]
                   },
                   "availableResolutions": {
@@ -1010,25 +1000,20 @@
                       "oneOf": [
                         {
                           "type": "string",
-                          "nullable": true
+                          "nullable": true,
+                          "example": "2020-11-12T12:15:00Z"
                         },
                         {
-                          "type": "number"
+                          "type": "number",
+                          "example": 12.3
                         }
                       ]
                     },
                     "example": [
-                      [
-                        2,
-                        10,
-                        80,
-                        100
-                      ],
-                      [
-                        "2020-11-12T12:15:00Z",
-                        "2020-11-12T12:30:00Z",
-                        "2020-11-12T12:45:00Z"
-                      ]
+                      2,
+                      10,
+                      80,
+                      100
                     ]
                   },
                   "boundsCoordinates": {

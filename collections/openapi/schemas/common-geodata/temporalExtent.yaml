@@ -29,10 +29,7 @@ properties:
          type: string
          format: date-time
          nullable: true
-       example:
-         - '2011-11-11T12:22:11Z'
-         - '2011-11-11T08:22:11-04:00'
-         - null
+         example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
    trs:
      title: Temporal Coordinate Reference System
      description: |-

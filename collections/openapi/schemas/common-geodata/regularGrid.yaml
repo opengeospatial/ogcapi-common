@@ -9,10 +9,9 @@ properties:
     oneOf:
       - type: string
         nullable: true
+        example: "PT1H"
       - type: number
-    example:
-      - 0.0006866455078
-      - "PT1H"
+        example: 0.0006866455078
   availableResolutions:
     title: Available resolutions
     description: List of resolutions made available by the API. If not specified, there are no limit other than the limits indicated in `minCellSize` and `maxCellSize` of the collection description (though the API might still allow requesting data beyond these).

@@ -153,7 +153,7 @@ properties:
     type: array
     items:
        type: string
-       minItems: 1
+    minItems: 1
   crs:
     title: List of coordinate reference systems supported in the collection
     description: The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.

@@ -28,12 +28,9 @@ properties:
          oneOf:
             - type: string
               nullable: true
+              example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
             - type: number
-       example:
-         - '2011-11-11T12:22:11Z'
-         - '2011-11-11T08:22:11-04:00'
-         - 32.5
-         - null
+              example: 32.7
    trs:
      title: Temporal Coordinate Reference System
      description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
