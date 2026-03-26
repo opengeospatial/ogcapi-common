@@ -184,6 +184,10 @@ new conflicting properties (with same name but different semantics).
 | String
 | Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
 
+| **featureTypes**
+| String
+| The list of feature (or coverage) type(s) which are present inside the collection. This is useful for associating the relevant portrayal rules of a style.
+
 | **formats**
 | Array of https://docs.ogc.org/is/20-004r1/20-004r1.html#sc_formats[Format]
 | A list of formats in which the data of this collection is distributed
