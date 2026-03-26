@@ -33,7 +33,7 @@ A client that is not aware of the capability defined in this requirement class c
 
 === `parent` property in collection description
 
-A new `parent` property is defined to include in the collection description resources (`/collections/{collectionId}`)
+OGC API - Common Part 2 defines an optional `parent` property to include in the collection description resources (`/collections/{collectionId}`)
 and collection listing resource (`/collections`), indicating the `{collectionId}` of the parent for that collection.
 The property is omitted or set to a _null_ value for top-level collections.
 
@@ -50,7 +50,9 @@ For programmatic clients wishing not to retrieve an entire hierarchy of collecti
 
 include::recommendations/hierarchical-collections/PER_collection_children.adoc[]
 
-Example of a collection description response for `/collections/{collectionId}`:
+include::recommendations/hierarchical-collections/REC_links.adoc[]
+
+Examples of collection description responses for `/collections/{collectionId}`:
 
 [source,json]
 ----
@@ -61,7 +63,23 @@ Example of a collection description response for `/collections/{collectionId}`:
       { "rel": "self", "/collections/Montreal" },
       { "rel": "items", "href": "/collections/Montreal/items" },
       { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
-      { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
+      { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" },
+      { "rel": "up", "href": "/collections/Quebec" }
+   ],
+   ...
+}
+----
+
+[source,json]
+----
+{
+   "id": "Quebec",
+   "parent": "Canada",
+   "links": [
+      { "rel": "self", "/collections/Quebec" },
+      { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
+      { "rel": "up", "href": "/collections/Canada" },
+      { "rel": "[ogc-rel:children]", "href": "/collections?parent=Quebec&descendants=immediate" },
    ],
    ...
 }

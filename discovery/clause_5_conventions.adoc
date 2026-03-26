@@ -42,6 +42,8 @@ Links to external resources which further describe the subject resource
 |`sponsored`           |Refers to a resource that is within a context that is sponsored (such as advertising or another compensation agreement). [IANA]
 |`terms-of-service`    |Refers to the terms of service associated with the link's context. [IANA]
 |`self`|Conveys an identifier for the link's context. [IANA] +
+|`up`|Refers to a parent document in a hierarchy of documents. (used for the parent collection in a hierarchy) [IANA] +
+|`https://www.opengis.net/def/rel/ogc/1.0/children`           |Indicates that the link target is the list of children resources. [OGC]
 A link to another representation of this resource.
 |`service-desc`|Identifies service description for the context that is primarily intended for consumption by machines. [IANA] +
 API definitions are considered service descriptions.

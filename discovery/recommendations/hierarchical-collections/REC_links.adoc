@@ -1,0 +1,11 @@
+[[rec_hierarchy_links]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/hierarchical-collections/links
+part:: The collection description resource `links` property SHOULD include a link to the parent collection using the `up` link relation.
+part:: The collection description resource `links` property SHOULD include a link to the list of children collections
+(with an `href` making use of the `parent` and `descendants` query parameters e.g., `{apiRoot}/collections?parent={collectionId}&descendants=immediate`)
+using the `[ogc-rel:children]` link relation.
+====
