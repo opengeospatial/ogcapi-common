@@ -4,9 +4,9 @@ This section provides details of conventions used in this document.
 [[identifiers-section]]
 === Identifiers
 
-The normative provisions in this Standard are denoted by the URI `https://www.opengis.net/spec/ogcapi-common-2/1.0`.
+The normative provisions in this Standard are denoted by the URI `https://www.opengis.net/spec/ogcapi-common-4/1.0`.
 
-All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Modules>> and <<ctm-definition,Conformance Modules>> that appear in this document are denoted by partial URIs that are relative to this base.
+All <<requirement-definition,Requirements>>, <<requirements-module-definition,Requirements Classes>> and <<ctm-definition,Conformance Classes>> that appear in this document are denoted by partial URIs that are relative to this base.
 
 Additional information about the use of Identifiers in API-Common is provided in the https://docs.ogc.org/guides/20-071.html[OGC API - Common Users Guide].
 
@@ -15,7 +15,7 @@ Additional information about the use of Identifiers in API-Common is provided in
 
 <<rfc8288,RFC 8288 (Web Linking)>> is used by this standard to express relationships between resources. https://www.iana.org/assignments/link-relations/link-relations.xhtml[Link relation types] from the <<link-relations,IANA Link Relations Registry>> are used wherever possible. Additional link relation types are registered with the <<OGCLINKS,OGC Naming Authority>>.
 
-The link relationships used in Common API-2: GeoData are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
+The link relationships used in Common API-4: Discovery are described in <<link-relations-table>>. Additional relation types may be used if the implementation warrants it.
 
 [#link-relations-table,reftext='{table-caption} {counter:table-num}']
 .Link Relations
@@ -42,7 +42,6 @@ Links to external resources which further describe the subject resource
 |`sponsored`           |Refers to a resource that is within a context that is sponsored (such as advertising or another compensation agreement). [IANA]
 |`terms-of-service`    |Refers to the terms of service associated with the link's context. [IANA]
 |`self`|Conveys an identifier for the link's context. [IANA] +
-|`up`|Refers to a parent document in a hierarchy of documents. (used for the parent collection in a hierarchy) [IANA] +
 |`https://www.opengis.net/def/rel/ogc/1.0/children`           |Indicates that the link target is the list of children resources. [OGC]
 A link to another representation of this resource.
 |`service-desc`|Identifies service description for the context that is primarily intended for consumption by machines. [IANA] +
@@ -59,7 +58,7 @@ Additional information on the use of link relationships is provided in the link:
 As discussed in Chapter 9 of the <<SDWBP,W3C/OGC Spatial Data on the Web Best Practices document>>, the ability to express and share location in a consistent way is one of the most fundamental aspects of
 publishing geographic data. To do so, it is important to be clear about the coordinate reference system (CRS) within which the coordinates are expressed.
 
-The Common API-2: GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
+The Common API-4: Discovery Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
 
 * [OGC:CRS84] - WGS 84 longitude and latitude without height
 * [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height
@@ -81,14 +80,14 @@ All representations of these temporal elements which are discussed in this docum
 An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in <<date-time-bnf-annex,Annex F>>.
 
 Temporal instants and intervals are measured relative to an underlying temporal reference system (TRS).
-This Common API-2: GeoData Standard does not mandate a specific temporal coordinate reference system.
+This Common API-4: Discovery Standard does not mandate a specific temporal coordinate reference system.
 However, all dates or timestamps discussed in this document are in the Gregorian calendar and conform to <<rfc3339,RFC 3339>>. In data, other temporal reference systems may be used where appropriate.
 
 === API definition
 
 ==== General remarks
 
-The OGC Common API - 2: GeoData specifies requirements and recommendations for the development of APIs allowing to list and describe spatial resources using a standard way of doing so.
+The OGC Common API - 4: Discovery specifies requirements and recommendations for the development of APIs allowing to list and describe spatial resources using a standard way of doing so.
 In general, deployed APIs will go beyond the requirements and recommendations stated in this Standard, in particular by implementing other OGC API Standards specifying data access mechanims.
 A particular Web API implementation will support additional operations, parameters, and so on that are specific to that implementation.
 
@@ -98,10 +97,10 @@ OpenAPI is one way to provide that machine readable documentation.
 
 ==== Role of OpenAPI
 
-The OGC Common API - 2: GeoData uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API Standard.
+The OGC Common API - 4: Discovery uses OpenAPI 3.0 fragments in examples and to formally state requirements. Using OpenAPI 3.0 is not required for implementing an OGC API Standard.
 Other API definition languages may be used along with, or instead of, OpenAPI. However, any API definition language used should have an associated conformance class advertised through the `/conformance` path.
 
-The OGC API - Common - Part 1 Standard includes a <<http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30,conformance class>> for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
+The OGC API - Common - Part 1 Standard includes a http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30[conformance class] for API definitions that follow the <<openapi,OpenAPI specification 3.0>>.
 Alternative API definition languages are also allowed. Conformance classes for additional API definition languages will be added as the OGC API landscape continues to evolve.
 An API definition is required for implementations conforming to the OGC API - Part 1: Core "Landing Page" requirements class.
 
@@ -120,7 +119,8 @@ An example for a constrained range of values is to explicitly specify the suppor
 ==== Reusable OpenAPI components
 
 Reusable components for OpenAPI definitions for an OGC API are referenced from this document.
-They are available from the OGC Schemas Registry at https://schemas.opengis.net/ogcapi/common/part1/1.0[https://schemas.opengis.net/ogcapi/common/part1/1.0] and
+They are available from the OGC Schemas Registry (or GitHub pending publication) at https://github.com/opengeospatial/ogcapi-common/tree/master/discovery/openapi,
+https://schemas.opengis.net/ogcapi/common/part1/1.0[https://schemas.opengis.net/ogcapi/common/part1/1.0] and
 https://schemas.opengis.net/ogcapi/common/part2/1.0[https://schemas.opengis.net/ogcapi/common/part2/1.0].
 
 Additional information on the use of OpenAPI as an API definition is provided in the https://docs.ogc.org/guides/20-071.html#toc22[OGC API - Common Users Guide].
