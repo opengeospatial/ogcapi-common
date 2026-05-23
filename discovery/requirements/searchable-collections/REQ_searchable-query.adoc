@@ -31,4 +31,4 @@ This logical AND combination may be part of a comma-separated logical OR, the la
 part:: The implementation SHALL interpret a `-` following a space (or a comma, or being the first character) and immediately prefixing a term with the meaning that a collection description containing that term SHALL NOT result in this item being considered a match.
 ====
 
-NOTE: The specific set of text keys/fields/properties of a collection description to which the `query` terms are matched applied SHALL be left to the discretion of the implementation.
+NOTE: The specific set of text keys/fields/properties of a collection description to which the `query` terms are matched applied is left to the discretion of the implementation.
