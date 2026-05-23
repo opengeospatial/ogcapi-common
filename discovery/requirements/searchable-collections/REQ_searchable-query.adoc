@@ -25,10 +25,10 @@ part:: An item of the `query` array consisting of multiple terms separated by wh
 with nothing but white spaces between those terms.
 part:: The implementation SHALL match items in a case-insensitive manner.
 part:: The implementation SHALL match the items at minimum with the `title`, `description` and `keywords` properties of the collection descriptions.
-part:: The implementation SHALL interpret a `+` immediately prefixing a term with the meaning that both the term(s) before it and the term after it SHALL be present in the collection description
+part:: The implementation SHALL interpret a `+` following a space (or a comma, or being the first character) and immediately prefixing a term with the meaning that both the term(s) before it and the term after it SHALL be present in the collection description
 (logical AND, irrespective of the order in which they appear, or whether other terms appear in between, or whether they appear in separate keywords or properties) to be considered a matched item.
 This logical AND combination may be part of a comma-separated logical OR, the latter having less precedence.
-part:: The implementation SHALL interpret a `-` immediately prefixing a term with the meaning that a collection description containing that term SHALL NOT result in this item being considred a match.
+part:: The implementation SHALL interpret a `-` following a space (or a comma, or being the first character) and immediately prefixing a term with the meaning that a collection description containing that term SHALL NOT result in this item being considered a match.
 ====
 
 NOTE: The specific set of text keys/fields/properties of a collection description to which the `query` terms are matched applied SHALL be left to the discretion of the implementation.
