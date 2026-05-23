@@ -77,7 +77,7 @@ In this Standard, coordinates are primarily used for describing the spatial exte
 API - Common adopts the Gregorian calendar and a 24 hour time keeping system for describing temporal instants and intervals.
 All representations of these temporal elements which are discussed in this document conform to <<rfc3339,RFC 3339>>.
 
-An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in <<date-time-bnf-annex,Annex F>>.
+An <<rfc5234,ABNF>> representation of the RFC 3339 format is provided in https://docs.ogc.org/DRAFTS/20-024.html#date-time-bnf-annex[Annex D of OGC API - Common - Part 2].
 
 Temporal instants and intervals are measured relative to an underlying temporal reference system (TRS).
 This Common API-4: Discovery Standard does not mandate a specific temporal coordinate reference system.

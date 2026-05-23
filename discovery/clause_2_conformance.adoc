@@ -13,7 +13,7 @@ For the purpose of conformance, the applicable API components are identified by 
 
 Typically, the OGC API - Common - Part 4: Discovery Within Many Collections will only be implemented through reference to these Conformance Classes by other standards.
 
-OGC API - Common - Part 4: Discovery Within Many Collections identifies four conformance classes. Each conformance class is defined by one <<requirements-class-definition,requirements class>>.
+OGC API - Common - Part 4: Discovery Within Many Collections identifies four conformance classes. Each conformance class is defined by one requirements class.
 
 The tests in Annex A are organized by Requirements Class. Therefore, an implementation of the _Collections_ conformance class must pass all tests specified in Annex A for the _Collections_ requirements class.
 
@@ -26,13 +26,13 @@ The requirements classes defined in Part 4: Discovery Within Many Collections ar
 
 Common API-4: Discovery Within Many Collections builds on API components defined in the https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 2: Geospatial Data] Standard.
 
-Each <<requirements-class-definition,requirements class>> in the Common API-4: Discovery Standard depends on the https://docs.ogc.org/DRAFTS/20-024.html#rc-collections-section[Collections Requirements Class of CommonAPI-2: GeoData].
+Each requirements class in the Common API-4: Discovery Standard depends on the https://docs.ogc.org/DRAFTS/20-024.html#rc-collections-section[Collections Requirements Class of CommonAPI-2: GeoData].
 
 Proof of conformance with a Conformance Class includes demonstration of conformance with all dependencies of that Conformance Class.
 
 The abstract tests in <<annex-ats,Annex A>> have been organized to facilitate validation of these dependencies.
 
-These tests have been organized by <<requirements-class-definition,requirements class>>.
+These tests have been organized by requirements class.
 
 A referencing standard only has to require conformance with a Conformance Class and all of the requirements and relevant tests are identified.
 

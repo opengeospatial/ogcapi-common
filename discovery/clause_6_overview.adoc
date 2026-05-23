@@ -1,4 +1,18 @@
 [[overview]]
 == Overview
 
-This OGC API - Common - Part 4: Discovery within many collections extends https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Part 2: Geospatial Data] with a way to discover collections of interest from within a potentially large list of collections.
+This OGC API - Common - Part 4: Discovery within many collections extends https://docs.ogc.org/DRAFTS/20-024.html[OGC API - Part 2: Geospatial Data] with a way to discover
+collections of interest from within a potentially large list of collections.
+
+This is made possible by introducing query parameters for the `/collections` end-point which are organized in four requirements classes:
+
+* The <<rc-searchable-collections-section,Searchable Collections>> requirements class introduces the `limit`, `bbox` (and related `bbox-crs`), `datetime`, `q`, `query` and
+  `below-sd` query parameters enabling paging, simple spatiotemporal filters, and free text search,
+* The <<rc-sortable-collections-section,Sortable Collections>> requirements class introduces the `sortby` query parameter allowing to sort collections in a particular order,
+* The <<rc-filterable-collections-section,Filterable Collections>> requirements class introduces the `filter` (and related `filter-lang`, `filter-crs`) query parameters
+  to perform advanced filtering using the https://docs.ogc.org/is/21-065r2/21-065r2.html[OGC Common Query Language (CQL2)],
+* The <<rc-hierarchical-collections-section,Hierarchical Collections>> requirements class introduces the `parent` and `descendants` query parameters to list collections under
+  a particular branch of a tree-like hierarchy as well as to drill down such a hierarchy one level at a time.
+
+Clients can use these query parameters to reduce the number of collections returned when retrieving a list of collections available from an OGC Web API endpoint
+implementing one or more of these requirements classes.
