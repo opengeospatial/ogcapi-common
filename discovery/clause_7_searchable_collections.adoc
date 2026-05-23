@@ -142,7 +142,7 @@ include::./requirements/searchable-collections/REQ_searchable-q.adoc[]
 [[searchable-query-parameter]]
 === Query Parameter `query`
 
-The `query` parameter is similar to the `q` parameter, but additionally specifies the use of the `+++` character following a space and appearing before a term to indicate that this additional term must also be present,
+The `query` parameter is similar to the `q` parameter, but additionally specifies the use of the `+++` character following a space (or a comma, or as the first character) and appearing before a term to indicate that this additional term must also be present,
 regardless of other terms appearing in between, and regardless of the order in which they appear.
 
 Additionally, the use of the `-` character prevents a match if the term appears in the collection description.

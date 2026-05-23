@@ -1,0 +1,19 @@
+---
+name: query
+in: query
+description: |-
+  Like `q`, the `query` parameter allows selecting collections with a comma-separated list of terms at minimum in the
+  `title`, `description` and `keywords` properties of the collection descriptions.
+  Collections matching any of the terms separated by a comma are selected.
+  Terms separated by a space must appear in the order specified, with nothing but white space in between, to be considered a match.
+  Additionally, `query` specifies the use of the `+` character following a space (or a comma, or as the first character) and appearing before a term to indicate that
+  this additional term must also be present,  regardless of other terms appearing in between, and regardless of the order in which they appear.
+  Additionally, the use of the `-` character prevents a match if the term appears in the collection description.
+
+required: false
+schema:
+  type: array
+  items:
+    type: string
+explode: false
+style: form

@@ -1,0 +1,15 @@
+name: descendants
+in: query
+description: >-
+  The `descendants` query parameter allows to retrieve only the immediate children of a specified parent, or only the top-level collections,
+  when using the value `immediate`. The default value `all` returns all collections as usual, or the whole hierarchy under a parent if parent is specified.
+
+required: false
+schema:
+  type: string
+  enum:
+  - immediate
+  - all
+  default: all
+style: form
+explode: false

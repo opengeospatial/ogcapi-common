@@ -1,0 +1,1997 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0",
+    "title": "OGC API - Common",
+    "description": "Example API Definition for OGC API - Common - Part 4: Discovery within many collections",
+    "contact": {
+      "name": "Open Geospatial Consortium",
+      "email": "info@ogc.org"
+    },
+    "license": {
+      "name": "OGC License",
+      "url": "http://www.opengeospatial.org/legal/"
+    }
+  },
+  "servers": [
+    {
+      "description": "Example OGC API - Common server",
+      "url": "https://maps.gnosis.earth/ogcapi"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Landing Page"
+        ],
+        "operationId": "getLandingPage",
+        "summary": "Retrieve the OGC API landing page for this service.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/LandingPage"
+          },
+          "406": {
+            "$ref": "#/components/responses/NotAcceptable"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/conformance": {
+      "get": {
+        "tags": [
+          "Conformance"
+        ],
+        "operationId": "getConformance",
+        "summary": "Retrieve the set of OGC API conformance classes that are supported by this service.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Conformance"
+          },
+          "406": {
+            "$ref": "#/components/responses/NotAcceptable"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/api": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "operationId": "getAPI",
+        "summary": "Retrieve this API definition.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/API"
+          },
+          "406": {
+            "$ref": "#/components/responses/NotAcceptable"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/collections": {
+      "get": {
+        "tags": [
+          "Data Collections"
+        ],
+        "operationId": "getCollectionsList",
+        "summary": "Retrieve the list of geospatial data collections available from this service.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/datetime"
+          },
+          {
+            "$ref": "#/components/parameters/bbox"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The optional limit parameter limits the number of collections that are presented in the response document.\nOnly items are counted that are on the first level of the collection in the response document. Nested objects contained within the explicitly requested items shall not be counted.\n* Minimum = 1 * Maximum = 10000 * Default = 10",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "default": 10
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "bbox-crs",
+            "in": "query",
+            "description": "crs for the specified bbox",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/bbox"
+          },
+          {
+            "name": "below-sd",
+            "in": "query",
+            "description": "The `below-sd parameter allows searching for collections usable at the scale denominator specified, allowing to filter out\nlow-resolution datasets not suitable for the intended purpose. The related property indicating the minimum suitable scale denominator\nin the collection description is minScaleDenominator, which may also be related to a minCellSize property for gridded coverages.\nFor example, `below-sd=200000` would only match collections with data intended for a scale of 1:200,000 or larger\n(i.e., collections intended for 1:2,000,000 would be excluded).",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "explode": false,
+            "style": "form"
+          },
+          {
+            "$ref": "#/components/parameters/datetime"
+          },
+          {
+            "name": "descendants",
+            "in": "query",
+            "description": "The `descendants` query parameter allows to retrieve only the immediate children of a specified parent, or only the top-level collections, when using the value `immediate`. The default value `all` returns all collections as usual, or the whole hierarchy under a parent if parent is specified.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "immediate",
+                "all"
+              ],
+              "default": "all"
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "filter-crs",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uri-reference"
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "filter-lang",
+            "in": "query",
+            "description": "The `filter-lang` parameter specifies the query language for the `filter` query parameter.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "The filter parameter specifies an expression in a query language (e.g. CQL2) for which collections will be returned if the filter predicate is matched. The language of the filter is specified by the `filter-lang` query parameter.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "$ref": "#/paths/~1collections/get/parameters/2"
+          },
+          {
+            "name": "parent",
+            "in": "query",
+            "description": "The `parent` query parameter allows to filter the list of collections returned to only those within the hierarchy of a specified parent collection. Depending on the value of the `descendants` parameter, either the entire hierarchy underneath (`descendants=all`), or only the immediate children (`descendants=immediate`) of that parent are returned. By default, all descendants of the specified parent, or all collections of the dataset if no parent is specified, are returned.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Like `q`, the `query` parameter allows selecting collections with a comma-separated list of terms at minimum in the\n`title`, `description` and `keywords` properties of the collection descriptions.\nCollections matching any of the terms separated by a comma are selected.\nTerms separated by a space must appear in the order specified, with nothing but white space in between, to be considered a match.\nAdditionally, `query` specifies the use of the `+` character following a space (or a comma, or as the first character) and appearing before a term to indicate that\nthis additional term must also be present,  regardless of other terms appearing in between, and regardless of the order in which they appear.\nAdditionally, the use of the `-` character prevents a match if the term appears in the collection description.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "explode": false,
+            "style": "form"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "description": "The `q` parameter allows selecting collections with a comma-separated list of terms at minimum in the\n`title`, `description` and `keywords` properties of the collection descriptions.\nCollections matching any of the terms separated by a comma are selected.\nTerms separated by a space must appear in the order specified, with nothing but white space in between, to be considered a match.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "explode": false,
+            "style": "form"
+          },
+          {
+            "name": "sortby",
+            "in": "query",
+            "description": "Specifies a comma-separated list of property names by which the response shall\nbe sorted.  If the property name is preceded by a plus (+) sign it indicates\nan ascending sort for that property.  If the property name is preceded by a\nminus (-) sign it indicates a descending sort for that property.  If the\nproperty is not preceded by a plus or minus, then the default sort order\nimplied is ascending (+).",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "pattern": "[+|-]?[A-Za-z_].*"
+              }
+            },
+            "explode": false,
+            "style": "form"
+          },
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CollectionsList"
+          }
+        }
+      }
+    },
+    "/collections/{collectionId}": {
+      "get": {
+        "tags": [
+          "Data Collections"
+        ],
+        "operationId": "getCollection",
+        "summary": "Retrieve the description of a collection available from this service.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/collectionId-all"
+          },
+          {
+            "$ref": "#/components/parameters/f-metadata"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Collection"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "confClasses": {
+        "type": "object",
+        "required": [
+          "conformsTo"
+        ],
+        "properties": {
+          "conformsTo": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "title": "A list of conformance class URIs",
+              "description": "A list of conformance class URIs from the ones defined in the OGC API standard documents.",
+              "example": "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core"
+            }
+          }
+        }
+      },
+      "link": {
+        "type": "object",
+        "required": [
+          "href",
+          "rel"
+        ],
+        "properties": {
+          "href": {
+            "type": "string",
+            "title": "URI of the resource",
+            "description": "URI to a remote resource (or resource fragment).",
+            "example": "http://data.example.com/buildings/123"
+          },
+          "rel": {
+            "type": "string",
+            "title": "Link relation",
+            "description": "The type or semantics of the relation.",
+            "example": "alternate"
+          },
+          "type": {
+            "type": "string",
+            "title": "Media type of the response",
+            "description": "A hint indicating what the media type of the result of dereferencing the link should be.",
+            "example": "application/geo+json"
+          },
+          "hreflang": {
+            "type": "string",
+            "title": "Language of the response",
+            "description": "A hint indicating what the language of the result of dereferencing the link should be.",
+            "example": "en"
+          },
+          "title": {
+            "type": "string",
+            "title": "Short summary of the resource",
+            "description": "Used to label the destination of a link such that it can be used as a human-readable description.",
+            "example": "Trierer Strasse 70, 53115 Bonn"
+          },
+          "length": {
+            "type": "integer",
+            "title": "Length of the response",
+            "description": "A hint indicating the Content-length of the result of dereferencing the link should be.",
+            "example": 1024
+          }
+        }
+      },
+      "landingPage": {
+        "type": "object",
+        "required": [
+          "links"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "The title of the API",
+            "description": "While a title is not required, implementors are strongly advised to include one.",
+            "example": "Buildings in Bonn"
+          },
+          "description": {
+            "type": "string",
+            "title": "The description of the API",
+            "description": "A longer description of the API.",
+            "example": "Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Common specification."
+          },
+          "attribution": {
+            "type": "string",
+            "title": "Attribution for the API",
+            "description": "The `attribution` for the API should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup or markdown."
+          },
+          "attributionMediaType": {
+            "title": "Media type of the attribution",
+            "description": "Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).",
+            "enum": [
+              "text/plain",
+              "text/html",
+              "text/markdown"
+            ]
+          },
+          "links": {
+            "type": "array",
+            "title": "Links to resource in the API",
+            "description": "Links to this or other resources provided by the API.",
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          }
+        }
+      },
+      "exception": {
+        "title": "Exception Schema",
+        "description": "JSON schema for exceptions based on RFC 7807: Problem Details",
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "A URI identifying the problem type",
+            "description": "A URI that identifies the problem type. When this member is not present, its value is assumed to be about:blank."
+          },
+          "title": {
+            "type": "string",
+            "title": "Title of the problem",
+            "description": "A short, human-readable summary of the problem type. It should not change from occurrence to occurrence of the problem."
+          },
+          "status": {
+            "type": "integer",
+            "title": "HTTP status code",
+            "description": "The HTTP status code generated by the server for this occurrence of the problem."
+          },
+          "detail": {
+            "type": "string",
+            "title": "Description of the problem",
+            "description": "A human-readable explanation specific to this occurrence of the problem."
+          },
+          "instance": {
+            "type": "string",
+            "title": "A URI identifying this instance of the problem",
+            "description": "A URI reference that identifies the specific occurrence of the problem. It may or may not yield further information if dereferenced."
+          }
+        }
+      },
+      "collections": {
+        "type": "object",
+        "required": [
+          "links",
+          "collections"
+        ],
+        "properties": {
+          "links": {
+            "type": "array",
+            "title": "Links to resource in the collections",
+            "description": "Links to this or other resources provided by the collections.",
+            "items": {
+              "$ref": "#/components/schemas/link"
+            }
+          },
+          "numberMatched": {
+            "$ref": "#/components/schemas/numberMatched"
+          },
+          "numberReturned": {
+            "$ref": "#/components/schemas/numberReturned"
+          },
+          "collections": {
+            "type": "array",
+            "title": "Collections descriptions",
+            "description": "Descriptions of each collection in this API.",
+            "items": {
+              "$ref": "#/components/schemas/collectionDesc"
+            }
+          }
+        }
+      },
+      "collectionDesc": {
+        "allOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "links"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "Identifier of the resource",
+                "description": "Identifier of the collection, for example, used in URI path parameters.",
+                "minLength": 1,
+                "example": "dem"
+              },
+              "title": {
+                "type": "string",
+                "title": "Title of the collection",
+                "description": "A short, human-readable summary of the collection.",
+                "example": "Digital Elevation Model"
+              },
+              "description": {
+                "type": "string",
+                "title": "Description of the collection",
+                "description": "A human-readable explanation about data in the collection.",
+                "example": "A Digital Elevation Model."
+              },
+              "attribution": {
+                "type": "string",
+                "title": "Attribution for the collection",
+                "description": "Attribution for the collection, providing a way to identify the source of the geographic information, which can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).\nIf the 'attributionMediaType' indicates something other than `text/plain`, the `attribution` element string should be interpreted by a markup parser selected based on that media type to be presented to the user\n(e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics)."
+              },
+              "attributionMediaType": {
+                "title": "Media type of the attribution",
+                "description": "Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).",
+                "enum": [
+                  "text/plain",
+                  "text/html",
+                  "text/markdown"
+                ]
+              },
+              "accessConstraints": {
+                "title": "Access Constraints of the collection",
+                "description": "Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data:\n\n* unclassified: Available for general disclosure\n* restricted: Not for general disclosure\n* confidential: Available for someone who can be entrusted with information\n* secret: Kept or meant to be kept private, unknown, or hidden from all but a select group of people\n* topSecret: Of the highest secrecy",
+                "enum": [
+                  "unclassified",
+                  "restricted",
+                  "confidential",
+                  "secret",
+                  "topSecret"
+                ]
+              },
+              "publisher": {
+                "type": "string",
+                "title": "Responsible party publishing the collection",
+                "description": "Organization or individual responsible for making the data available"
+              },
+              "contacts": {
+                "type": "array",
+                "title": "A list of contacts",
+                "description": "A list of contacts qualified by their role(s) in association to the collection.",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/contact"
+                }
+              },
+              "license": {
+                "type": "string",
+                "title": "License associated to the collection",
+                "description": "The legal provisions under which the data of this collection is made available."
+              },
+              "rights": {
+                "type": "string",
+                "title": "Rights over the collection",
+                "description": "A statement that concerns all rights not addressed by the license such as a copyright statement."
+              },
+              "formats": {
+                "title": "Formats for distributing the collection",
+                "description": "A list of formats in which the data of this collection is distributed",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/format"
+                }
+              },
+              "keywords": {
+                "type": "array",
+                "title": "Keywords representing aspects of the collection",
+                "description": "The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "themes": {
+                "type": "array",
+                "title": "Themes represented by the resource",
+                "description": "A knowledge organization system used to classify the resource.",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/components/schemas/theme"
+                }
+              },
+              "resourceLanguages": {
+                "type": "array",
+                "title": "The list of languages of the collection",
+                "description": "The list of languages in which the data of this collection is available.",
+                "items": {
+                  "$ref": "#/components/schemas/language"
+                }
+              },
+              "links": {
+                "type": "array",
+                "title": "Links relevant to this collection",
+                "description": "Links to this or other resources related to this collection.",
+                "example": [
+                  {
+                    "href": "http://data.example.org/collections/dem?f=json",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem?f=html",
+                    "rel": "alternate",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage",
+                    "rel": "coverage",
+                    "type": "image/tiff; application=geotiff",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage/domainset",
+                    "rel": "domainset",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage/rangetype",
+                    "rel": "rangetype",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/coverage/metadata",
+                    "rel": "metadata",
+                    "type": "application/json",
+                    "title": "Digital Elevation Model"
+                  }
+                ],
+                "items": {
+                  "$ref": "#/components/schemas/link"
+                }
+              },
+              "itemType": {
+                "title": "Type of the items in the collection",
+                "description": "Indicator about the type of the items in the collection if the collection has an accessible `/collections/{collectionId}/items` endpoint (e.g., `feature` or `record`).",
+                "type": "string",
+                "default": "feature"
+              },
+              "dataType": {
+                "title": "Nature of the data in the collection",
+                "description": "Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.",
+                "$ref": "#/components/schemas/dataType"
+              },
+              "featureTypes": {
+                "title": "Feature type(s) present in the collection",
+                "description": "The list of feature (or coverage) type(s) which are present inside the collection. This is useful for associating the relevant portrayal rules of a style.",
+                "type": "string"
+              },
+              "parent": {
+                "title": "Identifier of a parent collection (if this collection is part of a hierarchy)",
+                "description": "If this collection is part of a hierarchy, this property allows to identify another collection within the same dataset as its parent (by setting `parent` to the `id` of that collection), enabling clients to construct a hierarchy.",
+                "type": "string"
+              },
+              "geoDataClasses": {
+                "title": "Class of data in the collection",
+                "description": "One or more classes of geospatial data, identified by a URI, which implies compatibility with a particular schema (fields/properties, as defined in OGC API - Common - Part 3: Schemas) for one or more collections, each with particular semantic definitions and data types. This is useful for example to determine compatibility with styles or processes, or to identify a particular collection within a dataset based on semantics.",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "defaultFields": {
+                "title": "List of fields returned by default",
+                "description": "A sorted list of field names. For a Features data access mechanism, it is the list of returnable properties included by default and complementing the geometry of the features. For a Coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "crs": {
+                "title": "List of coordinate reference systems supported in the collection",
+                "description": "The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.",
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                },
+                "default": [
+                  "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+                ],
+                "example": [
+                  "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                  "http://www.opengis.net/def/crs/EPSG/0/4326"
+                ]
+              },
+              "storageCrs": {
+                "title": "Storage or native CRS of the data in the collection",
+                "description": "The native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages. This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ],
+                "default": "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                "example": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+              },
+              "epoch": {
+                "title": "Epoch of the data in the collection",
+                "description": "Epoch of the native (storage) Coordinate Reference System (CRS)",
+                "type": "number",
+                "example": 2021.33
+              },
+              "geometryDimension": {
+                "title": "Number of spatial dimensions of the primary geometry for the data",
+                "description": "Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "minScaleDenominator": {
+                "title": "Minimum scale denominator for the collection",
+                "description": "Minimum scale denominator for usage of the collection.",
+                "type": "number"
+              },
+              "maxScaleDenominator": {
+                "title": "Maximum scale denominator for the collection",
+                "description": "Maximum scale denominator for usage of the collection.",
+                "type": "number"
+              },
+              "minCellSize": {
+                "title": "Minimum cell size for the collection",
+                "description": "Minimum cell size for usage of the collection.",
+                "type": "number"
+              },
+              "maxCellSize": {
+                "title": "Maximum cell size for the collection",
+                "description": "Maximum cell size for usage of the collection.",
+                "type": "number"
+              },
+              "created": {
+                "title": "Timestamp when the collection was first produced",
+                "description": "Timestamp indicating when the data in the collection was first produced.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated": {
+                "title": "Timestamp of the last change/revision to the collection",
+                "description": "Timestamp of the last change/revision to the data in the collection.",
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "extent": {
+                "$ref": "#/components/schemas/extent"
+              }
+            }
+          }
+        ]
+      },
+      "extent": {
+        "title": "Extent with (optional) Uniform Additional Dimensions Schema",
+        "description": "The extent of the data in the collection.\nThis extent schema includes optional additional dimensions, but will still validate for objects not conforming to UAD.\nOGC API - Common - Part 2 \"Collections\" requirements class specifies only the definition of the spatial and temporal extents.\nThe \"Uniform Additional Dimensions\" requirements class specifies a generic schema for describing any additional dimension, such as thermal or pressure ranges.",
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "spatial": {
+                "title": "Spatial extent",
+                "description": "The spatial extent of the data in the collection.",
+                "type": "object",
+                "properties": {
+                  "bbox": {
+                    "title": "Bounding box in the 'crs' coordinates",
+                    "description": "One or more bounding boxes that describe the spatial extent of the dataset.\n\nThe first bounding box describes the overall spatial\nextent of the data. All subsequent bounding boxes describe\nmore precise bounding boxes, e.g., to identify clusters of data.\nClients only interested in the overall spatial extent will\nonly need to access the first item in each array.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "description": "Each bounding box is provided as four or six numbers, depending on\nwhether the coordinate reference system includes a vertical axis\n(height or depth):\n\n* Lower left corner, coordinate axis 1\n* Lower left corner, coordinate axis 2\n* Minimum value, coordinate axis 3 (optional)\n* Upper right corner, coordinate axis 1\n* Upper right corner, coordinate axis 2\n* Maximum value, coordinate axis 3 (optional)\n\nIf the value consists of four numbers, the coordinate reference system is\nWGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)\nunless a different coordinate reference system is specified in `crs` property.\n\nIf the value consists of six numbers, the coordinate reference system is WGS 84\nlongitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h)\nunless a different coordinate reference system is specified in `crs` property.\n\nFor WGS 84 longitude/latitude the values are in most cases the sequence of\nminimum longitude, minimum latitude, maximum longitude and maximum latitude.\nHowever, in cases where the box spans the antimeridian the first value\n(west-most box edge) is larger than the third value (east-most box edge).\n\nIf the vertical axis is included, the third and the sixth number are\nthe bottom and the top of the 3-dimensional bounding box.\n\nIf a feature has multiple spatial geometry properties, it is the decision of the\nserver whether only a single spatial geometry property is used to determine\nthe extent or all relevant geometries.",
+                      "type": "array",
+                      "oneOf": [
+                        {
+                          "minItems": 4,
+                          "maxItems": 4
+                        },
+                        {
+                          "minItems": 6,
+                          "maxItems": 6
+                        }
+                      ],
+                      "items": {
+                        "type": "number"
+                      },
+                      "example": [
+                        -180,
+                        -90,
+                        180,
+                        90
+                      ]
+                    }
+                  },
+                  "storageCrsBbox": {
+                    "title": "Bounding box in the storage CRS",
+                    "description": "One or more bounding boxes that describe the spatial extent of the dataset in the storage (native) CRS (`storageCrs` property).\n\nThe first bounding box describes the overall spatial\nextent of the data. All subsequent bounding boxes describe\nmore precise bounding boxes, e.g., to identify clusters of data.\nClients only interested in the overall spatial extent will\nonly need to access the first item in each array.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "description": "Each bounding box is provided as four or six numbers, depending on\nwhether the coordinate reference system includes a vertical axis\n(height or depth):\n\n* Lower left corner, coordinate axis 1\n* Lower left corner, coordinate axis 2\n* Minimum value, coordinate axis 3 (optional)\n* Upper right corner, coordinate axis 1\n* Upper right corner, coordinate axis 2\n* Maximum value, coordinate axis 3 (optional)",
+                      "type": "array",
+                      "oneOf": [
+                        {
+                          "minItems": 4,
+                          "maxItems": 4
+                        },
+                        {
+                          "minItems": 6,
+                          "maxItems": 6
+                        }
+                      ],
+                      "items": {
+                        "type": "number"
+                      },
+                      "example": [
+                        -180,
+                        -90,
+                        180,
+                        90
+                      ]
+                    }
+                  },
+                  "crs": {
+                    "title": "Coordinate reference system",
+                    "description": "Coordinate reference system of the coordinates of the `bbox` property.\nThe default reference system is WGS 84 longitude/latitude.\nWGS 84 longitude/latitude/ellipsoidal height for coordinates with height.\nFor data not referenced to Earth, another CRS may be specified.\nThis should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                          "http://www.opengis.net/def/crs/OGC/0/CRS84h"
+                        ]
+                      },
+                      {
+                        "type": "object"
+                      }
+                    ],
+                    "default": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+                  },
+                  "grid": {
+                    "title": "Grid description",
+                    "description": "Provides information about the limited availability of data within the collection organized\nas a grid (regular or irregular) along each spatial dimension.",
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 3,
+                    "items": {
+                      "$ref": "#/components/schemas/grid"
+                    }
+                  }
+                }
+              },
+              "temporal": {
+                "title": "Temporal extent",
+                "description": "The temporal extent of the data in the collection.",
+                "type": "object",
+                "properties": {
+                  "interval": {
+                    "title": "Temporal intervals",
+                    "description": "One or more time intervals that describe the temporal extent of the dataset.\n\nThe first time interval describes the overall\ntemporal extent of the data. All subsequent time intervals describe\nmore precise time intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item in each array.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "description": "Begin and end times of the time interval. The timestamps are in the\ntemporal coordinate reference system specified in `trs`. By default\nthis is the Gregorian calendar, expressed using RFC 3339 section 5.6.\nNote that these times may be specified using time zone offsets to UTC time other than zero.\n\nThe value `null` for start or end time is supported and indicates a half-bounded time interval.",
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true,
+                        "example": "2011-11-11T12:22:11Z"
+                      }
+                    }
+                  },
+                  "trs": {
+                    "title": "Temporal Coordinate Reference System",
+                    "description": "Coordinate reference system of the coordinates in the temporal extent\n(property `interval`). The default reference system is the Gregorian calendar.\nFor data for which the Gregorian calendar is not suitable, such as geological time scale, another temporal reference system may be used.\nThis should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+                        ]
+                      },
+                      {
+                        "type": "object"
+                      }
+                    ],
+                    "default": "http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"
+                  },
+                  "grid": {
+                    "$ref": "#/components/schemas/grid"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "anyOf": [
+              {
+                "type": "object",
+                "description": "General object extension point"
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "title": "Extent of any additional dimensions",
+                  "description": "The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.",
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "required": [
+                        "interval",
+                        "definition"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "interval",
+                        "trs"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "interval",
+                        "vrs"
+                      ]
+                    }
+                  ],
+                  "properties": {
+                    "interval": {
+                      "title": "Interval of the extent of this dimension",
+                      "description": "One or more intervals that describe the extent for this dimension of the dataset.\nThe value `null` is supported and indicates an unbounded or half-bounded interval.\nThe first interval describes the overall extent of the data for this dimension.\nAll subsequent intervals describe more precise intervals, e.g., to identify clusters of data.\nClients only interested in the overall extent will only need\nto access the first item (a pair of lower and upper bound values).",
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "description": "Lower and upper bound values of the interval. The values\nare in the coordinate reference system specified in `crs`, `trs` or `vrs`.",
+                        "type": "array",
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": {
+                          "oneOf": [
+                            {
+                              "type": "string",
+                              "nullable": true,
+                              "example": "2011-11-11T12:22:11Z"
+                            },
+                            {
+                              "type": "number",
+                              "example": 32.7
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "trs": {
+                      "title": "Temporal Coordinate Reference System",
+                      "description": "Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "vrs": {
+                      "title": "Vertical Coordinate Reference System",
+                      "description": "Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical'). This should be a URI to a registered VRS if one is available, or a full description of the VRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "grid": {
+                      "$ref": "#/components/schemas/grid"
+                    },
+                    "definition": {
+                      "type": "string",
+                      "format": "uri",
+                      "title": "Observed property definition",
+                      "description": "A URI for the definition of the measured or observed property corresponding to this dimension."
+                    },
+                    "unit": {
+                      "type": "string",
+                      "title": "Units of measurement",
+                      "description": "The unit of measure in which the interval and/or grid values are expressed."
+                    },
+                    "unitLang": {
+                      "type": "string",
+                      "default": "UCUM",
+                      "title": "Units of measurement vocabulary",
+                      "description": "The language (or vocabulary) in which the unit is expressed (defaults to \"UCUM\" if not specified)."
+                    },
+                    "variableType": {
+                      "title": "Variable type",
+                      "description": "The type of variable which may inform correct interpretation and interpolation methods.",
+                      "type": "string",
+                      "enum": [
+                        "continuous",
+                        "numericalOrdinal",
+                        "numericalNominal",
+                        "categoricalOrdinal",
+                        "categoricalNominal"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "dataType": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "map",
+              "vector",
+              "coverage"
+            ]
+          }
+        ]
+      },
+      "grid": {
+        "type": "object",
+        "title": "Grid.",
+        "description": "Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.",
+        "allOf": [
+          {
+            "type": "object",
+            "required": [
+              "cellsCount"
+            ],
+            "properties": {
+              "cellsCount": {
+                "title": "Cell count",
+                "description": "Number of samples available along the dimension for data organized as a regular or irregular grid.",
+                "type": "integer",
+                "example": 50
+              }
+            }
+          },
+          {
+            "oneOf": [
+              {
+                "type": "object",
+                "title": "Regular grid",
+                "description": "Regular grid with samples spaced at equal intervals.",
+                "required": [
+                  "resolution",
+                  "firstCoordinate"
+                ],
+                "properties": {
+                  "resolution": {
+                    "title": "Resolution",
+                    "description": "Resolution of regularly gridded data along the dimension in the collection.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "nullable": true,
+                        "example": "PT1H"
+                      },
+                      {
+                        "type": "number",
+                        "example": 0.0006866455078
+                      }
+                    ]
+                  },
+                  "availableResolutions": {
+                    "title": "Available resolutions",
+                    "description": "List of resolutions made available by the API. If not specified, there are no limit other than the limits indicated in `minCellSize` and `maxCellSize` of the collection description (though the API might still allow requesting data beyond these).",
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "example": [
+                      "P1H",
+                      "P1D",
+                      "P1M"
+                    ]
+                  },
+                  "firstCoordinate": {
+                    "title": "First coordinate",
+                    "description": "First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "example": -180
+                  },
+                  "relativeBounds": {
+                    "title": "Relative bounds",
+                    "description": "Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells.",
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ]
+                    },
+                    "example": [
+                      -0.5,
+                      0.5
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "title": "Irregular grid.",
+                "description": "Irregular grid with samples spaced at different intervals.",
+                "required": [
+                  "coordinates"
+                ],
+                "properties": {
+                  "coordinates": {
+                    "title": "Coordinates of the irregular cells",
+                    "description": "List of coordinates along the dimension for which data organized as an irregular grid in the collection is available.\n(e.g., 2, 10, 80, 100).",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "nullable": true,
+                          "example": "2020-11-12T12:15:00Z"
+                        },
+                        {
+                          "type": "number",
+                          "example": 12.3
+                        }
+                      ]
+                    },
+                    "example": [
+                      2,
+                      10,
+                      80,
+                      100
+                    ]
+                  },
+                  "boundsCoordinates": {
+                    "title": "Bounds coordinates",
+                    "description": "For irregular grids, an ordered list of the coordinates in absolute units of the lower and upper bounds of the dimension for each cell.",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      }
+                    },
+                    "example": [
+                      [
+                        -180,
+                        -179
+                      ],
+                      [
+                        -179,
+                        -178
+                      ]
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "timeStamp": {
+        "title": "Time stamp",
+        "description": "This property indicates the time and date when the response was generated using RFC 3339 notation.",
+        "type": "string",
+        "format": "date-time",
+        "example": "2017-08-17T08:05:32Z"
+      },
+      "numberReturned": {
+        "title": "The number of elements in the response",
+        "description": "A server may omit this information, if the information about the number of elements is not known or difficult to compute. If the value is provided, the value shall be identical to the number of elements in the response.",
+        "type": "integer",
+        "minimum": 0,
+        "example": 10
+      },
+      "numberMatched": {
+        "title": "The number of elements in the response",
+        "description": "The number of elements in the response that match the selection parameters like `bbox`.",
+        "type": "integer",
+        "minimum": 0,
+        "example": 127
+      },
+      "enumeration": {
+        "type": "object",
+        "required": [
+          "type",
+          "enum"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "enum"
+            ]
+          },
+          "enum": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "all-collections": {
+        "type": "string",
+        "enum": [
+          "blueMarble",
+          "NaturalEarth:raster:HYP_HR_SR_OB_DR",
+          "NaturalEarth:cultural:ne_10m_admin_0_countries",
+          "NaturalEarth:physical:bathymetry",
+          "SRTM_ViewFinderPanorama",
+          "HRDEM-Ottawa",
+          "HRDEM-RedRiver"
+        ]
+      },
+      "contact": {
+        "type": "object",
+        "title": "Contact information",
+        "description": "Identification of, and means of communication with, person responsible\nfor the resource.",
+        "anyOf": [
+          {
+            "required": [
+              "name"
+            ]
+          },
+          {
+            "required": [
+              "organization"
+            ]
+          }
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "title": "Identifier of the contact",
+            "description": "A value uniquely identifying a contact."
+          },
+          "name": {
+            "type": "string",
+            "title": "name of the contact person",
+            "description": "The name of the responsible person."
+          },
+          "position": {
+            "type": "string",
+            "title": "position in the organization",
+            "description": "The name of the role or position of the responsible person taken\nfrom the organization's formal organizational hierarchy or chart."
+          },
+          "organization": {
+            "type": "string",
+            "title": "Name of the organization",
+            "description": "Organization/affiliation of the contact."
+          },
+          "logo": {
+            "title": "Logo of the contact",
+            "description": "Link to a graphic identifying a contact. The link relation should be `icon`\nand the media type should be an image media type.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/link"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "rel",
+                  "type"
+                ],
+                "properties": {
+                  "rel": {
+                    "enum": [
+                      "icon"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "phones": {
+            "type": "array",
+            "title": "Telephone numbers",
+            "description": "Telephone numbers at which contact can be made.",
+            "items": {
+              "type": "object",
+              "required": [
+                "value"
+              ],
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Phone number.",
+                  "description": "The value is the phone number itself.",
+                  "pattern": "^\\+[1-9]{1}[0-9]{3,14}$",
+                  "example": "+14165550142"
+                },
+                "roles": {
+                  "title": "Type of phone number.",
+                  "description": "The type of phone number (e.g. home, work, fax, etc.).",
+                  "$ref": "#/components/schemas/contact-roles"
+                }
+              }
+            }
+          },
+          "emails": {
+            "type": "array",
+            "title": "Email addresses",
+            "description": "Email addresses at which contact can be made.",
+            "items": {
+              "type": "object",
+              "required": [
+                "value"
+              ],
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Email address",
+                  "description": "The value is the email itself.",
+                  "format": "email"
+                },
+                "roles": {
+                  "title": "Type of email",
+                  "description": "The type of email (e.g. home, work, etc.).",
+                  "$ref": "#/components/schemas/contact-roles"
+                }
+              }
+            }
+          },
+          "addresses": {
+            "type": "array",
+            "title": "Postal addresses",
+            "description": "Physical locations at which contact can be made.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "deliveryPoint": {
+                  "type": "array",
+                  "title": "Details of the address",
+                  "description": "Address lines for the location (e.g. street name and door number).",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "city": {
+                  "type": "string",
+                  "title": "City",
+                  "description": "City for the location."
+                },
+                "administrativeArea": {
+                  "type": "string",
+                  "title": "State of province",
+                  "description": "State or province of the location."
+                },
+                "postalCode": {
+                  "type": "string",
+                  "title": "Postal code",
+                  "description": "ZIP or other postal code."
+                },
+                "country": {
+                  "type": "string",
+                  "title": "Country",
+                  "description": "Country of the physical address.  ISO 3166-1 is recommended."
+                },
+                "roles": {
+                  "title": "Type of postal address",
+                  "description": "The type of postal address (e.g. office, home, etc.).",
+                  "$ref": "#/components/schemas/contact-roles"
+                }
+              }
+            }
+          },
+          "links": {
+            "type": "array",
+            "title": "Links about the contact",
+            "description": "On-line information about the contact.",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/link"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "type"
+                  ]
+                }
+              ]
+            }
+          },
+          "hoursOfService": {
+            "type": "string",
+            "title": "Hours of service",
+            "description": "Time period when the contact can be contacted.",
+            "example": "Hours: Mo-Fr 10am-7pm Sa 10am-22pm Su 10am-21pm"
+          },
+          "contactInstructions": {
+            "type": "string",
+            "title": "Contact instructions",
+            "description": "Supplemental instructions on how or when to contact can be made."
+          },
+          "roles": {
+            "title": "Types of contact person",
+            "description": "The set of named duties, job functions and/or permissions associated with this contact. (e.g. developer, administrator, etc.).",
+            "$ref": "#/components/schemas/contact-roles"
+          }
+        }
+      },
+      "contact-roles": {
+        "title": "Types or roles",
+        "description": "The list of duties, job functions or permissions assigned by the system and associated with the context of this member.",
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "string"
+        }
+      },
+      "format": {
+        "type": "object",
+        "anyOf": [
+          {
+            "required": [
+              "name"
+            ]
+          },
+          {
+            "required": [
+              "mediaType"
+            ]
+          }
+        ],
+        "properties": {
+          "name": {
+            "title": "Name of the format",
+            "description": "Name of the format.",
+            "type": "string"
+          },
+          "mediaType": {
+            "title": "Media type of the format",
+            "description": "Media type of the format.",
+            "type": "string"
+          }
+        }
+      },
+      "language": {
+        "type": "object",
+        "title": "Resource language",
+        "description": "The language used for textual values in this resource.",
+        "required": [
+          "code"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "The language tag as per RFC-5646.",
+            "example": "el"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Original name",
+            "description": "The untranslated name of the language.",
+            "example": "Ελληνικά"
+          },
+          "alternate": {
+            "type": "string",
+            "title": "Translated name",
+            "description": "The name of the language in another well-understood language, usually English.",
+            "example": "Greek"
+          },
+          "dir": {
+            "type": "string",
+            "title": "Direction of the text",
+            "description": "The direction for text in this language. The default, `ltr` (left-to-right), represents the most common situation. However, care should be taken to set the value of `dir` appropriately if the language direction is not `ltr`. Other values supported are `rtl` (right-to-left), `ttb` (top-to-bottom), and `btt` (bottom-to-top).",
+            "enum": [
+              "ltr",
+              "rtl",
+              "ttb",
+              "btt"
+            ],
+            "default": "ltr"
+          }
+        }
+      },
+      "theme": {
+        "type": "object",
+        "required": [
+          "concepts",
+          "scheme"
+        ],
+        "properties": {
+          "concepts": {
+            "type": "array",
+            "title": "List of concepts in the vocabulary",
+            "description": "One or more entity/concept identifiers from this knowledge system. it is recommended that a resolvable URI be used for each entity/concept identifier.",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "title": "Identifier for the concept",
+                  "description": "Identifier for the concept in the knowledge system.",
+                  "minLength": 1
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title of the concept",
+                  "description": "A human readable title for the concept."
+                },
+                "description": {
+                  "type": "string",
+                  "title": "Description of the concept",
+                  "description": "A human readable description for the concept."
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "title": "URI of the concept",
+                  "description": "A URI providing further description of the concept. It is called \"definition\" in STA."
+                }
+              }
+            }
+          },
+          "scheme": {
+            "type": "string",
+            "title": "Identifier of the vocabulary",
+            "description": "An identifier for the knowledge organization system used to classify the resource.  It is recommended that the identifier be a resolvable URI.  The list of schemes used in a searchable catalog can be determined by inspecting the server's OpenAPI document or, if the server implements CQL2, by exposing a queryable (e.g. named `scheme`) and enumerating the list of schemes in the queryable's schema definition."
+          }
+        }
+      }
+    },
+    "parameters": {
+      "f-metadata": {
+        "name": "f",
+        "in": "query",
+        "description": "The format of the response. If no value is provided, the accept header is used to determine the format. Accepted values are 'json' or 'html'.",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "json",
+            "html"
+          ]
+        },
+        "style": "form",
+        "explode": false
+      },
+      "collectionId-all": {
+        "name": "collectionId",
+        "in": "path",
+        "description": "Local identifier of a collection",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/all-collections"
+        }
+      },
+      "bbox": {
+        "name": "bbox",
+        "in": "query",
+        "description": "Only resources that have a geometry that intersects the bounding box are selected. The bounding box is provided as four or six numbers, depending on whether the coordinate reference system includes a vertical axis (elevation or depth):\n* Lower left corner, coordinate axis 1 * Lower left corner, coordinate axis 2 * Minimum value, coordinate axis 3 (optional) * Upper right corner, coordinate axis 1 * Upper right corner, coordinate axis 2 * Maximum value, coordinate axis 3 (optional)\nIf the value consists of four numbers, the coordinate reference system is WGS84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)  unless a different coordinate reference system is specified in the parameter `bbox-crs`.\nIf the value consists of six numbers, the coordinate reference system is WGS 84  longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h) unless a different coordinate reference system is specified in a parameter `bbox-crs`.\nFor WGS84 longitude/latitude the values are in most cases the sequence of minimum longitude, minimum latitude, maximum longitude and maximum latitude. However, in cases where the box spans the antimeridian the first value (west-most box edge) is larger than the third value (east-most box edge).\nIf the vertical axis is included, the third and the sixth number are the bottom and the top of the 3-dimensional bounding box.\nIf a resource has multiple spatial geometry properties, it is the decision of the server  whether only a single spatial geometry property is used to determine the extent or all relevant geometries.",
+        "required": false,
+        "schema": {
+          "type": "array",
+          "oneOf": [
+            {
+              "minItems": 4,
+              "maxItems": 4
+            },
+            {
+              "minItems": 6,
+              "maxItems": 6
+            }
+          ],
+          "items": {
+            "type": "number"
+          }
+        },
+        "style": "form",
+        "explode": false
+      },
+      "datetime": {
+        "name": "datetime",
+        "in": "query",
+        "description": "Either a date-time or an interval. Date and time expressions adhere to RFC 3339, section 5.6. Intervals may be bounded or half-bounded (double-dots at start or end). Server implementations may or may not support times expressed using time offsets from UTC, but need to support UTC time with the notation ending with a Z.\nExamples:\n* A date-time: \"2018-02-12T23:20:50Z\" * A bounded interval: \"2018-02-12T00:00:00Z/2018-03-18T12:31:12Z\" * Half-bounded intervals: \"2018-02-12T00:00:00Z/..\" or \"../2018-03-18T12:31:12Z\"\nOnly resources that have a temporal property that intersects the value of `datetime` are selected.\nIf a feature has multiple temporal properties, it is the decision of the server whether only a single temporal property is used to determine the extent or all relevant temporal properties.",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "style": "form",
+        "explode": false
+      }
+    },
+    "responses": {
+      "NotFound": {
+        "description": "The requested resource does not exist on the server. For example, a path parameter had an incorrect value.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "NotAcceptable": {
+        "description": "Content negotiation failed. For example, the `Accept` header submitted in the request did not support any of the media types supported by the server for the requested resource.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ServerError": {
+        "description": "A server error occurred.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "InvalidParameter": {
+        "description": "A query parameter has an invalid value.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Exception": {
+        "description": "An error occurred.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/exception"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "LandingPage": {
+        "description": "The landing page provides links to the API definition (link relation `service-desc`, in this case path `/api`),\nto the Conformance declaration (path `/conformance`, link relation `conformance`), and to the Collections of geospatial data (path `/collections`, link relation `data`).",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/landingPage"
+            },
+            "example": {
+              "title": "Buildings in Bonn",
+              "description": "Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API - Common specification.",
+              "links": [
+                {
+                  "href": "http://data.example.org/",
+                  "rel": "self",
+                  "type": "application/json",
+                  "title": "this document"
+                },
+                {
+                  "href": "http://data.example.org/api",
+                  "rel": "service-desc",
+                  "type": "application/vnd.oai.openapi+json;version=3.0",
+                  "title": "the API definition"
+                },
+                {
+                  "href": "http://data.example.org/api.html",
+                  "rel": "service-doc",
+                  "type": "text/html",
+                  "title": "the API documentation"
+                },
+                {
+                  "href": "http://data.example.org/conformance",
+                  "rel": "http://www.opengis.net/def/rel/ogc/1.0/conformance",
+                  "type": "application/json",
+                  "title": "OGC API conformance classes implemented by this service"
+                },
+                {
+                  "href": "http://data.example.org/collections",
+                  "rel": "http://www.opengis.net/def/rel/ogc/1.0/data",
+                  "type": "application/json",
+                  "title": "Information about the collections"
+                }
+              ]
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Conformance": {
+        "description": "The URIs of all conformance classes supported by the server",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/confClasses"
+                }
+              ],
+              "example": {
+                "conformsTo": [
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core",
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page",
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/json",
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/html",
+                  "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30",
+                  "http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "API": {
+        "description": "The OpenAPI definition of the API.",
+        "content": {
+          "application/vnd.oai.openapi+json;version=3.0": {
+            "schema": {
+              "type": "object"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Enumeration": {
+        "description": "An enumerated list of valid string values for API parameters.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/enumeration"
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CollectionsList": {
+        "description": "The collections of (mostly geospatial) data available from this API. The dataset contains one or more collections. This resource provides information about and access to the collections. The response contains the list of collections. Each collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is provided, with the corresponding relation type, as well as key information about the collection. This information includes:\n* a local identifier for the collection that is unique for the dataset;\n* a list of coordinate reference systems (CRS) in which data may be returned by the server. The first CRS is the default coordinate reference system (the default is always WGS 84 with axis order longitude/latitude);\n* an optional title and description for the collection;\n* an optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data;\n* for collections accessible via the Features or Records API, an optional indicator about the type of the items in the collection (the default value, if the indicator is not provided, is 'feature').",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/collections"
+            },
+            "example": {
+              "links": [
+                {
+                  "href": "http://data.example.org/collections.json",
+                  "rel": "self",
+                  "type": "application/json",
+                  "title": "this document"
+                },
+                {
+                  "href": "http://data.example.org/collections.html",
+                  "rel": "alternate",
+                  "type": "text/html",
+                  "title": "this document as HTML"
+                },
+                {
+                  "href": "http://schemas.example.org/1.0/buildings.xsd",
+                  "rel": "describedby",
+                  "type": "application/xml",
+                  "title": "GML application schema for Acme Corporation building data"
+                },
+                {
+                  "href": "http://download.example.org/buildings.gpkg",
+                  "rel": "enclosure",
+                  "type": "application/geopackage+sqlite3",
+                  "title": "Bulk download (GeoPackage)",
+                  "length": 472546
+                }
+              ],
+              "collections": [
+                {
+                  "id": "buildings",
+                  "title": "Buildings",
+                  "description": "Buildings in the city of Bonn.",
+                  "extent": {
+                    "spatial": {
+                      "bbox": [
+                        [
+                          7.01,
+                          50.63,
+                          7.22,
+                          50.78
+                        ]
+                      ]
+                    },
+                    "temporal": {
+                      "interval": [
+                        [
+                          "2010-02-15T12:34:56Z",
+                          null
+                        ]
+                      ]
+                    }
+                  },
+                  "links": [
+                    {
+                      "href": "http://data.example.org/collections/buildings/items",
+                      "rel": "items",
+                      "type": "application/geo+json",
+                      "title": "Buildings"
+                    },
+                    {
+                      "href": "http://data.example.org/collections/buildings/items.html",
+                      "rel": "items",
+                      "type": "text/html",
+                      "title": "Buildings"
+                    },
+                    {
+                      "href": "https://creativecommons.org/publicdomain/zero/1.0/",
+                      "rel": "license",
+                      "type": "text/html",
+                      "title": "CC0-1.0"
+                    },
+                    {
+                      "href": "https://creativecommons.org/publicdomain/zero/1.0/rdf",
+                      "rel": "license",
+                      "type": "application/rdf+xml",
+                      "title": "CC0-1.0"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Collection": {
+        "description": "Information about a particular collection of (mostly geospatial) data available from this API. The collection is accessible via one or more OGC API set of specifications, for which a link to relevant accessible resources, e.g. /collections/{collectionId}/(items, coverage, map, tiles...) is contained in the response, with the corresponding relation type, as well as key information about the collection. This information includes (among other things):\n* a local identifier for the collection that is unique for the dataset;\n* a list of coordinate reference systems (CRS) in which data may be returned by the server;\n* an optional title and description for the collection;\n* an optional extent that can be used to provide an indication of the spatial and temporal extent of the collection - typically derived from the data;\n* for collections accessible via the Features or Records API, an optional indicator about the type of the items in the collection (the default value, if the indicator is not provided, is 'feature').",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/collectionDesc"
+            },
+            "example": {
+              "id": "buildings",
+              "title": "Buildings",
+              "description": "Buildings in the city of Bonn.",
+              "extent": {
+                "spatial": {
+                  "bbox": [
+                    [
+                      7.01,
+                      50.63,
+                      7.22,
+                      50.78
+                    ]
+                  ]
+                },
+                "temporal": {
+                  "interval": [
+                    [
+                      "2010-02-15T12:34:56Z",
+                      null
+                    ]
+                  ]
+                }
+              },
+              "links": [
+                {
+                  "href": "http://data.example.org/collections/buildings/items",
+                  "rel": "items",
+                  "type": "application/geo+json",
+                  "title": "Buildings"
+                },
+                {
+                  "href": "http://data.example.org/collections/buildings/items.html",
+                  "rel": "items",
+                  "type": "text/html",
+                  "title": "Buildings"
+                },
+                {
+                  "href": "https://creativecommons.org/publicdomain/zero/1.0/",
+                  "rel": "license",
+                  "type": "text/html",
+                  "title": "CC0-1.0"
+                },
+                {
+                  "href": "https://creativecommons.org/publicdomain/zero/1.0/rdf",
+                  "rel": "license",
+                  "type": "application/rdf+xml",
+                  "title": "CC0-1.0"
+                }
+              ]
+            }
+          },
+          "text/html": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

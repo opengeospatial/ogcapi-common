@@ -1,0 +1,26 @@
+get:
+   tags:
+     - Data Collections
+   operationId: getCollectionsList
+   summary: Retrieve the list of geospatial data collections available from this service.
+   parameters:
+     - $ref: '../../parameters/common-discovery/datetime.yaml'
+     - $ref: '../../parameters/common-discovery/bbox.yaml'
+     - $ref: '../../parameters/common-discovery/limit-collections.yaml'
+     - $ref: '../../parameters/common-discovery/bbox-crs.yaml'
+     - $ref: '../../parameters/common-discovery/bbox.yaml'
+     - $ref: '../../parameters/common-discovery/below-sd.yaml'
+     - $ref: '../../parameters/common-discovery/datetime.yaml'
+     - $ref: '../../parameters/common-discovery/descendants.yaml'
+     - $ref: '../../parameters/common-discovery/filter-crs.yml'
+     - $ref: '../../parameters/common-discovery/filter-lang.yaml'
+     - $ref: '../../parameters/common-discovery/filter.yaml'
+     - $ref: '../../parameters/common-discovery/limit-collections.yaml'
+     - $ref: '../../parameters/common-discovery/parent.yaml'
+     - $ref: '../../parameters/common-discovery/query.yaml'
+     - $ref: '../../parameters/common-discovery/q.yaml'
+     - $ref: '../../parameters/common-discovery/sortby.yaml'
+     - $ref: '../../parameters/unspecified/f-metadata.yaml'
+   responses:
+     '200':
+       $ref: '../../responses/common-geodata/rCollectionsList.yaml'

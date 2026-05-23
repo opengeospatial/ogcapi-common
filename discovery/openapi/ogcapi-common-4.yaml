@@ -28,7 +28,7 @@ paths:
 
    # OGC API - Common - Part 2: Geospatial data
    /collections:
-      $ref: 'paths/common-geodata/pCollectionsList.yaml'
+      $ref: 'paths/common-discovery/pCollectionsList.yaml'
    /collections/{collectionId}:
       $ref: 'paths/common-geodata/pCollection.yaml'
 

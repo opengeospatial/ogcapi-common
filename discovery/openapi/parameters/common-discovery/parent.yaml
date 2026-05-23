@@ -1,0 +1,12 @@
+name: parent
+in: query
+description: >-
+  The `parent` query parameter allows to filter the list of collections returned to only those within the hierarchy of a specified parent collection.
+  Depending on the value of the `descendants` parameter, either the entire hierarchy underneath (`descendants=all`), or only the immediate children (`descendants=immediate`)
+  of that parent are returned. By default, all descendants of the specified parent, or all collections of the dataset if no parent is specified, are returned.
+
+required: false
+schema:
+  type: string
+style: form
+explode: false

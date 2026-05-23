@@ -1,0 +1,23 @@
+type: object
+required:
+  - links
+  - collections
+properties:
+  links:
+    type: array
+    title: Links to resource in the collections
+    description: Links to this or other resources provided by the collections.
+    items:
+      $ref: '../common-core/link.yaml'
+  numberMatched:
+    $ref: 'numberMatched.yaml'
+  numberReturned:
+    $ref: 'numberReturned.yaml'
+  collections:
+    type: array
+    title: Collections descriptions
+    description: Descriptions of each collection in this API.
+    items:
+      $ref: 'collectionDesc.yaml'
+      # For APIs conforming to the Uniform Additional Dimensions requirements class, reference the collectionDesc-UAD.yaml schema instead
+      # $ref: 'collectionDesc-UAD.yaml'

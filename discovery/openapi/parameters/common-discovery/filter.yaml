@@ -1,0 +1,11 @@
+name: filter
+in: query
+description: >-
+  The filter parameter specifies an expression in a query language (e.g. CQL2) for which collections will be returned if the filter predicate is matched.
+  The language of the filter is specified by the `filter-lang` query parameter.
+
+required: false
+schema:
+  type: string
+style: form
+explode: false
