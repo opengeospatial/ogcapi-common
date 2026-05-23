@@ -22,4 +22,4 @@ swagger-cli bundle -o ogcapi-common-4.bundled.json ogcapi-common-4.yaml
 
 See also its (archived) [GitHub repository](https://github.com/APIDevTools/swagger-cli).
 
-It should also be possible to bundle the API definition with https://redocly.com/docs/cli[Redocly CLI].
+It should also be possible to bundle the API definition with [Redocly CLI](https://redocly.com/docs/cli).
