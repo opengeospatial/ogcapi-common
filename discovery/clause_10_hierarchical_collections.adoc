@@ -50,7 +50,7 @@ For programmatic clients wishing not to retrieve an entire hierarchy of collecti
 
 include::recommendations/hierarchical-collections/PER_collection_children.adoc[]
 
-include::recommendations/hierarchical-collections/REC_links.adoc[]
+include::requirements/hierarchical-collections/REQ_children_links.adoc[]
 
 Examples of collection description responses for `/collections/{collectionId}`:
 
@@ -63,8 +63,7 @@ Examples of collection description responses for `/collections/{collectionId}`:
       { "rel": "self", "/collections/Montreal" },
       { "rel": "items", "href": "/collections/Montreal/items" },
       { "rel": "[ogc-rel:map]", "href": "/collections/Montreal/map" },
-      { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" },
-      { "rel": "up", "href": "/collections/Quebec" }
+      { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Montreal/tiles" }
    ],
    ...
 }
@@ -78,8 +77,7 @@ Examples of collection description responses for `/collections/{collectionId}`:
    "links": [
       { "rel": "self", "/collections/Quebec" },
       { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
-      { "rel": "up", "href": "/collections/Canada" },
-      { "rel": "[ogc-rel:children]", "href": "/collections?parent=Quebec&descendants=immediate" },
+      { "rel": "[ogc-rel:children]", "href": "/collections?parent=Quebec&descendants=immediate" }
    ],
    ...
 }
@@ -303,14 +301,16 @@ Example response, based on the hierarchical collections listed earlier, retrievi
          "id": "Canada",
          "links": [
             { "rel": "self", "href": "/collections/Canada" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/Canada/map" }
+            { "rel": "[ogc-rel:map]", "href": "/collections/Canada/map" },
+            { "rel": "[ogc-rel:children]", "href": "/collections?parent=Canada&descendants=immediate" }
          ]
       },
       {
          "id": "USA",
          "links": [
             { "rel": "self", "href": "/collections/USA" },
-            { "rel": "[ogc-rel:map]", "href": "/collections/USA/map" }
+            { "rel": "[ogc-rel:map]", "href": "/collections/USA/map" },
+            { "rel": "[ogc-rel:children]", "href": "/collections?parent=USA&descendants=immediate" }
          ]
       }
    ]
@@ -329,7 +329,8 @@ Example response, based on the hierarchical collections listed earlier, for retr
          "links": [
             { "rel": "self", "href": "/collections/Quebec" },
             { "rel": "[ogc-rel:map]", "href": "/collections/Quebec/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Quebec/tiles" }
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Quebec/tiles" },
+            { "rel": "[ogc-rel:children]", "href": "/collections?parent=Quebec&descendants=immediate" }
          ]
       },
       {
@@ -337,7 +338,8 @@ Example response, based on the hierarchical collections listed earlier, for retr
          "links": [
             { "rel": "self", "href": "/collections/Ontario" },
             { "rel": "[ogc-rel:map]", "href": "/collections/Ontario/map" },
-            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ontario/tiles" }
+            { "rel": "[ogc-rel:tilesets-vector]", "href": "/collections/Ontario/tiles" },
+            { "rel": "[ogc-rel:children]", "href": "/collections?parent=Ontario&descendants=immediate" }
          ]
       }
    ]

@@ -1,0 +1,12 @@
+[[req_hierarchy_children_links]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/hierarchical-collections/children-links
+part:: If a collection has any children, its collection description resource's `links` property SHALL include a link to the list of children collections
+(with an `href` making use of the `parent` and `descendants` query parameters e.g., `{apiRoot}/collections?parent={collectionId}&descendants=immediate`)
+using the `[ogc-rel:children]` link relation.
+part:: This `[ogc-rel:children]` link SHALL also be included within the `links` property of each element of a `collections` array when listing collections
+(`GET /collections`) using the `descendants=immediate` query parameter for any collection element having children.
+====
