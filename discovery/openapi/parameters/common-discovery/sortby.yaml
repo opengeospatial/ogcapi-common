@@ -15,5 +15,6 @@ schema:
   items:
     type: string
     pattern: '[+|-]?[A-Za-z_].*'
+    example: title
 explode: false
 style: form

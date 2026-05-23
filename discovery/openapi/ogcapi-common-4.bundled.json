@@ -123,10 +123,7 @@
             "description": "The `below-sd` parameter allows searching for collections usable at the scale denominator specified, allowing to filter out\nlow-resolution datasets not suitable for the intended purpose. The related property indicating the minimum suitable scale denominator\nin the collection description is minScaleDenominator, which may also be related to a minCellSize property for gridded coverages.\nFor example, `below-sd=200000` would only match collections with data intended for a scale of 1:200,000 or larger\n(i.e., collections intended for 1:2,000,000 would be excluded).",
             "required": false,
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
+              "type": "number"
             },
             "explode": false,
             "style": "form"
@@ -249,7 +246,8 @@
               "minItems": 1,
               "items": {
                 "type": "string",
-                "pattern": "[+|-]?[A-Za-z_].*"
+                "pattern": "[+|-]?[A-Za-z_].*",
+                "example": "title"
               }
             },
             "explode": false,

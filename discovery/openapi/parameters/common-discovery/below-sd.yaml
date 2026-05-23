@@ -9,8 +9,6 @@ description: |-
   (i.e., collections intended for 1:2,000,000 would be excluded).
 required: false
 schema:
-  type: array
-  items:
-    type: number
+  type: number
 explode: false
 style: form
