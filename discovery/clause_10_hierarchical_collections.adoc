@@ -46,7 +46,7 @@ CAUTION: Clients cannot rely on the use of any particular separator character to
 
 include::recommendations/hierarchical-collections/REC_hierarchical-collection-parent-link.adoc[]
 
-CAUTION: Clients MUST rely on the use of the (<<req_hierarchy_parent-property,`parent` property>>) primarily.
+CAUTION: Clients need to rely on the use of the (<<req_hierarchy_parent-property,`parent` property>>) primarily.
 The corresponding informative `parent` link relation is provided for alignment with other standards such as
 <<https://docs.ogc.org/is/20-004r1/20-004r1.html,OGC API - Records - Part 1: Core>> and
 <<https://github.com/radiantearth/stac-spec/blob/master/commons/links.md,STAC Common Links>>.
