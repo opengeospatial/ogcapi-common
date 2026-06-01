@@ -4,7 +4,10 @@
 ====
 [%metadata]
 identifier:: /rec/hierarchical-collections/parent-link
-part:: The implementation SHOULD support a `parent` link relation under the collection description `links`,
-resolving exactly at the location referred by the corresponding `parent` field property,
-to facilitate browsing through the hierarchy directly by URI.
+part:: To facilitate browsing through the hierarchy by following links, the implementation
+SHOULD include a link to the location of the collection description (e.g., `/collections/{parentId}`)
+referred to by the corresponding `parent` property. That link SHOULD be included in the collection's `links`
+using the link relation type `parent`
+(as used for a similar purpose in <<https://docs.ogc.org/is/20-004r1/20-004r1.html,OGC API - Records - Part 1: Core>>
+and <<https://github.com/radiantearth/stac-spec/blob/master/commons/links.md,STAC Common Links>>).
 ====
