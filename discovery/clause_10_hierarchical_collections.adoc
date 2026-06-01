@@ -18,7 +18,7 @@ NOTE: This requirement class does not address the use cases of defining simultan
 Such multiple hierarchies capability could be defined independently (for example, the https://docs.ogc.org/per/18-045.html#hierarchical_paths_extension[`/themes` extension] proposed previously),
 or the use case could be addressed through the `keywords` and/or `themes` core queryable properties defined by _OGC API - Records_ and applicable to the "Searchable Collections" requirement class.
 
-All collections of the hierarchy, whether leaf colections, top-level collections, or anywhere in between, may or may not directly offer access to data using one or more access mechanisms
+All collections of the hierarchy, whether leaf collections, top-level collections, or anywhere in between, may or may not directly offer access to data using one or more access mechanisms
 defined in one or more OGC API data access standards, such as _OGC API - Tiles_, _OGC API - Maps_, _OGC API - Features_ or _OGC API - Coverages_ (or others).
 Those access mechanisms will be included as usual in `links` of the collections.
 
@@ -43,6 +43,13 @@ Although not required, implementations could opt for using a specific character 
 This notably facilitates directly accessing a parent collection in a browser environment by editing URLs in the browser address bar.
 
 CAUTION: Clients cannot rely on the use of any particular separator character to establish the hierarchical relationships between collections. Instead, they need to use the `parent` property specifying the identifier of the parent collection when applicable.
+
+include::recommendations/hierarchical-collections/REC_hierarchical-collection-parent-link.adoc[]
+
+CAUTION: Clients MUST rely on the use of the (<<req_hierarchy_parent-property,`parent` property>>) primarily.
+The corresponding informative `parent` link relation is provided for alignment with other standards such as
+<<https://docs.ogc.org/is/20-004r1/20-004r1.html,OGC API - Records - Part 1: Core>> and
+<<https://github.com/radiantearth/stac-spec/blob/master/commons/links.md,STAC Common Links>>.
 
 In the HTML representation of a collection description resource (`/collections/{collectionId}`), it can be useful to directly show the
 list of children collections, allowing a user to directly click and explore the hierarchy this way.

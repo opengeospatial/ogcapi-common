@@ -1,0 +1,10 @@
+[[rec_hierarchical-collection-parent-link]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/hierarchical-collections/parent-link
+part:: The implementation SHOULD support a `parent` link relation under the collection description `links`,
+resolving exactly at the location referred by the corresponding `parent` field property,
+to facilitate browsing through the hierarchy directly by URI.
+====
