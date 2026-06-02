@@ -5,9 +5,9 @@
 [%metadata]
 identifier:: /rec/hierarchical-collections/parent-link
 part:: To facilitate browsing through the hierarchy by following links, the implementation
-SHOULD include a link to the location of the collection description (e.g., `/collections/{parentId}`)
-referred to by the corresponding `parent` property. That link SHOULD be included in the collection's `links`
-using the link relation type `parent`
-(as used for a similar purpose in <<https://docs.ogc.org/is/20-004r1/20-004r1.html,OGC API - Records - Part 1: Core>>
-and <<https://github.com/radiantearth/stac-spec/blob/master/commons/links.md,STAC Common Links>>).
+SHOULD include a link to the location of the prent collection description (e.g., `/collections/{parentId}`,
+where `{parentId}` is the corresponding `parent` property) in the collection description's `links`
+using the link relation type `parent`. This approach is also used for a similar purpose in
+<<docs.ogc.org/is/20-004r1/20-004r1.html,OGC API - Records - Part 1: Core>>
+and <<radiantearth/stac-spec@master/commons/links.md,STAC Common Links>>
 ====
