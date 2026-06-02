@@ -15,7 +15,7 @@ to select which collections to return on a GET request:
 * <<searchable-bbox-parameter,bbox>>: Bounding Box
 * <<searchable-datetime-parameter,datetime>>: Date and Time
 * <<searchable-q-parameter,q>>: Search for specific terms (at least in title, description and keywords)
-* <<searchable-query-parameter,query>>: Like `q`, but with the possibility to search for occurences of multiple terms being present together (`+`) or excluding on or more terms (`-`)
+* <<searchable-query-parameter,query>>: Like `q`, but with the possibility to search for occurences of multiple terms being present together (`+`) or excluding one or more terms (`-`)
 * <<searchable-limit-parameter,limit>>: Response resource count limit
 
 If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Part 1: Core] "Landing Page", these supported query parameters need to be described in the API definition as described in that part.
@@ -155,7 +155,7 @@ As a counterexample, `query=united +states` would match any collection where bot
 
 As another counterexample, `query=united-states` would match a single term `united-states`, rather than being an exclusion.
 
-With `query=canada +extreme weather`, `canada` and `extreme weather` both need to appear, but they do not need to appear consecutively to be a match.
+With `query=canada +extreme weather`, the terms `canada` and `extreme weather` both need to appear, but they do not need to appear consecutively to be a match.
 
 With `query=united,states`, at least one of the following terms need to appear: `united`, `states`.
 
