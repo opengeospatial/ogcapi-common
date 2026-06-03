@@ -48,8 +48,22 @@ See also the security considerations described in http://www.opengis.net/doc/is/
 
 == Acknowledgements
 
-A portion of this document has been derived from OGC API - Records - Part 1: Core and generalized to any data access mechanism.
-Since the content was actually embedded within this document, OGC API - Records is not cited as a normative reference.
+A portion of this document has been derived from OGC API - Features - Part 1: Core and OGC API - Records - Part 1: Core
+and adapted specifically to discover OGC API collections.
+The `query` query parameter of the Searchable Collections requirements class was inspired from the
+https://github.com/stac-api-extensions/freetext-search[STAC free text search extension].
+Since the content was actually embedded within this document, these are not cited as a normative reference,
+but conformance to OGC API - Records can be explicitly declared when applicable.
+
+Some of the work leading to the creation of this OGC Standard was undertaken as part of
+GeoConnections 2020-2021 and 2025-2027 projects GNS20-21IFP02 (Modular OGC API Workflows) and
+GNS25-27IFP2 (Advancing and Implementing OGC Standards for GeoDataCubes, DGGSs, Data Stores for Digital Twins and Cartographic Symbology).
+
+Financial support provided by GeoConnections, a national collaborative initiative led by Natural Resources Canada.
+GeoConnections supports the modernization of the Canadian Geospatial Data Infrastructure (CGDI).
+The CGDI is the collection of geospatial data, standards, policies, applications, and governance that facilitate its
+access, use, integration, and preservation.
+
 
 [.preface]
 == Submitters
