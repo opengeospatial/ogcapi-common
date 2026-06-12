@@ -5,5 +5,6 @@
 [%metadata]
 identifier:: /req/searchable-collections/numberMatched
 part:: If a property `numberMatched` is included in the response, the value SHALL be identical to the number of hosted collections that meet the selection parameters provided by the client.
-part:: A server MAY omit this information in a response, if the information about the number of matching resources is not known or difficult to compute.
 ====
+
+NOTE: A server can omit this information in a response, if the information about the number of matching resources is not known or difficult to compute.

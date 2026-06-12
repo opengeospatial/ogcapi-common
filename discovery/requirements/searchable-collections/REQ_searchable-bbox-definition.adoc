@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /req/searchable-collections/bbox-definition
-part:: The `bbox` parameter SHALL possess the following characteristics (using an OpenAPI Specification 3.0 fragment):
+part:: The Implementation SHALL support a `bbox` query parameter at the `/collections` endpoint described by the following OpenAPI Specification 3.0 fragment:
 +
 [source,YAML]
 ----
@@ -24,7 +24,7 @@ style: form
 explode: false
 ----
 
-part:: The bounding box SHALL be provided as four or six numbers, depending on whether the coordinate reference system includes a vertical axis (height or depth):
+part:: The Implementation SHALL understand a bounding box provided as four or six numbers, depending on whether the coordinate reference system includes a vertical axis (height or depth):
 
 * Lower left corner, coordinate axis 1
 * Lower left corner, coordinate axis 2

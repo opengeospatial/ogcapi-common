@@ -4,10 +4,25 @@
 .Searchable Collections
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/searchable-collections
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/searchable-collections
 subject:: Web API
 inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
 inherit:: <<rfc3339,RFC 3339 (Date and Time on the Internet: Timestamps)>>
+// NOTE: OGC API - Records might be stricter about some of the requirement, so we are not currently specifying an explicit dependency.
+//       An implementation can decide whether to conform to Records query parameters as well.
 // inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/query-parameters
-// requirement:: /req/searchable-collections/...
+inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/sorting
+requirement:: /req/searchable-collections/bbox-definition
+requirement:: /req/searchable-collections/bbox-response
+requirement:: /req/searchable-collections/bbox-crs
+requirement:: /req/searchable-collections/datetime-definition
+requirement:: /req/searchable-collections/datetime-response
+requirement:: /req/searchable-collections/q
+requirement:: /req/searchable-collections/query
+requirement:: /req/searchable-collections/limit-definition
+requirement:: /req/searchable-collections/limit-response
+requirement:: /req/searchable-collections/next
+requirement:: /req/searchable-collections/numberMatched
+requirement:: /req/searchable-collections/numberReturned
+requirement:: /req/searchable-collections/below-sd
 ====

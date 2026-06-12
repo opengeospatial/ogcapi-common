@@ -4,10 +4,11 @@
 .Sortable Collections
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/sortable-collections
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/sortable-collections
 subject:: Web API
 inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
 inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/sorting
 inherit:: https://www.opengis.net/spec/ogcapi-common-3/1.0/req/sortables
-// requirement:: /req/sortable-collections/...
+requirement:: /req/sortable-collections/sortby-param
+requirement:: /req/sortable-collections/sortby-response
 ====

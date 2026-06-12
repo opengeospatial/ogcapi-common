@@ -43,11 +43,11 @@ The `bbox` parameter is used to select collections based on the geospatial footp
 
 The `bbox` parameter is defined as follows:
 
-include::./requirements/searchable-collections/REQ_searchable-bbox-definition.adoc[]
+include::requirements/searchable-collections/REQ_searchable-bbox-definition.adoc[]
 
 While the processing of the `bbox` parameter is specific to the resource and operation for which it is applied, there is a general set of requirements which all implementations must address.
 
-include::./requirements/searchable-collections/REQ_searchable-bbox-response.adoc[]
+include::requirements/searchable-collections/REQ_searchable-bbox-response.adoc[]
 
 "Intersects" means that a coordinate that is part of the spatial geometry of the resource falls within the area specified in the parameter `bbox`. This includes the boundaries of the geometries. For curves the boundary includes the start and end position. For surfaces the boundary includes the outer and inner rings.
 
@@ -75,7 +75,7 @@ A template for the definition of the parameter in YAML according to OpenAPI 3.0 
 
 The `bbox-crs` parameter specifies the Coordinate Reference System (CRS) in which the `bbox` query parameter is provided, in the form of a URI or safe CURIE.
 
-include::./requirements/searchable-collections/REQ_searchable-bbox-crs.adoc[]
+include::requirements/searchable-collections/REQ_searchable-bbox-crs.adoc[]
 
 include::./recommendations/searchable-collections/REC_searchable-supported-crs.adoc[]
 
@@ -86,9 +86,9 @@ The query `datetime` parameter selects collections based on their temporal exten
 
 The `datetime` parameter is defined as follows:
 
-include::./requirements/searchable-collections/REQ_searchable-datetime-definition.adoc[]
+include::requirements/searchable-collections/REQ_searchable-datetime-definition.adoc[]
 
-include::./requirements/searchable-collections/REQ_searchable-datetime-response.adoc[]
+include::requirements/searchable-collections/REQ_searchable-datetime-response.adoc[]
 
 "Intersects" means that the time (instant or period) specified in the parameter `datetime` includes a timestamp that is part of the temporal extent of the collection (again, a time instant or period).
 For time periods this includes the start and end time.
@@ -137,7 +137,7 @@ Collections matching any of the terms separated by a comma are selected.
 
 Terms separated by a space must appear in the order specified, with nothing but white space in between, to be considered a match.
 
-include::./requirements/searchable-collections/REQ_searchable-q.adoc[]
+include::requirements/searchable-collections/REQ_searchable-q.adoc[]
 
 [[searchable-query-parameter]]
 === Query Parameter `query`
@@ -164,16 +164,16 @@ as well as occurrence in specified properties of the collection description.
 
 NOTE: This `query` parameter is not specified in OGC API - Records, and is distinct from `q` to avoid misinterpretation and make it possible to conform to both this requirements class as well as Records.
 
-include::./requirements/searchable-collections/REQ_searchable-query.adoc[]
+include::requirements/searchable-collections/REQ_searchable-query.adoc[]
 
 [[searchable-limit-parameter]]
 === Query Parameter `limit`
 
 The `limit` parameter limits the number of collections that can be returned in a response.
 
-include::./requirements/searchable-collections/REQ_searchable-limit-definition.adoc[]
+include::requirements/searchable-collections/REQ_searchable-limit-definition.adoc[]
 
-include::./requirements/searchable-collections/REQ_searchable-limit-response.adoc[]
+include::requirements/searchable-collections/REQ_searchable-limit-response.adoc[]
 
 The number of collections returned depends on the server and the value of the `limit` parameter.
 
@@ -191,7 +191,7 @@ Since many servers will place a limit on the size of their responses, clients sh
 
 The effect of the limit parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 
-include::./requirements/searchable-collections/REQ_searchable-next.adoc[]
+include::requirements/searchable-collections/REQ_searchable-next.adoc[]
 
 Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
@@ -222,4 +222,4 @@ The related property indicating the minimum suitable scale denominator in the co
 
 For example, `below-sd=200000` would only match collections with data intended for a scale of 1:200,000 or larger (i.e., collections intended for 1:2,000,000 would be excluded).
 
-include::./requirements/searchable-collections/REQ_searchable-below-sd.adoc[]
+include::requirements/searchable-collections/REQ_searchable-below-sd.adoc[]

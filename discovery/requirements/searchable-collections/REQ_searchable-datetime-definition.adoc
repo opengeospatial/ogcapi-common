@@ -4,8 +4,8 @@
 ====
 [%metadata]
 identifier:: /req/searchable-collections/datetime-definition
-part:: The Implementation SHALL support a `datetime` parameter consisting of a string specifying either a date-time value or a time interval.
-part:: The parameter value SHALL conform to the following syntax (using link:https://tools.ietf.org/html/rfc5234[ABNF]):
+part:: The Implementation SHALL support a `datetime` query parameter consisting of a string specifying either a date-time value or a time interval.
+part:: The Implementation SHALL understand parameter value conforming to the following syntax (using link:https://tools.ietf.org/html/rfc5234[ABNF]):
 +
 [source]
 ----

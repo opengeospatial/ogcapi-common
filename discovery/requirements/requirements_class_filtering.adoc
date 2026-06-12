@@ -4,11 +4,13 @@
 .Filterable Collections
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/filterable-collections
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/filterable-collections
 subject:: Web API
 inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
 inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/filtering
 inherit:: https://www.opengis.net/spec/ogcapi-common-3/1.0/req/queryables
 inherit:: https://www.opengis.net/spec/cql2/1.0/req/basic-cql2
-// requirement:: /req/filterable-collections/...
+requirement:: /req/filterable-collections/filter-parameter
+requirement:: /req/filterable-collections/filter-lang-parameter
+requirement:: /req/filterable-collections/filter-crs
 ====

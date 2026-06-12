@@ -1,0 +1,96 @@
+[[ats_hierarchical-collections]]
+
+[[conf_hierarchical-collections,https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/hierarchical-collections]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/hierarchical-collections
+target:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/hierarchical-collections
+classification:: Target Type:Web API
+abstract-test:: /conf/hierarchical-collections/parent-property
+abstract-test:: /conf/hierarchical-collections/children-links
+abstract-test:: /conf/hierarchical-collections/parent-parameter
+abstract-test:: /conf/hierarchical-collections/descendants-parameter
+====
+
+==== Abstract Test for Requirement `parent` property in hierarchical collections
+
+[[conf_hierarchical-collections_parent-property,/conf/hierarchical-collections/parent-property]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/hierarchical-collections/parent-property
+target:: /req/hierarchical-collections/parent-property
+test-purpose:: Verify that nested collections include a `parent` property identifying their immediate parent, and that top-level collections either omit the property or set it to null, across both the collections listing and individual collection endpoints.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Hierarchical Collections" requirements class +
+*When:* performing a GET operation on `/collections`, and subsequently performing a GET operation on `/collections/{collectionId}` for these collections +
+*Then:* +
+- assert that for any collection object representing a nested (non-top-level) collection, the object contains a `parent` property populated with the valid string identifier of its parent collection. +
+- assert that for any collection object representing a top-level collection, the `parent` property is either completely omitted from the object or explicitly set to a null value. +
+- assert that the presence, absence, or null value of the `parent` property for any given collection identifier remains perfectly consistent between the `/collections` response array and its corresponding `/collections/{collectionId}` individual resource document.
+====
+
+==== Abstract Test for Requirement `[ogc-rel:children]` hypermedia links
+
+[[conf_hierarchical-collections_children-links,/conf/hierarchical-collections/children-links]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/hierarchical-collections/children-links
+target:: /req/hierarchical-collections/children-links
+test-purpose:: Verify that collections containing child sub-collections expose a link object using the `[ogc-rel:children]` relation pointing to their immediate descendants, across both individual resource summaries and filtered collection listings.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Hierarchical Collections" requirements class +
+*When:* performing a GET operation on `/collections/{collectionId}` for a collection with children, and performing a GET operation on `/collections` using the query parameter `descendants=immediate` +
+*Then:* +
+- assert that the `links` array of the individual `/collections/{collectionId}` resource contains a link object with a `rel` property matching `[ogc-rel:children]`. +
+- assert that the `href` value of that `[ogc-rel:children]` link object correctly incorporates the `parent` and `descendants=immediate` query parameters targeting the parent collection's identifier. +
+- assert that when listing collections via the `/collections?descendants=immediate` request, the `links` array inside each returned array element that possesses child collections includes a link object with a `rel` property matching `[ogc-rel:children]`.
+====
+
+==== Abstract Test for Requirement `parent` query parameter filtering
+
+[[conf_hierarchical-collections_parent-parameter,/conf/hierarchical-collections/parent-parameter]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/hierarchical-collections/parent-parameter
+target:: /req/hierarchical-collections/parent-parameter
+test-purpose:: Verify that the Implementation supports the `parent` query parameter at the `/collections` endpoint, correctly filters the results to only include downstream sub-collections of the specified parent while excluding the parent itself, and returns all collections when the parameter is omitted.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Hierarchical Collections" requirements class +
+*When:* performing a GET operation on `/collections` +
+*Then:* +
+- assert that the server successfully processes that request when it includes a valid `parent` query parameter specifying a collection identifier, returning a `200 OK` response status. +
+- assert that when the `parent` parameter is provided, the response result set contains only collections that belong to the hierarchy of the specified parent identifier. +
+- assert that when the `parent` parameter is provided, the response result set starts with the immediate children and strictly excludes the parent collection itself. +
+- assert that when that request is sent without a `parent` parameter, the server returns the complete unfiltered set of collections.
+====
+
+==== Abstract Test for Requirement `descendants` query parameter behavior
+
+[[conf_hierarchical-collections_descendants-parameter,/conf/hierarchical-collections/descendants-parameter]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/hierarchical-collections/descendants-parameter
+target:: /req/hierarchical-collections/descendants-parameter
+test-purpose:: Verify that the Implementation supports the `descendants` query parameter, correctly restricts results to first-generation children or root-level parents when set to `immediate`, and recursively returns downstream branches when set to `all` or omitted.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Hierarchical Collections" requirements class +
+*When:* performing a GET operation on `/collections` +
+*Then:* +
+- assert that the server successfully processes that request when it includes a `descendants` query parameter set to either `immediate` or `all`, returning a `200 OK` response status. +
+- assert that when `descendants=immediate` is specified alongside a valid `parent` parameter, the response result set contains only the immediate, first-generation child collections of that parent. +
+- assert that when `descendants=immediate` is specified without a `parent` parameter, the response result set contains only top-level root collections that have no parent property defined. +
+- assert that when `descendants=all` is specified (or the parameter is omitted entirely), the response result set contains all downstream collections across all depths of the hierarchy, subject to any accompanying `parent` parameter constraints.
+====

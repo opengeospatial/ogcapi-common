@@ -1,45 +1,291 @@
 [[ats_searchable-collections]]
-[cols="1,4",width="90%"]
-|===
-2+|*Conformance Class*
-2+|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/searching
-|Target type |Web API
-|Requirements Class |<<rc_searchable-collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/req/searching>>
-|Dependency |<<ats_collections,http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections>>
-|===
 
-The Simple Query Conformance Class has a dependency on the Collections Conformance Class.
+[[conf_searchable-collections,https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/searchable-collections]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/searchable-collections
+target:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/searchable-collections
+classification:: Target Type:Web API
+abstract-test:: /conf/searchable-collections/bbox-definition
+abstract-test:: /conf/searchable-collections/bbox-response
+abstract-test:: /conf/searchable-collections/bbox-crs
+abstract-test:: /conf/searchable-collections/datetime-definition
+abstract-test:: /conf/searchable-collections/datetime-response
+abstract-test:: /conf/searchable-collections/q
+abstract-test:: /conf/searchable-collections/query
+abstract-test:: /conf/searchable-collections/limit-definition
+abstract-test:: /conf/searchable-collections/limit-response
+abstract-test:: /conf/searchable-collections/next
+abstract-test:: /conf/searchable-collections/numberMatched
+abstract-test:: /conf/searchable-collections/numberReturned
+abstract-test:: /conf/searchable-collections/below-sd
+====
 
-include::./searchable-collections/ATS_dependency-collections.adoc[]
+==== Abstract Test for Requirement `bbox` query parameter definition
 
-Conformance with the <<rc-searchable-collections,Searchable Collections>> Conformance Class is demonstrated by execution of the following tests:
+[[conf_searchable-collections_bbox-definition,/conf/searchable-collections/bbox-definition]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/bbox-definition
+target:: /req/searchable-collections/bbox-definition
+test-purpose:: Verify that the Implementation supports the `bbox` query parameter at the `/collections` endpoint, and that it correctly interprets its dimensionality and coordinate reference system.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `bbox` query parameter supplied as a comma-separated array of numbers +
+*Then:* +
+- assert that the server successfully supports the `bbox` query parameter by returning a `200 OK` response status. +
+- assert that the server correctly interprets the bounding box whether it consists of four numbers (2D) or six numbers (3D). +
+- assert that when the bounding box consists of four numbers and no `bbox-crs` parameter is provided, the server interprets the coordinates as WGS 84 longitude, latitude (https://opengis.net/def/crs/OGC/1.3/CRS84). +
+- assert that when a valid bounding box and a `bbox-crs` parameter are provided, the server interprets the coordinates according to the specified coordinate reference system instead of the https://opengis.net/def/crs/OGC/1.3/CRS84 default.
+====
 
-. <<ats_collections_rc-op-bbox,/conf/collections/rc-op-bbox>>
-. <<ats_collections_rc-op-datetime,/conf/collections/rc-op-datetime>>
-. <<ats_collections_rc-op-limit,/conf/collections/rc-op-limit>>
+==== Abstract Test for Requirement `bbox` query parameter response filtering
 
-==== Bounding Box Tests
+[[conf_searchable-collections_bbox-response,/conf/searchable-collections/bbox-response]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/bbox-response
+target:: /req/searchable-collections/bbox-response
+test-purpose:: Verify that the server correctly filters the collections in the result set based on spatial intersection with the requested bounding box, while ensuring collections without a spatial extent are preserved.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `bbox` query parameter +
+*Then:* +
+- assert that the response result set contains all collections whose spatial extent intersects the requested bounding box (considering either the overall bounding box or the more detailed sparse bounding boxes). +
+- assert that the response result set excludes any collection whose spatial extent completely falls outside the requested bounding box. +
+- assert that the response result set includes any collection that does not describe a spatial extent at all.
+====
 
-include::searchable-collections/ATS_rc-op-bbox.adoc[]
+==== Abstract Test for Requirement `bbox-crs` query parameter definition
 
-include::searchable-collections/ATS_rc-bbox-definition.adoc[]
+[[conf_searchable-collections_bbox-crs,/conf/searchable-collections/bbox-crs]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/bbox-crs
+target:: /req/searchable-collections/bbox-crs
+test-purpose:: Verify that the Implementation supports the `bbox-crs` query parameter using a URI or safe CURIE, explicitly handles `[OGC:CRS84]` for Earth-referenced data, excludes collections where the CRS does not apply, and returns a client error for unsupported coordinate reference systems.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a `bbox` query parameter +
+*Then:* +
+- assert that the server successfully processes that request when a valid `bbox-crs` parameter is provided as a URI or safe CURIE referencing a supported Coordinate Reference System, returning a `200 OK` response status. +
+- assert that the server successfully processes that request when the `bbox-crs` parameter specifies `[OGC:CRS84]` for Earth-referenced collection data. +
+- assert that the response result set excludes any collection for which the specified coordinate reference system is not applicable. +
+- assert that the server returns an HTTP code in the `4xx` range if the specified `bbox-crs` parameter value is not supported by any of the collections.
+====
 
-include::searchable-collections/ATS_rc-bbox-response.adoc[]
+==== Abstract Test for Requirement `datetime` query parameter definition
 
-==== Date-Time Tests
+[[conf_searchable-collections_datetime-definition,/conf/searchable-collections/datetime-definition]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/datetime-definition
+target:: /req/searchable-collections/datetime-definition
+test-purpose:: Verify that the Implementation supports the `datetime` query parameter at the `/collections` endpoint, correctly parses RFC 3339 date-time instances and ABNF interval syntax, and interprets double-dot or empty values as open ranges.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `datetime` query parameter +
+*Then:* +
+- assert that the server successfully processes that request when the parameter consists of a single date-time string conforming to RFC 3339 Section 5.6 ending with 'Z', returning a `200 OK` response status. +
+- assert that the server successfully processes that request when the parameter consists of a fully bounded interval separated by a forward slash conforming to the `interval-bounded` syntax. +
+- assert that the server successfully processes that request when the parameter consists of a half-bounded interval using either a double-dot (`..`) or an empty string on one side of the forward slash, interpreting it as an open range. +
+====
 
-include::searchable-collections/ATS_rc-op-datetime.adoc[]
+==== Abstract Test for Requirement `datetime` query parameter response filtering
 
-include::searchable-collections/ATS_rc-datetime-definition.adoc[]
+[[conf_searchable-collections_datetime-response,/conf/searchable-collections/datetime-response]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/datetime-response
+target:: /req/searchable-collections/datetime-response
+test-purpose:: Verify that the server correctly filters the collections in the result set based on temporal intersection with the requested date-time instance or interval, while ensuring collections without a temporal extent are preserved.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `datetime` query parameter +
+*Then:* +
+- assert that the response result set contains all collections whose temporal extent intersects the requested date-time instance or interval. +
+- assert that the response result set excludes any collection whose temporal extent completely falls outside the requested date-time instance or interval. +
+- assert that the response result set includes any collection that does not describe a temporal extent at all.
+====
 
-include::searchable-collections/ATS_rc-datetime-response.adoc[]
+==== Abstract Test for Requirement `q` query parameter free-text filtering
 
-==== Limit Tests
+[[conf_searchable-collections_q,/conf/searchable-collections/q]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/q
+target:: /req/searchable-collections/q
+test-purpose:: Verify that the Implementation supports the free-text `q` query parameter, evaluates comma-separated items with a logical OR operator, correctly handles single-term and multi-term match constraints, applies case-insensitive matching, and targets at least the minimum required collection properties.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `q` query parameter +
+*Then:* +
+- assert that the server successfully processes that request when it includes a `q` parameter consisting of one or more comma-separated strings of characters, returning a `200 OK` response status. +
+- assert that the response result set contains only collections whose properties match at least one (logical OR) of the comma-separated items provided in the `q` parameter. +
+- assert that an item in the `q` parameter without white space is matched when that exact whole word appears in the collection description properties. +
+- assert that an item in the `q` parameter containing multiple terms separated by white space is matched only if those exact terms appear sequentially in the order specified, separated only by white space, within a target collection property. +
+- assert that the text matching is performed in a case-insensitive manner. +
+- assert that the server evaluates matches against, at a minimum, the `title`, `description`, and `keywords` properties of the collection descriptions.
+====
 
-include::searchable-collections/ATS_rc-op-limit.adoc[]
+==== Abstract Test for Requirement `query` query parameter text filtering
 
-include::searchable-collections/ATS_rc-limit-definition.adoc[]
+[[conf_searchable-collections_query,/conf/searchable-collections/query]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/query
+target:: /req/searchable-collections/query
+test-purpose:: Verify that the Implementation supports the advanced text `query` query parameter, evaluates comma-separated items as a logical OR, handles single/multi-term text rules case-insensitively across minimum properties, and correctly interprets the '+' (logical AND) and '-' (logical AND NOT) operator prefixes.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `query` query parameter +
+*Then:* +
+- assert that the server successfully processes that request when it includes a `query` parameter formatted as a comma-separated array of strings, returning a `200 OK` response status. +
+- assert that the response result set contains only collections whose properties match at least one (logical OR) of the comma-separated items provided in the `query` parameter. +
+- assert that an item in the `query` parameter without white space is matched when that exact whole word appears in the collection description properties. +
+- assert that an item in the `query` parameter containing multiple terms separated by white space is matched only if those exact terms appear sequentially in the order specified, separated only by white space, within a target collection property. +
+- assert that the text matching is performed in a case-insensitive manner. +
+- assert that the server evaluates matches against, at a minimum, the `title`, `description`, and `keywords` properties of the collection descriptions. +
+- assert that when a term is immediately prefixed with a `+` symbol (following a space, comma, or as the start of the string), the server applies a logical AND, returning collections only if both the surrounding terms and the prefixed term are present anywhere across the allowed properties. +
+- assert that when a term is immediately prefixed with a `-` symbol (following a space, comma, or as the start of the string), the server applies a logical AND NOT exclusion rule, ensuring any collection containing that term is omitted from matching that specific item.
+====
 
-include::searchable-collections/ATS_rc-limit-response.adoc[]
+==== Abstract Test for Requirement `limit` query parameter definition
 
-include::searchable-collections/ATS_rc-paged-response.adoc[]
+[[conf_searchable-collections_limit-definition,/conf/searchable-collections/limit-definition]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/limit-definition
+target:: /req/searchable-collections/limit-definition
+test-purpose:: Verify that the Implementation supports the `limit` query parameter at the `/collections` endpoint, respects server-determined defaults when omitted, and enforces a value constraint of a positive integer greater than or equal to 1.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` +
+*Then:* +
+- assert that the server successfully processes that request when it includes a `limit` query parameter set to a positive integer greater than or equal to 1, returning a `200 OK` response status. +
+- assert that when that request is sent without a `limit` parameter, the server applies its default fallback constraint and returns a successful response. +
+- assert that the server returns an HTTP code in the `4xx` range if the `limit` parameter is set to a value less than 1, or is not an integer.
+====
+
+==== Abstract Test for Requirement `limit` query parameter response behavior
+
+[[conf_searchable-collections_limit-response,/conf/searchable-collections/limit-response]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/limit-response
+target:: /req/searchable-collections/limit-response
+test-purpose:: Verify that the response does not exceed the requested page limit, respects any API-defined maximum cap, and safely defaults to that maximum value without error if the client requests an oversized limit.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `limit` query parameter +
+*Then:* +
+- assert that the number of collections returned in the response result set is less than or equal to the integer specified by the `limit` parameter. +
+- assert that the number of collections returned does not exceed the maximum value specified in the API definition (if a maximum value is documented). +
+- assert that when the `limit` parameter value is set higher than the documented maximum value, the server returns a successful `200 OK` response capped at its maximum allowed limit instead of returning an error.
+====
+
+==== Abstract Test for Requirement `next` pagination links
+
+[[conf_searchable-collections_next,/conf/searchable-collections/next]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/next
+target:: /req/searchable-collections/next
+test-purpose:: Verify that the server provides a `next` relation link when additional selected collections remain, returns unique subsequent resources upon dereferencing that link, and recursively applies pagination rules to downstream pages.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` where the number of matching collections exceeds the returned page size +
+*Then:* +
+- assert that the response contains a link object with a `rel` property set to `next`. +
+- assert that performing an HTTP GET operation on the URI provided by the `next` link returns a `200 OK` response containing additional matching collections that were not present in the initial response. +
+- assert that the response fetched from the `next` link conforms to the same size constraint (`limit`) as the original query and contains a subsequent `next` link if more selected collections still remain unreturned.
+====
+
+==== Abstract Test for Requirement `numberMatched` response property
+
+[[conf_searchable-collections_numberMatched,/conf/searchable-collections/numberMatched]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/numberMatched
+target:: /req/searchable-collections/numberMatched
+test-purpose:: Verify that if the server includes the `numberMatched` property in the response, its value accurately reflects the total number of collections matching the selection parameters.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with selection parameters +
+*Then:* +
+- assert that if the `numberMatched` property is present in the response, its value is an integer greater than or equal to the number of collections returned on the current page. +
+- assert that if the `numberMatched` property is present in the response, its value matches the exact total count of all collections that fit the requested filter criteria across all available pages.
+====
+
+==== Abstract Test for Requirement `numberReturned` response property
+
+[[conf_searchable-collections_numberReturned,/conf/searchable-collections/numberReturned]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/numberReturned
+target:: /req/searchable-collections/numberReturned
+test-purpose:: Verify that if the server includes the `numberReturned` property in the response, its value matches the exact number of elements contained in the `collections` array of the response document.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` +
+*Then:* +
+- assert that if the `numberReturned` property is present in the response, its integer value is identical to the actual count of items present in the response's `collections` array.
+====
+
+==== Abstract Test for Requirement `below-sd` scale denominator parameter
+
+[[conf_searchable-collections_below-sd,/conf/searchable-collections/below-sd]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/below-sd
+target:: /req/searchable-collections/below-sd
+test-purpose:: Verify that the Implementation supports the `below-sd` query parameter, correctly excludes collections whose minimum scale denominator is greater than the specified limit, and preserves collections with unknown scale limits.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid numeric `below-sd` query parameter +
+*Then:* +
+- assert that the server successfully processes that request, returning a `200 OK` response status. +
+- assert that the response result set excludes any collection whose `minScaleDenominator` property is strictly greater than the numeric value specified in the `below-sd` parameter. +
+- assert that the response result set excludes any collection whose `minCellSize` property, when converted to an equivalent scale denominator assuming a standard pixel size of 0.28mm per cell, evaluates to a value strictly greater than the numeric value specified in the `below-sd` parameter. +
+- assert that the response result set includes any collection for which the minimum scale denominator or cell size limits are unknown or not specified.
+====

@@ -4,8 +4,11 @@
 .Hierarchical Collections
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-common-2/1.0/req/hierarchical-collections
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/hierarchical-collections
 subject:: Web API
 inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
-// requirement:: /req/hierarchical-collections/...
+requirement:: /req/hierarchical-collections/parent-property
+requirement:: /req/hierarchical-collections/children-links
+requirement:: /req/hierarchical-collections/parent-parameter
+requirement:: /req/hierarchical-collections/descendants-parameter
 ====

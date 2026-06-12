@@ -1,0 +1,75 @@
+[[ats_filterable-collections]]
+
+[[conf_filterable-collections,https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/filterable-collections]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/filterable-collections
+target:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/filterable-collections
+classification:: Target Type:Web API
+abstract-test:: /conf/filterable-collections/filter-parameter
+abstract-test:: /conf/filterable-collections/filter-lang-parameter
+abstract-test:: /conf/filterable-collections/filter-crs
+====
+
+==== Abstract Test for Requirement `filter` query parameter definition
+
+[[conf_filterable-collections_filter-parameter,/conf/filterable-collections/filter-parameter]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/filterable-collections/filter-parameter
+target:: /req/filterable-collections/filter-parameter
+test-purpose:: Verify that the Implementation supports the `filter` query parameter using OGC Common Query Language (CQL2) expressions, restricts the response payload strictly to matching collections, and includes a link relation pointing to the queryables schema.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Filterable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid OGC CQL2 expression specified inside a `filter` query parameter +
+*Then:* +
+- assert that the server successfully processes that request, returning a `200 OK` response status. +
+- assert that the response's `links` array contains a link object with a `rel` property matching `https://www.opengis.net/def/rel/ogc/1.0/queryables` pointing to a valid schema of the queryable attributes. +
+- assert that the response result set contains only those collections whose description properties evaluate to true against the criteria specified in the CQL2 expression.
+====
+
+==== Abstract Test for Requirement `filter-lang` query parameter definition and behavior
+
+[[conf_filterable-collections_filter-lang-parameter,/conf/filterable-collections/filter-lang-parameter]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/filterable-collections/filter-lang-parameter
+target:: /req/filterable-collections/filter-lang-parameter
+test-purpose:: Verify that the Implementation supports the `filter-lang` query parameter at the `/collections` endpoint, and correctly interprets the accompanying `filter` expression using the specified filtering language.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Filterable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `filter-lang` query parameter and an accompanying expression in the `filter` query parameter +
+*Then:* +
+- assert that the server successfully processes that request when `filter-lang` specifies a supported language identifier (such as `cql-text` or `cql-json`), returning a `200 OK` response status. +
+- assert that the server dynamically interprets the syntax and semantics of the value in the `filter` parameter using the specific language declared by the `filter-lang` parameter. +
+- assert that the response result set contains only those collections that match the criteria parsed under the rules of the specified filtering language.
+====
+
+==== Abstract Test for Requirement `filter-crs` query parameter behavior
+
+[[conf_filterable-collections_filter-crs,/conf/filterable-collections/filter-crs]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/filterable-collections/filter-crs
+target:: /req/filterable-collections/filter-crs
+test-purpose:: Verify that the Implementation supports the `filter-crs` query parameter using a URI or safe CURIE, explicitly interprets spatial filter expressions using the requested CRS, filters out collections that do not support it, and returns a client error for unsupported systems.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Filterable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a spatial `filter` expression and an accompanying `filter-crs` query parameter +
+*Then:* +
+- assert that the server successfully processes that request when a valid `filter-crs` parameter is provided as a URI or safe CURIE referencing a supported Coordinate Reference System, returning a `200 OK` response status. +
+- assert that the server successfully processes that request when the `filter-crs` parameter specifies `[OGC:CRS84]` for Earth-referenced collection data. +
+- assert that the response result set contains only those collections whose spatial extents intersect the criteria in the `filter` parameter when the coordinates in that filter expression are interpreted according to the specified `filter-crs`. +
+- assert that the response result set excludes any collection for which the specified coordinate reference system is not supported. +
+- assert that the server returns an HTTP code in the `4xx` range if the specified `filter-crs` parameter value is not supported by any of the collections.
+====

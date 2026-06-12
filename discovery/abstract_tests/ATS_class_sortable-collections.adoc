@@ -1,0 +1,57 @@
+[[ats_sortable-collections]]
+
+[[conf_sortable-collections,https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/sortable-collections]]
+[conformance_class]
+====
+[%metadata]
+identifier:: https://www.opengis.net/spec/ogcapi-common-4/1.0/conf/sortable-collections
+target:: https://www.opengis.net/spec/ogcapi-common-4/1.0/req/sortable-collections
+classification:: Target Type:Web API
+abstract-test:: /conf/sortable-collections/sortby-param
+abstract-test:: /conf/sortable-collections/sortby-response
+====
+
+// This pattern is confusing metanorma
+:sortby_regex: [+\|-]?[A-Za-z_].*
+
+==== Abstract Test for Requirement `sortby` query parameter definition
+
+[[conf_sortable-collections_sortby-param,/conf/sortable-collections/sortby-param]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sortable-collections/sortby-param
+target:: /req/sortable-collections/sortby-param
+test-purpose:: Verify that the Implementation supports the `sortby` query parameter at the `/collections` endpoint using the specified text pattern, applies ascending sorting as the default, implements mandatory sorting properties, and exposes a discoverable link to the sortables schema.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Sortable Collections" requirements class +
+*When:* performing a GET operation on `/collections` +
+*Then:* +
+- assert that the server successfully processes that request when it includes a `sortby` query parameter consisting of a comma-separated list matching the text pattern `{sortby_regex}`, returning a `200 OK` response status. +
+- assert that when a sortable property is specified without a prefix token (neither `+` nor `-`), the server returns the collections sorted in an ascending order. +
+- assert that the server successfully executes sorting requests when the `sortby` parameter targets the mandatory `id` property, and when it targets the mandatory `title` property. +
+- assert that the response's `links` array contains a link object with a `rel` property matching `https://www.opengis.net/def/rel/ogc/1.0/sortables` pointing to a valid schema of the sortable properties.
+====
+
+==== Abstract Test for Requirement `sortby` query parameter response ordering
+
+[[conf_sortable-collections_sortby-response,/conf/sortable-collections/sortby-response]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/sortable-collections/sortby-response
+target:: /req/sortable-collections/sortby-response
+test-purpose:: Verify that when the `sortby` parameter is provided, the collections in the returned response are ordered in strict sequence matching the specified sorting keys and directions.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Sortable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `sortby` query parameter +
+*Then:* +
+- assert that the collections in the response result set are ordered sequentially based on the sorting keys provided in the request. +
+- assert that when a sorting key is prefixed with `+` (or has no prefix), the values of that property in the returned collections follow a strict ascending sequence. +
+- assert that when a sorting key is prefixed with `-`, the values of that property in the returned collections follow a strict descending sequence. +
+- assert that when multiple comma-separated sorting keys are provided, the server prioritizes the ordering according to the sequence of the keys specified from left to right.
+====
