@@ -118,15 +118,10 @@
             }
           },
           {
-            "name": "below-sd",
-            "in": "query",
-            "description": "The `below-sd` parameter allows searching for collections usable at the scale denominator specified, allowing to filter out\nlow-resolution datasets not suitable for the intended purpose. The related property indicating the minimum suitable scale denominator\nin the collection description is minScaleDenominator, which may also be related to a minCellSize property for gridded coverages.\nFor example, `below-sd=200000` would only match collections with data intended for a scale of 1:200,000 or larger\n(i.e., collections intended for 1:2,000,000 would be excluded).",
-            "required": false,
-            "schema": {
-              "type": "number"
-            },
-            "explode": false,
-            "style": "form"
+            "$ref": "#/components/parameters/sd"
+          },
+          {
+            "$ref": "#/components/parameters/resolution"
           },
           {
             "$ref": "#/components/parameters/datetime"
@@ -1635,6 +1630,32 @@
         },
         "style": "form",
         "explode": false
+      },
+      "sd": {
+        "name": "sd",
+        "in": "query",
+        "description": "The `sd` parameter allows searching for collections usable at the scale denominator range specified, allowing, for example, to filter out\nlow-resolution (large minimum cell size) collections not suitable for the intended purpose. The related properties indicating the minimum and maximum suitable scale\ndenominator in the collection description are `minScaleDenominator` and `maxScaleDenominator`,\nas well as the `minCellSize` and `maxCellSize` properties for gridded coverages related via a 0.28 mm/cell assumption.\nFor example, `sd=200000/..` (or simply `sd=200000`) would only match collections with data intended for a scale of 1:200,000 or larger\n(e.g., collections intended for 1:2,000,000 would be excluded).",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.)(?:/(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.))?$",
+          "example": "200000/.."
+        },
+        "explode": false,
+        "style": "form"
+      },
+      "resolution": {
+        "name": "resolution",
+        "in": "query",
+        "description": "The `resolution` parameter allows searching for collections usable at the resolution range specified, allowing, for example, to filter out\nlow-resolution (large minimum cell size) collections not suitable for the intended purpose. The related properties indicating the minimum and maximum suitable resolution\nin the collection description are `minCellSize` and `maxCellSize` properties for gridded coverages,\nas well as the related `minScaleDenominator` and `maxScaleDenominator` via a 0.28 mm/cell assumption.\nFor example, `resolution=0.000009/..` (or simply `resolution=0.000009`) would only match collections with a `minCellSize` smaller or equal to 0.000009 degrees\nof latitude and/or longitude (e.g., collections with a `minCellSize` of 0.0045 degrees would be excluded).",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "pattern": "^(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.)(?:/(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.))?$",
+          "example": "0.000009/.."
+        },
+        "explode": false,
+        "style": "form"
       }
     },
     "responses": {

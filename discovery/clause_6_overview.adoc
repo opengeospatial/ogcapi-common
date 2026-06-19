@@ -6,8 +6,8 @@ collections of interest from within a potentially large list of collections.
 
 This is made possible by introducing query parameters for the `/collections` end-point which are organized in four requirements classes:
 
-* The <<rc-searchable-collections-section,Searchable Collections>> requirements class introduces the `limit`, `bbox` (and related `bbox-crs`), `datetime`, `q`, `query` and
-  `below-sd` query parameters enabling paging, simple spatiotemporal filters, and free text search,
+* The <<rc-searchable-collections-section,Searchable Collections>> requirements class introduces the `limit`, `bbox` (and related `bbox-crs`), `datetime`, `q`, `query`,
+  `resolution` and `sd` query parameters enabling paging, simple spatiotemporal filters, and free text search,
 * The <<rc-sortable-collections-section,Sortable Collections>> requirements class introduces the `sortby` query parameter allowing to sort collections in a particular order,
 * The <<rc-filterable-collections-section,Filterable Collections>> requirements class introduces the `filter` (and related `filter-lang`, `filter-crs`) query parameters
   to perform advanced filtering using the https://docs.ogc.org/is/21-065r2/21-065r2.html[OGC Common Query Language (CQL2)],

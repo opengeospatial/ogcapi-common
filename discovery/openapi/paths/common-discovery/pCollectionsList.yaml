@@ -6,7 +6,8 @@ get:
    parameters:
      - $ref: '../../parameters/common-discovery/bbox.yaml'
      - $ref: '../../parameters/common-discovery/bbox-crs.yaml'
-     - $ref: '../../parameters/common-discovery/below-sd.yaml'
+     - $ref: '../../parameters/common-discovery/sd.yaml'
+     - $ref: '../../parameters/common-discovery/resolution.yaml'
      - $ref: '../../parameters/common-discovery/datetime.yaml'
      - $ref: '../../parameters/common-discovery/descendants.yaml'
      - $ref: '../../parameters/unspecified/f-metadata.yaml'
