@@ -213,13 +213,24 @@ include::requirements/searchable-collections/REQ_searchable-numberReturned.adoc[
 
 If the collections response contains a subset of the selected collection items (`numberReturned` is less than `numberMatched`) then the collections response should contain links for navigating to the rest of the collection items as described above.
 
-[[searchable-below-sd-parameter]]
-=== Query Parameter `below-sd`
+[[searchable-sd-resolution-parameters]]
+=== Query Parameters `sd` and `resolution`
 
-The `below-sd` parameter allows searching for collections usable at the scale denominator specified,
-allowing to filter out low-resolution datasets not suitable for the intended purpose.
-The related property indicating the minimum suitable scale denominator in the collection description is `minScaleDenominator`, which may also be related to a `minCellSize` property for gridded coverages.
+The `sd` and `resolution` query parameters allow searching for collections usable at the scale denominator / resolution range specified,
+allowing, for example, to filter out low-resolution collections (large minimum cell size) not suitable for the intended purpose.
+The related properties indicating the minimum and maximum suitable scale denominator in the collection description are `minScaleDenominator` and `maxScaleDenominator`,
+as well as the `minCellSize` and `maxCellSize` properties for gridded coverages related via a 0.28 mm/cell assumption.
 
-For example, `below-sd=200000` would only match collections with data intended for a scale of 1:200,000 or larger (i.e., collections intended for 1:2,000,000 would be excluded).
+For example, `sd=200000/..` (or simply `sd=200000`) would only match collections with data intended for a scale of 1:200,000 or larger (e.g., collections intended for 1:2,000,000 would be excluded).
 
-include::requirements/searchable-collections/REQ_searchable-below-sd.adoc[]
+include::requirements/searchable-collections/REQ_searchable-sd.adoc[]
+
+include::requirements/searchable-collections/REQ_searchable-resolution.adoc[]
+
+NOTE: These requirements imply that collections with unspecified `minScaleDenominator` and `minCellSize` are always included in a response where the minimum scale denominator is
+specified as `..`, and that collections with unspecified `maxScaleDenominator` and `maxCellSize` are always included in a response where the maximum scale denominator is
+specified as `..`.
+
+NOTE: For collections available using data access mechanisms fully supporting generalization / downsampling / overviews, such as OGC API - Tiles or OGC API - DGGS
+with support for the coarsest tile matrix / refinement level, the `maxScaleDenominator` and `maxCellSize` would either be omitted from the collection description or correspond
+to a very large scale denominator / cell size.

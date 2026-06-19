@@ -1,0 +1,17 @@
+---
+name: sd
+in: query
+description: |-
+  The `sd` parameter allows searching for collections usable at the scale denominator range specified, allowing, for example, to filter out
+  low-resolution (large minimum cell size) collections not suitable for the intended purpose. The related properties indicating the minimum and maximum suitable scale
+  denominator in the collection description are `minScaleDenominator` and `maxScaleDenominator`,
+  as well as the `minCellSize` and `maxCellSize` properties for gridded coverages related via a 0.28 mm/cell assumption.
+  For example, `sd=200000/..` (or simply `sd=200000`) would only match collections with data intended for a scale of 1:200,000 or larger
+  (e.g., collections intended for 1:2,000,000 would be excluded).
+required: false
+schema:
+  type: string
+  pattern: '^(?:[0-9]+(?:\.[0-9]+)?|\.\.)(?:/(?:[0-9]+(?:\.[0-9]+)?|\.\.))?$'
+  example: "200000/.."
+explode: false
+style: form

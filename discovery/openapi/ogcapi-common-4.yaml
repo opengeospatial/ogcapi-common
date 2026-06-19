@@ -103,6 +103,10 @@ components:
          $ref: 'parameters/common-discovery/bbox.yaml'
       datetime:
          $ref: 'parameters/common-discovery/datetime.yaml'
+      sd:
+         $ref: 'parameters/common-discovery/sd.yaml'
+      resolution:
+         $ref: 'parameters/common-discovery/resolution.yaml'
 
    responses:
       # Generic Errors

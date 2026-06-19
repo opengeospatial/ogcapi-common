@@ -19,7 +19,8 @@ abstract-test:: /conf/searchable-collections/limit-response
 abstract-test:: /conf/searchable-collections/next
 abstract-test:: /conf/searchable-collections/numberMatched
 abstract-test:: /conf/searchable-collections/numberReturned
-abstract-test:: /conf/searchable-collections/below-sd
+abstract-test:: /conf/searchable-collections/resolution
+abstract-test:: /conf/searchable-collections/sd
 ====
 
 ==== Abstract Test for Requirement `bbox` query parameter definition
@@ -269,23 +270,47 @@ test-method::
 - assert that if the `numberReturned` property is present in the response, its integer value is identical to the actual count of items present in the response's `collections` array.
 ====
 
-==== Abstract Test for Requirement `below-sd` scale denominator parameter
+==== Abstract Test for Requirement `resolution` query parameter
 
-[[conf_searchable-collections_below-sd,/conf/searchable-collections/below-sd]]
+[[conf_searchable-collections_resolution,/conf/searchable-collections/resolution]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/searchable-collections/below-sd
-target:: /req/searchable-collections/below-sd
-test-purpose:: Verify that the Implementation supports the `below-sd` query parameter, correctly excludes collections whose minimum scale denominator is greater than the specified limit, and preserves collections with unknown scale limits.
+identifier:: /conf/searchable-collections/resolution
+target:: /req/searchable-collections/resolution
+test-purpose:: Verify that the Implementation supports the `resolution` query parameter as a range or single value, correctly interprets values in decimal degrees or native (`storageCrs`) units, and accurately filters collections based on minimum and maximum cell size or scale denominator limits.
 test-method::
 +
 --
 *Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
-*When:* performing a GET operation on `/collections` with a valid numeric `below-sd` query parameter +
+*When:* performing a GET operation on `/collections` with a valid `resolution` query parameter using range syntax (`<low>/<high>`), open-ended syntax (`../<high>` or `<low>/..`), or a single numeric value (interpreted as `<low>/..`) +
 *Then:* +
-- assert that the server successfully processes that request, returning a `200 OK` response status. +
-- assert that the response result set excludes any collection whose `minScaleDenominator` property is strictly greater than the numeric value specified in the `below-sd` parameter. +
-- assert that the response result set excludes any collection whose `minCellSize` property, when converted to an equivalent scale denominator assuming a standard pixel size of 0.28mm per cell, evaluates to a value strictly greater than the numeric value specified in the `below-sd` parameter. +
-- assert that the response result set includes any collection for which the minimum scale denominator or cell size limits are unknown or not specified.
+- assert that the server successfully processes the request, returning a `200 OK` response status. +
+- assert that the server interprets the units as decimal degrees for Earth-referenced data, and native `storageCrs` units otherwise. +
+- assert that if a low cell size is specified, the response excludes any collection whose declared `minCellSize` (or `minScaleDenominator` converted assuming 0.28mm/cell) is greater than the specified low cell size. +
+- assert that if a high cell size is specified, the response excludes any collection whose declared `maxCellSize` (or `maxScaleDenominator` converted assuming 0.28mm/cell) is smaller than the specified high cell size. +
+- assert that the response includes collections for which the relevant minimum or maximum resolution/scale properties are not declared.
+--
+====
+
+==== Abstract Test for Requirement `sd` query parameters
+
+[[conf_searchable-collections_sd,/conf/searchable-collections/sd]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/sd
+target:: /req/searchable-collections/sd
+test-purpose:: Verify that the Implementation supports the `sd` (scale denominator) query parameter as a range or single value, and accurately filters collections based on minimum and maximum scale denominator or cell size limits.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` with a valid `sd` query parameter using range syntax (`<low>/<high>`), open-ended syntax (`../<high>` or `<low>/..`), or a single numeric value (interpreted as `<low>/..`) +
+*Then:* +
+- assert that the server successfully processes the request, returning a `200 OK` response status. +
+- assert that if a low scale denominator is specified, the response excludes any collection whose declared `minScaleDenominator` (or `minCellSize` converted assuming 0.28mm/cell) is greater than the specified low scale denominator. +
+- assert that if a high scale denominator is specified, the response excludes any collection whose declared `maxScaleDenominator` (or `maxCellSize` converted assuming 0.28mm/cell) is smaller than the specified high scale denominator. +
+- assert that the response includes collections for which the relevant minimum or maximum scale denominator or cell size properties are not declared.
+--
 ====
