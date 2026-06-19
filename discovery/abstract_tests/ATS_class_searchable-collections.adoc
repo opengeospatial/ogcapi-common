@@ -289,7 +289,7 @@ test-method::
 - assert that the server returns a `4xx` error if both `resolution` and `sd` query parameters are specified. +
 - assert that the server returns a `4xx` error if both low and high cell sizes are specified and the high value is smaller than the low value. +
 - assert that a range specified as `../..` does not filter out any collection based on scale denominator or resolution. +
-- assert that the server interprets the units as decimal degrees for Earth-referenced data, and native `storageCrs` units otherwise. +
+- assert that the server interprets the units as decimal degrees for Earth-referenced data, and native CRS (`storageCrs`) units otherwise. +
 - assert that if a low cell size is specified (and not `..`), the response excludes any collection whose declared `minCellSize` (or, if `minCellSize` is not present, the equivalent conversion for `minScaleDenominator` assuming 0.28mm/cell) is greater than the specified low cell size. +
 - assert that if a high cell size is specified (and not `..`), the response excludes any collection whose declared `maxCellSize` (or, if `maxCellSize` is not present, the equivalent conversion for `maxScaleDenominator` assuming 0.28mm/cell) is smaller than the specified high cell size. +
 - assert that the response includes collections for which the relevant minimum or maximum resolution/scale properties are not declared.

@@ -8,7 +8,7 @@ part:: For the `/collections` resource, the Implementation SHALL support a `reso
 using the syntax `<low cell size>/<high cell size>` e.g., `resolution=0.000009/0.0045`, where two dots (`..`) is an open ended low or high value.
 part:: The Implementation SHALL interpret a single value for `cell size` e.g., `resolution=0.000009` as equivalent to `<low cell size>/..` (specifying only a low cell size).
 part:: The low and high cell sizes SHALL be interpreted as decimal degrees of latitude and longitudes for collections of data referenced to Earth,
-and to units of the native (`storageCrs`) otherwise (corresponding to the units of the `minCellSize` and `maxCellSize` properties of the collection description).
+and to units of the native CRS (`storageCrs`) otherwise (corresponding to the units of the `minCellSize` and `maxCellSize` properties of the collection description).
 part:: If a low cell size is specified (not open ended `..`), the Implementation SHALL NOT include in the response collections for which a `minCellSize`
 or a `minScaleDenominator` property is declared in the collection description, and the `minCellSize` (or, if `minCellSize` is not present, the equivalent conversion for `minScaleDenominator` assuming 0.28mm/cell)
 is greater than the low cell size specified.
