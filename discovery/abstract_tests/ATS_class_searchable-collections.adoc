@@ -19,8 +19,8 @@ abstract-test:: /conf/searchable-collections/limit-response
 abstract-test:: /conf/searchable-collections/next
 abstract-test:: /conf/searchable-collections/numberMatched
 abstract-test:: /conf/searchable-collections/numberReturned
-abstract-test:: /conf/searchable-collections/resolution
 abstract-test:: /conf/searchable-collections/sd
+abstract-test:: /conf/searchable-collections/resolution
 ====
 
 ==== Abstract Test for Requirement `bbox` query parameter definition
@@ -270,6 +270,31 @@ test-method::
 - assert that if the `numberReturned` property is present in the response, its integer value is identical to the actual count of items present in the response's `collections` array.
 ====
 
+==== Abstract Test for Requirement `sd` query parameters
+
+[[conf_searchable-collections_sd,/conf/searchable-collections/sd]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/searchable-collections/sd
+target:: /req/searchable-collections/sd
+test-purpose:: Verify that the Implementation supports the `sd` query parameter, correctly handles range filtering, and enforces parameter validation rules.
+test-method::
++
+--
+*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
+*When:* performing a GET operation on `/collections` using the `sd` query parameter +
+*Then:* +
+- assert that a valid request returns a `200 OK` response status. +
+- assert that the server returns a `4xx` error if both `sd` and `resolution` query parameters are specified. +
+- assert that the server returns a `4xx` error if both low and high scale denominators are specified and the high value is smaller than the low value. +
+- assert that a range specified as `../..` does not filter out any collection based on scale denominator or resolution. +
+- assert that if a low scale denominator is specified (and not `..`), the response excludes any collection whose declared `minScaleDenominator` (or, if `minScaleDenominator` is not present, the equivalent conversion for `minCellSize` assuming 0.28mm/cell) is greater than the specified low scale denominator. +
+- assert that if a high scale denominator is specified (and not `..`), the response excludes any collection whose declared `maxScaleDenominator` (or, if `maxScaleDenominator` is not present, the equivalent conversion for `maxCellSize` assuming 0.28mm/cell) is smaller than the specified high scale denominator. +
+- assert that the response includes collections for which the relevant minimum or maximum scale denominator or cell size properties are not declared.
+--
+====
+
 ==== Abstract Test for Requirement `resolution` query parameter
 
 [[conf_searchable-collections_resolution,/conf/searchable-collections/resolution]]
@@ -293,30 +318,5 @@ test-method::
 - assert that if a low cell size is specified (and not `..`), the response excludes any collection whose declared `minCellSize` (or, if `minCellSize` is not present, the equivalent conversion for `minScaleDenominator` assuming 0.28mm/cell) is greater than the specified low cell size. +
 - assert that if a high cell size is specified (and not `..`), the response excludes any collection whose declared `maxCellSize` (or, if `maxCellSize` is not present, the equivalent conversion for `maxScaleDenominator` assuming 0.28mm/cell) is smaller than the specified high cell size. +
 - assert that the response includes collections for which the relevant minimum or maximum resolution/scale properties are not declared.
---
-====
-
-==== Abstract Test for Requirement `sd` query parameters
-
-[[conf_searchable-collections_sd,/conf/searchable-collections/sd]]
-[abstract_test]
-====
-[%metadata]
-identifier:: /conf/searchable-collections/sd
-target:: /req/searchable-collections/sd
-test-purpose:: Verify that the Implementation supports the `sd` query parameter, correctly handles range filtering, and enforces parameter validation rules.
-test-method::
-+
---
-*Given:* an Implementation conforming to the "Collections" requirements class of OGC API - Common Part 2 - Geospatial Data also claiming conformance to this "Searchable Collections" requirements class +
-*When:* performing a GET operation on `/collections` using the `sd` query parameter +
-*Then:* +
-- assert that a valid request returns a `200 OK` response status. +
-- assert that the server returns a `4xx` error if both `sd` and `resolution` query parameters are specified. +
-- assert that the server returns a `4xx` error if both low and high scale denominators are specified and the high value is smaller than the low value. +
-- assert that a range specified as `../..` does not filter out any collection based on scale denominator or resolution. +
-- assert that if a low scale denominator is specified (and not `..`), the response excludes any collection whose declared `minScaleDenominator` (or, if `minScaleDenominator` is not present, the equivalent conversion for `minCellSize` assuming 0.28mm/cell) is greater than the specified low scale denominator. +
-- assert that if a high scale denominator is specified (and not `..`), the response excludes any collection whose declared `maxScaleDenominator` (or, if `maxScaleDenominator` is not present, the equivalent conversion for `maxCellSize` assuming 0.28mm/cell) is smaller than the specified high scale denominator. +
-- assert that the response includes collections for which the relevant minimum or maximum scale denominator or cell size properties are not declared.
 --
 ====
