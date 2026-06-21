@@ -288,9 +288,10 @@ test-method::
 - assert that a valid request returns a `200 OK` response status. +
 - assert that the server returns a `4xx` error if both `sd` and `resolution` query parameters are specified. +
 - assert that the server returns a `4xx` error if both low and high scale denominators are specified and the high value is smaller than the low value. +
-- assert that a range specified as `../..` does not filter out any collection based on scale denominator or resolution. +
-- assert that if a low scale denominator is specified (and not `..`), the response excludes any collection whose declared `minScaleDenominator` (or, if `minScaleDenominator` is not present, the equivalent conversion for `minCellSize` assuming 0.28mm/cell) is greater than the specified low scale denominator. +
-- assert that if a high scale denominator is specified (and not `..`), the response excludes any collection whose declared `maxScaleDenominator` (or, if `maxScaleDenominator` is not present, the equivalent conversion for `maxCellSize` assuming 0.28mm/cell) is smaller than the specified high scale denominator. +
+- assert that a single value `sd=<value>` returns identical results to a range specified as `<value>/<value>`. +
+- assert that a range specified as `../..`, `/`, or with an empty string on either side of the delimiter does not filter out any collection based on scale denominator or resolution. +
+- assert that if a low scale denominator is specified (and not `..` or empty), the response excludes any collection whose declared `maxScaleDenominator` (or, if `maxScaleDenominator` is not present, the equivalent conversion for `maxCellSize` assuming 0.28mm/cell) is smaller than the specified low scale denominator. +
+- assert that if a high scale denominator is specified (and not `..` or empty), the response excludes any collection whose declared `minScaleDenominator` (or, if `minScaleDenominator` is not present, the equivalent conversion for `minCellSize` assuming 0.28mm/cell) is greater than the specified high scale denominator. +
 - assert that the response includes collections for which the relevant minimum or maximum scale denominator or cell size properties are not declared.
 --
 ====
@@ -313,10 +314,11 @@ test-method::
 - assert that a valid request returns a `200 OK` response status. +
 - assert that the server returns a `4xx` error if both `resolution` and `sd` query parameters are specified. +
 - assert that the server returns a `4xx` error if both low and high cell sizes are specified and the high value is smaller than the low value. +
-- assert that a range specified as `../..` does not filter out any collection based on scale denominator or resolution. +
+- assert that a single value `resolution=<value>` returns identical results to a range specified as `<value>/<value>`. +
+- assert that a range specified as `../..`, `/`, or with an empty string on either side of the delimiter does not filter out any collection based on scale denominator or resolution. +
 - assert that the server interprets the units as decimal degrees for Earth-referenced data, and native CRS (`storageCrs`) units otherwise. +
-- assert that if a low cell size is specified (and not `..`), the response excludes any collection whose declared `minCellSize` (or, if `minCellSize` is not present, the equivalent conversion for `minScaleDenominator` assuming 0.28mm/cell) is greater than the specified low cell size. +
-- assert that if a high cell size is specified (and not `..`), the response excludes any collection whose declared `maxCellSize` (or, if `maxCellSize` is not present, the equivalent conversion for `maxScaleDenominator` assuming 0.28mm/cell) is smaller than the specified high cell size. +
+- assert that if a low cell size is specified (and not `..` or empty), the response excludes any collection whose declared `maxCellSize` (or, if `maxCellSize` is not present, the equivalent conversion for `maxScaleDenominator` assuming 0.28mm/cell) is smaller than the specified low cell size. +
+- assert that if a high cell size is specified (and not `..` or empty), the response excludes any collection whose declared `minCellSize` (or, if `minCellSize` is not present, the equivalent conversion for `minScaleDenominator` assuming 0.28mm/cell) is greater than the specified high cell size. +
 - assert that the response includes collections for which the relevant minimum or maximum resolution/scale properties are not declared.
 --
 ====
