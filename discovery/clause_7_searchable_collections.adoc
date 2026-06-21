@@ -230,6 +230,8 @@ include::requirements/searchable-collections/REQ_searchable-sd.adoc[]
 
 include::requirements/searchable-collections/REQ_searchable-resolution.adoc[]
 
+include::recommendations/searchable-collections/PER_searchable-multiple-scales.adoc[]
+
 NOTE: These requirements imply that collections with unspecified `maxScaleDenominator` and `maxCellSize` are always included when a low query boundary is specified
 (e.g., `200000/..`), and collections with unspecified `minScaleDenominator` and `minCellSize` are always included when a high query boundary is specified (e.g., `../5000`).
 

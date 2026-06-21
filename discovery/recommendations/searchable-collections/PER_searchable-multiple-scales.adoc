@@ -1,0 +1,11 @@
+[[per_searchable_multiple-scales]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/searchable-collections/multiple-scales
+part:: The Implementation MAY support two different values for `sd`, or two different values for `resolution`, either as separate query parameters, or as comma-separated values,
+interpreted as a logical AND combination. This allows to search for collections that fully support an entire range of scales
+(e.g., `sd=5000,50000`, or equivalently `sd=5000/5000,50000/50000`, or `sd=/5000,50000/`), as opposed to
+searching for collections suitable anywhere within a range specified with `sd=5000/50000`.
+====

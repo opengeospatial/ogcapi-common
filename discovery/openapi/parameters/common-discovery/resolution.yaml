@@ -11,10 +11,16 @@ description: |-
   both minimum and maximum cell size boundaries.
   For example, `resolution=/0.000009` would only match collections with data with a `minCellSize` smaller or equal to 0.000009 degrees
   (e.g., collections with a `minCellSize` of 0.0045 degrees would be excluded).
+  Accepting two ranges (logical AND combination) allows to search for collections that fully support an entire range of scales
+  (e.g., `sd=0.000009,0.0045`, or equivalently `sd=0.000009/0.000009,0.0045/0.0045`, or `sd=/0.000009,0.0045/`).
 required: false
 schema:
-  type: string
-  pattern: '^(?:[0-9]+(?:\.[0-9]+)?|\.\.)?/(?:[0-9]+(?:\.[0-9]+)?|\.\.)?$|^[0-9]+(?:\.[0-9]+)?$'
-  example: "../0.000009"
+  type: array
+  items:
+    type: string
+    pattern: '^(?:[0-9]+(?:\.[0-9]+)?|\.\.)?/(?:[0-9]+(?:\.[0-9]+)?|\.\.)?$|^[0-9]+(?:\.[0-9]+)?$'
+  minItems: 1
+  maxItems: 2
+  example: [ "../0.000009" ]
 explode: false
 style: form
