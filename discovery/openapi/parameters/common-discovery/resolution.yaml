@@ -6,12 +6,15 @@ description: |-
   low-resolution (large minimum cell size) collections not suitable for the intended purpose. The related properties indicating the minimum and maximum suitable resolution
   in the collection description are `minCellSize` and `maxCellSize` properties for gridded coverages,
   as well as the related `minScaleDenominator` and `maxScaleDenominator` via a 0.28 mm/cell assumption.
-  For example, `resolution=0.000009/..` (or simply `resolution=0.000009`) would only match collections with a `minCellSize` smaller or equal to 0.000009 degrees
-  of latitude and/or longitude (e.g., collections with a `minCellSize` of 0.0045 degrees would be excluded).
+  An empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded interval.
+  A single value without a slash (e.g., `resolution=0.000009`) is interpreted as a single target cell size (`0.000009/0.000009`) and evaluates against
+  both minimum and maximum cell size boundaries.
+  For example, `resolution=0.000009/` would only match collections with data with a `minCellSize` smaller or equal to 0.000009 degrees
+  (e.g., collections with a `minCellSize` of 0.0045 degrees would be excluded).
 required: false
 schema:
   type: string
-  pattern: '^(?:[0-9]+(?:\.[0-9]+)?|\.\.)(?:/(?:[0-9]+(?:\.[0-9]+)?|\.\.))?$'
+  pattern: '^(?:[0-9]+(?:\.[0-9]+)?|\.\.)?/(?:[0-9]+(?:\.[0-9]+)?|\.\.)?$|^[0-9]+(?:\.[0-9]+)?$'
   example: "0.000009/.."
 explode: false
 style: form
