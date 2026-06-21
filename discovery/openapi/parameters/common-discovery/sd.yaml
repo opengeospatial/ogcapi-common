@@ -10,7 +10,7 @@ description: |-
   An empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded or unbounded interval.
   A single value without a slash (e.g., `sd=200000`) is interpreted as a target scale denominator (`200000/200000`) and evaluates against both minimum and maximum scale boundaries.
   For example, `sd=/200000` would only match collections with data intended for a scale of 1:200,000 or larger
-  (e.g., collections intended for 1:2,000,000 would be excluded).
+  (e.g., collections intended for 1:2,000,000 or larger would be excluded).
   Accepting two ranges (logical AND combination) allows to search for collections that fully support an entire range of scales
   (e.g., `sd=5000,50000`, or equivalently `sd=5000/5000,50000/50000`, or `sd=/5000,50000/`).
 required: false
