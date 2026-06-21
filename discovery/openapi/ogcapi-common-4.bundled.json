@@ -1634,12 +1634,12 @@
       "sd": {
         "name": "sd",
         "in": "query",
-        "description": "The `sd` parameter allows searching for collections usable at the scale denominator range specified, allowing, for example, to filter out\nlow-resolution (large minimum cell size) collections or overly detailed collections not suitable for the intended purpose.\nThe related properties indicating the minimum and maximum suitable scale\ndenominator in the collection description are `minScaleDenominator` and `maxScaleDenominator`,\nas well as the `minCellSize` and `maxCellSize` properties for gridded coverages related via a 0.28 mm/cell assumption.\nAn empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded or unbounded interval.\nA single value without a slash (e.g., `sd=200000`) is interpreted as a target scale denominator (`200000/200000`) and evaluates against both minimum and maximum scale boundaries.\nFor example, `sd=200000/` would only match collections with data intended for a scale of 1:200,000 or larger\n(e.g., collections intended for 1:2,000,000 would be excluded).",
+        "description": "The `sd` parameter allows searching for collections usable anywhere within the scale denominator range specified, allowing, for example, to filter out\nlow-resolution (large minimum cell size) collections or overly detailed collections not suitable for the intended purpose.\nThe related properties indicating the minimum and maximum suitable scale\ndenominator in the collection description are `minScaleDenominator` and `maxScaleDenominator`,\nas well as the `minCellSize` and `maxCellSize` properties for gridded coverages related via a 0.28 mm/cell assumption.\nAn empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded or unbounded interval.\nA single value without a slash (e.g., `sd=200000`) is interpreted as a target scale denominator (`200000/200000`) and evaluates against both minimum and maximum scale boundaries.\nFor example, `sd=/200000` would only match collections with data intended for a scale of 1:200,000 or larger\n(e.g., collections intended for 1:2,000,000 would be excluded).",
         "required": false,
         "schema": {
           "type": "string",
           "pattern": "^(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.)?/(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.)?$|^[0-9]+(?:\\.[0-9]+)?$",
-          "example": "200000/.."
+          "example": "../200000"
         },
         "explode": false,
         "style": "form"
@@ -1647,12 +1647,12 @@
       "resolution": {
         "name": "resolution",
         "in": "query",
-        "description": "The `resolution` parameter allows searching for collections usable at the resolution range specified, allowing, for example, to filter out\nlow-resolution (large minimum cell size) collections not suitable for the intended purpose. The related properties indicating the minimum and maximum suitable resolution\nin the collection description are `minCellSize` and `maxCellSize` properties for gridded coverages,\nas well as the related `minScaleDenominator` and `maxScaleDenominator` via a 0.28 mm/cell assumption.\nAn empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded interval.\nA single value without a slash (e.g., `resolution=0.000009`) is interpreted as a single target cell size (`0.000009/0.000009`) and evaluates against\nboth minimum and maximum cell size boundaries.\nFor example, `resolution=0.000009/` would only match collections with data with a `minCellSize` smaller or equal to 0.000009 degrees\n(e.g., collections with a `minCellSize` of 0.0045 degrees would be excluded).",
+        "description": "The `resolution` parameter allows searching for collections usable anywhere within the resolution range specified, allowing, for example, to filter out\nlow-resolution (large minimum cell size) collections not suitable for the intended purpose. The related properties indicating the minimum and maximum suitable resolution\nin the collection description are `minCellSize` and `maxCellSize` properties for gridded coverages,\nas well as the related `minScaleDenominator` and `maxScaleDenominator` via a 0.28 mm/cell assumption.\nAn empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded interval.\nA single value without a slash (e.g., `resolution=0.000009`) is interpreted as a single target cell size (`0.000009/0.000009`) and evaluates against\nboth minimum and maximum cell size boundaries.\nFor example, `resolution=/0.000009` would only match collections with data with a `minCellSize` smaller or equal to 0.000009 degrees\n(e.g., collections with a `minCellSize` of 0.0045 degrees would be excluded).",
         "required": false,
         "schema": {
           "type": "string",
           "pattern": "^(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.)?/(?:[0-9]+(?:\\.[0-9]+)?|\\.\\.)?$|^[0-9]+(?:\\.[0-9]+)?$",
-          "example": "0.000009/.."
+          "example": "../0.000009"
         },
         "explode": false,
         "style": "form"

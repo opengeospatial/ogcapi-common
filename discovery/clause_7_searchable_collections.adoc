@@ -216,22 +216,22 @@ If the collections response contains a subset of the selected collection items (
 [[searchable-sd-resolution-parameters]]
 === Query Parameters `sd` and `resolution`
 
-The `sd` and `resolution` query parameters allow searching for collections usable at the scale denominator / resolution range specified,
+The `sd` and `resolution` query parameters allow searching for collections usable anywhere within the scale denominator / resolution range specified,
 allowing, for example, to filter out low-resolution collections (large minimum cell size) or overly detailed collections not suitable for the intended purpose.
 The related properties indicating the minimum and maximum suitable scale denominator in the collection description are `minScaleDenominator` and `maxScaleDenominator`,
 as well as the `minCellSize` and `maxCellSize` properties for gridded coverages related via a 0.28 mm/cell assumption.
 
-An empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded interval. A single value without a slash (e.g., `sd=200000` or `resolution=0.000009`) is interpreted as a single target value and evaluates against both minimum and maximum boundaries.
+An empty string or two dots (`..`) can be used on either side of the slash to indicate a half-bounded interval.
+A single value without a slash (e.g., `sd=200000` or `resolution=0.000009`) is interpreted as a single target value and evaluates against both minimum and maximum boundaries.
 
-For example, `sd=200000/..` (or `sd=200000/`) would only match collections with data intended for a scale of 1:200,000 or larger (e.g., collections intended for 1:2,000,000 would be excluded).
+For example, `sd=../200000` (or `sd=/200000`) would only match collections with data intended for a scale of 1:200,000 or larger (e.g., collections intended for 1:2,000,000 would be excluded).
 
 include::requirements/searchable-collections/REQ_searchable-sd.adoc[]
 
 include::requirements/searchable-collections/REQ_searchable-resolution.adoc[]
 
-NOTE: These requirements imply that collections with unspecified `minScaleDenominator` and `minCellSize` are always included in a response where the low boundary is left
-unbounded (using `..` or an empty string), and that collections with unspecified `maxScaleDenominator` and `maxCellSize` are always included in a response where the high
-boundary is left unbounded.
+NOTE: These requirements imply that collections with unspecified `maxScaleDenominator` and `maxCellSize` are always included when a low query boundary is specified
+(e.g., `200000/..`), and collections with unspecified `minScaleDenominator` and `minCellSize` are always included when a high query boundary is specified (e.g., `../5000`).
 
 NOTE: For collections available using data access mechanisms fully supporting generalization / downsampling / overviews, such as OGC API - Tiles or OGC API - DGGS
 with support for the coarsest tile matrix / refinement level, the `maxScaleDenominator` and `maxCellSize` would either be omitted from the collection description or correspond

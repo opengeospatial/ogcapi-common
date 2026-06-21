@@ -5,14 +5,14 @@
 [%metadata]
 identifier:: /req/searchable-collections/sd
 part:: For the `/collections` resource, the Implementation SHALL support a `sd` (scale denominator) query parameter specified as a range of numeric values,
-using the syntax `<low sd>/<high sd>` e.g., `sd=50000/100000`, where an empty string or two dots (`..`) is an open ended low or high value  (e.g., `/50000` or `50000/..`).
+using the syntax `<low sd>/<high sd>` e.g., `sd=50000/100000`, where an empty string or two dots (`..`) is an unbounded low or high value  (e.g., `/50000` or `50000/..`).
 part:: The Implementation SHALL interpret a single value for `sd` e.g., `sd=50000` as equivalent to `<sd>/<sd>` (specifying a single target scale denominator).
-part:: If a low scale denominator is specified (not open ended `..`), the Implementation SHALL NOT include in the response collections for which a `minScaleDenominator`
-or a `minCellSize` property is declared in the collection description, and the `minScaleDenominator` (or, if `minScaleDenominator` is not present, the equivalent conversion for `minCellSize` assuming 0.28mm/cell)
-is greater than the low scale denominator specified.
-part:: If a high scale denominator is specified (not open ended `..`), the Implementation SHALL NOT include in the response collections for which a `maxScaleDenominator`
+part:: If a low scale denominator is specified (not unbounded `..` or empty), the Implementation SHALL NOT include in the response collections for which a `maxScaleDenominator`
 or a `maxCellSize` property is declared in the collection description, and the `maxScaleDenominator` (or, if `maxScaleDenominator` is not present, the equivalent conversion for `maxCellSize` assuming 0.28mm/cell)
-is smaller than the high scale denominator specified.
+is smaller than the low scale denominator specified.
+part:: If a high scale denominator is specified (not unbounded `..` or empty), the Implementation SHALL NOT include in the response collections for which a `minScaleDenominator`
+or a `minCellSize` property is declared in the collection description, and the `minScaleDenominator` (or, if `minScaleDenominator` is not present, the equivalent conversion for `minCellSize` assuming 0.28mm/cell)
+is greater than the high scale denominator specified.
 part:: The Implementation SHALL return a 4xx error if both low and high scale denominators are specified and the high value is smaller than the low value.
 part:: The Implementation SHALL return a 4xx error if both `sd` and `resolution` query parameters are specified, as they are mutually exclusive.
 part:: The Implementation SHALL interpret a range specified as `../..` or `/` as not filtering out any collection based on scale denominator / resolution.
