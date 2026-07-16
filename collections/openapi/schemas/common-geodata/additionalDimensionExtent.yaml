@@ -61,7 +61,13 @@ properties:
      description: The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
    variableType:
      title: Variable type
-     description: The type of variable which may inform correct interpretation and interpolation methods.
+     description: |-
+        The class of variable, distinguishing between continuous vs. discrete, numerical vs. categorical, and ordinal vs. nominal.
+        Continuous variables (`continuous`) represent an infinite spectrum of values (such as spatial coordinates or temporal instants), while discrete variables
+        (`numericalOrdinal`, `numericalNominal`, `categoricalOrdinal`, and `categoricalNominal`) represent a finite or countable set of distinct values.
+        Nominal variables are unordered, while ordinal variables imply a specific order.
+        Numerical variables are identified with integer or real numbers, while categorical variables are identified with textual strings.
+        The variable type informs correct interpretation and interpolation method.
      type: string
      enum:
        - continuous

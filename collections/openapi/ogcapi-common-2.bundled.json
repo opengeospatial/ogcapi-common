@@ -852,7 +852,7 @@
                     },
                     "variableType": {
                       "title": "Variable type",
-                      "description": "The type of variable which may inform correct interpretation and interpolation methods.",
+                      "description": "The class of variable, distinguishing between continuous vs. discrete, numerical vs. categorical, and ordinal vs. nominal.\nContinuous variables (`continuous`) represent an infinite spectrum of values (such as spatial coordinates or temporal instants), while discrete variables\n(`numericalOrdinal`, `numericalNominal`, `categoricalOrdinal`, and `categoricalNominal`) represent a finite or countable set of distinct values.\nNominal variables are unordered, while ordinal variables imply a specific order.\nNumerical variables are identified with integer or real numbers, while categorical variables are identified with textual strings.\nThe variable type informs correct interpretation and interpolation method.",
                       "type": "string",
                       "enum": [
                         "continuous",
