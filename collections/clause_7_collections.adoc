@@ -253,6 +253,10 @@ All units within the spatial grid object are specified in the `storageCrs`, defa
 | One or more time intervals that describe the temporal extent of the dataset.
 The first time interval describes the overall temporal extent of the data. All subsequent time intervals describe more precise time intervals, e.g.,
 to identify clusters of data. Clients only interested in the overall extent will only need to access the first item in each array.
+The end temporal instant of the interval (second value of each array) includes the thickness of the last time component specified.
+For example, the interval `[ "2026-07-25T00:00:00Z", "2026-07-25T23:59:59Z" ]` ends at the very end of the day, including the full thickness of the last second.
+Conversely, specifying `[ "2026-07-25T00:00:00Z", "2026-07-26T00:00:00Z" ]` would include the whole first second of the next day.
+Note that RFC 3339 explicitly disallows hour 24, but if such a value is encountered for an end time, no thickness should be assumed in that particular case.
 
 | **trs**
 | String (URI, CURIE or https://www.opengis.net/doc/is/crs-wkt/2.1.11[WKT2CRS]) or Object (https://proj.org/en/stable/specifications/projjson.html[PROJJSON] or https://github.com/opengeospatial/CRS-JSON-Encoding[CRS JSON])
