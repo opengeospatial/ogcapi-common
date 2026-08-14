@@ -200,11 +200,11 @@ properties:
     type: number
   minCellSize:
     title: Minimum cell size for the collection
-    description: Minimum cell size for usage of the collection.
+    description: Minimum cell size for usage of the collection, in degrees of latitude for data referenced to Earth.
     type: number
   maxCellSize:
     title: Maximum cell size for the collection
-    description: Maximum cell size for usage of the collection.
+    description: Maximum cell size for usage of the collection, in degrees of latitude for data referenced to Earth.
     type: number
   created:
     title: Timestamp when the collection was first produced

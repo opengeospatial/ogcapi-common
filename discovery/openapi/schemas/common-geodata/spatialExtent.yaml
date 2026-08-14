@@ -117,6 +117,7 @@ properties:
      description: |-
         Provides information about the limited availability of data within the collection organized
         as a grid (regular or irregular) along each spatial dimension.
+        All units within the spatial grid object are specified in the `storageCrs`, defaulting to CRS84 if not specified.
      type: array
      minItems: 2
      maxItems: 3

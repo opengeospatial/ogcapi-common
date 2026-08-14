@@ -707,12 +707,12 @@
               },
               "minCellSize": {
                 "title": "Minimum cell size for the collection",
-                "description": "Minimum cell size for usage of the collection.",
+                "description": "Minimum cell size for usage of the collection, in degrees of latitude for data referenced to Earth.",
                 "type": "number"
               },
               "maxCellSize": {
                 "title": "Maximum cell size for the collection",
-                "description": "Maximum cell size for usage of the collection.",
+                "description": "Maximum cell size for usage of the collection, in degrees of latitude for data referenced to Earth.",
                 "type": "number"
               },
               "created": {
@@ -831,7 +831,7 @@
                   },
                   "grid": {
                     "title": "Grid description",
-                    "description": "Provides information about the limited availability of data within the collection organized\nas a grid (regular or irregular) along each spatial dimension.",
+                    "description": "Provides information about the limited availability of data within the collection organized\nas a grid (regular or irregular) along each spatial dimension.\nAll units within the spatial grid object are specified in the `storageCrs`, defaulting to CRS84 if not specified.",
                     "type": "array",
                     "minItems": 2,
                     "maxItems": 3,
@@ -994,7 +994,7 @@
                     },
                     "variableType": {
                       "title": "Variable type",
-                      "description": "The type of variable which may inform correct interpretation and interpolation methods.",
+                      "description": "The class of variable, distinguishing between continuous vs. discrete, numerical vs. categorical, and ordinal vs. nominal.\nContinuous variables (`continuous`) represent an infinite spectrum of values (such as spatial coordinates or temporal instants), while discrete variables\n(`numericalOrdinal`, `numericalNominal`, `categoricalOrdinal`, and `categoricalNominal`) represent a finite or countable set of distinct values.\nNominal variables are unordered, while ordinal variables imply a specific order.\nNumerical variables are identified with integer or real numbers, while categorical variables are identified with textual strings.\nThe variable type informs correct interpretation and interpolation method.",
                       "type": "string",
                       "enum": [
                         "continuous",
@@ -1209,15 +1209,15 @@
         "example": "2017-08-17T08:05:32Z"
       },
       "numberReturned": {
-        "title": "The number of elements in the response",
-        "description": "A server may omit this information, if the information about the number of elements is not known or difficult to compute. If the value is provided, the value shall be identical to the number of elements in the response.",
+        "title": "The number of elements returned in the response",
+        "description": "The number of elements in the response (the current page, if split across multiple pages). A server may omit this information, if the information about the number of elements is not known or difficult to compute. If the value is provided, the value shall be identical to the number of elements in the response.",
         "type": "integer",
         "minimum": 0,
         "example": 10
       },
       "numberMatched": {
-        "title": "The number of elements in the response",
-        "description": "The number of elements in the response that match the selection parameters like `bbox`.",
+        "title": "The total number of elements matched for the request",
+        "description": "The total number of elements (including any subsequent pages) for the request that match the selection parameters like `bbox`. A server may omit this information, if the information about the number of elements is not known or difficult to compute.",
         "type": "integer",
         "minimum": 0,
         "example": 127

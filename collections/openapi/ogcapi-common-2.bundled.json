@@ -1067,15 +1067,15 @@
         "example": "2017-08-17T08:05:32Z"
       },
       "numberReturned": {
-        "title": "The number of elements in the response",
-        "description": "A server may omit this information, if the information about the number of elements is not known or difficult to compute. If the value is provided, the value shall be identical to the number of elements in the response.",
+        "title": "The number of elements returned in the response",
+        "description": "The number of elements in the response (the current page, if split across multiple pages). A server may omit this information, if the information about the number of elements is not known or difficult to compute. If the value is provided, the value shall be identical to the number of elements in the response.",
         "type": "integer",
         "minimum": 0,
         "example": 10
       },
       "numberMatched": {
-        "title": "The number of elements in the response",
-        "description": "The number of elements in the response that match the selection parameters like `bbox`.",
+        "title": "The total number of elements matched for the request",
+        "description": "The total number of elements (including any subsequent pages) for the request that match the selection parameters like `bbox`. A server may omit this information, if the information about the number of elements is not known or difficult to compute.",
         "type": "integer",
         "minimum": 0,
         "example": 127
