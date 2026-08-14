@@ -570,37 +570,25 @@
                     "href": "http://data.example.org/collections/dem?f=json",
                     "rel": "self",
                     "type": "application/json",
-                    "title": "Digital Elevation Model"
+                    "title": "Digital Elevation Model (description as JSON)"
                   },
                   {
                     "href": "http://data.example.org/collections/dem?f=html",
                     "rel": "alternate",
-                    "type": "application/json",
-                    "title": "Digital Elevation Model"
+                    "type": "text/html",
+                    "title": "Digital Elevation Model (description as HTML)"
+                  },
+                  {
+                    "href": "http://data.example.org/collections/dem/schema?f=json",
+                    "rel": "http://www.opengis.net/def/rel/ogc/1.0/schema",
+                    "type": "application/schema+json",
+                    "title": "Digital Elevation Model (logical schema as JSON Schema)"
                   },
                   {
                     "href": "http://data.example.org/collections/dem/coverage",
-                    "rel": "coverage",
+                    "rel": "[ogc-rel:coverage]",
                     "type": "image/tiff; application=geotiff",
-                    "title": "Digital Elevation Model"
-                  },
-                  {
-                    "href": "http://data.example.org/collections/dem/coverage/domainset",
-                    "rel": "domainset",
-                    "type": "application/json",
-                    "title": "Digital Elevation Model"
-                  },
-                  {
-                    "href": "http://data.example.org/collections/dem/coverage/rangetype",
-                    "rel": "rangetype",
-                    "type": "application/json",
-                    "title": "Digital Elevation Model"
-                  },
-                  {
-                    "href": "http://data.example.org/collections/dem/coverage/metadata",
-                    "rel": "metadata",
-                    "type": "application/json",
-                    "title": "Digital Elevation Model"
+                    "title": "Digital Elevation Model (coverage as GeoTIFF)"
                   }
                 ],
                 "items": {
