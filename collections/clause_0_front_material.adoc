@@ -6,10 +6,11 @@ This document, OGC API — Common — Part 2: Geospatial Data Standard (Common A
 of those parts. This part specifies how to list and describe available collections of geospatial data within a Web API deployment.
 
 The OGC Standards baseline has been extended to include https://en.wikipedia.org/wiki/Resource-oriented_architecture[Resource Oriented Architectures]
-and https://portal.ogc.org/files/?artifact_id=71776&version=1[Web APIs].
+and Web APIs.
 In the course of developing OGC Web API standards, some practices proved to be common across multiple OGC Web API standards.
-These common practices are documented in the OGC API - Common Multi-Part Standard. OGC API - Common standards serve as reusable
-building-blocks. Standards developers can use these building-blocks in the construction of OGC Web API Standards.
+These common requirements classes are documented in the OGC API - Common Multi-Part Standard, and serve as reusable components.
+Standards developers can specify dependencies on these requirements classes in the construction of OGC Web API Standards,
+and implementors of Web APIs can also indicate conformance to these requirements classes directly.
 The result is a modular suite of coherent API standards which can be adapted by a system designer for the unique requirements of their system.
 
 ////
