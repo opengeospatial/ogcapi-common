@@ -20,7 +20,7 @@ For consistency with the Web, this should be done in a way that enables users an
 Providing an HTML representation for the landing page of a dataset, for listing available collections, and for describing detailed metadata about a particular collection
 allows users, using only their Web browser as a client, to evaluate the usefulness of data available from the API deployment before proceeding to access this data.
 
-Additionally, an HTML represention of resources facilitate information discovery from Web search engines.
+Additionally, an HTML representation of resources facilitate information discovery from Web search engines.
 
 The HTML encoding should present all of the same information available in other representations such as the machine-readable JSON,
 so that users see this information in their browser in a way that naturally blends in with the rest of the institutional site,

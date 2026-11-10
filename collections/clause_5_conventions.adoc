@@ -81,8 +81,8 @@ publishing geographic data. To do so, it is important to be clear about the coor
 
 The Common API-2: GeoData Standard does not mandate the use of a specific coordinate reference system. However, if no CRS is specified, the default coordinate reference systems for spatial geometries are:
 
-* [OGC:CRS84] - WGS 84 longitude and latitude without height
-* [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height
+* [OGC:CRS84] - WGS 84 longitude and latitude without height; and
+* [OGC:CRS84h] - WGS 84 longitude and latitude with ellipsoidal height.
 
 NOTE: [OGC:CRS84] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84, [OGC:CRS84h] is the CURIE form for the resolvable URI https://www.opengis.net/def/crs/OGC/0/CRS84h.
 
@@ -129,9 +129,9 @@ An API definition is required for implementations conforming to the OGC API - Pa
 
 Some normative statements (requirements) use a phrase that a response to a request must validate against a JSON Schema component in the OGC schema repository.
 
-In this case, implementations of this API are free to extend those components in the following ways:
+In this case, implementations of this API are free to extend those components in the following ways.
 
-* Supporting representations in other media types beyond JSON following the conceptual model described by the JSON Schema
+* Supporting representations in other media types beyond JSON following the conceptual model described by the JSON Schema.
 * The range of values of a property may be extended (additional values) or constrained (only a subset of all possible values is allowed).
 An example for a constrained range of values is to explicitly specify the supported values of a string parameter or property using an _enum_.
 * Additional properties may be added to the schema (unless explicitly disallowed by the JSON Schema).

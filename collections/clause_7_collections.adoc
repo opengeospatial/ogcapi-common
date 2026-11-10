@@ -314,10 +314,10 @@ This Collection Description example response in JSON is for a single "buildings"
 
 The basic descriptive information includes:
 
-* "id": an identifier for this collection
-* "title": human-readable title for this collection
-* "description": longer text describing this collection
-* "attribution": markup providing attribution (owner, producer, logo, etc.) of this collection
+* "id": an identifier for this collection;
+* "title": human-readable title for this collection;
+* "description": longer text describing this collection; and
+* "attribution": markup providing attribution (owner, producer, logo, etc.) of this collection.
 
 The response includes links to:
 
