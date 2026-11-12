@@ -12,7 +12,7 @@ abstract-test:: /conf/sortable-collections/sortby-response
 ====
 
 // This pattern is confusing metanorma
-:sortby_regex: [+\|-]?[A-Za-z_].*
+:sortby_regex: ^[+-]?[^+\-\s].*$
 
 ==== Abstract Test for Requirement `sortby` query parameter definition
 
