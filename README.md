@@ -17,7 +17,7 @@ Version 1.0.0 of this standard is available in [HTML](https://docs.ogc.org/is/19
 
 ## OGC API - Common - Part 2: Geospatial Data
 
-The OGC API - Common - Part 2: Geospatial Data Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.
+The OGC API - Common - Part 2: Geospatial Data Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, and links to one or more mechanisms (defined by OGC API Standards) to access the data.
 
 Version 1.0.0 of this standard is available in [HTML](https://docs.ogc.org/is/20-024/20-024.html) and [PDF](https://docs.ogc.org/is/20-024/20-024.pdf) formats.
 
