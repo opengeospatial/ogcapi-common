@@ -17,17 +17,17 @@ Version 1.0.0 of this standard is available in [HTML](https://docs.ogc.org/is/19
 
 ## OGC API - Common - Part 2: Geospatial Data
 
-The OGC API - Common - Part 2: Geospatial Data *candidate* Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.
+The OGC API - Common - Part 2: Geospatial Data Standard provides a common connection between the API landing page and resource-specific details. That connection includes metadata which describes the collections of hosted resources, common parameters for selecting subsets of those collections, and URI templates for identifying the above.
 
-This *candidate* standard is available in [HTML](https://docs.ogc.org/DRAFTS/20-024.html) and [PDF](https://docs.ogc.org/DRAFTS/20-024.pdf) formats.
+Version 1.0.0 of this standard is available in [HTML](https://docs.ogc.org/is/20-024/20-024.html) and [PDF](https://docs.ogc.org/is/20-024/20-024.pdf) formats.
 
 ## OGC API - Common - Part 3: Schemas
 
-The OGC API - Common - Part 3: Schemas *candidate* Standard (also dual-titled OGC API - Features - Part 5) allows to describe the logical schema
+The OGC API - Common - Part 3: Schemas Standard (also dual-titled OGC API - Features - Part 5) allows to describe the logical schema
 associated with a collection of geospatial data. The schemas describe the fields/properties available from the collection, with details such as
 their data type, semantic definitions and units of measure.
 
-This *candidate* standard is available in [HTML](https://docs.ogc.org/DRAFTS/23-058r1.html) and [PDF](https://docs.ogc.org/DRAFTS/23-058r1.pdf) formats.
+Version 1.0.0 of this standard is available in [HTML](https://docs.ogc.org/is/23-058r2/23-058r2.html) and [PDF](https://docs.ogc.org/is/23-058r2/23-058r2.pdf) formats.
 
 ## OGC API - Common - Part 4: Discovery within many collections
 
