@@ -10,8 +10,7 @@ inherit:: https://www.opengis.net/spec/ogcapi-common-2/1.0/req/collections
 inherit:: <<rfc3339,RFC 3339 (Date and Time on the Internet: Timestamps)>>
 // NOTE: OGC API - Records might be stricter about some of the requirement, so we are not currently specifying an explicit dependency.
 //       An implementation can decide whether to conform to Records query parameters as well.
-// inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/query-parameters
-inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/sorting
+// inherit:: https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog-query-parameters
 requirement:: /req/searchable-collections/bbox-definition
 requirement:: /req/searchable-collections/bbox-response
 requirement:: /req/searchable-collections/bbox-crs

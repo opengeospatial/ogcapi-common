@@ -22,13 +22,13 @@ If implementing https://docs.ogc.org/is/19-072/19-072.html[OGC API - Common - Pa
 
 This "Filtering Collections with CQL2" requirement class is consistent with the requirements of https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog_filtering[OGC API - Records - Part 1: Core "Local Resources Catalog - Filtering" (Deployment)].
 An implementation may gain additional interoperability by conforming to that requirement class from OGC API - Records as well.
-In this case, in addition to the five OGC API - Records requirement classes mentioned in the <<collections-api-records,Collections requirements class>>, the implementation should verify and declare conformance with these additional two conformance classes defined in Records corresponding to the following URIs:
+In this case, in addition to the five OGC API - Records conformance classes mentioned in the <<collections-api-records,Collections requirements class>>, the implementation should verify and declare conformance with these additional two conformance classes defined in Records corresponding to the following URIs:
 
 [cols="2,7",options="header"]
 |===
 | OGC API - Records Requirements Class | URI
-| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-filtering[Filtering]                                                       | https://www.opengis.net/spec/ogcapi-records-1/1.0/req/filtering
-| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog_filtering[Local Resources Catalog - Filtering]     | https://www.opengis.net/spec/ogcapi-records-1/1.0/req/local-resources-catalog/filtering
+| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-filtering[Filtering]                                                       | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/filtering
+| https://docs.ogc.org/is/20-004r1/20-004r1.html#clause-local-resources-catalog_filtering[Local Resources Catalog - Filtering]     | https://www.opengis.net/spec/ogcapi-records-1/1.0/conf/local-resources-catalog-filtering
 |===
 
 [[filtering-filter-parameter]]
