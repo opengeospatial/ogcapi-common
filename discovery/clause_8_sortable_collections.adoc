@@ -40,4 +40,9 @@ The server is also allowed to limit the default or maximum number of collections
 
 include::requirements/sortable-collections/REQ_sortby-definition.adoc[]
 
+[NOTE]
+======================================================================
+In a query string, a `+` that is not percent-encoded is decoded as a space. Clients therefore need to encode the `+` sign as `%2B` (e.g., `sortby=%2Btitle`) or omit it, as ascending is the default. A sort key that starts with a space is not valid.
+======================================================================
+
 include::requirements/sortable-collections/REQ_sortby-response.adoc[]
