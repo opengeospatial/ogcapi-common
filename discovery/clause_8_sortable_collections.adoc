@@ -40,4 +40,6 @@ The server is also allowed to limit the default or maximum number of collections
 
 include::requirements/sortable-collections/REQ_sortby-definition.adoc[]
 
+CAUTION: Query string parsers intended for Web forms decode a `+` that is not percent-encoded as a space (following `application/x-www-form-urlencoded`). Many toolkits also offer decoders for generic URIs that pass the `+` through as data, for example https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent[`decodeURIComponent()`] in JavaScript and https://docs.python.org/3/library/urllib.parse.html#urllib.parse.unquote[`urllib.parse.unquote()`] in Python. To ensure broad interoperability, clients ideally encode the `+` sign as `%2B` (e.g., `sortby=%2Btitle`) or omit it, as ascending is the default.
+
 include::requirements/sortable-collections/REQ_sortby-response.adoc[]
